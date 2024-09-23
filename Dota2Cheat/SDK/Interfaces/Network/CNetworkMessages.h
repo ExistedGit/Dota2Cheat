@@ -1309,10 +1309,6 @@ inline std::string EDOTAGCMsg2String( EDOTAGCMsg msg )
         CASE_STD_STRING(k_EMsgGC_TournamentItemEventResponse);
         CASE_STD_STRING(k_EMsgTeamFanfare);
         CASE_STD_STRING(k_EMsgResponseTeamFanfare);
-        CASE_STD_STRING(k_EMsgGC_GameServerUploadSaveGame);
-        CASE_STD_STRING(k_EMsgGC_GameServerSaveGameResult);
-        CASE_STD_STRING(k_EMsgGC_GameServerGetLoadGame);
-        CASE_STD_STRING(k_EMsgGC_GameServerGetLoadGameResult);
         CASE_STD_STRING(k_EMsgGCEditTeamDetails);
         CASE_STD_STRING(k_EMsgGCEditTeamDetailsResponse);
         CASE_STD_STRING(k_EMsgGCReadyUpStatus);
@@ -1350,7 +1346,6 @@ inline std::string EDOTAGCMsg2String( EDOTAGCMsg msg )
         CASE_STD_STRING(k_EMsgGCItemEditorReserveItemDefResponse);
         CASE_STD_STRING(k_EMsgGCItemEditorReleaseReservation);
         CASE_STD_STRING(k_EMsgGCItemEditorReleaseReservationResponse);
-        CASE_STD_STRING(k_EMsgGCRewardTutorialPrizes);
         CASE_STD_STRING(k_EMsgGCFantasyLivePlayerStats);
         CASE_STD_STRING(k_EMsgGCFantasyFinalPlayerStats);
         CASE_STD_STRING(k_EMsgGCFlipLobbyTeams);
@@ -1482,7 +1477,6 @@ inline std::string EDOTAGCMsg2String( EDOTAGCMsg msg )
         CASE_STD_STRING(k_EMsgServerToGCCavernCrawlIsHeroActiveResponse);
         CASE_STD_STRING(k_EMsgClientToGCPlayerCardSpecificPurchaseRequest);
         CASE_STD_STRING(k_EMsgClientToGCPlayerCardSpecificPurchaseResponse);
-        CASE_STD_STRING(k_EMsgGCtoServerTensorflowInstance);
         CASE_STD_STRING(k_EMsgSQLSetIsLeagueAdmin);
         CASE_STD_STRING(k_EMsgGCToGCGetLiveLeagueMatches);
         CASE_STD_STRING(k_EMsgGCToGCGetLiveLeagueMatchesResponse);
@@ -1599,8 +1593,6 @@ inline std::string EDOTAGCMsg2String( EDOTAGCMsg msg )
         CASE_STD_STRING(k_EMsgClientToGCHasPlayerVotedForMVPResponse);
         CASE_STD_STRING(k_EMsgClientToGCVoteForMVP);
         CASE_STD_STRING(k_EMsgClientToGCVoteForMVPResponse);
-        CASE_STD_STRING(k_EMsgGCToGCGetEventOwnership);
-        CASE_STD_STRING(k_EMsgGCToGCGetEventOwnershipResponse);
         CASE_STD_STRING(k_EMsgGCToClientAutomatedTournamentStateChange);
         CASE_STD_STRING(k_EMsgClientToGCWeekendTourneyOpts);
         CASE_STD_STRING(k_EMsgClientToGCWeekendTourneyOptsResponse);

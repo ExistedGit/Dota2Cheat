@@ -24,7 +24,7 @@ PROTOBUF_CONSTEXPR CMsgDOTATeamInfo_HeroStats::CMsgDOTATeamInfo_HeroStats(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.hero_id_)*/0u
+  , /*decltype(_impl_.hero_id_)*/0
   , /*decltype(_impl_.picks_)*/0u
   , /*decltype(_impl_.wins_)*/0u
   , /*decltype(_impl_.bans_)*/0u
@@ -993,7 +993,7 @@ const char descriptor_table_protodef_dota_5fgcmessages_5fclient_5fteam_2eproto[]
   "dpc_results\030# \003(\0132\033.CMsgDOTATeamInfo.DPC"
   "Result\022\025\n\rcolor_primary\030% \001(\t\022\027\n\017color_s"
   "econdary\030& \001(\t\022\024\n\014team_captain\030\' \001(\r\032\245\001\n"
-  "\tHeroStats\022\017\n\007hero_id\030\001 \001(\r\022\r\n\005picks\030\002 \001"
+  "\tHeroStats\022\017\n\007hero_id\030\001 \001(\005\022\r\n\005picks\030\002 \001"
   "(\r\022\014\n\004wins\030\003 \001(\r\022\014\n\004bans\030\004 \001(\r\022\021\n\tavg_ki"
   "lls\030\005 \001(\002\022\022\n\navg_deaths\030\006 \001(\002\022\023\n\013avg_ass"
   "ists\030\007 \001(\002\022\017\n\007avg_gpm\030\010 \001(\002\022\017\n\007avg_xpm\030\t"
@@ -1390,7 +1390,7 @@ inline void CMsgDOTATeamInfo_HeroStats::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.hero_id_){0u}
+    , decltype(_impl_.hero_id_){0}
     , decltype(_impl_.picks_){0u}
     , decltype(_impl_.wins_){0u}
     , decltype(_impl_.bans_){0u}
@@ -1443,7 +1443,7 @@ const char* CMsgDOTATeamInfo_HeroStats::_InternalParse(const char* ptr, ::_pbi::
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional uint32 hero_id = 1;
+      // optional int32 hero_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_hero_id(&has_bits);
@@ -1555,10 +1555,10 @@ uint8_t* CMsgDOTATeamInfo_HeroStats::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional uint32 hero_id = 1;
+  // optional int32 hero_id = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_hero_id(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_hero_id(), target);
   }
 
   // optional uint32 picks = 2;
@@ -1627,9 +1627,9 @@ size_t CMsgDOTATeamInfo_HeroStats::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
-    // optional uint32 hero_id = 1;
+    // optional int32 hero_id = 1;
     if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_hero_id());
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_hero_id());
     }
 
     // optional uint32 picks = 2;

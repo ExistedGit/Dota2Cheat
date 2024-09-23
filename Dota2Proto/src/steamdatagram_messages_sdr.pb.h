@@ -2507,6 +2507,7 @@ class CMsgSteamDatagramGameserverPingReplyData final :
   enum : int {
     kEchoFieldNumber = 8,
     kBuildFieldNumber = 9,
+    kRoutingBlobFieldNumber = 12,
     kLegacyChallengeFieldNumber = 3,
     kEchoRelayUnixTimeFieldNumber = 2,
     kLegacyRouterTimestampFieldNumber = 4,
@@ -2550,6 +2551,24 @@ class CMsgSteamDatagramGameserverPingReplyData final :
   const std::string& _internal_build() const;
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_build(const std::string& value);
   std::string* _internal_mutable_build();
+  public:
+
+  // optional bytes routing_blob = 12;
+  bool has_routing_blob() const;
+  private:
+  bool _internal_has_routing_blob() const;
+  public:
+  void clear_routing_blob();
+  const std::string& routing_blob() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_routing_blob(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_routing_blob();
+  PROTOBUF_NODISCARD std::string* release_routing_blob();
+  void set_allocated_routing_blob(std::string* routing_blob);
+  private:
+  const std::string& _internal_routing_blob() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_routing_blob(const std::string& value);
+  std::string* _internal_mutable_routing_blob();
   public:
 
   // optional fixed64 legacy_challenge = 3;
@@ -2668,6 +2687,7 @@ class CMsgSteamDatagramGameserverPingReplyData final :
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr echo_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr build_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr routing_blob_;
     uint64_t legacy_challenge_;
     uint32_t echo_relay_unix_time_;
     uint32_t legacy_router_timestamp_;
@@ -13988,7 +14008,7 @@ inline void CMsgSteamDatagramGameserverPingRequestEnvelope::set_allocated_dummy_
 
 // optional fixed32 echo_relay_unix_time = 2;
 inline bool CMsgSteamDatagramGameserverPingReplyData::_internal_has_echo_relay_unix_time() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramGameserverPingReplyData::has_echo_relay_unix_time() const {
@@ -13996,7 +14016,7 @@ inline bool CMsgSteamDatagramGameserverPingReplyData::has_echo_relay_unix_time()
 }
 inline void CMsgSteamDatagramGameserverPingReplyData::clear_echo_relay_unix_time() {
   _impl_.echo_relay_unix_time_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline uint32_t CMsgSteamDatagramGameserverPingReplyData::_internal_echo_relay_unix_time() const {
   return _impl_.echo_relay_unix_time_;
@@ -14006,7 +14026,7 @@ inline uint32_t CMsgSteamDatagramGameserverPingReplyData::echo_relay_unix_time()
   return _internal_echo_relay_unix_time();
 }
 inline void CMsgSteamDatagramGameserverPingReplyData::_internal_set_echo_relay_unix_time(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.echo_relay_unix_time_ = value;
 }
 inline void CMsgSteamDatagramGameserverPingReplyData::set_echo_relay_unix_time(uint32_t value) {
@@ -14084,7 +14104,7 @@ inline void CMsgSteamDatagramGameserverPingReplyData::set_allocated_echo(std::st
 
 // optional fixed64 legacy_challenge = 3;
 inline bool CMsgSteamDatagramGameserverPingReplyData::_internal_has_legacy_challenge() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramGameserverPingReplyData::has_legacy_challenge() const {
@@ -14092,7 +14112,7 @@ inline bool CMsgSteamDatagramGameserverPingReplyData::has_legacy_challenge() con
 }
 inline void CMsgSteamDatagramGameserverPingReplyData::clear_legacy_challenge() {
   _impl_.legacy_challenge_ = uint64_t{0u};
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline uint64_t CMsgSteamDatagramGameserverPingReplyData::_internal_legacy_challenge() const {
   return _impl_.legacy_challenge_;
@@ -14102,7 +14122,7 @@ inline uint64_t CMsgSteamDatagramGameserverPingReplyData::legacy_challenge() con
   return _internal_legacy_challenge();
 }
 inline void CMsgSteamDatagramGameserverPingReplyData::_internal_set_legacy_challenge(uint64_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.legacy_challenge_ = value;
 }
 inline void CMsgSteamDatagramGameserverPingReplyData::set_legacy_challenge(uint64_t value) {
@@ -14112,7 +14132,7 @@ inline void CMsgSteamDatagramGameserverPingReplyData::set_legacy_challenge(uint6
 
 // optional fixed32 legacy_router_timestamp = 4;
 inline bool CMsgSteamDatagramGameserverPingReplyData::_internal_has_legacy_router_timestamp() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramGameserverPingReplyData::has_legacy_router_timestamp() const {
@@ -14120,7 +14140,7 @@ inline bool CMsgSteamDatagramGameserverPingReplyData::has_legacy_router_timestam
 }
 inline void CMsgSteamDatagramGameserverPingReplyData::clear_legacy_router_timestamp() {
   _impl_.legacy_router_timestamp_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000020u;
 }
 inline uint32_t CMsgSteamDatagramGameserverPingReplyData::_internal_legacy_router_timestamp() const {
   return _impl_.legacy_router_timestamp_;
@@ -14130,7 +14150,7 @@ inline uint32_t CMsgSteamDatagramGameserverPingReplyData::legacy_router_timestam
   return _internal_legacy_router_timestamp();
 }
 inline void CMsgSteamDatagramGameserverPingReplyData::_internal_set_legacy_router_timestamp(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000020u;
   _impl_.legacy_router_timestamp_ = value;
 }
 inline void CMsgSteamDatagramGameserverPingReplyData::set_legacy_router_timestamp(uint32_t value) {
@@ -14140,7 +14160,7 @@ inline void CMsgSteamDatagramGameserverPingReplyData::set_legacy_router_timestam
 
 // optional fixed32 data_center_id = 5;
 inline bool CMsgSteamDatagramGameserverPingReplyData::_internal_has_data_center_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramGameserverPingReplyData::has_data_center_id() const {
@@ -14148,7 +14168,7 @@ inline bool CMsgSteamDatagramGameserverPingReplyData::has_data_center_id() const
 }
 inline void CMsgSteamDatagramGameserverPingReplyData::clear_data_center_id() {
   _impl_.data_center_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000020u;
+  _impl_._has_bits_[0] &= ~0x00000040u;
 }
 inline uint32_t CMsgSteamDatagramGameserverPingReplyData::_internal_data_center_id() const {
   return _impl_.data_center_id_;
@@ -14158,7 +14178,7 @@ inline uint32_t CMsgSteamDatagramGameserverPingReplyData::data_center_id() const
   return _internal_data_center_id();
 }
 inline void CMsgSteamDatagramGameserverPingReplyData::_internal_set_data_center_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_._has_bits_[0] |= 0x00000040u;
   _impl_.data_center_id_ = value;
 }
 inline void CMsgSteamDatagramGameserverPingReplyData::set_data_center_id(uint32_t value) {
@@ -14168,7 +14188,7 @@ inline void CMsgSteamDatagramGameserverPingReplyData::set_data_center_id(uint32_
 
 // optional uint32 appid = 6;
 inline bool CMsgSteamDatagramGameserverPingReplyData::_internal_has_appid() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramGameserverPingReplyData::has_appid() const {
@@ -14176,7 +14196,7 @@ inline bool CMsgSteamDatagramGameserverPingReplyData::has_appid() const {
 }
 inline void CMsgSteamDatagramGameserverPingReplyData::clear_appid() {
   _impl_.appid_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000040u;
+  _impl_._has_bits_[0] &= ~0x00000080u;
 }
 inline uint32_t CMsgSteamDatagramGameserverPingReplyData::_internal_appid() const {
   return _impl_.appid_;
@@ -14186,7 +14206,7 @@ inline uint32_t CMsgSteamDatagramGameserverPingReplyData::appid() const {
   return _internal_appid();
 }
 inline void CMsgSteamDatagramGameserverPingReplyData::_internal_set_appid(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000040u;
+  _impl_._has_bits_[0] |= 0x00000080u;
   _impl_.appid_ = value;
 }
 inline void CMsgSteamDatagramGameserverPingReplyData::set_appid(uint32_t value) {
@@ -14196,7 +14216,7 @@ inline void CMsgSteamDatagramGameserverPingReplyData::set_appid(uint32_t value) 
 
 // optional uint32 protocol_version = 7;
 inline bool CMsgSteamDatagramGameserverPingReplyData::_internal_has_protocol_version() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000100u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramGameserverPingReplyData::has_protocol_version() const {
@@ -14204,7 +14224,7 @@ inline bool CMsgSteamDatagramGameserverPingReplyData::has_protocol_version() con
 }
 inline void CMsgSteamDatagramGameserverPingReplyData::clear_protocol_version() {
   _impl_.protocol_version_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000080u;
+  _impl_._has_bits_[0] &= ~0x00000100u;
 }
 inline uint32_t CMsgSteamDatagramGameserverPingReplyData::_internal_protocol_version() const {
   return _impl_.protocol_version_;
@@ -14214,7 +14234,7 @@ inline uint32_t CMsgSteamDatagramGameserverPingReplyData::protocol_version() con
   return _internal_protocol_version();
 }
 inline void CMsgSteamDatagramGameserverPingReplyData::_internal_set_protocol_version(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000080u;
+  _impl_._has_bits_[0] |= 0x00000100u;
   _impl_.protocol_version_ = value;
 }
 inline void CMsgSteamDatagramGameserverPingReplyData::set_protocol_version(uint32_t value) {
@@ -14292,7 +14312,7 @@ inline void CMsgSteamDatagramGameserverPingReplyData::set_allocated_build(std::s
 
 // optional uint64 network_config_version = 10;
 inline bool CMsgSteamDatagramGameserverPingReplyData::_internal_has_network_config_version() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000200u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000400u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramGameserverPingReplyData::has_network_config_version() const {
@@ -14300,7 +14320,7 @@ inline bool CMsgSteamDatagramGameserverPingReplyData::has_network_config_version
 }
 inline void CMsgSteamDatagramGameserverPingReplyData::clear_network_config_version() {
   _impl_.network_config_version_ = uint64_t{0u};
-  _impl_._has_bits_[0] &= ~0x00000200u;
+  _impl_._has_bits_[0] &= ~0x00000400u;
 }
 inline uint64_t CMsgSteamDatagramGameserverPingReplyData::_internal_network_config_version() const {
   return _impl_.network_config_version_;
@@ -14310,7 +14330,7 @@ inline uint64_t CMsgSteamDatagramGameserverPingReplyData::network_config_version
   return _internal_network_config_version();
 }
 inline void CMsgSteamDatagramGameserverPingReplyData::_internal_set_network_config_version(uint64_t value) {
-  _impl_._has_bits_[0] |= 0x00000200u;
+  _impl_._has_bits_[0] |= 0x00000400u;
   _impl_.network_config_version_ = value;
 }
 inline void CMsgSteamDatagramGameserverPingReplyData::set_network_config_version(uint64_t value) {
@@ -14320,7 +14340,7 @@ inline void CMsgSteamDatagramGameserverPingReplyData::set_network_config_version
 
 // optional fixed32 my_unix_time = 11;
 inline bool CMsgSteamDatagramGameserverPingReplyData::_internal_has_my_unix_time() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000100u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000200u) != 0;
   return value;
 }
 inline bool CMsgSteamDatagramGameserverPingReplyData::has_my_unix_time() const {
@@ -14328,7 +14348,7 @@ inline bool CMsgSteamDatagramGameserverPingReplyData::has_my_unix_time() const {
 }
 inline void CMsgSteamDatagramGameserverPingReplyData::clear_my_unix_time() {
   _impl_.my_unix_time_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000100u;
+  _impl_._has_bits_[0] &= ~0x00000200u;
 }
 inline uint32_t CMsgSteamDatagramGameserverPingReplyData::_internal_my_unix_time() const {
   return _impl_.my_unix_time_;
@@ -14338,12 +14358,80 @@ inline uint32_t CMsgSteamDatagramGameserverPingReplyData::my_unix_time() const {
   return _internal_my_unix_time();
 }
 inline void CMsgSteamDatagramGameserverPingReplyData::_internal_set_my_unix_time(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000100u;
+  _impl_._has_bits_[0] |= 0x00000200u;
   _impl_.my_unix_time_ = value;
 }
 inline void CMsgSteamDatagramGameserverPingReplyData::set_my_unix_time(uint32_t value) {
   _internal_set_my_unix_time(value);
   // @@protoc_insertion_point(field_set:CMsgSteamDatagramGameserverPingReplyData.my_unix_time)
+}
+
+// optional bytes routing_blob = 12;
+inline bool CMsgSteamDatagramGameserverPingReplyData::_internal_has_routing_blob() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CMsgSteamDatagramGameserverPingReplyData::has_routing_blob() const {
+  return _internal_has_routing_blob();
+}
+inline void CMsgSteamDatagramGameserverPingReplyData::clear_routing_blob() {
+  _impl_.routing_blob_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline const std::string& CMsgSteamDatagramGameserverPingReplyData::routing_blob() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamDatagramGameserverPingReplyData.routing_blob)
+  return _internal_routing_blob();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CMsgSteamDatagramGameserverPingReplyData::set_routing_blob(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000004u;
+ _impl_.routing_blob_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:CMsgSteamDatagramGameserverPingReplyData.routing_blob)
+}
+inline std::string* CMsgSteamDatagramGameserverPingReplyData::mutable_routing_blob() {
+  std::string* _s = _internal_mutable_routing_blob();
+  // @@protoc_insertion_point(field_mutable:CMsgSteamDatagramGameserverPingReplyData.routing_blob)
+  return _s;
+}
+inline const std::string& CMsgSteamDatagramGameserverPingReplyData::_internal_routing_blob() const {
+  return _impl_.routing_blob_.Get();
+}
+inline void CMsgSteamDatagramGameserverPingReplyData::_internal_set_routing_blob(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.routing_blob_.Set(value, GetArenaForAllocation());
+}
+inline std::string* CMsgSteamDatagramGameserverPingReplyData::_internal_mutable_routing_blob() {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  return _impl_.routing_blob_.Mutable(GetArenaForAllocation());
+}
+inline std::string* CMsgSteamDatagramGameserverPingReplyData::release_routing_blob() {
+  // @@protoc_insertion_point(field_release:CMsgSteamDatagramGameserverPingReplyData.routing_blob)
+  if (!_internal_has_routing_blob()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000004u;
+  auto* p = _impl_.routing_blob_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.routing_blob_.IsDefault()) {
+    _impl_.routing_blob_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void CMsgSteamDatagramGameserverPingReplyData::set_allocated_routing_blob(std::string* routing_blob) {
+  if (routing_blob != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000004u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000004u;
+  }
+  _impl_.routing_blob_.SetAllocated(routing_blob, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.routing_blob_.IsDefault()) {
+    _impl_.routing_blob_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:CMsgSteamDatagramGameserverPingReplyData.routing_blob)
 }
 
 // -------------------------------------------------------------------

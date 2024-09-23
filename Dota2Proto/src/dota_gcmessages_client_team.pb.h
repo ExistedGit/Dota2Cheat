@@ -482,17 +482,17 @@ class CMsgDOTATeamInfo_HeroStats final :
     kAvgGpmFieldNumber = 8,
     kAvgXpmFieldNumber = 9,
   };
-  // optional uint32 hero_id = 1;
+  // optional int32 hero_id = 1;
   bool has_hero_id() const;
   private:
   bool _internal_has_hero_id() const;
   public:
   void clear_hero_id();
-  uint32_t hero_id() const;
-  void set_hero_id(uint32_t value);
+  int32_t hero_id() const;
+  void set_hero_id(int32_t value);
   private:
-  uint32_t _internal_hero_id() const;
-  void _internal_set_hero_id(uint32_t value);
+  int32_t _internal_hero_id() const;
+  void _internal_set_hero_id(int32_t value);
   public:
 
   // optional uint32 picks = 2;
@@ -609,7 +609,7 @@ class CMsgDOTATeamInfo_HeroStats final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    uint32_t hero_id_;
+    int32_t hero_id_;
     uint32_t picks_;
     uint32_t wins_;
     uint32_t bans_;
@@ -6563,7 +6563,7 @@ class CMsgDOTABetaParticipation final :
 #endif  // __GNUC__
 // CMsgDOTATeamInfo_HeroStats
 
-// optional uint32 hero_id = 1;
+// optional int32 hero_id = 1;
 inline bool CMsgDOTATeamInfo_HeroStats::_internal_has_hero_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -6572,21 +6572,21 @@ inline bool CMsgDOTATeamInfo_HeroStats::has_hero_id() const {
   return _internal_has_hero_id();
 }
 inline void CMsgDOTATeamInfo_HeroStats::clear_hero_id() {
-  _impl_.hero_id_ = 0u;
+  _impl_.hero_id_ = 0;
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint32_t CMsgDOTATeamInfo_HeroStats::_internal_hero_id() const {
+inline int32_t CMsgDOTATeamInfo_HeroStats::_internal_hero_id() const {
   return _impl_.hero_id_;
 }
-inline uint32_t CMsgDOTATeamInfo_HeroStats::hero_id() const {
+inline int32_t CMsgDOTATeamInfo_HeroStats::hero_id() const {
   // @@protoc_insertion_point(field_get:CMsgDOTATeamInfo.HeroStats.hero_id)
   return _internal_hero_id();
 }
-inline void CMsgDOTATeamInfo_HeroStats::_internal_set_hero_id(uint32_t value) {
+inline void CMsgDOTATeamInfo_HeroStats::_internal_set_hero_id(int32_t value) {
   _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.hero_id_ = value;
 }
-inline void CMsgDOTATeamInfo_HeroStats::set_hero_id(uint32_t value) {
+inline void CMsgDOTATeamInfo_HeroStats::set_hero_id(int32_t value) {
   _internal_set_hero_id(value);
   // @@protoc_insertion_point(field_set:CMsgDOTATeamInfo.HeroStats.hero_id)
 }

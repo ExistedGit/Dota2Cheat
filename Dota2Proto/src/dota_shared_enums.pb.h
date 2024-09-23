@@ -241,11 +241,13 @@ enum EEvent : int {
   EVENT_ID_TEAM_2023_TOUR3 = 43,
   EVENT_ID_INTERNATIONAL_2023 = 45,
   EVENT_ID_10TH_ANNIVERSARY = 46,
-  EVENT_ID_FROSTIVUS_2023 = 48
+  EVENT_ID_CROWNFALL = 47,
+  EVENT_ID_FROSTIVUS_2023 = 48,
+  EVENT_ID_INTERNATIONAL_2024 = 49
 };
 bool EEvent_IsValid(int value);
 constexpr EEvent EEvent_MIN = EVENT_ID_NONE;
-constexpr EEvent EEvent_MAX = EVENT_ID_FROSTIVUS_2023;
+constexpr EEvent EEvent_MAX = EVENT_ID_INTERNATIONAL_2024;
 constexpr int EEvent_ARRAYSIZE = EEvent_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EEvent_descriptor();
@@ -303,11 +305,12 @@ enum DOTALeaverStatus_t : int {
   DOTA_LEAVER_NEVER_CONNECTED = 5,
   DOTA_LEAVER_NEVER_CONNECTED_TOO_LONG = 6,
   DOTA_LEAVER_FAILED_TO_READY_UP = 7,
-  DOTA_LEAVER_DECLINED = 8
+  DOTA_LEAVER_DECLINED = 8,
+  DOTA_LEAVER_DECLINED_REQUEUE = 9
 };
 bool DOTALeaverStatus_t_IsValid(int value);
 constexpr DOTALeaverStatus_t DOTALeaverStatus_t_MIN = DOTA_LEAVER_NONE;
-constexpr DOTALeaverStatus_t DOTALeaverStatus_t_MAX = DOTA_LEAVER_DECLINED;
+constexpr DOTALeaverStatus_t DOTALeaverStatus_t_MAX = DOTA_LEAVER_DECLINED_REQUEUE;
 constexpr int DOTALeaverStatus_t_ARRAYSIZE = DOTALeaverStatus_t_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* DOTALeaverStatus_t_descriptor();
@@ -585,11 +588,12 @@ enum DOTACommType_t : int {
   DOTA_COMM_TYPE_RANKEDMATCHMAKE = 11,
   DOTA_COMM_TYPE_DROPS = 12,
   DOTA_COMM_TYPE_NEWPLAYER_EXPERT = 13,
-  DOTA_COMM_TYPE_COACHED = 14
+  DOTA_COMM_TYPE_COACHED = 14,
+  DOTA_COMM_TYPE_MAPDRAWING = 15
 };
 bool DOTACommType_t_IsValid(int value);
 constexpr DOTACommType_t DOTACommType_t_MIN = DOTA_COMM_TYPE_NONE;
-constexpr DOTACommType_t DOTACommType_t_MAX = DOTA_COMM_TYPE_COACHED;
+constexpr DOTACommType_t DOTACommType_t_MAX = DOTA_COMM_TYPE_MAPDRAWING;
 constexpr int DOTACommType_t_ARRAYSIZE = DOTACommType_t_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* DOTACommType_t_descriptor();
@@ -610,10 +614,11 @@ enum DOTACommLevel_t : int {
   DOTA_COMM_LEVEL_NONE = 0,
   DOTA_COMM_LEVEL_COOLDOWN = 1,
   DOTA_COMM_LEVEL_PINGS = 2,
-  DOTA_COMM_LEVEL_CHAT = 3,
-  DOTA_COMM_LEVEL_TIPPING = 4,
-  DOTA_COMM_LEVEL_VOICE = 5,
-  DOTA_COMM_LEVEL_ALLIED_ABILITY = 6
+  DOTA_COMM_LEVEL_MAPDRAWING = 3,
+  DOTA_COMM_LEVEL_CHAT = 4,
+  DOTA_COMM_LEVEL_TIPPING = 5,
+  DOTA_COMM_LEVEL_VOICE = 6,
+  DOTA_COMM_LEVEL_ALLIED_ABILITY = 7
 };
 bool DOTACommLevel_t_IsValid(int value);
 constexpr DOTACommLevel_t DOTACommLevel_t_MIN = DOTA_COMM_LEVEL_NONE;
@@ -764,11 +769,12 @@ inline bool DOTALowPriorityBanType_Parse(
 enum DOTALobbyReadyState : int {
   DOTALobbyReadyState_UNDECLARED = 0,
   DOTALobbyReadyState_ACCEPTED = 1,
-  DOTALobbyReadyState_DECLINED = 2
+  DOTALobbyReadyState_DECLINED = 2,
+  DOTALobbyReadyState_DECLINED_REQUEUE = 3
 };
 bool DOTALobbyReadyState_IsValid(int value);
 constexpr DOTALobbyReadyState DOTALobbyReadyState_MIN = DOTALobbyReadyState_UNDECLARED;
-constexpr DOTALobbyReadyState DOTALobbyReadyState_MAX = DOTALobbyReadyState_DECLINED;
+constexpr DOTALobbyReadyState DOTALobbyReadyState_MAX = DOTALobbyReadyState_DECLINED_REQUEUE;
 constexpr int DOTALobbyReadyState_ARRAYSIZE = DOTALobbyReadyState_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* DOTALobbyReadyState_descriptor();
@@ -1215,11 +1221,15 @@ enum EBadgeType : int {
   k_EBadgeType_TI12_PlayoffsDay2 = 14,
   k_EBadgeType_TI12_PlayoffsDay3 = 15,
   k_EBadgeType_TI12_FinalsWeekend = 16,
-  k_EBadgeType_TI12_Special = 17
+  k_EBadgeType_TI12_Special = 17,
+  k_EBadgeType_TI13_FinalsDay1 = 18,
+  k_EBadgeType_TI13_FinalsDay2 = 19,
+  k_EBadgeType_TI13_FinalsDay3 = 20,
+  k_EBadgeType_TI13_Special = 21
 };
 bool EBadgeType_IsValid(int value);
 constexpr EBadgeType EBadgeType_MIN = k_EBadgeType_Invalid;
-constexpr EBadgeType EBadgeType_MAX = k_EBadgeType_TI12_Special;
+constexpr EBadgeType EBadgeType_MAX = k_EBadgeType_TI13_Special;
 constexpr int EBadgeType_ARRAYSIZE = EBadgeType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EBadgeType_descriptor();
@@ -1684,6 +1694,31 @@ inline bool EOverwatchReportReason_Parse(
     ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, EOverwatchReportReason* value) {
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EOverwatchReportReason>(
     EOverwatchReportReason_descriptor(), name, value);
+}
+enum ECandyShopUpgrade : int {
+  k_ECandyShopUpgradeInvalid = -1,
+  k_ECandyShopUpgrade_InventorySize = 0,
+  k_ECandyShopUpgrade_RewardShelf = 1,
+  k_ECandyShopUpgrade_ExtraExchangeRecipe = 2
+};
+bool ECandyShopUpgrade_IsValid(int value);
+constexpr ECandyShopUpgrade ECandyShopUpgrade_MIN = k_ECandyShopUpgradeInvalid;
+constexpr ECandyShopUpgrade ECandyShopUpgrade_MAX = k_ECandyShopUpgrade_ExtraExchangeRecipe;
+constexpr int ECandyShopUpgrade_ARRAYSIZE = ECandyShopUpgrade_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ECandyShopUpgrade_descriptor();
+template<typename T>
+inline const std::string& ECandyShopUpgrade_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, ECandyShopUpgrade>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function ECandyShopUpgrade_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    ECandyShopUpgrade_descriptor(), enum_t_value);
+}
+inline bool ECandyShopUpgrade_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, ECandyShopUpgrade* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<ECandyShopUpgrade>(
+    ECandyShopUpgrade_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -7817,6 +7852,11 @@ template <> struct is_proto_enum< ::EOverwatchReportReason> : ::std::true_type {
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::EOverwatchReportReason>() {
   return ::EOverwatchReportReason_descriptor();
+}
+template <> struct is_proto_enum< ::ECandyShopUpgrade> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::ECandyShopUpgrade>() {
+  return ::ECandyShopUpgrade_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE

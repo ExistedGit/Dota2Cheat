@@ -25,7 +25,8 @@ PROTOBUF_CONSTEXPR CMsgBingoSquare::CMsgBingoSquare(
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.stat_id_)*/0u
-  , /*decltype(_impl_.stat_threshold_)*/0} {}
+  , /*decltype(_impl_.stat_threshold_)*/0
+  , /*decltype(_impl_.upgrade_level_)*/0u} {}
 struct CMsgBingoSquareDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CMsgBingoSquareDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -35,9 +36,67 @@ struct CMsgBingoSquareDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgBingoSquareDefaultTypeInternal _CMsgBingoSquare_default_instance_;
-PROTOBUF_CONSTEXPR CMsgBingoUserData::CMsgBingoUserData(
+PROTOBUF_CONSTEXPR CMsgBingoTokens::CMsgBingoTokens(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.token_count_)*/0u} {}
+struct CMsgBingoTokensDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CMsgBingoTokensDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CMsgBingoTokensDefaultTypeInternal() {}
+  union {
+    CMsgBingoTokens _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgBingoTokensDefaultTypeInternal _CMsgBingoTokens_default_instance_;
+PROTOBUF_CONSTEXPR CMsgBingoCard::CMsgBingoCard(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.squares_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct CMsgBingoCardDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CMsgBingoCardDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CMsgBingoCardDefaultTypeInternal() {}
+  union {
+    CMsgBingoCard _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgBingoCardDefaultTypeInternal _CMsgBingoCard_default_instance_;
+PROTOBUF_CONSTEXPR CMsgBingoUserData_BingoCardsEntry::CMsgBingoUserData_BingoCardsEntry(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.value_)*/nullptr
+  , /*decltype(_impl_.key_)*/0u} {}
+struct CMsgBingoUserData_BingoCardsEntryDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CMsgBingoUserData_BingoCardsEntryDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CMsgBingoUserData_BingoCardsEntryDefaultTypeInternal() {}
+  union {
+    CMsgBingoUserData_BingoCardsEntry _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgBingoUserData_BingoCardsEntryDefaultTypeInternal _CMsgBingoUserData_BingoCardsEntry_default_instance_;
+PROTOBUF_CONSTEXPR CMsgBingoUserData_BingoTokensEntry::CMsgBingoUserData_BingoTokensEntry(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.value_)*/nullptr
+  , /*decltype(_impl_.key_)*/0u} {}
+struct CMsgBingoUserData_BingoTokensEntryDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CMsgBingoUserData_BingoTokensEntryDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CMsgBingoUserData_BingoTokensEntryDefaultTypeInternal() {}
+  union {
+    CMsgBingoUserData_BingoTokensEntry _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgBingoUserData_BingoTokensEntryDefaultTypeInternal _CMsgBingoUserData_BingoTokensEntry_default_instance_;
+PROTOBUF_CONSTEXPR CMsgBingoUserData::CMsgBingoUserData(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.bingo_cards_)*/{}
+  , /*decltype(_impl_.bingo_tokens_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct CMsgBingoUserDataDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CMsgBingoUserDataDefaultTypeInternal()
@@ -52,8 +111,7 @@ PROTOBUF_CONSTEXPR CMsgClientToGCBingoGetUserData::CMsgClientToGCBingoGetUserDat
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.league_id_)*/0u
-  , /*decltype(_impl_.league_phase_)*/0u} {}
+  , /*decltype(_impl_.league_id_)*/0u} {}
 struct CMsgClientToGCBingoGetUserDataDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CMsgClientToGCBingoGetUserDataDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -141,8 +199,7 @@ PROTOBUF_CONSTEXPR CMsgGCToClientBingoUserDataUpdated::CMsgGCToClientBingoUserDa
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.user_data_)*/nullptr
-  , /*decltype(_impl_.league_id_)*/0u
-  , /*decltype(_impl_.league_phase_)*/0u} {}
+  , /*decltype(_impl_.league_id_)*/0u} {}
 struct CMsgGCToClientBingoUserDataUpdatedDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CMsgGCToClientBingoUserDataUpdatedDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -182,6 +239,66 @@ struct CMsgClientToGCBingoClaimRowResponseDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgClientToGCBingoClaimRowResponseDefaultTypeInternal _CMsgClientToGCBingoClaimRowResponse_default_instance_;
+PROTOBUF_CONSTEXPR CMsgClientToGCBingoShuffleCard::CMsgClientToGCBingoShuffleCard(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.league_id_)*/0u
+  , /*decltype(_impl_.league_phase_)*/0u} {}
+struct CMsgClientToGCBingoShuffleCardDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CMsgClientToGCBingoShuffleCardDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CMsgClientToGCBingoShuffleCardDefaultTypeInternal() {}
+  union {
+    CMsgClientToGCBingoShuffleCard _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgClientToGCBingoShuffleCardDefaultTypeInternal _CMsgClientToGCBingoShuffleCard_default_instance_;
+PROTOBUF_CONSTEXPR CMsgClientToGCBingoShuffleCardResponse::CMsgClientToGCBingoShuffleCardResponse(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.response_)*/0} {}
+struct CMsgClientToGCBingoShuffleCardResponseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CMsgClientToGCBingoShuffleCardResponseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CMsgClientToGCBingoShuffleCardResponseDefaultTypeInternal() {}
+  union {
+    CMsgClientToGCBingoShuffleCardResponse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgClientToGCBingoShuffleCardResponseDefaultTypeInternal _CMsgClientToGCBingoShuffleCardResponse_default_instance_;
+PROTOBUF_CONSTEXPR CMsgClientToGCBingoModifySquare::CMsgClientToGCBingoModifySquare(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.league_id_)*/0u
+  , /*decltype(_impl_.league_phase_)*/0u
+  , /*decltype(_impl_.square_index_)*/0u
+  , /*decltype(_impl_.action_)*/0} {}
+struct CMsgClientToGCBingoModifySquareDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CMsgClientToGCBingoModifySquareDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CMsgClientToGCBingoModifySquareDefaultTypeInternal() {}
+  union {
+    CMsgClientToGCBingoModifySquare _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgClientToGCBingoModifySquareDefaultTypeInternal _CMsgClientToGCBingoModifySquare_default_instance_;
+PROTOBUF_CONSTEXPR CMsgClientToGCBingoModifySquareResponse::CMsgClientToGCBingoModifySquareResponse(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.response_)*/0} {}
+struct CMsgClientToGCBingoModifySquareResponseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CMsgClientToGCBingoModifySquareResponseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CMsgClientToGCBingoModifySquareResponseDefaultTypeInternal() {}
+  union {
+    CMsgClientToGCBingoModifySquareResponse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgClientToGCBingoModifySquareResponseDefaultTypeInternal _CMsgClientToGCBingoModifySquareResponse_default_instance_;
 PROTOBUF_CONSTEXPR CMsgClientToGCBingoDevRerollCard::CMsgClientToGCBingoDevRerollCard(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
@@ -211,8 +328,66 @@ struct CMsgClientToGCBingoDevRerollCardResponseDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgClientToGCBingoDevRerollCardResponseDefaultTypeInternal _CMsgClientToGCBingoDevRerollCardResponse_default_instance_;
-static ::_pb::Metadata file_level_metadata_dota_5fgcmessages_5fclient_5fbingo_2eproto[13];
-static const ::_pb::EnumDescriptor* file_level_enum_descriptors_dota_5fgcmessages_5fclient_5fbingo_2eproto[4];
+PROTOBUF_CONSTEXPR CMsgClientToGCBingoDevAddTokens::CMsgClientToGCBingoDevAddTokens(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.league_id_)*/0u
+  , /*decltype(_impl_.league_phase_)*/0u
+  , /*decltype(_impl_.token_count_)*/0} {}
+struct CMsgClientToGCBingoDevAddTokensDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CMsgClientToGCBingoDevAddTokensDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CMsgClientToGCBingoDevAddTokensDefaultTypeInternal() {}
+  union {
+    CMsgClientToGCBingoDevAddTokens _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgClientToGCBingoDevAddTokensDefaultTypeInternal _CMsgClientToGCBingoDevAddTokens_default_instance_;
+PROTOBUF_CONSTEXPR CMsgClientToGCBingoDevAddTokensResponse::CMsgClientToGCBingoDevAddTokensResponse(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.response_)*/0} {}
+struct CMsgClientToGCBingoDevAddTokensResponseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CMsgClientToGCBingoDevAddTokensResponseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CMsgClientToGCBingoDevAddTokensResponseDefaultTypeInternal() {}
+  union {
+    CMsgClientToGCBingoDevAddTokensResponse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgClientToGCBingoDevAddTokensResponseDefaultTypeInternal _CMsgClientToGCBingoDevAddTokensResponse_default_instance_;
+PROTOBUF_CONSTEXPR CMsgClientToGCBingoDevClearInventory::CMsgClientToGCBingoDevClearInventory(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.league_id_)*/0u} {}
+struct CMsgClientToGCBingoDevClearInventoryDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CMsgClientToGCBingoDevClearInventoryDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CMsgClientToGCBingoDevClearInventoryDefaultTypeInternal() {}
+  union {
+    CMsgClientToGCBingoDevClearInventory _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgClientToGCBingoDevClearInventoryDefaultTypeInternal _CMsgClientToGCBingoDevClearInventory_default_instance_;
+PROTOBUF_CONSTEXPR CMsgClientToGCBingoDevClearInventoryResponse::CMsgClientToGCBingoDevClearInventoryResponse(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.response_)*/0} {}
+struct CMsgClientToGCBingoDevClearInventoryResponseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CMsgClientToGCBingoDevClearInventoryResponseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CMsgClientToGCBingoDevClearInventoryResponseDefaultTypeInternal() {}
+  union {
+    CMsgClientToGCBingoDevClearInventoryResponse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgClientToGCBingoDevClearInventoryResponseDefaultTypeInternal _CMsgClientToGCBingoDevClearInventoryResponse_default_instance_;
+static ::_pb::Metadata file_level_metadata_dota_5fgcmessages_5fclient_5fbingo_2eproto[25];
+static const ::_pb::EnumDescriptor* file_level_enum_descriptors_dota_5fgcmessages_5fclient_5fbingo_2eproto[10];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_dota_5fgcmessages_5fclient_5fbingo_2eproto = nullptr;
 
 const uint32_t TableStruct_dota_5fgcmessages_5fclient_5fbingo_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -224,15 +399,53 @@ const uint32_t TableStruct_dota_5fgcmessages_5fclient_5fbingo_2eproto::offsets[]
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::CMsgBingoSquare, _impl_.stat_id_),
   PROTOBUF_FIELD_OFFSET(::CMsgBingoSquare, _impl_.stat_threshold_),
+  PROTOBUF_FIELD_OFFSET(::CMsgBingoSquare, _impl_.upgrade_level_),
   0,
   1,
+  2,
+  PROTOBUF_FIELD_OFFSET(::CMsgBingoTokens, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgBingoTokens, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CMsgBingoTokens, _impl_.token_count_),
+  0,
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::CMsgBingoCard, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CMsgBingoCard, _impl_.squares_),
+  PROTOBUF_FIELD_OFFSET(::CMsgBingoUserData_BingoCardsEntry, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgBingoUserData_BingoCardsEntry, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CMsgBingoUserData_BingoCardsEntry, _impl_.key_),
+  PROTOBUF_FIELD_OFFSET(::CMsgBingoUserData_BingoCardsEntry, _impl_.value_),
+  1,
+  0,
+  PROTOBUF_FIELD_OFFSET(::CMsgBingoUserData_BingoTokensEntry, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgBingoUserData_BingoTokensEntry, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CMsgBingoUserData_BingoTokensEntry, _impl_.key_),
+  PROTOBUF_FIELD_OFFSET(::CMsgBingoUserData_BingoTokensEntry, _impl_.value_),
+  1,
+  0,
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::CMsgBingoUserData, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::CMsgBingoUserData, _impl_.squares_),
+  PROTOBUF_FIELD_OFFSET(::CMsgBingoUserData, _impl_.bingo_cards_),
+  PROTOBUF_FIELD_OFFSET(::CMsgBingoUserData, _impl_.bingo_tokens_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientToGCBingoGetUserData, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientToGCBingoGetUserData, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -240,9 +453,7 @@ const uint32_t TableStruct_dota_5fgcmessages_5fclient_5fbingo_2eproto::offsets[]
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::CMsgClientToGCBingoGetUserData, _impl_.league_id_),
-  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCBingoGetUserData, _impl_.league_phase_),
   0,
-  1,
   PROTOBUF_FIELD_OFFSET(::CMsgClientToGCBingoGetUserDataResponse, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientToGCBingoGetUserDataResponse, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -297,10 +508,8 @@ const uint32_t TableStruct_dota_5fgcmessages_5fclient_5fbingo_2eproto::offsets[]
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::CMsgGCToClientBingoUserDataUpdated, _impl_.league_id_),
-  PROTOBUF_FIELD_OFFSET(::CMsgGCToClientBingoUserDataUpdated, _impl_.league_phase_),
   PROTOBUF_FIELD_OFFSET(::CMsgGCToClientBingoUserDataUpdated, _impl_.user_data_),
   1,
-  2,
   0,
   PROTOBUF_FIELD_OFFSET(::CMsgClientToGCBingoClaimRow, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientToGCBingoClaimRow, _internal_metadata_),
@@ -322,6 +531,46 @@ const uint32_t TableStruct_dota_5fgcmessages_5fclient_5fbingo_2eproto::offsets[]
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::CMsgClientToGCBingoClaimRowResponse, _impl_.response_),
   0,
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCBingoShuffleCard, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCBingoShuffleCard, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCBingoShuffleCard, _impl_.league_id_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCBingoShuffleCard, _impl_.league_phase_),
+  0,
+  1,
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCBingoShuffleCardResponse, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCBingoShuffleCardResponse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCBingoShuffleCardResponse, _impl_.response_),
+  0,
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCBingoModifySquare, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCBingoModifySquare, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCBingoModifySquare, _impl_.league_id_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCBingoModifySquare, _impl_.league_phase_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCBingoModifySquare, _impl_.square_index_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCBingoModifySquare, _impl_.action_),
+  0,
+  1,
+  2,
+  3,
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCBingoModifySquareResponse, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCBingoModifySquareResponse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCBingoModifySquareResponse, _impl_.response_),
+  0,
   PROTOBUF_FIELD_OFFSET(::CMsgClientToGCBingoDevRerollCard, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientToGCBingoDevRerollCard, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -340,25 +589,77 @@ const uint32_t TableStruct_dota_5fgcmessages_5fclient_5fbingo_2eproto::offsets[]
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::CMsgClientToGCBingoDevRerollCardResponse, _impl_.response_),
   0,
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCBingoDevAddTokens, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCBingoDevAddTokens, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCBingoDevAddTokens, _impl_.league_id_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCBingoDevAddTokens, _impl_.league_phase_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCBingoDevAddTokens, _impl_.token_count_),
+  0,
+  1,
+  2,
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCBingoDevAddTokensResponse, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCBingoDevAddTokensResponse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCBingoDevAddTokensResponse, _impl_.response_),
+  0,
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCBingoDevClearInventory, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCBingoDevClearInventory, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCBingoDevClearInventory, _impl_.league_id_),
+  0,
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCBingoDevClearInventoryResponse, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCBingoDevClearInventoryResponse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCBingoDevClearInventoryResponse, _impl_.response_),
+  0,
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, 8, -1, sizeof(::CMsgBingoSquare)},
-  { 10, -1, -1, sizeof(::CMsgBingoUserData)},
-  { 17, 25, -1, sizeof(::CMsgClientToGCBingoGetUserData)},
-  { 27, 35, -1, sizeof(::CMsgClientToGCBingoGetUserDataResponse)},
-  { 37, 45, -1, sizeof(::CMsgBingoIndividualStatData)},
-  { 47, -1, -1, sizeof(::CMsgBingoStatsData)},
-  { 54, 62, -1, sizeof(::CMsgClientToGCBingoGetStatsData)},
-  { 64, 72, -1, sizeof(::CMsgClientToGCBingoGetStatsDataResponse)},
-  { 74, 83, -1, sizeof(::CMsgGCToClientBingoUserDataUpdated)},
-  { 86, 95, -1, sizeof(::CMsgClientToGCBingoClaimRow)},
-  { 98, 105, -1, sizeof(::CMsgClientToGCBingoClaimRowResponse)},
-  { 106, 114, -1, sizeof(::CMsgClientToGCBingoDevRerollCard)},
-  { 116, 123, -1, sizeof(::CMsgClientToGCBingoDevRerollCardResponse)},
+  { 0, 9, -1, sizeof(::CMsgBingoSquare)},
+  { 12, 19, -1, sizeof(::CMsgBingoTokens)},
+  { 20, -1, -1, sizeof(::CMsgBingoCard)},
+  { 27, 35, -1, sizeof(::CMsgBingoUserData_BingoCardsEntry)},
+  { 37, 45, -1, sizeof(::CMsgBingoUserData_BingoTokensEntry)},
+  { 47, -1, -1, sizeof(::CMsgBingoUserData)},
+  { 55, 62, -1, sizeof(::CMsgClientToGCBingoGetUserData)},
+  { 63, 71, -1, sizeof(::CMsgClientToGCBingoGetUserDataResponse)},
+  { 73, 81, -1, sizeof(::CMsgBingoIndividualStatData)},
+  { 83, -1, -1, sizeof(::CMsgBingoStatsData)},
+  { 90, 98, -1, sizeof(::CMsgClientToGCBingoGetStatsData)},
+  { 100, 108, -1, sizeof(::CMsgClientToGCBingoGetStatsDataResponse)},
+  { 110, 118, -1, sizeof(::CMsgGCToClientBingoUserDataUpdated)},
+  { 120, 129, -1, sizeof(::CMsgClientToGCBingoClaimRow)},
+  { 132, 139, -1, sizeof(::CMsgClientToGCBingoClaimRowResponse)},
+  { 140, 148, -1, sizeof(::CMsgClientToGCBingoShuffleCard)},
+  { 150, 157, -1, sizeof(::CMsgClientToGCBingoShuffleCardResponse)},
+  { 158, 168, -1, sizeof(::CMsgClientToGCBingoModifySquare)},
+  { 172, 179, -1, sizeof(::CMsgClientToGCBingoModifySquareResponse)},
+  { 180, 188, -1, sizeof(::CMsgClientToGCBingoDevRerollCard)},
+  { 190, 197, -1, sizeof(::CMsgClientToGCBingoDevRerollCardResponse)},
+  { 198, 207, -1, sizeof(::CMsgClientToGCBingoDevAddTokens)},
+  { 210, 217, -1, sizeof(::CMsgClientToGCBingoDevAddTokensResponse)},
+  { 218, 225, -1, sizeof(::CMsgClientToGCBingoDevClearInventory)},
+  { 226, 233, -1, sizeof(::CMsgClientToGCBingoDevClearInventoryResponse)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
   &::_CMsgBingoSquare_default_instance_._instance,
+  &::_CMsgBingoTokens_default_instance_._instance,
+  &::_CMsgBingoCard_default_instance_._instance,
+  &::_CMsgBingoUserData_BingoCardsEntry_default_instance_._instance,
+  &::_CMsgBingoUserData_BingoTokensEntry_default_instance_._instance,
   &::_CMsgBingoUserData_default_instance_._instance,
   &::_CMsgClientToGCBingoGetUserData_default_instance_._instance,
   &::_CMsgClientToGCBingoGetUserDataResponse_default_instance_._instance,
@@ -369,8 +670,16 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::_CMsgGCToClientBingoUserDataUpdated_default_instance_._instance,
   &::_CMsgClientToGCBingoClaimRow_default_instance_._instance,
   &::_CMsgClientToGCBingoClaimRowResponse_default_instance_._instance,
+  &::_CMsgClientToGCBingoShuffleCard_default_instance_._instance,
+  &::_CMsgClientToGCBingoShuffleCardResponse_default_instance_._instance,
+  &::_CMsgClientToGCBingoModifySquare_default_instance_._instance,
+  &::_CMsgClientToGCBingoModifySquareResponse_default_instance_._instance,
   &::_CMsgClientToGCBingoDevRerollCard_default_instance_._instance,
   &::_CMsgClientToGCBingoDevRerollCardResponse_default_instance_._instance,
+  &::_CMsgClientToGCBingoDevAddTokens_default_instance_._instance,
+  &::_CMsgClientToGCBingoDevAddTokensResponse_default_instance_._instance,
+  &::_CMsgClientToGCBingoDevClearInventory_default_instance_._instance,
+  &::_CMsgClientToGCBingoDevClearInventoryResponse_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_dota_5fgcmessages_5fclient_5fbingo_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -380,51 +689,112 @@ const char descriptor_table_protodef_dota_5fgcmessages_5fclient_5fbingo_2eproto[
   "cmessages_webapi.proto\032\026gcsdk_gcmessages"
   ".proto\032\025base_gcmessages.proto\032\025econ_gcme"
   "ssages.proto\032\034dota_gcmessages_client.pro"
-  "to\032\025valveextensions.proto\":\n\017CMsgBingoSq"
+  "to\032\025valveextensions.proto\"Q\n\017CMsgBingoSq"
   "uare\022\017\n\007stat_id\030\001 \001(\r\022\026\n\016stat_threshold\030"
-  "\002 \001(\005\"6\n\021CMsgBingoUserData\022!\n\007squares\030\001 "
-  "\003(\0132\020.CMsgBingoSquare\"I\n\036CMsgClientToGCB"
-  "ingoGetUserData\022\021\n\tleague_id\030\001 \001(\r\022\024\n\014le"
-  "ague_phase\030\002 \001(\r\"\212\002\n&CMsgClientToGCBingo"
-  "GetUserDataResponse\022U\n\010response\030\001 \001(\01621."
-  "CMsgClientToGCBingoGetUserDataResponse.E"
-  "Response:\020k_eInternalError\022%\n\tuser_data\030"
-  "\002 \001(\0132\022.CMsgBingoUserData\"b\n\tEResponse\022\024"
-  "\n\020k_eInternalError\020\000\022\016\n\nk_eSuccess\020\001\022\016\n\n"
-  "k_eTooBusy\020\002\022\017\n\013k_eDisabled\020\003\022\016\n\nk_eTime"
-  "out\020\004\"B\n\033CMsgBingoIndividualStatData\022\017\n\007"
-  "stat_id\030\001 \001(\r\022\022\n\nstat_value\030\002 \001(\005\"F\n\022CMs"
-  "gBingoStatsData\0220\n\nstats_data\030\001 \003(\0132\034.CM"
-  "sgBingoIndividualStatData\"J\n\037CMsgClientT"
-  "oGCBingoGetStatsData\022\021\n\tleague_id\030\001 \001(\r\022"
-  "\024\n\014league_phase\030\002 \001(\r\"\216\002\n\'CMsgClientToGC"
-  "BingoGetStatsDataResponse\022V\n\010response\030\001 "
-  "\001(\01622.CMsgClientToGCBingoGetStatsDataRes"
-  "ponse.EResponse:\020k_eInternalError\022\'\n\nsta"
-  "ts_data\030\002 \001(\0132\023.CMsgBingoStatsData\"b\n\tER"
-  "esponse\022\024\n\020k_eInternalError\020\000\022\016\n\nk_eSucc"
-  "ess\020\001\022\016\n\nk_eTooBusy\020\002\022\017\n\013k_eDisabled\020\003\022\016"
-  "\n\nk_eTimeout\020\004\"t\n\"CMsgGCToClientBingoUse"
-  "rDataUpdated\022\021\n\tleague_id\030\001 \001(\r\022\024\n\014leagu"
-  "e_phase\030\002 \001(\r\022%\n\tuser_data\030\003 \001(\0132\022.CMsgB"
-  "ingoUserData\"Y\n\033CMsgClientToGCBingoClaim"
-  "Row\022\021\n\tleague_id\030\001 \001(\r\022\024\n\014league_phase\030\002"
-  " \001(\r\022\021\n\trow_index\030\003 \001(\r\"\205\002\n#CMsgClientTo"
-  "GCBingoClaimRowResponse\022R\n\010response\030\001 \001("
-  "\0162..CMsgClientToGCBingoClaimRowResponse."
-  "EResponse:\020k_eInternalError\"\211\001\n\tERespons"
-  "e\022\024\n\020k_eInternalError\020\000\022\016\n\nk_eSuccess\020\001\022"
-  "\016\n\nk_eTooBusy\020\002\022\017\n\013k_eDisabled\020\003\022\016\n\nk_eT"
-  "imeout\020\004\022\021\n\rk_eInvalidRow\020\005\022\022\n\016k_eExpire"
-  "dCard\020\006\"K\n CMsgClientToGCBingoDevRerollC"
+  "\002 \001(\005\022\025\n\rupgrade_level\030\003 \001(\r\"&\n\017CMsgBing"
+  "oTokens\022\023\n\013token_count\030\001 \001(\r\"2\n\rCMsgBing"
+  "oCard\022!\n\007squares\030\001 \003(\0132\020.CMsgBingoSquare"
+  "\"\210\002\n\021CMsgBingoUserData\0227\n\013bingo_cards\030\001 "
+  "\003(\0132\".CMsgBingoUserData.BingoCardsEntry\022"
+  "9\n\014bingo_tokens\030\002 \003(\0132#.CMsgBingoUserDat"
+  "a.BingoTokensEntry\032=\n\017BingoCardsEntry\022\013\n"
+  "\003key\030\001 \001(\r\022\035\n\005value\030\002 \001(\0132\016.CMsgBingoCar"
+  "d\032@\n\020BingoTokensEntry\022\013\n\003key\030\001 \001(\r\022\037\n\005va"
+  "lue\030\002 \001(\0132\020.CMsgBingoTokens\"3\n\036CMsgClien"
+  "tToGCBingoGetUserData\022\021\n\tleague_id\030\001 \001(\r"
+  "\"\212\002\n&CMsgClientToGCBingoGetUserDataRespo"
+  "nse\022U\n\010response\030\001 \001(\01621.CMsgClientToGCBi"
+  "ngoGetUserDataResponse.EResponse:\020k_eInt"
+  "ernalError\022%\n\tuser_data\030\002 \001(\0132\022.CMsgBing"
+  "oUserData\"b\n\tEResponse\022\024\n\020k_eInternalErr"
+  "or\020\000\022\016\n\nk_eSuccess\020\001\022\016\n\nk_eTooBusy\020\002\022\017\n\013"
+  "k_eDisabled\020\003\022\016\n\nk_eTimeout\020\004\"B\n\033CMsgBin"
+  "goIndividualStatData\022\017\n\007stat_id\030\001 \001(\r\022\022\n"
+  "\nstat_value\030\002 \001(\005\"F\n\022CMsgBingoStatsData\022"
+  "0\n\nstats_data\030\001 \003(\0132\034.CMsgBingoIndividua"
+  "lStatData\"J\n\037CMsgClientToGCBingoGetStats"
+  "Data\022\021\n\tleague_id\030\001 \001(\r\022\024\n\014league_phase\030"
+  "\002 \001(\r\"\216\002\n\'CMsgClientToGCBingoGetStatsDat"
+  "aResponse\022V\n\010response\030\001 \001(\01622.CMsgClient"
+  "ToGCBingoGetStatsDataResponse.EResponse:"
+  "\020k_eInternalError\022\'\n\nstats_data\030\002 \001(\0132\023."
+  "CMsgBingoStatsData\"b\n\tEResponse\022\024\n\020k_eIn"
+  "ternalError\020\000\022\016\n\nk_eSuccess\020\001\022\016\n\nk_eTooB"
+  "usy\020\002\022\017\n\013k_eDisabled\020\003\022\016\n\nk_eTimeout\020\004\"^"
+  "\n\"CMsgGCToClientBingoUserDataUpdated\022\021\n\t"
+  "league_id\030\001 \001(\r\022%\n\tuser_data\030\002 \001(\0132\022.CMs"
+  "gBingoUserData\"Y\n\033CMsgClientToGCBingoCla"
+  "imRow\022\021\n\tleague_id\030\001 \001(\r\022\024\n\014league_phase"
+  "\030\002 \001(\r\022\021\n\trow_index\030\003 \001(\r\"\205\002\n#CMsgClient"
+  "ToGCBingoClaimRowResponse\022R\n\010response\030\001 "
+  "\001(\0162..CMsgClientToGCBingoClaimRowRespons"
+  "e.EResponse:\020k_eInternalError\"\211\001\n\tERespo"
+  "nse\022\024\n\020k_eInternalError\020\000\022\016\n\nk_eSuccess\020"
+  "\001\022\016\n\nk_eTooBusy\020\002\022\017\n\013k_eDisabled\020\003\022\016\n\nk_"
+  "eTimeout\020\004\022\021\n\rk_eInvalidRow\020\005\022\022\n\016k_eExpi"
+  "redCard\020\006\"I\n\036CMsgClientToGCBingoShuffleC"
   "ard\022\021\n\tleague_id\030\001 \001(\r\022\024\n\014league_phase\030\002"
-  " \001(\r\"\217\002\n(CMsgClientToGCBingoDevRerollCar"
-  "dResponse\022W\n\010response\030\001 \001(\01623.CMsgClient"
-  "ToGCBingoDevRerollCardResponse.EResponse"
-  ":\020k_eInternalError\"\211\001\n\tEResponse\022\024\n\020k_eI"
-  "nternalError\020\000\022\016\n\nk_eSuccess\020\001\022\016\n\nk_eToo"
-  "Busy\020\002\022\017\n\013k_eDisabled\020\003\022\016\n\nk_eTimeout\020\004\022"
-  "\022\n\016k_eExpiredCard\020\006\022\021\n\rk_eNotAllowed\020\007"
+  " \001(\r\"\246\002\n&CMsgClientToGCBingoShuffleCardR"
+  "esponse\022U\n\010response\030\001 \001(\01621.CMsgClientTo"
+  "GCBingoShuffleCardResponse.EResponse:\020k_"
+  "eInternalError\"\244\001\n\tEResponse\022\024\n\020k_eInter"
+  "nalError\020\000\022\016\n\nk_eSuccess\020\001\022\016\n\nk_eTooBusy"
+  "\020\002\022\017\n\013k_eDisabled\020\003\022\016\n\nk_eTimeout\020\004\022\022\n\016k"
+  "_eExpiredCard\020\006\022\021\n\rk_eNotAllowed\020\007\022\031\n\025k_"
+  "eInsufficientTokens\020\010\"\343\001\n\037CMsgClientToGC"
+  "BingoModifySquare\022\021\n\tleague_id\030\001 \001(\r\022\024\n\014"
+  "league_phase\030\002 \001(\r\022\024\n\014square_index\030\003 \001(\r"
+  "\022M\n\006action\030\004 \001(\0162..CMsgClientToGCBingoMo"
+  "difySquare.EModifyAction:\rk_eRerollStat\""
+  "2\n\rEModifyAction\022\021\n\rk_eRerollStat\020\000\022\016\n\nk"
+  "_eUpgrade\020\001\"\345\002\n\'CMsgClientToGCBingoModif"
+  "ySquareResponse\022V\n\010response\030\001 \001(\01622.CMsg"
+  "ClientToGCBingoModifySquareResponse.ERes"
+  "ponse:\020k_eInternalError\"\341\001\n\tEResponse\022\024\n"
+  "\020k_eInternalError\020\000\022\016\n\nk_eSuccess\020\001\022\016\n\nk"
+  "_eTooBusy\020\002\022\017\n\013k_eDisabled\020\003\022\016\n\nk_eTimeo"
+  "ut\020\004\022\022\n\016k_eExpiredCard\020\006\022\021\n\rk_eNotAllowe"
+  "d\020\007\022\031\n\025k_eInsufficientTokens\020\010\022\022\n\016k_eCan"
+  "tUpgrade\020\t\022\021\n\rk_eCantReroll\020\n\022\024\n\020k_eInva"
+  "lidSquare\020\013\"K\n CMsgClientToGCBingoDevRer"
+  "ollCard\022\021\n\tleague_id\030\001 \001(\r\022\024\n\014league_pha"
+  "se\030\002 \001(\r\"\217\002\n(CMsgClientToGCBingoDevRerol"
+  "lCardResponse\022W\n\010response\030\001 \001(\01623.CMsgCl"
+  "ientToGCBingoDevRerollCardResponse.EResp"
+  "onse:\020k_eInternalError\"\211\001\n\tEResponse\022\024\n\020"
+  "k_eInternalError\020\000\022\016\n\nk_eSuccess\020\001\022\016\n\nk_"
+  "eTooBusy\020\002\022\017\n\013k_eDisabled\020\003\022\016\n\nk_eTimeou"
+  "t\020\004\022\022\n\016k_eExpiredCard\020\006\022\021\n\rk_eNotAllowed"
+  "\020\007\"_\n\037CMsgClientToGCBingoDevAddTokens\022\021\n"
+  "\tleague_id\030\001 \001(\r\022\024\n\014league_phase\030\002 \001(\r\022\023"
+  "\n\013token_count\030\003 \001(\005\"\215\002\n\'CMsgClientToGCBi"
+  "ngoDevAddTokensResponse\022V\n\010response\030\001 \001("
+  "\01622.CMsgClientToGCBingoDevAddTokensRespo"
+  "nse.EResponse:\020k_eInternalError\"\211\001\n\tERes"
+  "ponse\022\024\n\020k_eInternalError\020\000\022\016\n\nk_eSucces"
+  "s\020\001\022\016\n\nk_eTooBusy\020\002\022\017\n\013k_eDisabled\020\003\022\016\n\n"
+  "k_eTimeout\020\004\022\022\n\016k_eExpiredCard\020\006\022\021\n\rk_eN"
+  "otAllowed\020\007\"9\n$CMsgClientToGCBingoDevCle"
+  "arInventory\022\021\n\tleague_id\030\001 \001(\r\"\227\002\n,CMsgC"
+  "lientToGCBingoDevClearInventoryResponse\022"
+  "[\n\010response\030\001 \001(\01627.CMsgClientToGCBingoD"
+  "evClearInventoryResponse.EResponse:\020k_eI"
+  "nternalError\"\211\001\n\tEResponse\022\024\n\020k_eInterna"
+  "lError\020\000\022\016\n\nk_eSuccess\020\001\022\016\n\nk_eTooBusy\020\002"
+  "\022\017\n\013k_eDisabled\020\003\022\016\n\nk_eTimeout\020\004\022\022\n\016k_e"
+  "ExpiredCard\020\006\022\021\n\rk_eNotAllowed\020\007*\321\003\n\021EBi"
+  "ngoAuditAction\022\037\n\033k_eBingoAuditAction_In"
+  "valid\020\000\022\'\n#k_eBingoAuditAction_DevModify"
+  "Tokens\020\001\022)\n%k_eBingoAuditAction_DevClear"
+  "Inventory\020\002\022%\n!k_eBingoAuditAction_DevRe"
+  "rollCard\020\003\022#\n\037k_eBingoAuditAction_Shuffl"
+  "eCard\020\004\022$\n k_eBingoAuditAction_RerollSqu"
+  "are\020\005\022%\n!k_eBingoAuditAction_UpgradeSqua"
+  "re\020\006\022 \n\034k_eBingoAuditAction_ClaimRow\020\007\022-"
+  "\n)k_eBingoAuditAction_EventActionTokenGr"
+  "ant\020\010\022*\n&k_eBingoAuditAction_SupportGran"
+  "tTokens\020\t\0221\n-k_eBingoAuditAction_Support"
+  "StatThresholdFixup\020\n"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_deps[9] = {
   &::descriptor_table_base_5fgcmessages_2eproto,
@@ -439,9 +809,9 @@ static const ::_pbi::DescriptorTable* const descriptor_table_dota_5fgcmessages_5
 };
 static ::_pbi::once_flag descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto = {
-    false, false, 2038, descriptor_table_protodef_dota_5fgcmessages_5fclient_5fbingo_2eproto,
+    false, false, 4460, descriptor_table_protodef_dota_5fgcmessages_5fclient_5fbingo_2eproto,
     "dota_gcmessages_client_bingo.proto",
-    &descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_once, descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_deps, 9, 13,
+    &descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_once, descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_deps, 9, 25,
     schemas, file_default_instances, TableStruct_dota_5fgcmessages_5fclient_5fbingo_2eproto::offsets,
     file_level_metadata_dota_5fgcmessages_5fclient_5fbingo_2eproto, file_level_enum_descriptors_dota_5fgcmessages_5fclient_5fbingo_2eproto,
     file_level_service_descriptors_dota_5fgcmessages_5fclient_5fbingo_2eproto,
@@ -537,9 +907,102 @@ constexpr CMsgClientToGCBingoClaimRowResponse_EResponse CMsgClientToGCBingoClaim
 constexpr CMsgClientToGCBingoClaimRowResponse_EResponse CMsgClientToGCBingoClaimRowResponse::EResponse_MAX;
 constexpr int CMsgClientToGCBingoClaimRowResponse::EResponse_ARRAYSIZE;
 #endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgClientToGCBingoDevRerollCardResponse_EResponse_descriptor() {
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgClientToGCBingoShuffleCardResponse_EResponse_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto);
   return file_level_enum_descriptors_dota_5fgcmessages_5fclient_5fbingo_2eproto[3];
+}
+bool CMsgClientToGCBingoShuffleCardResponse_EResponse_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 6:
+    case 7:
+    case 8:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
+constexpr CMsgClientToGCBingoShuffleCardResponse_EResponse CMsgClientToGCBingoShuffleCardResponse::k_eInternalError;
+constexpr CMsgClientToGCBingoShuffleCardResponse_EResponse CMsgClientToGCBingoShuffleCardResponse::k_eSuccess;
+constexpr CMsgClientToGCBingoShuffleCardResponse_EResponse CMsgClientToGCBingoShuffleCardResponse::k_eTooBusy;
+constexpr CMsgClientToGCBingoShuffleCardResponse_EResponse CMsgClientToGCBingoShuffleCardResponse::k_eDisabled;
+constexpr CMsgClientToGCBingoShuffleCardResponse_EResponse CMsgClientToGCBingoShuffleCardResponse::k_eTimeout;
+constexpr CMsgClientToGCBingoShuffleCardResponse_EResponse CMsgClientToGCBingoShuffleCardResponse::k_eExpiredCard;
+constexpr CMsgClientToGCBingoShuffleCardResponse_EResponse CMsgClientToGCBingoShuffleCardResponse::k_eNotAllowed;
+constexpr CMsgClientToGCBingoShuffleCardResponse_EResponse CMsgClientToGCBingoShuffleCardResponse::k_eInsufficientTokens;
+constexpr CMsgClientToGCBingoShuffleCardResponse_EResponse CMsgClientToGCBingoShuffleCardResponse::EResponse_MIN;
+constexpr CMsgClientToGCBingoShuffleCardResponse_EResponse CMsgClientToGCBingoShuffleCardResponse::EResponse_MAX;
+constexpr int CMsgClientToGCBingoShuffleCardResponse::EResponse_ARRAYSIZE;
+#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgClientToGCBingoModifySquare_EModifyAction_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto);
+  return file_level_enum_descriptors_dota_5fgcmessages_5fclient_5fbingo_2eproto[4];
+}
+bool CMsgClientToGCBingoModifySquare_EModifyAction_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
+constexpr CMsgClientToGCBingoModifySquare_EModifyAction CMsgClientToGCBingoModifySquare::k_eRerollStat;
+constexpr CMsgClientToGCBingoModifySquare_EModifyAction CMsgClientToGCBingoModifySquare::k_eUpgrade;
+constexpr CMsgClientToGCBingoModifySquare_EModifyAction CMsgClientToGCBingoModifySquare::EModifyAction_MIN;
+constexpr CMsgClientToGCBingoModifySquare_EModifyAction CMsgClientToGCBingoModifySquare::EModifyAction_MAX;
+constexpr int CMsgClientToGCBingoModifySquare::EModifyAction_ARRAYSIZE;
+#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgClientToGCBingoModifySquareResponse_EResponse_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto);
+  return file_level_enum_descriptors_dota_5fgcmessages_5fclient_5fbingo_2eproto[5];
+}
+bool CMsgClientToGCBingoModifySquareResponse_EResponse_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 6:
+    case 7:
+    case 8:
+    case 9:
+    case 10:
+    case 11:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
+constexpr CMsgClientToGCBingoModifySquareResponse_EResponse CMsgClientToGCBingoModifySquareResponse::k_eInternalError;
+constexpr CMsgClientToGCBingoModifySquareResponse_EResponse CMsgClientToGCBingoModifySquareResponse::k_eSuccess;
+constexpr CMsgClientToGCBingoModifySquareResponse_EResponse CMsgClientToGCBingoModifySquareResponse::k_eTooBusy;
+constexpr CMsgClientToGCBingoModifySquareResponse_EResponse CMsgClientToGCBingoModifySquareResponse::k_eDisabled;
+constexpr CMsgClientToGCBingoModifySquareResponse_EResponse CMsgClientToGCBingoModifySquareResponse::k_eTimeout;
+constexpr CMsgClientToGCBingoModifySquareResponse_EResponse CMsgClientToGCBingoModifySquareResponse::k_eExpiredCard;
+constexpr CMsgClientToGCBingoModifySquareResponse_EResponse CMsgClientToGCBingoModifySquareResponse::k_eNotAllowed;
+constexpr CMsgClientToGCBingoModifySquareResponse_EResponse CMsgClientToGCBingoModifySquareResponse::k_eInsufficientTokens;
+constexpr CMsgClientToGCBingoModifySquareResponse_EResponse CMsgClientToGCBingoModifySquareResponse::k_eCantUpgrade;
+constexpr CMsgClientToGCBingoModifySquareResponse_EResponse CMsgClientToGCBingoModifySquareResponse::k_eCantReroll;
+constexpr CMsgClientToGCBingoModifySquareResponse_EResponse CMsgClientToGCBingoModifySquareResponse::k_eInvalidSquare;
+constexpr CMsgClientToGCBingoModifySquareResponse_EResponse CMsgClientToGCBingoModifySquareResponse::EResponse_MIN;
+constexpr CMsgClientToGCBingoModifySquareResponse_EResponse CMsgClientToGCBingoModifySquareResponse::EResponse_MAX;
+constexpr int CMsgClientToGCBingoModifySquareResponse::EResponse_ARRAYSIZE;
+#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgClientToGCBingoDevRerollCardResponse_EResponse_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto);
+  return file_level_enum_descriptors_dota_5fgcmessages_5fclient_5fbingo_2eproto[6];
 }
 bool CMsgClientToGCBingoDevRerollCardResponse_EResponse_IsValid(int value) {
   switch (value) {
@@ -568,6 +1031,91 @@ constexpr CMsgClientToGCBingoDevRerollCardResponse_EResponse CMsgClientToGCBingo
 constexpr CMsgClientToGCBingoDevRerollCardResponse_EResponse CMsgClientToGCBingoDevRerollCardResponse::EResponse_MAX;
 constexpr int CMsgClientToGCBingoDevRerollCardResponse::EResponse_ARRAYSIZE;
 #endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgClientToGCBingoDevAddTokensResponse_EResponse_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto);
+  return file_level_enum_descriptors_dota_5fgcmessages_5fclient_5fbingo_2eproto[7];
+}
+bool CMsgClientToGCBingoDevAddTokensResponse_EResponse_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 6:
+    case 7:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
+constexpr CMsgClientToGCBingoDevAddTokensResponse_EResponse CMsgClientToGCBingoDevAddTokensResponse::k_eInternalError;
+constexpr CMsgClientToGCBingoDevAddTokensResponse_EResponse CMsgClientToGCBingoDevAddTokensResponse::k_eSuccess;
+constexpr CMsgClientToGCBingoDevAddTokensResponse_EResponse CMsgClientToGCBingoDevAddTokensResponse::k_eTooBusy;
+constexpr CMsgClientToGCBingoDevAddTokensResponse_EResponse CMsgClientToGCBingoDevAddTokensResponse::k_eDisabled;
+constexpr CMsgClientToGCBingoDevAddTokensResponse_EResponse CMsgClientToGCBingoDevAddTokensResponse::k_eTimeout;
+constexpr CMsgClientToGCBingoDevAddTokensResponse_EResponse CMsgClientToGCBingoDevAddTokensResponse::k_eExpiredCard;
+constexpr CMsgClientToGCBingoDevAddTokensResponse_EResponse CMsgClientToGCBingoDevAddTokensResponse::k_eNotAllowed;
+constexpr CMsgClientToGCBingoDevAddTokensResponse_EResponse CMsgClientToGCBingoDevAddTokensResponse::EResponse_MIN;
+constexpr CMsgClientToGCBingoDevAddTokensResponse_EResponse CMsgClientToGCBingoDevAddTokensResponse::EResponse_MAX;
+constexpr int CMsgClientToGCBingoDevAddTokensResponse::EResponse_ARRAYSIZE;
+#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgClientToGCBingoDevClearInventoryResponse_EResponse_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto);
+  return file_level_enum_descriptors_dota_5fgcmessages_5fclient_5fbingo_2eproto[8];
+}
+bool CMsgClientToGCBingoDevClearInventoryResponse_EResponse_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 6:
+    case 7:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
+constexpr CMsgClientToGCBingoDevClearInventoryResponse_EResponse CMsgClientToGCBingoDevClearInventoryResponse::k_eInternalError;
+constexpr CMsgClientToGCBingoDevClearInventoryResponse_EResponse CMsgClientToGCBingoDevClearInventoryResponse::k_eSuccess;
+constexpr CMsgClientToGCBingoDevClearInventoryResponse_EResponse CMsgClientToGCBingoDevClearInventoryResponse::k_eTooBusy;
+constexpr CMsgClientToGCBingoDevClearInventoryResponse_EResponse CMsgClientToGCBingoDevClearInventoryResponse::k_eDisabled;
+constexpr CMsgClientToGCBingoDevClearInventoryResponse_EResponse CMsgClientToGCBingoDevClearInventoryResponse::k_eTimeout;
+constexpr CMsgClientToGCBingoDevClearInventoryResponse_EResponse CMsgClientToGCBingoDevClearInventoryResponse::k_eExpiredCard;
+constexpr CMsgClientToGCBingoDevClearInventoryResponse_EResponse CMsgClientToGCBingoDevClearInventoryResponse::k_eNotAllowed;
+constexpr CMsgClientToGCBingoDevClearInventoryResponse_EResponse CMsgClientToGCBingoDevClearInventoryResponse::EResponse_MIN;
+constexpr CMsgClientToGCBingoDevClearInventoryResponse_EResponse CMsgClientToGCBingoDevClearInventoryResponse::EResponse_MAX;
+constexpr int CMsgClientToGCBingoDevClearInventoryResponse::EResponse_ARRAYSIZE;
+#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EBingoAuditAction_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto);
+  return file_level_enum_descriptors_dota_5fgcmessages_5fclient_5fbingo_2eproto[9];
+}
+bool EBingoAuditAction_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+    case 6:
+    case 7:
+    case 8:
+    case 9:
+    case 10:
+      return true;
+    default:
+      return false;
+  }
+}
+
 
 // ===================================================================
 
@@ -579,6 +1127,9 @@ class CMsgBingoSquare::_Internal {
   }
   static void set_has_stat_threshold(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
+  }
+  static void set_has_upgrade_level(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
   }
 };
 
@@ -595,12 +1146,13 @@ CMsgBingoSquare::CMsgBingoSquare(const CMsgBingoSquare& from)
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.stat_id_){}
-    , decltype(_impl_.stat_threshold_){}};
+    , decltype(_impl_.stat_threshold_){}
+    , decltype(_impl_.upgrade_level_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&_impl_.stat_id_, &from._impl_.stat_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.stat_threshold_) -
-    reinterpret_cast<char*>(&_impl_.stat_id_)) + sizeof(_impl_.stat_threshold_));
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.upgrade_level_) -
+    reinterpret_cast<char*>(&_impl_.stat_id_)) + sizeof(_impl_.upgrade_level_));
   // @@protoc_insertion_point(copy_constructor:CMsgBingoSquare)
 }
 
@@ -613,6 +1165,7 @@ inline void CMsgBingoSquare::SharedCtor(
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.stat_id_){0u}
     , decltype(_impl_.stat_threshold_){0}
+    , decltype(_impl_.upgrade_level_){0u}
   };
 }
 
@@ -640,10 +1193,10 @@ void CMsgBingoSquare::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
+  if (cached_has_bits & 0x00000007u) {
     ::memset(&_impl_.stat_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.stat_threshold_) -
-        reinterpret_cast<char*>(&_impl_.stat_id_)) + sizeof(_impl_.stat_threshold_));
+        reinterpret_cast<char*>(&_impl_.upgrade_level_) -
+        reinterpret_cast<char*>(&_impl_.stat_id_)) + sizeof(_impl_.upgrade_level_));
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -670,6 +1223,15 @@ const char* CMsgBingoSquare::_InternalParse(const char* ptr, ::_pbi::ParseContex
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _Internal::set_has_stat_threshold(&has_bits);
           _impl_.stat_threshold_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 upgrade_level = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _Internal::set_has_upgrade_level(&has_bits);
+          _impl_.upgrade_level_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -717,6 +1279,12 @@ uint8_t* CMsgBingoSquare::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_stat_threshold(), target);
   }
 
+  // optional uint32 upgrade_level = 3;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_upgrade_level(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -734,7 +1302,7 @@ size_t CMsgBingoSquare::ByteSizeLong() const {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
+  if (cached_has_bits & 0x00000007u) {
     // optional uint32 stat_id = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_stat_id());
@@ -743,6 +1311,11 @@ size_t CMsgBingoSquare::ByteSizeLong() const {
     // optional int32 stat_threshold = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_stat_threshold());
+    }
+
+    // optional uint32 upgrade_level = 3;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_upgrade_level());
     }
 
   }
@@ -765,12 +1338,15 @@ void CMsgBingoSquare::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const 
   (void) cached_has_bits;
 
   cached_has_bits = from._impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
+  if (cached_has_bits & 0x00000007u) {
     if (cached_has_bits & 0x00000001u) {
       _this->_impl_.stat_id_ = from._impl_.stat_id_;
     }
     if (cached_has_bits & 0x00000002u) {
       _this->_impl_.stat_threshold_ = from._impl_.stat_threshold_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _this->_impl_.upgrade_level_ = from._impl_.upgrade_level_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -793,8 +1369,8 @@ void CMsgBingoSquare::InternalSwap(CMsgBingoSquare* other) {
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CMsgBingoSquare, _impl_.stat_threshold_)
-      + sizeof(CMsgBingoSquare::_impl_.stat_threshold_)
+      PROTOBUF_FIELD_OFFSET(CMsgBingoSquare, _impl_.upgrade_level_)
+      + sizeof(CMsgBingoSquare::_impl_.upgrade_level_)
       - PROTOBUF_FIELD_OFFSET(CMsgBingoSquare, _impl_.stat_id_)>(
           reinterpret_cast<char*>(&_impl_.stat_id_),
           reinterpret_cast<char*>(&other->_impl_.stat_id_));
@@ -808,28 +1384,219 @@ void CMsgBingoSquare::InternalSwap(CMsgBingoSquare* other) {
 
 // ===================================================================
 
-class CMsgBingoUserData::_Internal {
+class CMsgBingoTokens::_Internal {
  public:
+  using HasBits = decltype(std::declval<CMsgBingoTokens>()._impl_._has_bits_);
+  static void set_has_token_count(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
 };
 
-CMsgBingoUserData::CMsgBingoUserData(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+CMsgBingoTokens::CMsgBingoTokens(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:CMsgBingoUserData)
+  // @@protoc_insertion_point(arena_constructor:CMsgBingoTokens)
 }
-CMsgBingoUserData::CMsgBingoUserData(const CMsgBingoUserData& from)
+CMsgBingoTokens::CMsgBingoTokens(const CMsgBingoTokens& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
-  CMsgBingoUserData* const _this = this; (void)_this;
+  CMsgBingoTokens* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.token_count_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_impl_.token_count_ = from._impl_.token_count_;
+  // @@protoc_insertion_point(copy_constructor:CMsgBingoTokens)
+}
+
+inline void CMsgBingoTokens::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.token_count_){0u}
+  };
+}
+
+CMsgBingoTokens::~CMsgBingoTokens() {
+  // @@protoc_insertion_point(destructor:CMsgBingoTokens)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CMsgBingoTokens::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void CMsgBingoTokens::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CMsgBingoTokens::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgBingoTokens)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.token_count_ = 0u;
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgBingoTokens::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional uint32 token_count = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _Internal::set_has_token_count(&has_bits);
+          _impl_.token_count_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CMsgBingoTokens::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgBingoTokens)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional uint32 token_count = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_token_count(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgBingoTokens)
+  return target;
+}
+
+size_t CMsgBingoTokens::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgBingoTokens)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // optional uint32 token_count = 1;
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_token_count());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgBingoTokens::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CMsgBingoTokens::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgBingoTokens::GetClassData() const { return &_class_data_; }
+
+
+void CMsgBingoTokens::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CMsgBingoTokens*>(&to_msg);
+  auto& from = static_cast<const CMsgBingoTokens&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgBingoTokens)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_has_token_count()) {
+    _this->_internal_set_token_count(from._internal_token_count());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CMsgBingoTokens::CopyFrom(const CMsgBingoTokens& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgBingoTokens)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgBingoTokens::IsInitialized() const {
+  return true;
+}
+
+void CMsgBingoTokens::InternalSwap(CMsgBingoTokens* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  swap(_impl_.token_count_, other->_impl_.token_count_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgBingoTokens::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_once,
+      file_level_metadata_dota_5fgcmessages_5fclient_5fbingo_2eproto[1]);
+}
+
+// ===================================================================
+
+class CMsgBingoCard::_Internal {
+ public:
+};
+
+CMsgBingoCard::CMsgBingoCard(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CMsgBingoCard)
+}
+CMsgBingoCard::CMsgBingoCard(const CMsgBingoCard& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CMsgBingoCard* const _this = this; (void)_this;
   new (&_impl_) Impl_{
       decltype(_impl_.squares_){from._impl_.squares_}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  // @@protoc_insertion_point(copy_constructor:CMsgBingoUserData)
+  // @@protoc_insertion_point(copy_constructor:CMsgBingoCard)
 }
 
-inline void CMsgBingoUserData::SharedCtor(
+inline void CMsgBingoCard::SharedCtor(
     ::_pb::Arena* arena, bool is_message_owned) {
   (void)arena;
   (void)is_message_owned;
@@ -839,8 +1606,8 @@ inline void CMsgBingoUserData::SharedCtor(
   };
 }
 
-CMsgBingoUserData::~CMsgBingoUserData() {
-  // @@protoc_insertion_point(destructor:CMsgBingoUserData)
+CMsgBingoCard::~CMsgBingoCard() {
+  // @@protoc_insertion_point(destructor:CMsgBingoCard)
   if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
   (void)arena;
     return;
@@ -848,17 +1615,17 @@ CMsgBingoUserData::~CMsgBingoUserData() {
   SharedDtor();
 }
 
-inline void CMsgBingoUserData::SharedDtor() {
+inline void CMsgBingoCard::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   _impl_.squares_.~RepeatedPtrField();
 }
 
-void CMsgBingoUserData::SetCachedSize(int size) const {
+void CMsgBingoCard::SetCachedSize(int size) const {
   _impl_._cached_size_.Set(size);
 }
 
-void CMsgBingoUserData::Clear() {
-// @@protoc_insertion_point(message_clear_start:CMsgBingoUserData)
+void CMsgBingoCard::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgBingoCard)
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -867,7 +1634,7 @@ void CMsgBingoUserData::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* CMsgBingoUserData::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+const char* CMsgBingoCard::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
@@ -909,9 +1676,9 @@ failure:
 #undef CHK_
 }
 
-uint8_t* CMsgBingoUserData::_InternalSerialize(
+uint8_t* CMsgBingoCard::_InternalSerialize(
     uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:CMsgBingoUserData)
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgBingoCard)
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -921,6 +1688,710 @@ uint8_t* CMsgBingoUserData::_InternalSerialize(
     const auto& repfield = this->_internal_squares(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
         InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgBingoCard)
+  return target;
+}
+
+size_t CMsgBingoCard::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgBingoCard)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .CMsgBingoSquare squares = 1;
+  total_size += 1UL * this->_internal_squares_size();
+  for (const auto& msg : this->_impl_.squares_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgBingoCard::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CMsgBingoCard::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgBingoCard::GetClassData() const { return &_class_data_; }
+
+
+void CMsgBingoCard::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CMsgBingoCard*>(&to_msg);
+  auto& from = static_cast<const CMsgBingoCard&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgBingoCard)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_impl_.squares_.MergeFrom(from._impl_.squares_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CMsgBingoCard::CopyFrom(const CMsgBingoCard& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgBingoCard)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgBingoCard::IsInitialized() const {
+  return true;
+}
+
+void CMsgBingoCard::InternalSwap(CMsgBingoCard* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.squares_.InternalSwap(&other->_impl_.squares_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgBingoCard::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_once,
+      file_level_metadata_dota_5fgcmessages_5fclient_5fbingo_2eproto[2]);
+}
+
+// ===================================================================
+
+class CMsgBingoUserData_BingoCardsEntry::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMsgBingoUserData_BingoCardsEntry>()._impl_._has_bits_);
+  static void set_has_key(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static const ::CMsgBingoCard& value(const CMsgBingoUserData_BingoCardsEntry* msg);
+  static void set_has_value(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+};
+
+const ::CMsgBingoCard&
+CMsgBingoUserData_BingoCardsEntry::_Internal::value(const CMsgBingoUserData_BingoCardsEntry* msg) {
+  return *msg->_impl_.value_;
+}
+CMsgBingoUserData_BingoCardsEntry::CMsgBingoUserData_BingoCardsEntry(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CMsgBingoUserData.BingoCardsEntry)
+}
+CMsgBingoUserData_BingoCardsEntry::CMsgBingoUserData_BingoCardsEntry(const CMsgBingoUserData_BingoCardsEntry& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CMsgBingoUserData_BingoCardsEntry* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.value_){nullptr}
+    , decltype(_impl_.key_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_value()) {
+    _this->_impl_.value_ = new ::CMsgBingoCard(*from._impl_.value_);
+  }
+  _this->_impl_.key_ = from._impl_.key_;
+  // @@protoc_insertion_point(copy_constructor:CMsgBingoUserData.BingoCardsEntry)
+}
+
+inline void CMsgBingoUserData_BingoCardsEntry::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.value_){nullptr}
+    , decltype(_impl_.key_){0u}
+  };
+}
+
+CMsgBingoUserData_BingoCardsEntry::~CMsgBingoUserData_BingoCardsEntry() {
+  // @@protoc_insertion_point(destructor:CMsgBingoUserData.BingoCardsEntry)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CMsgBingoUserData_BingoCardsEntry::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  if (this != internal_default_instance()) delete _impl_.value_;
+}
+
+void CMsgBingoUserData_BingoCardsEntry::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CMsgBingoUserData_BingoCardsEntry::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgBingoUserData.BingoCardsEntry)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    GOOGLE_DCHECK(_impl_.value_ != nullptr);
+    _impl_.value_->Clear();
+  }
+  _impl_.key_ = 0u;
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgBingoUserData_BingoCardsEntry::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional uint32 key = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _Internal::set_has_key(&has_bits);
+          _impl_.key_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional .CMsgBingoCard value = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_value(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CMsgBingoUserData_BingoCardsEntry::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgBingoUserData.BingoCardsEntry)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional uint32 key = 1;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_key(), target);
+  }
+
+  // optional .CMsgBingoCard value = 2;
+  if (cached_has_bits & 0x00000001u) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(2, _Internal::value(this),
+        _Internal::value(this).GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgBingoUserData.BingoCardsEntry)
+  return target;
+}
+
+size_t CMsgBingoUserData_BingoCardsEntry::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgBingoUserData.BingoCardsEntry)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    // optional .CMsgBingoCard value = 2;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.value_);
+    }
+
+    // optional uint32 key = 1;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_key());
+    }
+
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgBingoUserData_BingoCardsEntry::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CMsgBingoUserData_BingoCardsEntry::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgBingoUserData_BingoCardsEntry::GetClassData() const { return &_class_data_; }
+
+
+void CMsgBingoUserData_BingoCardsEntry::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CMsgBingoUserData_BingoCardsEntry*>(&to_msg);
+  auto& from = static_cast<const CMsgBingoUserData_BingoCardsEntry&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgBingoUserData.BingoCardsEntry)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      _this->_internal_mutable_value()->::CMsgBingoCard::MergeFrom(
+          from._internal_value());
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _this->_impl_.key_ = from._impl_.key_;
+    }
+    _this->_impl_._has_bits_[0] |= cached_has_bits;
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CMsgBingoUserData_BingoCardsEntry::CopyFrom(const CMsgBingoUserData_BingoCardsEntry& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgBingoUserData.BingoCardsEntry)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgBingoUserData_BingoCardsEntry::IsInitialized() const {
+  return true;
+}
+
+void CMsgBingoUserData_BingoCardsEntry::InternalSwap(CMsgBingoUserData_BingoCardsEntry* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CMsgBingoUserData_BingoCardsEntry, _impl_.key_)
+      + sizeof(CMsgBingoUserData_BingoCardsEntry::_impl_.key_)
+      - PROTOBUF_FIELD_OFFSET(CMsgBingoUserData_BingoCardsEntry, _impl_.value_)>(
+          reinterpret_cast<char*>(&_impl_.value_),
+          reinterpret_cast<char*>(&other->_impl_.value_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgBingoUserData_BingoCardsEntry::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_once,
+      file_level_metadata_dota_5fgcmessages_5fclient_5fbingo_2eproto[3]);
+}
+
+// ===================================================================
+
+class CMsgBingoUserData_BingoTokensEntry::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMsgBingoUserData_BingoTokensEntry>()._impl_._has_bits_);
+  static void set_has_key(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static const ::CMsgBingoTokens& value(const CMsgBingoUserData_BingoTokensEntry* msg);
+  static void set_has_value(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+};
+
+const ::CMsgBingoTokens&
+CMsgBingoUserData_BingoTokensEntry::_Internal::value(const CMsgBingoUserData_BingoTokensEntry* msg) {
+  return *msg->_impl_.value_;
+}
+CMsgBingoUserData_BingoTokensEntry::CMsgBingoUserData_BingoTokensEntry(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CMsgBingoUserData.BingoTokensEntry)
+}
+CMsgBingoUserData_BingoTokensEntry::CMsgBingoUserData_BingoTokensEntry(const CMsgBingoUserData_BingoTokensEntry& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CMsgBingoUserData_BingoTokensEntry* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.value_){nullptr}
+    , decltype(_impl_.key_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_value()) {
+    _this->_impl_.value_ = new ::CMsgBingoTokens(*from._impl_.value_);
+  }
+  _this->_impl_.key_ = from._impl_.key_;
+  // @@protoc_insertion_point(copy_constructor:CMsgBingoUserData.BingoTokensEntry)
+}
+
+inline void CMsgBingoUserData_BingoTokensEntry::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.value_){nullptr}
+    , decltype(_impl_.key_){0u}
+  };
+}
+
+CMsgBingoUserData_BingoTokensEntry::~CMsgBingoUserData_BingoTokensEntry() {
+  // @@protoc_insertion_point(destructor:CMsgBingoUserData.BingoTokensEntry)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CMsgBingoUserData_BingoTokensEntry::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  if (this != internal_default_instance()) delete _impl_.value_;
+}
+
+void CMsgBingoUserData_BingoTokensEntry::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CMsgBingoUserData_BingoTokensEntry::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgBingoUserData.BingoTokensEntry)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    GOOGLE_DCHECK(_impl_.value_ != nullptr);
+    _impl_.value_->Clear();
+  }
+  _impl_.key_ = 0u;
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgBingoUserData_BingoTokensEntry::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional uint32 key = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _Internal::set_has_key(&has_bits);
+          _impl_.key_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional .CMsgBingoTokens value = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_value(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CMsgBingoUserData_BingoTokensEntry::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgBingoUserData.BingoTokensEntry)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional uint32 key = 1;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_key(), target);
+  }
+
+  // optional .CMsgBingoTokens value = 2;
+  if (cached_has_bits & 0x00000001u) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(2, _Internal::value(this),
+        _Internal::value(this).GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgBingoUserData.BingoTokensEntry)
+  return target;
+}
+
+size_t CMsgBingoUserData_BingoTokensEntry::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgBingoUserData.BingoTokensEntry)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    // optional .CMsgBingoTokens value = 2;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.value_);
+    }
+
+    // optional uint32 key = 1;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_key());
+    }
+
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgBingoUserData_BingoTokensEntry::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CMsgBingoUserData_BingoTokensEntry::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgBingoUserData_BingoTokensEntry::GetClassData() const { return &_class_data_; }
+
+
+void CMsgBingoUserData_BingoTokensEntry::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CMsgBingoUserData_BingoTokensEntry*>(&to_msg);
+  auto& from = static_cast<const CMsgBingoUserData_BingoTokensEntry&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgBingoUserData.BingoTokensEntry)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      _this->_internal_mutable_value()->::CMsgBingoTokens::MergeFrom(
+          from._internal_value());
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _this->_impl_.key_ = from._impl_.key_;
+    }
+    _this->_impl_._has_bits_[0] |= cached_has_bits;
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CMsgBingoUserData_BingoTokensEntry::CopyFrom(const CMsgBingoUserData_BingoTokensEntry& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgBingoUserData.BingoTokensEntry)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgBingoUserData_BingoTokensEntry::IsInitialized() const {
+  return true;
+}
+
+void CMsgBingoUserData_BingoTokensEntry::InternalSwap(CMsgBingoUserData_BingoTokensEntry* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CMsgBingoUserData_BingoTokensEntry, _impl_.key_)
+      + sizeof(CMsgBingoUserData_BingoTokensEntry::_impl_.key_)
+      - PROTOBUF_FIELD_OFFSET(CMsgBingoUserData_BingoTokensEntry, _impl_.value_)>(
+          reinterpret_cast<char*>(&_impl_.value_),
+          reinterpret_cast<char*>(&other->_impl_.value_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgBingoUserData_BingoTokensEntry::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_once,
+      file_level_metadata_dota_5fgcmessages_5fclient_5fbingo_2eproto[4]);
+}
+
+// ===================================================================
+
+class CMsgBingoUserData::_Internal {
+ public:
+};
+
+CMsgBingoUserData::CMsgBingoUserData(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CMsgBingoUserData)
+}
+CMsgBingoUserData::CMsgBingoUserData(const CMsgBingoUserData& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CMsgBingoUserData* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.bingo_cards_){from._impl_.bingo_cards_}
+    , decltype(_impl_.bingo_tokens_){from._impl_.bingo_tokens_}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:CMsgBingoUserData)
+}
+
+inline void CMsgBingoUserData::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.bingo_cards_){arena}
+    , decltype(_impl_.bingo_tokens_){arena}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+}
+
+CMsgBingoUserData::~CMsgBingoUserData() {
+  // @@protoc_insertion_point(destructor:CMsgBingoUserData)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CMsgBingoUserData::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.bingo_cards_.~RepeatedPtrField();
+  _impl_.bingo_tokens_.~RepeatedPtrField();
+}
+
+void CMsgBingoUserData::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CMsgBingoUserData::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgBingoUserData)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.bingo_cards_.Clear();
+  _impl_.bingo_tokens_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgBingoUserData::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // repeated .CMsgBingoUserData.BingoCardsEntry bingo_cards = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_bingo_cards(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .CMsgBingoUserData.BingoTokensEntry bingo_tokens = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_bingo_tokens(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CMsgBingoUserData::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgBingoUserData)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .CMsgBingoUserData.BingoCardsEntry bingo_cards = 1;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_bingo_cards_size()); i < n; i++) {
+    const auto& repfield = this->_internal_bingo_cards(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  // repeated .CMsgBingoUserData.BingoTokensEntry bingo_tokens = 2;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_bingo_tokens_size()); i < n; i++) {
+    const auto& repfield = this->_internal_bingo_tokens(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(2, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -939,9 +2410,16 @@ size_t CMsgBingoUserData::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .CMsgBingoSquare squares = 1;
-  total_size += 1UL * this->_internal_squares_size();
-  for (const auto& msg : this->_impl_.squares_) {
+  // repeated .CMsgBingoUserData.BingoCardsEntry bingo_cards = 1;
+  total_size += 1UL * this->_internal_bingo_cards_size();
+  for (const auto& msg : this->_impl_.bingo_cards_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // repeated .CMsgBingoUserData.BingoTokensEntry bingo_tokens = 2;
+  total_size += 1UL * this->_internal_bingo_tokens_size();
+  for (const auto& msg : this->_impl_.bingo_tokens_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
@@ -964,7 +2442,8 @@ void CMsgBingoUserData::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, cons
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  _this->_impl_.squares_.MergeFrom(from._impl_.squares_);
+  _this->_impl_.bingo_cards_.MergeFrom(from._impl_.bingo_cards_);
+  _this->_impl_.bingo_tokens_.MergeFrom(from._impl_.bingo_tokens_);
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -982,13 +2461,14 @@ bool CMsgBingoUserData::IsInitialized() const {
 void CMsgBingoUserData::InternalSwap(CMsgBingoUserData* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  _impl_.squares_.InternalSwap(&other->_impl_.squares_);
+  _impl_.bingo_cards_.InternalSwap(&other->_impl_.bingo_cards_);
+  _impl_.bingo_tokens_.InternalSwap(&other->_impl_.bingo_tokens_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgBingoUserData::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fclient_5fbingo_2eproto[1]);
+      file_level_metadata_dota_5fgcmessages_5fclient_5fbingo_2eproto[5]);
 }
 
 // ===================================================================
@@ -998,9 +2478,6 @@ class CMsgClientToGCBingoGetUserData::_Internal {
   using HasBits = decltype(std::declval<CMsgClientToGCBingoGetUserData>()._impl_._has_bits_);
   static void set_has_league_id(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
-  }
-  static void set_has_league_phase(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
   }
 };
 
@@ -1016,13 +2493,10 @@ CMsgClientToGCBingoGetUserData::CMsgClientToGCBingoGetUserData(const CMsgClientT
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.league_id_){}
-    , decltype(_impl_.league_phase_){}};
+    , decltype(_impl_.league_id_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.league_id_, &from._impl_.league_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.league_phase_) -
-    reinterpret_cast<char*>(&_impl_.league_id_)) + sizeof(_impl_.league_phase_));
+  _this->_impl_.league_id_ = from._impl_.league_id_;
   // @@protoc_insertion_point(copy_constructor:CMsgClientToGCBingoGetUserData)
 }
 
@@ -1034,7 +2508,6 @@ inline void CMsgClientToGCBingoGetUserData::SharedCtor(
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.league_id_){0u}
-    , decltype(_impl_.league_phase_){0u}
   };
 }
 
@@ -1061,12 +2534,7 @@ void CMsgClientToGCBingoGetUserData::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
-    ::memset(&_impl_.league_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.league_phase_) -
-        reinterpret_cast<char*>(&_impl_.league_id_)) + sizeof(_impl_.league_phase_));
-  }
+  _impl_.league_id_ = 0u;
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -1083,15 +2551,6 @@ const char* CMsgClientToGCBingoGetUserData::_InternalParse(const char* ptr, ::_p
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_league_id(&has_bits);
           _impl_.league_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // optional uint32 league_phase = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          _Internal::set_has_league_phase(&has_bits);
-          _impl_.league_phase_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -1133,12 +2592,6 @@ uint8_t* CMsgClientToGCBingoGetUserData::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_league_id(), target);
   }
 
-  // optional uint32 league_phase = 2;
-  if (cached_has_bits & 0x00000002u) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_league_phase(), target);
-  }
-
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -1155,19 +2608,12 @@ size_t CMsgClientToGCBingoGetUserData::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  // optional uint32 league_id = 1;
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
-    // optional uint32 league_id = 1;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_league_id());
-    }
-
-    // optional uint32 league_phase = 2;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_league_phase());
-    }
-
+  if (cached_has_bits & 0x00000001u) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_league_id());
   }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -1186,15 +2632,8 @@ void CMsgClientToGCBingoGetUserData::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message&
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  cached_has_bits = from._impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
-    if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.league_id_ = from._impl_.league_id_;
-    }
-    if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.league_phase_ = from._impl_.league_phase_;
-    }
-    _this->_impl_._has_bits_[0] |= cached_has_bits;
+  if (from._internal_has_league_id()) {
+    _this->_internal_set_league_id(from._internal_league_id());
   }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -1214,18 +2653,13 @@ void CMsgClientToGCBingoGetUserData::InternalSwap(CMsgClientToGCBingoGetUserData
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CMsgClientToGCBingoGetUserData, _impl_.league_phase_)
-      + sizeof(CMsgClientToGCBingoGetUserData::_impl_.league_phase_)
-      - PROTOBUF_FIELD_OFFSET(CMsgClientToGCBingoGetUserData, _impl_.league_id_)>(
-          reinterpret_cast<char*>(&_impl_.league_id_),
-          reinterpret_cast<char*>(&other->_impl_.league_id_));
+  swap(_impl_.league_id_, other->_impl_.league_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientToGCBingoGetUserData::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fclient_5fbingo_2eproto[2]);
+      file_level_metadata_dota_5fgcmessages_5fclient_5fbingo_2eproto[6]);
 }
 
 // ===================================================================
@@ -1478,7 +2912,7 @@ void CMsgClientToGCBingoGetUserDataResponse::InternalSwap(CMsgClientToGCBingoGet
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientToGCBingoGetUserDataResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fclient_5fbingo_2eproto[3]);
+      file_level_metadata_dota_5fgcmessages_5fclient_5fbingo_2eproto[7]);
 }
 
 // ===================================================================
@@ -1715,7 +3149,7 @@ void CMsgBingoIndividualStatData::InternalSwap(CMsgBingoIndividualStatData* othe
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgBingoIndividualStatData::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fclient_5fbingo_2eproto[4]);
+      file_level_metadata_dota_5fgcmessages_5fclient_5fbingo_2eproto[8]);
 }
 
 // ===================================================================
@@ -1900,7 +3334,7 @@ void CMsgBingoStatsData::InternalSwap(CMsgBingoStatsData* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgBingoStatsData::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fclient_5fbingo_2eproto[5]);
+      file_level_metadata_dota_5fgcmessages_5fclient_5fbingo_2eproto[9]);
 }
 
 // ===================================================================
@@ -2137,7 +3571,7 @@ void CMsgClientToGCBingoGetStatsData::InternalSwap(CMsgClientToGCBingoGetStatsDa
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientToGCBingoGetStatsData::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fclient_5fbingo_2eproto[6]);
+      file_level_metadata_dota_5fgcmessages_5fclient_5fbingo_2eproto[10]);
 }
 
 // ===================================================================
@@ -2390,7 +3824,7 @@ void CMsgClientToGCBingoGetStatsDataResponse::InternalSwap(CMsgClientToGCBingoGe
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientToGCBingoGetStatsDataResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fclient_5fbingo_2eproto[7]);
+      file_level_metadata_dota_5fgcmessages_5fclient_5fbingo_2eproto[11]);
 }
 
 // ===================================================================
@@ -2400,9 +3834,6 @@ class CMsgGCToClientBingoUserDataUpdated::_Internal {
   using HasBits = decltype(std::declval<CMsgGCToClientBingoUserDataUpdated>()._impl_._has_bits_);
   static void set_has_league_id(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
-  }
-  static void set_has_league_phase(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
   }
   static const ::CMsgBingoUserData& user_data(const CMsgGCToClientBingoUserDataUpdated* msg);
   static void set_has_user_data(HasBits* has_bits) {
@@ -2427,16 +3858,13 @@ CMsgGCToClientBingoUserDataUpdated::CMsgGCToClientBingoUserDataUpdated(const CMs
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.user_data_){nullptr}
-    , decltype(_impl_.league_id_){}
-    , decltype(_impl_.league_phase_){}};
+    , decltype(_impl_.league_id_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_user_data()) {
     _this->_impl_.user_data_ = new ::CMsgBingoUserData(*from._impl_.user_data_);
   }
-  ::memcpy(&_impl_.league_id_, &from._impl_.league_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.league_phase_) -
-    reinterpret_cast<char*>(&_impl_.league_id_)) + sizeof(_impl_.league_phase_));
+  _this->_impl_.league_id_ = from._impl_.league_id_;
   // @@protoc_insertion_point(copy_constructor:CMsgGCToClientBingoUserDataUpdated)
 }
 
@@ -2449,7 +3877,6 @@ inline void CMsgGCToClientBingoUserDataUpdated::SharedCtor(
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.user_data_){nullptr}
     , decltype(_impl_.league_id_){0u}
-    , decltype(_impl_.league_phase_){0u}
   };
 }
 
@@ -2482,11 +3909,7 @@ void CMsgGCToClientBingoUserDataUpdated::Clear() {
     GOOGLE_DCHECK(_impl_.user_data_ != nullptr);
     _impl_.user_data_->Clear();
   }
-  if (cached_has_bits & 0x00000006u) {
-    ::memset(&_impl_.league_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.league_phase_) -
-        reinterpret_cast<char*>(&_impl_.league_id_)) + sizeof(_impl_.league_phase_));
-  }
+  _impl_.league_id_ = 0u;
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -2507,18 +3930,9 @@ const char* CMsgGCToClientBingoUserDataUpdated::_InternalParse(const char* ptr, 
         } else
           goto handle_unusual;
         continue;
-      // optional uint32 league_phase = 2;
+      // optional .CMsgBingoUserData user_data = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          _Internal::set_has_league_phase(&has_bits);
-          _impl_.league_phase_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // optional .CMsgBingoUserData user_data = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_user_data(), ptr);
           CHK_(ptr);
         } else
@@ -2561,16 +3975,10 @@ uint8_t* CMsgGCToClientBingoUserDataUpdated::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_league_id(), target);
   }
 
-  // optional uint32 league_phase = 2;
-  if (cached_has_bits & 0x00000004u) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_league_phase(), target);
-  }
-
-  // optional .CMsgBingoUserData user_data = 3;
+  // optional .CMsgBingoUserData user_data = 2;
   if (cached_has_bits & 0x00000001u) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(3, _Internal::user_data(this),
+      InternalWriteMessage(2, _Internal::user_data(this),
         _Internal::user_data(this).GetCachedSize(), target, stream);
   }
 
@@ -2591,8 +3999,8 @@ size_t CMsgGCToClientBingoUserDataUpdated::ByteSizeLong() const {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000007u) {
-    // optional .CMsgBingoUserData user_data = 3;
+  if (cached_has_bits & 0x00000003u) {
+    // optional .CMsgBingoUserData user_data = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -2602,11 +4010,6 @@ size_t CMsgGCToClientBingoUserDataUpdated::ByteSizeLong() const {
     // optional uint32 league_id = 1;
     if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_league_id());
-    }
-
-    // optional uint32 league_phase = 2;
-    if (cached_has_bits & 0x00000004u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_league_phase());
     }
 
   }
@@ -2629,16 +4032,13 @@ void CMsgGCToClientBingoUserDataUpdated::MergeImpl(::PROTOBUF_NAMESPACE_ID::Mess
   (void) cached_has_bits;
 
   cached_has_bits = from._impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000007u) {
+  if (cached_has_bits & 0x00000003u) {
     if (cached_has_bits & 0x00000001u) {
       _this->_internal_mutable_user_data()->::CMsgBingoUserData::MergeFrom(
           from._internal_user_data());
     }
     if (cached_has_bits & 0x00000002u) {
       _this->_impl_.league_id_ = from._impl_.league_id_;
-    }
-    if (cached_has_bits & 0x00000004u) {
-      _this->_impl_.league_phase_ = from._impl_.league_phase_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -2661,8 +4061,8 @@ void CMsgGCToClientBingoUserDataUpdated::InternalSwap(CMsgGCToClientBingoUserDat
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CMsgGCToClientBingoUserDataUpdated, _impl_.league_phase_)
-      + sizeof(CMsgGCToClientBingoUserDataUpdated::_impl_.league_phase_)
+      PROTOBUF_FIELD_OFFSET(CMsgGCToClientBingoUserDataUpdated, _impl_.league_id_)
+      + sizeof(CMsgGCToClientBingoUserDataUpdated::_impl_.league_id_)
       - PROTOBUF_FIELD_OFFSET(CMsgGCToClientBingoUserDataUpdated, _impl_.user_data_)>(
           reinterpret_cast<char*>(&_impl_.user_data_),
           reinterpret_cast<char*>(&other->_impl_.user_data_));
@@ -2671,7 +4071,7 @@ void CMsgGCToClientBingoUserDataUpdated::InternalSwap(CMsgGCToClientBingoUserDat
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCToClientBingoUserDataUpdated::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fclient_5fbingo_2eproto[8]);
+      file_level_metadata_dota_5fgcmessages_5fclient_5fbingo_2eproto[12]);
 }
 
 // ===================================================================
@@ -2936,7 +4336,7 @@ void CMsgClientToGCBingoClaimRow::InternalSwap(CMsgClientToGCBingoClaimRow* othe
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientToGCBingoClaimRow::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fclient_5fbingo_2eproto[9]);
+      file_level_metadata_dota_5fgcmessages_5fclient_5fbingo_2eproto[13]);
 }
 
 // ===================================================================
@@ -3133,7 +4533,937 @@ void CMsgClientToGCBingoClaimRowResponse::InternalSwap(CMsgClientToGCBingoClaimR
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientToGCBingoClaimRowResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fclient_5fbingo_2eproto[10]);
+      file_level_metadata_dota_5fgcmessages_5fclient_5fbingo_2eproto[14]);
+}
+
+// ===================================================================
+
+class CMsgClientToGCBingoShuffleCard::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMsgClientToGCBingoShuffleCard>()._impl_._has_bits_);
+  static void set_has_league_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_league_phase(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+};
+
+CMsgClientToGCBingoShuffleCard::CMsgClientToGCBingoShuffleCard(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CMsgClientToGCBingoShuffleCard)
+}
+CMsgClientToGCBingoShuffleCard::CMsgClientToGCBingoShuffleCard(const CMsgClientToGCBingoShuffleCard& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CMsgClientToGCBingoShuffleCard* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.league_id_){}
+    , decltype(_impl_.league_phase_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&_impl_.league_id_, &from._impl_.league_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.league_phase_) -
+    reinterpret_cast<char*>(&_impl_.league_id_)) + sizeof(_impl_.league_phase_));
+  // @@protoc_insertion_point(copy_constructor:CMsgClientToGCBingoShuffleCard)
+}
+
+inline void CMsgClientToGCBingoShuffleCard::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.league_id_){0u}
+    , decltype(_impl_.league_phase_){0u}
+  };
+}
+
+CMsgClientToGCBingoShuffleCard::~CMsgClientToGCBingoShuffleCard() {
+  // @@protoc_insertion_point(destructor:CMsgClientToGCBingoShuffleCard)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CMsgClientToGCBingoShuffleCard::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void CMsgClientToGCBingoShuffleCard::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CMsgClientToGCBingoShuffleCard::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgClientToGCBingoShuffleCard)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    ::memset(&_impl_.league_id_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.league_phase_) -
+        reinterpret_cast<char*>(&_impl_.league_id_)) + sizeof(_impl_.league_phase_));
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgClientToGCBingoShuffleCard::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional uint32 league_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _Internal::set_has_league_id(&has_bits);
+          _impl_.league_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 league_phase = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _Internal::set_has_league_phase(&has_bits);
+          _impl_.league_phase_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CMsgClientToGCBingoShuffleCard::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgClientToGCBingoShuffleCard)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional uint32 league_id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_league_id(), target);
+  }
+
+  // optional uint32 league_phase = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_league_phase(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgClientToGCBingoShuffleCard)
+  return target;
+}
+
+size_t CMsgClientToGCBingoShuffleCard::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgClientToGCBingoShuffleCard)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    // optional uint32 league_id = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_league_id());
+    }
+
+    // optional uint32 league_phase = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_league_phase());
+    }
+
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgClientToGCBingoShuffleCard::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CMsgClientToGCBingoShuffleCard::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgClientToGCBingoShuffleCard::GetClassData() const { return &_class_data_; }
+
+
+void CMsgClientToGCBingoShuffleCard::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CMsgClientToGCBingoShuffleCard*>(&to_msg);
+  auto& from = static_cast<const CMsgClientToGCBingoShuffleCard&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgClientToGCBingoShuffleCard)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      _this->_impl_.league_id_ = from._impl_.league_id_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _this->_impl_.league_phase_ = from._impl_.league_phase_;
+    }
+    _this->_impl_._has_bits_[0] |= cached_has_bits;
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CMsgClientToGCBingoShuffleCard::CopyFrom(const CMsgClientToGCBingoShuffleCard& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgClientToGCBingoShuffleCard)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgClientToGCBingoShuffleCard::IsInitialized() const {
+  return true;
+}
+
+void CMsgClientToGCBingoShuffleCard::InternalSwap(CMsgClientToGCBingoShuffleCard* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CMsgClientToGCBingoShuffleCard, _impl_.league_phase_)
+      + sizeof(CMsgClientToGCBingoShuffleCard::_impl_.league_phase_)
+      - PROTOBUF_FIELD_OFFSET(CMsgClientToGCBingoShuffleCard, _impl_.league_id_)>(
+          reinterpret_cast<char*>(&_impl_.league_id_),
+          reinterpret_cast<char*>(&other->_impl_.league_id_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientToGCBingoShuffleCard::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_once,
+      file_level_metadata_dota_5fgcmessages_5fclient_5fbingo_2eproto[15]);
+}
+
+// ===================================================================
+
+class CMsgClientToGCBingoShuffleCardResponse::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMsgClientToGCBingoShuffleCardResponse>()._impl_._has_bits_);
+  static void set_has_response(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+};
+
+CMsgClientToGCBingoShuffleCardResponse::CMsgClientToGCBingoShuffleCardResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CMsgClientToGCBingoShuffleCardResponse)
+}
+CMsgClientToGCBingoShuffleCardResponse::CMsgClientToGCBingoShuffleCardResponse(const CMsgClientToGCBingoShuffleCardResponse& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CMsgClientToGCBingoShuffleCardResponse* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.response_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_impl_.response_ = from._impl_.response_;
+  // @@protoc_insertion_point(copy_constructor:CMsgClientToGCBingoShuffleCardResponse)
+}
+
+inline void CMsgClientToGCBingoShuffleCardResponse::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.response_){0}
+  };
+}
+
+CMsgClientToGCBingoShuffleCardResponse::~CMsgClientToGCBingoShuffleCardResponse() {
+  // @@protoc_insertion_point(destructor:CMsgClientToGCBingoShuffleCardResponse)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CMsgClientToGCBingoShuffleCardResponse::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void CMsgClientToGCBingoShuffleCardResponse::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CMsgClientToGCBingoShuffleCardResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgClientToGCBingoShuffleCardResponse)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.response_ = 0;
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgClientToGCBingoShuffleCardResponse::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional .CMsgClientToGCBingoShuffleCardResponse.EResponse response = 1 [default = k_eInternalError];
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::CMsgClientToGCBingoShuffleCardResponse_EResponse_IsValid(val))) {
+            _internal_set_response(static_cast<::CMsgClientToGCBingoShuffleCardResponse_EResponse>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(1, val, mutable_unknown_fields());
+          }
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CMsgClientToGCBingoShuffleCardResponse::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgClientToGCBingoShuffleCardResponse)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional .CMsgClientToGCBingoShuffleCardResponse.EResponse response = 1 [default = k_eInternalError];
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
+      1, this->_internal_response(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgClientToGCBingoShuffleCardResponse)
+  return target;
+}
+
+size_t CMsgClientToGCBingoShuffleCardResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgClientToGCBingoShuffleCardResponse)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // optional .CMsgClientToGCBingoShuffleCardResponse.EResponse response = 1 [default = k_eInternalError];
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size += 1 +
+      ::_pbi::WireFormatLite::EnumSize(this->_internal_response());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgClientToGCBingoShuffleCardResponse::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CMsgClientToGCBingoShuffleCardResponse::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgClientToGCBingoShuffleCardResponse::GetClassData() const { return &_class_data_; }
+
+
+void CMsgClientToGCBingoShuffleCardResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CMsgClientToGCBingoShuffleCardResponse*>(&to_msg);
+  auto& from = static_cast<const CMsgClientToGCBingoShuffleCardResponse&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgClientToGCBingoShuffleCardResponse)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_has_response()) {
+    _this->_internal_set_response(from._internal_response());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CMsgClientToGCBingoShuffleCardResponse::CopyFrom(const CMsgClientToGCBingoShuffleCardResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgClientToGCBingoShuffleCardResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgClientToGCBingoShuffleCardResponse::IsInitialized() const {
+  return true;
+}
+
+void CMsgClientToGCBingoShuffleCardResponse::InternalSwap(CMsgClientToGCBingoShuffleCardResponse* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  swap(_impl_.response_, other->_impl_.response_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientToGCBingoShuffleCardResponse::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_once,
+      file_level_metadata_dota_5fgcmessages_5fclient_5fbingo_2eproto[16]);
+}
+
+// ===================================================================
+
+class CMsgClientToGCBingoModifySquare::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMsgClientToGCBingoModifySquare>()._impl_._has_bits_);
+  static void set_has_league_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_league_phase(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_square_index(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+  static void set_has_action(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
+  }
+};
+
+CMsgClientToGCBingoModifySquare::CMsgClientToGCBingoModifySquare(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CMsgClientToGCBingoModifySquare)
+}
+CMsgClientToGCBingoModifySquare::CMsgClientToGCBingoModifySquare(const CMsgClientToGCBingoModifySquare& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CMsgClientToGCBingoModifySquare* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.league_id_){}
+    , decltype(_impl_.league_phase_){}
+    , decltype(_impl_.square_index_){}
+    , decltype(_impl_.action_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&_impl_.league_id_, &from._impl_.league_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.action_) -
+    reinterpret_cast<char*>(&_impl_.league_id_)) + sizeof(_impl_.action_));
+  // @@protoc_insertion_point(copy_constructor:CMsgClientToGCBingoModifySquare)
+}
+
+inline void CMsgClientToGCBingoModifySquare::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.league_id_){0u}
+    , decltype(_impl_.league_phase_){0u}
+    , decltype(_impl_.square_index_){0u}
+    , decltype(_impl_.action_){0}
+  };
+}
+
+CMsgClientToGCBingoModifySquare::~CMsgClientToGCBingoModifySquare() {
+  // @@protoc_insertion_point(destructor:CMsgClientToGCBingoModifySquare)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CMsgClientToGCBingoModifySquare::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void CMsgClientToGCBingoModifySquare::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CMsgClientToGCBingoModifySquare::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgClientToGCBingoModifySquare)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x0000000fu) {
+    ::memset(&_impl_.league_id_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.action_) -
+        reinterpret_cast<char*>(&_impl_.league_id_)) + sizeof(_impl_.action_));
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgClientToGCBingoModifySquare::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional uint32 league_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _Internal::set_has_league_id(&has_bits);
+          _impl_.league_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 league_phase = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _Internal::set_has_league_phase(&has_bits);
+          _impl_.league_phase_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 square_index = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _Internal::set_has_square_index(&has_bits);
+          _impl_.square_index_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional .CMsgClientToGCBingoModifySquare.EModifyAction action = 4 [default = k_eRerollStat];
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::CMsgClientToGCBingoModifySquare_EModifyAction_IsValid(val))) {
+            _internal_set_action(static_cast<::CMsgClientToGCBingoModifySquare_EModifyAction>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(4, val, mutable_unknown_fields());
+          }
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CMsgClientToGCBingoModifySquare::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgClientToGCBingoModifySquare)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional uint32 league_id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_league_id(), target);
+  }
+
+  // optional uint32 league_phase = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_league_phase(), target);
+  }
+
+  // optional uint32 square_index = 3;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_square_index(), target);
+  }
+
+  // optional .CMsgClientToGCBingoModifySquare.EModifyAction action = 4 [default = k_eRerollStat];
+  if (cached_has_bits & 0x00000008u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
+      4, this->_internal_action(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgClientToGCBingoModifySquare)
+  return target;
+}
+
+size_t CMsgClientToGCBingoModifySquare::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgClientToGCBingoModifySquare)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x0000000fu) {
+    // optional uint32 league_id = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_league_id());
+    }
+
+    // optional uint32 league_phase = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_league_phase());
+    }
+
+    // optional uint32 square_index = 3;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_square_index());
+    }
+
+    // optional .CMsgClientToGCBingoModifySquare.EModifyAction action = 4 [default = k_eRerollStat];
+    if (cached_has_bits & 0x00000008u) {
+      total_size += 1 +
+        ::_pbi::WireFormatLite::EnumSize(this->_internal_action());
+    }
+
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgClientToGCBingoModifySquare::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CMsgClientToGCBingoModifySquare::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgClientToGCBingoModifySquare::GetClassData() const { return &_class_data_; }
+
+
+void CMsgClientToGCBingoModifySquare::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CMsgClientToGCBingoModifySquare*>(&to_msg);
+  auto& from = static_cast<const CMsgClientToGCBingoModifySquare&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgClientToGCBingoModifySquare)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x0000000fu) {
+    if (cached_has_bits & 0x00000001u) {
+      _this->_impl_.league_id_ = from._impl_.league_id_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _this->_impl_.league_phase_ = from._impl_.league_phase_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _this->_impl_.square_index_ = from._impl_.square_index_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      _this->_impl_.action_ = from._impl_.action_;
+    }
+    _this->_impl_._has_bits_[0] |= cached_has_bits;
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CMsgClientToGCBingoModifySquare::CopyFrom(const CMsgClientToGCBingoModifySquare& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgClientToGCBingoModifySquare)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgClientToGCBingoModifySquare::IsInitialized() const {
+  return true;
+}
+
+void CMsgClientToGCBingoModifySquare::InternalSwap(CMsgClientToGCBingoModifySquare* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CMsgClientToGCBingoModifySquare, _impl_.action_)
+      + sizeof(CMsgClientToGCBingoModifySquare::_impl_.action_)
+      - PROTOBUF_FIELD_OFFSET(CMsgClientToGCBingoModifySquare, _impl_.league_id_)>(
+          reinterpret_cast<char*>(&_impl_.league_id_),
+          reinterpret_cast<char*>(&other->_impl_.league_id_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientToGCBingoModifySquare::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_once,
+      file_level_metadata_dota_5fgcmessages_5fclient_5fbingo_2eproto[17]);
+}
+
+// ===================================================================
+
+class CMsgClientToGCBingoModifySquareResponse::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMsgClientToGCBingoModifySquareResponse>()._impl_._has_bits_);
+  static void set_has_response(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+};
+
+CMsgClientToGCBingoModifySquareResponse::CMsgClientToGCBingoModifySquareResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CMsgClientToGCBingoModifySquareResponse)
+}
+CMsgClientToGCBingoModifySquareResponse::CMsgClientToGCBingoModifySquareResponse(const CMsgClientToGCBingoModifySquareResponse& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CMsgClientToGCBingoModifySquareResponse* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.response_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_impl_.response_ = from._impl_.response_;
+  // @@protoc_insertion_point(copy_constructor:CMsgClientToGCBingoModifySquareResponse)
+}
+
+inline void CMsgClientToGCBingoModifySquareResponse::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.response_){0}
+  };
+}
+
+CMsgClientToGCBingoModifySquareResponse::~CMsgClientToGCBingoModifySquareResponse() {
+  // @@protoc_insertion_point(destructor:CMsgClientToGCBingoModifySquareResponse)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CMsgClientToGCBingoModifySquareResponse::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void CMsgClientToGCBingoModifySquareResponse::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CMsgClientToGCBingoModifySquareResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgClientToGCBingoModifySquareResponse)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.response_ = 0;
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgClientToGCBingoModifySquareResponse::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional .CMsgClientToGCBingoModifySquareResponse.EResponse response = 1 [default = k_eInternalError];
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::CMsgClientToGCBingoModifySquareResponse_EResponse_IsValid(val))) {
+            _internal_set_response(static_cast<::CMsgClientToGCBingoModifySquareResponse_EResponse>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(1, val, mutable_unknown_fields());
+          }
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CMsgClientToGCBingoModifySquareResponse::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgClientToGCBingoModifySquareResponse)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional .CMsgClientToGCBingoModifySquareResponse.EResponse response = 1 [default = k_eInternalError];
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
+      1, this->_internal_response(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgClientToGCBingoModifySquareResponse)
+  return target;
+}
+
+size_t CMsgClientToGCBingoModifySquareResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgClientToGCBingoModifySquareResponse)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // optional .CMsgClientToGCBingoModifySquareResponse.EResponse response = 1 [default = k_eInternalError];
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size += 1 +
+      ::_pbi::WireFormatLite::EnumSize(this->_internal_response());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgClientToGCBingoModifySquareResponse::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CMsgClientToGCBingoModifySquareResponse::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgClientToGCBingoModifySquareResponse::GetClassData() const { return &_class_data_; }
+
+
+void CMsgClientToGCBingoModifySquareResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CMsgClientToGCBingoModifySquareResponse*>(&to_msg);
+  auto& from = static_cast<const CMsgClientToGCBingoModifySquareResponse&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgClientToGCBingoModifySquareResponse)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_has_response()) {
+    _this->_internal_set_response(from._internal_response());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CMsgClientToGCBingoModifySquareResponse::CopyFrom(const CMsgClientToGCBingoModifySquareResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgClientToGCBingoModifySquareResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgClientToGCBingoModifySquareResponse::IsInitialized() const {
+  return true;
+}
+
+void CMsgClientToGCBingoModifySquareResponse::InternalSwap(CMsgClientToGCBingoModifySquareResponse* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  swap(_impl_.response_, other->_impl_.response_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientToGCBingoModifySquareResponse::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_once,
+      file_level_metadata_dota_5fgcmessages_5fclient_5fbingo_2eproto[18]);
 }
 
 // ===================================================================
@@ -3370,7 +5700,7 @@ void CMsgClientToGCBingoDevRerollCard::InternalSwap(CMsgClientToGCBingoDevReroll
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientToGCBingoDevRerollCard::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fclient_5fbingo_2eproto[11]);
+      file_level_metadata_dota_5fgcmessages_5fclient_5fbingo_2eproto[19]);
 }
 
 // ===================================================================
@@ -3567,7 +5897,857 @@ void CMsgClientToGCBingoDevRerollCardResponse::InternalSwap(CMsgClientToGCBingoD
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientToGCBingoDevRerollCardResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fclient_5fbingo_2eproto[12]);
+      file_level_metadata_dota_5fgcmessages_5fclient_5fbingo_2eproto[20]);
+}
+
+// ===================================================================
+
+class CMsgClientToGCBingoDevAddTokens::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMsgClientToGCBingoDevAddTokens>()._impl_._has_bits_);
+  static void set_has_league_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_league_phase(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_token_count(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+};
+
+CMsgClientToGCBingoDevAddTokens::CMsgClientToGCBingoDevAddTokens(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CMsgClientToGCBingoDevAddTokens)
+}
+CMsgClientToGCBingoDevAddTokens::CMsgClientToGCBingoDevAddTokens(const CMsgClientToGCBingoDevAddTokens& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CMsgClientToGCBingoDevAddTokens* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.league_id_){}
+    , decltype(_impl_.league_phase_){}
+    , decltype(_impl_.token_count_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&_impl_.league_id_, &from._impl_.league_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.token_count_) -
+    reinterpret_cast<char*>(&_impl_.league_id_)) + sizeof(_impl_.token_count_));
+  // @@protoc_insertion_point(copy_constructor:CMsgClientToGCBingoDevAddTokens)
+}
+
+inline void CMsgClientToGCBingoDevAddTokens::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.league_id_){0u}
+    , decltype(_impl_.league_phase_){0u}
+    , decltype(_impl_.token_count_){0}
+  };
+}
+
+CMsgClientToGCBingoDevAddTokens::~CMsgClientToGCBingoDevAddTokens() {
+  // @@protoc_insertion_point(destructor:CMsgClientToGCBingoDevAddTokens)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CMsgClientToGCBingoDevAddTokens::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void CMsgClientToGCBingoDevAddTokens::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CMsgClientToGCBingoDevAddTokens::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgClientToGCBingoDevAddTokens)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    ::memset(&_impl_.league_id_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.token_count_) -
+        reinterpret_cast<char*>(&_impl_.league_id_)) + sizeof(_impl_.token_count_));
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgClientToGCBingoDevAddTokens::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional uint32 league_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _Internal::set_has_league_id(&has_bits);
+          _impl_.league_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 league_phase = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _Internal::set_has_league_phase(&has_bits);
+          _impl_.league_phase_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional int32 token_count = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _Internal::set_has_token_count(&has_bits);
+          _impl_.token_count_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CMsgClientToGCBingoDevAddTokens::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgClientToGCBingoDevAddTokens)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional uint32 league_id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_league_id(), target);
+  }
+
+  // optional uint32 league_phase = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_league_phase(), target);
+  }
+
+  // optional int32 token_count = 3;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(3, this->_internal_token_count(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgClientToGCBingoDevAddTokens)
+  return target;
+}
+
+size_t CMsgClientToGCBingoDevAddTokens::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgClientToGCBingoDevAddTokens)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    // optional uint32 league_id = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_league_id());
+    }
+
+    // optional uint32 league_phase = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_league_phase());
+    }
+
+    // optional int32 token_count = 3;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_token_count());
+    }
+
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgClientToGCBingoDevAddTokens::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CMsgClientToGCBingoDevAddTokens::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgClientToGCBingoDevAddTokens::GetClassData() const { return &_class_data_; }
+
+
+void CMsgClientToGCBingoDevAddTokens::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CMsgClientToGCBingoDevAddTokens*>(&to_msg);
+  auto& from = static_cast<const CMsgClientToGCBingoDevAddTokens&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgClientToGCBingoDevAddTokens)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    if (cached_has_bits & 0x00000001u) {
+      _this->_impl_.league_id_ = from._impl_.league_id_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _this->_impl_.league_phase_ = from._impl_.league_phase_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _this->_impl_.token_count_ = from._impl_.token_count_;
+    }
+    _this->_impl_._has_bits_[0] |= cached_has_bits;
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CMsgClientToGCBingoDevAddTokens::CopyFrom(const CMsgClientToGCBingoDevAddTokens& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgClientToGCBingoDevAddTokens)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgClientToGCBingoDevAddTokens::IsInitialized() const {
+  return true;
+}
+
+void CMsgClientToGCBingoDevAddTokens::InternalSwap(CMsgClientToGCBingoDevAddTokens* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CMsgClientToGCBingoDevAddTokens, _impl_.token_count_)
+      + sizeof(CMsgClientToGCBingoDevAddTokens::_impl_.token_count_)
+      - PROTOBUF_FIELD_OFFSET(CMsgClientToGCBingoDevAddTokens, _impl_.league_id_)>(
+          reinterpret_cast<char*>(&_impl_.league_id_),
+          reinterpret_cast<char*>(&other->_impl_.league_id_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientToGCBingoDevAddTokens::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_once,
+      file_level_metadata_dota_5fgcmessages_5fclient_5fbingo_2eproto[21]);
+}
+
+// ===================================================================
+
+class CMsgClientToGCBingoDevAddTokensResponse::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMsgClientToGCBingoDevAddTokensResponse>()._impl_._has_bits_);
+  static void set_has_response(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+};
+
+CMsgClientToGCBingoDevAddTokensResponse::CMsgClientToGCBingoDevAddTokensResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CMsgClientToGCBingoDevAddTokensResponse)
+}
+CMsgClientToGCBingoDevAddTokensResponse::CMsgClientToGCBingoDevAddTokensResponse(const CMsgClientToGCBingoDevAddTokensResponse& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CMsgClientToGCBingoDevAddTokensResponse* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.response_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_impl_.response_ = from._impl_.response_;
+  // @@protoc_insertion_point(copy_constructor:CMsgClientToGCBingoDevAddTokensResponse)
+}
+
+inline void CMsgClientToGCBingoDevAddTokensResponse::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.response_){0}
+  };
+}
+
+CMsgClientToGCBingoDevAddTokensResponse::~CMsgClientToGCBingoDevAddTokensResponse() {
+  // @@protoc_insertion_point(destructor:CMsgClientToGCBingoDevAddTokensResponse)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CMsgClientToGCBingoDevAddTokensResponse::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void CMsgClientToGCBingoDevAddTokensResponse::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CMsgClientToGCBingoDevAddTokensResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgClientToGCBingoDevAddTokensResponse)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.response_ = 0;
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgClientToGCBingoDevAddTokensResponse::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional .CMsgClientToGCBingoDevAddTokensResponse.EResponse response = 1 [default = k_eInternalError];
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::CMsgClientToGCBingoDevAddTokensResponse_EResponse_IsValid(val))) {
+            _internal_set_response(static_cast<::CMsgClientToGCBingoDevAddTokensResponse_EResponse>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(1, val, mutable_unknown_fields());
+          }
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CMsgClientToGCBingoDevAddTokensResponse::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgClientToGCBingoDevAddTokensResponse)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional .CMsgClientToGCBingoDevAddTokensResponse.EResponse response = 1 [default = k_eInternalError];
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
+      1, this->_internal_response(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgClientToGCBingoDevAddTokensResponse)
+  return target;
+}
+
+size_t CMsgClientToGCBingoDevAddTokensResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgClientToGCBingoDevAddTokensResponse)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // optional .CMsgClientToGCBingoDevAddTokensResponse.EResponse response = 1 [default = k_eInternalError];
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size += 1 +
+      ::_pbi::WireFormatLite::EnumSize(this->_internal_response());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgClientToGCBingoDevAddTokensResponse::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CMsgClientToGCBingoDevAddTokensResponse::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgClientToGCBingoDevAddTokensResponse::GetClassData() const { return &_class_data_; }
+
+
+void CMsgClientToGCBingoDevAddTokensResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CMsgClientToGCBingoDevAddTokensResponse*>(&to_msg);
+  auto& from = static_cast<const CMsgClientToGCBingoDevAddTokensResponse&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgClientToGCBingoDevAddTokensResponse)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_has_response()) {
+    _this->_internal_set_response(from._internal_response());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CMsgClientToGCBingoDevAddTokensResponse::CopyFrom(const CMsgClientToGCBingoDevAddTokensResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgClientToGCBingoDevAddTokensResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgClientToGCBingoDevAddTokensResponse::IsInitialized() const {
+  return true;
+}
+
+void CMsgClientToGCBingoDevAddTokensResponse::InternalSwap(CMsgClientToGCBingoDevAddTokensResponse* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  swap(_impl_.response_, other->_impl_.response_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientToGCBingoDevAddTokensResponse::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_once,
+      file_level_metadata_dota_5fgcmessages_5fclient_5fbingo_2eproto[22]);
+}
+
+// ===================================================================
+
+class CMsgClientToGCBingoDevClearInventory::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMsgClientToGCBingoDevClearInventory>()._impl_._has_bits_);
+  static void set_has_league_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+};
+
+CMsgClientToGCBingoDevClearInventory::CMsgClientToGCBingoDevClearInventory(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CMsgClientToGCBingoDevClearInventory)
+}
+CMsgClientToGCBingoDevClearInventory::CMsgClientToGCBingoDevClearInventory(const CMsgClientToGCBingoDevClearInventory& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CMsgClientToGCBingoDevClearInventory* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.league_id_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_impl_.league_id_ = from._impl_.league_id_;
+  // @@protoc_insertion_point(copy_constructor:CMsgClientToGCBingoDevClearInventory)
+}
+
+inline void CMsgClientToGCBingoDevClearInventory::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.league_id_){0u}
+  };
+}
+
+CMsgClientToGCBingoDevClearInventory::~CMsgClientToGCBingoDevClearInventory() {
+  // @@protoc_insertion_point(destructor:CMsgClientToGCBingoDevClearInventory)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CMsgClientToGCBingoDevClearInventory::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void CMsgClientToGCBingoDevClearInventory::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CMsgClientToGCBingoDevClearInventory::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgClientToGCBingoDevClearInventory)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.league_id_ = 0u;
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgClientToGCBingoDevClearInventory::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional uint32 league_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _Internal::set_has_league_id(&has_bits);
+          _impl_.league_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CMsgClientToGCBingoDevClearInventory::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgClientToGCBingoDevClearInventory)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional uint32 league_id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_league_id(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgClientToGCBingoDevClearInventory)
+  return target;
+}
+
+size_t CMsgClientToGCBingoDevClearInventory::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgClientToGCBingoDevClearInventory)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // optional uint32 league_id = 1;
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_league_id());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgClientToGCBingoDevClearInventory::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CMsgClientToGCBingoDevClearInventory::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgClientToGCBingoDevClearInventory::GetClassData() const { return &_class_data_; }
+
+
+void CMsgClientToGCBingoDevClearInventory::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CMsgClientToGCBingoDevClearInventory*>(&to_msg);
+  auto& from = static_cast<const CMsgClientToGCBingoDevClearInventory&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgClientToGCBingoDevClearInventory)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_has_league_id()) {
+    _this->_internal_set_league_id(from._internal_league_id());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CMsgClientToGCBingoDevClearInventory::CopyFrom(const CMsgClientToGCBingoDevClearInventory& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgClientToGCBingoDevClearInventory)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgClientToGCBingoDevClearInventory::IsInitialized() const {
+  return true;
+}
+
+void CMsgClientToGCBingoDevClearInventory::InternalSwap(CMsgClientToGCBingoDevClearInventory* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  swap(_impl_.league_id_, other->_impl_.league_id_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientToGCBingoDevClearInventory::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_once,
+      file_level_metadata_dota_5fgcmessages_5fclient_5fbingo_2eproto[23]);
+}
+
+// ===================================================================
+
+class CMsgClientToGCBingoDevClearInventoryResponse::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMsgClientToGCBingoDevClearInventoryResponse>()._impl_._has_bits_);
+  static void set_has_response(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+};
+
+CMsgClientToGCBingoDevClearInventoryResponse::CMsgClientToGCBingoDevClearInventoryResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CMsgClientToGCBingoDevClearInventoryResponse)
+}
+CMsgClientToGCBingoDevClearInventoryResponse::CMsgClientToGCBingoDevClearInventoryResponse(const CMsgClientToGCBingoDevClearInventoryResponse& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CMsgClientToGCBingoDevClearInventoryResponse* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.response_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_impl_.response_ = from._impl_.response_;
+  // @@protoc_insertion_point(copy_constructor:CMsgClientToGCBingoDevClearInventoryResponse)
+}
+
+inline void CMsgClientToGCBingoDevClearInventoryResponse::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.response_){0}
+  };
+}
+
+CMsgClientToGCBingoDevClearInventoryResponse::~CMsgClientToGCBingoDevClearInventoryResponse() {
+  // @@protoc_insertion_point(destructor:CMsgClientToGCBingoDevClearInventoryResponse)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CMsgClientToGCBingoDevClearInventoryResponse::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void CMsgClientToGCBingoDevClearInventoryResponse::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CMsgClientToGCBingoDevClearInventoryResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgClientToGCBingoDevClearInventoryResponse)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.response_ = 0;
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgClientToGCBingoDevClearInventoryResponse::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional .CMsgClientToGCBingoDevClearInventoryResponse.EResponse response = 1 [default = k_eInternalError];
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::CMsgClientToGCBingoDevClearInventoryResponse_EResponse_IsValid(val))) {
+            _internal_set_response(static_cast<::CMsgClientToGCBingoDevClearInventoryResponse_EResponse>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(1, val, mutable_unknown_fields());
+          }
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CMsgClientToGCBingoDevClearInventoryResponse::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgClientToGCBingoDevClearInventoryResponse)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional .CMsgClientToGCBingoDevClearInventoryResponse.EResponse response = 1 [default = k_eInternalError];
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
+      1, this->_internal_response(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgClientToGCBingoDevClearInventoryResponse)
+  return target;
+}
+
+size_t CMsgClientToGCBingoDevClearInventoryResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgClientToGCBingoDevClearInventoryResponse)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // optional .CMsgClientToGCBingoDevClearInventoryResponse.EResponse response = 1 [default = k_eInternalError];
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size += 1 +
+      ::_pbi::WireFormatLite::EnumSize(this->_internal_response());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgClientToGCBingoDevClearInventoryResponse::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CMsgClientToGCBingoDevClearInventoryResponse::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgClientToGCBingoDevClearInventoryResponse::GetClassData() const { return &_class_data_; }
+
+
+void CMsgClientToGCBingoDevClearInventoryResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CMsgClientToGCBingoDevClearInventoryResponse*>(&to_msg);
+  auto& from = static_cast<const CMsgClientToGCBingoDevClearInventoryResponse&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgClientToGCBingoDevClearInventoryResponse)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_has_response()) {
+    _this->_internal_set_response(from._internal_response());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CMsgClientToGCBingoDevClearInventoryResponse::CopyFrom(const CMsgClientToGCBingoDevClearInventoryResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgClientToGCBingoDevClearInventoryResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgClientToGCBingoDevClearInventoryResponse::IsInitialized() const {
+  return true;
+}
+
+void CMsgClientToGCBingoDevClearInventoryResponse::InternalSwap(CMsgClientToGCBingoDevClearInventoryResponse* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  swap(_impl_.response_, other->_impl_.response_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientToGCBingoDevClearInventoryResponse::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto_once,
+      file_level_metadata_dota_5fgcmessages_5fclient_5fbingo_2eproto[24]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -3575,6 +6755,22 @@ PROTOBUF_NAMESPACE_OPEN
 template<> PROTOBUF_NOINLINE ::CMsgBingoSquare*
 Arena::CreateMaybeMessage< ::CMsgBingoSquare >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgBingoSquare >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMsgBingoTokens*
+Arena::CreateMaybeMessage< ::CMsgBingoTokens >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgBingoTokens >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMsgBingoCard*
+Arena::CreateMaybeMessage< ::CMsgBingoCard >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgBingoCard >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMsgBingoUserData_BingoCardsEntry*
+Arena::CreateMaybeMessage< ::CMsgBingoUserData_BingoCardsEntry >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgBingoUserData_BingoCardsEntry >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMsgBingoUserData_BingoTokensEntry*
+Arena::CreateMaybeMessage< ::CMsgBingoUserData_BingoTokensEntry >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgBingoUserData_BingoTokensEntry >(arena);
 }
 template<> PROTOBUF_NOINLINE ::CMsgBingoUserData*
 Arena::CreateMaybeMessage< ::CMsgBingoUserData >(Arena* arena) {
@@ -3616,6 +6812,22 @@ template<> PROTOBUF_NOINLINE ::CMsgClientToGCBingoClaimRowResponse*
 Arena::CreateMaybeMessage< ::CMsgClientToGCBingoClaimRowResponse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgClientToGCBingoClaimRowResponse >(arena);
 }
+template<> PROTOBUF_NOINLINE ::CMsgClientToGCBingoShuffleCard*
+Arena::CreateMaybeMessage< ::CMsgClientToGCBingoShuffleCard >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgClientToGCBingoShuffleCard >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMsgClientToGCBingoShuffleCardResponse*
+Arena::CreateMaybeMessage< ::CMsgClientToGCBingoShuffleCardResponse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgClientToGCBingoShuffleCardResponse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMsgClientToGCBingoModifySquare*
+Arena::CreateMaybeMessage< ::CMsgClientToGCBingoModifySquare >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgClientToGCBingoModifySquare >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMsgClientToGCBingoModifySquareResponse*
+Arena::CreateMaybeMessage< ::CMsgClientToGCBingoModifySquareResponse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgClientToGCBingoModifySquareResponse >(arena);
+}
 template<> PROTOBUF_NOINLINE ::CMsgClientToGCBingoDevRerollCard*
 Arena::CreateMaybeMessage< ::CMsgClientToGCBingoDevRerollCard >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgClientToGCBingoDevRerollCard >(arena);
@@ -3623,6 +6835,22 @@ Arena::CreateMaybeMessage< ::CMsgClientToGCBingoDevRerollCard >(Arena* arena) {
 template<> PROTOBUF_NOINLINE ::CMsgClientToGCBingoDevRerollCardResponse*
 Arena::CreateMaybeMessage< ::CMsgClientToGCBingoDevRerollCardResponse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgClientToGCBingoDevRerollCardResponse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMsgClientToGCBingoDevAddTokens*
+Arena::CreateMaybeMessage< ::CMsgClientToGCBingoDevAddTokens >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgClientToGCBingoDevAddTokens >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMsgClientToGCBingoDevAddTokensResponse*
+Arena::CreateMaybeMessage< ::CMsgClientToGCBingoDevAddTokensResponse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgClientToGCBingoDevAddTokensResponse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMsgClientToGCBingoDevClearInventory*
+Arena::CreateMaybeMessage< ::CMsgClientToGCBingoDevClearInventory >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgClientToGCBingoDevClearInventory >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMsgClientToGCBingoDevClearInventoryResponse*
+Arena::CreateMaybeMessage< ::CMsgClientToGCBingoDevClearInventoryResponse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgClientToGCBingoDevClearInventoryResponse >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

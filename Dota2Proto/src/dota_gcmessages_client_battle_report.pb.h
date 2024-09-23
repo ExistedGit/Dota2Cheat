@@ -923,6 +923,7 @@ class CMsgBattleReport_Game final :
     kLobbyTypeFieldNumber = 42,
     kTimePurchasedShardFieldNumber = 43,
     kTimePurchasedScepterFieldNumber = 44,
+    kSelectedFacetFieldNumber = 51,
     kRoleFieldNumber = 9,
     kLaneOutcomeFieldNumber = 11,
     kItem0FieldNumber = 45,
@@ -932,17 +933,17 @@ class CMsgBattleReport_Game final :
     kItem4FieldNumber = 49,
     kItem5FieldNumber = 50,
   };
-  // optional uint32 hero_id = 1;
+  // optional int32 hero_id = 1;
   bool has_hero_id() const;
   private:
   bool _internal_has_hero_id() const;
   public:
   void clear_hero_id();
-  uint32_t hero_id() const;
-  void set_hero_id(uint32_t value);
+  int32_t hero_id() const;
+  void set_hero_id(int32_t value);
   private:
-  uint32_t _internal_hero_id() const;
-  void _internal_set_hero_id(uint32_t value);
+  int32_t _internal_hero_id() const;
+  void _internal_set_hero_id(int32_t value);
   public:
 
   // optional uint32 kills = 2;
@@ -1465,6 +1466,19 @@ class CMsgBattleReport_Game final :
   void _internal_set_time_purchased_scepter(float value);
   public:
 
+  // optional uint32 selected_facet = 51;
+  bool has_selected_facet() const;
+  private:
+  bool _internal_has_selected_facet() const;
+  public:
+  void clear_selected_facet();
+  uint32_t selected_facet() const;
+  void set_selected_facet(uint32_t value);
+  private:
+  uint32_t _internal_selected_facet() const;
+  void _internal_set_selected_facet(uint32_t value);
+  public:
+
   // optional .CMsgBattleReport_Role role = 9 [default = k_eUnknownRole];
   bool has_role() const;
   private:
@@ -1579,7 +1593,7 @@ class CMsgBattleReport_Game final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<2> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    uint32_t hero_id_;
+    int32_t hero_id_;
     uint32_t kills_;
     uint32_t deaths_;
     uint32_t assists_;
@@ -1620,6 +1634,7 @@ class CMsgBattleReport_Game final :
     uint32_t lobby_type_;
     float time_purchased_shard_;
     float time_purchased_scepter_;
+    uint32_t selected_facet_;
     int role_;
     int lane_outcome_;
     int32_t item0_;
@@ -2207,17 +2222,17 @@ class CMsgBattleReport_Highlight final :
   void _internal_set_confidence(float value);
   public:
 
-  // optional uint32 hero_id = 7;
+  // optional int32 hero_id = 7;
   bool has_hero_id() const;
   private:
   bool _internal_has_hero_id() const;
   public:
   void clear_hero_id();
-  uint32_t hero_id() const;
-  void set_hero_id(uint32_t value);
+  int32_t hero_id() const;
+  void set_hero_id(int32_t value);
   private:
-  uint32_t _internal_hero_id() const;
-  void _internal_set_hero_id(uint32_t value);
+  int32_t _internal_hero_id() const;
+  void _internal_set_hero_id(int32_t value);
   public:
 
   // optional float comparison_delta_value = 9;
@@ -2290,7 +2305,7 @@ class CMsgBattleReport_Highlight final :
     int rarity_;
     float score_;
     float confidence_;
-    uint32_t hero_id_;
+    int32_t hero_id_;
     float comparison_delta_value_;
     int context_;
     int tier_;
@@ -2686,17 +2701,17 @@ class CMsgBattleReportInfo final :
   void _internal_set_acknowledged(bool value);
   public:
 
-  // optional uint32 featured_hero_id = 4;
+  // optional int32 featured_hero_id = 4;
   bool has_featured_hero_id() const;
   private:
   bool _internal_has_featured_hero_id() const;
   public:
   void clear_featured_hero_id();
-  uint32_t featured_hero_id() const;
-  void set_featured_hero_id(uint32_t value);
+  int32_t featured_hero_id() const;
+  void set_featured_hero_id(int32_t value);
   private:
-  uint32_t _internal_featured_hero_id() const;
-  void _internal_set_featured_hero_id(uint32_t value);
+  int32_t _internal_featured_hero_id() const;
+  void _internal_set_featured_hero_id(int32_t value);
   public:
 
   // optional uint32 featured_position = 5;
@@ -2739,7 +2754,7 @@ class CMsgBattleReportInfo final :
     uint32_t timestamp_;
     uint32_t duration_;
     bool acknowledged_;
-    uint32_t featured_hero_id_;
+    int32_t featured_hero_id_;
     uint32_t featured_position_;
     uint32_t games_played_;
   };
@@ -3879,17 +3894,17 @@ class CMsgBattleReportAggregateStats_CMsgBattleReportAggregate final :
       ::CMsgBattleReportAggregateStats_CMsgBattleReportStat* friendly_roshan_kills);
   ::CMsgBattleReportAggregateStats_CMsgBattleReportStat* unsafe_arena_release_friendly_roshan_kills();
 
-  // optional uint32 hero_id = 1;
+  // optional int32 hero_id = 1;
   bool has_hero_id() const;
   private:
   bool _internal_has_hero_id() const;
   public:
   void clear_hero_id();
-  uint32_t hero_id() const;
-  void set_hero_id(uint32_t value);
+  int32_t hero_id() const;
+  void set_hero_id(int32_t value);
   private:
-  uint32_t _internal_hero_id() const;
-  void _internal_set_hero_id(uint32_t value);
+  int32_t _internal_hero_id() const;
+  void _internal_set_hero_id(int32_t value);
   public:
 
   // optional uint32 predicted_position = 2;
@@ -3980,7 +3995,7 @@ class CMsgBattleReportAggregateStats_CMsgBattleReportAggregate final :
     ::CMsgBattleReportAggregateStats_CMsgBattleReportStat* stun_duration_;
     ::CMsgBattleReportAggregateStats_CMsgBattleReportStat* duration_;
     ::CMsgBattleReportAggregateStats_CMsgBattleReportStat* friendly_roshan_kills_;
-    uint32_t hero_id_;
+    int32_t hero_id_;
     uint32_t predicted_position_;
     uint32_t game_count_;
     uint32_t win_count_;
@@ -4684,17 +4699,17 @@ class CMsgClientToGCGetBattleReportAggregateStats_CMsgBattleReportAggregateKey f
     kHeroIdFieldNumber = 1,
     kPredictedPositionFieldNumber = 2,
   };
-  // optional uint32 hero_id = 1;
+  // optional int32 hero_id = 1;
   bool has_hero_id() const;
   private:
   bool _internal_has_hero_id() const;
   public:
   void clear_hero_id();
-  uint32_t hero_id() const;
-  void set_hero_id(uint32_t value);
+  int32_t hero_id() const;
+  void set_hero_id(int32_t value);
   private:
-  uint32_t _internal_hero_id() const;
-  void _internal_set_hero_id(uint32_t value);
+  int32_t _internal_hero_id() const;
+  void _internal_set_hero_id(int32_t value);
   public:
 
   // optional uint32 predicted_position = 2;
@@ -4720,7 +4735,7 @@ class CMsgClientToGCGetBattleReportAggregateStats_CMsgBattleReportAggregateKey f
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    uint32_t hero_id_;
+    int32_t hero_id_;
     uint32_t predicted_position_;
   };
   union { Impl_ _impl_; };
@@ -6458,7 +6473,7 @@ inline void CMsgClientToGCGetBattleReport::set_duration(uint32_t value) {
 
 // CMsgBattleReport_Game
 
-// optional uint32 hero_id = 1;
+// optional int32 hero_id = 1;
 inline bool CMsgBattleReport_Game::_internal_has_hero_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -6467,21 +6482,21 @@ inline bool CMsgBattleReport_Game::has_hero_id() const {
   return _internal_has_hero_id();
 }
 inline void CMsgBattleReport_Game::clear_hero_id() {
-  _impl_.hero_id_ = 0u;
+  _impl_.hero_id_ = 0;
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint32_t CMsgBattleReport_Game::_internal_hero_id() const {
+inline int32_t CMsgBattleReport_Game::_internal_hero_id() const {
   return _impl_.hero_id_;
 }
-inline uint32_t CMsgBattleReport_Game::hero_id() const {
+inline int32_t CMsgBattleReport_Game::hero_id() const {
   // @@protoc_insertion_point(field_get:CMsgBattleReport_Game.hero_id)
   return _internal_hero_id();
 }
-inline void CMsgBattleReport_Game::_internal_set_hero_id(uint32_t value) {
+inline void CMsgBattleReport_Game::_internal_set_hero_id(int32_t value) {
   _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.hero_id_ = value;
 }
-inline void CMsgBattleReport_Game::set_hero_id(uint32_t value) {
+inline void CMsgBattleReport_Game::set_hero_id(int32_t value) {
   _internal_set_hero_id(value);
   // @@protoc_insertion_point(field_set:CMsgBattleReport_Game.hero_id)
 }
@@ -6712,7 +6727,7 @@ inline void CMsgBattleReport_Game::set_xpm(uint32_t value) {
 
 // optional .CMsgBattleReport_Role role = 9 [default = k_eUnknownRole];
 inline bool CMsgBattleReport_Game::_internal_has_role() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000200u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000400u) != 0;
   return value;
 }
 inline bool CMsgBattleReport_Game::has_role() const {
@@ -6720,7 +6735,7 @@ inline bool CMsgBattleReport_Game::has_role() const {
 }
 inline void CMsgBattleReport_Game::clear_role() {
   _impl_.role_ = -1;
-  _impl_._has_bits_[1] &= ~0x00000200u;
+  _impl_._has_bits_[1] &= ~0x00000400u;
 }
 inline ::CMsgBattleReport_Role CMsgBattleReport_Game::_internal_role() const {
   return static_cast< ::CMsgBattleReport_Role >(_impl_.role_);
@@ -6731,7 +6746,7 @@ inline ::CMsgBattleReport_Role CMsgBattleReport_Game::role() const {
 }
 inline void CMsgBattleReport_Game::_internal_set_role(::CMsgBattleReport_Role value) {
   assert(::CMsgBattleReport_Role_IsValid(value));
-  _impl_._has_bits_[1] |= 0x00000200u;
+  _impl_._has_bits_[1] |= 0x00000400u;
   _impl_.role_ = value;
 }
 inline void CMsgBattleReport_Game::set_role(::CMsgBattleReport_Role value) {
@@ -6770,7 +6785,7 @@ inline void CMsgBattleReport_Game::set_outcome(::CMsgBattleReport_EOutcome value
 
 // optional .CMsgBattleReport_ELaneOutcome lane_outcome = 11 [default = k_eUnknownLaneOutcome];
 inline bool CMsgBattleReport_Game::_internal_has_lane_outcome() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000400u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000800u) != 0;
   return value;
 }
 inline bool CMsgBattleReport_Game::has_lane_outcome() const {
@@ -6778,7 +6793,7 @@ inline bool CMsgBattleReport_Game::has_lane_outcome() const {
 }
 inline void CMsgBattleReport_Game::clear_lane_outcome() {
   _impl_.lane_outcome_ = -1;
-  _impl_._has_bits_[1] &= ~0x00000400u;
+  _impl_._has_bits_[1] &= ~0x00000800u;
 }
 inline ::CMsgBattleReport_ELaneOutcome CMsgBattleReport_Game::_internal_lane_outcome() const {
   return static_cast< ::CMsgBattleReport_ELaneOutcome >(_impl_.lane_outcome_);
@@ -6789,7 +6804,7 @@ inline ::CMsgBattleReport_ELaneOutcome CMsgBattleReport_Game::lane_outcome() con
 }
 inline void CMsgBattleReport_Game::_internal_set_lane_outcome(::CMsgBattleReport_ELaneOutcome value) {
   assert(::CMsgBattleReport_ELaneOutcome_IsValid(value));
-  _impl_._has_bits_[1] |= 0x00000400u;
+  _impl_._has_bits_[1] |= 0x00000800u;
   _impl_.lane_outcome_ = value;
 }
 inline void CMsgBattleReport_Game::set_lane_outcome(::CMsgBattleReport_ELaneOutcome value) {
@@ -7667,7 +7682,7 @@ inline void CMsgBattleReport_Game::set_time_purchased_scepter(float value) {
 
 // optional int32 item0 = 45 [default = -1];
 inline bool CMsgBattleReport_Game::_internal_has_item0() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000800u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00001000u) != 0;
   return value;
 }
 inline bool CMsgBattleReport_Game::has_item0() const {
@@ -7675,7 +7690,7 @@ inline bool CMsgBattleReport_Game::has_item0() const {
 }
 inline void CMsgBattleReport_Game::clear_item0() {
   _impl_.item0_ = -1;
-  _impl_._has_bits_[1] &= ~0x00000800u;
+  _impl_._has_bits_[1] &= ~0x00001000u;
 }
 inline int32_t CMsgBattleReport_Game::_internal_item0() const {
   return _impl_.item0_;
@@ -7685,7 +7700,7 @@ inline int32_t CMsgBattleReport_Game::item0() const {
   return _internal_item0();
 }
 inline void CMsgBattleReport_Game::_internal_set_item0(int32_t value) {
-  _impl_._has_bits_[1] |= 0x00000800u;
+  _impl_._has_bits_[1] |= 0x00001000u;
   _impl_.item0_ = value;
 }
 inline void CMsgBattleReport_Game::set_item0(int32_t value) {
@@ -7695,7 +7710,7 @@ inline void CMsgBattleReport_Game::set_item0(int32_t value) {
 
 // optional int32 item1 = 46 [default = -1];
 inline bool CMsgBattleReport_Game::_internal_has_item1() const {
-  bool value = (_impl_._has_bits_[1] & 0x00001000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00002000u) != 0;
   return value;
 }
 inline bool CMsgBattleReport_Game::has_item1() const {
@@ -7703,7 +7718,7 @@ inline bool CMsgBattleReport_Game::has_item1() const {
 }
 inline void CMsgBattleReport_Game::clear_item1() {
   _impl_.item1_ = -1;
-  _impl_._has_bits_[1] &= ~0x00001000u;
+  _impl_._has_bits_[1] &= ~0x00002000u;
 }
 inline int32_t CMsgBattleReport_Game::_internal_item1() const {
   return _impl_.item1_;
@@ -7713,7 +7728,7 @@ inline int32_t CMsgBattleReport_Game::item1() const {
   return _internal_item1();
 }
 inline void CMsgBattleReport_Game::_internal_set_item1(int32_t value) {
-  _impl_._has_bits_[1] |= 0x00001000u;
+  _impl_._has_bits_[1] |= 0x00002000u;
   _impl_.item1_ = value;
 }
 inline void CMsgBattleReport_Game::set_item1(int32_t value) {
@@ -7723,7 +7738,7 @@ inline void CMsgBattleReport_Game::set_item1(int32_t value) {
 
 // optional int32 item2 = 47 [default = -1];
 inline bool CMsgBattleReport_Game::_internal_has_item2() const {
-  bool value = (_impl_._has_bits_[1] & 0x00002000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00004000u) != 0;
   return value;
 }
 inline bool CMsgBattleReport_Game::has_item2() const {
@@ -7731,7 +7746,7 @@ inline bool CMsgBattleReport_Game::has_item2() const {
 }
 inline void CMsgBattleReport_Game::clear_item2() {
   _impl_.item2_ = -1;
-  _impl_._has_bits_[1] &= ~0x00002000u;
+  _impl_._has_bits_[1] &= ~0x00004000u;
 }
 inline int32_t CMsgBattleReport_Game::_internal_item2() const {
   return _impl_.item2_;
@@ -7741,7 +7756,7 @@ inline int32_t CMsgBattleReport_Game::item2() const {
   return _internal_item2();
 }
 inline void CMsgBattleReport_Game::_internal_set_item2(int32_t value) {
-  _impl_._has_bits_[1] |= 0x00002000u;
+  _impl_._has_bits_[1] |= 0x00004000u;
   _impl_.item2_ = value;
 }
 inline void CMsgBattleReport_Game::set_item2(int32_t value) {
@@ -7751,7 +7766,7 @@ inline void CMsgBattleReport_Game::set_item2(int32_t value) {
 
 // optional int32 item3 = 48 [default = -1];
 inline bool CMsgBattleReport_Game::_internal_has_item3() const {
-  bool value = (_impl_._has_bits_[1] & 0x00004000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00008000u) != 0;
   return value;
 }
 inline bool CMsgBattleReport_Game::has_item3() const {
@@ -7759,7 +7774,7 @@ inline bool CMsgBattleReport_Game::has_item3() const {
 }
 inline void CMsgBattleReport_Game::clear_item3() {
   _impl_.item3_ = -1;
-  _impl_._has_bits_[1] &= ~0x00004000u;
+  _impl_._has_bits_[1] &= ~0x00008000u;
 }
 inline int32_t CMsgBattleReport_Game::_internal_item3() const {
   return _impl_.item3_;
@@ -7769,7 +7784,7 @@ inline int32_t CMsgBattleReport_Game::item3() const {
   return _internal_item3();
 }
 inline void CMsgBattleReport_Game::_internal_set_item3(int32_t value) {
-  _impl_._has_bits_[1] |= 0x00004000u;
+  _impl_._has_bits_[1] |= 0x00008000u;
   _impl_.item3_ = value;
 }
 inline void CMsgBattleReport_Game::set_item3(int32_t value) {
@@ -7779,7 +7794,7 @@ inline void CMsgBattleReport_Game::set_item3(int32_t value) {
 
 // optional int32 item4 = 49 [default = -1];
 inline bool CMsgBattleReport_Game::_internal_has_item4() const {
-  bool value = (_impl_._has_bits_[1] & 0x00008000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00010000u) != 0;
   return value;
 }
 inline bool CMsgBattleReport_Game::has_item4() const {
@@ -7787,7 +7802,7 @@ inline bool CMsgBattleReport_Game::has_item4() const {
 }
 inline void CMsgBattleReport_Game::clear_item4() {
   _impl_.item4_ = -1;
-  _impl_._has_bits_[1] &= ~0x00008000u;
+  _impl_._has_bits_[1] &= ~0x00010000u;
 }
 inline int32_t CMsgBattleReport_Game::_internal_item4() const {
   return _impl_.item4_;
@@ -7797,7 +7812,7 @@ inline int32_t CMsgBattleReport_Game::item4() const {
   return _internal_item4();
 }
 inline void CMsgBattleReport_Game::_internal_set_item4(int32_t value) {
-  _impl_._has_bits_[1] |= 0x00008000u;
+  _impl_._has_bits_[1] |= 0x00010000u;
   _impl_.item4_ = value;
 }
 inline void CMsgBattleReport_Game::set_item4(int32_t value) {
@@ -7807,7 +7822,7 @@ inline void CMsgBattleReport_Game::set_item4(int32_t value) {
 
 // optional int32 item5 = 50 [default = -1];
 inline bool CMsgBattleReport_Game::_internal_has_item5() const {
-  bool value = (_impl_._has_bits_[1] & 0x00010000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00020000u) != 0;
   return value;
 }
 inline bool CMsgBattleReport_Game::has_item5() const {
@@ -7815,7 +7830,7 @@ inline bool CMsgBattleReport_Game::has_item5() const {
 }
 inline void CMsgBattleReport_Game::clear_item5() {
   _impl_.item5_ = -1;
-  _impl_._has_bits_[1] &= ~0x00010000u;
+  _impl_._has_bits_[1] &= ~0x00020000u;
 }
 inline int32_t CMsgBattleReport_Game::_internal_item5() const {
   return _impl_.item5_;
@@ -7825,12 +7840,40 @@ inline int32_t CMsgBattleReport_Game::item5() const {
   return _internal_item5();
 }
 inline void CMsgBattleReport_Game::_internal_set_item5(int32_t value) {
-  _impl_._has_bits_[1] |= 0x00010000u;
+  _impl_._has_bits_[1] |= 0x00020000u;
   _impl_.item5_ = value;
 }
 inline void CMsgBattleReport_Game::set_item5(int32_t value) {
   _internal_set_item5(value);
   // @@protoc_insertion_point(field_set:CMsgBattleReport_Game.item5)
+}
+
+// optional uint32 selected_facet = 51;
+inline bool CMsgBattleReport_Game::_internal_has_selected_facet() const {
+  bool value = (_impl_._has_bits_[1] & 0x00000200u) != 0;
+  return value;
+}
+inline bool CMsgBattleReport_Game::has_selected_facet() const {
+  return _internal_has_selected_facet();
+}
+inline void CMsgBattleReport_Game::clear_selected_facet() {
+  _impl_.selected_facet_ = 0u;
+  _impl_._has_bits_[1] &= ~0x00000200u;
+}
+inline uint32_t CMsgBattleReport_Game::_internal_selected_facet() const {
+  return _impl_.selected_facet_;
+}
+inline uint32_t CMsgBattleReport_Game::selected_facet() const {
+  // @@protoc_insertion_point(field_get:CMsgBattleReport_Game.selected_facet)
+  return _internal_selected_facet();
+}
+inline void CMsgBattleReport_Game::_internal_set_selected_facet(uint32_t value) {
+  _impl_._has_bits_[1] |= 0x00000200u;
+  _impl_.selected_facet_ = value;
+}
+inline void CMsgBattleReport_Game::set_selected_facet(uint32_t value) {
+  _internal_set_selected_facet(value);
+  // @@protoc_insertion_point(field_set:CMsgBattleReport_Game.selected_facet)
 }
 
 // -------------------------------------------------------------------
@@ -8168,7 +8211,7 @@ inline void CMsgBattleReport_Highlight::set_confidence(float value) {
   // @@protoc_insertion_point(field_set:CMsgBattleReport.Highlight.confidence)
 }
 
-// optional uint32 hero_id = 7;
+// optional int32 hero_id = 7;
 inline bool CMsgBattleReport_Highlight::_internal_has_hero_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -8177,21 +8220,21 @@ inline bool CMsgBattleReport_Highlight::has_hero_id() const {
   return _internal_has_hero_id();
 }
 inline void CMsgBattleReport_Highlight::clear_hero_id() {
-  _impl_.hero_id_ = 0u;
+  _impl_.hero_id_ = 0;
   _impl_._has_bits_[0] &= ~0x00000020u;
 }
-inline uint32_t CMsgBattleReport_Highlight::_internal_hero_id() const {
+inline int32_t CMsgBattleReport_Highlight::_internal_hero_id() const {
   return _impl_.hero_id_;
 }
-inline uint32_t CMsgBattleReport_Highlight::hero_id() const {
+inline int32_t CMsgBattleReport_Highlight::hero_id() const {
   // @@protoc_insertion_point(field_get:CMsgBattleReport.Highlight.hero_id)
   return _internal_hero_id();
 }
-inline void CMsgBattleReport_Highlight::_internal_set_hero_id(uint32_t value) {
+inline void CMsgBattleReport_Highlight::_internal_set_hero_id(int32_t value) {
   _impl_._has_bits_[0] |= 0x00000020u;
   _impl_.hero_id_ = value;
 }
-inline void CMsgBattleReport_Highlight::set_hero_id(uint32_t value) {
+inline void CMsgBattleReport_Highlight::set_hero_id(int32_t value) {
   _internal_set_hero_id(value);
   // @@protoc_insertion_point(field_set:CMsgBattleReport.Highlight.hero_id)
 }
@@ -8504,7 +8547,7 @@ inline void CMsgBattleReportInfo::set_acknowledged(bool value) {
   // @@protoc_insertion_point(field_set:CMsgBattleReportInfo.acknowledged)
 }
 
-// optional uint32 featured_hero_id = 4;
+// optional int32 featured_hero_id = 4;
 inline bool CMsgBattleReportInfo::_internal_has_featured_hero_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -8513,21 +8556,21 @@ inline bool CMsgBattleReportInfo::has_featured_hero_id() const {
   return _internal_has_featured_hero_id();
 }
 inline void CMsgBattleReportInfo::clear_featured_hero_id() {
-  _impl_.featured_hero_id_ = 0u;
+  _impl_.featured_hero_id_ = 0;
   _impl_._has_bits_[0] &= ~0x00000008u;
 }
-inline uint32_t CMsgBattleReportInfo::_internal_featured_hero_id() const {
+inline int32_t CMsgBattleReportInfo::_internal_featured_hero_id() const {
   return _impl_.featured_hero_id_;
 }
-inline uint32_t CMsgBattleReportInfo::featured_hero_id() const {
+inline int32_t CMsgBattleReportInfo::featured_hero_id() const {
   // @@protoc_insertion_point(field_get:CMsgBattleReportInfo.featured_hero_id)
   return _internal_featured_hero_id();
 }
-inline void CMsgBattleReportInfo::_internal_set_featured_hero_id(uint32_t value) {
+inline void CMsgBattleReportInfo::_internal_set_featured_hero_id(int32_t value) {
   _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.featured_hero_id_ = value;
 }
-inline void CMsgBattleReportInfo::set_featured_hero_id(uint32_t value) {
+inline void CMsgBattleReportInfo::set_featured_hero_id(int32_t value) {
   _internal_set_featured_hero_id(value);
   // @@protoc_insertion_point(field_set:CMsgBattleReportInfo.featured_hero_id)
 }
@@ -8787,7 +8830,7 @@ inline void CMsgBattleReportAggregateStats_CMsgBattleReportStat::set_stdev(float
 
 // CMsgBattleReportAggregateStats_CMsgBattleReportAggregate
 
-// optional uint32 hero_id = 1;
+// optional int32 hero_id = 1;
 inline bool CMsgBattleReportAggregateStats_CMsgBattleReportAggregate::_internal_has_hero_id() const {
   bool value = (_impl_._has_bits_[0] & 0x04000000u) != 0;
   return value;
@@ -8796,21 +8839,21 @@ inline bool CMsgBattleReportAggregateStats_CMsgBattleReportAggregate::has_hero_i
   return _internal_has_hero_id();
 }
 inline void CMsgBattleReportAggregateStats_CMsgBattleReportAggregate::clear_hero_id() {
-  _impl_.hero_id_ = 0u;
+  _impl_.hero_id_ = 0;
   _impl_._has_bits_[0] &= ~0x04000000u;
 }
-inline uint32_t CMsgBattleReportAggregateStats_CMsgBattleReportAggregate::_internal_hero_id() const {
+inline int32_t CMsgBattleReportAggregateStats_CMsgBattleReportAggregate::_internal_hero_id() const {
   return _impl_.hero_id_;
 }
-inline uint32_t CMsgBattleReportAggregateStats_CMsgBattleReportAggregate::hero_id() const {
+inline int32_t CMsgBattleReportAggregateStats_CMsgBattleReportAggregate::hero_id() const {
   // @@protoc_insertion_point(field_get:CMsgBattleReportAggregateStats.CMsgBattleReportAggregate.hero_id)
   return _internal_hero_id();
 }
-inline void CMsgBattleReportAggregateStats_CMsgBattleReportAggregate::_internal_set_hero_id(uint32_t value) {
+inline void CMsgBattleReportAggregateStats_CMsgBattleReportAggregate::_internal_set_hero_id(int32_t value) {
   _impl_._has_bits_[0] |= 0x04000000u;
   _impl_.hero_id_ = value;
 }
-inline void CMsgBattleReportAggregateStats_CMsgBattleReportAggregate::set_hero_id(uint32_t value) {
+inline void CMsgBattleReportAggregateStats_CMsgBattleReportAggregate::set_hero_id(int32_t value) {
   _internal_set_hero_id(value);
   // @@protoc_insertion_point(field_set:CMsgBattleReportAggregateStats.CMsgBattleReportAggregate.hero_id)
 }
@@ -11622,7 +11665,7 @@ inline void CMsgClientToGCGetBattleReportResponse::set_allocated_info(::CMsgBatt
 
 // CMsgClientToGCGetBattleReportAggregateStats_CMsgBattleReportAggregateKey
 
-// optional uint32 hero_id = 1;
+// optional int32 hero_id = 1;
 inline bool CMsgClientToGCGetBattleReportAggregateStats_CMsgBattleReportAggregateKey::_internal_has_hero_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -11631,21 +11674,21 @@ inline bool CMsgClientToGCGetBattleReportAggregateStats_CMsgBattleReportAggregat
   return _internal_has_hero_id();
 }
 inline void CMsgClientToGCGetBattleReportAggregateStats_CMsgBattleReportAggregateKey::clear_hero_id() {
-  _impl_.hero_id_ = 0u;
+  _impl_.hero_id_ = 0;
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint32_t CMsgClientToGCGetBattleReportAggregateStats_CMsgBattleReportAggregateKey::_internal_hero_id() const {
+inline int32_t CMsgClientToGCGetBattleReportAggregateStats_CMsgBattleReportAggregateKey::_internal_hero_id() const {
   return _impl_.hero_id_;
 }
-inline uint32_t CMsgClientToGCGetBattleReportAggregateStats_CMsgBattleReportAggregateKey::hero_id() const {
+inline int32_t CMsgClientToGCGetBattleReportAggregateStats_CMsgBattleReportAggregateKey::hero_id() const {
   // @@protoc_insertion_point(field_get:CMsgClientToGCGetBattleReportAggregateStats.CMsgBattleReportAggregateKey.hero_id)
   return _internal_hero_id();
 }
-inline void CMsgClientToGCGetBattleReportAggregateStats_CMsgBattleReportAggregateKey::_internal_set_hero_id(uint32_t value) {
+inline void CMsgClientToGCGetBattleReportAggregateStats_CMsgBattleReportAggregateKey::_internal_set_hero_id(int32_t value) {
   _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.hero_id_ = value;
 }
-inline void CMsgClientToGCGetBattleReportAggregateStats_CMsgBattleReportAggregateKey::set_hero_id(uint32_t value) {
+inline void CMsgClientToGCGetBattleReportAggregateStats_CMsgBattleReportAggregateKey::set_hero_id(int32_t value) {
   _internal_set_hero_id(value);
   // @@protoc_insertion_point(field_set:CMsgClientToGCGetBattleReportAggregateStats.CMsgBattleReportAggregateKey.hero_id)
 }

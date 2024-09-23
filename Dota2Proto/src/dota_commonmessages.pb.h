@@ -190,11 +190,12 @@ enum dotaunitorder_t : int {
   DOTA_UNIT_ORDER_DROP_ITEM_AT_FOUNTAIN = 37,
   DOTA_UNIT_ORDER_TAKE_ITEM_FROM_NEUTRAL_ITEM_STASH = 38,
   DOTA_UNIT_ORDER_MOVE_RELATIVE = 39,
-  DOTA_UNIT_ORDER_CAST_TOGGLE_ALT = 40
+  DOTA_UNIT_ORDER_CAST_TOGGLE_ALT = 40,
+  DOTA_UNIT_ORDER_CONSUME_ITEM = 41
 };
 bool dotaunitorder_t_IsValid(int value);
 constexpr dotaunitorder_t dotaunitorder_t_MIN = DOTA_UNIT_ORDER_NONE;
-constexpr dotaunitorder_t dotaunitorder_t_MAX = DOTA_UNIT_ORDER_CAST_TOGGLE_ALT;
+constexpr dotaunitorder_t dotaunitorder_t_MAX = DOTA_UNIT_ORDER_CONSUME_ITEM;
 constexpr int dotaunitorder_t_ARRAYSIZE = dotaunitorder_t_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* dotaunitorder_t_descriptor();

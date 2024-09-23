@@ -606,6 +606,7 @@ class CGCStorePurchaseInit_LineItem final :
     kCostInLocalCurrencyFieldNumber = 3,
     kPurchaseTypeFieldNumber = 4,
     kSourceReferenceIdFieldNumber = 5,
+    kPriceIndexFieldNumber = 6,
   };
   // optional uint32 item_def_id = 1;
   bool has_item_def_id() const;
@@ -672,6 +673,19 @@ class CGCStorePurchaseInit_LineItem final :
   void _internal_set_source_reference_id(uint64_t value);
   public:
 
+  // optional int32 price_index = 6;
+  bool has_price_index() const;
+  private:
+  bool _internal_has_price_index() const;
+  public:
+  void clear_price_index();
+  int32_t price_index() const;
+  void set_price_index(int32_t value);
+  private:
+  int32_t _internal_price_index() const;
+  void _internal_set_price_index(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CGCStorePurchaseInit_LineItem)
  private:
   class _Internal;
@@ -687,6 +701,7 @@ class CGCStorePurchaseInit_LineItem final :
     uint32_t cost_in_local_currency_;
     uint32_t purchase_type_;
     uint64_t source_reference_id_;
+    int32_t price_index_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_base_5fgcmessages_2eproto;
@@ -11773,6 +11788,34 @@ inline void CGCStorePurchaseInit_LineItem::_internal_set_source_reference_id(uin
 inline void CGCStorePurchaseInit_LineItem::set_source_reference_id(uint64_t value) {
   _internal_set_source_reference_id(value);
   // @@protoc_insertion_point(field_set:CGCStorePurchaseInit_LineItem.source_reference_id)
+}
+
+// optional int32 price_index = 6;
+inline bool CGCStorePurchaseInit_LineItem::_internal_has_price_index() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  return value;
+}
+inline bool CGCStorePurchaseInit_LineItem::has_price_index() const {
+  return _internal_has_price_index();
+}
+inline void CGCStorePurchaseInit_LineItem::clear_price_index() {
+  _impl_.price_index_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000020u;
+}
+inline int32_t CGCStorePurchaseInit_LineItem::_internal_price_index() const {
+  return _impl_.price_index_;
+}
+inline int32_t CGCStorePurchaseInit_LineItem::price_index() const {
+  // @@protoc_insertion_point(field_get:CGCStorePurchaseInit_LineItem.price_index)
+  return _internal_price_index();
+}
+inline void CGCStorePurchaseInit_LineItem::_internal_set_price_index(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_.price_index_ = value;
+}
+inline void CGCStorePurchaseInit_LineItem::set_price_index(int32_t value) {
+  _internal_set_price_index(value);
+  // @@protoc_insertion_point(field_set:CGCStorePurchaseInit_LineItem.price_index)
 }
 
 // -------------------------------------------------------------------

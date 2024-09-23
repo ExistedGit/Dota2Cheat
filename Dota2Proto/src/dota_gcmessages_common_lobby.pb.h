@@ -49,6 +49,9 @@ struct TableStruct_dota_5fgcmessages_5fcommon_5flobby_2eproto {
   static const uint32_t offsets[];
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_dota_5fgcmessages_5fcommon_5flobby_2eproto;
+class CDOTALobbyMatchQualityData;
+struct CDOTALobbyMatchQualityDataDefaultTypeInternal;
+extern CDOTALobbyMatchQualityDataDefaultTypeInternal _CDOTALobbyMatchQualityData_default_instance_;
 class CLobbyBroadcastChannelInfo;
 struct CLobbyBroadcastChannelInfoDefaultTypeInternal;
 extern CLobbyBroadcastChannelInfoDefaultTypeInternal _CLobbyBroadcastChannelInfo_default_instance_;
@@ -143,6 +146,7 @@ class CSODOTAStaticLobbyMember;
 struct CSODOTAStaticLobbyMemberDefaultTypeInternal;
 extern CSODOTAStaticLobbyMemberDefaultTypeInternal _CSODOTAStaticLobbyMember_default_instance_;
 PROTOBUF_NAMESPACE_OPEN
+template<> ::CDOTALobbyMatchQualityData* Arena::CreateMaybeMessage<::CDOTALobbyMatchQualityData>(Arena*);
 template<> ::CLobbyBroadcastChannelInfo* Arena::CreateMaybeMessage<::CLobbyBroadcastChannelInfo>(Arena*);
 template<> ::CLobbyGuildChallenge* Arena::CreateMaybeMessage<::CLobbyGuildChallenge>(Arena*);
 template<> ::CLobbyGuildDetails* Arena::CreateMaybeMessage<::CLobbyGuildDetails>(Arena*);
@@ -632,17 +636,17 @@ class CMsgLobbyPlayerPlusSubscriptionData_HeroBadge final :
     kHeroIdFieldNumber = 1,
     kHeroBadgeXpFieldNumber = 2,
   };
-  // optional uint32 hero_id = 1;
+  // optional int32 hero_id = 1;
   bool has_hero_id() const;
   private:
   bool _internal_has_hero_id() const;
   public:
   void clear_hero_id();
-  uint32_t hero_id() const;
-  void set_hero_id(uint32_t value);
+  int32_t hero_id() const;
+  void set_hero_id(int32_t value);
   private:
-  uint32_t _internal_hero_id() const;
-  void _internal_set_hero_id(uint32_t value);
+  int32_t _internal_hero_id() const;
+  void _internal_set_hero_id(int32_t value);
   public:
 
   // optional uint32 hero_badge_xp = 2;
@@ -668,7 +672,7 @@ class CMsgLobbyPlayerPlusSubscriptionData_HeroBadge final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    uint32_t hero_id_;
+    int32_t hero_id_;
     uint32_t hero_badge_xp_;
   };
   union { Impl_ _impl_; };
@@ -1344,6 +1348,7 @@ class CMsgLobbyEventPoints_AccountPoints final :
     kPremiumPointsFieldNumber = 3,
     kOwnedFieldNumber = 4,
     kActiveEffectsMaskFieldNumber = 12,
+    kEventLevelFieldNumber = 7,
     kWagerStreakFieldNumber = 23,
     kTipAmountIndexFieldNumber = 26,
     kActiveEventSeasonIdFieldNumber = 27,
@@ -1486,6 +1491,19 @@ class CMsgLobbyEventPoints_AccountPoints final :
   void _internal_set_active_effects_mask(uint64_t value);
   public:
 
+  // optional uint32 event_level = 7;
+  bool has_event_level() const;
+  private:
+  bool _internal_has_event_level() const;
+  public:
+  void clear_event_level();
+  uint32_t event_level() const;
+  void set_event_level(uint32_t value);
+  private:
+  uint32_t _internal_event_level() const;
+  void _internal_set_event_level(uint32_t value);
+  public:
+
   // optional uint32 wager_streak = 23;
   bool has_wager_streak() const;
   private:
@@ -1557,6 +1575,7 @@ class CMsgLobbyEventPoints_AccountPoints final :
     uint32_t premium_points_;
     bool owned_;
     uint64_t active_effects_mask_;
+    uint32_t event_level_;
     uint32_t wager_streak_;
     uint32_t tip_amount_index_;
     uint32_t active_event_season_id_;
@@ -2509,92 +2528,21 @@ class CSODOTALobbyMember final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kDisabledHeroIdFieldNumber = 20,
-    kEnabledHeroIdFieldNumber = 22,
     kCustomGameProductIdsFieldNumber = 31,
-    kDisabledRandomHeroBitsFieldNumber = 41,
     kPendingAwardsFieldNumber = 44,
     kPendingAwardsOnVictoryFieldNumber = 45,
-    kCoachedAccountIdsFieldNumber = 53,
-    kNameFieldNumber = 6,
-    kPwrdCyberCafeNameFieldNumber = 25,
     kIdFieldNumber = 1,
     kHeroIdFieldNumber = 2,
     kTeamFieldNumber = 3,
     kSlotFieldNumber = 7,
-    kMetaLevelFieldNumber = 13,
-    kPartyIdFieldNumber = 12,
-    kMetaXpFieldNumber = 14,
-    kMetaXpAwardedFieldNumber = 15,
     kLeaverStatusFieldNumber = 16,
-    kPwrdCyberCafeIdFieldNumber = 24,
     kLeaverActionsFieldNumber = 28,
-    kRankChangeFieldNumber = 29,
-    kFavoriteTeamPackedFieldNumber = 35,
-    kSearchMatchTypeFieldNumber = 33,
-    kCameramanFieldNumber = 30,
-    kIsPlusSubscriberFieldNumber = 36,
-    kCanEarnRewardsFieldNumber = 39,
-    kWasMvpLastGameFieldNumber = 43,
-    kLaneSelectionFlagsFieldNumber = 38,
-    kCoachRatingFieldNumber = 42,
-    kRankMmrBoostTypeFieldNumber = 46,
-    kQueuePointAdjustmentFieldNumber = 47,
-    kRankTierFieldNumber = 48,
-    kTitleFieldNumber = 50,
-    kGuildIdFieldNumber = 51,
     kReportsAvailableFieldNumber = 52,
-    kIsSteamChinaFieldNumber = 54,
     kLiveSpectatorAccountIdFieldNumber = 55,
     kCommsReportsAvailableFieldNumber = 56,
-    kLiveSpectatorTeamFieldNumber = 40,
-    kChannelFieldNumber = 17,
     kCoachTeamFieldNumber = 23,
+    kLiveSpectatorTeamFieldNumber = 40,
   };
-  // repeated uint32 disabled_hero_id = 20;
-  int disabled_hero_id_size() const;
-  private:
-  int _internal_disabled_hero_id_size() const;
-  public:
-  void clear_disabled_hero_id();
-  private:
-  uint32_t _internal_disabled_hero_id(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-      _internal_disabled_hero_id() const;
-  void _internal_add_disabled_hero_id(uint32_t value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-      _internal_mutable_disabled_hero_id();
-  public:
-  uint32_t disabled_hero_id(int index) const;
-  void set_disabled_hero_id(int index, uint32_t value);
-  void add_disabled_hero_id(uint32_t value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-      disabled_hero_id() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-      mutable_disabled_hero_id();
-
-  // repeated uint32 enabled_hero_id = 22;
-  int enabled_hero_id_size() const;
-  private:
-  int _internal_enabled_hero_id_size() const;
-  public:
-  void clear_enabled_hero_id();
-  private:
-  uint32_t _internal_enabled_hero_id(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-      _internal_enabled_hero_id() const;
-  void _internal_add_enabled_hero_id(uint32_t value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-      _internal_mutable_enabled_hero_id();
-  public:
-  uint32_t enabled_hero_id(int index) const;
-  void set_enabled_hero_id(int index, uint32_t value);
-  void add_enabled_hero_id(uint32_t value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-      enabled_hero_id() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-      mutable_enabled_hero_id();
-
   // repeated uint32 custom_game_product_ids = 31;
   int custom_game_product_ids_size() const;
   private:
@@ -2616,28 +2564,6 @@ class CSODOTALobbyMember final :
       custom_game_product_ids() const;
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
       mutable_custom_game_product_ids();
-
-  // repeated fixed32 disabled_random_hero_bits = 41;
-  int disabled_random_hero_bits_size() const;
-  private:
-  int _internal_disabled_random_hero_bits_size() const;
-  public:
-  void clear_disabled_random_hero_bits();
-  private:
-  uint32_t _internal_disabled_random_hero_bits(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-      _internal_disabled_random_hero_bits() const;
-  void _internal_add_disabled_random_hero_bits(uint32_t value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-      _internal_mutable_disabled_random_hero_bits();
-  public:
-  uint32_t disabled_random_hero_bits(int index) const;
-  void set_disabled_random_hero_bits(int index, uint32_t value);
-  void add_disabled_random_hero_bits(uint32_t value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-      disabled_random_hero_bits() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-      mutable_disabled_random_hero_bits();
 
   // repeated .CMsgPendingEventAward pending_awards = 44;
   int pending_awards_size() const;
@@ -2675,64 +2601,6 @@ class CSODOTALobbyMember final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgPendingEventAward >&
       pending_awards_on_victory() const;
 
-  // repeated uint32 coached_account_ids = 53;
-  int coached_account_ids_size() const;
-  private:
-  int _internal_coached_account_ids_size() const;
-  public:
-  void clear_coached_account_ids();
-  private:
-  uint32_t _internal_coached_account_ids(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-      _internal_coached_account_ids() const;
-  void _internal_add_coached_account_ids(uint32_t value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-      _internal_mutable_coached_account_ids();
-  public:
-  uint32_t coached_account_ids(int index) const;
-  void set_coached_account_ids(int index, uint32_t value);
-  void add_coached_account_ids(uint32_t value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-      coached_account_ids() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-      mutable_coached_account_ids();
-
-  // optional string name = 6;
-  bool has_name() const;
-  private:
-  bool _internal_has_name() const;
-  public:
-  void clear_name();
-  const std::string& name() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_name(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_name();
-  PROTOBUF_NODISCARD std::string* release_name();
-  void set_allocated_name(std::string* name);
-  private:
-  const std::string& _internal_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_name(const std::string& value);
-  std::string* _internal_mutable_name();
-  public:
-
-  // optional string pwrd_cyber_cafe_name = 25;
-  bool has_pwrd_cyber_cafe_name() const;
-  private:
-  bool _internal_has_pwrd_cyber_cafe_name() const;
-  public:
-  void clear_pwrd_cyber_cafe_name();
-  const std::string& pwrd_cyber_cafe_name() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_pwrd_cyber_cafe_name(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_pwrd_cyber_cafe_name();
-  PROTOBUF_NODISCARD std::string* release_pwrd_cyber_cafe_name();
-  void set_allocated_pwrd_cyber_cafe_name(std::string* pwrd_cyber_cafe_name);
-  private:
-  const std::string& _internal_pwrd_cyber_cafe_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_pwrd_cyber_cafe_name(const std::string& value);
-  std::string* _internal_mutable_pwrd_cyber_cafe_name();
-  public:
-
   // optional fixed64 id = 1 [(.key_field) = true];
   bool has_id() const;
   private:
@@ -2746,17 +2614,17 @@ class CSODOTALobbyMember final :
   void _internal_set_id(uint64_t value);
   public:
 
-  // optional uint32 hero_id = 2;
+  // optional int32 hero_id = 2;
   bool has_hero_id() const;
   private:
   bool _internal_has_hero_id() const;
   public:
   void clear_hero_id();
-  uint32_t hero_id() const;
-  void set_hero_id(uint32_t value);
+  int32_t hero_id() const;
+  void set_hero_id(int32_t value);
   private:
-  uint32_t _internal_hero_id() const;
-  void _internal_set_hero_id(uint32_t value);
+  int32_t _internal_hero_id() const;
+  void _internal_set_hero_id(int32_t value);
   public:
 
   // optional .DOTA_GC_TEAM team = 3 [default = DOTA_GC_TEAM_GOOD_GUYS];
@@ -2785,58 +2653,6 @@ class CSODOTALobbyMember final :
   void _internal_set_slot(uint32_t value);
   public:
 
-  // optional uint32 meta_level = 13;
-  bool has_meta_level() const;
-  private:
-  bool _internal_has_meta_level() const;
-  public:
-  void clear_meta_level();
-  uint32_t meta_level() const;
-  void set_meta_level(uint32_t value);
-  private:
-  uint32_t _internal_meta_level() const;
-  void _internal_set_meta_level(uint32_t value);
-  public:
-
-  // optional uint64 party_id = 12;
-  bool has_party_id() const;
-  private:
-  bool _internal_has_party_id() const;
-  public:
-  void clear_party_id();
-  uint64_t party_id() const;
-  void set_party_id(uint64_t value);
-  private:
-  uint64_t _internal_party_id() const;
-  void _internal_set_party_id(uint64_t value);
-  public:
-
-  // optional uint32 meta_xp = 14;
-  bool has_meta_xp() const;
-  private:
-  bool _internal_has_meta_xp() const;
-  public:
-  void clear_meta_xp();
-  uint32_t meta_xp() const;
-  void set_meta_xp(uint32_t value);
-  private:
-  uint32_t _internal_meta_xp() const;
-  void _internal_set_meta_xp(uint32_t value);
-  public:
-
-  // optional uint32 meta_xp_awarded = 15;
-  bool has_meta_xp_awarded() const;
-  private:
-  bool _internal_has_meta_xp_awarded() const;
-  public:
-  void clear_meta_xp_awarded();
-  uint32_t meta_xp_awarded() const;
-  void set_meta_xp_awarded(uint32_t value);
-  private:
-  uint32_t _internal_meta_xp_awarded() const;
-  void _internal_set_meta_xp_awarded(uint32_t value);
-  public:
-
   // optional .DOTALeaverStatus_t leaver_status = 16 [default = DOTA_LEAVER_NONE];
   bool has_leaver_status() const;
   private:
@@ -2848,19 +2664,6 @@ class CSODOTALobbyMember final :
   private:
   ::DOTALeaverStatus_t _internal_leaver_status() const;
   void _internal_set_leaver_status(::DOTALeaverStatus_t value);
-  public:
-
-  // optional uint32 pwrd_cyber_cafe_id = 24;
-  bool has_pwrd_cyber_cafe_id() const;
-  private:
-  bool _internal_has_pwrd_cyber_cafe_id() const;
-  public:
-  void clear_pwrd_cyber_cafe_id();
-  uint32_t pwrd_cyber_cafe_id() const;
-  void set_pwrd_cyber_cafe_id(uint32_t value);
-  private:
-  uint32_t _internal_pwrd_cyber_cafe_id() const;
-  void _internal_set_pwrd_cyber_cafe_id(uint32_t value);
   public:
 
   // optional uint32 leaver_actions = 28;
@@ -2876,188 +2679,6 @@ class CSODOTALobbyMember final :
   void _internal_set_leaver_actions(uint32_t value);
   public:
 
-  // optional sint32 rank_change = 29;
-  bool has_rank_change() const;
-  private:
-  bool _internal_has_rank_change() const;
-  public:
-  void clear_rank_change();
-  int32_t rank_change() const;
-  void set_rank_change(int32_t value);
-  private:
-  int32_t _internal_rank_change() const;
-  void _internal_set_rank_change(int32_t value);
-  public:
-
-  // optional uint64 favorite_team_packed = 35;
-  bool has_favorite_team_packed() const;
-  private:
-  bool _internal_has_favorite_team_packed() const;
-  public:
-  void clear_favorite_team_packed();
-  uint64_t favorite_team_packed() const;
-  void set_favorite_team_packed(uint64_t value);
-  private:
-  uint64_t _internal_favorite_team_packed() const;
-  void _internal_set_favorite_team_packed(uint64_t value);
-  public:
-
-  // optional .MatchType search_match_type = 33 [default = MATCH_TYPE_CASUAL];
-  bool has_search_match_type() const;
-  private:
-  bool _internal_has_search_match_type() const;
-  public:
-  void clear_search_match_type();
-  ::MatchType search_match_type() const;
-  void set_search_match_type(::MatchType value);
-  private:
-  ::MatchType _internal_search_match_type() const;
-  void _internal_set_search_match_type(::MatchType value);
-  public:
-
-  // optional bool cameraman = 30;
-  bool has_cameraman() const;
-  private:
-  bool _internal_has_cameraman() const;
-  public:
-  void clear_cameraman();
-  bool cameraman() const;
-  void set_cameraman(bool value);
-  private:
-  bool _internal_cameraman() const;
-  void _internal_set_cameraman(bool value);
-  public:
-
-  // optional bool is_plus_subscriber = 36;
-  bool has_is_plus_subscriber() const;
-  private:
-  bool _internal_has_is_plus_subscriber() const;
-  public:
-  void clear_is_plus_subscriber();
-  bool is_plus_subscriber() const;
-  void set_is_plus_subscriber(bool value);
-  private:
-  bool _internal_is_plus_subscriber() const;
-  void _internal_set_is_plus_subscriber(bool value);
-  public:
-
-  // optional bool can_earn_rewards = 39;
-  bool has_can_earn_rewards() const;
-  private:
-  bool _internal_has_can_earn_rewards() const;
-  public:
-  void clear_can_earn_rewards();
-  bool can_earn_rewards() const;
-  void set_can_earn_rewards(bool value);
-  private:
-  bool _internal_can_earn_rewards() const;
-  void _internal_set_can_earn_rewards(bool value);
-  public:
-
-  // optional bool was_mvp_last_game = 43;
-  bool has_was_mvp_last_game() const;
-  private:
-  bool _internal_has_was_mvp_last_game() const;
-  public:
-  void clear_was_mvp_last_game();
-  bool was_mvp_last_game() const;
-  void set_was_mvp_last_game(bool value);
-  private:
-  bool _internal_was_mvp_last_game() const;
-  void _internal_set_was_mvp_last_game(bool value);
-  public:
-
-  // optional uint32 lane_selection_flags = 38;
-  bool has_lane_selection_flags() const;
-  private:
-  bool _internal_has_lane_selection_flags() const;
-  public:
-  void clear_lane_selection_flags();
-  uint32_t lane_selection_flags() const;
-  void set_lane_selection_flags(uint32_t value);
-  private:
-  uint32_t _internal_lane_selection_flags() const;
-  void _internal_set_lane_selection_flags(uint32_t value);
-  public:
-
-  // optional uint32 coach_rating = 42;
-  bool has_coach_rating() const;
-  private:
-  bool _internal_has_coach_rating() const;
-  public:
-  void clear_coach_rating();
-  uint32_t coach_rating() const;
-  void set_coach_rating(uint32_t value);
-  private:
-  uint32_t _internal_coach_rating() const;
-  void _internal_set_coach_rating(uint32_t value);
-  public:
-
-  // optional .EDOTAMMRBoostType rank_mmr_boost_type = 46 [default = k_EDOTAMMRBoostType_None];
-  bool has_rank_mmr_boost_type() const;
-  private:
-  bool _internal_has_rank_mmr_boost_type() const;
-  public:
-  void clear_rank_mmr_boost_type();
-  ::EDOTAMMRBoostType rank_mmr_boost_type() const;
-  void set_rank_mmr_boost_type(::EDOTAMMRBoostType value);
-  private:
-  ::EDOTAMMRBoostType _internal_rank_mmr_boost_type() const;
-  void _internal_set_rank_mmr_boost_type(::EDOTAMMRBoostType value);
-  public:
-
-  // optional sint32 queue_point_adjustment = 47;
-  bool has_queue_point_adjustment() const;
-  private:
-  bool _internal_has_queue_point_adjustment() const;
-  public:
-  void clear_queue_point_adjustment();
-  int32_t queue_point_adjustment() const;
-  void set_queue_point_adjustment(int32_t value);
-  private:
-  int32_t _internal_queue_point_adjustment() const;
-  void _internal_set_queue_point_adjustment(int32_t value);
-  public:
-
-  // optional int32 rank_tier = 48;
-  bool has_rank_tier() const;
-  private:
-  bool _internal_has_rank_tier() const;
-  public:
-  void clear_rank_tier();
-  int32_t rank_tier() const;
-  void set_rank_tier(int32_t value);
-  private:
-  int32_t _internal_rank_tier() const;
-  void _internal_set_rank_tier(int32_t value);
-  public:
-
-  // optional uint32 title = 50;
-  bool has_title() const;
-  private:
-  bool _internal_has_title() const;
-  public:
-  void clear_title();
-  uint32_t title() const;
-  void set_title(uint32_t value);
-  private:
-  uint32_t _internal_title() const;
-  void _internal_set_title(uint32_t value);
-  public:
-
-  // optional uint32 guild_id = 51;
-  bool has_guild_id() const;
-  private:
-  bool _internal_has_guild_id() const;
-  public:
-  void clear_guild_id();
-  uint32_t guild_id() const;
-  void set_guild_id(uint32_t value);
-  private:
-  uint32_t _internal_guild_id() const;
-  void _internal_set_guild_id(uint32_t value);
-  public:
-
   // optional uint32 reports_available = 52;
   bool has_reports_available() const;
   private:
@@ -3069,19 +2690,6 @@ class CSODOTALobbyMember final :
   private:
   uint32_t _internal_reports_available() const;
   void _internal_set_reports_available(uint32_t value);
-  public:
-
-  // optional bool is_steam_china = 54;
-  bool has_is_steam_china() const;
-  private:
-  bool _internal_has_is_steam_china() const;
-  public:
-  void clear_is_steam_china();
-  bool is_steam_china() const;
-  void set_is_steam_china(bool value);
-  private:
-  bool _internal_is_steam_china() const;
-  void _internal_set_is_steam_china(bool value);
   public:
 
   // optional uint32 live_spectator_account_id = 55;
@@ -3110,32 +2718,6 @@ class CSODOTALobbyMember final :
   void _internal_set_comms_reports_available(uint32_t value);
   public:
 
-  // optional .DOTA_GC_TEAM live_spectator_team = 40 [default = DOTA_GC_TEAM_NOTEAM];
-  bool has_live_spectator_team() const;
-  private:
-  bool _internal_has_live_spectator_team() const;
-  public:
-  void clear_live_spectator_team();
-  ::DOTA_GC_TEAM live_spectator_team() const;
-  void set_live_spectator_team(::DOTA_GC_TEAM value);
-  private:
-  ::DOTA_GC_TEAM _internal_live_spectator_team() const;
-  void _internal_set_live_spectator_team(::DOTA_GC_TEAM value);
-  public:
-
-  // optional uint32 channel = 17 [default = 6];
-  bool has_channel() const;
-  private:
-  bool _internal_has_channel() const;
-  public:
-  void clear_channel();
-  uint32_t channel() const;
-  void set_channel(uint32_t value);
-  private:
-  uint32_t _internal_channel() const;
-  void _internal_set_channel(uint32_t value);
-  public:
-
   // optional .DOTA_GC_TEAM coach_team = 23 [default = DOTA_GC_TEAM_NOTEAM];
   bool has_coach_team() const;
   private:
@@ -3149,6 +2731,19 @@ class CSODOTALobbyMember final :
   void _internal_set_coach_team(::DOTA_GC_TEAM value);
   public:
 
+  // optional .DOTA_GC_TEAM live_spectator_team = 40 [default = DOTA_GC_TEAM_NOTEAM];
+  bool has_live_spectator_team() const;
+  private:
+  bool _internal_has_live_spectator_team() const;
+  public:
+  void clear_live_spectator_team();
+  ::DOTA_GC_TEAM live_spectator_team() const;
+  void set_live_spectator_team(::DOTA_GC_TEAM value);
+  private:
+  ::DOTA_GC_TEAM _internal_live_spectator_team() const;
+  void _internal_set_live_spectator_team(::DOTA_GC_TEAM value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CSODOTALobbyMember)
  private:
   class _Internal;
@@ -3157,49 +2752,22 @@ class CSODOTALobbyMember final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<2> _has_bits_;
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > disabled_hero_id_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > enabled_hero_id_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > custom_game_product_ids_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > disabled_random_hero_bits_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgPendingEventAward > pending_awards_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgPendingEventAward > pending_awards_on_victory_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > coached_account_ids_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr pwrd_cyber_cafe_name_;
     uint64_t id_;
-    uint32_t hero_id_;
+    int32_t hero_id_;
     int team_;
     uint32_t slot_;
-    uint32_t meta_level_;
-    uint64_t party_id_;
-    uint32_t meta_xp_;
-    uint32_t meta_xp_awarded_;
     int leaver_status_;
-    uint32_t pwrd_cyber_cafe_id_;
     uint32_t leaver_actions_;
-    int32_t rank_change_;
-    uint64_t favorite_team_packed_;
-    int search_match_type_;
-    bool cameraman_;
-    bool is_plus_subscriber_;
-    bool can_earn_rewards_;
-    bool was_mvp_last_game_;
-    uint32_t lane_selection_flags_;
-    uint32_t coach_rating_;
-    int rank_mmr_boost_type_;
-    int32_t queue_point_adjustment_;
-    int32_t rank_tier_;
-    uint32_t title_;
-    uint32_t guild_id_;
     uint32_t reports_available_;
-    bool is_steam_china_;
     uint32_t live_spectator_account_id_;
     uint32_t comms_reports_available_;
-    int live_spectator_team_;
-    uint32_t channel_;
     int coach_team_;
+    int live_spectator_team_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fgcmessages_5fcommon_5flobby_2eproto;
@@ -3332,9 +2900,10 @@ class CSODOTAServerLobbyMember final :
 // -------------------------------------------------------------------
 
 class CSODOTAStaticLobbyMember final :
-    public ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase /* @@protoc_insertion_point(class_definition:CSODOTAStaticLobbyMember) */ {
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CSODOTAStaticLobbyMember) */ {
  public:
   inline CSODOTAStaticLobbyMember() : CSODOTAStaticLobbyMember(nullptr) {}
+  ~CSODOTAStaticLobbyMember() override;
   explicit PROTOBUF_CONSTEXPR CSODOTAStaticLobbyMember(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
   CSODOTAStaticLobbyMember(const CSODOTAStaticLobbyMember& from);
@@ -3414,15 +2983,29 @@ class CSODOTAStaticLobbyMember final :
   CSODOTAStaticLobbyMember* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<CSODOTAStaticLobbyMember>(arena);
   }
-  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyFrom;
-  inline void CopyFrom(const CSODOTAStaticLobbyMember& from) {
-    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl(*this, from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CSODOTAStaticLobbyMember& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CSODOTAStaticLobbyMember& from) {
+    CSODOTAStaticLobbyMember::MergeImpl(*this, from);
   }
-  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeFrom;
-  void MergeFrom(const CSODOTAStaticLobbyMember& from) {
-    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl(*this, from);
-  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
   public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CSODOTAStaticLobbyMember* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
@@ -3443,6 +3026,69 @@ class CSODOTAStaticLobbyMember final :
 
   // accessors -------------------------------------------------------
 
+  enum : int {
+    kNameFieldNumber = 1,
+    kPartyIdFieldNumber = 2,
+    kCameramanFieldNumber = 4,
+    kChannelFieldNumber = 3,
+  };
+  // optional string name = 1;
+  bool has_name() const;
+  private:
+  bool _internal_has_name() const;
+  public:
+  void clear_name();
+  const std::string& name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_name();
+  PROTOBUF_NODISCARD std::string* release_name();
+  void set_allocated_name(std::string* name);
+  private:
+  const std::string& _internal_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_name(const std::string& value);
+  std::string* _internal_mutable_name();
+  public:
+
+  // optional uint64 party_id = 2;
+  bool has_party_id() const;
+  private:
+  bool _internal_has_party_id() const;
+  public:
+  void clear_party_id();
+  uint64_t party_id() const;
+  void set_party_id(uint64_t value);
+  private:
+  uint64_t _internal_party_id() const;
+  void _internal_set_party_id(uint64_t value);
+  public:
+
+  // optional bool cameraman = 4;
+  bool has_cameraman() const;
+  private:
+  bool _internal_has_cameraman() const;
+  public:
+  void clear_cameraman();
+  bool cameraman() const;
+  void set_cameraman(bool value);
+  private:
+  bool _internal_cameraman() const;
+  void _internal_set_cameraman(bool value);
+  public:
+
+  // optional uint32 channel = 3 [default = 6];
+  bool has_channel() const;
+  private:
+  bool _internal_has_channel() const;
+  public:
+  void clear_channel();
+  uint32_t channel() const;
+  void set_channel(uint32_t value);
+  private:
+  uint32_t _internal_channel() const;
+  void _internal_set_channel(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CSODOTAStaticLobbyMember)
  private:
   class _Internal;
@@ -3451,15 +3097,23 @@ class CSODOTAStaticLobbyMember final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
+    uint64_t party_id_;
+    bool cameraman_;
+    uint32_t channel_;
   };
+  union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fgcmessages_5fcommon_5flobby_2eproto;
 };
 // -------------------------------------------------------------------
 
 class CSODOTAServerStaticLobbyMember final :
-    public ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase /* @@protoc_insertion_point(class_definition:CSODOTAServerStaticLobbyMember) */ {
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CSODOTAServerStaticLobbyMember) */ {
  public:
   inline CSODOTAServerStaticLobbyMember() : CSODOTAServerStaticLobbyMember(nullptr) {}
+  ~CSODOTAServerStaticLobbyMember() override;
   explicit PROTOBUF_CONSTEXPR CSODOTAServerStaticLobbyMember(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
   CSODOTAServerStaticLobbyMember(const CSODOTAServerStaticLobbyMember& from);
@@ -3539,15 +3193,29 @@ class CSODOTAServerStaticLobbyMember final :
   CSODOTAServerStaticLobbyMember* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<CSODOTAServerStaticLobbyMember>(arena);
   }
-  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyFrom;
-  inline void CopyFrom(const CSODOTAServerStaticLobbyMember& from) {
-    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl(*this, from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CSODOTAServerStaticLobbyMember& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CSODOTAServerStaticLobbyMember& from) {
+    CSODOTAServerStaticLobbyMember::MergeImpl(*this, from);
   }
-  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeFrom;
-  void MergeFrom(const CSODOTAServerStaticLobbyMember& from) {
-    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl(*this, from);
-  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
   public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CSODOTAServerStaticLobbyMember* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
@@ -3568,6 +3236,305 @@ class CSODOTAServerStaticLobbyMember final :
 
   // accessors -------------------------------------------------------
 
+  enum : int {
+    kCoachedAccountIdsFieldNumber = 8,
+    kDisabledRandomHeroBitsFieldNumber = 16,
+    kDisabledHeroIdFieldNumber = 17,
+    kEnabledHeroIdFieldNumber = 18,
+    kBannedHeroIdsFieldNumber = 19,
+    kSteamIdFieldNumber = 1,
+    kRankTierFieldNumber = 3,
+    kLaneSelectionFlagsFieldNumber = 5,
+    kRankMmrBoostTypeFieldNumber = 6,
+    kCoachRatingFieldNumber = 7,
+    kWasMvpLastGameFieldNumber = 9,
+    kCanEarnRewardsFieldNumber = 10,
+    kIsPlusSubscriberFieldNumber = 11,
+    kIsSteamChinaFieldNumber = 13,
+    kTitleFieldNumber = 14,
+    kFavoriteTeamPackedFieldNumber = 12,
+    kGuildIdFieldNumber = 15,
+    kLeaderboardRankFieldNumber = 4,
+  };
+  // repeated uint32 coached_account_ids = 8;
+  int coached_account_ids_size() const;
+  private:
+  int _internal_coached_account_ids_size() const;
+  public:
+  void clear_coached_account_ids();
+  private:
+  uint32_t _internal_coached_account_ids(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+      _internal_coached_account_ids() const;
+  void _internal_add_coached_account_ids(uint32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+      _internal_mutable_coached_account_ids();
+  public:
+  uint32_t coached_account_ids(int index) const;
+  void set_coached_account_ids(int index, uint32_t value);
+  void add_coached_account_ids(uint32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+      coached_account_ids() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+      mutable_coached_account_ids();
+
+  // repeated fixed32 disabled_random_hero_bits = 16;
+  int disabled_random_hero_bits_size() const;
+  private:
+  int _internal_disabled_random_hero_bits_size() const;
+  public:
+  void clear_disabled_random_hero_bits();
+  private:
+  uint32_t _internal_disabled_random_hero_bits(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+      _internal_disabled_random_hero_bits() const;
+  void _internal_add_disabled_random_hero_bits(uint32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+      _internal_mutable_disabled_random_hero_bits();
+  public:
+  uint32_t disabled_random_hero_bits(int index) const;
+  void set_disabled_random_hero_bits(int index, uint32_t value);
+  void add_disabled_random_hero_bits(uint32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+      disabled_random_hero_bits() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+      mutable_disabled_random_hero_bits();
+
+  // repeated int32 disabled_hero_id = 17;
+  int disabled_hero_id_size() const;
+  private:
+  int _internal_disabled_hero_id_size() const;
+  public:
+  void clear_disabled_hero_id();
+  private:
+  int32_t _internal_disabled_hero_id(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+      _internal_disabled_hero_id() const;
+  void _internal_add_disabled_hero_id(int32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+      _internal_mutable_disabled_hero_id();
+  public:
+  int32_t disabled_hero_id(int index) const;
+  void set_disabled_hero_id(int index, int32_t value);
+  void add_disabled_hero_id(int32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+      disabled_hero_id() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+      mutable_disabled_hero_id();
+
+  // repeated int32 enabled_hero_id = 18;
+  int enabled_hero_id_size() const;
+  private:
+  int _internal_enabled_hero_id_size() const;
+  public:
+  void clear_enabled_hero_id();
+  private:
+  int32_t _internal_enabled_hero_id(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+      _internal_enabled_hero_id() const;
+  void _internal_add_enabled_hero_id(int32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+      _internal_mutable_enabled_hero_id();
+  public:
+  int32_t enabled_hero_id(int index) const;
+  void set_enabled_hero_id(int index, int32_t value);
+  void add_enabled_hero_id(int32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+      enabled_hero_id() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+      mutable_enabled_hero_id();
+
+  // repeated int32 banned_hero_ids = 19;
+  int banned_hero_ids_size() const;
+  private:
+  int _internal_banned_hero_ids_size() const;
+  public:
+  void clear_banned_hero_ids();
+  private:
+  int32_t _internal_banned_hero_ids(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+      _internal_banned_hero_ids() const;
+  void _internal_add_banned_hero_ids(int32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+      _internal_mutable_banned_hero_ids();
+  public:
+  int32_t banned_hero_ids(int index) const;
+  void set_banned_hero_ids(int index, int32_t value);
+  void add_banned_hero_ids(int32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+      banned_hero_ids() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+      mutable_banned_hero_ids();
+
+  // optional fixed64 steam_id = 1;
+  bool has_steam_id() const;
+  private:
+  bool _internal_has_steam_id() const;
+  public:
+  void clear_steam_id();
+  uint64_t steam_id() const;
+  void set_steam_id(uint64_t value);
+  private:
+  uint64_t _internal_steam_id() const;
+  void _internal_set_steam_id(uint64_t value);
+  public:
+
+  // optional int32 rank_tier = 3;
+  bool has_rank_tier() const;
+  private:
+  bool _internal_has_rank_tier() const;
+  public:
+  void clear_rank_tier();
+  int32_t rank_tier() const;
+  void set_rank_tier(int32_t value);
+  private:
+  int32_t _internal_rank_tier() const;
+  void _internal_set_rank_tier(int32_t value);
+  public:
+
+  // optional int32 lane_selection_flags = 5;
+  bool has_lane_selection_flags() const;
+  private:
+  bool _internal_has_lane_selection_flags() const;
+  public:
+  void clear_lane_selection_flags();
+  int32_t lane_selection_flags() const;
+  void set_lane_selection_flags(int32_t value);
+  private:
+  int32_t _internal_lane_selection_flags() const;
+  void _internal_set_lane_selection_flags(int32_t value);
+  public:
+
+  // optional .EDOTAMMRBoostType rank_mmr_boost_type = 6 [default = k_EDOTAMMRBoostType_None];
+  bool has_rank_mmr_boost_type() const;
+  private:
+  bool _internal_has_rank_mmr_boost_type() const;
+  public:
+  void clear_rank_mmr_boost_type();
+  ::EDOTAMMRBoostType rank_mmr_boost_type() const;
+  void set_rank_mmr_boost_type(::EDOTAMMRBoostType value);
+  private:
+  ::EDOTAMMRBoostType _internal_rank_mmr_boost_type() const;
+  void _internal_set_rank_mmr_boost_type(::EDOTAMMRBoostType value);
+  public:
+
+  // optional int32 coach_rating = 7;
+  bool has_coach_rating() const;
+  private:
+  bool _internal_has_coach_rating() const;
+  public:
+  void clear_coach_rating();
+  int32_t coach_rating() const;
+  void set_coach_rating(int32_t value);
+  private:
+  int32_t _internal_coach_rating() const;
+  void _internal_set_coach_rating(int32_t value);
+  public:
+
+  // optional bool was_mvp_last_game = 9;
+  bool has_was_mvp_last_game() const;
+  private:
+  bool _internal_has_was_mvp_last_game() const;
+  public:
+  void clear_was_mvp_last_game();
+  bool was_mvp_last_game() const;
+  void set_was_mvp_last_game(bool value);
+  private:
+  bool _internal_was_mvp_last_game() const;
+  void _internal_set_was_mvp_last_game(bool value);
+  public:
+
+  // optional bool can_earn_rewards = 10;
+  bool has_can_earn_rewards() const;
+  private:
+  bool _internal_has_can_earn_rewards() const;
+  public:
+  void clear_can_earn_rewards();
+  bool can_earn_rewards() const;
+  void set_can_earn_rewards(bool value);
+  private:
+  bool _internal_can_earn_rewards() const;
+  void _internal_set_can_earn_rewards(bool value);
+  public:
+
+  // optional bool is_plus_subscriber = 11;
+  bool has_is_plus_subscriber() const;
+  private:
+  bool _internal_has_is_plus_subscriber() const;
+  public:
+  void clear_is_plus_subscriber();
+  bool is_plus_subscriber() const;
+  void set_is_plus_subscriber(bool value);
+  private:
+  bool _internal_is_plus_subscriber() const;
+  void _internal_set_is_plus_subscriber(bool value);
+  public:
+
+  // optional bool is_steam_china = 13;
+  bool has_is_steam_china() const;
+  private:
+  bool _internal_has_is_steam_china() const;
+  public:
+  void clear_is_steam_china();
+  bool is_steam_china() const;
+  void set_is_steam_china(bool value);
+  private:
+  bool _internal_is_steam_china() const;
+  void _internal_set_is_steam_china(bool value);
+  public:
+
+  // optional uint32 title = 14;
+  bool has_title() const;
+  private:
+  bool _internal_has_title() const;
+  public:
+  void clear_title();
+  uint32_t title() const;
+  void set_title(uint32_t value);
+  private:
+  uint32_t _internal_title() const;
+  void _internal_set_title(uint32_t value);
+  public:
+
+  // optional uint64 favorite_team_packed = 12;
+  bool has_favorite_team_packed() const;
+  private:
+  bool _internal_has_favorite_team_packed() const;
+  public:
+  void clear_favorite_team_packed();
+  uint64_t favorite_team_packed() const;
+  void set_favorite_team_packed(uint64_t value);
+  private:
+  uint64_t _internal_favorite_team_packed() const;
+  void _internal_set_favorite_team_packed(uint64_t value);
+  public:
+
+  // optional uint32 guild_id = 15;
+  bool has_guild_id() const;
+  private:
+  bool _internal_has_guild_id() const;
+  public:
+  void clear_guild_id();
+  uint32_t guild_id() const;
+  void set_guild_id(uint32_t value);
+  private:
+  uint32_t _internal_guild_id() const;
+  void _internal_set_guild_id(uint32_t value);
+  public:
+
+  // optional int32 leaderboard_rank = 4 [default = -1];
+  bool has_leaderboard_rank() const;
+  private:
+  bool _internal_has_leaderboard_rank() const;
+  public:
+  void clear_leaderboard_rank();
+  int32_t leaderboard_rank() const;
+  void set_leaderboard_rank(int32_t value);
+  private:
+  int32_t _internal_leaderboard_rank() const;
+  void _internal_set_leaderboard_rank(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CSODOTAServerStaticLobbyMember)
  private:
   class _Internal;
@@ -3576,7 +3543,28 @@ class CSODOTAServerStaticLobbyMember final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > coached_account_ids_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > disabled_random_hero_bits_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > disabled_hero_id_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > enabled_hero_id_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > banned_hero_ids_;
+    uint64_t steam_id_;
+    int32_t rank_tier_;
+    int32_t lane_selection_flags_;
+    int rank_mmr_boost_type_;
+    int32_t coach_rating_;
+    bool was_mvp_last_game_;
+    bool can_earn_rewards_;
+    bool is_plus_subscriber_;
+    bool is_steam_china_;
+    uint32_t title_;
+    uint64_t favorite_team_packed_;
+    uint32_t guild_id_;
+    int32_t leaderboard_rank_;
   };
+  union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fgcmessages_5fcommon_5flobby_2eproto;
 };
 // -------------------------------------------------------------------
@@ -4985,6 +4973,211 @@ class CLobbyGuildChallenge final :
 };
 // -------------------------------------------------------------------
 
+class CDOTALobbyMatchQualityData final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CDOTALobbyMatchQualityData) */ {
+ public:
+  inline CDOTALobbyMatchQualityData() : CDOTALobbyMatchQualityData(nullptr) {}
+  ~CDOTALobbyMatchQualityData() override;
+  explicit PROTOBUF_CONSTEXPR CDOTALobbyMatchQualityData(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CDOTALobbyMatchQualityData(const CDOTALobbyMatchQualityData& from);
+  CDOTALobbyMatchQualityData(CDOTALobbyMatchQualityData&& from) noexcept
+    : CDOTALobbyMatchQualityData() {
+    *this = ::std::move(from);
+  }
+
+  inline CDOTALobbyMatchQualityData& operator=(const CDOTALobbyMatchQualityData& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CDOTALobbyMatchQualityData& operator=(CDOTALobbyMatchQualityData&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CDOTALobbyMatchQualityData& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CDOTALobbyMatchQualityData* internal_default_instance() {
+    return reinterpret_cast<const CDOTALobbyMatchQualityData*>(
+               &_CDOTALobbyMatchQualityData_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    19;
+
+  friend void swap(CDOTALobbyMatchQualityData& a, CDOTALobbyMatchQualityData& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CDOTALobbyMatchQualityData* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CDOTALobbyMatchQualityData* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CDOTALobbyMatchQualityData* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CDOTALobbyMatchQualityData>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CDOTALobbyMatchQualityData& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CDOTALobbyMatchQualityData& from) {
+    CDOTALobbyMatchQualityData::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CDOTALobbyMatchQualityData* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CDOTALobbyMatchQualityData";
+  }
+  protected:
+  explicit CDOTALobbyMatchQualityData(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kOverallQualityFieldNumber = 1,
+    kTeamBalanceFieldNumber = 2,
+    kMatchSkillRangeFieldNumber = 3,
+    kMatchBehaviorFieldNumber = 4,
+  };
+  // optional uint32 overall_quality = 1;
+  bool has_overall_quality() const;
+  private:
+  bool _internal_has_overall_quality() const;
+  public:
+  void clear_overall_quality();
+  uint32_t overall_quality() const;
+  void set_overall_quality(uint32_t value);
+  private:
+  uint32_t _internal_overall_quality() const;
+  void _internal_set_overall_quality(uint32_t value);
+  public:
+
+  // optional uint32 team_balance = 2;
+  bool has_team_balance() const;
+  private:
+  bool _internal_has_team_balance() const;
+  public:
+  void clear_team_balance();
+  uint32_t team_balance() const;
+  void set_team_balance(uint32_t value);
+  private:
+  uint32_t _internal_team_balance() const;
+  void _internal_set_team_balance(uint32_t value);
+  public:
+
+  // optional uint32 match_skill_range = 3;
+  bool has_match_skill_range() const;
+  private:
+  bool _internal_has_match_skill_range() const;
+  public:
+  void clear_match_skill_range();
+  uint32_t match_skill_range() const;
+  void set_match_skill_range(uint32_t value);
+  private:
+  uint32_t _internal_match_skill_range() const;
+  void _internal_set_match_skill_range(uint32_t value);
+  public:
+
+  // optional uint32 match_behavior = 4;
+  bool has_match_behavior() const;
+  private:
+  bool _internal_has_match_behavior() const;
+  public:
+  void clear_match_behavior();
+  uint32_t match_behavior() const;
+  void set_match_behavior(uint32_t value);
+  private:
+  uint32_t _internal_match_behavior() const;
+  void _internal_set_match_behavior(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CDOTALobbyMatchQualityData)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    uint32_t overall_quality_;
+    uint32_t team_balance_;
+    uint32_t match_skill_range_;
+    uint32_t match_behavior_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_dota_5fgcmessages_5fcommon_5flobby_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CSODOTALobby_CExtraMsg final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CSODOTALobby.CExtraMsg) */ {
  public:
@@ -5040,7 +5233,7 @@ class CSODOTALobby_CExtraMsg final :
                &_CSODOTALobby_CExtraMsg_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    20;
 
   friend void swap(CSODOTALobby_CExtraMsg& a, CSODOTALobby_CExtraMsg& b) {
     a.Swap(&b);
@@ -5220,7 +5413,7 @@ class CSODOTALobby final :
                &_CSODOTALobby_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    21;
 
   friend void swap(CSODOTALobby& a, CSODOTALobby& b) {
     a.Swap(&b);
@@ -5385,7 +5578,6 @@ class CSODOTALobby final :
   enum : int {
     kPendingInvitesFieldNumber = 10,
     kTeamDetailsFieldNumber = 17,
-    kTimedRewardDetailsFieldNumber = 38,
     kBroadcastChannelInfoFieldNumber = 58,
     kExtraMessagesFieldNumber = 62,
     kPreviousSeriesMatchesFieldNumber = 81,
@@ -5393,14 +5585,12 @@ class CSODOTALobby final :
     kEmergencyDisabledHeroIdsFieldNumber = 105,
     kGuildChallengesFieldNumber = 117,
     kGuildDetailsFieldNumber = 118,
-    kLobbyEventPointsFieldNumber = 119,
     kAllMembersFieldNumber = 120,
     kMemberIndicesFieldNumber = 121,
     kLeftMemberIndicesFieldNumber = 122,
     kFreeMemberIndicesFieldNumber = 123,
     kRequestedHeroIdsFieldNumber = 124,
     kCoachFriendRequestsFieldNumber = 125,
-    kExtraStartupMessagesFieldNumber = 130,
     kConnectFieldNumber = 5,
     kGameNameFieldNumber = 16,
     kPassKeyFieldNumber = 39,
@@ -5408,44 +5598,40 @@ class CSODOTALobby final :
     kCustomMapNameFieldNumber = 55,
     kLanHostPingLocationFieldNumber = 109,
     kEventGameDefinitionFieldNumber = 129,
-    kSaveGameFieldNumber = 63,
+    kMatchQualityDataFieldNumber = 131,
     kLobbyIdFieldNumber = 1,
     kGameModeFieldNumber = 3,
     kStateFieldNumber = 4,
     kServerIdFieldNumber = 6,
     kLeaderIdFieldNumber = 11,
-    kTutorialLessonFieldNumber = 18,
     kTournamentIdFieldNumber = 19,
     kTournamentGameIdFieldNumber = 20,
     kServerRegionFieldNumber = 21,
     kGameStateFieldNumber = 22,
     kNumSpectatorsFieldNumber = 23,
-    kAllowCheatsFieldNumber = 13,
-    kFillWithBotsFieldNumber = 14,
-    kIntroModeFieldNumber = 15,
-    kAllchatFieldNumber = 51,
     kMatchgroupFieldNumber = 25,
     kMatchIdFieldNumber = 30,
     kCmPickFieldNumber = 28,
+    kAllowCheatsFieldNumber = 13,
+    kFillWithBotsFieldNumber = 14,
+    kAllchatFieldNumber = 51,
+    kLanFieldNumber = 57,
     kLeagueidFieldNumber = 42,
     kPenaltyLevelRadiantFieldNumber = 43,
     kPenaltyLevelDireFieldNumber = 44,
-    kLoadGameIdFieldNumber = 45,
     kSeriesTypeFieldNumber = 46,
     kRadiantSeriesWinsFieldNumber = 47,
     kDireSeriesWinsFieldNumber = 48,
-    kLootGeneratedFieldNumber = 49,
-    kLootAwardedFieldNumber = 50,
     kDotaTvDelayFieldNumber = 53,
     kCustomDifficultyFieldNumber = 56,
     kFirstLeaverAccountidFieldNumber = 59,
     kSeriesIdFieldNumber = 60,
-    kLanFieldNumber = 57,
+    kCustomGameIdFieldNumber = 68,
     kLowPriorityFieldNumber = 61,
     kFirstBloodHappenedFieldNumber = 65,
     kMassDisconnectFieldNumber = 67,
+    kCustomGameAutoCreatedLobbyFieldNumber = 77,
     kMatchOutcomeFieldNumber = 70,
-    kCustomGameIdFieldNumber = 68,
     kCustomMinPlayersFieldNumber = 71,
     kCustomMaxPlayersFieldNumber = 72,
     kCustomGameCrcFieldNumber = 76,
@@ -5463,17 +5649,16 @@ class CSODOTALobby final :
     kSeriesPreviousSelectionPriorityTeamIdFieldNumber = 98,
     kSeriesCurrentSelectionPriorityTeamIdFieldNumber = 99,
     kSeriesCurrentPriorityTeamChoiceFieldNumber = 100,
-    kCustomGameAutoCreatedLobbyFieldNumber = 77,
+    kSeriesCurrentNonPriorityTeamChoiceFieldNumber = 101,
+    kCustomGamePrivateKeyFieldNumber = 106,
+    kCurrentPrimaryEventFieldNumber = 103,
+    kLeagueNodeIdFieldNumber = 110,
+    kMatchDurationFieldNumber = 111,
     kSeriesCurrentSelectionPriorityUsedCoinTossFieldNumber = 102,
     kCustomGamePenaltiesFieldNumber = 107,
     kExperimentalGameplayEnabledFieldNumber = 116,
-    kSeriesCurrentNonPriorityTeamChoiceFieldNumber = 101,
-    kCurrentPrimaryEventFieldNumber = 103,
-    kCustomGamePrivateKeyFieldNumber = 106,
-    kLeagueNodeIdFieldNumber = 110,
-    kMatchDurationFieldNumber = 111,
-    kLeaguePhaseFieldNumber = 113,
     kIsInSteamChinaFieldNumber = 126,
+    kLeaguePhaseFieldNumber = 113,
     kWithScenarioSaveFieldNumber = 127,
     kLobbyCreationTimeFieldNumber = 128,
     kLobbyTypeFieldNumber = 12,
@@ -5520,24 +5705,6 @@ class CSODOTALobby final :
   ::CLobbyTeamDetails* add_team_details();
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CLobbyTeamDetails >&
       team_details() const;
-
-  // repeated .CLobbyTimedRewardDetails timed_reward_details = 38;
-  int timed_reward_details_size() const;
-  private:
-  int _internal_timed_reward_details_size() const;
-  public:
-  void clear_timed_reward_details();
-  ::CLobbyTimedRewardDetails* mutable_timed_reward_details(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CLobbyTimedRewardDetails >*
-      mutable_timed_reward_details();
-  private:
-  const ::CLobbyTimedRewardDetails& _internal_timed_reward_details(int index) const;
-  ::CLobbyTimedRewardDetails* _internal_add_timed_reward_details();
-  public:
-  const ::CLobbyTimedRewardDetails& timed_reward_details(int index) const;
-  ::CLobbyTimedRewardDetails* add_timed_reward_details();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CLobbyTimedRewardDetails >&
-      timed_reward_details() const;
 
   // repeated .CLobbyBroadcastChannelInfo broadcast_channel_info = 58;
   int broadcast_channel_info_size() const;
@@ -5614,26 +5781,26 @@ class CSODOTALobby final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>& event_progression_enabled() const;
   ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>* mutable_event_progression_enabled();
 
-  // repeated uint32 emergency_disabled_hero_ids = 105;
+  // repeated int32 emergency_disabled_hero_ids = 105;
   int emergency_disabled_hero_ids_size() const;
   private:
   int _internal_emergency_disabled_hero_ids_size() const;
   public:
   void clear_emergency_disabled_hero_ids();
   private:
-  uint32_t _internal_emergency_disabled_hero_ids(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+  int32_t _internal_emergency_disabled_hero_ids(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
       _internal_emergency_disabled_hero_ids() const;
-  void _internal_add_emergency_disabled_hero_ids(uint32_t value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+  void _internal_add_emergency_disabled_hero_ids(int32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
       _internal_mutable_emergency_disabled_hero_ids();
   public:
-  uint32_t emergency_disabled_hero_ids(int index) const;
-  void set_emergency_disabled_hero_ids(int index, uint32_t value);
-  void add_emergency_disabled_hero_ids(uint32_t value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+  int32_t emergency_disabled_hero_ids(int index) const;
+  void set_emergency_disabled_hero_ids(int index, int32_t value);
+  void add_emergency_disabled_hero_ids(int32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
       emergency_disabled_hero_ids() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
       mutable_emergency_disabled_hero_ids();
 
   // repeated .CLobbyGuildChallenge guild_challenges = 117;
@@ -5671,24 +5838,6 @@ class CSODOTALobby final :
   ::CLobbyGuildDetails* add_guild_details();
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CLobbyGuildDetails >&
       guild_details() const;
-
-  // repeated .CMsgLobbyEventPoints lobby_event_points = 119;
-  int lobby_event_points_size() const;
-  private:
-  int _internal_lobby_event_points_size() const;
-  public:
-  void clear_lobby_event_points();
-  ::CMsgLobbyEventPoints* mutable_lobby_event_points(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgLobbyEventPoints >*
-      mutable_lobby_event_points();
-  private:
-  const ::CMsgLobbyEventPoints& _internal_lobby_event_points(int index) const;
-  ::CMsgLobbyEventPoints* _internal_add_lobby_event_points();
-  public:
-  const ::CMsgLobbyEventPoints& lobby_event_points(int index) const;
-  ::CMsgLobbyEventPoints* add_lobby_event_points();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgLobbyEventPoints >&
-      lobby_event_points() const;
 
   // repeated .CSODOTALobbyMember all_members = 120;
   int all_members_size() const;
@@ -5774,26 +5923,26 @@ class CSODOTALobby final :
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
       mutable_free_member_indices();
 
-  // repeated uint32 requested_hero_ids = 124;
+  // repeated int32 requested_hero_ids = 124;
   int requested_hero_ids_size() const;
   private:
   int _internal_requested_hero_ids_size() const;
   public:
   void clear_requested_hero_ids();
   private:
-  uint32_t _internal_requested_hero_ids(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+  int32_t _internal_requested_hero_ids(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
       _internal_requested_hero_ids() const;
-  void _internal_add_requested_hero_ids(uint32_t value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+  void _internal_add_requested_hero_ids(int32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
       _internal_mutable_requested_hero_ids();
   public:
-  uint32_t requested_hero_ids(int index) const;
-  void set_requested_hero_ids(int index, uint32_t value);
-  void add_requested_hero_ids(uint32_t value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+  int32_t requested_hero_ids(int index) const;
+  void set_requested_hero_ids(int index, int32_t value);
+  void add_requested_hero_ids(int32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
       requested_hero_ids() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
       mutable_requested_hero_ids();
 
   // repeated .CMsgLobbyCoachFriendRequest coach_friend_requests = 125;
@@ -5813,24 +5962,6 @@ class CSODOTALobby final :
   ::CMsgLobbyCoachFriendRequest* add_coach_friend_requests();
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgLobbyCoachFriendRequest >&
       coach_friend_requests() const;
-
-  // repeated .CSODOTALobby.CExtraMsg extra_startup_messages = 130;
-  int extra_startup_messages_size() const;
-  private:
-  int _internal_extra_startup_messages_size() const;
-  public:
-  void clear_extra_startup_messages();
-  ::CSODOTALobby_CExtraMsg* mutable_extra_startup_messages(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CSODOTALobby_CExtraMsg >*
-      mutable_extra_startup_messages();
-  private:
-  const ::CSODOTALobby_CExtraMsg& _internal_extra_startup_messages(int index) const;
-  ::CSODOTALobby_CExtraMsg* _internal_add_extra_startup_messages();
-  public:
-  const ::CSODOTALobby_CExtraMsg& extra_startup_messages(int index) const;
-  ::CSODOTALobby_CExtraMsg* add_extra_startup_messages();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CSODOTALobby_CExtraMsg >&
-      extra_startup_messages() const;
 
   // optional string connect = 5;
   bool has_connect() const;
@@ -5958,23 +6089,23 @@ class CSODOTALobby final :
   std::string* _internal_mutable_event_game_definition();
   public:
 
-  // optional .CDOTASaveGame save_game = 63;
-  bool has_save_game() const;
+  // optional .CDOTALobbyMatchQualityData match_quality_data = 131;
+  bool has_match_quality_data() const;
   private:
-  bool _internal_has_save_game() const;
+  bool _internal_has_match_quality_data() const;
   public:
-  void clear_save_game();
-  const ::CDOTASaveGame& save_game() const;
-  PROTOBUF_NODISCARD ::CDOTASaveGame* release_save_game();
-  ::CDOTASaveGame* mutable_save_game();
-  void set_allocated_save_game(::CDOTASaveGame* save_game);
+  void clear_match_quality_data();
+  const ::CDOTALobbyMatchQualityData& match_quality_data() const;
+  PROTOBUF_NODISCARD ::CDOTALobbyMatchQualityData* release_match_quality_data();
+  ::CDOTALobbyMatchQualityData* mutable_match_quality_data();
+  void set_allocated_match_quality_data(::CDOTALobbyMatchQualityData* match_quality_data);
   private:
-  const ::CDOTASaveGame& _internal_save_game() const;
-  ::CDOTASaveGame* _internal_mutable_save_game();
+  const ::CDOTALobbyMatchQualityData& _internal_match_quality_data() const;
+  ::CDOTALobbyMatchQualityData* _internal_mutable_match_quality_data();
   public:
-  void unsafe_arena_set_allocated_save_game(
-      ::CDOTASaveGame* save_game);
-  ::CDOTASaveGame* unsafe_arena_release_save_game();
+  void unsafe_arena_set_allocated_match_quality_data(
+      ::CDOTALobbyMatchQualityData* match_quality_data);
+  ::CDOTALobbyMatchQualityData* unsafe_arena_release_match_quality_data();
 
   // optional uint64 lobby_id = 1 [(.key_field) = true];
   bool has_lobby_id() const;
@@ -6039,19 +6170,6 @@ class CSODOTALobby final :
   private:
   uint64_t _internal_leader_id() const;
   void _internal_set_leader_id(uint64_t value);
-  public:
-
-  // optional uint32 tutorial_lesson = 18;
-  bool has_tutorial_lesson() const;
-  private:
-  bool _internal_has_tutorial_lesson() const;
-  public:
-  void clear_tutorial_lesson();
-  uint32_t tutorial_lesson() const;
-  void set_tutorial_lesson(uint32_t value);
-  private:
-  uint32_t _internal_tutorial_lesson() const;
-  void _internal_set_tutorial_lesson(uint32_t value);
   public:
 
   // optional uint32 tournament_id = 19;
@@ -6119,58 +6237,6 @@ class CSODOTALobby final :
   void _internal_set_num_spectators(uint32_t value);
   public:
 
-  // optional bool allow_cheats = 13;
-  bool has_allow_cheats() const;
-  private:
-  bool _internal_has_allow_cheats() const;
-  public:
-  void clear_allow_cheats();
-  bool allow_cheats() const;
-  void set_allow_cheats(bool value);
-  private:
-  bool _internal_allow_cheats() const;
-  void _internal_set_allow_cheats(bool value);
-  public:
-
-  // optional bool fill_with_bots = 14;
-  bool has_fill_with_bots() const;
-  private:
-  bool _internal_has_fill_with_bots() const;
-  public:
-  void clear_fill_with_bots();
-  bool fill_with_bots() const;
-  void set_fill_with_bots(bool value);
-  private:
-  bool _internal_fill_with_bots() const;
-  void _internal_set_fill_with_bots(bool value);
-  public:
-
-  // optional bool intro_mode = 15;
-  bool has_intro_mode() const;
-  private:
-  bool _internal_has_intro_mode() const;
-  public:
-  void clear_intro_mode();
-  bool intro_mode() const;
-  void set_intro_mode(bool value);
-  private:
-  bool _internal_intro_mode() const;
-  void _internal_set_intro_mode(bool value);
-  public:
-
-  // optional bool allchat = 51 [default = false];
-  bool has_allchat() const;
-  private:
-  bool _internal_has_allchat() const;
-  public:
-  void clear_allchat();
-  bool allchat() const;
-  void set_allchat(bool value);
-  private:
-  bool _internal_allchat() const;
-  void _internal_set_allchat(bool value);
-  public:
-
   // optional uint32 matchgroup = 25;
   bool has_matchgroup() const;
   private:
@@ -6208,6 +6274,58 @@ class CSODOTALobby final :
   private:
   ::DOTA_CM_PICK _internal_cm_pick() const;
   void _internal_set_cm_pick(::DOTA_CM_PICK value);
+  public:
+
+  // optional bool allow_cheats = 13;
+  bool has_allow_cheats() const;
+  private:
+  bool _internal_has_allow_cheats() const;
+  public:
+  void clear_allow_cheats();
+  bool allow_cheats() const;
+  void set_allow_cheats(bool value);
+  private:
+  bool _internal_allow_cheats() const;
+  void _internal_set_allow_cheats(bool value);
+  public:
+
+  // optional bool fill_with_bots = 14;
+  bool has_fill_with_bots() const;
+  private:
+  bool _internal_has_fill_with_bots() const;
+  public:
+  void clear_fill_with_bots();
+  bool fill_with_bots() const;
+  void set_fill_with_bots(bool value);
+  private:
+  bool _internal_fill_with_bots() const;
+  void _internal_set_fill_with_bots(bool value);
+  public:
+
+  // optional bool allchat = 51 [default = false];
+  bool has_allchat() const;
+  private:
+  bool _internal_has_allchat() const;
+  public:
+  void clear_allchat();
+  bool allchat() const;
+  void set_allchat(bool value);
+  private:
+  bool _internal_allchat() const;
+  void _internal_set_allchat(bool value);
+  public:
+
+  // optional bool lan = 57;
+  bool has_lan() const;
+  private:
+  bool _internal_has_lan() const;
+  public:
+  void clear_lan();
+  bool lan() const;
+  void set_lan(bool value);
+  private:
+  bool _internal_lan() const;
+  void _internal_set_lan(bool value);
   public:
 
   // optional uint32 leagueid = 42;
@@ -6249,19 +6367,6 @@ class CSODOTALobby final :
   void _internal_set_penalty_level_dire(uint32_t value);
   public:
 
-  // optional uint32 load_game_id = 45;
-  bool has_load_game_id() const;
-  private:
-  bool _internal_has_load_game_id() const;
-  public:
-  void clear_load_game_id();
-  uint32_t load_game_id() const;
-  void set_load_game_id(uint32_t value);
-  private:
-  uint32_t _internal_load_game_id() const;
-  void _internal_set_load_game_id(uint32_t value);
-  public:
-
   // optional uint32 series_type = 46;
   bool has_series_type() const;
   private:
@@ -6299,32 +6404,6 @@ class CSODOTALobby final :
   private:
   uint32_t _internal_dire_series_wins() const;
   void _internal_set_dire_series_wins(uint32_t value);
-  public:
-
-  // optional uint32 loot_generated = 49;
-  bool has_loot_generated() const;
-  private:
-  bool _internal_has_loot_generated() const;
-  public:
-  void clear_loot_generated();
-  uint32_t loot_generated() const;
-  void set_loot_generated(uint32_t value);
-  private:
-  uint32_t _internal_loot_generated() const;
-  void _internal_set_loot_generated(uint32_t value);
-  public:
-
-  // optional uint32 loot_awarded = 50;
-  bool has_loot_awarded() const;
-  private:
-  bool _internal_has_loot_awarded() const;
-  public:
-  void clear_loot_awarded();
-  uint32_t loot_awarded() const;
-  void set_loot_awarded(uint32_t value);
-  private:
-  uint32_t _internal_loot_awarded() const;
-  void _internal_set_loot_awarded(uint32_t value);
   public:
 
   // optional .LobbyDotaTVDelay dota_tv_delay = 53 [default = LobbyDotaTV_10];
@@ -6379,17 +6458,17 @@ class CSODOTALobby final :
   void _internal_set_series_id(uint32_t value);
   public:
 
-  // optional bool lan = 57;
-  bool has_lan() const;
+  // optional uint64 custom_game_id = 68;
+  bool has_custom_game_id() const;
   private:
-  bool _internal_has_lan() const;
+  bool _internal_has_custom_game_id() const;
   public:
-  void clear_lan();
-  bool lan() const;
-  void set_lan(bool value);
+  void clear_custom_game_id();
+  uint64_t custom_game_id() const;
+  void set_custom_game_id(uint64_t value);
   private:
-  bool _internal_lan() const;
-  void _internal_set_lan(bool value);
+  uint64_t _internal_custom_game_id() const;
+  void _internal_set_custom_game_id(uint64_t value);
   public:
 
   // optional bool low_priority = 61;
@@ -6431,6 +6510,19 @@ class CSODOTALobby final :
   void _internal_set_mass_disconnect(bool value);
   public:
 
+  // optional bool custom_game_auto_created_lobby = 77;
+  bool has_custom_game_auto_created_lobby() const;
+  private:
+  bool _internal_has_custom_game_auto_created_lobby() const;
+  public:
+  void clear_custom_game_auto_created_lobby();
+  bool custom_game_auto_created_lobby() const;
+  void set_custom_game_auto_created_lobby(bool value);
+  private:
+  bool _internal_custom_game_auto_created_lobby() const;
+  void _internal_set_custom_game_auto_created_lobby(bool value);
+  public:
+
   // optional .EMatchOutcome match_outcome = 70 [default = k_EMatchOutcome_Unknown];
   bool has_match_outcome() const;
   private:
@@ -6442,19 +6534,6 @@ class CSODOTALobby final :
   private:
   ::EMatchOutcome _internal_match_outcome() const;
   void _internal_set_match_outcome(::EMatchOutcome value);
-  public:
-
-  // optional uint64 custom_game_id = 68;
-  bool has_custom_game_id() const;
-  private:
-  bool _internal_has_custom_game_id() const;
-  public:
-  void clear_custom_game_id();
-  uint64_t custom_game_id() const;
-  void set_custom_game_id(uint64_t value);
-  private:
-  uint64_t _internal_custom_game_id() const;
-  void _internal_set_custom_game_id(uint64_t value);
   public:
 
   // optional uint32 custom_min_players = 71;
@@ -6678,17 +6757,69 @@ class CSODOTALobby final :
   void _internal_set_series_current_priority_team_choice(::DOTASelectionPriorityChoice value);
   public:
 
-  // optional bool custom_game_auto_created_lobby = 77;
-  bool has_custom_game_auto_created_lobby() const;
+  // optional .DOTASelectionPriorityChoice series_current_non_priority_team_choice = 101 [default = k_DOTASelectionPriorityChoice_Invalid];
+  bool has_series_current_non_priority_team_choice() const;
   private:
-  bool _internal_has_custom_game_auto_created_lobby() const;
+  bool _internal_has_series_current_non_priority_team_choice() const;
   public:
-  void clear_custom_game_auto_created_lobby();
-  bool custom_game_auto_created_lobby() const;
-  void set_custom_game_auto_created_lobby(bool value);
+  void clear_series_current_non_priority_team_choice();
+  ::DOTASelectionPriorityChoice series_current_non_priority_team_choice() const;
+  void set_series_current_non_priority_team_choice(::DOTASelectionPriorityChoice value);
   private:
-  bool _internal_custom_game_auto_created_lobby() const;
-  void _internal_set_custom_game_auto_created_lobby(bool value);
+  ::DOTASelectionPriorityChoice _internal_series_current_non_priority_team_choice() const;
+  void _internal_set_series_current_non_priority_team_choice(::DOTASelectionPriorityChoice value);
+  public:
+
+  // optional fixed64 custom_game_private_key = 106;
+  bool has_custom_game_private_key() const;
+  private:
+  bool _internal_has_custom_game_private_key() const;
+  public:
+  void clear_custom_game_private_key();
+  uint64_t custom_game_private_key() const;
+  void set_custom_game_private_key(uint64_t value);
+  private:
+  uint64_t _internal_custom_game_private_key() const;
+  void _internal_set_custom_game_private_key(uint64_t value);
+  public:
+
+  // optional .EEvent current_primary_event = 103 [default = EVENT_ID_NONE];
+  bool has_current_primary_event() const;
+  private:
+  bool _internal_has_current_primary_event() const;
+  public:
+  void clear_current_primary_event();
+  ::EEvent current_primary_event() const;
+  void set_current_primary_event(::EEvent value);
+  private:
+  ::EEvent _internal_current_primary_event() const;
+  void _internal_set_current_primary_event(::EEvent value);
+  public:
+
+  // optional uint32 league_node_id = 110;
+  bool has_league_node_id() const;
+  private:
+  bool _internal_has_league_node_id() const;
+  public:
+  void clear_league_node_id();
+  uint32_t league_node_id() const;
+  void set_league_node_id(uint32_t value);
+  private:
+  uint32_t _internal_league_node_id() const;
+  void _internal_set_league_node_id(uint32_t value);
+  public:
+
+  // optional uint32 match_duration = 111;
+  bool has_match_duration() const;
+  private:
+  bool _internal_has_match_duration() const;
+  public:
+  void clear_match_duration();
+  uint32_t match_duration() const;
+  void set_match_duration(uint32_t value);
+  private:
+  uint32_t _internal_match_duration() const;
+  void _internal_set_match_duration(uint32_t value);
   public:
 
   // optional bool series_current_selection_priority_used_coin_toss = 102;
@@ -6730,69 +6861,17 @@ class CSODOTALobby final :
   void _internal_set_experimental_gameplay_enabled(bool value);
   public:
 
-  // optional .DOTASelectionPriorityChoice series_current_non_priority_team_choice = 101 [default = k_DOTASelectionPriorityChoice_Invalid];
-  bool has_series_current_non_priority_team_choice() const;
+  // optional bool is_in_steam_china = 126;
+  bool has_is_in_steam_china() const;
   private:
-  bool _internal_has_series_current_non_priority_team_choice() const;
+  bool _internal_has_is_in_steam_china() const;
   public:
-  void clear_series_current_non_priority_team_choice();
-  ::DOTASelectionPriorityChoice series_current_non_priority_team_choice() const;
-  void set_series_current_non_priority_team_choice(::DOTASelectionPriorityChoice value);
+  void clear_is_in_steam_china();
+  bool is_in_steam_china() const;
+  void set_is_in_steam_china(bool value);
   private:
-  ::DOTASelectionPriorityChoice _internal_series_current_non_priority_team_choice() const;
-  void _internal_set_series_current_non_priority_team_choice(::DOTASelectionPriorityChoice value);
-  public:
-
-  // optional .EEvent current_primary_event = 103 [default = EVENT_ID_NONE];
-  bool has_current_primary_event() const;
-  private:
-  bool _internal_has_current_primary_event() const;
-  public:
-  void clear_current_primary_event();
-  ::EEvent current_primary_event() const;
-  void set_current_primary_event(::EEvent value);
-  private:
-  ::EEvent _internal_current_primary_event() const;
-  void _internal_set_current_primary_event(::EEvent value);
-  public:
-
-  // optional fixed64 custom_game_private_key = 106;
-  bool has_custom_game_private_key() const;
-  private:
-  bool _internal_has_custom_game_private_key() const;
-  public:
-  void clear_custom_game_private_key();
-  uint64_t custom_game_private_key() const;
-  void set_custom_game_private_key(uint64_t value);
-  private:
-  uint64_t _internal_custom_game_private_key() const;
-  void _internal_set_custom_game_private_key(uint64_t value);
-  public:
-
-  // optional uint32 league_node_id = 110;
-  bool has_league_node_id() const;
-  private:
-  bool _internal_has_league_node_id() const;
-  public:
-  void clear_league_node_id();
-  uint32_t league_node_id() const;
-  void set_league_node_id(uint32_t value);
-  private:
-  uint32_t _internal_league_node_id() const;
-  void _internal_set_league_node_id(uint32_t value);
-  public:
-
-  // optional uint32 match_duration = 111;
-  bool has_match_duration() const;
-  private:
-  bool _internal_has_match_duration() const;
-  public:
-  void clear_match_duration();
-  uint32_t match_duration() const;
-  void set_match_duration(uint32_t value);
-  private:
-  uint32_t _internal_match_duration() const;
-  void _internal_set_match_duration(uint32_t value);
+  bool _internal_is_in_steam_china() const;
+  void _internal_set_is_in_steam_china(bool value);
   public:
 
   // optional uint32 league_phase = 113;
@@ -6806,19 +6885,6 @@ class CSODOTALobby final :
   private:
   uint32_t _internal_league_phase() const;
   void _internal_set_league_phase(uint32_t value);
-  public:
-
-  // optional bool is_in_steam_china = 126;
-  bool has_is_in_steam_china() const;
-  private:
-  bool _internal_has_is_in_steam_china() const;
-  public:
-  void clear_is_in_steam_china();
-  bool is_in_steam_china() const;
-  void set_is_in_steam_china(bool value);
-  private:
-  bool _internal_is_in_steam_china() const;
-  void _internal_set_is_in_steam_china(bool value);
   public:
 
   // optional bool with_scenario_save = 127;
@@ -6911,22 +6977,19 @@ class CSODOTALobby final :
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t > pending_invites_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CLobbyTeamDetails > team_details_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CLobbyTimedRewardDetails > timed_reward_details_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CLobbyBroadcastChannelInfo > broadcast_channel_info_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CSODOTALobby_CExtraMsg > extra_messages_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t > previous_series_matches_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedField<int> event_progression_enabled_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > emergency_disabled_hero_ids_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > emergency_disabled_hero_ids_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CLobbyGuildChallenge > guild_challenges_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CLobbyGuildDetails > guild_details_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgLobbyEventPoints > lobby_event_points_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CSODOTALobbyMember > all_members_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > member_indices_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > left_member_indices_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > free_member_indices_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > requested_hero_ids_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > requested_hero_ids_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgLobbyCoachFriendRequest > coach_friend_requests_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CSODOTALobby_CExtraMsg > extra_startup_messages_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr connect_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr game_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr pass_key_;
@@ -6934,44 +6997,40 @@ class CSODOTALobby final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr custom_map_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr lan_host_ping_location_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr event_game_definition_;
-    ::CDOTASaveGame* save_game_;
+    ::CDOTALobbyMatchQualityData* match_quality_data_;
     uint64_t lobby_id_;
     uint32_t game_mode_;
     int state_;
     uint64_t server_id_;
     uint64_t leader_id_;
-    uint32_t tutorial_lesson_;
     uint32_t tournament_id_;
     uint32_t tournament_game_id_;
     uint32_t server_region_;
     int game_state_;
     uint32_t num_spectators_;
-    bool allow_cheats_;
-    bool fill_with_bots_;
-    bool intro_mode_;
-    bool allchat_;
     uint32_t matchgroup_;
     uint64_t match_id_;
     int cm_pick_;
+    bool allow_cheats_;
+    bool fill_with_bots_;
+    bool allchat_;
+    bool lan_;
     uint32_t leagueid_;
     uint32_t penalty_level_radiant_;
     uint32_t penalty_level_dire_;
-    uint32_t load_game_id_;
     uint32_t series_type_;
     uint32_t radiant_series_wins_;
     uint32_t dire_series_wins_;
-    uint32_t loot_generated_;
-    uint32_t loot_awarded_;
     int dota_tv_delay_;
     uint32_t custom_difficulty_;
     uint32_t first_leaver_accountid_;
     uint32_t series_id_;
-    bool lan_;
+    uint64_t custom_game_id_;
     bool low_priority_;
     bool first_blood_happened_;
     bool mass_disconnect_;
+    bool custom_game_auto_created_lobby_;
     int match_outcome_;
-    uint64_t custom_game_id_;
     uint32_t custom_min_players_;
     uint32_t custom_max_players_;
     uint64_t custom_game_crc_;
@@ -6989,17 +7048,16 @@ class CSODOTALobby final :
     uint32_t series_previous_selection_priority_team_id_;
     uint32_t series_current_selection_priority_team_id_;
     int series_current_priority_team_choice_;
-    bool custom_game_auto_created_lobby_;
+    int series_current_non_priority_team_choice_;
+    uint64_t custom_game_private_key_;
+    int current_primary_event_;
+    uint32_t league_node_id_;
+    uint32_t match_duration_;
     bool series_current_selection_priority_used_coin_toss_;
     bool custom_game_penalties_;
     bool experimental_gameplay_enabled_;
-    int series_current_non_priority_team_choice_;
-    int current_primary_event_;
-    uint64_t custom_game_private_key_;
-    uint32_t league_node_id_;
-    uint32_t match_duration_;
-    uint32_t league_phase_;
     bool is_in_steam_china_;
+    uint32_t league_phase_;
     bool with_scenario_save_;
     uint32_t lobby_creation_time_;
     int lobby_type_;
@@ -7067,7 +7125,7 @@ class CSODOTAServerLobby final :
                &_CSODOTAServerLobby_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    22;
 
   friend void swap(CSODOTAServerLobby& a, CSODOTAServerLobby& b) {
     a.Swap(&b);
@@ -7141,6 +7199,7 @@ class CSODOTAServerLobby final :
 
   enum : int {
     kAllMembersFieldNumber = 1,
+    kExtraStartupMessagesFieldNumber = 2,
   };
   // repeated .CSODOTAServerLobbyMember all_members = 1;
   int all_members_size() const;
@@ -7160,6 +7219,24 @@ class CSODOTAServerLobby final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CSODOTAServerLobbyMember >&
       all_members() const;
 
+  // repeated .CSODOTALobby.CExtraMsg extra_startup_messages = 2;
+  int extra_startup_messages_size() const;
+  private:
+  int _internal_extra_startup_messages_size() const;
+  public:
+  void clear_extra_startup_messages();
+  ::CSODOTALobby_CExtraMsg* mutable_extra_startup_messages(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CSODOTALobby_CExtraMsg >*
+      mutable_extra_startup_messages();
+  private:
+  const ::CSODOTALobby_CExtraMsg& _internal_extra_startup_messages(int index) const;
+  ::CSODOTALobby_CExtraMsg* _internal_add_extra_startup_messages();
+  public:
+  const ::CSODOTALobby_CExtraMsg& extra_startup_messages(int index) const;
+  ::CSODOTALobby_CExtraMsg* add_extra_startup_messages();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CSODOTALobby_CExtraMsg >&
+      extra_startup_messages() const;
+
   // @@protoc_insertion_point(class_scope:CSODOTAServerLobby)
  private:
   class _Internal;
@@ -7169,6 +7246,7 @@ class CSODOTAServerLobby final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CSODOTAServerLobbyMember > all_members_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CSODOTALobby_CExtraMsg > extra_startup_messages_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -7231,7 +7309,7 @@ class CSODOTAStaticLobby final :
                &_CSODOTAStaticLobby_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    23;
 
   friend void swap(CSODOTAStaticLobby& a, CSODOTAStaticLobby& b) {
     a.Swap(&b);
@@ -7426,7 +7504,7 @@ class CSODOTAServerStaticLobby final :
                &_CSODOTAServerStaticLobby_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    24;
 
   friend void swap(CSODOTAServerStaticLobby& a, CSODOTAServerStaticLobby& b) {
     a.Swap(&b);
@@ -7500,6 +7578,8 @@ class CSODOTAServerStaticLobby final :
 
   enum : int {
     kAllMembersFieldNumber = 1,
+    kLobbyEventPointsFieldNumber = 3,
+    kPostPatchStrategyTimeBufferFieldNumber = 2,
   };
   // repeated .CSODOTAServerStaticLobbyMember all_members = 1;
   int all_members_size() const;
@@ -7519,6 +7599,37 @@ class CSODOTAServerStaticLobby final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CSODOTAServerStaticLobbyMember >&
       all_members() const;
 
+  // repeated .CMsgLobbyEventPoints lobby_event_points = 3;
+  int lobby_event_points_size() const;
+  private:
+  int _internal_lobby_event_points_size() const;
+  public:
+  void clear_lobby_event_points();
+  ::CMsgLobbyEventPoints* mutable_lobby_event_points(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgLobbyEventPoints >*
+      mutable_lobby_event_points();
+  private:
+  const ::CMsgLobbyEventPoints& _internal_lobby_event_points(int index) const;
+  ::CMsgLobbyEventPoints* _internal_add_lobby_event_points();
+  public:
+  const ::CMsgLobbyEventPoints& lobby_event_points(int index) const;
+  ::CMsgLobbyEventPoints* add_lobby_event_points();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgLobbyEventPoints >&
+      lobby_event_points() const;
+
+  // optional float post_patch_strategy_time_buffer = 2;
+  bool has_post_patch_strategy_time_buffer() const;
+  private:
+  bool _internal_has_post_patch_strategy_time_buffer() const;
+  public:
+  void clear_post_patch_strategy_time_buffer();
+  float post_patch_strategy_time_buffer() const;
+  void set_post_patch_strategy_time_buffer(float value);
+  private:
+  float _internal_post_patch_strategy_time_buffer() const;
+  void _internal_set_post_patch_strategy_time_buffer(float value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CSODOTAServerStaticLobby)
  private:
   class _Internal;
@@ -7527,8 +7638,11 @@ class CSODOTAServerStaticLobby final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CSODOTAServerStaticLobbyMember > all_members_;
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CSODOTAServerStaticLobbyMember > all_members_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgLobbyEventPoints > lobby_event_points_;
+    float post_patch_strategy_time_buffer_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fgcmessages_5fcommon_5flobby_2eproto;
@@ -7590,7 +7704,7 @@ class CMsgAdditionalLobbyStartupAccountData_ChatWheelMessageRange final :
                &_CMsgAdditionalLobbyStartupAccountData_ChatWheelMessageRange_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    25;
 
   friend void swap(CMsgAdditionalLobbyStartupAccountData_ChatWheelMessageRange& a, CMsgAdditionalLobbyStartupAccountData_ChatWheelMessageRange& b) {
     a.Swap(&b);
@@ -7765,7 +7879,7 @@ class CMsgAdditionalLobbyStartupAccountData_PingWheelMessageRange final :
                &_CMsgAdditionalLobbyStartupAccountData_PingWheelMessageRange_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    26;
 
   friend void swap(CMsgAdditionalLobbyStartupAccountData_PingWheelMessageRange& a, CMsgAdditionalLobbyStartupAccountData_PingWheelMessageRange& b) {
     a.Swap(&b);
@@ -7940,7 +8054,7 @@ class CMsgAdditionalLobbyStartupAccountData final :
                &_CMsgAdditionalLobbyStartupAccountData_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    26;
+    27;
 
   friend void swap(CMsgAdditionalLobbyStartupAccountData& a, CMsgAdditionalLobbyStartupAccountData& b) {
     a.Swap(&b);
@@ -8162,7 +8276,7 @@ class CMsgLobbyInitializationComplete final :
                &_CMsgLobbyInitializationComplete_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    27;
+    28;
 
   friend void swap(CMsgLobbyInitializationComplete& a, CMsgLobbyInitializationComplete& b) {
     a.Swap(&b);
@@ -8288,7 +8402,7 @@ class CMsgLobbyPlaytestDetails final :
                &_CMsgLobbyPlaytestDetails_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    28;
+    29;
 
   friend void swap(CMsgLobbyPlaytestDetails& a, CMsgLobbyPlaytestDetails& b) {
     a.Swap(&b);
@@ -8453,7 +8567,7 @@ class CMsgLocalServerGuildData final :
                &_CMsgLocalServerGuildData_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    29;
+    30;
 
   friend void swap(CMsgLocalServerGuildData& a, CMsgLocalServerGuildData& b) {
     a.Swap(&b);
@@ -8733,7 +8847,7 @@ class CMsgLocalServerFakeLobbyData final :
                &_CMsgLocalServerFakeLobbyData_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    30;
+    31;
 
   friend void swap(CMsgLocalServerFakeLobbyData& a, CMsgLocalServerFakeLobbyData& b) {
     a.Swap(&b);
@@ -9071,7 +9185,7 @@ inline void CMsgLobbyCoachFriendRequest::set_request_state(::ELobbyMemberCoachRe
 
 // CMsgLobbyPlayerPlusSubscriptionData_HeroBadge
 
-// optional uint32 hero_id = 1;
+// optional int32 hero_id = 1;
 inline bool CMsgLobbyPlayerPlusSubscriptionData_HeroBadge::_internal_has_hero_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -9080,21 +9194,21 @@ inline bool CMsgLobbyPlayerPlusSubscriptionData_HeroBadge::has_hero_id() const {
   return _internal_has_hero_id();
 }
 inline void CMsgLobbyPlayerPlusSubscriptionData_HeroBadge::clear_hero_id() {
-  _impl_.hero_id_ = 0u;
+  _impl_.hero_id_ = 0;
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint32_t CMsgLobbyPlayerPlusSubscriptionData_HeroBadge::_internal_hero_id() const {
+inline int32_t CMsgLobbyPlayerPlusSubscriptionData_HeroBadge::_internal_hero_id() const {
   return _impl_.hero_id_;
 }
-inline uint32_t CMsgLobbyPlayerPlusSubscriptionData_HeroBadge::hero_id() const {
+inline int32_t CMsgLobbyPlayerPlusSubscriptionData_HeroBadge::hero_id() const {
   // @@protoc_insertion_point(field_get:CMsgLobbyPlayerPlusSubscriptionData.HeroBadge.hero_id)
   return _internal_hero_id();
 }
-inline void CMsgLobbyPlayerPlusSubscriptionData_HeroBadge::_internal_set_hero_id(uint32_t value) {
+inline void CMsgLobbyPlayerPlusSubscriptionData_HeroBadge::_internal_set_hero_id(int32_t value) {
   _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.hero_id_ = value;
 }
-inline void CMsgLobbyPlayerPlusSubscriptionData_HeroBadge::set_hero_id(uint32_t value) {
+inline void CMsgLobbyPlayerPlusSubscriptionData_HeroBadge::set_hero_id(int32_t value) {
   _internal_set_hero_id(value);
   // @@protoc_insertion_point(field_set:CMsgLobbyPlayerPlusSubscriptionData.HeroBadge.hero_id)
 }
@@ -9435,6 +9549,34 @@ inline void CMsgLobbyEventPoints_AccountPoints::set_owned(bool value) {
   // @@protoc_insertion_point(field_set:CMsgLobbyEventPoints.AccountPoints.owned)
 }
 
+// optional uint32 event_level = 7;
+inline bool CMsgLobbyEventPoints_AccountPoints::_internal_has_event_level() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  return value;
+}
+inline bool CMsgLobbyEventPoints_AccountPoints::has_event_level() const {
+  return _internal_has_event_level();
+}
+inline void CMsgLobbyEventPoints_AccountPoints::clear_event_level() {
+  _impl_.event_level_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000020u;
+}
+inline uint32_t CMsgLobbyEventPoints_AccountPoints::_internal_event_level() const {
+  return _impl_.event_level_;
+}
+inline uint32_t CMsgLobbyEventPoints_AccountPoints::event_level() const {
+  // @@protoc_insertion_point(field_get:CMsgLobbyEventPoints.AccountPoints.event_level)
+  return _internal_event_level();
+}
+inline void CMsgLobbyEventPoints_AccountPoints::_internal_set_event_level(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_.event_level_ = value;
+}
+inline void CMsgLobbyEventPoints_AccountPoints::set_event_level(uint32_t value) {
+  _internal_set_event_level(value);
+  // @@protoc_insertion_point(field_set:CMsgLobbyEventPoints.AccountPoints.event_level)
+}
+
 // optional uint64 active_effects_mask = 12;
 inline bool CMsgLobbyEventPoints_AccountPoints::_internal_has_active_effects_mask() const {
   bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
@@ -9465,7 +9607,7 @@ inline void CMsgLobbyEventPoints_AccountPoints::set_active_effects_mask(uint64_t
 
 // optional uint32 wager_streak = 23;
 inline bool CMsgLobbyEventPoints_AccountPoints::_internal_has_wager_streak() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
   return value;
 }
 inline bool CMsgLobbyEventPoints_AccountPoints::has_wager_streak() const {
@@ -9473,7 +9615,7 @@ inline bool CMsgLobbyEventPoints_AccountPoints::has_wager_streak() const {
 }
 inline void CMsgLobbyEventPoints_AccountPoints::clear_wager_streak() {
   _impl_.wager_streak_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000020u;
+  _impl_._has_bits_[0] &= ~0x00000040u;
 }
 inline uint32_t CMsgLobbyEventPoints_AccountPoints::_internal_wager_streak() const {
   return _impl_.wager_streak_;
@@ -9483,7 +9625,7 @@ inline uint32_t CMsgLobbyEventPoints_AccountPoints::wager_streak() const {
   return _internal_wager_streak();
 }
 inline void CMsgLobbyEventPoints_AccountPoints::_internal_set_wager_streak(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_._has_bits_[0] |= 0x00000040u;
   _impl_.wager_streak_ = value;
 }
 inline void CMsgLobbyEventPoints_AccountPoints::set_wager_streak(uint32_t value) {
@@ -9533,7 +9675,7 @@ CMsgLobbyEventPoints_AccountPoints::event_game_custom_actions() const {
 
 // optional uint32 tip_amount_index = 26;
 inline bool CMsgLobbyEventPoints_AccountPoints::_internal_has_tip_amount_index() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
   return value;
 }
 inline bool CMsgLobbyEventPoints_AccountPoints::has_tip_amount_index() const {
@@ -9541,7 +9683,7 @@ inline bool CMsgLobbyEventPoints_AccountPoints::has_tip_amount_index() const {
 }
 inline void CMsgLobbyEventPoints_AccountPoints::clear_tip_amount_index() {
   _impl_.tip_amount_index_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000040u;
+  _impl_._has_bits_[0] &= ~0x00000080u;
 }
 inline uint32_t CMsgLobbyEventPoints_AccountPoints::_internal_tip_amount_index() const {
   return _impl_.tip_amount_index_;
@@ -9551,7 +9693,7 @@ inline uint32_t CMsgLobbyEventPoints_AccountPoints::tip_amount_index() const {
   return _internal_tip_amount_index();
 }
 inline void CMsgLobbyEventPoints_AccountPoints::_internal_set_tip_amount_index(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000040u;
+  _impl_._has_bits_[0] |= 0x00000080u;
   _impl_.tip_amount_index_ = value;
 }
 inline void CMsgLobbyEventPoints_AccountPoints::set_tip_amount_index(uint32_t value) {
@@ -9561,7 +9703,7 @@ inline void CMsgLobbyEventPoints_AccountPoints::set_tip_amount_index(uint32_t va
 
 // optional uint32 active_event_season_id = 27;
 inline bool CMsgLobbyEventPoints_AccountPoints::_internal_has_active_event_season_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000100u) != 0;
   return value;
 }
 inline bool CMsgLobbyEventPoints_AccountPoints::has_active_event_season_id() const {
@@ -9569,7 +9711,7 @@ inline bool CMsgLobbyEventPoints_AccountPoints::has_active_event_season_id() con
 }
 inline void CMsgLobbyEventPoints_AccountPoints::clear_active_event_season_id() {
   _impl_.active_event_season_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000080u;
+  _impl_._has_bits_[0] &= ~0x00000100u;
 }
 inline uint32_t CMsgLobbyEventPoints_AccountPoints::_internal_active_event_season_id() const {
   return _impl_.active_event_season_id_;
@@ -9579,7 +9721,7 @@ inline uint32_t CMsgLobbyEventPoints_AccountPoints::active_event_season_id() con
   return _internal_active_event_season_id();
 }
 inline void CMsgLobbyEventPoints_AccountPoints::_internal_set_active_event_season_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000080u;
+  _impl_._has_bits_[0] |= 0x00000100u;
   _impl_.active_event_season_id_ = value;
 }
 inline void CMsgLobbyEventPoints_AccountPoints::set_active_event_season_id(uint32_t value) {
@@ -9589,7 +9731,7 @@ inline void CMsgLobbyEventPoints_AccountPoints::set_active_event_season_id(uint3
 
 // optional uint32 teleport_fx_level = 28;
 inline bool CMsgLobbyEventPoints_AccountPoints::_internal_has_teleport_fx_level() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000100u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000200u) != 0;
   return value;
 }
 inline bool CMsgLobbyEventPoints_AccountPoints::has_teleport_fx_level() const {
@@ -9597,7 +9739,7 @@ inline bool CMsgLobbyEventPoints_AccountPoints::has_teleport_fx_level() const {
 }
 inline void CMsgLobbyEventPoints_AccountPoints::clear_teleport_fx_level() {
   _impl_.teleport_fx_level_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000100u;
+  _impl_._has_bits_[0] &= ~0x00000200u;
 }
 inline uint32_t CMsgLobbyEventPoints_AccountPoints::_internal_teleport_fx_level() const {
   return _impl_.teleport_fx_level_;
@@ -9607,7 +9749,7 @@ inline uint32_t CMsgLobbyEventPoints_AccountPoints::teleport_fx_level() const {
   return _internal_teleport_fx_level();
 }
 inline void CMsgLobbyEventPoints_AccountPoints::_internal_set_teleport_fx_level(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000100u;
+  _impl_._has_bits_[0] |= 0x00000200u;
   _impl_.teleport_fx_level_ = value;
 }
 inline void CMsgLobbyEventPoints_AccountPoints::set_teleport_fx_level(uint32_t value) {
@@ -10250,7 +10392,7 @@ inline void CSODOTALobbyInvite::set_custom_game_timestamp(uint32_t value) {
 
 // optional fixed64 id = 1 [(.key_field) = true];
 inline bool CSODOTALobbyMember::_internal_has_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CSODOTALobbyMember::has_id() const {
@@ -10258,7 +10400,7 @@ inline bool CSODOTALobbyMember::has_id() const {
 }
 inline void CSODOTALobbyMember::clear_id() {
   _impl_.id_ = uint64_t{0u};
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline uint64_t CSODOTALobbyMember::_internal_id() const {
   return _impl_.id_;
@@ -10268,7 +10410,7 @@ inline uint64_t CSODOTALobbyMember::id() const {
   return _internal_id();
 }
 inline void CSODOTALobbyMember::_internal_set_id(uint64_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.id_ = value;
 }
 inline void CSODOTALobbyMember::set_id(uint64_t value) {
@@ -10276,37 +10418,37 @@ inline void CSODOTALobbyMember::set_id(uint64_t value) {
   // @@protoc_insertion_point(field_set:CSODOTALobbyMember.id)
 }
 
-// optional uint32 hero_id = 2;
+// optional int32 hero_id = 2;
 inline bool CSODOTALobbyMember::_internal_has_hero_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CSODOTALobbyMember::has_hero_id() const {
   return _internal_has_hero_id();
 }
 inline void CSODOTALobbyMember::clear_hero_id() {
-  _impl_.hero_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_.hero_id_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
-inline uint32_t CSODOTALobbyMember::_internal_hero_id() const {
+inline int32_t CSODOTALobbyMember::_internal_hero_id() const {
   return _impl_.hero_id_;
 }
-inline uint32_t CSODOTALobbyMember::hero_id() const {
+inline int32_t CSODOTALobbyMember::hero_id() const {
   // @@protoc_insertion_point(field_get:CSODOTALobbyMember.hero_id)
   return _internal_hero_id();
 }
-inline void CSODOTALobbyMember::_internal_set_hero_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+inline void CSODOTALobbyMember::_internal_set_hero_id(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.hero_id_ = value;
 }
-inline void CSODOTALobbyMember::set_hero_id(uint32_t value) {
+inline void CSODOTALobbyMember::set_hero_id(int32_t value) {
   _internal_set_hero_id(value);
   // @@protoc_insertion_point(field_set:CSODOTALobbyMember.hero_id)
 }
 
 // optional .DOTA_GC_TEAM team = 3 [default = DOTA_GC_TEAM_GOOD_GUYS];
 inline bool CSODOTALobbyMember::_internal_has_team() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CSODOTALobbyMember::has_team() const {
@@ -10314,7 +10456,7 @@ inline bool CSODOTALobbyMember::has_team() const {
 }
 inline void CSODOTALobbyMember::clear_team() {
   _impl_.team_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline ::DOTA_GC_TEAM CSODOTALobbyMember::_internal_team() const {
   return static_cast< ::DOTA_GC_TEAM >(_impl_.team_);
@@ -10325,7 +10467,7 @@ inline ::DOTA_GC_TEAM CSODOTALobbyMember::team() const {
 }
 inline void CSODOTALobbyMember::_internal_set_team(::DOTA_GC_TEAM value) {
   assert(::DOTA_GC_TEAM_IsValid(value));
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.team_ = value;
 }
 inline void CSODOTALobbyMember::set_team(::DOTA_GC_TEAM value) {
@@ -10333,77 +10475,9 @@ inline void CSODOTALobbyMember::set_team(::DOTA_GC_TEAM value) {
   // @@protoc_insertion_point(field_set:CSODOTALobbyMember.team)
 }
 
-// optional string name = 6;
-inline bool CSODOTALobbyMember::_internal_has_name() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool CSODOTALobbyMember::has_name() const {
-  return _internal_has_name();
-}
-inline void CSODOTALobbyMember::clear_name() {
-  _impl_.name_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000001u;
-}
-inline const std::string& CSODOTALobbyMember::name() const {
-  // @@protoc_insertion_point(field_get:CSODOTALobbyMember.name)
-  return _internal_name();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void CSODOTALobbyMember::set_name(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000001u;
- _impl_.name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:CSODOTALobbyMember.name)
-}
-inline std::string* CSODOTALobbyMember::mutable_name() {
-  std::string* _s = _internal_mutable_name();
-  // @@protoc_insertion_point(field_mutable:CSODOTALobbyMember.name)
-  return _s;
-}
-inline const std::string& CSODOTALobbyMember::_internal_name() const {
-  return _impl_.name_.Get();
-}
-inline void CSODOTALobbyMember::_internal_set_name(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  _impl_.name_.Set(value, GetArenaForAllocation());
-}
-inline std::string* CSODOTALobbyMember::_internal_mutable_name() {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  return _impl_.name_.Mutable(GetArenaForAllocation());
-}
-inline std::string* CSODOTALobbyMember::release_name() {
-  // @@protoc_insertion_point(field_release:CSODOTALobbyMember.name)
-  if (!_internal_has_name()) {
-    return nullptr;
-  }
-  _impl_._has_bits_[0] &= ~0x00000001u;
-  auto* p = _impl_.name_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.name_.IsDefault()) {
-    _impl_.name_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
-}
-inline void CSODOTALobbyMember::set_allocated_name(std::string* name) {
-  if (name != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000001u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
-  }
-  _impl_.name_.SetAllocated(name, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.name_.IsDefault()) {
-    _impl_.name_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:CSODOTALobbyMember.name)
-}
-
 // optional uint32 slot = 7;
 inline bool CSODOTALobbyMember::_internal_has_slot() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CSODOTALobbyMember::has_slot() const {
@@ -10411,7 +10485,7 @@ inline bool CSODOTALobbyMember::has_slot() const {
 }
 inline void CSODOTALobbyMember::clear_slot() {
   _impl_.slot_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000020u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline uint32_t CSODOTALobbyMember::_internal_slot() const {
   return _impl_.slot_;
@@ -10421,7 +10495,7 @@ inline uint32_t CSODOTALobbyMember::slot() const {
   return _internal_slot();
 }
 inline void CSODOTALobbyMember::_internal_set_slot(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.slot_ = value;
 }
 inline void CSODOTALobbyMember::set_slot(uint32_t value) {
@@ -10429,121 +10503,9 @@ inline void CSODOTALobbyMember::set_slot(uint32_t value) {
   // @@protoc_insertion_point(field_set:CSODOTALobbyMember.slot)
 }
 
-// optional uint64 party_id = 12;
-inline bool CSODOTALobbyMember::_internal_has_party_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
-  return value;
-}
-inline bool CSODOTALobbyMember::has_party_id() const {
-  return _internal_has_party_id();
-}
-inline void CSODOTALobbyMember::clear_party_id() {
-  _impl_.party_id_ = uint64_t{0u};
-  _impl_._has_bits_[0] &= ~0x00000080u;
-}
-inline uint64_t CSODOTALobbyMember::_internal_party_id() const {
-  return _impl_.party_id_;
-}
-inline uint64_t CSODOTALobbyMember::party_id() const {
-  // @@protoc_insertion_point(field_get:CSODOTALobbyMember.party_id)
-  return _internal_party_id();
-}
-inline void CSODOTALobbyMember::_internal_set_party_id(uint64_t value) {
-  _impl_._has_bits_[0] |= 0x00000080u;
-  _impl_.party_id_ = value;
-}
-inline void CSODOTALobbyMember::set_party_id(uint64_t value) {
-  _internal_set_party_id(value);
-  // @@protoc_insertion_point(field_set:CSODOTALobbyMember.party_id)
-}
-
-// optional uint32 meta_level = 13;
-inline bool CSODOTALobbyMember::_internal_has_meta_level() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
-  return value;
-}
-inline bool CSODOTALobbyMember::has_meta_level() const {
-  return _internal_has_meta_level();
-}
-inline void CSODOTALobbyMember::clear_meta_level() {
-  _impl_.meta_level_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000040u;
-}
-inline uint32_t CSODOTALobbyMember::_internal_meta_level() const {
-  return _impl_.meta_level_;
-}
-inline uint32_t CSODOTALobbyMember::meta_level() const {
-  // @@protoc_insertion_point(field_get:CSODOTALobbyMember.meta_level)
-  return _internal_meta_level();
-}
-inline void CSODOTALobbyMember::_internal_set_meta_level(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000040u;
-  _impl_.meta_level_ = value;
-}
-inline void CSODOTALobbyMember::set_meta_level(uint32_t value) {
-  _internal_set_meta_level(value);
-  // @@protoc_insertion_point(field_set:CSODOTALobbyMember.meta_level)
-}
-
-// optional uint32 meta_xp = 14;
-inline bool CSODOTALobbyMember::_internal_has_meta_xp() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000100u) != 0;
-  return value;
-}
-inline bool CSODOTALobbyMember::has_meta_xp() const {
-  return _internal_has_meta_xp();
-}
-inline void CSODOTALobbyMember::clear_meta_xp() {
-  _impl_.meta_xp_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000100u;
-}
-inline uint32_t CSODOTALobbyMember::_internal_meta_xp() const {
-  return _impl_.meta_xp_;
-}
-inline uint32_t CSODOTALobbyMember::meta_xp() const {
-  // @@protoc_insertion_point(field_get:CSODOTALobbyMember.meta_xp)
-  return _internal_meta_xp();
-}
-inline void CSODOTALobbyMember::_internal_set_meta_xp(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000100u;
-  _impl_.meta_xp_ = value;
-}
-inline void CSODOTALobbyMember::set_meta_xp(uint32_t value) {
-  _internal_set_meta_xp(value);
-  // @@protoc_insertion_point(field_set:CSODOTALobbyMember.meta_xp)
-}
-
-// optional uint32 meta_xp_awarded = 15;
-inline bool CSODOTALobbyMember::_internal_has_meta_xp_awarded() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000200u) != 0;
-  return value;
-}
-inline bool CSODOTALobbyMember::has_meta_xp_awarded() const {
-  return _internal_has_meta_xp_awarded();
-}
-inline void CSODOTALobbyMember::clear_meta_xp_awarded() {
-  _impl_.meta_xp_awarded_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000200u;
-}
-inline uint32_t CSODOTALobbyMember::_internal_meta_xp_awarded() const {
-  return _impl_.meta_xp_awarded_;
-}
-inline uint32_t CSODOTALobbyMember::meta_xp_awarded() const {
-  // @@protoc_insertion_point(field_get:CSODOTALobbyMember.meta_xp_awarded)
-  return _internal_meta_xp_awarded();
-}
-inline void CSODOTALobbyMember::_internal_set_meta_xp_awarded(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000200u;
-  _impl_.meta_xp_awarded_ = value;
-}
-inline void CSODOTALobbyMember::set_meta_xp_awarded(uint32_t value) {
-  _internal_set_meta_xp_awarded(value);
-  // @@protoc_insertion_point(field_set:CSODOTALobbyMember.meta_xp_awarded)
-}
-
 // optional .DOTALeaverStatus_t leaver_status = 16 [default = DOTA_LEAVER_NONE];
 inline bool CSODOTALobbyMember::_internal_has_leaver_status() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000400u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CSODOTALobbyMember::has_leaver_status() const {
@@ -10551,7 +10513,7 @@ inline bool CSODOTALobbyMember::has_leaver_status() const {
 }
 inline void CSODOTALobbyMember::clear_leaver_status() {
   _impl_.leaver_status_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000400u;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline ::DOTALeaverStatus_t CSODOTALobbyMember::_internal_leaver_status() const {
   return static_cast< ::DOTALeaverStatus_t >(_impl_.leaver_status_);
@@ -10562,7 +10524,7 @@ inline ::DOTALeaverStatus_t CSODOTALobbyMember::leaver_status() const {
 }
 inline void CSODOTALobbyMember::_internal_set_leaver_status(::DOTALeaverStatus_t value) {
   assert(::DOTALeaverStatus_t_IsValid(value));
-  _impl_._has_bits_[0] |= 0x00000400u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.leaver_status_ = value;
 }
 inline void CSODOTALobbyMember::set_leaver_status(::DOTALeaverStatus_t value) {
@@ -10572,7 +10534,7 @@ inline void CSODOTALobbyMember::set_leaver_status(::DOTALeaverStatus_t value) {
 
 // optional uint32 leaver_actions = 28;
 inline bool CSODOTALobbyMember::_internal_has_leaver_actions() const {
-  bool value = (_impl_._has_bits_[0] & 0x00001000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool CSODOTALobbyMember::has_leaver_actions() const {
@@ -10580,7 +10542,7 @@ inline bool CSODOTALobbyMember::has_leaver_actions() const {
 }
 inline void CSODOTALobbyMember::clear_leaver_actions() {
   _impl_.leaver_actions_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00001000u;
+  _impl_._has_bits_[0] &= ~0x00000020u;
 }
 inline uint32_t CSODOTALobbyMember::_internal_leaver_actions() const {
   return _impl_.leaver_actions_;
@@ -10590,7 +10552,7 @@ inline uint32_t CSODOTALobbyMember::leaver_actions() const {
   return _internal_leaver_actions();
 }
 inline void CSODOTALobbyMember::_internal_set_leaver_actions(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00001000u;
+  _impl_._has_bits_[0] |= 0x00000020u;
   _impl_.leaver_actions_ = value;
 }
 inline void CSODOTALobbyMember::set_leaver_actions(uint32_t value) {
@@ -10598,131 +10560,9 @@ inline void CSODOTALobbyMember::set_leaver_actions(uint32_t value) {
   // @@protoc_insertion_point(field_set:CSODOTALobbyMember.leaver_actions)
 }
 
-// optional uint32 channel = 17 [default = 6];
-inline bool CSODOTALobbyMember::_internal_has_channel() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000001u) != 0;
-  return value;
-}
-inline bool CSODOTALobbyMember::has_channel() const {
-  return _internal_has_channel();
-}
-inline void CSODOTALobbyMember::clear_channel() {
-  _impl_.channel_ = 6u;
-  _impl_._has_bits_[1] &= ~0x00000001u;
-}
-inline uint32_t CSODOTALobbyMember::_internal_channel() const {
-  return _impl_.channel_;
-}
-inline uint32_t CSODOTALobbyMember::channel() const {
-  // @@protoc_insertion_point(field_get:CSODOTALobbyMember.channel)
-  return _internal_channel();
-}
-inline void CSODOTALobbyMember::_internal_set_channel(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000001u;
-  _impl_.channel_ = value;
-}
-inline void CSODOTALobbyMember::set_channel(uint32_t value) {
-  _internal_set_channel(value);
-  // @@protoc_insertion_point(field_set:CSODOTALobbyMember.channel)
-}
-
-// repeated uint32 disabled_hero_id = 20;
-inline int CSODOTALobbyMember::_internal_disabled_hero_id_size() const {
-  return _impl_.disabled_hero_id_.size();
-}
-inline int CSODOTALobbyMember::disabled_hero_id_size() const {
-  return _internal_disabled_hero_id_size();
-}
-inline void CSODOTALobbyMember::clear_disabled_hero_id() {
-  _impl_.disabled_hero_id_.Clear();
-}
-inline uint32_t CSODOTALobbyMember::_internal_disabled_hero_id(int index) const {
-  return _impl_.disabled_hero_id_.Get(index);
-}
-inline uint32_t CSODOTALobbyMember::disabled_hero_id(int index) const {
-  // @@protoc_insertion_point(field_get:CSODOTALobbyMember.disabled_hero_id)
-  return _internal_disabled_hero_id(index);
-}
-inline void CSODOTALobbyMember::set_disabled_hero_id(int index, uint32_t value) {
-  _impl_.disabled_hero_id_.Set(index, value);
-  // @@protoc_insertion_point(field_set:CSODOTALobbyMember.disabled_hero_id)
-}
-inline void CSODOTALobbyMember::_internal_add_disabled_hero_id(uint32_t value) {
-  _impl_.disabled_hero_id_.Add(value);
-}
-inline void CSODOTALobbyMember::add_disabled_hero_id(uint32_t value) {
-  _internal_add_disabled_hero_id(value);
-  // @@protoc_insertion_point(field_add:CSODOTALobbyMember.disabled_hero_id)
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-CSODOTALobbyMember::_internal_disabled_hero_id() const {
-  return _impl_.disabled_hero_id_;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-CSODOTALobbyMember::disabled_hero_id() const {
-  // @@protoc_insertion_point(field_list:CSODOTALobbyMember.disabled_hero_id)
-  return _internal_disabled_hero_id();
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-CSODOTALobbyMember::_internal_mutable_disabled_hero_id() {
-  return &_impl_.disabled_hero_id_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-CSODOTALobbyMember::mutable_disabled_hero_id() {
-  // @@protoc_insertion_point(field_mutable_list:CSODOTALobbyMember.disabled_hero_id)
-  return _internal_mutable_disabled_hero_id();
-}
-
-// repeated uint32 enabled_hero_id = 22;
-inline int CSODOTALobbyMember::_internal_enabled_hero_id_size() const {
-  return _impl_.enabled_hero_id_.size();
-}
-inline int CSODOTALobbyMember::enabled_hero_id_size() const {
-  return _internal_enabled_hero_id_size();
-}
-inline void CSODOTALobbyMember::clear_enabled_hero_id() {
-  _impl_.enabled_hero_id_.Clear();
-}
-inline uint32_t CSODOTALobbyMember::_internal_enabled_hero_id(int index) const {
-  return _impl_.enabled_hero_id_.Get(index);
-}
-inline uint32_t CSODOTALobbyMember::enabled_hero_id(int index) const {
-  // @@protoc_insertion_point(field_get:CSODOTALobbyMember.enabled_hero_id)
-  return _internal_enabled_hero_id(index);
-}
-inline void CSODOTALobbyMember::set_enabled_hero_id(int index, uint32_t value) {
-  _impl_.enabled_hero_id_.Set(index, value);
-  // @@protoc_insertion_point(field_set:CSODOTALobbyMember.enabled_hero_id)
-}
-inline void CSODOTALobbyMember::_internal_add_enabled_hero_id(uint32_t value) {
-  _impl_.enabled_hero_id_.Add(value);
-}
-inline void CSODOTALobbyMember::add_enabled_hero_id(uint32_t value) {
-  _internal_add_enabled_hero_id(value);
-  // @@protoc_insertion_point(field_add:CSODOTALobbyMember.enabled_hero_id)
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-CSODOTALobbyMember::_internal_enabled_hero_id() const {
-  return _impl_.enabled_hero_id_;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-CSODOTALobbyMember::enabled_hero_id() const {
-  // @@protoc_insertion_point(field_list:CSODOTALobbyMember.enabled_hero_id)
-  return _internal_enabled_hero_id();
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-CSODOTALobbyMember::_internal_mutable_enabled_hero_id() {
-  return &_impl_.enabled_hero_id_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-CSODOTALobbyMember::mutable_enabled_hero_id() {
-  // @@protoc_insertion_point(field_mutable_list:CSODOTALobbyMember.enabled_hero_id)
-  return _internal_mutable_enabled_hero_id();
-}
-
 // optional .DOTA_GC_TEAM coach_team = 23 [default = DOTA_GC_TEAM_NOTEAM];
 inline bool CSODOTALobbyMember::_internal_has_coach_team() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000200u) != 0;
   return value;
 }
 inline bool CSODOTALobbyMember::has_coach_team() const {
@@ -10730,7 +10570,7 @@ inline bool CSODOTALobbyMember::has_coach_team() const {
 }
 inline void CSODOTALobbyMember::clear_coach_team() {
   _impl_.coach_team_ = 5;
-  _impl_._has_bits_[1] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000200u;
 }
 inline ::DOTA_GC_TEAM CSODOTALobbyMember::_internal_coach_team() const {
   return static_cast< ::DOTA_GC_TEAM >(_impl_.coach_team_);
@@ -10741,286 +10581,12 @@ inline ::DOTA_GC_TEAM CSODOTALobbyMember::coach_team() const {
 }
 inline void CSODOTALobbyMember::_internal_set_coach_team(::DOTA_GC_TEAM value) {
   assert(::DOTA_GC_TEAM_IsValid(value));
-  _impl_._has_bits_[1] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000200u;
   _impl_.coach_team_ = value;
 }
 inline void CSODOTALobbyMember::set_coach_team(::DOTA_GC_TEAM value) {
   _internal_set_coach_team(value);
   // @@protoc_insertion_point(field_set:CSODOTALobbyMember.coach_team)
-}
-
-// repeated uint32 coached_account_ids = 53;
-inline int CSODOTALobbyMember::_internal_coached_account_ids_size() const {
-  return _impl_.coached_account_ids_.size();
-}
-inline int CSODOTALobbyMember::coached_account_ids_size() const {
-  return _internal_coached_account_ids_size();
-}
-inline void CSODOTALobbyMember::clear_coached_account_ids() {
-  _impl_.coached_account_ids_.Clear();
-}
-inline uint32_t CSODOTALobbyMember::_internal_coached_account_ids(int index) const {
-  return _impl_.coached_account_ids_.Get(index);
-}
-inline uint32_t CSODOTALobbyMember::coached_account_ids(int index) const {
-  // @@protoc_insertion_point(field_get:CSODOTALobbyMember.coached_account_ids)
-  return _internal_coached_account_ids(index);
-}
-inline void CSODOTALobbyMember::set_coached_account_ids(int index, uint32_t value) {
-  _impl_.coached_account_ids_.Set(index, value);
-  // @@protoc_insertion_point(field_set:CSODOTALobbyMember.coached_account_ids)
-}
-inline void CSODOTALobbyMember::_internal_add_coached_account_ids(uint32_t value) {
-  _impl_.coached_account_ids_.Add(value);
-}
-inline void CSODOTALobbyMember::add_coached_account_ids(uint32_t value) {
-  _internal_add_coached_account_ids(value);
-  // @@protoc_insertion_point(field_add:CSODOTALobbyMember.coached_account_ids)
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-CSODOTALobbyMember::_internal_coached_account_ids() const {
-  return _impl_.coached_account_ids_;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-CSODOTALobbyMember::coached_account_ids() const {
-  // @@protoc_insertion_point(field_list:CSODOTALobbyMember.coached_account_ids)
-  return _internal_coached_account_ids();
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-CSODOTALobbyMember::_internal_mutable_coached_account_ids() {
-  return &_impl_.coached_account_ids_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-CSODOTALobbyMember::mutable_coached_account_ids() {
-  // @@protoc_insertion_point(field_mutable_list:CSODOTALobbyMember.coached_account_ids)
-  return _internal_mutable_coached_account_ids();
-}
-
-// optional uint32 coach_rating = 42;
-inline bool CSODOTALobbyMember::_internal_has_coach_rating() const {
-  bool value = (_impl_._has_bits_[0] & 0x00200000u) != 0;
-  return value;
-}
-inline bool CSODOTALobbyMember::has_coach_rating() const {
-  return _internal_has_coach_rating();
-}
-inline void CSODOTALobbyMember::clear_coach_rating() {
-  _impl_.coach_rating_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00200000u;
-}
-inline uint32_t CSODOTALobbyMember::_internal_coach_rating() const {
-  return _impl_.coach_rating_;
-}
-inline uint32_t CSODOTALobbyMember::coach_rating() const {
-  // @@protoc_insertion_point(field_get:CSODOTALobbyMember.coach_rating)
-  return _internal_coach_rating();
-}
-inline void CSODOTALobbyMember::_internal_set_coach_rating(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00200000u;
-  _impl_.coach_rating_ = value;
-}
-inline void CSODOTALobbyMember::set_coach_rating(uint32_t value) {
-  _internal_set_coach_rating(value);
-  // @@protoc_insertion_point(field_set:CSODOTALobbyMember.coach_rating)
-}
-
-// optional uint32 pwrd_cyber_cafe_id = 24;
-inline bool CSODOTALobbyMember::_internal_has_pwrd_cyber_cafe_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000800u) != 0;
-  return value;
-}
-inline bool CSODOTALobbyMember::has_pwrd_cyber_cafe_id() const {
-  return _internal_has_pwrd_cyber_cafe_id();
-}
-inline void CSODOTALobbyMember::clear_pwrd_cyber_cafe_id() {
-  _impl_.pwrd_cyber_cafe_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000800u;
-}
-inline uint32_t CSODOTALobbyMember::_internal_pwrd_cyber_cafe_id() const {
-  return _impl_.pwrd_cyber_cafe_id_;
-}
-inline uint32_t CSODOTALobbyMember::pwrd_cyber_cafe_id() const {
-  // @@protoc_insertion_point(field_get:CSODOTALobbyMember.pwrd_cyber_cafe_id)
-  return _internal_pwrd_cyber_cafe_id();
-}
-inline void CSODOTALobbyMember::_internal_set_pwrd_cyber_cafe_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000800u;
-  _impl_.pwrd_cyber_cafe_id_ = value;
-}
-inline void CSODOTALobbyMember::set_pwrd_cyber_cafe_id(uint32_t value) {
-  _internal_set_pwrd_cyber_cafe_id(value);
-  // @@protoc_insertion_point(field_set:CSODOTALobbyMember.pwrd_cyber_cafe_id)
-}
-
-// optional string pwrd_cyber_cafe_name = 25;
-inline bool CSODOTALobbyMember::_internal_has_pwrd_cyber_cafe_name() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
-  return value;
-}
-inline bool CSODOTALobbyMember::has_pwrd_cyber_cafe_name() const {
-  return _internal_has_pwrd_cyber_cafe_name();
-}
-inline void CSODOTALobbyMember::clear_pwrd_cyber_cafe_name() {
-  _impl_.pwrd_cyber_cafe_name_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000002u;
-}
-inline const std::string& CSODOTALobbyMember::pwrd_cyber_cafe_name() const {
-  // @@protoc_insertion_point(field_get:CSODOTALobbyMember.pwrd_cyber_cafe_name)
-  return _internal_pwrd_cyber_cafe_name();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void CSODOTALobbyMember::set_pwrd_cyber_cafe_name(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000002u;
- _impl_.pwrd_cyber_cafe_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:CSODOTALobbyMember.pwrd_cyber_cafe_name)
-}
-inline std::string* CSODOTALobbyMember::mutable_pwrd_cyber_cafe_name() {
-  std::string* _s = _internal_mutable_pwrd_cyber_cafe_name();
-  // @@protoc_insertion_point(field_mutable:CSODOTALobbyMember.pwrd_cyber_cafe_name)
-  return _s;
-}
-inline const std::string& CSODOTALobbyMember::_internal_pwrd_cyber_cafe_name() const {
-  return _impl_.pwrd_cyber_cafe_name_.Get();
-}
-inline void CSODOTALobbyMember::_internal_set_pwrd_cyber_cafe_name(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  _impl_.pwrd_cyber_cafe_name_.Set(value, GetArenaForAllocation());
-}
-inline std::string* CSODOTALobbyMember::_internal_mutable_pwrd_cyber_cafe_name() {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  return _impl_.pwrd_cyber_cafe_name_.Mutable(GetArenaForAllocation());
-}
-inline std::string* CSODOTALobbyMember::release_pwrd_cyber_cafe_name() {
-  // @@protoc_insertion_point(field_release:CSODOTALobbyMember.pwrd_cyber_cafe_name)
-  if (!_internal_has_pwrd_cyber_cafe_name()) {
-    return nullptr;
-  }
-  _impl_._has_bits_[0] &= ~0x00000002u;
-  auto* p = _impl_.pwrd_cyber_cafe_name_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.pwrd_cyber_cafe_name_.IsDefault()) {
-    _impl_.pwrd_cyber_cafe_name_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
-}
-inline void CSODOTALobbyMember::set_allocated_pwrd_cyber_cafe_name(std::string* pwrd_cyber_cafe_name) {
-  if (pwrd_cyber_cafe_name != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000002u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000002u;
-  }
-  _impl_.pwrd_cyber_cafe_name_.SetAllocated(pwrd_cyber_cafe_name, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.pwrd_cyber_cafe_name_.IsDefault()) {
-    _impl_.pwrd_cyber_cafe_name_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:CSODOTALobbyMember.pwrd_cyber_cafe_name)
-}
-
-// repeated fixed32 disabled_random_hero_bits = 41;
-inline int CSODOTALobbyMember::_internal_disabled_random_hero_bits_size() const {
-  return _impl_.disabled_random_hero_bits_.size();
-}
-inline int CSODOTALobbyMember::disabled_random_hero_bits_size() const {
-  return _internal_disabled_random_hero_bits_size();
-}
-inline void CSODOTALobbyMember::clear_disabled_random_hero_bits() {
-  _impl_.disabled_random_hero_bits_.Clear();
-}
-inline uint32_t CSODOTALobbyMember::_internal_disabled_random_hero_bits(int index) const {
-  return _impl_.disabled_random_hero_bits_.Get(index);
-}
-inline uint32_t CSODOTALobbyMember::disabled_random_hero_bits(int index) const {
-  // @@protoc_insertion_point(field_get:CSODOTALobbyMember.disabled_random_hero_bits)
-  return _internal_disabled_random_hero_bits(index);
-}
-inline void CSODOTALobbyMember::set_disabled_random_hero_bits(int index, uint32_t value) {
-  _impl_.disabled_random_hero_bits_.Set(index, value);
-  // @@protoc_insertion_point(field_set:CSODOTALobbyMember.disabled_random_hero_bits)
-}
-inline void CSODOTALobbyMember::_internal_add_disabled_random_hero_bits(uint32_t value) {
-  _impl_.disabled_random_hero_bits_.Add(value);
-}
-inline void CSODOTALobbyMember::add_disabled_random_hero_bits(uint32_t value) {
-  _internal_add_disabled_random_hero_bits(value);
-  // @@protoc_insertion_point(field_add:CSODOTALobbyMember.disabled_random_hero_bits)
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-CSODOTALobbyMember::_internal_disabled_random_hero_bits() const {
-  return _impl_.disabled_random_hero_bits_;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-CSODOTALobbyMember::disabled_random_hero_bits() const {
-  // @@protoc_insertion_point(field_list:CSODOTALobbyMember.disabled_random_hero_bits)
-  return _internal_disabled_random_hero_bits();
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-CSODOTALobbyMember::_internal_mutable_disabled_random_hero_bits() {
-  return &_impl_.disabled_random_hero_bits_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-CSODOTALobbyMember::mutable_disabled_random_hero_bits() {
-  // @@protoc_insertion_point(field_mutable_list:CSODOTALobbyMember.disabled_random_hero_bits)
-  return _internal_mutable_disabled_random_hero_bits();
-}
-
-// optional sint32 rank_change = 29;
-inline bool CSODOTALobbyMember::_internal_has_rank_change() const {
-  bool value = (_impl_._has_bits_[0] & 0x00002000u) != 0;
-  return value;
-}
-inline bool CSODOTALobbyMember::has_rank_change() const {
-  return _internal_has_rank_change();
-}
-inline void CSODOTALobbyMember::clear_rank_change() {
-  _impl_.rank_change_ = 0;
-  _impl_._has_bits_[0] &= ~0x00002000u;
-}
-inline int32_t CSODOTALobbyMember::_internal_rank_change() const {
-  return _impl_.rank_change_;
-}
-inline int32_t CSODOTALobbyMember::rank_change() const {
-  // @@protoc_insertion_point(field_get:CSODOTALobbyMember.rank_change)
-  return _internal_rank_change();
-}
-inline void CSODOTALobbyMember::_internal_set_rank_change(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00002000u;
-  _impl_.rank_change_ = value;
-}
-inline void CSODOTALobbyMember::set_rank_change(int32_t value) {
-  _internal_set_rank_change(value);
-  // @@protoc_insertion_point(field_set:CSODOTALobbyMember.rank_change)
-}
-
-// optional bool cameraman = 30;
-inline bool CSODOTALobbyMember::_internal_has_cameraman() const {
-  bool value = (_impl_._has_bits_[0] & 0x00010000u) != 0;
-  return value;
-}
-inline bool CSODOTALobbyMember::has_cameraman() const {
-  return _internal_has_cameraman();
-}
-inline void CSODOTALobbyMember::clear_cameraman() {
-  _impl_.cameraman_ = false;
-  _impl_._has_bits_[0] &= ~0x00010000u;
-}
-inline bool CSODOTALobbyMember::_internal_cameraman() const {
-  return _impl_.cameraman_;
-}
-inline bool CSODOTALobbyMember::cameraman() const {
-  // @@protoc_insertion_point(field_get:CSODOTALobbyMember.cameraman)
-  return _internal_cameraman();
-}
-inline void CSODOTALobbyMember::_internal_set_cameraman(bool value) {
-  _impl_._has_bits_[0] |= 0x00010000u;
-  _impl_.cameraman_ = value;
-}
-inline void CSODOTALobbyMember::set_cameraman(bool value) {
-  _internal_set_cameraman(value);
-  // @@protoc_insertion_point(field_set:CSODOTALobbyMember.cameraman)
 }
 
 // repeated uint32 custom_game_product_ids = 31;
@@ -11070,150 +10636,9 @@ CSODOTALobbyMember::mutable_custom_game_product_ids() {
   return _internal_mutable_custom_game_product_ids();
 }
 
-// optional .MatchType search_match_type = 33 [default = MATCH_TYPE_CASUAL];
-inline bool CSODOTALobbyMember::_internal_has_search_match_type() const {
-  bool value = (_impl_._has_bits_[0] & 0x00008000u) != 0;
-  return value;
-}
-inline bool CSODOTALobbyMember::has_search_match_type() const {
-  return _internal_has_search_match_type();
-}
-inline void CSODOTALobbyMember::clear_search_match_type() {
-  _impl_.search_match_type_ = 0;
-  _impl_._has_bits_[0] &= ~0x00008000u;
-}
-inline ::MatchType CSODOTALobbyMember::_internal_search_match_type() const {
-  return static_cast< ::MatchType >(_impl_.search_match_type_);
-}
-inline ::MatchType CSODOTALobbyMember::search_match_type() const {
-  // @@protoc_insertion_point(field_get:CSODOTALobbyMember.search_match_type)
-  return _internal_search_match_type();
-}
-inline void CSODOTALobbyMember::_internal_set_search_match_type(::MatchType value) {
-  assert(::MatchType_IsValid(value));
-  _impl_._has_bits_[0] |= 0x00008000u;
-  _impl_.search_match_type_ = value;
-}
-inline void CSODOTALobbyMember::set_search_match_type(::MatchType value) {
-  _internal_set_search_match_type(value);
-  // @@protoc_insertion_point(field_set:CSODOTALobbyMember.search_match_type)
-}
-
-// optional uint64 favorite_team_packed = 35;
-inline bool CSODOTALobbyMember::_internal_has_favorite_team_packed() const {
-  bool value = (_impl_._has_bits_[0] & 0x00004000u) != 0;
-  return value;
-}
-inline bool CSODOTALobbyMember::has_favorite_team_packed() const {
-  return _internal_has_favorite_team_packed();
-}
-inline void CSODOTALobbyMember::clear_favorite_team_packed() {
-  _impl_.favorite_team_packed_ = uint64_t{0u};
-  _impl_._has_bits_[0] &= ~0x00004000u;
-}
-inline uint64_t CSODOTALobbyMember::_internal_favorite_team_packed() const {
-  return _impl_.favorite_team_packed_;
-}
-inline uint64_t CSODOTALobbyMember::favorite_team_packed() const {
-  // @@protoc_insertion_point(field_get:CSODOTALobbyMember.favorite_team_packed)
-  return _internal_favorite_team_packed();
-}
-inline void CSODOTALobbyMember::_internal_set_favorite_team_packed(uint64_t value) {
-  _impl_._has_bits_[0] |= 0x00004000u;
-  _impl_.favorite_team_packed_ = value;
-}
-inline void CSODOTALobbyMember::set_favorite_team_packed(uint64_t value) {
-  _internal_set_favorite_team_packed(value);
-  // @@protoc_insertion_point(field_set:CSODOTALobbyMember.favorite_team_packed)
-}
-
-// optional bool is_plus_subscriber = 36;
-inline bool CSODOTALobbyMember::_internal_has_is_plus_subscriber() const {
-  bool value = (_impl_._has_bits_[0] & 0x00020000u) != 0;
-  return value;
-}
-inline bool CSODOTALobbyMember::has_is_plus_subscriber() const {
-  return _internal_has_is_plus_subscriber();
-}
-inline void CSODOTALobbyMember::clear_is_plus_subscriber() {
-  _impl_.is_plus_subscriber_ = false;
-  _impl_._has_bits_[0] &= ~0x00020000u;
-}
-inline bool CSODOTALobbyMember::_internal_is_plus_subscriber() const {
-  return _impl_.is_plus_subscriber_;
-}
-inline bool CSODOTALobbyMember::is_plus_subscriber() const {
-  // @@protoc_insertion_point(field_get:CSODOTALobbyMember.is_plus_subscriber)
-  return _internal_is_plus_subscriber();
-}
-inline void CSODOTALobbyMember::_internal_set_is_plus_subscriber(bool value) {
-  _impl_._has_bits_[0] |= 0x00020000u;
-  _impl_.is_plus_subscriber_ = value;
-}
-inline void CSODOTALobbyMember::set_is_plus_subscriber(bool value) {
-  _internal_set_is_plus_subscriber(value);
-  // @@protoc_insertion_point(field_set:CSODOTALobbyMember.is_plus_subscriber)
-}
-
-// optional uint32 lane_selection_flags = 38;
-inline bool CSODOTALobbyMember::_internal_has_lane_selection_flags() const {
-  bool value = (_impl_._has_bits_[0] & 0x00100000u) != 0;
-  return value;
-}
-inline bool CSODOTALobbyMember::has_lane_selection_flags() const {
-  return _internal_has_lane_selection_flags();
-}
-inline void CSODOTALobbyMember::clear_lane_selection_flags() {
-  _impl_.lane_selection_flags_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00100000u;
-}
-inline uint32_t CSODOTALobbyMember::_internal_lane_selection_flags() const {
-  return _impl_.lane_selection_flags_;
-}
-inline uint32_t CSODOTALobbyMember::lane_selection_flags() const {
-  // @@protoc_insertion_point(field_get:CSODOTALobbyMember.lane_selection_flags)
-  return _internal_lane_selection_flags();
-}
-inline void CSODOTALobbyMember::_internal_set_lane_selection_flags(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00100000u;
-  _impl_.lane_selection_flags_ = value;
-}
-inline void CSODOTALobbyMember::set_lane_selection_flags(uint32_t value) {
-  _internal_set_lane_selection_flags(value);
-  // @@protoc_insertion_point(field_set:CSODOTALobbyMember.lane_selection_flags)
-}
-
-// optional bool can_earn_rewards = 39;
-inline bool CSODOTALobbyMember::_internal_has_can_earn_rewards() const {
-  bool value = (_impl_._has_bits_[0] & 0x00040000u) != 0;
-  return value;
-}
-inline bool CSODOTALobbyMember::has_can_earn_rewards() const {
-  return _internal_has_can_earn_rewards();
-}
-inline void CSODOTALobbyMember::clear_can_earn_rewards() {
-  _impl_.can_earn_rewards_ = false;
-  _impl_._has_bits_[0] &= ~0x00040000u;
-}
-inline bool CSODOTALobbyMember::_internal_can_earn_rewards() const {
-  return _impl_.can_earn_rewards_;
-}
-inline bool CSODOTALobbyMember::can_earn_rewards() const {
-  // @@protoc_insertion_point(field_get:CSODOTALobbyMember.can_earn_rewards)
-  return _internal_can_earn_rewards();
-}
-inline void CSODOTALobbyMember::_internal_set_can_earn_rewards(bool value) {
-  _impl_._has_bits_[0] |= 0x00040000u;
-  _impl_.can_earn_rewards_ = value;
-}
-inline void CSODOTALobbyMember::set_can_earn_rewards(bool value) {
-  _internal_set_can_earn_rewards(value);
-  // @@protoc_insertion_point(field_set:CSODOTALobbyMember.can_earn_rewards)
-}
-
 // optional .DOTA_GC_TEAM live_spectator_team = 40 [default = DOTA_GC_TEAM_NOTEAM];
 inline bool CSODOTALobbyMember::_internal_has_live_spectator_team() const {
-  bool value = (_impl_._has_bits_[0] & 0x80000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000400u) != 0;
   return value;
 }
 inline bool CSODOTALobbyMember::has_live_spectator_team() const {
@@ -11221,7 +10646,7 @@ inline bool CSODOTALobbyMember::has_live_spectator_team() const {
 }
 inline void CSODOTALobbyMember::clear_live_spectator_team() {
   _impl_.live_spectator_team_ = 5;
-  _impl_._has_bits_[0] &= ~0x80000000u;
+  _impl_._has_bits_[0] &= ~0x00000400u;
 }
 inline ::DOTA_GC_TEAM CSODOTALobbyMember::_internal_live_spectator_team() const {
   return static_cast< ::DOTA_GC_TEAM >(_impl_.live_spectator_team_);
@@ -11232,40 +10657,12 @@ inline ::DOTA_GC_TEAM CSODOTALobbyMember::live_spectator_team() const {
 }
 inline void CSODOTALobbyMember::_internal_set_live_spectator_team(::DOTA_GC_TEAM value) {
   assert(::DOTA_GC_TEAM_IsValid(value));
-  _impl_._has_bits_[0] |= 0x80000000u;
+  _impl_._has_bits_[0] |= 0x00000400u;
   _impl_.live_spectator_team_ = value;
 }
 inline void CSODOTALobbyMember::set_live_spectator_team(::DOTA_GC_TEAM value) {
   _internal_set_live_spectator_team(value);
   // @@protoc_insertion_point(field_set:CSODOTALobbyMember.live_spectator_team)
-}
-
-// optional bool was_mvp_last_game = 43;
-inline bool CSODOTALobbyMember::_internal_has_was_mvp_last_game() const {
-  bool value = (_impl_._has_bits_[0] & 0x00080000u) != 0;
-  return value;
-}
-inline bool CSODOTALobbyMember::has_was_mvp_last_game() const {
-  return _internal_has_was_mvp_last_game();
-}
-inline void CSODOTALobbyMember::clear_was_mvp_last_game() {
-  _impl_.was_mvp_last_game_ = false;
-  _impl_._has_bits_[0] &= ~0x00080000u;
-}
-inline bool CSODOTALobbyMember::_internal_was_mvp_last_game() const {
-  return _impl_.was_mvp_last_game_;
-}
-inline bool CSODOTALobbyMember::was_mvp_last_game() const {
-  // @@protoc_insertion_point(field_get:CSODOTALobbyMember.was_mvp_last_game)
-  return _internal_was_mvp_last_game();
-}
-inline void CSODOTALobbyMember::_internal_set_was_mvp_last_game(bool value) {
-  _impl_._has_bits_[0] |= 0x00080000u;
-  _impl_.was_mvp_last_game_ = value;
-}
-inline void CSODOTALobbyMember::set_was_mvp_last_game(bool value) {
-  _internal_set_was_mvp_last_game(value);
-  // @@protoc_insertion_point(field_set:CSODOTALobbyMember.was_mvp_last_game)
 }
 
 // repeated .CMsgPendingEventAward pending_awards = 44;
@@ -11342,150 +10739,9 @@ CSODOTALobbyMember::pending_awards_on_victory() const {
   return _impl_.pending_awards_on_victory_;
 }
 
-// optional .EDOTAMMRBoostType rank_mmr_boost_type = 46 [default = k_EDOTAMMRBoostType_None];
-inline bool CSODOTALobbyMember::_internal_has_rank_mmr_boost_type() const {
-  bool value = (_impl_._has_bits_[0] & 0x00400000u) != 0;
-  return value;
-}
-inline bool CSODOTALobbyMember::has_rank_mmr_boost_type() const {
-  return _internal_has_rank_mmr_boost_type();
-}
-inline void CSODOTALobbyMember::clear_rank_mmr_boost_type() {
-  _impl_.rank_mmr_boost_type_ = 0;
-  _impl_._has_bits_[0] &= ~0x00400000u;
-}
-inline ::EDOTAMMRBoostType CSODOTALobbyMember::_internal_rank_mmr_boost_type() const {
-  return static_cast< ::EDOTAMMRBoostType >(_impl_.rank_mmr_boost_type_);
-}
-inline ::EDOTAMMRBoostType CSODOTALobbyMember::rank_mmr_boost_type() const {
-  // @@protoc_insertion_point(field_get:CSODOTALobbyMember.rank_mmr_boost_type)
-  return _internal_rank_mmr_boost_type();
-}
-inline void CSODOTALobbyMember::_internal_set_rank_mmr_boost_type(::EDOTAMMRBoostType value) {
-  assert(::EDOTAMMRBoostType_IsValid(value));
-  _impl_._has_bits_[0] |= 0x00400000u;
-  _impl_.rank_mmr_boost_type_ = value;
-}
-inline void CSODOTALobbyMember::set_rank_mmr_boost_type(::EDOTAMMRBoostType value) {
-  _internal_set_rank_mmr_boost_type(value);
-  // @@protoc_insertion_point(field_set:CSODOTALobbyMember.rank_mmr_boost_type)
-}
-
-// optional sint32 queue_point_adjustment = 47;
-inline bool CSODOTALobbyMember::_internal_has_queue_point_adjustment() const {
-  bool value = (_impl_._has_bits_[0] & 0x00800000u) != 0;
-  return value;
-}
-inline bool CSODOTALobbyMember::has_queue_point_adjustment() const {
-  return _internal_has_queue_point_adjustment();
-}
-inline void CSODOTALobbyMember::clear_queue_point_adjustment() {
-  _impl_.queue_point_adjustment_ = 0;
-  _impl_._has_bits_[0] &= ~0x00800000u;
-}
-inline int32_t CSODOTALobbyMember::_internal_queue_point_adjustment() const {
-  return _impl_.queue_point_adjustment_;
-}
-inline int32_t CSODOTALobbyMember::queue_point_adjustment() const {
-  // @@protoc_insertion_point(field_get:CSODOTALobbyMember.queue_point_adjustment)
-  return _internal_queue_point_adjustment();
-}
-inline void CSODOTALobbyMember::_internal_set_queue_point_adjustment(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00800000u;
-  _impl_.queue_point_adjustment_ = value;
-}
-inline void CSODOTALobbyMember::set_queue_point_adjustment(int32_t value) {
-  _internal_set_queue_point_adjustment(value);
-  // @@protoc_insertion_point(field_set:CSODOTALobbyMember.queue_point_adjustment)
-}
-
-// optional int32 rank_tier = 48;
-inline bool CSODOTALobbyMember::_internal_has_rank_tier() const {
-  bool value = (_impl_._has_bits_[0] & 0x01000000u) != 0;
-  return value;
-}
-inline bool CSODOTALobbyMember::has_rank_tier() const {
-  return _internal_has_rank_tier();
-}
-inline void CSODOTALobbyMember::clear_rank_tier() {
-  _impl_.rank_tier_ = 0;
-  _impl_._has_bits_[0] &= ~0x01000000u;
-}
-inline int32_t CSODOTALobbyMember::_internal_rank_tier() const {
-  return _impl_.rank_tier_;
-}
-inline int32_t CSODOTALobbyMember::rank_tier() const {
-  // @@protoc_insertion_point(field_get:CSODOTALobbyMember.rank_tier)
-  return _internal_rank_tier();
-}
-inline void CSODOTALobbyMember::_internal_set_rank_tier(int32_t value) {
-  _impl_._has_bits_[0] |= 0x01000000u;
-  _impl_.rank_tier_ = value;
-}
-inline void CSODOTALobbyMember::set_rank_tier(int32_t value) {
-  _internal_set_rank_tier(value);
-  // @@protoc_insertion_point(field_set:CSODOTALobbyMember.rank_tier)
-}
-
-// optional uint32 title = 50;
-inline bool CSODOTALobbyMember::_internal_has_title() const {
-  bool value = (_impl_._has_bits_[0] & 0x02000000u) != 0;
-  return value;
-}
-inline bool CSODOTALobbyMember::has_title() const {
-  return _internal_has_title();
-}
-inline void CSODOTALobbyMember::clear_title() {
-  _impl_.title_ = 0u;
-  _impl_._has_bits_[0] &= ~0x02000000u;
-}
-inline uint32_t CSODOTALobbyMember::_internal_title() const {
-  return _impl_.title_;
-}
-inline uint32_t CSODOTALobbyMember::title() const {
-  // @@protoc_insertion_point(field_get:CSODOTALobbyMember.title)
-  return _internal_title();
-}
-inline void CSODOTALobbyMember::_internal_set_title(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x02000000u;
-  _impl_.title_ = value;
-}
-inline void CSODOTALobbyMember::set_title(uint32_t value) {
-  _internal_set_title(value);
-  // @@protoc_insertion_point(field_set:CSODOTALobbyMember.title)
-}
-
-// optional uint32 guild_id = 51;
-inline bool CSODOTALobbyMember::_internal_has_guild_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x04000000u) != 0;
-  return value;
-}
-inline bool CSODOTALobbyMember::has_guild_id() const {
-  return _internal_has_guild_id();
-}
-inline void CSODOTALobbyMember::clear_guild_id() {
-  _impl_.guild_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x04000000u;
-}
-inline uint32_t CSODOTALobbyMember::_internal_guild_id() const {
-  return _impl_.guild_id_;
-}
-inline uint32_t CSODOTALobbyMember::guild_id() const {
-  // @@protoc_insertion_point(field_get:CSODOTALobbyMember.guild_id)
-  return _internal_guild_id();
-}
-inline void CSODOTALobbyMember::_internal_set_guild_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x04000000u;
-  _impl_.guild_id_ = value;
-}
-inline void CSODOTALobbyMember::set_guild_id(uint32_t value) {
-  _internal_set_guild_id(value);
-  // @@protoc_insertion_point(field_set:CSODOTALobbyMember.guild_id)
-}
-
 // optional uint32 reports_available = 52;
 inline bool CSODOTALobbyMember::_internal_has_reports_available() const {
-  bool value = (_impl_._has_bits_[0] & 0x08000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
   return value;
 }
 inline bool CSODOTALobbyMember::has_reports_available() const {
@@ -11493,7 +10749,7 @@ inline bool CSODOTALobbyMember::has_reports_available() const {
 }
 inline void CSODOTALobbyMember::clear_reports_available() {
   _impl_.reports_available_ = 0u;
-  _impl_._has_bits_[0] &= ~0x08000000u;
+  _impl_._has_bits_[0] &= ~0x00000040u;
 }
 inline uint32_t CSODOTALobbyMember::_internal_reports_available() const {
   return _impl_.reports_available_;
@@ -11503,7 +10759,7 @@ inline uint32_t CSODOTALobbyMember::reports_available() const {
   return _internal_reports_available();
 }
 inline void CSODOTALobbyMember::_internal_set_reports_available(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x08000000u;
+  _impl_._has_bits_[0] |= 0x00000040u;
   _impl_.reports_available_ = value;
 }
 inline void CSODOTALobbyMember::set_reports_available(uint32_t value) {
@@ -11511,37 +10767,9 @@ inline void CSODOTALobbyMember::set_reports_available(uint32_t value) {
   // @@protoc_insertion_point(field_set:CSODOTALobbyMember.reports_available)
 }
 
-// optional bool is_steam_china = 54;
-inline bool CSODOTALobbyMember::_internal_has_is_steam_china() const {
-  bool value = (_impl_._has_bits_[0] & 0x10000000u) != 0;
-  return value;
-}
-inline bool CSODOTALobbyMember::has_is_steam_china() const {
-  return _internal_has_is_steam_china();
-}
-inline void CSODOTALobbyMember::clear_is_steam_china() {
-  _impl_.is_steam_china_ = false;
-  _impl_._has_bits_[0] &= ~0x10000000u;
-}
-inline bool CSODOTALobbyMember::_internal_is_steam_china() const {
-  return _impl_.is_steam_china_;
-}
-inline bool CSODOTALobbyMember::is_steam_china() const {
-  // @@protoc_insertion_point(field_get:CSODOTALobbyMember.is_steam_china)
-  return _internal_is_steam_china();
-}
-inline void CSODOTALobbyMember::_internal_set_is_steam_china(bool value) {
-  _impl_._has_bits_[0] |= 0x10000000u;
-  _impl_.is_steam_china_ = value;
-}
-inline void CSODOTALobbyMember::set_is_steam_china(bool value) {
-  _internal_set_is_steam_china(value);
-  // @@protoc_insertion_point(field_set:CSODOTALobbyMember.is_steam_china)
-}
-
 // optional uint32 live_spectator_account_id = 55;
 inline bool CSODOTALobbyMember::_internal_has_live_spectator_account_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x20000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
   return value;
 }
 inline bool CSODOTALobbyMember::has_live_spectator_account_id() const {
@@ -11549,7 +10777,7 @@ inline bool CSODOTALobbyMember::has_live_spectator_account_id() const {
 }
 inline void CSODOTALobbyMember::clear_live_spectator_account_id() {
   _impl_.live_spectator_account_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x20000000u;
+  _impl_._has_bits_[0] &= ~0x00000080u;
 }
 inline uint32_t CSODOTALobbyMember::_internal_live_spectator_account_id() const {
   return _impl_.live_spectator_account_id_;
@@ -11559,7 +10787,7 @@ inline uint32_t CSODOTALobbyMember::live_spectator_account_id() const {
   return _internal_live_spectator_account_id();
 }
 inline void CSODOTALobbyMember::_internal_set_live_spectator_account_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x20000000u;
+  _impl_._has_bits_[0] |= 0x00000080u;
   _impl_.live_spectator_account_id_ = value;
 }
 inline void CSODOTALobbyMember::set_live_spectator_account_id(uint32_t value) {
@@ -11569,7 +10797,7 @@ inline void CSODOTALobbyMember::set_live_spectator_account_id(uint32_t value) {
 
 // optional uint32 comms_reports_available = 56;
 inline bool CSODOTALobbyMember::_internal_has_comms_reports_available() const {
-  bool value = (_impl_._has_bits_[0] & 0x40000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000100u) != 0;
   return value;
 }
 inline bool CSODOTALobbyMember::has_comms_reports_available() const {
@@ -11577,7 +10805,7 @@ inline bool CSODOTALobbyMember::has_comms_reports_available() const {
 }
 inline void CSODOTALobbyMember::clear_comms_reports_available() {
   _impl_.comms_reports_available_ = 0u;
-  _impl_._has_bits_[0] &= ~0x40000000u;
+  _impl_._has_bits_[0] &= ~0x00000100u;
 }
 inline uint32_t CSODOTALobbyMember::_internal_comms_reports_available() const {
   return _impl_.comms_reports_available_;
@@ -11587,7 +10815,7 @@ inline uint32_t CSODOTALobbyMember::comms_reports_available() const {
   return _internal_comms_reports_available();
 }
 inline void CSODOTALobbyMember::_internal_set_comms_reports_available(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x40000000u;
+  _impl_._has_bits_[0] |= 0x00000100u;
   _impl_.comms_reports_available_ = value;
 }
 inline void CSODOTALobbyMember::set_comms_reports_available(uint32_t value) {
@@ -11603,9 +10831,761 @@ inline void CSODOTALobbyMember::set_comms_reports_available(uint32_t value) {
 
 // CSODOTAStaticLobbyMember
 
+// optional string name = 1;
+inline bool CSODOTAStaticLobbyMember::_internal_has_name() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CSODOTAStaticLobbyMember::has_name() const {
+  return _internal_has_name();
+}
+inline void CSODOTAStaticLobbyMember::clear_name() {
+  _impl_.name_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline const std::string& CSODOTAStaticLobbyMember::name() const {
+  // @@protoc_insertion_point(field_get:CSODOTAStaticLobbyMember.name)
+  return _internal_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CSODOTAStaticLobbyMember::set_name(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_.name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:CSODOTAStaticLobbyMember.name)
+}
+inline std::string* CSODOTAStaticLobbyMember::mutable_name() {
+  std::string* _s = _internal_mutable_name();
+  // @@protoc_insertion_point(field_mutable:CSODOTAStaticLobbyMember.name)
+  return _s;
+}
+inline const std::string& CSODOTAStaticLobbyMember::_internal_name() const {
+  return _impl_.name_.Get();
+}
+inline void CSODOTAStaticLobbyMember::_internal_set_name(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* CSODOTAStaticLobbyMember::_internal_mutable_name() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  return _impl_.name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* CSODOTAStaticLobbyMember::release_name() {
+  // @@protoc_insertion_point(field_release:CSODOTAStaticLobbyMember.name)
+  if (!_internal_has_name()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  auto* p = _impl_.name_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.name_.IsDefault()) {
+    _impl_.name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void CSODOTAStaticLobbyMember::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.name_.SetAllocated(name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.name_.IsDefault()) {
+    _impl_.name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:CSODOTAStaticLobbyMember.name)
+}
+
+// optional uint64 party_id = 2;
+inline bool CSODOTAStaticLobbyMember::_internal_has_party_id() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CSODOTAStaticLobbyMember::has_party_id() const {
+  return _internal_has_party_id();
+}
+inline void CSODOTAStaticLobbyMember::clear_party_id() {
+  _impl_.party_id_ = uint64_t{0u};
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline uint64_t CSODOTAStaticLobbyMember::_internal_party_id() const {
+  return _impl_.party_id_;
+}
+inline uint64_t CSODOTAStaticLobbyMember::party_id() const {
+  // @@protoc_insertion_point(field_get:CSODOTAStaticLobbyMember.party_id)
+  return _internal_party_id();
+}
+inline void CSODOTAStaticLobbyMember::_internal_set_party_id(uint64_t value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.party_id_ = value;
+}
+inline void CSODOTAStaticLobbyMember::set_party_id(uint64_t value) {
+  _internal_set_party_id(value);
+  // @@protoc_insertion_point(field_set:CSODOTAStaticLobbyMember.party_id)
+}
+
+// optional uint32 channel = 3 [default = 6];
+inline bool CSODOTAStaticLobbyMember::_internal_has_channel() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool CSODOTAStaticLobbyMember::has_channel() const {
+  return _internal_has_channel();
+}
+inline void CSODOTAStaticLobbyMember::clear_channel() {
+  _impl_.channel_ = 6u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
+}
+inline uint32_t CSODOTAStaticLobbyMember::_internal_channel() const {
+  return _impl_.channel_;
+}
+inline uint32_t CSODOTAStaticLobbyMember::channel() const {
+  // @@protoc_insertion_point(field_get:CSODOTAStaticLobbyMember.channel)
+  return _internal_channel();
+}
+inline void CSODOTAStaticLobbyMember::_internal_set_channel(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_.channel_ = value;
+}
+inline void CSODOTAStaticLobbyMember::set_channel(uint32_t value) {
+  _internal_set_channel(value);
+  // @@protoc_insertion_point(field_set:CSODOTAStaticLobbyMember.channel)
+}
+
+// optional bool cameraman = 4;
+inline bool CSODOTAStaticLobbyMember::_internal_has_cameraman() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CSODOTAStaticLobbyMember::has_cameraman() const {
+  return _internal_has_cameraman();
+}
+inline void CSODOTAStaticLobbyMember::clear_cameraman() {
+  _impl_.cameraman_ = false;
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline bool CSODOTAStaticLobbyMember::_internal_cameraman() const {
+  return _impl_.cameraman_;
+}
+inline bool CSODOTAStaticLobbyMember::cameraman() const {
+  // @@protoc_insertion_point(field_get:CSODOTAStaticLobbyMember.cameraman)
+  return _internal_cameraman();
+}
+inline void CSODOTAStaticLobbyMember::_internal_set_cameraman(bool value) {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.cameraman_ = value;
+}
+inline void CSODOTAStaticLobbyMember::set_cameraman(bool value) {
+  _internal_set_cameraman(value);
+  // @@protoc_insertion_point(field_set:CSODOTAStaticLobbyMember.cameraman)
+}
+
 // -------------------------------------------------------------------
 
 // CSODOTAServerStaticLobbyMember
+
+// optional fixed64 steam_id = 1;
+inline bool CSODOTAServerStaticLobbyMember::_internal_has_steam_id() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CSODOTAServerStaticLobbyMember::has_steam_id() const {
+  return _internal_has_steam_id();
+}
+inline void CSODOTAServerStaticLobbyMember::clear_steam_id() {
+  _impl_.steam_id_ = uint64_t{0u};
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline uint64_t CSODOTAServerStaticLobbyMember::_internal_steam_id() const {
+  return _impl_.steam_id_;
+}
+inline uint64_t CSODOTAServerStaticLobbyMember::steam_id() const {
+  // @@protoc_insertion_point(field_get:CSODOTAServerStaticLobbyMember.steam_id)
+  return _internal_steam_id();
+}
+inline void CSODOTAServerStaticLobbyMember::_internal_set_steam_id(uint64_t value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.steam_id_ = value;
+}
+inline void CSODOTAServerStaticLobbyMember::set_steam_id(uint64_t value) {
+  _internal_set_steam_id(value);
+  // @@protoc_insertion_point(field_set:CSODOTAServerStaticLobbyMember.steam_id)
+}
+
+// optional int32 rank_tier = 3;
+inline bool CSODOTAServerStaticLobbyMember::_internal_has_rank_tier() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CSODOTAServerStaticLobbyMember::has_rank_tier() const {
+  return _internal_has_rank_tier();
+}
+inline void CSODOTAServerStaticLobbyMember::clear_rank_tier() {
+  _impl_.rank_tier_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline int32_t CSODOTAServerStaticLobbyMember::_internal_rank_tier() const {
+  return _impl_.rank_tier_;
+}
+inline int32_t CSODOTAServerStaticLobbyMember::rank_tier() const {
+  // @@protoc_insertion_point(field_get:CSODOTAServerStaticLobbyMember.rank_tier)
+  return _internal_rank_tier();
+}
+inline void CSODOTAServerStaticLobbyMember::_internal_set_rank_tier(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.rank_tier_ = value;
+}
+inline void CSODOTAServerStaticLobbyMember::set_rank_tier(int32_t value) {
+  _internal_set_rank_tier(value);
+  // @@protoc_insertion_point(field_set:CSODOTAServerStaticLobbyMember.rank_tier)
+}
+
+// optional int32 leaderboard_rank = 4 [default = -1];
+inline bool CSODOTAServerStaticLobbyMember::_internal_has_leaderboard_rank() const {
+  bool value = (_impl_._has_bits_[0] & 0x00001000u) != 0;
+  return value;
+}
+inline bool CSODOTAServerStaticLobbyMember::has_leaderboard_rank() const {
+  return _internal_has_leaderboard_rank();
+}
+inline void CSODOTAServerStaticLobbyMember::clear_leaderboard_rank() {
+  _impl_.leaderboard_rank_ = -1;
+  _impl_._has_bits_[0] &= ~0x00001000u;
+}
+inline int32_t CSODOTAServerStaticLobbyMember::_internal_leaderboard_rank() const {
+  return _impl_.leaderboard_rank_;
+}
+inline int32_t CSODOTAServerStaticLobbyMember::leaderboard_rank() const {
+  // @@protoc_insertion_point(field_get:CSODOTAServerStaticLobbyMember.leaderboard_rank)
+  return _internal_leaderboard_rank();
+}
+inline void CSODOTAServerStaticLobbyMember::_internal_set_leaderboard_rank(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00001000u;
+  _impl_.leaderboard_rank_ = value;
+}
+inline void CSODOTAServerStaticLobbyMember::set_leaderboard_rank(int32_t value) {
+  _internal_set_leaderboard_rank(value);
+  // @@protoc_insertion_point(field_set:CSODOTAServerStaticLobbyMember.leaderboard_rank)
+}
+
+// optional int32 lane_selection_flags = 5;
+inline bool CSODOTAServerStaticLobbyMember::_internal_has_lane_selection_flags() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CSODOTAServerStaticLobbyMember::has_lane_selection_flags() const {
+  return _internal_has_lane_selection_flags();
+}
+inline void CSODOTAServerStaticLobbyMember::clear_lane_selection_flags() {
+  _impl_.lane_selection_flags_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline int32_t CSODOTAServerStaticLobbyMember::_internal_lane_selection_flags() const {
+  return _impl_.lane_selection_flags_;
+}
+inline int32_t CSODOTAServerStaticLobbyMember::lane_selection_flags() const {
+  // @@protoc_insertion_point(field_get:CSODOTAServerStaticLobbyMember.lane_selection_flags)
+  return _internal_lane_selection_flags();
+}
+inline void CSODOTAServerStaticLobbyMember::_internal_set_lane_selection_flags(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.lane_selection_flags_ = value;
+}
+inline void CSODOTAServerStaticLobbyMember::set_lane_selection_flags(int32_t value) {
+  _internal_set_lane_selection_flags(value);
+  // @@protoc_insertion_point(field_set:CSODOTAServerStaticLobbyMember.lane_selection_flags)
+}
+
+// optional .EDOTAMMRBoostType rank_mmr_boost_type = 6 [default = k_EDOTAMMRBoostType_None];
+inline bool CSODOTAServerStaticLobbyMember::_internal_has_rank_mmr_boost_type() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool CSODOTAServerStaticLobbyMember::has_rank_mmr_boost_type() const {
+  return _internal_has_rank_mmr_boost_type();
+}
+inline void CSODOTAServerStaticLobbyMember::clear_rank_mmr_boost_type() {
+  _impl_.rank_mmr_boost_type_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000008u;
+}
+inline ::EDOTAMMRBoostType CSODOTAServerStaticLobbyMember::_internal_rank_mmr_boost_type() const {
+  return static_cast< ::EDOTAMMRBoostType >(_impl_.rank_mmr_boost_type_);
+}
+inline ::EDOTAMMRBoostType CSODOTAServerStaticLobbyMember::rank_mmr_boost_type() const {
+  // @@protoc_insertion_point(field_get:CSODOTAServerStaticLobbyMember.rank_mmr_boost_type)
+  return _internal_rank_mmr_boost_type();
+}
+inline void CSODOTAServerStaticLobbyMember::_internal_set_rank_mmr_boost_type(::EDOTAMMRBoostType value) {
+  assert(::EDOTAMMRBoostType_IsValid(value));
+  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_.rank_mmr_boost_type_ = value;
+}
+inline void CSODOTAServerStaticLobbyMember::set_rank_mmr_boost_type(::EDOTAMMRBoostType value) {
+  _internal_set_rank_mmr_boost_type(value);
+  // @@protoc_insertion_point(field_set:CSODOTAServerStaticLobbyMember.rank_mmr_boost_type)
+}
+
+// optional int32 coach_rating = 7;
+inline bool CSODOTAServerStaticLobbyMember::_internal_has_coach_rating() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  return value;
+}
+inline bool CSODOTAServerStaticLobbyMember::has_coach_rating() const {
+  return _internal_has_coach_rating();
+}
+inline void CSODOTAServerStaticLobbyMember::clear_coach_rating() {
+  _impl_.coach_rating_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000010u;
+}
+inline int32_t CSODOTAServerStaticLobbyMember::_internal_coach_rating() const {
+  return _impl_.coach_rating_;
+}
+inline int32_t CSODOTAServerStaticLobbyMember::coach_rating() const {
+  // @@protoc_insertion_point(field_get:CSODOTAServerStaticLobbyMember.coach_rating)
+  return _internal_coach_rating();
+}
+inline void CSODOTAServerStaticLobbyMember::_internal_set_coach_rating(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_.coach_rating_ = value;
+}
+inline void CSODOTAServerStaticLobbyMember::set_coach_rating(int32_t value) {
+  _internal_set_coach_rating(value);
+  // @@protoc_insertion_point(field_set:CSODOTAServerStaticLobbyMember.coach_rating)
+}
+
+// repeated uint32 coached_account_ids = 8;
+inline int CSODOTAServerStaticLobbyMember::_internal_coached_account_ids_size() const {
+  return _impl_.coached_account_ids_.size();
+}
+inline int CSODOTAServerStaticLobbyMember::coached_account_ids_size() const {
+  return _internal_coached_account_ids_size();
+}
+inline void CSODOTAServerStaticLobbyMember::clear_coached_account_ids() {
+  _impl_.coached_account_ids_.Clear();
+}
+inline uint32_t CSODOTAServerStaticLobbyMember::_internal_coached_account_ids(int index) const {
+  return _impl_.coached_account_ids_.Get(index);
+}
+inline uint32_t CSODOTAServerStaticLobbyMember::coached_account_ids(int index) const {
+  // @@protoc_insertion_point(field_get:CSODOTAServerStaticLobbyMember.coached_account_ids)
+  return _internal_coached_account_ids(index);
+}
+inline void CSODOTAServerStaticLobbyMember::set_coached_account_ids(int index, uint32_t value) {
+  _impl_.coached_account_ids_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CSODOTAServerStaticLobbyMember.coached_account_ids)
+}
+inline void CSODOTAServerStaticLobbyMember::_internal_add_coached_account_ids(uint32_t value) {
+  _impl_.coached_account_ids_.Add(value);
+}
+inline void CSODOTAServerStaticLobbyMember::add_coached_account_ids(uint32_t value) {
+  _internal_add_coached_account_ids(value);
+  // @@protoc_insertion_point(field_add:CSODOTAServerStaticLobbyMember.coached_account_ids)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+CSODOTAServerStaticLobbyMember::_internal_coached_account_ids() const {
+  return _impl_.coached_account_ids_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+CSODOTAServerStaticLobbyMember::coached_account_ids() const {
+  // @@protoc_insertion_point(field_list:CSODOTAServerStaticLobbyMember.coached_account_ids)
+  return _internal_coached_account_ids();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+CSODOTAServerStaticLobbyMember::_internal_mutable_coached_account_ids() {
+  return &_impl_.coached_account_ids_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+CSODOTAServerStaticLobbyMember::mutable_coached_account_ids() {
+  // @@protoc_insertion_point(field_mutable_list:CSODOTAServerStaticLobbyMember.coached_account_ids)
+  return _internal_mutable_coached_account_ids();
+}
+
+// optional bool was_mvp_last_game = 9;
+inline bool CSODOTAServerStaticLobbyMember::_internal_has_was_mvp_last_game() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  return value;
+}
+inline bool CSODOTAServerStaticLobbyMember::has_was_mvp_last_game() const {
+  return _internal_has_was_mvp_last_game();
+}
+inline void CSODOTAServerStaticLobbyMember::clear_was_mvp_last_game() {
+  _impl_.was_mvp_last_game_ = false;
+  _impl_._has_bits_[0] &= ~0x00000020u;
+}
+inline bool CSODOTAServerStaticLobbyMember::_internal_was_mvp_last_game() const {
+  return _impl_.was_mvp_last_game_;
+}
+inline bool CSODOTAServerStaticLobbyMember::was_mvp_last_game() const {
+  // @@protoc_insertion_point(field_get:CSODOTAServerStaticLobbyMember.was_mvp_last_game)
+  return _internal_was_mvp_last_game();
+}
+inline void CSODOTAServerStaticLobbyMember::_internal_set_was_mvp_last_game(bool value) {
+  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_.was_mvp_last_game_ = value;
+}
+inline void CSODOTAServerStaticLobbyMember::set_was_mvp_last_game(bool value) {
+  _internal_set_was_mvp_last_game(value);
+  // @@protoc_insertion_point(field_set:CSODOTAServerStaticLobbyMember.was_mvp_last_game)
+}
+
+// optional bool can_earn_rewards = 10;
+inline bool CSODOTAServerStaticLobbyMember::_internal_has_can_earn_rewards() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
+  return value;
+}
+inline bool CSODOTAServerStaticLobbyMember::has_can_earn_rewards() const {
+  return _internal_has_can_earn_rewards();
+}
+inline void CSODOTAServerStaticLobbyMember::clear_can_earn_rewards() {
+  _impl_.can_earn_rewards_ = false;
+  _impl_._has_bits_[0] &= ~0x00000040u;
+}
+inline bool CSODOTAServerStaticLobbyMember::_internal_can_earn_rewards() const {
+  return _impl_.can_earn_rewards_;
+}
+inline bool CSODOTAServerStaticLobbyMember::can_earn_rewards() const {
+  // @@protoc_insertion_point(field_get:CSODOTAServerStaticLobbyMember.can_earn_rewards)
+  return _internal_can_earn_rewards();
+}
+inline void CSODOTAServerStaticLobbyMember::_internal_set_can_earn_rewards(bool value) {
+  _impl_._has_bits_[0] |= 0x00000040u;
+  _impl_.can_earn_rewards_ = value;
+}
+inline void CSODOTAServerStaticLobbyMember::set_can_earn_rewards(bool value) {
+  _internal_set_can_earn_rewards(value);
+  // @@protoc_insertion_point(field_set:CSODOTAServerStaticLobbyMember.can_earn_rewards)
+}
+
+// optional bool is_plus_subscriber = 11;
+inline bool CSODOTAServerStaticLobbyMember::_internal_has_is_plus_subscriber() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
+  return value;
+}
+inline bool CSODOTAServerStaticLobbyMember::has_is_plus_subscriber() const {
+  return _internal_has_is_plus_subscriber();
+}
+inline void CSODOTAServerStaticLobbyMember::clear_is_plus_subscriber() {
+  _impl_.is_plus_subscriber_ = false;
+  _impl_._has_bits_[0] &= ~0x00000080u;
+}
+inline bool CSODOTAServerStaticLobbyMember::_internal_is_plus_subscriber() const {
+  return _impl_.is_plus_subscriber_;
+}
+inline bool CSODOTAServerStaticLobbyMember::is_plus_subscriber() const {
+  // @@protoc_insertion_point(field_get:CSODOTAServerStaticLobbyMember.is_plus_subscriber)
+  return _internal_is_plus_subscriber();
+}
+inline void CSODOTAServerStaticLobbyMember::_internal_set_is_plus_subscriber(bool value) {
+  _impl_._has_bits_[0] |= 0x00000080u;
+  _impl_.is_plus_subscriber_ = value;
+}
+inline void CSODOTAServerStaticLobbyMember::set_is_plus_subscriber(bool value) {
+  _internal_set_is_plus_subscriber(value);
+  // @@protoc_insertion_point(field_set:CSODOTAServerStaticLobbyMember.is_plus_subscriber)
+}
+
+// optional uint64 favorite_team_packed = 12;
+inline bool CSODOTAServerStaticLobbyMember::_internal_has_favorite_team_packed() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000400u) != 0;
+  return value;
+}
+inline bool CSODOTAServerStaticLobbyMember::has_favorite_team_packed() const {
+  return _internal_has_favorite_team_packed();
+}
+inline void CSODOTAServerStaticLobbyMember::clear_favorite_team_packed() {
+  _impl_.favorite_team_packed_ = uint64_t{0u};
+  _impl_._has_bits_[0] &= ~0x00000400u;
+}
+inline uint64_t CSODOTAServerStaticLobbyMember::_internal_favorite_team_packed() const {
+  return _impl_.favorite_team_packed_;
+}
+inline uint64_t CSODOTAServerStaticLobbyMember::favorite_team_packed() const {
+  // @@protoc_insertion_point(field_get:CSODOTAServerStaticLobbyMember.favorite_team_packed)
+  return _internal_favorite_team_packed();
+}
+inline void CSODOTAServerStaticLobbyMember::_internal_set_favorite_team_packed(uint64_t value) {
+  _impl_._has_bits_[0] |= 0x00000400u;
+  _impl_.favorite_team_packed_ = value;
+}
+inline void CSODOTAServerStaticLobbyMember::set_favorite_team_packed(uint64_t value) {
+  _internal_set_favorite_team_packed(value);
+  // @@protoc_insertion_point(field_set:CSODOTAServerStaticLobbyMember.favorite_team_packed)
+}
+
+// optional bool is_steam_china = 13;
+inline bool CSODOTAServerStaticLobbyMember::_internal_has_is_steam_china() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000100u) != 0;
+  return value;
+}
+inline bool CSODOTAServerStaticLobbyMember::has_is_steam_china() const {
+  return _internal_has_is_steam_china();
+}
+inline void CSODOTAServerStaticLobbyMember::clear_is_steam_china() {
+  _impl_.is_steam_china_ = false;
+  _impl_._has_bits_[0] &= ~0x00000100u;
+}
+inline bool CSODOTAServerStaticLobbyMember::_internal_is_steam_china() const {
+  return _impl_.is_steam_china_;
+}
+inline bool CSODOTAServerStaticLobbyMember::is_steam_china() const {
+  // @@protoc_insertion_point(field_get:CSODOTAServerStaticLobbyMember.is_steam_china)
+  return _internal_is_steam_china();
+}
+inline void CSODOTAServerStaticLobbyMember::_internal_set_is_steam_china(bool value) {
+  _impl_._has_bits_[0] |= 0x00000100u;
+  _impl_.is_steam_china_ = value;
+}
+inline void CSODOTAServerStaticLobbyMember::set_is_steam_china(bool value) {
+  _internal_set_is_steam_china(value);
+  // @@protoc_insertion_point(field_set:CSODOTAServerStaticLobbyMember.is_steam_china)
+}
+
+// optional uint32 title = 14;
+inline bool CSODOTAServerStaticLobbyMember::_internal_has_title() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000200u) != 0;
+  return value;
+}
+inline bool CSODOTAServerStaticLobbyMember::has_title() const {
+  return _internal_has_title();
+}
+inline void CSODOTAServerStaticLobbyMember::clear_title() {
+  _impl_.title_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000200u;
+}
+inline uint32_t CSODOTAServerStaticLobbyMember::_internal_title() const {
+  return _impl_.title_;
+}
+inline uint32_t CSODOTAServerStaticLobbyMember::title() const {
+  // @@protoc_insertion_point(field_get:CSODOTAServerStaticLobbyMember.title)
+  return _internal_title();
+}
+inline void CSODOTAServerStaticLobbyMember::_internal_set_title(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000200u;
+  _impl_.title_ = value;
+}
+inline void CSODOTAServerStaticLobbyMember::set_title(uint32_t value) {
+  _internal_set_title(value);
+  // @@protoc_insertion_point(field_set:CSODOTAServerStaticLobbyMember.title)
+}
+
+// optional uint32 guild_id = 15;
+inline bool CSODOTAServerStaticLobbyMember::_internal_has_guild_id() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000800u) != 0;
+  return value;
+}
+inline bool CSODOTAServerStaticLobbyMember::has_guild_id() const {
+  return _internal_has_guild_id();
+}
+inline void CSODOTAServerStaticLobbyMember::clear_guild_id() {
+  _impl_.guild_id_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000800u;
+}
+inline uint32_t CSODOTAServerStaticLobbyMember::_internal_guild_id() const {
+  return _impl_.guild_id_;
+}
+inline uint32_t CSODOTAServerStaticLobbyMember::guild_id() const {
+  // @@protoc_insertion_point(field_get:CSODOTAServerStaticLobbyMember.guild_id)
+  return _internal_guild_id();
+}
+inline void CSODOTAServerStaticLobbyMember::_internal_set_guild_id(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000800u;
+  _impl_.guild_id_ = value;
+}
+inline void CSODOTAServerStaticLobbyMember::set_guild_id(uint32_t value) {
+  _internal_set_guild_id(value);
+  // @@protoc_insertion_point(field_set:CSODOTAServerStaticLobbyMember.guild_id)
+}
+
+// repeated fixed32 disabled_random_hero_bits = 16;
+inline int CSODOTAServerStaticLobbyMember::_internal_disabled_random_hero_bits_size() const {
+  return _impl_.disabled_random_hero_bits_.size();
+}
+inline int CSODOTAServerStaticLobbyMember::disabled_random_hero_bits_size() const {
+  return _internal_disabled_random_hero_bits_size();
+}
+inline void CSODOTAServerStaticLobbyMember::clear_disabled_random_hero_bits() {
+  _impl_.disabled_random_hero_bits_.Clear();
+}
+inline uint32_t CSODOTAServerStaticLobbyMember::_internal_disabled_random_hero_bits(int index) const {
+  return _impl_.disabled_random_hero_bits_.Get(index);
+}
+inline uint32_t CSODOTAServerStaticLobbyMember::disabled_random_hero_bits(int index) const {
+  // @@protoc_insertion_point(field_get:CSODOTAServerStaticLobbyMember.disabled_random_hero_bits)
+  return _internal_disabled_random_hero_bits(index);
+}
+inline void CSODOTAServerStaticLobbyMember::set_disabled_random_hero_bits(int index, uint32_t value) {
+  _impl_.disabled_random_hero_bits_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CSODOTAServerStaticLobbyMember.disabled_random_hero_bits)
+}
+inline void CSODOTAServerStaticLobbyMember::_internal_add_disabled_random_hero_bits(uint32_t value) {
+  _impl_.disabled_random_hero_bits_.Add(value);
+}
+inline void CSODOTAServerStaticLobbyMember::add_disabled_random_hero_bits(uint32_t value) {
+  _internal_add_disabled_random_hero_bits(value);
+  // @@protoc_insertion_point(field_add:CSODOTAServerStaticLobbyMember.disabled_random_hero_bits)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+CSODOTAServerStaticLobbyMember::_internal_disabled_random_hero_bits() const {
+  return _impl_.disabled_random_hero_bits_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+CSODOTAServerStaticLobbyMember::disabled_random_hero_bits() const {
+  // @@protoc_insertion_point(field_list:CSODOTAServerStaticLobbyMember.disabled_random_hero_bits)
+  return _internal_disabled_random_hero_bits();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+CSODOTAServerStaticLobbyMember::_internal_mutable_disabled_random_hero_bits() {
+  return &_impl_.disabled_random_hero_bits_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+CSODOTAServerStaticLobbyMember::mutable_disabled_random_hero_bits() {
+  // @@protoc_insertion_point(field_mutable_list:CSODOTAServerStaticLobbyMember.disabled_random_hero_bits)
+  return _internal_mutable_disabled_random_hero_bits();
+}
+
+// repeated int32 disabled_hero_id = 17;
+inline int CSODOTAServerStaticLobbyMember::_internal_disabled_hero_id_size() const {
+  return _impl_.disabled_hero_id_.size();
+}
+inline int CSODOTAServerStaticLobbyMember::disabled_hero_id_size() const {
+  return _internal_disabled_hero_id_size();
+}
+inline void CSODOTAServerStaticLobbyMember::clear_disabled_hero_id() {
+  _impl_.disabled_hero_id_.Clear();
+}
+inline int32_t CSODOTAServerStaticLobbyMember::_internal_disabled_hero_id(int index) const {
+  return _impl_.disabled_hero_id_.Get(index);
+}
+inline int32_t CSODOTAServerStaticLobbyMember::disabled_hero_id(int index) const {
+  // @@protoc_insertion_point(field_get:CSODOTAServerStaticLobbyMember.disabled_hero_id)
+  return _internal_disabled_hero_id(index);
+}
+inline void CSODOTAServerStaticLobbyMember::set_disabled_hero_id(int index, int32_t value) {
+  _impl_.disabled_hero_id_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CSODOTAServerStaticLobbyMember.disabled_hero_id)
+}
+inline void CSODOTAServerStaticLobbyMember::_internal_add_disabled_hero_id(int32_t value) {
+  _impl_.disabled_hero_id_.Add(value);
+}
+inline void CSODOTAServerStaticLobbyMember::add_disabled_hero_id(int32_t value) {
+  _internal_add_disabled_hero_id(value);
+  // @@protoc_insertion_point(field_add:CSODOTAServerStaticLobbyMember.disabled_hero_id)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+CSODOTAServerStaticLobbyMember::_internal_disabled_hero_id() const {
+  return _impl_.disabled_hero_id_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+CSODOTAServerStaticLobbyMember::disabled_hero_id() const {
+  // @@protoc_insertion_point(field_list:CSODOTAServerStaticLobbyMember.disabled_hero_id)
+  return _internal_disabled_hero_id();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+CSODOTAServerStaticLobbyMember::_internal_mutable_disabled_hero_id() {
+  return &_impl_.disabled_hero_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+CSODOTAServerStaticLobbyMember::mutable_disabled_hero_id() {
+  // @@protoc_insertion_point(field_mutable_list:CSODOTAServerStaticLobbyMember.disabled_hero_id)
+  return _internal_mutable_disabled_hero_id();
+}
+
+// repeated int32 enabled_hero_id = 18;
+inline int CSODOTAServerStaticLobbyMember::_internal_enabled_hero_id_size() const {
+  return _impl_.enabled_hero_id_.size();
+}
+inline int CSODOTAServerStaticLobbyMember::enabled_hero_id_size() const {
+  return _internal_enabled_hero_id_size();
+}
+inline void CSODOTAServerStaticLobbyMember::clear_enabled_hero_id() {
+  _impl_.enabled_hero_id_.Clear();
+}
+inline int32_t CSODOTAServerStaticLobbyMember::_internal_enabled_hero_id(int index) const {
+  return _impl_.enabled_hero_id_.Get(index);
+}
+inline int32_t CSODOTAServerStaticLobbyMember::enabled_hero_id(int index) const {
+  // @@protoc_insertion_point(field_get:CSODOTAServerStaticLobbyMember.enabled_hero_id)
+  return _internal_enabled_hero_id(index);
+}
+inline void CSODOTAServerStaticLobbyMember::set_enabled_hero_id(int index, int32_t value) {
+  _impl_.enabled_hero_id_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CSODOTAServerStaticLobbyMember.enabled_hero_id)
+}
+inline void CSODOTAServerStaticLobbyMember::_internal_add_enabled_hero_id(int32_t value) {
+  _impl_.enabled_hero_id_.Add(value);
+}
+inline void CSODOTAServerStaticLobbyMember::add_enabled_hero_id(int32_t value) {
+  _internal_add_enabled_hero_id(value);
+  // @@protoc_insertion_point(field_add:CSODOTAServerStaticLobbyMember.enabled_hero_id)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+CSODOTAServerStaticLobbyMember::_internal_enabled_hero_id() const {
+  return _impl_.enabled_hero_id_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+CSODOTAServerStaticLobbyMember::enabled_hero_id() const {
+  // @@protoc_insertion_point(field_list:CSODOTAServerStaticLobbyMember.enabled_hero_id)
+  return _internal_enabled_hero_id();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+CSODOTAServerStaticLobbyMember::_internal_mutable_enabled_hero_id() {
+  return &_impl_.enabled_hero_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+CSODOTAServerStaticLobbyMember::mutable_enabled_hero_id() {
+  // @@protoc_insertion_point(field_mutable_list:CSODOTAServerStaticLobbyMember.enabled_hero_id)
+  return _internal_mutable_enabled_hero_id();
+}
+
+// repeated int32 banned_hero_ids = 19;
+inline int CSODOTAServerStaticLobbyMember::_internal_banned_hero_ids_size() const {
+  return _impl_.banned_hero_ids_.size();
+}
+inline int CSODOTAServerStaticLobbyMember::banned_hero_ids_size() const {
+  return _internal_banned_hero_ids_size();
+}
+inline void CSODOTAServerStaticLobbyMember::clear_banned_hero_ids() {
+  _impl_.banned_hero_ids_.Clear();
+}
+inline int32_t CSODOTAServerStaticLobbyMember::_internal_banned_hero_ids(int index) const {
+  return _impl_.banned_hero_ids_.Get(index);
+}
+inline int32_t CSODOTAServerStaticLobbyMember::banned_hero_ids(int index) const {
+  // @@protoc_insertion_point(field_get:CSODOTAServerStaticLobbyMember.banned_hero_ids)
+  return _internal_banned_hero_ids(index);
+}
+inline void CSODOTAServerStaticLobbyMember::set_banned_hero_ids(int index, int32_t value) {
+  _impl_.banned_hero_ids_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CSODOTAServerStaticLobbyMember.banned_hero_ids)
+}
+inline void CSODOTAServerStaticLobbyMember::_internal_add_banned_hero_ids(int32_t value) {
+  _impl_.banned_hero_ids_.Add(value);
+}
+inline void CSODOTAServerStaticLobbyMember::add_banned_hero_ids(int32_t value) {
+  _internal_add_banned_hero_ids(value);
+  // @@protoc_insertion_point(field_add:CSODOTAServerStaticLobbyMember.banned_hero_ids)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+CSODOTAServerStaticLobbyMember::_internal_banned_hero_ids() const {
+  return _impl_.banned_hero_ids_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+CSODOTAServerStaticLobbyMember::banned_hero_ids() const {
+  // @@protoc_insertion_point(field_list:CSODOTAServerStaticLobbyMember.banned_hero_ids)
+  return _internal_banned_hero_ids();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+CSODOTAServerStaticLobbyMember::_internal_mutable_banned_hero_ids() {
+  return &_impl_.banned_hero_ids_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+CSODOTAServerStaticLobbyMember::mutable_banned_hero_ids() {
+  // @@protoc_insertion_point(field_mutable_list:CSODOTAServerStaticLobbyMember.banned_hero_ids)
+  return _internal_mutable_banned_hero_ids();
+}
 
 // -------------------------------------------------------------------
 
@@ -13146,6 +13126,122 @@ CLobbyGuildChallenge::mutable_eligible_account_ids() {
 
 // -------------------------------------------------------------------
 
+// CDOTALobbyMatchQualityData
+
+// optional uint32 overall_quality = 1;
+inline bool CDOTALobbyMatchQualityData::_internal_has_overall_quality() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CDOTALobbyMatchQualityData::has_overall_quality() const {
+  return _internal_has_overall_quality();
+}
+inline void CDOTALobbyMatchQualityData::clear_overall_quality() {
+  _impl_.overall_quality_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline uint32_t CDOTALobbyMatchQualityData::_internal_overall_quality() const {
+  return _impl_.overall_quality_;
+}
+inline uint32_t CDOTALobbyMatchQualityData::overall_quality() const {
+  // @@protoc_insertion_point(field_get:CDOTALobbyMatchQualityData.overall_quality)
+  return _internal_overall_quality();
+}
+inline void CDOTALobbyMatchQualityData::_internal_set_overall_quality(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.overall_quality_ = value;
+}
+inline void CDOTALobbyMatchQualityData::set_overall_quality(uint32_t value) {
+  _internal_set_overall_quality(value);
+  // @@protoc_insertion_point(field_set:CDOTALobbyMatchQualityData.overall_quality)
+}
+
+// optional uint32 team_balance = 2;
+inline bool CDOTALobbyMatchQualityData::_internal_has_team_balance() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CDOTALobbyMatchQualityData::has_team_balance() const {
+  return _internal_has_team_balance();
+}
+inline void CDOTALobbyMatchQualityData::clear_team_balance() {
+  _impl_.team_balance_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline uint32_t CDOTALobbyMatchQualityData::_internal_team_balance() const {
+  return _impl_.team_balance_;
+}
+inline uint32_t CDOTALobbyMatchQualityData::team_balance() const {
+  // @@protoc_insertion_point(field_get:CDOTALobbyMatchQualityData.team_balance)
+  return _internal_team_balance();
+}
+inline void CDOTALobbyMatchQualityData::_internal_set_team_balance(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.team_balance_ = value;
+}
+inline void CDOTALobbyMatchQualityData::set_team_balance(uint32_t value) {
+  _internal_set_team_balance(value);
+  // @@protoc_insertion_point(field_set:CDOTALobbyMatchQualityData.team_balance)
+}
+
+// optional uint32 match_skill_range = 3;
+inline bool CDOTALobbyMatchQualityData::_internal_has_match_skill_range() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CDOTALobbyMatchQualityData::has_match_skill_range() const {
+  return _internal_has_match_skill_range();
+}
+inline void CDOTALobbyMatchQualityData::clear_match_skill_range() {
+  _impl_.match_skill_range_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline uint32_t CDOTALobbyMatchQualityData::_internal_match_skill_range() const {
+  return _impl_.match_skill_range_;
+}
+inline uint32_t CDOTALobbyMatchQualityData::match_skill_range() const {
+  // @@protoc_insertion_point(field_get:CDOTALobbyMatchQualityData.match_skill_range)
+  return _internal_match_skill_range();
+}
+inline void CDOTALobbyMatchQualityData::_internal_set_match_skill_range(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.match_skill_range_ = value;
+}
+inline void CDOTALobbyMatchQualityData::set_match_skill_range(uint32_t value) {
+  _internal_set_match_skill_range(value);
+  // @@protoc_insertion_point(field_set:CDOTALobbyMatchQualityData.match_skill_range)
+}
+
+// optional uint32 match_behavior = 4;
+inline bool CDOTALobbyMatchQualityData::_internal_has_match_behavior() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool CDOTALobbyMatchQualityData::has_match_behavior() const {
+  return _internal_has_match_behavior();
+}
+inline void CDOTALobbyMatchQualityData::clear_match_behavior() {
+  _impl_.match_behavior_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
+}
+inline uint32_t CDOTALobbyMatchQualityData::_internal_match_behavior() const {
+  return _impl_.match_behavior_;
+}
+inline uint32_t CDOTALobbyMatchQualityData::match_behavior() const {
+  // @@protoc_insertion_point(field_get:CDOTALobbyMatchQualityData.match_behavior)
+  return _internal_match_behavior();
+}
+inline void CDOTALobbyMatchQualityData::_internal_set_match_behavior(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_.match_behavior_ = value;
+}
+inline void CDOTALobbyMatchQualityData::set_match_behavior(uint32_t value) {
+  _internal_set_match_behavior(value);
+  // @@protoc_insertion_point(field_set:CDOTALobbyMatchQualityData.match_behavior)
+}
+
+// -------------------------------------------------------------------
+
 // CSODOTALobby_CExtraMsg
 
 // optional uint32 id = 1;
@@ -13687,7 +13783,7 @@ inline void CSODOTALobby::set_allocated_connect(std::string* connect) {
 
 // optional .CSODOTALobby.LobbyType lobby_type = 12 [default = INVALID];
 inline bool CSODOTALobby::_internal_has_lobby_type() const {
-  bool value = (_impl_._has_bits_[2] & 0x00000800u) != 0;
+  bool value = (_impl_._has_bits_[2] & 0x00000040u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_lobby_type() const {
@@ -13695,7 +13791,7 @@ inline bool CSODOTALobby::has_lobby_type() const {
 }
 inline void CSODOTALobby::clear_lobby_type() {
   _impl_.lobby_type_ = -1;
-  _impl_._has_bits_[2] &= ~0x00000800u;
+  _impl_._has_bits_[2] &= ~0x00000040u;
 }
 inline ::CSODOTALobby_LobbyType CSODOTALobby::_internal_lobby_type() const {
   return static_cast< ::CSODOTALobby_LobbyType >(_impl_.lobby_type_);
@@ -13706,7 +13802,7 @@ inline ::CSODOTALobby_LobbyType CSODOTALobby::lobby_type() const {
 }
 inline void CSODOTALobby::_internal_set_lobby_type(::CSODOTALobby_LobbyType value) {
   assert(::CSODOTALobby_LobbyType_IsValid(value));
-  _impl_._has_bits_[2] |= 0x00000800u;
+  _impl_._has_bits_[2] |= 0x00000040u;
   _impl_.lobby_type_ = value;
 }
 inline void CSODOTALobby::set_lobby_type(::CSODOTALobby_LobbyType value) {
@@ -13716,7 +13812,7 @@ inline void CSODOTALobby::set_lobby_type(::CSODOTALobby_LobbyType value) {
 
 // optional bool allow_cheats = 13;
 inline bool CSODOTALobby::_internal_has_allow_cheats() const {
-  bool value = (_impl_._has_bits_[0] & 0x00080000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00200000u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_allow_cheats() const {
@@ -13724,7 +13820,7 @@ inline bool CSODOTALobby::has_allow_cheats() const {
 }
 inline void CSODOTALobby::clear_allow_cheats() {
   _impl_.allow_cheats_ = false;
-  _impl_._has_bits_[0] &= ~0x00080000u;
+  _impl_._has_bits_[0] &= ~0x00200000u;
 }
 inline bool CSODOTALobby::_internal_allow_cheats() const {
   return _impl_.allow_cheats_;
@@ -13734,7 +13830,7 @@ inline bool CSODOTALobby::allow_cheats() const {
   return _internal_allow_cheats();
 }
 inline void CSODOTALobby::_internal_set_allow_cheats(bool value) {
-  _impl_._has_bits_[0] |= 0x00080000u;
+  _impl_._has_bits_[0] |= 0x00200000u;
   _impl_.allow_cheats_ = value;
 }
 inline void CSODOTALobby::set_allow_cheats(bool value) {
@@ -13744,7 +13840,7 @@ inline void CSODOTALobby::set_allow_cheats(bool value) {
 
 // optional bool fill_with_bots = 14;
 inline bool CSODOTALobby::_internal_has_fill_with_bots() const {
-  bool value = (_impl_._has_bits_[0] & 0x00100000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00400000u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_fill_with_bots() const {
@@ -13752,7 +13848,7 @@ inline bool CSODOTALobby::has_fill_with_bots() const {
 }
 inline void CSODOTALobby::clear_fill_with_bots() {
   _impl_.fill_with_bots_ = false;
-  _impl_._has_bits_[0] &= ~0x00100000u;
+  _impl_._has_bits_[0] &= ~0x00400000u;
 }
 inline bool CSODOTALobby::_internal_fill_with_bots() const {
   return _impl_.fill_with_bots_;
@@ -13762,40 +13858,12 @@ inline bool CSODOTALobby::fill_with_bots() const {
   return _internal_fill_with_bots();
 }
 inline void CSODOTALobby::_internal_set_fill_with_bots(bool value) {
-  _impl_._has_bits_[0] |= 0x00100000u;
+  _impl_._has_bits_[0] |= 0x00400000u;
   _impl_.fill_with_bots_ = value;
 }
 inline void CSODOTALobby::set_fill_with_bots(bool value) {
   _internal_set_fill_with_bots(value);
   // @@protoc_insertion_point(field_set:CSODOTALobby.fill_with_bots)
-}
-
-// optional bool intro_mode = 15;
-inline bool CSODOTALobby::_internal_has_intro_mode() const {
-  bool value = (_impl_._has_bits_[0] & 0x00200000u) != 0;
-  return value;
-}
-inline bool CSODOTALobby::has_intro_mode() const {
-  return _internal_has_intro_mode();
-}
-inline void CSODOTALobby::clear_intro_mode() {
-  _impl_.intro_mode_ = false;
-  _impl_._has_bits_[0] &= ~0x00200000u;
-}
-inline bool CSODOTALobby::_internal_intro_mode() const {
-  return _impl_.intro_mode_;
-}
-inline bool CSODOTALobby::intro_mode() const {
-  // @@protoc_insertion_point(field_get:CSODOTALobby.intro_mode)
-  return _internal_intro_mode();
-}
-inline void CSODOTALobby::_internal_set_intro_mode(bool value) {
-  _impl_._has_bits_[0] |= 0x00200000u;
-  _impl_.intro_mode_ = value;
-}
-inline void CSODOTALobby::set_intro_mode(bool value) {
-  _internal_set_intro_mode(value);
-  // @@protoc_insertion_point(field_set:CSODOTALobby.intro_mode)
 }
 
 // optional string game_name = 16;
@@ -13906,37 +13974,9 @@ CSODOTALobby::team_details() const {
   return _impl_.team_details_;
 }
 
-// optional uint32 tutorial_lesson = 18;
-inline bool CSODOTALobby::_internal_has_tutorial_lesson() const {
-  bool value = (_impl_._has_bits_[0] & 0x00002000u) != 0;
-  return value;
-}
-inline bool CSODOTALobby::has_tutorial_lesson() const {
-  return _internal_has_tutorial_lesson();
-}
-inline void CSODOTALobby::clear_tutorial_lesson() {
-  _impl_.tutorial_lesson_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00002000u;
-}
-inline uint32_t CSODOTALobby::_internal_tutorial_lesson() const {
-  return _impl_.tutorial_lesson_;
-}
-inline uint32_t CSODOTALobby::tutorial_lesson() const {
-  // @@protoc_insertion_point(field_get:CSODOTALobby.tutorial_lesson)
-  return _internal_tutorial_lesson();
-}
-inline void CSODOTALobby::_internal_set_tutorial_lesson(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00002000u;
-  _impl_.tutorial_lesson_ = value;
-}
-inline void CSODOTALobby::set_tutorial_lesson(uint32_t value) {
-  _internal_set_tutorial_lesson(value);
-  // @@protoc_insertion_point(field_set:CSODOTALobby.tutorial_lesson)
-}
-
 // optional uint32 tournament_id = 19;
 inline bool CSODOTALobby::_internal_has_tournament_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00004000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00002000u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_tournament_id() const {
@@ -13944,7 +13984,7 @@ inline bool CSODOTALobby::has_tournament_id() const {
 }
 inline void CSODOTALobby::clear_tournament_id() {
   _impl_.tournament_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00004000u;
+  _impl_._has_bits_[0] &= ~0x00002000u;
 }
 inline uint32_t CSODOTALobby::_internal_tournament_id() const {
   return _impl_.tournament_id_;
@@ -13954,7 +13994,7 @@ inline uint32_t CSODOTALobby::tournament_id() const {
   return _internal_tournament_id();
 }
 inline void CSODOTALobby::_internal_set_tournament_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00004000u;
+  _impl_._has_bits_[0] |= 0x00002000u;
   _impl_.tournament_id_ = value;
 }
 inline void CSODOTALobby::set_tournament_id(uint32_t value) {
@@ -13964,7 +14004,7 @@ inline void CSODOTALobby::set_tournament_id(uint32_t value) {
 
 // optional uint32 tournament_game_id = 20;
 inline bool CSODOTALobby::_internal_has_tournament_game_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00008000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00004000u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_tournament_game_id() const {
@@ -13972,7 +14012,7 @@ inline bool CSODOTALobby::has_tournament_game_id() const {
 }
 inline void CSODOTALobby::clear_tournament_game_id() {
   _impl_.tournament_game_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00008000u;
+  _impl_._has_bits_[0] &= ~0x00004000u;
 }
 inline uint32_t CSODOTALobby::_internal_tournament_game_id() const {
   return _impl_.tournament_game_id_;
@@ -13982,7 +14022,7 @@ inline uint32_t CSODOTALobby::tournament_game_id() const {
   return _internal_tournament_game_id();
 }
 inline void CSODOTALobby::_internal_set_tournament_game_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00008000u;
+  _impl_._has_bits_[0] |= 0x00004000u;
   _impl_.tournament_game_id_ = value;
 }
 inline void CSODOTALobby::set_tournament_game_id(uint32_t value) {
@@ -13992,7 +14032,7 @@ inline void CSODOTALobby::set_tournament_game_id(uint32_t value) {
 
 // optional uint32 server_region = 21 [default = 0];
 inline bool CSODOTALobby::_internal_has_server_region() const {
-  bool value = (_impl_._has_bits_[0] & 0x00010000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00008000u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_server_region() const {
@@ -14000,7 +14040,7 @@ inline bool CSODOTALobby::has_server_region() const {
 }
 inline void CSODOTALobby::clear_server_region() {
   _impl_.server_region_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00010000u;
+  _impl_._has_bits_[0] &= ~0x00008000u;
 }
 inline uint32_t CSODOTALobby::_internal_server_region() const {
   return _impl_.server_region_;
@@ -14010,7 +14050,7 @@ inline uint32_t CSODOTALobby::server_region() const {
   return _internal_server_region();
 }
 inline void CSODOTALobby::_internal_set_server_region(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00010000u;
+  _impl_._has_bits_[0] |= 0x00008000u;
   _impl_.server_region_ = value;
 }
 inline void CSODOTALobby::set_server_region(uint32_t value) {
@@ -14020,7 +14060,7 @@ inline void CSODOTALobby::set_server_region(uint32_t value) {
 
 // optional .DOTA_GameState game_state = 22 [default = DOTA_GAMERULES_STATE_INIT];
 inline bool CSODOTALobby::_internal_has_game_state() const {
-  bool value = (_impl_._has_bits_[0] & 0x00020000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00010000u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_game_state() const {
@@ -14028,7 +14068,7 @@ inline bool CSODOTALobby::has_game_state() const {
 }
 inline void CSODOTALobby::clear_game_state() {
   _impl_.game_state_ = 0;
-  _impl_._has_bits_[0] &= ~0x00020000u;
+  _impl_._has_bits_[0] &= ~0x00010000u;
 }
 inline ::DOTA_GameState CSODOTALobby::_internal_game_state() const {
   return static_cast< ::DOTA_GameState >(_impl_.game_state_);
@@ -14039,7 +14079,7 @@ inline ::DOTA_GameState CSODOTALobby::game_state() const {
 }
 inline void CSODOTALobby::_internal_set_game_state(::DOTA_GameState value) {
   assert(::DOTA_GameState_IsValid(value));
-  _impl_._has_bits_[0] |= 0x00020000u;
+  _impl_._has_bits_[0] |= 0x00010000u;
   _impl_.game_state_ = value;
 }
 inline void CSODOTALobby::set_game_state(::DOTA_GameState value) {
@@ -14049,7 +14089,7 @@ inline void CSODOTALobby::set_game_state(::DOTA_GameState value) {
 
 // optional uint32 num_spectators = 23;
 inline bool CSODOTALobby::_internal_has_num_spectators() const {
-  bool value = (_impl_._has_bits_[0] & 0x00040000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00020000u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_num_spectators() const {
@@ -14057,7 +14097,7 @@ inline bool CSODOTALobby::has_num_spectators() const {
 }
 inline void CSODOTALobby::clear_num_spectators() {
   _impl_.num_spectators_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00040000u;
+  _impl_._has_bits_[0] &= ~0x00020000u;
 }
 inline uint32_t CSODOTALobby::_internal_num_spectators() const {
   return _impl_.num_spectators_;
@@ -14067,7 +14107,7 @@ inline uint32_t CSODOTALobby::num_spectators() const {
   return _internal_num_spectators();
 }
 inline void CSODOTALobby::_internal_set_num_spectators(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00040000u;
+  _impl_._has_bits_[0] |= 0x00020000u;
   _impl_.num_spectators_ = value;
 }
 inline void CSODOTALobby::set_num_spectators(uint32_t value) {
@@ -14077,7 +14117,7 @@ inline void CSODOTALobby::set_num_spectators(uint32_t value) {
 
 // optional uint32 matchgroup = 25;
 inline bool CSODOTALobby::_internal_has_matchgroup() const {
-  bool value = (_impl_._has_bits_[0] & 0x00800000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00040000u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_matchgroup() const {
@@ -14085,7 +14125,7 @@ inline bool CSODOTALobby::has_matchgroup() const {
 }
 inline void CSODOTALobby::clear_matchgroup() {
   _impl_.matchgroup_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00800000u;
+  _impl_._has_bits_[0] &= ~0x00040000u;
 }
 inline uint32_t CSODOTALobby::_internal_matchgroup() const {
   return _impl_.matchgroup_;
@@ -14095,7 +14135,7 @@ inline uint32_t CSODOTALobby::matchgroup() const {
   return _internal_matchgroup();
 }
 inline void CSODOTALobby::_internal_set_matchgroup(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00800000u;
+  _impl_._has_bits_[0] |= 0x00040000u;
   _impl_.matchgroup_ = value;
 }
 inline void CSODOTALobby::set_matchgroup(uint32_t value) {
@@ -14105,7 +14145,7 @@ inline void CSODOTALobby::set_matchgroup(uint32_t value) {
 
 // optional .DOTA_CM_PICK cm_pick = 28 [default = DOTA_CM_RANDOM];
 inline bool CSODOTALobby::_internal_has_cm_pick() const {
-  bool value = (_impl_._has_bits_[0] & 0x02000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00100000u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_cm_pick() const {
@@ -14113,7 +14153,7 @@ inline bool CSODOTALobby::has_cm_pick() const {
 }
 inline void CSODOTALobby::clear_cm_pick() {
   _impl_.cm_pick_ = 0;
-  _impl_._has_bits_[0] &= ~0x02000000u;
+  _impl_._has_bits_[0] &= ~0x00100000u;
 }
 inline ::DOTA_CM_PICK CSODOTALobby::_internal_cm_pick() const {
   return static_cast< ::DOTA_CM_PICK >(_impl_.cm_pick_);
@@ -14124,7 +14164,7 @@ inline ::DOTA_CM_PICK CSODOTALobby::cm_pick() const {
 }
 inline void CSODOTALobby::_internal_set_cm_pick(::DOTA_CM_PICK value) {
   assert(::DOTA_CM_PICK_IsValid(value));
-  _impl_._has_bits_[0] |= 0x02000000u;
+  _impl_._has_bits_[0] |= 0x00100000u;
   _impl_.cm_pick_ = value;
 }
 inline void CSODOTALobby::set_cm_pick(::DOTA_CM_PICK value) {
@@ -14134,7 +14174,7 @@ inline void CSODOTALobby::set_cm_pick(::DOTA_CM_PICK value) {
 
 // optional uint64 match_id = 30;
 inline bool CSODOTALobby::_internal_has_match_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x01000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00080000u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_match_id() const {
@@ -14142,7 +14182,7 @@ inline bool CSODOTALobby::has_match_id() const {
 }
 inline void CSODOTALobby::clear_match_id() {
   _impl_.match_id_ = uint64_t{0u};
-  _impl_._has_bits_[0] &= ~0x01000000u;
+  _impl_._has_bits_[0] &= ~0x00080000u;
 }
 inline uint64_t CSODOTALobby::_internal_match_id() const {
   return _impl_.match_id_;
@@ -14152,7 +14192,7 @@ inline uint64_t CSODOTALobby::match_id() const {
   return _internal_match_id();
 }
 inline void CSODOTALobby::_internal_set_match_id(uint64_t value) {
-  _impl_._has_bits_[0] |= 0x01000000u;
+  _impl_._has_bits_[0] |= 0x00080000u;
   _impl_.match_id_ = value;
 }
 inline void CSODOTALobby::set_match_id(uint64_t value) {
@@ -14162,7 +14202,7 @@ inline void CSODOTALobby::set_match_id(uint64_t value) {
 
 // optional bool allow_spectating = 31 [default = true];
 inline bool CSODOTALobby::_internal_has_allow_spectating() const {
-  bool value = (_impl_._has_bits_[2] & 0x00001000u) != 0;
+  bool value = (_impl_._has_bits_[2] & 0x00000080u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_allow_spectating() const {
@@ -14170,7 +14210,7 @@ inline bool CSODOTALobby::has_allow_spectating() const {
 }
 inline void CSODOTALobby::clear_allow_spectating() {
   _impl_.allow_spectating_ = true;
-  _impl_._has_bits_[2] &= ~0x00001000u;
+  _impl_._has_bits_[2] &= ~0x00000080u;
 }
 inline bool CSODOTALobby::_internal_allow_spectating() const {
   return _impl_.allow_spectating_;
@@ -14180,7 +14220,7 @@ inline bool CSODOTALobby::allow_spectating() const {
   return _internal_allow_spectating();
 }
 inline void CSODOTALobby::_internal_set_allow_spectating(bool value) {
-  _impl_._has_bits_[2] |= 0x00001000u;
+  _impl_._has_bits_[2] |= 0x00000080u;
   _impl_.allow_spectating_ = value;
 }
 inline void CSODOTALobby::set_allow_spectating(bool value) {
@@ -14190,7 +14230,7 @@ inline void CSODOTALobby::set_allow_spectating(bool value) {
 
 // optional .DOTABotDifficulty bot_difficulty_radiant = 36 [default = BOT_DIFFICULTY_HARD];
 inline bool CSODOTALobby::_internal_has_bot_difficulty_radiant() const {
-  bool value = (_impl_._has_bits_[2] & 0x00002000u) != 0;
+  bool value = (_impl_._has_bits_[2] & 0x00000100u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_bot_difficulty_radiant() const {
@@ -14198,7 +14238,7 @@ inline bool CSODOTALobby::has_bot_difficulty_radiant() const {
 }
 inline void CSODOTALobby::clear_bot_difficulty_radiant() {
   _impl_.bot_difficulty_radiant_ = 3;
-  _impl_._has_bits_[2] &= ~0x00002000u;
+  _impl_._has_bits_[2] &= ~0x00000100u;
 }
 inline ::DOTABotDifficulty CSODOTALobby::_internal_bot_difficulty_radiant() const {
   return static_cast< ::DOTABotDifficulty >(_impl_.bot_difficulty_radiant_);
@@ -14209,52 +14249,12 @@ inline ::DOTABotDifficulty CSODOTALobby::bot_difficulty_radiant() const {
 }
 inline void CSODOTALobby::_internal_set_bot_difficulty_radiant(::DOTABotDifficulty value) {
   assert(::DOTABotDifficulty_IsValid(value));
-  _impl_._has_bits_[2] |= 0x00002000u;
+  _impl_._has_bits_[2] |= 0x00000100u;
   _impl_.bot_difficulty_radiant_ = value;
 }
 inline void CSODOTALobby::set_bot_difficulty_radiant(::DOTABotDifficulty value) {
   _internal_set_bot_difficulty_radiant(value);
   // @@protoc_insertion_point(field_set:CSODOTALobby.bot_difficulty_radiant)
-}
-
-// repeated .CLobbyTimedRewardDetails timed_reward_details = 38;
-inline int CSODOTALobby::_internal_timed_reward_details_size() const {
-  return _impl_.timed_reward_details_.size();
-}
-inline int CSODOTALobby::timed_reward_details_size() const {
-  return _internal_timed_reward_details_size();
-}
-inline void CSODOTALobby::clear_timed_reward_details() {
-  _impl_.timed_reward_details_.Clear();
-}
-inline ::CLobbyTimedRewardDetails* CSODOTALobby::mutable_timed_reward_details(int index) {
-  // @@protoc_insertion_point(field_mutable:CSODOTALobby.timed_reward_details)
-  return _impl_.timed_reward_details_.Mutable(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CLobbyTimedRewardDetails >*
-CSODOTALobby::mutable_timed_reward_details() {
-  // @@protoc_insertion_point(field_mutable_list:CSODOTALobby.timed_reward_details)
-  return &_impl_.timed_reward_details_;
-}
-inline const ::CLobbyTimedRewardDetails& CSODOTALobby::_internal_timed_reward_details(int index) const {
-  return _impl_.timed_reward_details_.Get(index);
-}
-inline const ::CLobbyTimedRewardDetails& CSODOTALobby::timed_reward_details(int index) const {
-  // @@protoc_insertion_point(field_get:CSODOTALobby.timed_reward_details)
-  return _internal_timed_reward_details(index);
-}
-inline ::CLobbyTimedRewardDetails* CSODOTALobby::_internal_add_timed_reward_details() {
-  return _impl_.timed_reward_details_.Add();
-}
-inline ::CLobbyTimedRewardDetails* CSODOTALobby::add_timed_reward_details() {
-  ::CLobbyTimedRewardDetails* _add = _internal_add_timed_reward_details();
-  // @@protoc_insertion_point(field_add:CSODOTALobby.timed_reward_details)
-  return _add;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CLobbyTimedRewardDetails >&
-CSODOTALobby::timed_reward_details() const {
-  // @@protoc_insertion_point(field_list:CSODOTALobby.timed_reward_details)
-  return _impl_.timed_reward_details_;
 }
 
 // optional string pass_key = 39;
@@ -14327,7 +14327,7 @@ inline void CSODOTALobby::set_allocated_pass_key(std::string* pass_key) {
 
 // optional uint32 leagueid = 42;
 inline bool CSODOTALobby::_internal_has_leagueid() const {
-  bool value = (_impl_._has_bits_[0] & 0x04000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x02000000u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_leagueid() const {
@@ -14335,7 +14335,7 @@ inline bool CSODOTALobby::has_leagueid() const {
 }
 inline void CSODOTALobby::clear_leagueid() {
   _impl_.leagueid_ = 0u;
-  _impl_._has_bits_[0] &= ~0x04000000u;
+  _impl_._has_bits_[0] &= ~0x02000000u;
 }
 inline uint32_t CSODOTALobby::_internal_leagueid() const {
   return _impl_.leagueid_;
@@ -14345,7 +14345,7 @@ inline uint32_t CSODOTALobby::leagueid() const {
   return _internal_leagueid();
 }
 inline void CSODOTALobby::_internal_set_leagueid(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x04000000u;
+  _impl_._has_bits_[0] |= 0x02000000u;
   _impl_.leagueid_ = value;
 }
 inline void CSODOTALobby::set_leagueid(uint32_t value) {
@@ -14355,7 +14355,7 @@ inline void CSODOTALobby::set_leagueid(uint32_t value) {
 
 // optional uint32 penalty_level_radiant = 43 [default = 0];
 inline bool CSODOTALobby::_internal_has_penalty_level_radiant() const {
-  bool value = (_impl_._has_bits_[0] & 0x08000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x04000000u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_penalty_level_radiant() const {
@@ -14363,7 +14363,7 @@ inline bool CSODOTALobby::has_penalty_level_radiant() const {
 }
 inline void CSODOTALobby::clear_penalty_level_radiant() {
   _impl_.penalty_level_radiant_ = 0u;
-  _impl_._has_bits_[0] &= ~0x08000000u;
+  _impl_._has_bits_[0] &= ~0x04000000u;
 }
 inline uint32_t CSODOTALobby::_internal_penalty_level_radiant() const {
   return _impl_.penalty_level_radiant_;
@@ -14373,7 +14373,7 @@ inline uint32_t CSODOTALobby::penalty_level_radiant() const {
   return _internal_penalty_level_radiant();
 }
 inline void CSODOTALobby::_internal_set_penalty_level_radiant(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x08000000u;
+  _impl_._has_bits_[0] |= 0x04000000u;
   _impl_.penalty_level_radiant_ = value;
 }
 inline void CSODOTALobby::set_penalty_level_radiant(uint32_t value) {
@@ -14383,7 +14383,7 @@ inline void CSODOTALobby::set_penalty_level_radiant(uint32_t value) {
 
 // optional uint32 penalty_level_dire = 44 [default = 0];
 inline bool CSODOTALobby::_internal_has_penalty_level_dire() const {
-  bool value = (_impl_._has_bits_[0] & 0x10000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x08000000u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_penalty_level_dire() const {
@@ -14391,7 +14391,7 @@ inline bool CSODOTALobby::has_penalty_level_dire() const {
 }
 inline void CSODOTALobby::clear_penalty_level_dire() {
   _impl_.penalty_level_dire_ = 0u;
-  _impl_._has_bits_[0] &= ~0x10000000u;
+  _impl_._has_bits_[0] &= ~0x08000000u;
 }
 inline uint32_t CSODOTALobby::_internal_penalty_level_dire() const {
   return _impl_.penalty_level_dire_;
@@ -14401,7 +14401,7 @@ inline uint32_t CSODOTALobby::penalty_level_dire() const {
   return _internal_penalty_level_dire();
 }
 inline void CSODOTALobby::_internal_set_penalty_level_dire(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x10000000u;
+  _impl_._has_bits_[0] |= 0x08000000u;
   _impl_.penalty_level_dire_ = value;
 }
 inline void CSODOTALobby::set_penalty_level_dire(uint32_t value) {
@@ -14409,37 +14409,9 @@ inline void CSODOTALobby::set_penalty_level_dire(uint32_t value) {
   // @@protoc_insertion_point(field_set:CSODOTALobby.penalty_level_dire)
 }
 
-// optional uint32 load_game_id = 45;
-inline bool CSODOTALobby::_internal_has_load_game_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x20000000u) != 0;
-  return value;
-}
-inline bool CSODOTALobby::has_load_game_id() const {
-  return _internal_has_load_game_id();
-}
-inline void CSODOTALobby::clear_load_game_id() {
-  _impl_.load_game_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x20000000u;
-}
-inline uint32_t CSODOTALobby::_internal_load_game_id() const {
-  return _impl_.load_game_id_;
-}
-inline uint32_t CSODOTALobby::load_game_id() const {
-  // @@protoc_insertion_point(field_get:CSODOTALobby.load_game_id)
-  return _internal_load_game_id();
-}
-inline void CSODOTALobby::_internal_set_load_game_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x20000000u;
-  _impl_.load_game_id_ = value;
-}
-inline void CSODOTALobby::set_load_game_id(uint32_t value) {
-  _internal_set_load_game_id(value);
-  // @@protoc_insertion_point(field_set:CSODOTALobby.load_game_id)
-}
-
 // optional uint32 series_type = 46;
 inline bool CSODOTALobby::_internal_has_series_type() const {
-  bool value = (_impl_._has_bits_[0] & 0x40000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x10000000u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_series_type() const {
@@ -14447,7 +14419,7 @@ inline bool CSODOTALobby::has_series_type() const {
 }
 inline void CSODOTALobby::clear_series_type() {
   _impl_.series_type_ = 0u;
-  _impl_._has_bits_[0] &= ~0x40000000u;
+  _impl_._has_bits_[0] &= ~0x10000000u;
 }
 inline uint32_t CSODOTALobby::_internal_series_type() const {
   return _impl_.series_type_;
@@ -14457,7 +14429,7 @@ inline uint32_t CSODOTALobby::series_type() const {
   return _internal_series_type();
 }
 inline void CSODOTALobby::_internal_set_series_type(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x40000000u;
+  _impl_._has_bits_[0] |= 0x10000000u;
   _impl_.series_type_ = value;
 }
 inline void CSODOTALobby::set_series_type(uint32_t value) {
@@ -14467,7 +14439,7 @@ inline void CSODOTALobby::set_series_type(uint32_t value) {
 
 // optional uint32 radiant_series_wins = 47;
 inline bool CSODOTALobby::_internal_has_radiant_series_wins() const {
-  bool value = (_impl_._has_bits_[0] & 0x80000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x20000000u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_radiant_series_wins() const {
@@ -14475,7 +14447,7 @@ inline bool CSODOTALobby::has_radiant_series_wins() const {
 }
 inline void CSODOTALobby::clear_radiant_series_wins() {
   _impl_.radiant_series_wins_ = 0u;
-  _impl_._has_bits_[0] &= ~0x80000000u;
+  _impl_._has_bits_[0] &= ~0x20000000u;
 }
 inline uint32_t CSODOTALobby::_internal_radiant_series_wins() const {
   return _impl_.radiant_series_wins_;
@@ -14485,7 +14457,7 @@ inline uint32_t CSODOTALobby::radiant_series_wins() const {
   return _internal_radiant_series_wins();
 }
 inline void CSODOTALobby::_internal_set_radiant_series_wins(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x80000000u;
+  _impl_._has_bits_[0] |= 0x20000000u;
   _impl_.radiant_series_wins_ = value;
 }
 inline void CSODOTALobby::set_radiant_series_wins(uint32_t value) {
@@ -14495,7 +14467,7 @@ inline void CSODOTALobby::set_radiant_series_wins(uint32_t value) {
 
 // optional uint32 dire_series_wins = 48;
 inline bool CSODOTALobby::_internal_has_dire_series_wins() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x40000000u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_dire_series_wins() const {
@@ -14503,7 +14475,7 @@ inline bool CSODOTALobby::has_dire_series_wins() const {
 }
 inline void CSODOTALobby::clear_dire_series_wins() {
   _impl_.dire_series_wins_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x40000000u;
 }
 inline uint32_t CSODOTALobby::_internal_dire_series_wins() const {
   return _impl_.dire_series_wins_;
@@ -14513,7 +14485,7 @@ inline uint32_t CSODOTALobby::dire_series_wins() const {
   return _internal_dire_series_wins();
 }
 inline void CSODOTALobby::_internal_set_dire_series_wins(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x40000000u;
   _impl_.dire_series_wins_ = value;
 }
 inline void CSODOTALobby::set_dire_series_wins(uint32_t value) {
@@ -14521,65 +14493,9 @@ inline void CSODOTALobby::set_dire_series_wins(uint32_t value) {
   // @@protoc_insertion_point(field_set:CSODOTALobby.dire_series_wins)
 }
 
-// optional uint32 loot_generated = 49;
-inline bool CSODOTALobby::_internal_has_loot_generated() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000002u) != 0;
-  return value;
-}
-inline bool CSODOTALobby::has_loot_generated() const {
-  return _internal_has_loot_generated();
-}
-inline void CSODOTALobby::clear_loot_generated() {
-  _impl_.loot_generated_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000002u;
-}
-inline uint32_t CSODOTALobby::_internal_loot_generated() const {
-  return _impl_.loot_generated_;
-}
-inline uint32_t CSODOTALobby::loot_generated() const {
-  // @@protoc_insertion_point(field_get:CSODOTALobby.loot_generated)
-  return _internal_loot_generated();
-}
-inline void CSODOTALobby::_internal_set_loot_generated(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000002u;
-  _impl_.loot_generated_ = value;
-}
-inline void CSODOTALobby::set_loot_generated(uint32_t value) {
-  _internal_set_loot_generated(value);
-  // @@protoc_insertion_point(field_set:CSODOTALobby.loot_generated)
-}
-
-// optional uint32 loot_awarded = 50;
-inline bool CSODOTALobby::_internal_has_loot_awarded() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000004u) != 0;
-  return value;
-}
-inline bool CSODOTALobby::has_loot_awarded() const {
-  return _internal_has_loot_awarded();
-}
-inline void CSODOTALobby::clear_loot_awarded() {
-  _impl_.loot_awarded_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000004u;
-}
-inline uint32_t CSODOTALobby::_internal_loot_awarded() const {
-  return _impl_.loot_awarded_;
-}
-inline uint32_t CSODOTALobby::loot_awarded() const {
-  // @@protoc_insertion_point(field_get:CSODOTALobby.loot_awarded)
-  return _internal_loot_awarded();
-}
-inline void CSODOTALobby::_internal_set_loot_awarded(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000004u;
-  _impl_.loot_awarded_ = value;
-}
-inline void CSODOTALobby::set_loot_awarded(uint32_t value) {
-  _internal_set_loot_awarded(value);
-  // @@protoc_insertion_point(field_set:CSODOTALobby.loot_awarded)
-}
-
 // optional bool allchat = 51 [default = false];
 inline bool CSODOTALobby::_internal_has_allchat() const {
-  bool value = (_impl_._has_bits_[0] & 0x00400000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00800000u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_allchat() const {
@@ -14587,7 +14503,7 @@ inline bool CSODOTALobby::has_allchat() const {
 }
 inline void CSODOTALobby::clear_allchat() {
   _impl_.allchat_ = false;
-  _impl_._has_bits_[0] &= ~0x00400000u;
+  _impl_._has_bits_[0] &= ~0x00800000u;
 }
 inline bool CSODOTALobby::_internal_allchat() const {
   return _impl_.allchat_;
@@ -14597,7 +14513,7 @@ inline bool CSODOTALobby::allchat() const {
   return _internal_allchat();
 }
 inline void CSODOTALobby::_internal_set_allchat(bool value) {
-  _impl_._has_bits_[0] |= 0x00400000u;
+  _impl_._has_bits_[0] |= 0x00800000u;
   _impl_.allchat_ = value;
 }
 inline void CSODOTALobby::set_allchat(bool value) {
@@ -14607,7 +14523,7 @@ inline void CSODOTALobby::set_allchat(bool value) {
 
 // optional .LobbyDotaTVDelay dota_tv_delay = 53 [default = LobbyDotaTV_10];
 inline bool CSODOTALobby::_internal_has_dota_tv_delay() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x80000000u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_dota_tv_delay() const {
@@ -14615,7 +14531,7 @@ inline bool CSODOTALobby::has_dota_tv_delay() const {
 }
 inline void CSODOTALobby::clear_dota_tv_delay() {
   _impl_.dota_tv_delay_ = 0;
-  _impl_._has_bits_[1] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x80000000u;
 }
 inline ::LobbyDotaTVDelay CSODOTALobby::_internal_dota_tv_delay() const {
   return static_cast< ::LobbyDotaTVDelay >(_impl_.dota_tv_delay_);
@@ -14626,7 +14542,7 @@ inline ::LobbyDotaTVDelay CSODOTALobby::dota_tv_delay() const {
 }
 inline void CSODOTALobby::_internal_set_dota_tv_delay(::LobbyDotaTVDelay value) {
   assert(::LobbyDotaTVDelay_IsValid(value));
-  _impl_._has_bits_[1] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x80000000u;
   _impl_.dota_tv_delay_ = value;
 }
 inline void CSODOTALobby::set_dota_tv_delay(::LobbyDotaTVDelay value) {
@@ -14772,7 +14688,7 @@ inline void CSODOTALobby::set_allocated_custom_map_name(std::string* custom_map_
 
 // optional uint32 custom_difficulty = 56;
 inline bool CSODOTALobby::_internal_has_custom_difficulty() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000001u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_custom_difficulty() const {
@@ -14780,7 +14696,7 @@ inline bool CSODOTALobby::has_custom_difficulty() const {
 }
 inline void CSODOTALobby::clear_custom_difficulty() {
   _impl_.custom_difficulty_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000010u;
+  _impl_._has_bits_[1] &= ~0x00000001u;
 }
 inline uint32_t CSODOTALobby::_internal_custom_difficulty() const {
   return _impl_.custom_difficulty_;
@@ -14790,7 +14706,7 @@ inline uint32_t CSODOTALobby::custom_difficulty() const {
   return _internal_custom_difficulty();
 }
 inline void CSODOTALobby::_internal_set_custom_difficulty(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000010u;
+  _impl_._has_bits_[1] |= 0x00000001u;
   _impl_.custom_difficulty_ = value;
 }
 inline void CSODOTALobby::set_custom_difficulty(uint32_t value) {
@@ -14800,7 +14716,7 @@ inline void CSODOTALobby::set_custom_difficulty(uint32_t value) {
 
 // optional bool lan = 57;
 inline bool CSODOTALobby::_internal_has_lan() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000080u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x01000000u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_lan() const {
@@ -14808,7 +14724,7 @@ inline bool CSODOTALobby::has_lan() const {
 }
 inline void CSODOTALobby::clear_lan() {
   _impl_.lan_ = false;
-  _impl_._has_bits_[1] &= ~0x00000080u;
+  _impl_._has_bits_[0] &= ~0x01000000u;
 }
 inline bool CSODOTALobby::_internal_lan() const {
   return _impl_.lan_;
@@ -14818,7 +14734,7 @@ inline bool CSODOTALobby::lan() const {
   return _internal_lan();
 }
 inline void CSODOTALobby::_internal_set_lan(bool value) {
-  _impl_._has_bits_[1] |= 0x00000080u;
+  _impl_._has_bits_[0] |= 0x01000000u;
   _impl_.lan_ = value;
 }
 inline void CSODOTALobby::set_lan(bool value) {
@@ -14868,7 +14784,7 @@ CSODOTALobby::broadcast_channel_info() const {
 
 // optional uint32 first_leaver_accountid = 59;
 inline bool CSODOTALobby::_internal_has_first_leaver_accountid() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000020u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000002u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_first_leaver_accountid() const {
@@ -14876,7 +14792,7 @@ inline bool CSODOTALobby::has_first_leaver_accountid() const {
 }
 inline void CSODOTALobby::clear_first_leaver_accountid() {
   _impl_.first_leaver_accountid_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000020u;
+  _impl_._has_bits_[1] &= ~0x00000002u;
 }
 inline uint32_t CSODOTALobby::_internal_first_leaver_accountid() const {
   return _impl_.first_leaver_accountid_;
@@ -14886,7 +14802,7 @@ inline uint32_t CSODOTALobby::first_leaver_accountid() const {
   return _internal_first_leaver_accountid();
 }
 inline void CSODOTALobby::_internal_set_first_leaver_accountid(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000020u;
+  _impl_._has_bits_[1] |= 0x00000002u;
   _impl_.first_leaver_accountid_ = value;
 }
 inline void CSODOTALobby::set_first_leaver_accountid(uint32_t value) {
@@ -14896,7 +14812,7 @@ inline void CSODOTALobby::set_first_leaver_accountid(uint32_t value) {
 
 // optional uint32 series_id = 60;
 inline bool CSODOTALobby::_internal_has_series_id() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000040u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000004u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_series_id() const {
@@ -14904,7 +14820,7 @@ inline bool CSODOTALobby::has_series_id() const {
 }
 inline void CSODOTALobby::clear_series_id() {
   _impl_.series_id_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000040u;
+  _impl_._has_bits_[1] &= ~0x00000004u;
 }
 inline uint32_t CSODOTALobby::_internal_series_id() const {
   return _impl_.series_id_;
@@ -14914,7 +14830,7 @@ inline uint32_t CSODOTALobby::series_id() const {
   return _internal_series_id();
 }
 inline void CSODOTALobby::_internal_set_series_id(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000040u;
+  _impl_._has_bits_[1] |= 0x00000004u;
   _impl_.series_id_ = value;
 }
 inline void CSODOTALobby::set_series_id(uint32_t value) {
@@ -14924,7 +14840,7 @@ inline void CSODOTALobby::set_series_id(uint32_t value) {
 
 // optional bool low_priority = 61;
 inline bool CSODOTALobby::_internal_has_low_priority() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000100u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000010u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_low_priority() const {
@@ -14932,7 +14848,7 @@ inline bool CSODOTALobby::has_low_priority() const {
 }
 inline void CSODOTALobby::clear_low_priority() {
   _impl_.low_priority_ = false;
-  _impl_._has_bits_[1] &= ~0x00000100u;
+  _impl_._has_bits_[1] &= ~0x00000010u;
 }
 inline bool CSODOTALobby::_internal_low_priority() const {
   return _impl_.low_priority_;
@@ -14942,7 +14858,7 @@ inline bool CSODOTALobby::low_priority() const {
   return _internal_low_priority();
 }
 inline void CSODOTALobby::_internal_set_low_priority(bool value) {
-  _impl_._has_bits_[1] |= 0x00000100u;
+  _impl_._has_bits_[1] |= 0x00000010u;
   _impl_.low_priority_ = value;
 }
 inline void CSODOTALobby::set_low_priority(bool value) {
@@ -14990,96 +14906,9 @@ CSODOTALobby::extra_messages() const {
   return _impl_.extra_messages_;
 }
 
-// optional .CDOTASaveGame save_game = 63;
-inline bool CSODOTALobby::_internal_has_save_game() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
-  PROTOBUF_ASSUME(!value || _impl_.save_game_ != nullptr);
-  return value;
-}
-inline bool CSODOTALobby::has_save_game() const {
-  return _internal_has_save_game();
-}
-inline const ::CDOTASaveGame& CSODOTALobby::_internal_save_game() const {
-  const ::CDOTASaveGame* p = _impl_.save_game_;
-  return p != nullptr ? *p : reinterpret_cast<const ::CDOTASaveGame&>(
-      ::_CDOTASaveGame_default_instance_);
-}
-inline const ::CDOTASaveGame& CSODOTALobby::save_game() const {
-  // @@protoc_insertion_point(field_get:CSODOTALobby.save_game)
-  return _internal_save_game();
-}
-inline void CSODOTALobby::unsafe_arena_set_allocated_save_game(
-    ::CDOTASaveGame* save_game) {
-  if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.save_game_);
-  }
-  _impl_.save_game_ = save_game;
-  if (save_game) {
-    _impl_._has_bits_[0] |= 0x00000080u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000080u;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CSODOTALobby.save_game)
-}
-inline ::CDOTASaveGame* CSODOTALobby::release_save_game() {
-  _impl_._has_bits_[0] &= ~0x00000080u;
-  ::CDOTASaveGame* temp = _impl_.save_game_;
-  _impl_.save_game_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
-  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
-#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArenaForAllocation() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return temp;
-}
-inline ::CDOTASaveGame* CSODOTALobby::unsafe_arena_release_save_game() {
-  // @@protoc_insertion_point(field_release:CSODOTALobby.save_game)
-  _impl_._has_bits_[0] &= ~0x00000080u;
-  ::CDOTASaveGame* temp = _impl_.save_game_;
-  _impl_.save_game_ = nullptr;
-  return temp;
-}
-inline ::CDOTASaveGame* CSODOTALobby::_internal_mutable_save_game() {
-  _impl_._has_bits_[0] |= 0x00000080u;
-  if (_impl_.save_game_ == nullptr) {
-    auto* p = CreateMaybeMessage<::CDOTASaveGame>(GetArenaForAllocation());
-    _impl_.save_game_ = p;
-  }
-  return _impl_.save_game_;
-}
-inline ::CDOTASaveGame* CSODOTALobby::mutable_save_game() {
-  ::CDOTASaveGame* _msg = _internal_mutable_save_game();
-  // @@protoc_insertion_point(field_mutable:CSODOTALobby.save_game)
-  return _msg;
-}
-inline void CSODOTALobby::set_allocated_save_game(::CDOTASaveGame* save_game) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.save_game_);
-  }
-  if (save_game) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
-                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(save_game));
-    if (message_arena != submessage_arena) {
-      save_game = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, save_game, submessage_arena);
-    }
-    _impl_._has_bits_[0] |= 0x00000080u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000080u;
-  }
-  _impl_.save_game_ = save_game;
-  // @@protoc_insertion_point(field_set_allocated:CSODOTALobby.save_game)
-}
-
 // optional bool first_blood_happened = 65;
 inline bool CSODOTALobby::_internal_has_first_blood_happened() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000200u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000020u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_first_blood_happened() const {
@@ -15087,7 +14916,7 @@ inline bool CSODOTALobby::has_first_blood_happened() const {
 }
 inline void CSODOTALobby::clear_first_blood_happened() {
   _impl_.first_blood_happened_ = false;
-  _impl_._has_bits_[1] &= ~0x00000200u;
+  _impl_._has_bits_[1] &= ~0x00000020u;
 }
 inline bool CSODOTALobby::_internal_first_blood_happened() const {
   return _impl_.first_blood_happened_;
@@ -15097,7 +14926,7 @@ inline bool CSODOTALobby::first_blood_happened() const {
   return _internal_first_blood_happened();
 }
 inline void CSODOTALobby::_internal_set_first_blood_happened(bool value) {
-  _impl_._has_bits_[1] |= 0x00000200u;
+  _impl_._has_bits_[1] |= 0x00000020u;
   _impl_.first_blood_happened_ = value;
 }
 inline void CSODOTALobby::set_first_blood_happened(bool value) {
@@ -15107,7 +14936,7 @@ inline void CSODOTALobby::set_first_blood_happened(bool value) {
 
 // optional .EMatchOutcome match_outcome = 70 [default = k_EMatchOutcome_Unknown];
 inline bool CSODOTALobby::_internal_has_match_outcome() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000800u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000100u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_match_outcome() const {
@@ -15115,7 +14944,7 @@ inline bool CSODOTALobby::has_match_outcome() const {
 }
 inline void CSODOTALobby::clear_match_outcome() {
   _impl_.match_outcome_ = 0;
-  _impl_._has_bits_[1] &= ~0x00000800u;
+  _impl_._has_bits_[1] &= ~0x00000100u;
 }
 inline ::EMatchOutcome CSODOTALobby::_internal_match_outcome() const {
   return static_cast< ::EMatchOutcome >(_impl_.match_outcome_);
@@ -15126,7 +14955,7 @@ inline ::EMatchOutcome CSODOTALobby::match_outcome() const {
 }
 inline void CSODOTALobby::_internal_set_match_outcome(::EMatchOutcome value) {
   assert(::EMatchOutcome_IsValid(value));
-  _impl_._has_bits_[1] |= 0x00000800u;
+  _impl_._has_bits_[1] |= 0x00000100u;
   _impl_.match_outcome_ = value;
 }
 inline void CSODOTALobby::set_match_outcome(::EMatchOutcome value) {
@@ -15136,7 +14965,7 @@ inline void CSODOTALobby::set_match_outcome(::EMatchOutcome value) {
 
 // optional bool mass_disconnect = 67;
 inline bool CSODOTALobby::_internal_has_mass_disconnect() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000400u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000040u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_mass_disconnect() const {
@@ -15144,7 +14973,7 @@ inline bool CSODOTALobby::has_mass_disconnect() const {
 }
 inline void CSODOTALobby::clear_mass_disconnect() {
   _impl_.mass_disconnect_ = false;
-  _impl_._has_bits_[1] &= ~0x00000400u;
+  _impl_._has_bits_[1] &= ~0x00000040u;
 }
 inline bool CSODOTALobby::_internal_mass_disconnect() const {
   return _impl_.mass_disconnect_;
@@ -15154,7 +14983,7 @@ inline bool CSODOTALobby::mass_disconnect() const {
   return _internal_mass_disconnect();
 }
 inline void CSODOTALobby::_internal_set_mass_disconnect(bool value) {
-  _impl_._has_bits_[1] |= 0x00000400u;
+  _impl_._has_bits_[1] |= 0x00000040u;
   _impl_.mass_disconnect_ = value;
 }
 inline void CSODOTALobby::set_mass_disconnect(bool value) {
@@ -15164,7 +14993,7 @@ inline void CSODOTALobby::set_mass_disconnect(bool value) {
 
 // optional uint64 custom_game_id = 68;
 inline bool CSODOTALobby::_internal_has_custom_game_id() const {
-  bool value = (_impl_._has_bits_[1] & 0x00001000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000008u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_custom_game_id() const {
@@ -15172,7 +15001,7 @@ inline bool CSODOTALobby::has_custom_game_id() const {
 }
 inline void CSODOTALobby::clear_custom_game_id() {
   _impl_.custom_game_id_ = uint64_t{0u};
-  _impl_._has_bits_[1] &= ~0x00001000u;
+  _impl_._has_bits_[1] &= ~0x00000008u;
 }
 inline uint64_t CSODOTALobby::_internal_custom_game_id() const {
   return _impl_.custom_game_id_;
@@ -15182,7 +15011,7 @@ inline uint64_t CSODOTALobby::custom_game_id() const {
   return _internal_custom_game_id();
 }
 inline void CSODOTALobby::_internal_set_custom_game_id(uint64_t value) {
-  _impl_._has_bits_[1] |= 0x00001000u;
+  _impl_._has_bits_[1] |= 0x00000008u;
   _impl_.custom_game_id_ = value;
 }
 inline void CSODOTALobby::set_custom_game_id(uint64_t value) {
@@ -15192,7 +15021,7 @@ inline void CSODOTALobby::set_custom_game_id(uint64_t value) {
 
 // optional uint32 custom_min_players = 71;
 inline bool CSODOTALobby::_internal_has_custom_min_players() const {
-  bool value = (_impl_._has_bits_[1] & 0x00002000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000200u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_custom_min_players() const {
@@ -15200,7 +15029,7 @@ inline bool CSODOTALobby::has_custom_min_players() const {
 }
 inline void CSODOTALobby::clear_custom_min_players() {
   _impl_.custom_min_players_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00002000u;
+  _impl_._has_bits_[1] &= ~0x00000200u;
 }
 inline uint32_t CSODOTALobby::_internal_custom_min_players() const {
   return _impl_.custom_min_players_;
@@ -15210,7 +15039,7 @@ inline uint32_t CSODOTALobby::custom_min_players() const {
   return _internal_custom_min_players();
 }
 inline void CSODOTALobby::_internal_set_custom_min_players(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00002000u;
+  _impl_._has_bits_[1] |= 0x00000200u;
   _impl_.custom_min_players_ = value;
 }
 inline void CSODOTALobby::set_custom_min_players(uint32_t value) {
@@ -15220,7 +15049,7 @@ inline void CSODOTALobby::set_custom_min_players(uint32_t value) {
 
 // optional uint32 custom_max_players = 72;
 inline bool CSODOTALobby::_internal_has_custom_max_players() const {
-  bool value = (_impl_._has_bits_[1] & 0x00004000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000400u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_custom_max_players() const {
@@ -15228,7 +15057,7 @@ inline bool CSODOTALobby::has_custom_max_players() const {
 }
 inline void CSODOTALobby::clear_custom_max_players() {
   _impl_.custom_max_players_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00004000u;
+  _impl_._has_bits_[1] &= ~0x00000400u;
 }
 inline uint32_t CSODOTALobby::_internal_custom_max_players() const {
   return _impl_.custom_max_players_;
@@ -15238,7 +15067,7 @@ inline uint32_t CSODOTALobby::custom_max_players() const {
   return _internal_custom_max_players();
 }
 inline void CSODOTALobby::_internal_set_custom_max_players(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00004000u;
+  _impl_._has_bits_[1] |= 0x00000400u;
   _impl_.custom_max_players_ = value;
 }
 inline void CSODOTALobby::set_custom_max_players(uint32_t value) {
@@ -15248,7 +15077,7 @@ inline void CSODOTALobby::set_custom_max_players(uint32_t value) {
 
 // optional .DOTALobbyVisibility visibility = 75 [default = DOTALobbyVisibility_Public];
 inline bool CSODOTALobby::_internal_has_visibility() const {
-  bool value = (_impl_._has_bits_[1] & 0x00010000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00001000u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_visibility() const {
@@ -15256,7 +15085,7 @@ inline bool CSODOTALobby::has_visibility() const {
 }
 inline void CSODOTALobby::clear_visibility() {
   _impl_.visibility_ = 0;
-  _impl_._has_bits_[1] &= ~0x00010000u;
+  _impl_._has_bits_[1] &= ~0x00001000u;
 }
 inline ::DOTALobbyVisibility CSODOTALobby::_internal_visibility() const {
   return static_cast< ::DOTALobbyVisibility >(_impl_.visibility_);
@@ -15267,7 +15096,7 @@ inline ::DOTALobbyVisibility CSODOTALobby::visibility() const {
 }
 inline void CSODOTALobby::_internal_set_visibility(::DOTALobbyVisibility value) {
   assert(::DOTALobbyVisibility_IsValid(value));
-  _impl_._has_bits_[1] |= 0x00010000u;
+  _impl_._has_bits_[1] |= 0x00001000u;
   _impl_.visibility_ = value;
 }
 inline void CSODOTALobby::set_visibility(::DOTALobbyVisibility value) {
@@ -15277,7 +15106,7 @@ inline void CSODOTALobby::set_visibility(::DOTALobbyVisibility value) {
 
 // optional fixed64 custom_game_crc = 76;
 inline bool CSODOTALobby::_internal_has_custom_game_crc() const {
-  bool value = (_impl_._has_bits_[1] & 0x00008000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000800u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_custom_game_crc() const {
@@ -15285,7 +15114,7 @@ inline bool CSODOTALobby::has_custom_game_crc() const {
 }
 inline void CSODOTALobby::clear_custom_game_crc() {
   _impl_.custom_game_crc_ = uint64_t{0u};
-  _impl_._has_bits_[1] &= ~0x00008000u;
+  _impl_._has_bits_[1] &= ~0x00000800u;
 }
 inline uint64_t CSODOTALobby::_internal_custom_game_crc() const {
   return _impl_.custom_game_crc_;
@@ -15295,7 +15124,7 @@ inline uint64_t CSODOTALobby::custom_game_crc() const {
   return _internal_custom_game_crc();
 }
 inline void CSODOTALobby::_internal_set_custom_game_crc(uint64_t value) {
-  _impl_._has_bits_[1] |= 0x00008000u;
+  _impl_._has_bits_[1] |= 0x00000800u;
   _impl_.custom_game_crc_ = value;
 }
 inline void CSODOTALobby::set_custom_game_crc(uint64_t value) {
@@ -15305,7 +15134,7 @@ inline void CSODOTALobby::set_custom_game_crc(uint64_t value) {
 
 // optional bool custom_game_auto_created_lobby = 77;
 inline bool CSODOTALobby::_internal_has_custom_game_auto_created_lobby() const {
-  bool value = (_impl_._has_bits_[1] & 0x40000000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000080u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_custom_game_auto_created_lobby() const {
@@ -15313,7 +15142,7 @@ inline bool CSODOTALobby::has_custom_game_auto_created_lobby() const {
 }
 inline void CSODOTALobby::clear_custom_game_auto_created_lobby() {
   _impl_.custom_game_auto_created_lobby_ = false;
-  _impl_._has_bits_[1] &= ~0x40000000u;
+  _impl_._has_bits_[1] &= ~0x00000080u;
 }
 inline bool CSODOTALobby::_internal_custom_game_auto_created_lobby() const {
   return _impl_.custom_game_auto_created_lobby_;
@@ -15323,7 +15152,7 @@ inline bool CSODOTALobby::custom_game_auto_created_lobby() const {
   return _internal_custom_game_auto_created_lobby();
 }
 inline void CSODOTALobby::_internal_set_custom_game_auto_created_lobby(bool value) {
-  _impl_._has_bits_[1] |= 0x40000000u;
+  _impl_._has_bits_[1] |= 0x00000080u;
   _impl_.custom_game_auto_created_lobby_ = value;
 }
 inline void CSODOTALobby::set_custom_game_auto_created_lobby(bool value) {
@@ -15333,7 +15162,7 @@ inline void CSODOTALobby::set_custom_game_auto_created_lobby(bool value) {
 
 // optional fixed32 custom_game_timestamp = 80;
 inline bool CSODOTALobby::_internal_has_custom_game_timestamp() const {
-  bool value = (_impl_._has_bits_[1] & 0x00020000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00002000u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_custom_game_timestamp() const {
@@ -15341,7 +15170,7 @@ inline bool CSODOTALobby::has_custom_game_timestamp() const {
 }
 inline void CSODOTALobby::clear_custom_game_timestamp() {
   _impl_.custom_game_timestamp_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00020000u;
+  _impl_._has_bits_[1] &= ~0x00002000u;
 }
 inline uint32_t CSODOTALobby::_internal_custom_game_timestamp() const {
   return _impl_.custom_game_timestamp_;
@@ -15351,7 +15180,7 @@ inline uint32_t CSODOTALobby::custom_game_timestamp() const {
   return _internal_custom_game_timestamp();
 }
 inline void CSODOTALobby::_internal_set_custom_game_timestamp(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00020000u;
+  _impl_._has_bits_[1] |= 0x00002000u;
   _impl_.custom_game_timestamp_ = value;
 }
 inline void CSODOTALobby::set_custom_game_timestamp(uint32_t value) {
@@ -15408,7 +15237,7 @@ CSODOTALobby::mutable_previous_series_matches() {
 
 // optional uint64 previous_match_override = 82;
 inline bool CSODOTALobby::_internal_has_previous_match_override() const {
-  bool value = (_impl_._has_bits_[1] & 0x00040000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00004000u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_previous_match_override() const {
@@ -15416,7 +15245,7 @@ inline bool CSODOTALobby::has_previous_match_override() const {
 }
 inline void CSODOTALobby::clear_previous_match_override() {
   _impl_.previous_match_override_ = uint64_t{0u};
-  _impl_._has_bits_[1] &= ~0x00040000u;
+  _impl_._has_bits_[1] &= ~0x00004000u;
 }
 inline uint64_t CSODOTALobby::_internal_previous_match_override() const {
   return _impl_.previous_match_override_;
@@ -15426,7 +15255,7 @@ inline uint64_t CSODOTALobby::previous_match_override() const {
   return _internal_previous_match_override();
 }
 inline void CSODOTALobby::_internal_set_previous_match_override(uint64_t value) {
-  _impl_._has_bits_[1] |= 0x00040000u;
+  _impl_._has_bits_[1] |= 0x00004000u;
   _impl_.previous_match_override_ = value;
 }
 inline void CSODOTALobby::set_previous_match_override(uint64_t value) {
@@ -15436,7 +15265,7 @@ inline void CSODOTALobby::set_previous_match_override(uint64_t value) {
 
 // optional uint32 game_start_time = 87;
 inline bool CSODOTALobby::_internal_has_game_start_time() const {
-  bool value = (_impl_._has_bits_[1] & 0x00080000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00008000u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_game_start_time() const {
@@ -15444,7 +15273,7 @@ inline bool CSODOTALobby::has_game_start_time() const {
 }
 inline void CSODOTALobby::clear_game_start_time() {
   _impl_.game_start_time_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00080000u;
+  _impl_._has_bits_[1] &= ~0x00008000u;
 }
 inline uint32_t CSODOTALobby::_internal_game_start_time() const {
   return _impl_.game_start_time_;
@@ -15454,7 +15283,7 @@ inline uint32_t CSODOTALobby::game_start_time() const {
   return _internal_game_start_time();
 }
 inline void CSODOTALobby::_internal_set_game_start_time(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00080000u;
+  _impl_._has_bits_[1] |= 0x00008000u;
   _impl_.game_start_time_ = value;
 }
 inline void CSODOTALobby::set_game_start_time(uint32_t value) {
@@ -15464,7 +15293,7 @@ inline void CSODOTALobby::set_game_start_time(uint32_t value) {
 
 // optional .LobbyDotaPauseSetting pause_setting = 88 [default = LobbyDotaPauseSetting_Unlimited];
 inline bool CSODOTALobby::_internal_has_pause_setting() const {
-  bool value = (_impl_._has_bits_[1] & 0x00100000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00010000u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_pause_setting() const {
@@ -15472,7 +15301,7 @@ inline bool CSODOTALobby::has_pause_setting() const {
 }
 inline void CSODOTALobby::clear_pause_setting() {
   _impl_.pause_setting_ = 0;
-  _impl_._has_bits_[1] &= ~0x00100000u;
+  _impl_._has_bits_[1] &= ~0x00010000u;
 }
 inline ::LobbyDotaPauseSetting CSODOTALobby::_internal_pause_setting() const {
   return static_cast< ::LobbyDotaPauseSetting >(_impl_.pause_setting_);
@@ -15483,7 +15312,7 @@ inline ::LobbyDotaPauseSetting CSODOTALobby::pause_setting() const {
 }
 inline void CSODOTALobby::_internal_set_pause_setting(::LobbyDotaPauseSetting value) {
   assert(::LobbyDotaPauseSetting_IsValid(value));
-  _impl_._has_bits_[1] |= 0x00100000u;
+  _impl_._has_bits_[1] |= 0x00010000u;
   _impl_.pause_setting_ = value;
 }
 inline void CSODOTALobby::set_pause_setting(::LobbyDotaPauseSetting value) {
@@ -15493,7 +15322,7 @@ inline void CSODOTALobby::set_pause_setting(::LobbyDotaPauseSetting value) {
 
 // optional uint32 weekend_tourney_division_id = 90;
 inline bool CSODOTALobby::_internal_has_weekend_tourney_division_id() const {
-  bool value = (_impl_._has_bits_[1] & 0x00200000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00020000u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_weekend_tourney_division_id() const {
@@ -15501,7 +15330,7 @@ inline bool CSODOTALobby::has_weekend_tourney_division_id() const {
 }
 inline void CSODOTALobby::clear_weekend_tourney_division_id() {
   _impl_.weekend_tourney_division_id_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00200000u;
+  _impl_._has_bits_[1] &= ~0x00020000u;
 }
 inline uint32_t CSODOTALobby::_internal_weekend_tourney_division_id() const {
   return _impl_.weekend_tourney_division_id_;
@@ -15511,7 +15340,7 @@ inline uint32_t CSODOTALobby::weekend_tourney_division_id() const {
   return _internal_weekend_tourney_division_id();
 }
 inline void CSODOTALobby::_internal_set_weekend_tourney_division_id(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00200000u;
+  _impl_._has_bits_[1] |= 0x00020000u;
   _impl_.weekend_tourney_division_id_ = value;
 }
 inline void CSODOTALobby::set_weekend_tourney_division_id(uint32_t value) {
@@ -15521,7 +15350,7 @@ inline void CSODOTALobby::set_weekend_tourney_division_id(uint32_t value) {
 
 // optional uint32 weekend_tourney_skill_level = 91;
 inline bool CSODOTALobby::_internal_has_weekend_tourney_skill_level() const {
-  bool value = (_impl_._has_bits_[1] & 0x00400000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00040000u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_weekend_tourney_skill_level() const {
@@ -15529,7 +15358,7 @@ inline bool CSODOTALobby::has_weekend_tourney_skill_level() const {
 }
 inline void CSODOTALobby::clear_weekend_tourney_skill_level() {
   _impl_.weekend_tourney_skill_level_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00400000u;
+  _impl_._has_bits_[1] &= ~0x00040000u;
 }
 inline uint32_t CSODOTALobby::_internal_weekend_tourney_skill_level() const {
   return _impl_.weekend_tourney_skill_level_;
@@ -15539,7 +15368,7 @@ inline uint32_t CSODOTALobby::weekend_tourney_skill_level() const {
   return _internal_weekend_tourney_skill_level();
 }
 inline void CSODOTALobby::_internal_set_weekend_tourney_skill_level(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00400000u;
+  _impl_._has_bits_[1] |= 0x00040000u;
   _impl_.weekend_tourney_skill_level_ = value;
 }
 inline void CSODOTALobby::set_weekend_tourney_skill_level(uint32_t value) {
@@ -15549,7 +15378,7 @@ inline void CSODOTALobby::set_weekend_tourney_skill_level(uint32_t value) {
 
 // optional uint32 weekend_tourney_bracket_round = 92;
 inline bool CSODOTALobby::_internal_has_weekend_tourney_bracket_round() const {
-  bool value = (_impl_._has_bits_[1] & 0x01000000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00100000u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_weekend_tourney_bracket_round() const {
@@ -15557,7 +15386,7 @@ inline bool CSODOTALobby::has_weekend_tourney_bracket_round() const {
 }
 inline void CSODOTALobby::clear_weekend_tourney_bracket_round() {
   _impl_.weekend_tourney_bracket_round_ = 0u;
-  _impl_._has_bits_[1] &= ~0x01000000u;
+  _impl_._has_bits_[1] &= ~0x00100000u;
 }
 inline uint32_t CSODOTALobby::_internal_weekend_tourney_bracket_round() const {
   return _impl_.weekend_tourney_bracket_round_;
@@ -15567,7 +15396,7 @@ inline uint32_t CSODOTALobby::weekend_tourney_bracket_round() const {
   return _internal_weekend_tourney_bracket_round();
 }
 inline void CSODOTALobby::_internal_set_weekend_tourney_bracket_round(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x01000000u;
+  _impl_._has_bits_[1] |= 0x00100000u;
   _impl_.weekend_tourney_bracket_round_ = value;
 }
 inline void CSODOTALobby::set_weekend_tourney_bracket_round(uint32_t value) {
@@ -15577,7 +15406,7 @@ inline void CSODOTALobby::set_weekend_tourney_bracket_round(uint32_t value) {
 
 // optional .DOTABotDifficulty bot_difficulty_dire = 93 [default = BOT_DIFFICULTY_HARD];
 inline bool CSODOTALobby::_internal_has_bot_difficulty_dire() const {
-  bool value = (_impl_._has_bits_[2] & 0x00004000u) != 0;
+  bool value = (_impl_._has_bits_[2] & 0x00000200u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_bot_difficulty_dire() const {
@@ -15585,7 +15414,7 @@ inline bool CSODOTALobby::has_bot_difficulty_dire() const {
 }
 inline void CSODOTALobby::clear_bot_difficulty_dire() {
   _impl_.bot_difficulty_dire_ = 3;
-  _impl_._has_bits_[2] &= ~0x00004000u;
+  _impl_._has_bits_[2] &= ~0x00000200u;
 }
 inline ::DOTABotDifficulty CSODOTALobby::_internal_bot_difficulty_dire() const {
   return static_cast< ::DOTABotDifficulty >(_impl_.bot_difficulty_dire_);
@@ -15596,7 +15425,7 @@ inline ::DOTABotDifficulty CSODOTALobby::bot_difficulty_dire() const {
 }
 inline void CSODOTALobby::_internal_set_bot_difficulty_dire(::DOTABotDifficulty value) {
   assert(::DOTABotDifficulty_IsValid(value));
-  _impl_._has_bits_[2] |= 0x00004000u;
+  _impl_._has_bits_[2] |= 0x00000200u;
   _impl_.bot_difficulty_dire_ = value;
 }
 inline void CSODOTALobby::set_bot_difficulty_dire(::DOTABotDifficulty value) {
@@ -15606,7 +15435,7 @@ inline void CSODOTALobby::set_bot_difficulty_dire(::DOTABotDifficulty value) {
 
 // optional uint64 bot_radiant = 94;
 inline bool CSODOTALobby::_internal_has_bot_radiant() const {
-  bool value = (_impl_._has_bits_[1] & 0x00800000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00080000u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_bot_radiant() const {
@@ -15614,7 +15443,7 @@ inline bool CSODOTALobby::has_bot_radiant() const {
 }
 inline void CSODOTALobby::clear_bot_radiant() {
   _impl_.bot_radiant_ = uint64_t{0u};
-  _impl_._has_bits_[1] &= ~0x00800000u;
+  _impl_._has_bits_[1] &= ~0x00080000u;
 }
 inline uint64_t CSODOTALobby::_internal_bot_radiant() const {
   return _impl_.bot_radiant_;
@@ -15624,7 +15453,7 @@ inline uint64_t CSODOTALobby::bot_radiant() const {
   return _internal_bot_radiant();
 }
 inline void CSODOTALobby::_internal_set_bot_radiant(uint64_t value) {
-  _impl_._has_bits_[1] |= 0x00800000u;
+  _impl_._has_bits_[1] |= 0x00080000u;
   _impl_.bot_radiant_ = value;
 }
 inline void CSODOTALobby::set_bot_radiant(uint64_t value) {
@@ -15634,7 +15463,7 @@ inline void CSODOTALobby::set_bot_radiant(uint64_t value) {
 
 // optional uint64 bot_dire = 95;
 inline bool CSODOTALobby::_internal_has_bot_dire() const {
-  bool value = (_impl_._has_bits_[1] & 0x04000000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00400000u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_bot_dire() const {
@@ -15642,7 +15471,7 @@ inline bool CSODOTALobby::has_bot_dire() const {
 }
 inline void CSODOTALobby::clear_bot_dire() {
   _impl_.bot_dire_ = uint64_t{0u};
-  _impl_._has_bits_[1] &= ~0x04000000u;
+  _impl_._has_bits_[1] &= ~0x00400000u;
 }
 inline uint64_t CSODOTALobby::_internal_bot_dire() const {
   return _impl_.bot_dire_;
@@ -15652,7 +15481,7 @@ inline uint64_t CSODOTALobby::bot_dire() const {
   return _internal_bot_dire();
 }
 inline void CSODOTALobby::_internal_set_bot_dire(uint64_t value) {
-  _impl_._has_bits_[1] |= 0x04000000u;
+  _impl_._has_bits_[1] |= 0x00400000u;
   _impl_.bot_dire_ = value;
 }
 inline void CSODOTALobby::set_bot_dire(uint64_t value) {
@@ -15707,7 +15536,7 @@ CSODOTALobby::mutable_event_progression_enabled() {
 
 // optional .DOTASelectionPriorityRules selection_priority_rules = 97 [default = k_DOTASelectionPriorityRules_Manual];
 inline bool CSODOTALobby::_internal_has_selection_priority_rules() const {
-  bool value = (_impl_._has_bits_[1] & 0x02000000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00200000u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_selection_priority_rules() const {
@@ -15715,7 +15544,7 @@ inline bool CSODOTALobby::has_selection_priority_rules() const {
 }
 inline void CSODOTALobby::clear_selection_priority_rules() {
   _impl_.selection_priority_rules_ = 0;
-  _impl_._has_bits_[1] &= ~0x02000000u;
+  _impl_._has_bits_[1] &= ~0x00200000u;
 }
 inline ::DOTASelectionPriorityRules CSODOTALobby::_internal_selection_priority_rules() const {
   return static_cast< ::DOTASelectionPriorityRules >(_impl_.selection_priority_rules_);
@@ -15726,7 +15555,7 @@ inline ::DOTASelectionPriorityRules CSODOTALobby::selection_priority_rules() con
 }
 inline void CSODOTALobby::_internal_set_selection_priority_rules(::DOTASelectionPriorityRules value) {
   assert(::DOTASelectionPriorityRules_IsValid(value));
-  _impl_._has_bits_[1] |= 0x02000000u;
+  _impl_._has_bits_[1] |= 0x00200000u;
   _impl_.selection_priority_rules_ = value;
 }
 inline void CSODOTALobby::set_selection_priority_rules(::DOTASelectionPriorityRules value) {
@@ -15736,7 +15565,7 @@ inline void CSODOTALobby::set_selection_priority_rules(::DOTASelectionPriorityRu
 
 // optional uint32 series_previous_selection_priority_team_id = 98;
 inline bool CSODOTALobby::_internal_has_series_previous_selection_priority_team_id() const {
-  bool value = (_impl_._has_bits_[1] & 0x08000000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00800000u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_series_previous_selection_priority_team_id() const {
@@ -15744,7 +15573,7 @@ inline bool CSODOTALobby::has_series_previous_selection_priority_team_id() const
 }
 inline void CSODOTALobby::clear_series_previous_selection_priority_team_id() {
   _impl_.series_previous_selection_priority_team_id_ = 0u;
-  _impl_._has_bits_[1] &= ~0x08000000u;
+  _impl_._has_bits_[1] &= ~0x00800000u;
 }
 inline uint32_t CSODOTALobby::_internal_series_previous_selection_priority_team_id() const {
   return _impl_.series_previous_selection_priority_team_id_;
@@ -15754,7 +15583,7 @@ inline uint32_t CSODOTALobby::series_previous_selection_priority_team_id() const
   return _internal_series_previous_selection_priority_team_id();
 }
 inline void CSODOTALobby::_internal_set_series_previous_selection_priority_team_id(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x08000000u;
+  _impl_._has_bits_[1] |= 0x00800000u;
   _impl_.series_previous_selection_priority_team_id_ = value;
 }
 inline void CSODOTALobby::set_series_previous_selection_priority_team_id(uint32_t value) {
@@ -15764,7 +15593,7 @@ inline void CSODOTALobby::set_series_previous_selection_priority_team_id(uint32_
 
 // optional uint32 series_current_selection_priority_team_id = 99;
 inline bool CSODOTALobby::_internal_has_series_current_selection_priority_team_id() const {
-  bool value = (_impl_._has_bits_[1] & 0x10000000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x01000000u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_series_current_selection_priority_team_id() const {
@@ -15772,7 +15601,7 @@ inline bool CSODOTALobby::has_series_current_selection_priority_team_id() const 
 }
 inline void CSODOTALobby::clear_series_current_selection_priority_team_id() {
   _impl_.series_current_selection_priority_team_id_ = 0u;
-  _impl_._has_bits_[1] &= ~0x10000000u;
+  _impl_._has_bits_[1] &= ~0x01000000u;
 }
 inline uint32_t CSODOTALobby::_internal_series_current_selection_priority_team_id() const {
   return _impl_.series_current_selection_priority_team_id_;
@@ -15782,7 +15611,7 @@ inline uint32_t CSODOTALobby::series_current_selection_priority_team_id() const 
   return _internal_series_current_selection_priority_team_id();
 }
 inline void CSODOTALobby::_internal_set_series_current_selection_priority_team_id(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x10000000u;
+  _impl_._has_bits_[1] |= 0x01000000u;
   _impl_.series_current_selection_priority_team_id_ = value;
 }
 inline void CSODOTALobby::set_series_current_selection_priority_team_id(uint32_t value) {
@@ -15792,7 +15621,7 @@ inline void CSODOTALobby::set_series_current_selection_priority_team_id(uint32_t
 
 // optional .DOTASelectionPriorityChoice series_current_priority_team_choice = 100 [default = k_DOTASelectionPriorityChoice_Invalid];
 inline bool CSODOTALobby::_internal_has_series_current_priority_team_choice() const {
-  bool value = (_impl_._has_bits_[1] & 0x20000000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x02000000u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_series_current_priority_team_choice() const {
@@ -15800,7 +15629,7 @@ inline bool CSODOTALobby::has_series_current_priority_team_choice() const {
 }
 inline void CSODOTALobby::clear_series_current_priority_team_choice() {
   _impl_.series_current_priority_team_choice_ = 0;
-  _impl_._has_bits_[1] &= ~0x20000000u;
+  _impl_._has_bits_[1] &= ~0x02000000u;
 }
 inline ::DOTASelectionPriorityChoice CSODOTALobby::_internal_series_current_priority_team_choice() const {
   return static_cast< ::DOTASelectionPriorityChoice >(_impl_.series_current_priority_team_choice_);
@@ -15811,7 +15640,7 @@ inline ::DOTASelectionPriorityChoice CSODOTALobby::series_current_priority_team_
 }
 inline void CSODOTALobby::_internal_set_series_current_priority_team_choice(::DOTASelectionPriorityChoice value) {
   assert(::DOTASelectionPriorityChoice_IsValid(value));
-  _impl_._has_bits_[1] |= 0x20000000u;
+  _impl_._has_bits_[1] |= 0x02000000u;
   _impl_.series_current_priority_team_choice_ = value;
 }
 inline void CSODOTALobby::set_series_current_priority_team_choice(::DOTASelectionPriorityChoice value) {
@@ -15821,7 +15650,7 @@ inline void CSODOTALobby::set_series_current_priority_team_choice(::DOTASelectio
 
 // optional .DOTASelectionPriorityChoice series_current_non_priority_team_choice = 101 [default = k_DOTASelectionPriorityChoice_Invalid];
 inline bool CSODOTALobby::_internal_has_series_current_non_priority_team_choice() const {
-  bool value = (_impl_._has_bits_[2] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x04000000u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_series_current_non_priority_team_choice() const {
@@ -15829,7 +15658,7 @@ inline bool CSODOTALobby::has_series_current_non_priority_team_choice() const {
 }
 inline void CSODOTALobby::clear_series_current_non_priority_team_choice() {
   _impl_.series_current_non_priority_team_choice_ = 0;
-  _impl_._has_bits_[2] &= ~0x00000004u;
+  _impl_._has_bits_[1] &= ~0x04000000u;
 }
 inline ::DOTASelectionPriorityChoice CSODOTALobby::_internal_series_current_non_priority_team_choice() const {
   return static_cast< ::DOTASelectionPriorityChoice >(_impl_.series_current_non_priority_team_choice_);
@@ -15840,7 +15669,7 @@ inline ::DOTASelectionPriorityChoice CSODOTALobby::series_current_non_priority_t
 }
 inline void CSODOTALobby::_internal_set_series_current_non_priority_team_choice(::DOTASelectionPriorityChoice value) {
   assert(::DOTASelectionPriorityChoice_IsValid(value));
-  _impl_._has_bits_[2] |= 0x00000004u;
+  _impl_._has_bits_[1] |= 0x04000000u;
   _impl_.series_current_non_priority_team_choice_ = value;
 }
 inline void CSODOTALobby::set_series_current_non_priority_team_choice(::DOTASelectionPriorityChoice value) {
@@ -15878,7 +15707,7 @@ inline void CSODOTALobby::set_series_current_selection_priority_used_coin_toss(b
 
 // optional .EEvent current_primary_event = 103 [default = EVENT_ID_NONE];
 inline bool CSODOTALobby::_internal_has_current_primary_event() const {
-  bool value = (_impl_._has_bits_[2] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x10000000u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_current_primary_event() const {
@@ -15886,7 +15715,7 @@ inline bool CSODOTALobby::has_current_primary_event() const {
 }
 inline void CSODOTALobby::clear_current_primary_event() {
   _impl_.current_primary_event_ = 0;
-  _impl_._has_bits_[2] &= ~0x00000008u;
+  _impl_._has_bits_[1] &= ~0x10000000u;
 }
 inline ::EEvent CSODOTALobby::_internal_current_primary_event() const {
   return static_cast< ::EEvent >(_impl_.current_primary_event_);
@@ -15897,7 +15726,7 @@ inline ::EEvent CSODOTALobby::current_primary_event() const {
 }
 inline void CSODOTALobby::_internal_set_current_primary_event(::EEvent value) {
   assert(::EEvent_IsValid(value));
-  _impl_._has_bits_[2] |= 0x00000008u;
+  _impl_._has_bits_[1] |= 0x10000000u;
   _impl_.current_primary_event_ = value;
 }
 inline void CSODOTALobby::set_current_primary_event(::EEvent value) {
@@ -15905,7 +15734,7 @@ inline void CSODOTALobby::set_current_primary_event(::EEvent value) {
   // @@protoc_insertion_point(field_set:CSODOTALobby.current_primary_event)
 }
 
-// repeated uint32 emergency_disabled_hero_ids = 105;
+// repeated int32 emergency_disabled_hero_ids = 105;
 inline int CSODOTALobby::_internal_emergency_disabled_hero_ids_size() const {
   return _impl_.emergency_disabled_hero_ids_.size();
 }
@@ -15915,38 +15744,38 @@ inline int CSODOTALobby::emergency_disabled_hero_ids_size() const {
 inline void CSODOTALobby::clear_emergency_disabled_hero_ids() {
   _impl_.emergency_disabled_hero_ids_.Clear();
 }
-inline uint32_t CSODOTALobby::_internal_emergency_disabled_hero_ids(int index) const {
+inline int32_t CSODOTALobby::_internal_emergency_disabled_hero_ids(int index) const {
   return _impl_.emergency_disabled_hero_ids_.Get(index);
 }
-inline uint32_t CSODOTALobby::emergency_disabled_hero_ids(int index) const {
+inline int32_t CSODOTALobby::emergency_disabled_hero_ids(int index) const {
   // @@protoc_insertion_point(field_get:CSODOTALobby.emergency_disabled_hero_ids)
   return _internal_emergency_disabled_hero_ids(index);
 }
-inline void CSODOTALobby::set_emergency_disabled_hero_ids(int index, uint32_t value) {
+inline void CSODOTALobby::set_emergency_disabled_hero_ids(int index, int32_t value) {
   _impl_.emergency_disabled_hero_ids_.Set(index, value);
   // @@protoc_insertion_point(field_set:CSODOTALobby.emergency_disabled_hero_ids)
 }
-inline void CSODOTALobby::_internal_add_emergency_disabled_hero_ids(uint32_t value) {
+inline void CSODOTALobby::_internal_add_emergency_disabled_hero_ids(int32_t value) {
   _impl_.emergency_disabled_hero_ids_.Add(value);
 }
-inline void CSODOTALobby::add_emergency_disabled_hero_ids(uint32_t value) {
+inline void CSODOTALobby::add_emergency_disabled_hero_ids(int32_t value) {
   _internal_add_emergency_disabled_hero_ids(value);
   // @@protoc_insertion_point(field_add:CSODOTALobby.emergency_disabled_hero_ids)
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
 CSODOTALobby::_internal_emergency_disabled_hero_ids() const {
   return _impl_.emergency_disabled_hero_ids_;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
 CSODOTALobby::emergency_disabled_hero_ids() const {
   // @@protoc_insertion_point(field_list:CSODOTALobby.emergency_disabled_hero_ids)
   return _internal_emergency_disabled_hero_ids();
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
 CSODOTALobby::_internal_mutable_emergency_disabled_hero_ids() {
   return &_impl_.emergency_disabled_hero_ids_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
 CSODOTALobby::mutable_emergency_disabled_hero_ids() {
   // @@protoc_insertion_point(field_mutable_list:CSODOTALobby.emergency_disabled_hero_ids)
   return _internal_mutable_emergency_disabled_hero_ids();
@@ -15954,7 +15783,7 @@ CSODOTALobby::mutable_emergency_disabled_hero_ids() {
 
 // optional fixed64 custom_game_private_key = 106;
 inline bool CSODOTALobby::_internal_has_custom_game_private_key() const {
-  bool value = (_impl_._has_bits_[2] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x08000000u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_custom_game_private_key() const {
@@ -15962,7 +15791,7 @@ inline bool CSODOTALobby::has_custom_game_private_key() const {
 }
 inline void CSODOTALobby::clear_custom_game_private_key() {
   _impl_.custom_game_private_key_ = uint64_t{0u};
-  _impl_._has_bits_[2] &= ~0x00000010u;
+  _impl_._has_bits_[1] &= ~0x08000000u;
 }
 inline uint64_t CSODOTALobby::_internal_custom_game_private_key() const {
   return _impl_.custom_game_private_key_;
@@ -15972,7 +15801,7 @@ inline uint64_t CSODOTALobby::custom_game_private_key() const {
   return _internal_custom_game_private_key();
 }
 inline void CSODOTALobby::_internal_set_custom_game_private_key(uint64_t value) {
-  _impl_._has_bits_[2] |= 0x00000010u;
+  _impl_._has_bits_[1] |= 0x08000000u;
   _impl_.custom_game_private_key_ = value;
 }
 inline void CSODOTALobby::set_custom_game_private_key(uint64_t value) {
@@ -16078,7 +15907,7 @@ inline void CSODOTALobby::set_allocated_lan_host_ping_location(std::string* lan_
 
 // optional uint32 league_node_id = 110;
 inline bool CSODOTALobby::_internal_has_league_node_id() const {
-  bool value = (_impl_._has_bits_[2] & 0x00000020u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x20000000u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_league_node_id() const {
@@ -16086,7 +15915,7 @@ inline bool CSODOTALobby::has_league_node_id() const {
 }
 inline void CSODOTALobby::clear_league_node_id() {
   _impl_.league_node_id_ = 0u;
-  _impl_._has_bits_[2] &= ~0x00000020u;
+  _impl_._has_bits_[1] &= ~0x20000000u;
 }
 inline uint32_t CSODOTALobby::_internal_league_node_id() const {
   return _impl_.league_node_id_;
@@ -16096,7 +15925,7 @@ inline uint32_t CSODOTALobby::league_node_id() const {
   return _internal_league_node_id();
 }
 inline void CSODOTALobby::_internal_set_league_node_id(uint32_t value) {
-  _impl_._has_bits_[2] |= 0x00000020u;
+  _impl_._has_bits_[1] |= 0x20000000u;
   _impl_.league_node_id_ = value;
 }
 inline void CSODOTALobby::set_league_node_id(uint32_t value) {
@@ -16106,7 +15935,7 @@ inline void CSODOTALobby::set_league_node_id(uint32_t value) {
 
 // optional uint32 match_duration = 111;
 inline bool CSODOTALobby::_internal_has_match_duration() const {
-  bool value = (_impl_._has_bits_[2] & 0x00000040u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x40000000u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_match_duration() const {
@@ -16114,7 +15943,7 @@ inline bool CSODOTALobby::has_match_duration() const {
 }
 inline void CSODOTALobby::clear_match_duration() {
   _impl_.match_duration_ = 0u;
-  _impl_._has_bits_[2] &= ~0x00000040u;
+  _impl_._has_bits_[1] &= ~0x40000000u;
 }
 inline uint32_t CSODOTALobby::_internal_match_duration() const {
   return _impl_.match_duration_;
@@ -16124,7 +15953,7 @@ inline uint32_t CSODOTALobby::match_duration() const {
   return _internal_match_duration();
 }
 inline void CSODOTALobby::_internal_set_match_duration(uint32_t value) {
-  _impl_._has_bits_[2] |= 0x00000040u;
+  _impl_._has_bits_[1] |= 0x40000000u;
   _impl_.match_duration_ = value;
 }
 inline void CSODOTALobby::set_match_duration(uint32_t value) {
@@ -16134,7 +15963,7 @@ inline void CSODOTALobby::set_match_duration(uint32_t value) {
 
 // optional uint32 league_phase = 113;
 inline bool CSODOTALobby::_internal_has_league_phase() const {
-  bool value = (_impl_._has_bits_[2] & 0x00000080u) != 0;
+  bool value = (_impl_._has_bits_[2] & 0x00000008u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_league_phase() const {
@@ -16142,7 +15971,7 @@ inline bool CSODOTALobby::has_league_phase() const {
 }
 inline void CSODOTALobby::clear_league_phase() {
   _impl_.league_phase_ = 0u;
-  _impl_._has_bits_[2] &= ~0x00000080u;
+  _impl_._has_bits_[2] &= ~0x00000008u;
 }
 inline uint32_t CSODOTALobby::_internal_league_phase() const {
   return _impl_.league_phase_;
@@ -16152,7 +15981,7 @@ inline uint32_t CSODOTALobby::league_phase() const {
   return _internal_league_phase();
 }
 inline void CSODOTALobby::_internal_set_league_phase(uint32_t value) {
-  _impl_._has_bits_[2] |= 0x00000080u;
+  _impl_._has_bits_[2] |= 0x00000008u;
   _impl_.league_phase_ = value;
 }
 inline void CSODOTALobby::set_league_phase(uint32_t value) {
@@ -16268,47 +16097,7 @@ CSODOTALobby::guild_details() const {
   return _impl_.guild_details_;
 }
 
-// repeated .CMsgLobbyEventPoints lobby_event_points = 119;
-inline int CSODOTALobby::_internal_lobby_event_points_size() const {
-  return _impl_.lobby_event_points_.size();
-}
-inline int CSODOTALobby::lobby_event_points_size() const {
-  return _internal_lobby_event_points_size();
-}
-inline void CSODOTALobby::clear_lobby_event_points() {
-  _impl_.lobby_event_points_.Clear();
-}
-inline ::CMsgLobbyEventPoints* CSODOTALobby::mutable_lobby_event_points(int index) {
-  // @@protoc_insertion_point(field_mutable:CSODOTALobby.lobby_event_points)
-  return _impl_.lobby_event_points_.Mutable(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgLobbyEventPoints >*
-CSODOTALobby::mutable_lobby_event_points() {
-  // @@protoc_insertion_point(field_mutable_list:CSODOTALobby.lobby_event_points)
-  return &_impl_.lobby_event_points_;
-}
-inline const ::CMsgLobbyEventPoints& CSODOTALobby::_internal_lobby_event_points(int index) const {
-  return _impl_.lobby_event_points_.Get(index);
-}
-inline const ::CMsgLobbyEventPoints& CSODOTALobby::lobby_event_points(int index) const {
-  // @@protoc_insertion_point(field_get:CSODOTALobby.lobby_event_points)
-  return _internal_lobby_event_points(index);
-}
-inline ::CMsgLobbyEventPoints* CSODOTALobby::_internal_add_lobby_event_points() {
-  return _impl_.lobby_event_points_.Add();
-}
-inline ::CMsgLobbyEventPoints* CSODOTALobby::add_lobby_event_points() {
-  ::CMsgLobbyEventPoints* _add = _internal_add_lobby_event_points();
-  // @@protoc_insertion_point(field_add:CSODOTALobby.lobby_event_points)
-  return _add;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgLobbyEventPoints >&
-CSODOTALobby::lobby_event_points() const {
-  // @@protoc_insertion_point(field_list:CSODOTALobby.lobby_event_points)
-  return _impl_.lobby_event_points_;
-}
-
-// repeated uint32 requested_hero_ids = 124;
+// repeated int32 requested_hero_ids = 124;
 inline int CSODOTALobby::_internal_requested_hero_ids_size() const {
   return _impl_.requested_hero_ids_.size();
 }
@@ -16318,38 +16107,38 @@ inline int CSODOTALobby::requested_hero_ids_size() const {
 inline void CSODOTALobby::clear_requested_hero_ids() {
   _impl_.requested_hero_ids_.Clear();
 }
-inline uint32_t CSODOTALobby::_internal_requested_hero_ids(int index) const {
+inline int32_t CSODOTALobby::_internal_requested_hero_ids(int index) const {
   return _impl_.requested_hero_ids_.Get(index);
 }
-inline uint32_t CSODOTALobby::requested_hero_ids(int index) const {
+inline int32_t CSODOTALobby::requested_hero_ids(int index) const {
   // @@protoc_insertion_point(field_get:CSODOTALobby.requested_hero_ids)
   return _internal_requested_hero_ids(index);
 }
-inline void CSODOTALobby::set_requested_hero_ids(int index, uint32_t value) {
+inline void CSODOTALobby::set_requested_hero_ids(int index, int32_t value) {
   _impl_.requested_hero_ids_.Set(index, value);
   // @@protoc_insertion_point(field_set:CSODOTALobby.requested_hero_ids)
 }
-inline void CSODOTALobby::_internal_add_requested_hero_ids(uint32_t value) {
+inline void CSODOTALobby::_internal_add_requested_hero_ids(int32_t value) {
   _impl_.requested_hero_ids_.Add(value);
 }
-inline void CSODOTALobby::add_requested_hero_ids(uint32_t value) {
+inline void CSODOTALobby::add_requested_hero_ids(int32_t value) {
   _internal_add_requested_hero_ids(value);
   // @@protoc_insertion_point(field_add:CSODOTALobby.requested_hero_ids)
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
 CSODOTALobby::_internal_requested_hero_ids() const {
   return _impl_.requested_hero_ids_;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
 CSODOTALobby::requested_hero_ids() const {
   // @@protoc_insertion_point(field_list:CSODOTALobby.requested_hero_ids)
   return _internal_requested_hero_ids();
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
 CSODOTALobby::_internal_mutable_requested_hero_ids() {
   return &_impl_.requested_hero_ids_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
 CSODOTALobby::mutable_requested_hero_ids() {
   // @@protoc_insertion_point(field_mutable_list:CSODOTALobby.requested_hero_ids)
   return _internal_mutable_requested_hero_ids();
@@ -16397,7 +16186,7 @@ CSODOTALobby::coach_friend_requests() const {
 
 // optional bool is_in_steam_china = 126;
 inline bool CSODOTALobby::_internal_has_is_in_steam_china() const {
-  bool value = (_impl_._has_bits_[2] & 0x00000100u) != 0;
+  bool value = (_impl_._has_bits_[2] & 0x00000004u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_is_in_steam_china() const {
@@ -16405,7 +16194,7 @@ inline bool CSODOTALobby::has_is_in_steam_china() const {
 }
 inline void CSODOTALobby::clear_is_in_steam_china() {
   _impl_.is_in_steam_china_ = false;
-  _impl_._has_bits_[2] &= ~0x00000100u;
+  _impl_._has_bits_[2] &= ~0x00000004u;
 }
 inline bool CSODOTALobby::_internal_is_in_steam_china() const {
   return _impl_.is_in_steam_china_;
@@ -16415,7 +16204,7 @@ inline bool CSODOTALobby::is_in_steam_china() const {
   return _internal_is_in_steam_china();
 }
 inline void CSODOTALobby::_internal_set_is_in_steam_china(bool value) {
-  _impl_._has_bits_[2] |= 0x00000100u;
+  _impl_._has_bits_[2] |= 0x00000004u;
   _impl_.is_in_steam_china_ = value;
 }
 inline void CSODOTALobby::set_is_in_steam_china(bool value) {
@@ -16425,7 +16214,7 @@ inline void CSODOTALobby::set_is_in_steam_china(bool value) {
 
 // optional bool with_scenario_save = 127;
 inline bool CSODOTALobby::_internal_has_with_scenario_save() const {
-  bool value = (_impl_._has_bits_[2] & 0x00000200u) != 0;
+  bool value = (_impl_._has_bits_[2] & 0x00000010u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_with_scenario_save() const {
@@ -16433,7 +16222,7 @@ inline bool CSODOTALobby::has_with_scenario_save() const {
 }
 inline void CSODOTALobby::clear_with_scenario_save() {
   _impl_.with_scenario_save_ = false;
-  _impl_._has_bits_[2] &= ~0x00000200u;
+  _impl_._has_bits_[2] &= ~0x00000010u;
 }
 inline bool CSODOTALobby::_internal_with_scenario_save() const {
   return _impl_.with_scenario_save_;
@@ -16443,7 +16232,7 @@ inline bool CSODOTALobby::with_scenario_save() const {
   return _internal_with_scenario_save();
 }
 inline void CSODOTALobby::_internal_set_with_scenario_save(bool value) {
-  _impl_._has_bits_[2] |= 0x00000200u;
+  _impl_._has_bits_[2] |= 0x00000010u;
   _impl_.with_scenario_save_ = value;
 }
 inline void CSODOTALobby::set_with_scenario_save(bool value) {
@@ -16453,7 +16242,7 @@ inline void CSODOTALobby::set_with_scenario_save(bool value) {
 
 // optional uint32 lobby_creation_time = 128;
 inline bool CSODOTALobby::_internal_has_lobby_creation_time() const {
-  bool value = (_impl_._has_bits_[2] & 0x00000400u) != 0;
+  bool value = (_impl_._has_bits_[2] & 0x00000020u) != 0;
   return value;
 }
 inline bool CSODOTALobby::has_lobby_creation_time() const {
@@ -16461,7 +16250,7 @@ inline bool CSODOTALobby::has_lobby_creation_time() const {
 }
 inline void CSODOTALobby::clear_lobby_creation_time() {
   _impl_.lobby_creation_time_ = 0u;
-  _impl_._has_bits_[2] &= ~0x00000400u;
+  _impl_._has_bits_[2] &= ~0x00000020u;
 }
 inline uint32_t CSODOTALobby::_internal_lobby_creation_time() const {
   return _impl_.lobby_creation_time_;
@@ -16471,7 +16260,7 @@ inline uint32_t CSODOTALobby::lobby_creation_time() const {
   return _internal_lobby_creation_time();
 }
 inline void CSODOTALobby::_internal_set_lobby_creation_time(uint32_t value) {
-  _impl_._has_bits_[2] |= 0x00000400u;
+  _impl_._has_bits_[2] |= 0x00000020u;
   _impl_.lobby_creation_time_ = value;
 }
 inline void CSODOTALobby::set_lobby_creation_time(uint32_t value) {
@@ -16547,44 +16336,94 @@ inline void CSODOTALobby::set_allocated_event_game_definition(std::string* event
   // @@protoc_insertion_point(field_set_allocated:CSODOTALobby.event_game_definition)
 }
 
-// repeated .CSODOTALobby.CExtraMsg extra_startup_messages = 130;
-inline int CSODOTALobby::_internal_extra_startup_messages_size() const {
-  return _impl_.extra_startup_messages_.size();
+// optional .CDOTALobbyMatchQualityData match_quality_data = 131;
+inline bool CSODOTALobby::_internal_has_match_quality_data() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.match_quality_data_ != nullptr);
+  return value;
 }
-inline int CSODOTALobby::extra_startup_messages_size() const {
-  return _internal_extra_startup_messages_size();
+inline bool CSODOTALobby::has_match_quality_data() const {
+  return _internal_has_match_quality_data();
 }
-inline void CSODOTALobby::clear_extra_startup_messages() {
-  _impl_.extra_startup_messages_.Clear();
+inline void CSODOTALobby::clear_match_quality_data() {
+  if (_impl_.match_quality_data_ != nullptr) _impl_.match_quality_data_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000080u;
 }
-inline ::CSODOTALobby_CExtraMsg* CSODOTALobby::mutable_extra_startup_messages(int index) {
-  // @@protoc_insertion_point(field_mutable:CSODOTALobby.extra_startup_messages)
-  return _impl_.extra_startup_messages_.Mutable(index);
+inline const ::CDOTALobbyMatchQualityData& CSODOTALobby::_internal_match_quality_data() const {
+  const ::CDOTALobbyMatchQualityData* p = _impl_.match_quality_data_;
+  return p != nullptr ? *p : reinterpret_cast<const ::CDOTALobbyMatchQualityData&>(
+      ::_CDOTALobbyMatchQualityData_default_instance_);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CSODOTALobby_CExtraMsg >*
-CSODOTALobby::mutable_extra_startup_messages() {
-  // @@protoc_insertion_point(field_mutable_list:CSODOTALobby.extra_startup_messages)
-  return &_impl_.extra_startup_messages_;
+inline const ::CDOTALobbyMatchQualityData& CSODOTALobby::match_quality_data() const {
+  // @@protoc_insertion_point(field_get:CSODOTALobby.match_quality_data)
+  return _internal_match_quality_data();
 }
-inline const ::CSODOTALobby_CExtraMsg& CSODOTALobby::_internal_extra_startup_messages(int index) const {
-  return _impl_.extra_startup_messages_.Get(index);
+inline void CSODOTALobby::unsafe_arena_set_allocated_match_quality_data(
+    ::CDOTALobbyMatchQualityData* match_quality_data) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.match_quality_data_);
+  }
+  _impl_.match_quality_data_ = match_quality_data;
+  if (match_quality_data) {
+    _impl_._has_bits_[0] |= 0x00000080u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000080u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CSODOTALobby.match_quality_data)
 }
-inline const ::CSODOTALobby_CExtraMsg& CSODOTALobby::extra_startup_messages(int index) const {
-  // @@protoc_insertion_point(field_get:CSODOTALobby.extra_startup_messages)
-  return _internal_extra_startup_messages(index);
+inline ::CDOTALobbyMatchQualityData* CSODOTALobby::release_match_quality_data() {
+  _impl_._has_bits_[0] &= ~0x00000080u;
+  ::CDOTALobbyMatchQualityData* temp = _impl_.match_quality_data_;
+  _impl_.match_quality_data_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
 }
-inline ::CSODOTALobby_CExtraMsg* CSODOTALobby::_internal_add_extra_startup_messages() {
-  return _impl_.extra_startup_messages_.Add();
+inline ::CDOTALobbyMatchQualityData* CSODOTALobby::unsafe_arena_release_match_quality_data() {
+  // @@protoc_insertion_point(field_release:CSODOTALobby.match_quality_data)
+  _impl_._has_bits_[0] &= ~0x00000080u;
+  ::CDOTALobbyMatchQualityData* temp = _impl_.match_quality_data_;
+  _impl_.match_quality_data_ = nullptr;
+  return temp;
 }
-inline ::CSODOTALobby_CExtraMsg* CSODOTALobby::add_extra_startup_messages() {
-  ::CSODOTALobby_CExtraMsg* _add = _internal_add_extra_startup_messages();
-  // @@protoc_insertion_point(field_add:CSODOTALobby.extra_startup_messages)
-  return _add;
+inline ::CDOTALobbyMatchQualityData* CSODOTALobby::_internal_mutable_match_quality_data() {
+  _impl_._has_bits_[0] |= 0x00000080u;
+  if (_impl_.match_quality_data_ == nullptr) {
+    auto* p = CreateMaybeMessage<::CDOTALobbyMatchQualityData>(GetArenaForAllocation());
+    _impl_.match_quality_data_ = p;
+  }
+  return _impl_.match_quality_data_;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CSODOTALobby_CExtraMsg >&
-CSODOTALobby::extra_startup_messages() const {
-  // @@protoc_insertion_point(field_list:CSODOTALobby.extra_startup_messages)
-  return _impl_.extra_startup_messages_;
+inline ::CDOTALobbyMatchQualityData* CSODOTALobby::mutable_match_quality_data() {
+  ::CDOTALobbyMatchQualityData* _msg = _internal_mutable_match_quality_data();
+  // @@protoc_insertion_point(field_mutable:CSODOTALobby.match_quality_data)
+  return _msg;
+}
+inline void CSODOTALobby::set_allocated_match_quality_data(::CDOTALobbyMatchQualityData* match_quality_data) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.match_quality_data_;
+  }
+  if (match_quality_data) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(match_quality_data);
+    if (message_arena != submessage_arena) {
+      match_quality_data = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, match_quality_data, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000080u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000080u;
+  }
+  _impl_.match_quality_data_ = match_quality_data;
+  // @@protoc_insertion_point(field_set_allocated:CSODOTALobby.match_quality_data)
 }
 
 // -------------------------------------------------------------------
@@ -16629,6 +16468,46 @@ inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CSODOTAServerLobbyMemb
 CSODOTAServerLobby::all_members() const {
   // @@protoc_insertion_point(field_list:CSODOTAServerLobby.all_members)
   return _impl_.all_members_;
+}
+
+// repeated .CSODOTALobby.CExtraMsg extra_startup_messages = 2;
+inline int CSODOTAServerLobby::_internal_extra_startup_messages_size() const {
+  return _impl_.extra_startup_messages_.size();
+}
+inline int CSODOTAServerLobby::extra_startup_messages_size() const {
+  return _internal_extra_startup_messages_size();
+}
+inline void CSODOTAServerLobby::clear_extra_startup_messages() {
+  _impl_.extra_startup_messages_.Clear();
+}
+inline ::CSODOTALobby_CExtraMsg* CSODOTAServerLobby::mutable_extra_startup_messages(int index) {
+  // @@protoc_insertion_point(field_mutable:CSODOTAServerLobby.extra_startup_messages)
+  return _impl_.extra_startup_messages_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CSODOTALobby_CExtraMsg >*
+CSODOTAServerLobby::mutable_extra_startup_messages() {
+  // @@protoc_insertion_point(field_mutable_list:CSODOTAServerLobby.extra_startup_messages)
+  return &_impl_.extra_startup_messages_;
+}
+inline const ::CSODOTALobby_CExtraMsg& CSODOTAServerLobby::_internal_extra_startup_messages(int index) const {
+  return _impl_.extra_startup_messages_.Get(index);
+}
+inline const ::CSODOTALobby_CExtraMsg& CSODOTAServerLobby::extra_startup_messages(int index) const {
+  // @@protoc_insertion_point(field_get:CSODOTAServerLobby.extra_startup_messages)
+  return _internal_extra_startup_messages(index);
+}
+inline ::CSODOTALobby_CExtraMsg* CSODOTAServerLobby::_internal_add_extra_startup_messages() {
+  return _impl_.extra_startup_messages_.Add();
+}
+inline ::CSODOTALobby_CExtraMsg* CSODOTAServerLobby::add_extra_startup_messages() {
+  ::CSODOTALobby_CExtraMsg* _add = _internal_add_extra_startup_messages();
+  // @@protoc_insertion_point(field_add:CSODOTAServerLobby.extra_startup_messages)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CSODOTALobby_CExtraMsg >&
+CSODOTAServerLobby::extra_startup_messages() const {
+  // @@protoc_insertion_point(field_list:CSODOTAServerLobby.extra_startup_messages)
+  return _impl_.extra_startup_messages_;
 }
 
 // -------------------------------------------------------------------
@@ -16773,6 +16652,74 @@ inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CSODOTAServerStaticLob
 CSODOTAServerStaticLobby::all_members() const {
   // @@protoc_insertion_point(field_list:CSODOTAServerStaticLobby.all_members)
   return _impl_.all_members_;
+}
+
+// optional float post_patch_strategy_time_buffer = 2;
+inline bool CSODOTAServerStaticLobby::_internal_has_post_patch_strategy_time_buffer() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CSODOTAServerStaticLobby::has_post_patch_strategy_time_buffer() const {
+  return _internal_has_post_patch_strategy_time_buffer();
+}
+inline void CSODOTAServerStaticLobby::clear_post_patch_strategy_time_buffer() {
+  _impl_.post_patch_strategy_time_buffer_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline float CSODOTAServerStaticLobby::_internal_post_patch_strategy_time_buffer() const {
+  return _impl_.post_patch_strategy_time_buffer_;
+}
+inline float CSODOTAServerStaticLobby::post_patch_strategy_time_buffer() const {
+  // @@protoc_insertion_point(field_get:CSODOTAServerStaticLobby.post_patch_strategy_time_buffer)
+  return _internal_post_patch_strategy_time_buffer();
+}
+inline void CSODOTAServerStaticLobby::_internal_set_post_patch_strategy_time_buffer(float value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.post_patch_strategy_time_buffer_ = value;
+}
+inline void CSODOTAServerStaticLobby::set_post_patch_strategy_time_buffer(float value) {
+  _internal_set_post_patch_strategy_time_buffer(value);
+  // @@protoc_insertion_point(field_set:CSODOTAServerStaticLobby.post_patch_strategy_time_buffer)
+}
+
+// repeated .CMsgLobbyEventPoints lobby_event_points = 3;
+inline int CSODOTAServerStaticLobby::_internal_lobby_event_points_size() const {
+  return _impl_.lobby_event_points_.size();
+}
+inline int CSODOTAServerStaticLobby::lobby_event_points_size() const {
+  return _internal_lobby_event_points_size();
+}
+inline void CSODOTAServerStaticLobby::clear_lobby_event_points() {
+  _impl_.lobby_event_points_.Clear();
+}
+inline ::CMsgLobbyEventPoints* CSODOTAServerStaticLobby::mutable_lobby_event_points(int index) {
+  // @@protoc_insertion_point(field_mutable:CSODOTAServerStaticLobby.lobby_event_points)
+  return _impl_.lobby_event_points_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgLobbyEventPoints >*
+CSODOTAServerStaticLobby::mutable_lobby_event_points() {
+  // @@protoc_insertion_point(field_mutable_list:CSODOTAServerStaticLobby.lobby_event_points)
+  return &_impl_.lobby_event_points_;
+}
+inline const ::CMsgLobbyEventPoints& CSODOTAServerStaticLobby::_internal_lobby_event_points(int index) const {
+  return _impl_.lobby_event_points_.Get(index);
+}
+inline const ::CMsgLobbyEventPoints& CSODOTAServerStaticLobby::lobby_event_points(int index) const {
+  // @@protoc_insertion_point(field_get:CSODOTAServerStaticLobby.lobby_event_points)
+  return _internal_lobby_event_points(index);
+}
+inline ::CMsgLobbyEventPoints* CSODOTAServerStaticLobby::_internal_add_lobby_event_points() {
+  return _impl_.lobby_event_points_.Add();
+}
+inline ::CMsgLobbyEventPoints* CSODOTAServerStaticLobby::add_lobby_event_points() {
+  ::CMsgLobbyEventPoints* _add = _internal_add_lobby_event_points();
+  // @@protoc_insertion_point(field_add:CSODOTAServerStaticLobby.lobby_event_points)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgLobbyEventPoints >&
+CSODOTAServerStaticLobby::lobby_event_points() const {
+  // @@protoc_insertion_point(field_list:CSODOTAServerStaticLobby.lobby_event_points)
+  return _impl_.lobby_event_points_;
 }
 
 // -------------------------------------------------------------------
@@ -17825,6 +17772,8 @@ inline void CMsgLocalServerFakeLobbyData::set_allocated_additional_data(::CMsgAd
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

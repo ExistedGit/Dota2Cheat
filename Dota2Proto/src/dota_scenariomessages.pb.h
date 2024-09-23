@@ -3158,6 +3158,7 @@ class CMsgDotaScenario_Hero final :
     kFirstBloodGivenFieldNumber = 72,
     kBountyRunesFieldNumber = 73,
     kOutpostsCapturedFieldNumber = 74,
+    kHeroFacetFieldNumber = 153,
     kPlayerIdFieldNumber = 2,
     kRespawnSecondsFieldNumber = 68,
   };
@@ -3979,6 +3980,19 @@ class CMsgDotaScenario_Hero final :
   void _internal_set_outposts_captured(int32_t value);
   public:
 
+  // optional uint32 hero_facet = 153;
+  bool has_hero_facet() const;
+  private:
+  bool _internal_has_hero_facet() const;
+  public:
+  void clear_hero_facet();
+  uint32_t hero_facet() const;
+  void set_hero_facet(uint32_t value);
+  private:
+  uint32_t _internal_hero_facet() const;
+  void _internal_set_hero_facet(uint32_t value);
+  public:
+
   // optional int32 player_id = 2 [default = -1];
   bool has_player_id() const;
   private:
@@ -4076,6 +4090,7 @@ class CMsgDotaScenario_Hero final :
     bool first_blood_given_;
     int32_t bounty_runes_;
     int32_t outposts_captured_;
+    uint32_t hero_facet_;
     int32_t player_id_;
     int32_t respawn_seconds_;
   };
@@ -7804,7 +7819,7 @@ inline void CMsgDotaScenario_Hero::set_steam_id(uint64_t value) {
 
 // optional int32 player_id = 2 [default = -1];
 inline bool CMsgDotaScenario_Hero::_internal_has_player_id() const {
-  bool value = (_impl_._has_bits_[1] & 0x04000000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x08000000u) != 0;
   return value;
 }
 inline bool CMsgDotaScenario_Hero::has_player_id() const {
@@ -7812,7 +7827,7 @@ inline bool CMsgDotaScenario_Hero::has_player_id() const {
 }
 inline void CMsgDotaScenario_Hero::clear_player_id() {
   _impl_.player_id_ = -1;
-  _impl_._has_bits_[1] &= ~0x04000000u;
+  _impl_._has_bits_[1] &= ~0x08000000u;
 }
 inline int32_t CMsgDotaScenario_Hero::_internal_player_id() const {
   return _impl_.player_id_;
@@ -7822,7 +7837,7 @@ inline int32_t CMsgDotaScenario_Hero::player_id() const {
   return _internal_player_id();
 }
 inline void CMsgDotaScenario_Hero::_internal_set_player_id(int32_t value) {
-  _impl_._has_bits_[1] |= 0x04000000u;
+  _impl_._has_bits_[1] |= 0x08000000u;
   _impl_.player_id_ = value;
 }
 inline void CMsgDotaScenario_Hero::set_player_id(int32_t value) {
@@ -9300,7 +9315,7 @@ inline void CMsgDotaScenario_Hero::set_kill_streak(int32_t value) {
 
 // optional int32 respawn_seconds = 68 [default = -1];
 inline bool CMsgDotaScenario_Hero::_internal_has_respawn_seconds() const {
-  bool value = (_impl_._has_bits_[1] & 0x08000000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x10000000u) != 0;
   return value;
 }
 inline bool CMsgDotaScenario_Hero::has_respawn_seconds() const {
@@ -9308,7 +9323,7 @@ inline bool CMsgDotaScenario_Hero::has_respawn_seconds() const {
 }
 inline void CMsgDotaScenario_Hero::clear_respawn_seconds() {
   _impl_.respawn_seconds_ = -1;
-  _impl_._has_bits_[1] &= ~0x08000000u;
+  _impl_._has_bits_[1] &= ~0x10000000u;
 }
 inline int32_t CMsgDotaScenario_Hero::_internal_respawn_seconds() const {
   return _impl_.respawn_seconds_;
@@ -9318,7 +9333,7 @@ inline int32_t CMsgDotaScenario_Hero::respawn_seconds() const {
   return _internal_respawn_seconds();
 }
 inline void CMsgDotaScenario_Hero::_internal_set_respawn_seconds(int32_t value) {
-  _impl_._has_bits_[1] |= 0x08000000u;
+  _impl_._has_bits_[1] |= 0x10000000u;
   _impl_.respawn_seconds_ = value;
 }
 inline void CMsgDotaScenario_Hero::set_respawn_seconds(int32_t value) {
@@ -9674,6 +9689,34 @@ inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgDotaScenario_HeroA
 CMsgDotaScenario_Hero::abilities() const {
   // @@protoc_insertion_point(field_list:CMsgDotaScenario.Hero.abilities)
   return _impl_.abilities_;
+}
+
+// optional uint32 hero_facet = 153;
+inline bool CMsgDotaScenario_Hero::_internal_has_hero_facet() const {
+  bool value = (_impl_._has_bits_[1] & 0x04000000u) != 0;
+  return value;
+}
+inline bool CMsgDotaScenario_Hero::has_hero_facet() const {
+  return _internal_has_hero_facet();
+}
+inline void CMsgDotaScenario_Hero::clear_hero_facet() {
+  _impl_.hero_facet_ = 0u;
+  _impl_._has_bits_[1] &= ~0x04000000u;
+}
+inline uint32_t CMsgDotaScenario_Hero::_internal_hero_facet() const {
+  return _impl_.hero_facet_;
+}
+inline uint32_t CMsgDotaScenario_Hero::hero_facet() const {
+  // @@protoc_insertion_point(field_get:CMsgDotaScenario.Hero.hero_facet)
+  return _internal_hero_facet();
+}
+inline void CMsgDotaScenario_Hero::_internal_set_hero_facet(uint32_t value) {
+  _impl_._has_bits_[1] |= 0x04000000u;
+  _impl_.hero_facet_ = value;
+}
+inline void CMsgDotaScenario_Hero::set_hero_facet(uint32_t value) {
+  _internal_set_hero_facet(value);
+  // @@protoc_insertion_point(field_set:CMsgDotaScenario.Hero.hero_facet)
 }
 
 // -------------------------------------------------------------------

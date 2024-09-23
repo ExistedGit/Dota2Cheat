@@ -2876,16 +2876,15 @@ class CMsgDOTAChatMessage final :
     kFantasyDraftOwnerAccountIdFieldNumber = 8,
     kFantasyDraftPlayerAccountIdFieldNumber = 9,
     kEventIdFieldNumber = 10,
-    kEventPointsFieldNumber = 12,
     kShareProfileAccountIdFieldNumber = 15,
+    kChannelUserIdFieldNumber = 16,
     kSharePartyIdFieldNumber = 18,
     kShareLobbyIdFieldNumber = 19,
-    kChannelUserIdFieldNumber = 16,
+    kShareLobbyCustomGameIdFieldNumber = 20,
     kSuggestInviteToLobbyFieldNumber = 11,
     kCoinFlipFieldNumber = 13,
     kLegacyBattleCupVictoryFieldNumber = 24,
     kStartedFindingMatchFieldNumber = 35,
-    kShareLobbyCustomGameIdFieldNumber = 20,
     kPrivateChatChannelIdFieldNumber = 22,
     kStatusFieldNumber = 23,
     kBadgeLevelFieldNumber = 25,
@@ -2896,6 +2895,8 @@ class CMsgDOTAChatMessage final :
     kCtrlIsDownFieldNumber = 36,
     kFavoriteTeamIdFieldNumber = 37,
     kFavoriteTeamQualityFieldNumber = 38,
+    kEventLevelFieldNumber = 42,
+    kSuggestPickHeroFacetFieldNumber = 43,
     kSuggestPlayerDraftPickFieldNumber = 39,
     kPlayerIdFieldNumber = 14,
     kRequestedAbilityIdFieldNumber = 33,
@@ -3153,19 +3154,6 @@ class CMsgDOTAChatMessage final :
   void _internal_set_event_id(uint32_t value);
   public:
 
-  // optional uint32 event_points = 12;
-  bool has_event_points() const;
-  private:
-  bool _internal_has_event_points() const;
-  public:
-  void clear_event_points();
-  uint32_t event_points() const;
-  void set_event_points(uint32_t value);
-  private:
-  uint32_t _internal_event_points() const;
-  void _internal_set_event_points(uint32_t value);
-  public:
-
   // optional uint32 share_profile_account_id = 15;
   bool has_share_profile_account_id() const;
   private:
@@ -3177,6 +3165,19 @@ class CMsgDOTAChatMessage final :
   private:
   uint32_t _internal_share_profile_account_id() const;
   void _internal_set_share_profile_account_id(uint32_t value);
+  public:
+
+  // optional uint32 channel_user_id = 16;
+  bool has_channel_user_id() const;
+  private:
+  bool _internal_has_channel_user_id() const;
+  public:
+  void clear_channel_user_id();
+  uint32_t channel_user_id() const;
+  void set_channel_user_id(uint32_t value);
+  private:
+  uint32_t _internal_channel_user_id() const;
+  void _internal_set_channel_user_id(uint32_t value);
   public:
 
   // optional uint64 share_party_id = 18;
@@ -3205,17 +3206,17 @@ class CMsgDOTAChatMessage final :
   void _internal_set_share_lobby_id(uint64_t value);
   public:
 
-  // optional uint32 channel_user_id = 16;
-  bool has_channel_user_id() const;
+  // optional uint64 share_lobby_custom_game_id = 20;
+  bool has_share_lobby_custom_game_id() const;
   private:
-  bool _internal_has_channel_user_id() const;
+  bool _internal_has_share_lobby_custom_game_id() const;
   public:
-  void clear_channel_user_id();
-  uint32_t channel_user_id() const;
-  void set_channel_user_id(uint32_t value);
+  void clear_share_lobby_custom_game_id();
+  uint64_t share_lobby_custom_game_id() const;
+  void set_share_lobby_custom_game_id(uint64_t value);
   private:
-  uint32_t _internal_channel_user_id() const;
-  void _internal_set_channel_user_id(uint32_t value);
+  uint64_t _internal_share_lobby_custom_game_id() const;
+  void _internal_set_share_lobby_custom_game_id(uint64_t value);
   public:
 
   // optional bool suggest_invite_to_lobby = 11;
@@ -3270,19 +3271,6 @@ class CMsgDOTAChatMessage final :
   void _internal_set_started_finding_match(bool value);
   public:
 
-  // optional uint64 share_lobby_custom_game_id = 20;
-  bool has_share_lobby_custom_game_id() const;
-  private:
-  bool _internal_has_share_lobby_custom_game_id() const;
-  public:
-  void clear_share_lobby_custom_game_id();
-  uint64_t share_lobby_custom_game_id() const;
-  void set_share_lobby_custom_game_id(uint64_t value);
-  private:
-  uint64_t _internal_share_lobby_custom_game_id() const;
-  void _internal_set_share_lobby_custom_game_id(uint64_t value);
-  public:
-
   // optional uint32 private_chat_channel_id = 22;
   bool has_private_chat_channel_id() const;
   private:
@@ -3322,17 +3310,17 @@ class CMsgDOTAChatMessage final :
   void _internal_set_badge_level(uint32_t value);
   public:
 
-  // optional uint32 suggest_pick_hero_id = 26;
+  // optional int32 suggest_pick_hero_id = 26;
   bool has_suggest_pick_hero_id() const;
   private:
   bool _internal_has_suggest_pick_hero_id() const;
   public:
   void clear_suggest_pick_hero_id();
-  uint32_t suggest_pick_hero_id() const;
-  void set_suggest_pick_hero_id(uint32_t value);
+  int32_t suggest_pick_hero_id() const;
+  void set_suggest_pick_hero_id(int32_t value);
   private:
-  uint32_t _internal_suggest_pick_hero_id() const;
-  void _internal_set_suggest_pick_hero_id(uint32_t value);
+  int32_t _internal_suggest_pick_hero_id() const;
+  void _internal_set_suggest_pick_hero_id(int32_t value);
   public:
 
   // optional uint32 battle_cup_streak = 29;
@@ -3348,17 +3336,17 @@ class CMsgDOTAChatMessage final :
   void _internal_set_battle_cup_streak(uint32_t value);
   public:
 
-  // optional uint32 suggest_ban_hero_id = 30;
+  // optional int32 suggest_ban_hero_id = 30;
   bool has_suggest_ban_hero_id() const;
   private:
   bool _internal_has_suggest_ban_hero_id() const;
   public:
   void clear_suggest_ban_hero_id();
-  uint32_t suggest_ban_hero_id() const;
-  void set_suggest_ban_hero_id(uint32_t value);
+  int32_t suggest_ban_hero_id() const;
+  void set_suggest_ban_hero_id(int32_t value);
   private:
-  uint32_t _internal_suggest_ban_hero_id() const;
-  void _internal_set_suggest_ban_hero_id(uint32_t value);
+  int32_t _internal_suggest_ban_hero_id() const;
+  void _internal_set_suggest_ban_hero_id(int32_t value);
   public:
 
   // optional uint32 chat_flags = 34;
@@ -3411,6 +3399,32 @@ class CMsgDOTAChatMessage final :
   private:
   uint32_t _internal_favorite_team_quality() const;
   void _internal_set_favorite_team_quality(uint32_t value);
+  public:
+
+  // optional uint32 event_level = 42;
+  bool has_event_level() const;
+  private:
+  bool _internal_has_event_level() const;
+  public:
+  void clear_event_level();
+  uint32_t event_level() const;
+  void set_event_level(uint32_t value);
+  private:
+  uint32_t _internal_event_level() const;
+  void _internal_set_event_level(uint32_t value);
+  public:
+
+  // optional uint32 suggest_pick_hero_facet = 43;
+  bool has_suggest_pick_hero_facet() const;
+  private:
+  bool _internal_has_suggest_pick_hero_facet() const;
+  public:
+  void clear_suggest_pick_hero_facet();
+  uint32_t suggest_pick_hero_facet() const;
+  void set_suggest_pick_hero_facet(uint32_t value);
+  private:
+  uint32_t _internal_suggest_pick_hero_facet() const;
+  void _internal_set_suggest_pick_hero_facet(uint32_t value);
   public:
 
   // optional int32 suggest_player_draft_pick = 39 [default = -1];
@@ -3478,26 +3492,27 @@ class CMsgDOTAChatMessage final :
     uint32_t fantasy_draft_owner_account_id_;
     uint32_t fantasy_draft_player_account_id_;
     uint32_t event_id_;
-    uint32_t event_points_;
     uint32_t share_profile_account_id_;
+    uint32_t channel_user_id_;
     uint64_t share_party_id_;
     uint64_t share_lobby_id_;
-    uint32_t channel_user_id_;
+    uint64_t share_lobby_custom_game_id_;
     bool suggest_invite_to_lobby_;
     bool coin_flip_;
     bool legacy_battle_cup_victory_;
     bool started_finding_match_;
-    uint64_t share_lobby_custom_game_id_;
     uint32_t private_chat_channel_id_;
     uint32_t status_;
     uint32_t badge_level_;
-    uint32_t suggest_pick_hero_id_;
+    int32_t suggest_pick_hero_id_;
     uint32_t battle_cup_streak_;
-    uint32_t suggest_ban_hero_id_;
+    int32_t suggest_ban_hero_id_;
     uint32_t chat_flags_;
     bool ctrl_is_down_;
     uint32_t favorite_team_id_;
     uint32_t favorite_team_quality_;
+    uint32_t event_level_;
+    uint32_t suggest_pick_hero_facet_;
     int32_t suggest_player_draft_pick_;
     int32_t player_id_;
     int32_t requested_ability_id_;
@@ -7924,34 +7939,6 @@ inline void CMsgDOTAChatMessage::set_suggest_invite_to_lobby(bool value) {
   // @@protoc_insertion_point(field_set:CMsgDOTAChatMessage.suggest_invite_to_lobby)
 }
 
-// optional uint32 event_points = 12;
-inline bool CMsgDOTAChatMessage::_internal_has_event_points() const {
-  bool value = (_impl_._has_bits_[0] & 0x00010000u) != 0;
-  return value;
-}
-inline bool CMsgDOTAChatMessage::has_event_points() const {
-  return _internal_has_event_points();
-}
-inline void CMsgDOTAChatMessage::clear_event_points() {
-  _impl_.event_points_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00010000u;
-}
-inline uint32_t CMsgDOTAChatMessage::_internal_event_points() const {
-  return _impl_.event_points_;
-}
-inline uint32_t CMsgDOTAChatMessage::event_points() const {
-  // @@protoc_insertion_point(field_get:CMsgDOTAChatMessage.event_points)
-  return _internal_event_points();
-}
-inline void CMsgDOTAChatMessage::_internal_set_event_points(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00010000u;
-  _impl_.event_points_ = value;
-}
-inline void CMsgDOTAChatMessage::set_event_points(uint32_t value) {
-  _internal_set_event_points(value);
-  // @@protoc_insertion_point(field_set:CMsgDOTAChatMessage.event_points)
-}
-
 // optional bool coin_flip = 13;
 inline bool CMsgDOTAChatMessage::_internal_has_coin_flip() const {
   bool value = (_impl_._has_bits_[0] & 0x00400000u) != 0;
@@ -7982,7 +7969,7 @@ inline void CMsgDOTAChatMessage::set_coin_flip(bool value) {
 
 // optional int32 player_id = 14 [default = -1];
 inline bool CMsgDOTAChatMessage::_internal_has_player_id() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000020u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000040u) != 0;
   return value;
 }
 inline bool CMsgDOTAChatMessage::has_player_id() const {
@@ -7990,7 +7977,7 @@ inline bool CMsgDOTAChatMessage::has_player_id() const {
 }
 inline void CMsgDOTAChatMessage::clear_player_id() {
   _impl_.player_id_ = -1;
-  _impl_._has_bits_[1] &= ~0x00000020u;
+  _impl_._has_bits_[1] &= ~0x00000040u;
 }
 inline int32_t CMsgDOTAChatMessage::_internal_player_id() const {
   return _impl_.player_id_;
@@ -8000,7 +7987,7 @@ inline int32_t CMsgDOTAChatMessage::player_id() const {
   return _internal_player_id();
 }
 inline void CMsgDOTAChatMessage::_internal_set_player_id(int32_t value) {
-  _impl_._has_bits_[1] |= 0x00000020u;
+  _impl_._has_bits_[1] |= 0x00000040u;
   _impl_.player_id_ = value;
 }
 inline void CMsgDOTAChatMessage::set_player_id(int32_t value) {
@@ -8010,7 +7997,7 @@ inline void CMsgDOTAChatMessage::set_player_id(int32_t value) {
 
 // optional uint32 share_profile_account_id = 15;
 inline bool CMsgDOTAChatMessage::_internal_has_share_profile_account_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00020000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00010000u) != 0;
   return value;
 }
 inline bool CMsgDOTAChatMessage::has_share_profile_account_id() const {
@@ -8018,7 +8005,7 @@ inline bool CMsgDOTAChatMessage::has_share_profile_account_id() const {
 }
 inline void CMsgDOTAChatMessage::clear_share_profile_account_id() {
   _impl_.share_profile_account_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00020000u;
+  _impl_._has_bits_[0] &= ~0x00010000u;
 }
 inline uint32_t CMsgDOTAChatMessage::_internal_share_profile_account_id() const {
   return _impl_.share_profile_account_id_;
@@ -8028,7 +8015,7 @@ inline uint32_t CMsgDOTAChatMessage::share_profile_account_id() const {
   return _internal_share_profile_account_id();
 }
 inline void CMsgDOTAChatMessage::_internal_set_share_profile_account_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00020000u;
+  _impl_._has_bits_[0] |= 0x00010000u;
   _impl_.share_profile_account_id_ = value;
 }
 inline void CMsgDOTAChatMessage::set_share_profile_account_id(uint32_t value) {
@@ -8038,7 +8025,7 @@ inline void CMsgDOTAChatMessage::set_share_profile_account_id(uint32_t value) {
 
 // optional uint32 channel_user_id = 16;
 inline bool CMsgDOTAChatMessage::_internal_has_channel_user_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00100000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00020000u) != 0;
   return value;
 }
 inline bool CMsgDOTAChatMessage::has_channel_user_id() const {
@@ -8046,7 +8033,7 @@ inline bool CMsgDOTAChatMessage::has_channel_user_id() const {
 }
 inline void CMsgDOTAChatMessage::clear_channel_user_id() {
   _impl_.channel_user_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00100000u;
+  _impl_._has_bits_[0] &= ~0x00020000u;
 }
 inline uint32_t CMsgDOTAChatMessage::_internal_channel_user_id() const {
   return _impl_.channel_user_id_;
@@ -8056,7 +8043,7 @@ inline uint32_t CMsgDOTAChatMessage::channel_user_id() const {
   return _internal_channel_user_id();
 }
 inline void CMsgDOTAChatMessage::_internal_set_channel_user_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00100000u;
+  _impl_._has_bits_[0] |= 0x00020000u;
   _impl_.channel_user_id_ = value;
 }
 inline void CMsgDOTAChatMessage::set_channel_user_id(uint32_t value) {
@@ -8212,7 +8199,7 @@ inline void CMsgDOTAChatMessage::set_share_lobby_id(uint64_t value) {
 
 // optional uint64 share_lobby_custom_game_id = 20;
 inline bool CMsgDOTAChatMessage::_internal_has_share_lobby_custom_game_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x02000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00100000u) != 0;
   return value;
 }
 inline bool CMsgDOTAChatMessage::has_share_lobby_custom_game_id() const {
@@ -8220,7 +8207,7 @@ inline bool CMsgDOTAChatMessage::has_share_lobby_custom_game_id() const {
 }
 inline void CMsgDOTAChatMessage::clear_share_lobby_custom_game_id() {
   _impl_.share_lobby_custom_game_id_ = uint64_t{0u};
-  _impl_._has_bits_[0] &= ~0x02000000u;
+  _impl_._has_bits_[0] &= ~0x00100000u;
 }
 inline uint64_t CMsgDOTAChatMessage::_internal_share_lobby_custom_game_id() const {
   return _impl_.share_lobby_custom_game_id_;
@@ -8230,7 +8217,7 @@ inline uint64_t CMsgDOTAChatMessage::share_lobby_custom_game_id() const {
   return _internal_share_lobby_custom_game_id();
 }
 inline void CMsgDOTAChatMessage::_internal_set_share_lobby_custom_game_id(uint64_t value) {
-  _impl_._has_bits_[0] |= 0x02000000u;
+  _impl_._has_bits_[0] |= 0x00100000u;
   _impl_.share_lobby_custom_game_id_ = value;
 }
 inline void CMsgDOTAChatMessage::set_share_lobby_custom_game_id(uint64_t value) {
@@ -8308,7 +8295,7 @@ inline void CMsgDOTAChatMessage::set_allocated_share_lobby_passkey(std::string* 
 
 // optional uint32 private_chat_channel_id = 22;
 inline bool CMsgDOTAChatMessage::_internal_has_private_chat_channel_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x04000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x02000000u) != 0;
   return value;
 }
 inline bool CMsgDOTAChatMessage::has_private_chat_channel_id() const {
@@ -8316,7 +8303,7 @@ inline bool CMsgDOTAChatMessage::has_private_chat_channel_id() const {
 }
 inline void CMsgDOTAChatMessage::clear_private_chat_channel_id() {
   _impl_.private_chat_channel_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x04000000u;
+  _impl_._has_bits_[0] &= ~0x02000000u;
 }
 inline uint32_t CMsgDOTAChatMessage::_internal_private_chat_channel_id() const {
   return _impl_.private_chat_channel_id_;
@@ -8326,7 +8313,7 @@ inline uint32_t CMsgDOTAChatMessage::private_chat_channel_id() const {
   return _internal_private_chat_channel_id();
 }
 inline void CMsgDOTAChatMessage::_internal_set_private_chat_channel_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x04000000u;
+  _impl_._has_bits_[0] |= 0x02000000u;
   _impl_.private_chat_channel_id_ = value;
 }
 inline void CMsgDOTAChatMessage::set_private_chat_channel_id(uint32_t value) {
@@ -8336,7 +8323,7 @@ inline void CMsgDOTAChatMessage::set_private_chat_channel_id(uint32_t value) {
 
 // optional uint32 status = 23;
 inline bool CMsgDOTAChatMessage::_internal_has_status() const {
-  bool value = (_impl_._has_bits_[0] & 0x08000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x04000000u) != 0;
   return value;
 }
 inline bool CMsgDOTAChatMessage::has_status() const {
@@ -8344,7 +8331,7 @@ inline bool CMsgDOTAChatMessage::has_status() const {
 }
 inline void CMsgDOTAChatMessage::clear_status() {
   _impl_.status_ = 0u;
-  _impl_._has_bits_[0] &= ~0x08000000u;
+  _impl_._has_bits_[0] &= ~0x04000000u;
 }
 inline uint32_t CMsgDOTAChatMessage::_internal_status() const {
   return _impl_.status_;
@@ -8354,7 +8341,7 @@ inline uint32_t CMsgDOTAChatMessage::status() const {
   return _internal_status();
 }
 inline void CMsgDOTAChatMessage::_internal_set_status(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x08000000u;
+  _impl_._has_bits_[0] |= 0x04000000u;
   _impl_.status_ = value;
 }
 inline void CMsgDOTAChatMessage::set_status(uint32_t value) {
@@ -8392,7 +8379,7 @@ inline void CMsgDOTAChatMessage::set_legacy_battle_cup_victory(bool value) {
 
 // optional uint32 battle_cup_streak = 29;
 inline bool CMsgDOTAChatMessage::_internal_has_battle_cup_streak() const {
-  bool value = (_impl_._has_bits_[0] & 0x40000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x20000000u) != 0;
   return value;
 }
 inline bool CMsgDOTAChatMessage::has_battle_cup_streak() const {
@@ -8400,7 +8387,7 @@ inline bool CMsgDOTAChatMessage::has_battle_cup_streak() const {
 }
 inline void CMsgDOTAChatMessage::clear_battle_cup_streak() {
   _impl_.battle_cup_streak_ = 0u;
-  _impl_._has_bits_[0] &= ~0x40000000u;
+  _impl_._has_bits_[0] &= ~0x20000000u;
 }
 inline uint32_t CMsgDOTAChatMessage::_internal_battle_cup_streak() const {
   return _impl_.battle_cup_streak_;
@@ -8410,7 +8397,7 @@ inline uint32_t CMsgDOTAChatMessage::battle_cup_streak() const {
   return _internal_battle_cup_streak();
 }
 inline void CMsgDOTAChatMessage::_internal_set_battle_cup_streak(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x40000000u;
+  _impl_._has_bits_[0] |= 0x20000000u;
   _impl_.battle_cup_streak_ = value;
 }
 inline void CMsgDOTAChatMessage::set_battle_cup_streak(uint32_t value) {
@@ -8420,7 +8407,7 @@ inline void CMsgDOTAChatMessage::set_battle_cup_streak(uint32_t value) {
 
 // optional uint32 badge_level = 25;
 inline bool CMsgDOTAChatMessage::_internal_has_badge_level() const {
-  bool value = (_impl_._has_bits_[0] & 0x10000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x08000000u) != 0;
   return value;
 }
 inline bool CMsgDOTAChatMessage::has_badge_level() const {
@@ -8428,7 +8415,7 @@ inline bool CMsgDOTAChatMessage::has_badge_level() const {
 }
 inline void CMsgDOTAChatMessage::clear_badge_level() {
   _impl_.badge_level_ = 0u;
-  _impl_._has_bits_[0] &= ~0x10000000u;
+  _impl_._has_bits_[0] &= ~0x08000000u;
 }
 inline uint32_t CMsgDOTAChatMessage::_internal_badge_level() const {
   return _impl_.badge_level_;
@@ -8438,7 +8425,7 @@ inline uint32_t CMsgDOTAChatMessage::badge_level() const {
   return _internal_badge_level();
 }
 inline void CMsgDOTAChatMessage::_internal_set_badge_level(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x10000000u;
+  _impl_._has_bits_[0] |= 0x08000000u;
   _impl_.badge_level_ = value;
 }
 inline void CMsgDOTAChatMessage::set_badge_level(uint32_t value) {
@@ -8446,30 +8433,30 @@ inline void CMsgDOTAChatMessage::set_badge_level(uint32_t value) {
   // @@protoc_insertion_point(field_set:CMsgDOTAChatMessage.badge_level)
 }
 
-// optional uint32 suggest_pick_hero_id = 26;
+// optional int32 suggest_pick_hero_id = 26;
 inline bool CMsgDOTAChatMessage::_internal_has_suggest_pick_hero_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x20000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x10000000u) != 0;
   return value;
 }
 inline bool CMsgDOTAChatMessage::has_suggest_pick_hero_id() const {
   return _internal_has_suggest_pick_hero_id();
 }
 inline void CMsgDOTAChatMessage::clear_suggest_pick_hero_id() {
-  _impl_.suggest_pick_hero_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x20000000u;
+  _impl_.suggest_pick_hero_id_ = 0;
+  _impl_._has_bits_[0] &= ~0x10000000u;
 }
-inline uint32_t CMsgDOTAChatMessage::_internal_suggest_pick_hero_id() const {
+inline int32_t CMsgDOTAChatMessage::_internal_suggest_pick_hero_id() const {
   return _impl_.suggest_pick_hero_id_;
 }
-inline uint32_t CMsgDOTAChatMessage::suggest_pick_hero_id() const {
+inline int32_t CMsgDOTAChatMessage::suggest_pick_hero_id() const {
   // @@protoc_insertion_point(field_get:CMsgDOTAChatMessage.suggest_pick_hero_id)
   return _internal_suggest_pick_hero_id();
 }
-inline void CMsgDOTAChatMessage::_internal_set_suggest_pick_hero_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x20000000u;
+inline void CMsgDOTAChatMessage::_internal_set_suggest_pick_hero_id(int32_t value) {
+  _impl_._has_bits_[0] |= 0x10000000u;
   _impl_.suggest_pick_hero_id_ = value;
 }
-inline void CMsgDOTAChatMessage::set_suggest_pick_hero_id(uint32_t value) {
+inline void CMsgDOTAChatMessage::set_suggest_pick_hero_id(int32_t value) {
   _internal_set_suggest_pick_hero_id(value);
   // @@protoc_insertion_point(field_set:CMsgDOTAChatMessage.suggest_pick_hero_id)
 }
@@ -8542,30 +8529,30 @@ inline void CMsgDOTAChatMessage::set_allocated_suggest_pick_hero_role(std::strin
   // @@protoc_insertion_point(field_set_allocated:CMsgDOTAChatMessage.suggest_pick_hero_role)
 }
 
-// optional uint32 suggest_ban_hero_id = 30;
+// optional int32 suggest_ban_hero_id = 30;
 inline bool CMsgDOTAChatMessage::_internal_has_suggest_ban_hero_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x80000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x40000000u) != 0;
   return value;
 }
 inline bool CMsgDOTAChatMessage::has_suggest_ban_hero_id() const {
   return _internal_has_suggest_ban_hero_id();
 }
 inline void CMsgDOTAChatMessage::clear_suggest_ban_hero_id() {
-  _impl_.suggest_ban_hero_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x80000000u;
+  _impl_.suggest_ban_hero_id_ = 0;
+  _impl_._has_bits_[0] &= ~0x40000000u;
 }
-inline uint32_t CMsgDOTAChatMessage::_internal_suggest_ban_hero_id() const {
+inline int32_t CMsgDOTAChatMessage::_internal_suggest_ban_hero_id() const {
   return _impl_.suggest_ban_hero_id_;
 }
-inline uint32_t CMsgDOTAChatMessage::suggest_ban_hero_id() const {
+inline int32_t CMsgDOTAChatMessage::suggest_ban_hero_id() const {
   // @@protoc_insertion_point(field_get:CMsgDOTAChatMessage.suggest_ban_hero_id)
   return _internal_suggest_ban_hero_id();
 }
-inline void CMsgDOTAChatMessage::_internal_set_suggest_ban_hero_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x80000000u;
+inline void CMsgDOTAChatMessage::_internal_set_suggest_ban_hero_id(int32_t value) {
+  _impl_._has_bits_[0] |= 0x40000000u;
   _impl_.suggest_ban_hero_id_ = value;
 }
-inline void CMsgDOTAChatMessage::set_suggest_ban_hero_id(uint32_t value) {
+inline void CMsgDOTAChatMessage::set_suggest_ban_hero_id(int32_t value) {
   _internal_set_suggest_ban_hero_id(value);
   // @@protoc_insertion_point(field_set:CMsgDOTAChatMessage.suggest_ban_hero_id)
 }
@@ -8662,7 +8649,7 @@ inline void CMsgDOTAChatMessage::set_allocated_trivia_answer(::CMsgDOTAChatMessa
 
 // optional int32 requested_ability_id = 33 [default = -1];
 inline bool CMsgDOTAChatMessage::_internal_has_requested_ability_id() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000040u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000080u) != 0;
   return value;
 }
 inline bool CMsgDOTAChatMessage::has_requested_ability_id() const {
@@ -8670,7 +8657,7 @@ inline bool CMsgDOTAChatMessage::has_requested_ability_id() const {
 }
 inline void CMsgDOTAChatMessage::clear_requested_ability_id() {
   _impl_.requested_ability_id_ = -1;
-  _impl_._has_bits_[1] &= ~0x00000040u;
+  _impl_._has_bits_[1] &= ~0x00000080u;
 }
 inline int32_t CMsgDOTAChatMessage::_internal_requested_ability_id() const {
   return _impl_.requested_ability_id_;
@@ -8680,7 +8667,7 @@ inline int32_t CMsgDOTAChatMessage::requested_ability_id() const {
   return _internal_requested_ability_id();
 }
 inline void CMsgDOTAChatMessage::_internal_set_requested_ability_id(int32_t value) {
-  _impl_._has_bits_[1] |= 0x00000040u;
+  _impl_._has_bits_[1] |= 0x00000080u;
   _impl_.requested_ability_id_ = value;
 }
 inline void CMsgDOTAChatMessage::set_requested_ability_id(int32_t value) {
@@ -8690,7 +8677,7 @@ inline void CMsgDOTAChatMessage::set_requested_ability_id(int32_t value) {
 
 // optional uint32 chat_flags = 34;
 inline bool CMsgDOTAChatMessage::_internal_has_chat_flags() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x80000000u) != 0;
   return value;
 }
 inline bool CMsgDOTAChatMessage::has_chat_flags() const {
@@ -8698,7 +8685,7 @@ inline bool CMsgDOTAChatMessage::has_chat_flags() const {
 }
 inline void CMsgDOTAChatMessage::clear_chat_flags() {
   _impl_.chat_flags_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x80000000u;
 }
 inline uint32_t CMsgDOTAChatMessage::_internal_chat_flags() const {
   return _impl_.chat_flags_;
@@ -8708,7 +8695,7 @@ inline uint32_t CMsgDOTAChatMessage::chat_flags() const {
   return _internal_chat_flags();
 }
 inline void CMsgDOTAChatMessage::_internal_set_chat_flags(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x80000000u;
   _impl_.chat_flags_ = value;
 }
 inline void CMsgDOTAChatMessage::set_chat_flags(uint32_t value) {
@@ -8746,7 +8733,7 @@ inline void CMsgDOTAChatMessage::set_started_finding_match(bool value) {
 
 // optional bool ctrl_is_down = 36;
 inline bool CMsgDOTAChatMessage::_internal_has_ctrl_is_down() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000001u) != 0;
   return value;
 }
 inline bool CMsgDOTAChatMessage::has_ctrl_is_down() const {
@@ -8754,7 +8741,7 @@ inline bool CMsgDOTAChatMessage::has_ctrl_is_down() const {
 }
 inline void CMsgDOTAChatMessage::clear_ctrl_is_down() {
   _impl_.ctrl_is_down_ = false;
-  _impl_._has_bits_[1] &= ~0x00000002u;
+  _impl_._has_bits_[1] &= ~0x00000001u;
 }
 inline bool CMsgDOTAChatMessage::_internal_ctrl_is_down() const {
   return _impl_.ctrl_is_down_;
@@ -8764,7 +8751,7 @@ inline bool CMsgDOTAChatMessage::ctrl_is_down() const {
   return _internal_ctrl_is_down();
 }
 inline void CMsgDOTAChatMessage::_internal_set_ctrl_is_down(bool value) {
-  _impl_._has_bits_[1] |= 0x00000002u;
+  _impl_._has_bits_[1] |= 0x00000001u;
   _impl_.ctrl_is_down_ = value;
 }
 inline void CMsgDOTAChatMessage::set_ctrl_is_down(bool value) {
@@ -8774,7 +8761,7 @@ inline void CMsgDOTAChatMessage::set_ctrl_is_down(bool value) {
 
 // optional uint32 favorite_team_id = 37;
 inline bool CMsgDOTAChatMessage::_internal_has_favorite_team_id() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000002u) != 0;
   return value;
 }
 inline bool CMsgDOTAChatMessage::has_favorite_team_id() const {
@@ -8782,7 +8769,7 @@ inline bool CMsgDOTAChatMessage::has_favorite_team_id() const {
 }
 inline void CMsgDOTAChatMessage::clear_favorite_team_id() {
   _impl_.favorite_team_id_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000004u;
+  _impl_._has_bits_[1] &= ~0x00000002u;
 }
 inline uint32_t CMsgDOTAChatMessage::_internal_favorite_team_id() const {
   return _impl_.favorite_team_id_;
@@ -8792,7 +8779,7 @@ inline uint32_t CMsgDOTAChatMessage::favorite_team_id() const {
   return _internal_favorite_team_id();
 }
 inline void CMsgDOTAChatMessage::_internal_set_favorite_team_id(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000004u;
+  _impl_._has_bits_[1] |= 0x00000002u;
   _impl_.favorite_team_id_ = value;
 }
 inline void CMsgDOTAChatMessage::set_favorite_team_id(uint32_t value) {
@@ -8802,7 +8789,7 @@ inline void CMsgDOTAChatMessage::set_favorite_team_id(uint32_t value) {
 
 // optional uint32 favorite_team_quality = 38;
 inline bool CMsgDOTAChatMessage::_internal_has_favorite_team_quality() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000004u) != 0;
   return value;
 }
 inline bool CMsgDOTAChatMessage::has_favorite_team_quality() const {
@@ -8810,7 +8797,7 @@ inline bool CMsgDOTAChatMessage::has_favorite_team_quality() const {
 }
 inline void CMsgDOTAChatMessage::clear_favorite_team_quality() {
   _impl_.favorite_team_quality_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000008u;
+  _impl_._has_bits_[1] &= ~0x00000004u;
 }
 inline uint32_t CMsgDOTAChatMessage::_internal_favorite_team_quality() const {
   return _impl_.favorite_team_quality_;
@@ -8820,7 +8807,7 @@ inline uint32_t CMsgDOTAChatMessage::favorite_team_quality() const {
   return _internal_favorite_team_quality();
 }
 inline void CMsgDOTAChatMessage::_internal_set_favorite_team_quality(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000008u;
+  _impl_._has_bits_[1] |= 0x00000004u;
   _impl_.favorite_team_quality_ = value;
 }
 inline void CMsgDOTAChatMessage::set_favorite_team_quality(uint32_t value) {
@@ -8830,7 +8817,7 @@ inline void CMsgDOTAChatMessage::set_favorite_team_quality(uint32_t value) {
 
 // optional int32 suggest_player_draft_pick = 39 [default = -1];
 inline bool CMsgDOTAChatMessage::_internal_has_suggest_player_draft_pick() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000020u) != 0;
   return value;
 }
 inline bool CMsgDOTAChatMessage::has_suggest_player_draft_pick() const {
@@ -8838,7 +8825,7 @@ inline bool CMsgDOTAChatMessage::has_suggest_player_draft_pick() const {
 }
 inline void CMsgDOTAChatMessage::clear_suggest_player_draft_pick() {
   _impl_.suggest_player_draft_pick_ = -1;
-  _impl_._has_bits_[1] &= ~0x00000010u;
+  _impl_._has_bits_[1] &= ~0x00000020u;
 }
 inline int32_t CMsgDOTAChatMessage::_internal_suggest_player_draft_pick() const {
   return _impl_.suggest_player_draft_pick_;
@@ -8848,7 +8835,7 @@ inline int32_t CMsgDOTAChatMessage::suggest_player_draft_pick() const {
   return _internal_suggest_player_draft_pick();
 }
 inline void CMsgDOTAChatMessage::_internal_set_suggest_player_draft_pick(int32_t value) {
-  _impl_._has_bits_[1] |= 0x00000010u;
+  _impl_._has_bits_[1] |= 0x00000020u;
   _impl_.suggest_player_draft_pick_ = value;
 }
 inline void CMsgDOTAChatMessage::set_suggest_player_draft_pick(int32_t value) {
@@ -9034,6 +9021,62 @@ inline void CMsgDOTAChatMessage::set_allocated_chat_wheel_message(::CMsgDOTAChat
   }
   _impl_.chat_wheel_message_ = chat_wheel_message;
   // @@protoc_insertion_point(field_set_allocated:CMsgDOTAChatMessage.chat_wheel_message)
+}
+
+// optional uint32 event_level = 42;
+inline bool CMsgDOTAChatMessage::_internal_has_event_level() const {
+  bool value = (_impl_._has_bits_[1] & 0x00000008u) != 0;
+  return value;
+}
+inline bool CMsgDOTAChatMessage::has_event_level() const {
+  return _internal_has_event_level();
+}
+inline void CMsgDOTAChatMessage::clear_event_level() {
+  _impl_.event_level_ = 0u;
+  _impl_._has_bits_[1] &= ~0x00000008u;
+}
+inline uint32_t CMsgDOTAChatMessage::_internal_event_level() const {
+  return _impl_.event_level_;
+}
+inline uint32_t CMsgDOTAChatMessage::event_level() const {
+  // @@protoc_insertion_point(field_get:CMsgDOTAChatMessage.event_level)
+  return _internal_event_level();
+}
+inline void CMsgDOTAChatMessage::_internal_set_event_level(uint32_t value) {
+  _impl_._has_bits_[1] |= 0x00000008u;
+  _impl_.event_level_ = value;
+}
+inline void CMsgDOTAChatMessage::set_event_level(uint32_t value) {
+  _internal_set_event_level(value);
+  // @@protoc_insertion_point(field_set:CMsgDOTAChatMessage.event_level)
+}
+
+// optional uint32 suggest_pick_hero_facet = 43;
+inline bool CMsgDOTAChatMessage::_internal_has_suggest_pick_hero_facet() const {
+  bool value = (_impl_._has_bits_[1] & 0x00000010u) != 0;
+  return value;
+}
+inline bool CMsgDOTAChatMessage::has_suggest_pick_hero_facet() const {
+  return _internal_has_suggest_pick_hero_facet();
+}
+inline void CMsgDOTAChatMessage::clear_suggest_pick_hero_facet() {
+  _impl_.suggest_pick_hero_facet_ = 0u;
+  _impl_._has_bits_[1] &= ~0x00000010u;
+}
+inline uint32_t CMsgDOTAChatMessage::_internal_suggest_pick_hero_facet() const {
+  return _impl_.suggest_pick_hero_facet_;
+}
+inline uint32_t CMsgDOTAChatMessage::suggest_pick_hero_facet() const {
+  // @@protoc_insertion_point(field_get:CMsgDOTAChatMessage.suggest_pick_hero_facet)
+  return _internal_suggest_pick_hero_facet();
+}
+inline void CMsgDOTAChatMessage::_internal_set_suggest_pick_hero_facet(uint32_t value) {
+  _impl_._has_bits_[1] |= 0x00000010u;
+  _impl_.suggest_pick_hero_facet_ = value;
+}
+inline void CMsgDOTAChatMessage::set_suggest_pick_hero_facet(uint32_t value) {
+  _internal_set_suggest_pick_hero_facet(value);
+  // @@protoc_insertion_point(field_set:CMsgDOTAChatMessage.suggest_pick_hero_facet)
 }
 
 // -------------------------------------------------------------------

@@ -47,9 +47,15 @@ struct TableStruct_steammessages_5fgamenetworkingui_2eproto {
   static const uint32_t offsets[];
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fgamenetworkingui_2eproto;
+class CGameNetworkingUI_AppSummary;
+struct CGameNetworkingUI_AppSummaryDefaultTypeInternal;
+extern CGameNetworkingUI_AppSummaryDefaultTypeInternal _CGameNetworkingUI_AppSummary_default_instance_;
 class CGameNetworkingUI_ConnectionState;
 struct CGameNetworkingUI_ConnectionStateDefaultTypeInternal;
 extern CGameNetworkingUI_ConnectionStateDefaultTypeInternal _CGameNetworkingUI_ConnectionState_default_instance_;
+class CGameNetworkingUI_ConnectionSummary;
+struct CGameNetworkingUI_ConnectionSummaryDefaultTypeInternal;
+extern CGameNetworkingUI_ConnectionSummaryDefaultTypeInternal _CGameNetworkingUI_ConnectionSummary_default_instance_;
 class CGameNetworkingUI_GlobalState;
 struct CGameNetworkingUI_GlobalStateDefaultTypeInternal;
 extern CGameNetworkingUI_GlobalStateDefaultTypeInternal _CGameNetworkingUI_GlobalState_default_instance_;
@@ -57,7 +63,9 @@ class CGameNetworkingUI_Message;
 struct CGameNetworkingUI_MessageDefaultTypeInternal;
 extern CGameNetworkingUI_MessageDefaultTypeInternal _CGameNetworkingUI_Message_default_instance_;
 PROTOBUF_NAMESPACE_OPEN
+template<> ::CGameNetworkingUI_AppSummary* Arena::CreateMaybeMessage<::CGameNetworkingUI_AppSummary>(Arena*);
 template<> ::CGameNetworkingUI_ConnectionState* Arena::CreateMaybeMessage<::CGameNetworkingUI_ConnectionState>(Arena*);
+template<> ::CGameNetworkingUI_ConnectionSummary* Arena::CreateMaybeMessage<::CGameNetworkingUI_ConnectionSummary>(Arena*);
 template<> ::CGameNetworkingUI_GlobalState* Arena::CreateMaybeMessage<::CGameNetworkingUI_GlobalState>(Arena*);
 template<> ::CGameNetworkingUI_Message* Arena::CreateMaybeMessage<::CGameNetworkingUI_Message>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
@@ -962,6 +970,506 @@ class CGameNetworkingUI_Message final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CGameNetworkingUI_ConnectionState > connection_state_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_steammessages_5fgamenetworkingui_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CGameNetworkingUI_ConnectionSummary final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CGameNetworkingUI_ConnectionSummary) */ {
+ public:
+  inline CGameNetworkingUI_ConnectionSummary() : CGameNetworkingUI_ConnectionSummary(nullptr) {}
+  ~CGameNetworkingUI_ConnectionSummary() override;
+  explicit PROTOBUF_CONSTEXPR CGameNetworkingUI_ConnectionSummary(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CGameNetworkingUI_ConnectionSummary(const CGameNetworkingUI_ConnectionSummary& from);
+  CGameNetworkingUI_ConnectionSummary(CGameNetworkingUI_ConnectionSummary&& from) noexcept
+    : CGameNetworkingUI_ConnectionSummary() {
+    *this = ::std::move(from);
+  }
+
+  inline CGameNetworkingUI_ConnectionSummary& operator=(const CGameNetworkingUI_ConnectionSummary& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CGameNetworkingUI_ConnectionSummary& operator=(CGameNetworkingUI_ConnectionSummary&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CGameNetworkingUI_ConnectionSummary& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CGameNetworkingUI_ConnectionSummary* internal_default_instance() {
+    return reinterpret_cast<const CGameNetworkingUI_ConnectionSummary*>(
+               &_CGameNetworkingUI_ConnectionSummary_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  friend void swap(CGameNetworkingUI_ConnectionSummary& a, CGameNetworkingUI_ConnectionSummary& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CGameNetworkingUI_ConnectionSummary* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CGameNetworkingUI_ConnectionSummary* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CGameNetworkingUI_ConnectionSummary* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CGameNetworkingUI_ConnectionSummary>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CGameNetworkingUI_ConnectionSummary& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CGameNetworkingUI_ConnectionSummary& from) {
+    CGameNetworkingUI_ConnectionSummary::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CGameNetworkingUI_ConnectionSummary* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CGameNetworkingUI_ConnectionSummary";
+  }
+  protected:
+  explicit CGameNetworkingUI_ConnectionSummary(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kSdrpopLocalFieldNumber = 2,
+    kSdrpopRemoteFieldNumber = 3,
+    kTransportKindFieldNumber = 1,
+    kPingMsFieldNumber = 4,
+    kPacketLossFieldNumber = 5,
+    kPingDefaultInternetRouteFieldNumber = 6,
+    kIpWasSharedFieldNumber = 7,
+    kConnectionStateFieldNumber = 8,
+  };
+  // optional string sdrpop_local = 2;
+  bool has_sdrpop_local() const;
+  private:
+  bool _internal_has_sdrpop_local() const;
+  public:
+  void clear_sdrpop_local();
+  const std::string& sdrpop_local() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_sdrpop_local(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_sdrpop_local();
+  PROTOBUF_NODISCARD std::string* release_sdrpop_local();
+  void set_allocated_sdrpop_local(std::string* sdrpop_local);
+  private:
+  const std::string& _internal_sdrpop_local() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_sdrpop_local(const std::string& value);
+  std::string* _internal_mutable_sdrpop_local();
+  public:
+
+  // optional string sdrpop_remote = 3;
+  bool has_sdrpop_remote() const;
+  private:
+  bool _internal_has_sdrpop_remote() const;
+  public:
+  void clear_sdrpop_remote();
+  const std::string& sdrpop_remote() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_sdrpop_remote(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_sdrpop_remote();
+  PROTOBUF_NODISCARD std::string* release_sdrpop_remote();
+  void set_allocated_sdrpop_remote(std::string* sdrpop_remote);
+  private:
+  const std::string& _internal_sdrpop_remote() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_sdrpop_remote(const std::string& value);
+  std::string* _internal_mutable_sdrpop_remote();
+  public:
+
+  // optional uint32 transport_kind = 1;
+  bool has_transport_kind() const;
+  private:
+  bool _internal_has_transport_kind() const;
+  public:
+  void clear_transport_kind();
+  uint32_t transport_kind() const;
+  void set_transport_kind(uint32_t value);
+  private:
+  uint32_t _internal_transport_kind() const;
+  void _internal_set_transport_kind(uint32_t value);
+  public:
+
+  // optional uint32 ping_ms = 4;
+  bool has_ping_ms() const;
+  private:
+  bool _internal_has_ping_ms() const;
+  public:
+  void clear_ping_ms();
+  uint32_t ping_ms() const;
+  void set_ping_ms(uint32_t value);
+  private:
+  uint32_t _internal_ping_ms() const;
+  void _internal_set_ping_ms(uint32_t value);
+  public:
+
+  // optional float packet_loss = 5;
+  bool has_packet_loss() const;
+  private:
+  bool _internal_has_packet_loss() const;
+  public:
+  void clear_packet_loss();
+  float packet_loss() const;
+  void set_packet_loss(float value);
+  private:
+  float _internal_packet_loss() const;
+  void _internal_set_packet_loss(float value);
+  public:
+
+  // optional uint32 ping_default_internet_route = 6;
+  bool has_ping_default_internet_route() const;
+  private:
+  bool _internal_has_ping_default_internet_route() const;
+  public:
+  void clear_ping_default_internet_route();
+  uint32_t ping_default_internet_route() const;
+  void set_ping_default_internet_route(uint32_t value);
+  private:
+  uint32_t _internal_ping_default_internet_route() const;
+  void _internal_set_ping_default_internet_route(uint32_t value);
+  public:
+
+  // optional bool ip_was_shared = 7;
+  bool has_ip_was_shared() const;
+  private:
+  bool _internal_has_ip_was_shared() const;
+  public:
+  void clear_ip_was_shared();
+  bool ip_was_shared() const;
+  void set_ip_was_shared(bool value);
+  private:
+  bool _internal_ip_was_shared() const;
+  void _internal_set_ip_was_shared(bool value);
+  public:
+
+  // optional uint32 connection_state = 8;
+  bool has_connection_state() const;
+  private:
+  bool _internal_has_connection_state() const;
+  public:
+  void clear_connection_state();
+  uint32_t connection_state() const;
+  void set_connection_state(uint32_t value);
+  private:
+  uint32_t _internal_connection_state() const;
+  void _internal_set_connection_state(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CGameNetworkingUI_ConnectionSummary)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr sdrpop_local_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr sdrpop_remote_;
+    uint32_t transport_kind_;
+    uint32_t ping_ms_;
+    float packet_loss_;
+    uint32_t ping_default_internet_route_;
+    bool ip_was_shared_;
+    uint32_t connection_state_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_steammessages_5fgamenetworkingui_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CGameNetworkingUI_AppSummary final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CGameNetworkingUI_AppSummary) */ {
+ public:
+  inline CGameNetworkingUI_AppSummary() : CGameNetworkingUI_AppSummary(nullptr) {}
+  ~CGameNetworkingUI_AppSummary() override;
+  explicit PROTOBUF_CONSTEXPR CGameNetworkingUI_AppSummary(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CGameNetworkingUI_AppSummary(const CGameNetworkingUI_AppSummary& from);
+  CGameNetworkingUI_AppSummary(CGameNetworkingUI_AppSummary&& from) noexcept
+    : CGameNetworkingUI_AppSummary() {
+    *this = ::std::move(from);
+  }
+
+  inline CGameNetworkingUI_AppSummary& operator=(const CGameNetworkingUI_AppSummary& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CGameNetworkingUI_AppSummary& operator=(CGameNetworkingUI_AppSummary&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CGameNetworkingUI_AppSummary& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CGameNetworkingUI_AppSummary* internal_default_instance() {
+    return reinterpret_cast<const CGameNetworkingUI_AppSummary*>(
+               &_CGameNetworkingUI_AppSummary_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    4;
+
+  friend void swap(CGameNetworkingUI_AppSummary& a, CGameNetworkingUI_AppSummary& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CGameNetworkingUI_AppSummary* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CGameNetworkingUI_AppSummary* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CGameNetworkingUI_AppSummary* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CGameNetworkingUI_AppSummary>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CGameNetworkingUI_AppSummary& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CGameNetworkingUI_AppSummary& from) {
+    CGameNetworkingUI_AppSummary::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CGameNetworkingUI_AppSummary* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CGameNetworkingUI_AppSummary";
+  }
+  protected:
+  explicit CGameNetworkingUI_AppSummary(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kMainCxnFieldNumber = 30,
+    kAppidFieldNumber = 1,
+    kIpWasSharedWithFriendFieldNumber = 10,
+    kIpWasSharedWithNonfriendFieldNumber = 11,
+    kActiveConnectionsFieldNumber = 20,
+  };
+  // optional .CGameNetworkingUI_ConnectionSummary main_cxn = 30;
+  bool has_main_cxn() const;
+  private:
+  bool _internal_has_main_cxn() const;
+  public:
+  void clear_main_cxn();
+  const ::CGameNetworkingUI_ConnectionSummary& main_cxn() const;
+  PROTOBUF_NODISCARD ::CGameNetworkingUI_ConnectionSummary* release_main_cxn();
+  ::CGameNetworkingUI_ConnectionSummary* mutable_main_cxn();
+  void set_allocated_main_cxn(::CGameNetworkingUI_ConnectionSummary* main_cxn);
+  private:
+  const ::CGameNetworkingUI_ConnectionSummary& _internal_main_cxn() const;
+  ::CGameNetworkingUI_ConnectionSummary* _internal_mutable_main_cxn();
+  public:
+  void unsafe_arena_set_allocated_main_cxn(
+      ::CGameNetworkingUI_ConnectionSummary* main_cxn);
+  ::CGameNetworkingUI_ConnectionSummary* unsafe_arena_release_main_cxn();
+
+  // optional uint32 appid = 1;
+  bool has_appid() const;
+  private:
+  bool _internal_has_appid() const;
+  public:
+  void clear_appid();
+  uint32_t appid() const;
+  void set_appid(uint32_t value);
+  private:
+  uint32_t _internal_appid() const;
+  void _internal_set_appid(uint32_t value);
+  public:
+
+  // optional bool ip_was_shared_with_friend = 10;
+  bool has_ip_was_shared_with_friend() const;
+  private:
+  bool _internal_has_ip_was_shared_with_friend() const;
+  public:
+  void clear_ip_was_shared_with_friend();
+  bool ip_was_shared_with_friend() const;
+  void set_ip_was_shared_with_friend(bool value);
+  private:
+  bool _internal_ip_was_shared_with_friend() const;
+  void _internal_set_ip_was_shared_with_friend(bool value);
+  public:
+
+  // optional bool ip_was_shared_with_nonfriend = 11;
+  bool has_ip_was_shared_with_nonfriend() const;
+  private:
+  bool _internal_has_ip_was_shared_with_nonfriend() const;
+  public:
+  void clear_ip_was_shared_with_nonfriend();
+  bool ip_was_shared_with_nonfriend() const;
+  void set_ip_was_shared_with_nonfriend(bool value);
+  private:
+  bool _internal_ip_was_shared_with_nonfriend() const;
+  void _internal_set_ip_was_shared_with_nonfriend(bool value);
+  public:
+
+  // optional uint32 active_connections = 20;
+  bool has_active_connections() const;
+  private:
+  bool _internal_has_active_connections() const;
+  public:
+  void clear_active_connections();
+  uint32_t active_connections() const;
+  void set_active_connections(uint32_t value);
+  private:
+  uint32_t _internal_active_connections() const;
+  void _internal_set_active_connections(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CGameNetworkingUI_AppSummary)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::CGameNetworkingUI_ConnectionSummary* main_cxn_;
+    uint32_t appid_;
+    bool ip_was_shared_with_friend_;
+    bool ip_was_shared_with_nonfriend_;
+    uint32_t active_connections_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_steammessages_5fgamenetworkingui_2eproto;
@@ -2396,9 +2904,527 @@ CGameNetworkingUI_Message::connection_state() const {
   return _impl_.connection_state_;
 }
 
+// -------------------------------------------------------------------
+
+// CGameNetworkingUI_ConnectionSummary
+
+// optional uint32 transport_kind = 1;
+inline bool CGameNetworkingUI_ConnectionSummary::_internal_has_transport_kind() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CGameNetworkingUI_ConnectionSummary::has_transport_kind() const {
+  return _internal_has_transport_kind();
+}
+inline void CGameNetworkingUI_ConnectionSummary::clear_transport_kind() {
+  _impl_.transport_kind_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline uint32_t CGameNetworkingUI_ConnectionSummary::_internal_transport_kind() const {
+  return _impl_.transport_kind_;
+}
+inline uint32_t CGameNetworkingUI_ConnectionSummary::transport_kind() const {
+  // @@protoc_insertion_point(field_get:CGameNetworkingUI_ConnectionSummary.transport_kind)
+  return _internal_transport_kind();
+}
+inline void CGameNetworkingUI_ConnectionSummary::_internal_set_transport_kind(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.transport_kind_ = value;
+}
+inline void CGameNetworkingUI_ConnectionSummary::set_transport_kind(uint32_t value) {
+  _internal_set_transport_kind(value);
+  // @@protoc_insertion_point(field_set:CGameNetworkingUI_ConnectionSummary.transport_kind)
+}
+
+// optional uint32 connection_state = 8;
+inline bool CGameNetworkingUI_ConnectionSummary::_internal_has_connection_state() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
+  return value;
+}
+inline bool CGameNetworkingUI_ConnectionSummary::has_connection_state() const {
+  return _internal_has_connection_state();
+}
+inline void CGameNetworkingUI_ConnectionSummary::clear_connection_state() {
+  _impl_.connection_state_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000080u;
+}
+inline uint32_t CGameNetworkingUI_ConnectionSummary::_internal_connection_state() const {
+  return _impl_.connection_state_;
+}
+inline uint32_t CGameNetworkingUI_ConnectionSummary::connection_state() const {
+  // @@protoc_insertion_point(field_get:CGameNetworkingUI_ConnectionSummary.connection_state)
+  return _internal_connection_state();
+}
+inline void CGameNetworkingUI_ConnectionSummary::_internal_set_connection_state(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000080u;
+  _impl_.connection_state_ = value;
+}
+inline void CGameNetworkingUI_ConnectionSummary::set_connection_state(uint32_t value) {
+  _internal_set_connection_state(value);
+  // @@protoc_insertion_point(field_set:CGameNetworkingUI_ConnectionSummary.connection_state)
+}
+
+// optional string sdrpop_local = 2;
+inline bool CGameNetworkingUI_ConnectionSummary::_internal_has_sdrpop_local() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CGameNetworkingUI_ConnectionSummary::has_sdrpop_local() const {
+  return _internal_has_sdrpop_local();
+}
+inline void CGameNetworkingUI_ConnectionSummary::clear_sdrpop_local() {
+  _impl_.sdrpop_local_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline const std::string& CGameNetworkingUI_ConnectionSummary::sdrpop_local() const {
+  // @@protoc_insertion_point(field_get:CGameNetworkingUI_ConnectionSummary.sdrpop_local)
+  return _internal_sdrpop_local();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CGameNetworkingUI_ConnectionSummary::set_sdrpop_local(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_.sdrpop_local_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:CGameNetworkingUI_ConnectionSummary.sdrpop_local)
+}
+inline std::string* CGameNetworkingUI_ConnectionSummary::mutable_sdrpop_local() {
+  std::string* _s = _internal_mutable_sdrpop_local();
+  // @@protoc_insertion_point(field_mutable:CGameNetworkingUI_ConnectionSummary.sdrpop_local)
+  return _s;
+}
+inline const std::string& CGameNetworkingUI_ConnectionSummary::_internal_sdrpop_local() const {
+  return _impl_.sdrpop_local_.Get();
+}
+inline void CGameNetworkingUI_ConnectionSummary::_internal_set_sdrpop_local(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.sdrpop_local_.Set(value, GetArenaForAllocation());
+}
+inline std::string* CGameNetworkingUI_ConnectionSummary::_internal_mutable_sdrpop_local() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  return _impl_.sdrpop_local_.Mutable(GetArenaForAllocation());
+}
+inline std::string* CGameNetworkingUI_ConnectionSummary::release_sdrpop_local() {
+  // @@protoc_insertion_point(field_release:CGameNetworkingUI_ConnectionSummary.sdrpop_local)
+  if (!_internal_has_sdrpop_local()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  auto* p = _impl_.sdrpop_local_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.sdrpop_local_.IsDefault()) {
+    _impl_.sdrpop_local_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void CGameNetworkingUI_ConnectionSummary::set_allocated_sdrpop_local(std::string* sdrpop_local) {
+  if (sdrpop_local != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.sdrpop_local_.SetAllocated(sdrpop_local, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.sdrpop_local_.IsDefault()) {
+    _impl_.sdrpop_local_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:CGameNetworkingUI_ConnectionSummary.sdrpop_local)
+}
+
+// optional string sdrpop_remote = 3;
+inline bool CGameNetworkingUI_ConnectionSummary::_internal_has_sdrpop_remote() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CGameNetworkingUI_ConnectionSummary::has_sdrpop_remote() const {
+  return _internal_has_sdrpop_remote();
+}
+inline void CGameNetworkingUI_ConnectionSummary::clear_sdrpop_remote() {
+  _impl_.sdrpop_remote_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline const std::string& CGameNetworkingUI_ConnectionSummary::sdrpop_remote() const {
+  // @@protoc_insertion_point(field_get:CGameNetworkingUI_ConnectionSummary.sdrpop_remote)
+  return _internal_sdrpop_remote();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CGameNetworkingUI_ConnectionSummary::set_sdrpop_remote(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000002u;
+ _impl_.sdrpop_remote_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:CGameNetworkingUI_ConnectionSummary.sdrpop_remote)
+}
+inline std::string* CGameNetworkingUI_ConnectionSummary::mutable_sdrpop_remote() {
+  std::string* _s = _internal_mutable_sdrpop_remote();
+  // @@protoc_insertion_point(field_mutable:CGameNetworkingUI_ConnectionSummary.sdrpop_remote)
+  return _s;
+}
+inline const std::string& CGameNetworkingUI_ConnectionSummary::_internal_sdrpop_remote() const {
+  return _impl_.sdrpop_remote_.Get();
+}
+inline void CGameNetworkingUI_ConnectionSummary::_internal_set_sdrpop_remote(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.sdrpop_remote_.Set(value, GetArenaForAllocation());
+}
+inline std::string* CGameNetworkingUI_ConnectionSummary::_internal_mutable_sdrpop_remote() {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  return _impl_.sdrpop_remote_.Mutable(GetArenaForAllocation());
+}
+inline std::string* CGameNetworkingUI_ConnectionSummary::release_sdrpop_remote() {
+  // @@protoc_insertion_point(field_release:CGameNetworkingUI_ConnectionSummary.sdrpop_remote)
+  if (!_internal_has_sdrpop_remote()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000002u;
+  auto* p = _impl_.sdrpop_remote_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.sdrpop_remote_.IsDefault()) {
+    _impl_.sdrpop_remote_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void CGameNetworkingUI_ConnectionSummary::set_allocated_sdrpop_remote(std::string* sdrpop_remote) {
+  if (sdrpop_remote != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000002u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000002u;
+  }
+  _impl_.sdrpop_remote_.SetAllocated(sdrpop_remote, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.sdrpop_remote_.IsDefault()) {
+    _impl_.sdrpop_remote_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:CGameNetworkingUI_ConnectionSummary.sdrpop_remote)
+}
+
+// optional uint32 ping_ms = 4;
+inline bool CGameNetworkingUI_ConnectionSummary::_internal_has_ping_ms() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool CGameNetworkingUI_ConnectionSummary::has_ping_ms() const {
+  return _internal_has_ping_ms();
+}
+inline void CGameNetworkingUI_ConnectionSummary::clear_ping_ms() {
+  _impl_.ping_ms_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
+}
+inline uint32_t CGameNetworkingUI_ConnectionSummary::_internal_ping_ms() const {
+  return _impl_.ping_ms_;
+}
+inline uint32_t CGameNetworkingUI_ConnectionSummary::ping_ms() const {
+  // @@protoc_insertion_point(field_get:CGameNetworkingUI_ConnectionSummary.ping_ms)
+  return _internal_ping_ms();
+}
+inline void CGameNetworkingUI_ConnectionSummary::_internal_set_ping_ms(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_.ping_ms_ = value;
+}
+inline void CGameNetworkingUI_ConnectionSummary::set_ping_ms(uint32_t value) {
+  _internal_set_ping_ms(value);
+  // @@protoc_insertion_point(field_set:CGameNetworkingUI_ConnectionSummary.ping_ms)
+}
+
+// optional float packet_loss = 5;
+inline bool CGameNetworkingUI_ConnectionSummary::_internal_has_packet_loss() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  return value;
+}
+inline bool CGameNetworkingUI_ConnectionSummary::has_packet_loss() const {
+  return _internal_has_packet_loss();
+}
+inline void CGameNetworkingUI_ConnectionSummary::clear_packet_loss() {
+  _impl_.packet_loss_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000010u;
+}
+inline float CGameNetworkingUI_ConnectionSummary::_internal_packet_loss() const {
+  return _impl_.packet_loss_;
+}
+inline float CGameNetworkingUI_ConnectionSummary::packet_loss() const {
+  // @@protoc_insertion_point(field_get:CGameNetworkingUI_ConnectionSummary.packet_loss)
+  return _internal_packet_loss();
+}
+inline void CGameNetworkingUI_ConnectionSummary::_internal_set_packet_loss(float value) {
+  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_.packet_loss_ = value;
+}
+inline void CGameNetworkingUI_ConnectionSummary::set_packet_loss(float value) {
+  _internal_set_packet_loss(value);
+  // @@protoc_insertion_point(field_set:CGameNetworkingUI_ConnectionSummary.packet_loss)
+}
+
+// optional uint32 ping_default_internet_route = 6;
+inline bool CGameNetworkingUI_ConnectionSummary::_internal_has_ping_default_internet_route() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  return value;
+}
+inline bool CGameNetworkingUI_ConnectionSummary::has_ping_default_internet_route() const {
+  return _internal_has_ping_default_internet_route();
+}
+inline void CGameNetworkingUI_ConnectionSummary::clear_ping_default_internet_route() {
+  _impl_.ping_default_internet_route_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000020u;
+}
+inline uint32_t CGameNetworkingUI_ConnectionSummary::_internal_ping_default_internet_route() const {
+  return _impl_.ping_default_internet_route_;
+}
+inline uint32_t CGameNetworkingUI_ConnectionSummary::ping_default_internet_route() const {
+  // @@protoc_insertion_point(field_get:CGameNetworkingUI_ConnectionSummary.ping_default_internet_route)
+  return _internal_ping_default_internet_route();
+}
+inline void CGameNetworkingUI_ConnectionSummary::_internal_set_ping_default_internet_route(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_.ping_default_internet_route_ = value;
+}
+inline void CGameNetworkingUI_ConnectionSummary::set_ping_default_internet_route(uint32_t value) {
+  _internal_set_ping_default_internet_route(value);
+  // @@protoc_insertion_point(field_set:CGameNetworkingUI_ConnectionSummary.ping_default_internet_route)
+}
+
+// optional bool ip_was_shared = 7;
+inline bool CGameNetworkingUI_ConnectionSummary::_internal_has_ip_was_shared() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
+  return value;
+}
+inline bool CGameNetworkingUI_ConnectionSummary::has_ip_was_shared() const {
+  return _internal_has_ip_was_shared();
+}
+inline void CGameNetworkingUI_ConnectionSummary::clear_ip_was_shared() {
+  _impl_.ip_was_shared_ = false;
+  _impl_._has_bits_[0] &= ~0x00000040u;
+}
+inline bool CGameNetworkingUI_ConnectionSummary::_internal_ip_was_shared() const {
+  return _impl_.ip_was_shared_;
+}
+inline bool CGameNetworkingUI_ConnectionSummary::ip_was_shared() const {
+  // @@protoc_insertion_point(field_get:CGameNetworkingUI_ConnectionSummary.ip_was_shared)
+  return _internal_ip_was_shared();
+}
+inline void CGameNetworkingUI_ConnectionSummary::_internal_set_ip_was_shared(bool value) {
+  _impl_._has_bits_[0] |= 0x00000040u;
+  _impl_.ip_was_shared_ = value;
+}
+inline void CGameNetworkingUI_ConnectionSummary::set_ip_was_shared(bool value) {
+  _internal_set_ip_was_shared(value);
+  // @@protoc_insertion_point(field_set:CGameNetworkingUI_ConnectionSummary.ip_was_shared)
+}
+
+// -------------------------------------------------------------------
+
+// CGameNetworkingUI_AppSummary
+
+// optional uint32 appid = 1;
+inline bool CGameNetworkingUI_AppSummary::_internal_has_appid() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CGameNetworkingUI_AppSummary::has_appid() const {
+  return _internal_has_appid();
+}
+inline void CGameNetworkingUI_AppSummary::clear_appid() {
+  _impl_.appid_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline uint32_t CGameNetworkingUI_AppSummary::_internal_appid() const {
+  return _impl_.appid_;
+}
+inline uint32_t CGameNetworkingUI_AppSummary::appid() const {
+  // @@protoc_insertion_point(field_get:CGameNetworkingUI_AppSummary.appid)
+  return _internal_appid();
+}
+inline void CGameNetworkingUI_AppSummary::_internal_set_appid(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.appid_ = value;
+}
+inline void CGameNetworkingUI_AppSummary::set_appid(uint32_t value) {
+  _internal_set_appid(value);
+  // @@protoc_insertion_point(field_set:CGameNetworkingUI_AppSummary.appid)
+}
+
+// optional bool ip_was_shared_with_friend = 10;
+inline bool CGameNetworkingUI_AppSummary::_internal_has_ip_was_shared_with_friend() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CGameNetworkingUI_AppSummary::has_ip_was_shared_with_friend() const {
+  return _internal_has_ip_was_shared_with_friend();
+}
+inline void CGameNetworkingUI_AppSummary::clear_ip_was_shared_with_friend() {
+  _impl_.ip_was_shared_with_friend_ = false;
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline bool CGameNetworkingUI_AppSummary::_internal_ip_was_shared_with_friend() const {
+  return _impl_.ip_was_shared_with_friend_;
+}
+inline bool CGameNetworkingUI_AppSummary::ip_was_shared_with_friend() const {
+  // @@protoc_insertion_point(field_get:CGameNetworkingUI_AppSummary.ip_was_shared_with_friend)
+  return _internal_ip_was_shared_with_friend();
+}
+inline void CGameNetworkingUI_AppSummary::_internal_set_ip_was_shared_with_friend(bool value) {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.ip_was_shared_with_friend_ = value;
+}
+inline void CGameNetworkingUI_AppSummary::set_ip_was_shared_with_friend(bool value) {
+  _internal_set_ip_was_shared_with_friend(value);
+  // @@protoc_insertion_point(field_set:CGameNetworkingUI_AppSummary.ip_was_shared_with_friend)
+}
+
+// optional bool ip_was_shared_with_nonfriend = 11;
+inline bool CGameNetworkingUI_AppSummary::_internal_has_ip_was_shared_with_nonfriend() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool CGameNetworkingUI_AppSummary::has_ip_was_shared_with_nonfriend() const {
+  return _internal_has_ip_was_shared_with_nonfriend();
+}
+inline void CGameNetworkingUI_AppSummary::clear_ip_was_shared_with_nonfriend() {
+  _impl_.ip_was_shared_with_nonfriend_ = false;
+  _impl_._has_bits_[0] &= ~0x00000008u;
+}
+inline bool CGameNetworkingUI_AppSummary::_internal_ip_was_shared_with_nonfriend() const {
+  return _impl_.ip_was_shared_with_nonfriend_;
+}
+inline bool CGameNetworkingUI_AppSummary::ip_was_shared_with_nonfriend() const {
+  // @@protoc_insertion_point(field_get:CGameNetworkingUI_AppSummary.ip_was_shared_with_nonfriend)
+  return _internal_ip_was_shared_with_nonfriend();
+}
+inline void CGameNetworkingUI_AppSummary::_internal_set_ip_was_shared_with_nonfriend(bool value) {
+  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_.ip_was_shared_with_nonfriend_ = value;
+}
+inline void CGameNetworkingUI_AppSummary::set_ip_was_shared_with_nonfriend(bool value) {
+  _internal_set_ip_was_shared_with_nonfriend(value);
+  // @@protoc_insertion_point(field_set:CGameNetworkingUI_AppSummary.ip_was_shared_with_nonfriend)
+}
+
+// optional uint32 active_connections = 20;
+inline bool CGameNetworkingUI_AppSummary::_internal_has_active_connections() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  return value;
+}
+inline bool CGameNetworkingUI_AppSummary::has_active_connections() const {
+  return _internal_has_active_connections();
+}
+inline void CGameNetworkingUI_AppSummary::clear_active_connections() {
+  _impl_.active_connections_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000010u;
+}
+inline uint32_t CGameNetworkingUI_AppSummary::_internal_active_connections() const {
+  return _impl_.active_connections_;
+}
+inline uint32_t CGameNetworkingUI_AppSummary::active_connections() const {
+  // @@protoc_insertion_point(field_get:CGameNetworkingUI_AppSummary.active_connections)
+  return _internal_active_connections();
+}
+inline void CGameNetworkingUI_AppSummary::_internal_set_active_connections(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_.active_connections_ = value;
+}
+inline void CGameNetworkingUI_AppSummary::set_active_connections(uint32_t value) {
+  _internal_set_active_connections(value);
+  // @@protoc_insertion_point(field_set:CGameNetworkingUI_AppSummary.active_connections)
+}
+
+// optional .CGameNetworkingUI_ConnectionSummary main_cxn = 30;
+inline bool CGameNetworkingUI_AppSummary::_internal_has_main_cxn() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.main_cxn_ != nullptr);
+  return value;
+}
+inline bool CGameNetworkingUI_AppSummary::has_main_cxn() const {
+  return _internal_has_main_cxn();
+}
+inline void CGameNetworkingUI_AppSummary::clear_main_cxn() {
+  if (_impl_.main_cxn_ != nullptr) _impl_.main_cxn_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline const ::CGameNetworkingUI_ConnectionSummary& CGameNetworkingUI_AppSummary::_internal_main_cxn() const {
+  const ::CGameNetworkingUI_ConnectionSummary* p = _impl_.main_cxn_;
+  return p != nullptr ? *p : reinterpret_cast<const ::CGameNetworkingUI_ConnectionSummary&>(
+      ::_CGameNetworkingUI_ConnectionSummary_default_instance_);
+}
+inline const ::CGameNetworkingUI_ConnectionSummary& CGameNetworkingUI_AppSummary::main_cxn() const {
+  // @@protoc_insertion_point(field_get:CGameNetworkingUI_AppSummary.main_cxn)
+  return _internal_main_cxn();
+}
+inline void CGameNetworkingUI_AppSummary::unsafe_arena_set_allocated_main_cxn(
+    ::CGameNetworkingUI_ConnectionSummary* main_cxn) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.main_cxn_);
+  }
+  _impl_.main_cxn_ = main_cxn;
+  if (main_cxn) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CGameNetworkingUI_AppSummary.main_cxn)
+}
+inline ::CGameNetworkingUI_ConnectionSummary* CGameNetworkingUI_AppSummary::release_main_cxn() {
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::CGameNetworkingUI_ConnectionSummary* temp = _impl_.main_cxn_;
+  _impl_.main_cxn_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::CGameNetworkingUI_ConnectionSummary* CGameNetworkingUI_AppSummary::unsafe_arena_release_main_cxn() {
+  // @@protoc_insertion_point(field_release:CGameNetworkingUI_AppSummary.main_cxn)
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::CGameNetworkingUI_ConnectionSummary* temp = _impl_.main_cxn_;
+  _impl_.main_cxn_ = nullptr;
+  return temp;
+}
+inline ::CGameNetworkingUI_ConnectionSummary* CGameNetworkingUI_AppSummary::_internal_mutable_main_cxn() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  if (_impl_.main_cxn_ == nullptr) {
+    auto* p = CreateMaybeMessage<::CGameNetworkingUI_ConnectionSummary>(GetArenaForAllocation());
+    _impl_.main_cxn_ = p;
+  }
+  return _impl_.main_cxn_;
+}
+inline ::CGameNetworkingUI_ConnectionSummary* CGameNetworkingUI_AppSummary::mutable_main_cxn() {
+  ::CGameNetworkingUI_ConnectionSummary* _msg = _internal_mutable_main_cxn();
+  // @@protoc_insertion_point(field_mutable:CGameNetworkingUI_AppSummary.main_cxn)
+  return _msg;
+}
+inline void CGameNetworkingUI_AppSummary::set_allocated_main_cxn(::CGameNetworkingUI_ConnectionSummary* main_cxn) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.main_cxn_;
+  }
+  if (main_cxn) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(main_cxn);
+    if (message_arena != submessage_arena) {
+      main_cxn = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, main_cxn, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.main_cxn_ = main_cxn;
+  // @@protoc_insertion_point(field_set_allocated:CGameNetworkingUI_AppSummary.main_cxn)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

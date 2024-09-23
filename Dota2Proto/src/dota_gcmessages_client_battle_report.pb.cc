@@ -40,7 +40,7 @@ PROTOBUF_CONSTEXPR CMsgBattleReport_Game::CMsgBattleReport_Game(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.hero_id_)*/0u
+  , /*decltype(_impl_.hero_id_)*/0
   , /*decltype(_impl_.kills_)*/0u
   , /*decltype(_impl_.deaths_)*/0u
   , /*decltype(_impl_.assists_)*/0u
@@ -81,6 +81,7 @@ PROTOBUF_CONSTEXPR CMsgBattleReport_Game::CMsgBattleReport_Game(
   , /*decltype(_impl_.lobby_type_)*/0u
   , /*decltype(_impl_.time_purchased_shard_)*/0
   , /*decltype(_impl_.time_purchased_scepter_)*/0
+  , /*decltype(_impl_.selected_facet_)*/0u
   , /*decltype(_impl_.role_)*/-1
   , /*decltype(_impl_.lane_outcome_)*/-1
   , /*decltype(_impl_.item0_)*/-1
@@ -137,7 +138,7 @@ PROTOBUF_CONSTEXPR CMsgBattleReport_Highlight::CMsgBattleReport_Highlight(
   , /*decltype(_impl_.rarity_)*/0
   , /*decltype(_impl_.score_)*/0
   , /*decltype(_impl_.confidence_)*/0
-  , /*decltype(_impl_.hero_id_)*/0u
+  , /*decltype(_impl_.hero_id_)*/0
   , /*decltype(_impl_.comparison_delta_value_)*/0
   , /*decltype(_impl_.context_)*/-1
   , /*decltype(_impl_.tier_)*/-1
@@ -174,7 +175,7 @@ PROTOBUF_CONSTEXPR CMsgBattleReportInfo::CMsgBattleReportInfo(
   , /*decltype(_impl_.timestamp_)*/0u
   , /*decltype(_impl_.duration_)*/0u
   , /*decltype(_impl_.acknowledged_)*/false
-  , /*decltype(_impl_.featured_hero_id_)*/0u
+  , /*decltype(_impl_.featured_hero_id_)*/0
   , /*decltype(_impl_.featured_position_)*/0u
   , /*decltype(_impl_.games_played_)*/0u} {}
 struct CMsgBattleReportInfoDefaultTypeInternal {
@@ -257,7 +258,7 @@ PROTOBUF_CONSTEXPR CMsgBattleReportAggregateStats_CMsgBattleReportAggregate::CMs
   , /*decltype(_impl_.stun_duration_)*/nullptr
   , /*decltype(_impl_.duration_)*/nullptr
   , /*decltype(_impl_.friendly_roshan_kills_)*/nullptr
-  , /*decltype(_impl_.hero_id_)*/0u
+  , /*decltype(_impl_.hero_id_)*/0
   , /*decltype(_impl_.predicted_position_)*/0u
   , /*decltype(_impl_.game_count_)*/0u
   , /*decltype(_impl_.win_count_)*/0u
@@ -316,7 +317,7 @@ PROTOBUF_CONSTEXPR CMsgClientToGCGetBattleReportAggregateStats_CMsgBattleReportA
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.hero_id_)*/0u
+  , /*decltype(_impl_.hero_id_)*/0
   , /*decltype(_impl_.predicted_position_)*/0u} {}
 struct CMsgClientToGCGetBattleReportAggregateStats_CMsgBattleReportAggregateKeyDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CMsgClientToGCGetBattleReportAggregateStats_CMsgBattleReportAggregateKeyDefaultTypeInternal()
@@ -522,6 +523,7 @@ const uint32_t TableStruct_dota_5fgcmessages_5fclient_5fbattle_5freport_2eproto:
   PROTOBUF_FIELD_OFFSET(::CMsgBattleReport_Game, _impl_.item3_),
   PROTOBUF_FIELD_OFFSET(::CMsgBattleReport_Game, _impl_.item4_),
   PROTOBUF_FIELD_OFFSET(::CMsgBattleReport_Game, _impl_.item5_),
+  PROTOBUF_FIELD_OFFSET(::CMsgBattleReport_Game, _impl_.selected_facet_),
   0,
   1,
   2,
@@ -531,9 +533,9 @@ const uint32_t TableStruct_dota_5fgcmessages_5fclient_5fbattle_5freport_2eproto:
   17,
   6,
   7,
-  41,
-  8,
   42,
+  8,
+  43,
   12,
   10,
   9,
@@ -565,12 +567,13 @@ const uint32_t TableStruct_dota_5fgcmessages_5fclient_5fbattle_5freport_2eproto:
   38,
   39,
   40,
-  43,
   44,
   45,
   46,
   47,
   48,
+  49,
+  41,
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::CMsgBattleReport_GameList, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -866,28 +869,28 @@ const uint32_t TableStruct_dota_5fgcmessages_5fclient_5fbattle_5freport_2eproto:
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 9, -1, sizeof(::CMsgClientToGCGetBattleReport)},
-  { 12, 67, -1, sizeof(::CMsgBattleReport_Game)},
-  { 116, -1, -1, sizeof(::CMsgBattleReport_GameList)},
-  { 123, 133, -1, sizeof(::CMsgBattleReport_HighlightGeneral)},
-  { 137, 153, -1, sizeof(::CMsgBattleReport_Highlight)},
-  { 163, 171, -1, sizeof(::CMsgBattleReport)},
-  { 173, 186, -1, sizeof(::CMsgBattleReportInfo)},
-  { 193, -1, -1, sizeof(::CMsgBattleReportInfoList)},
-  { 200, -1, -1, sizeof(::CMsgBattleReportHighlights)},
-  { 207, 215, -1, sizeof(::CMsgBattleReportAggregateStats_CMsgBattleReportStat)},
-  { 217, 254, -1, sizeof(::CMsgBattleReportAggregateStats_CMsgBattleReportAggregate)},
-  { 285, -1, -1, sizeof(::CMsgBattleReportAggregateStats)},
-  { 292, -1, -1, sizeof(::CMsgBattleReportAggregatedGeneralStats)},
-  { 298, 308, -1, sizeof(::CMsgClientToGCGetBattleReportResponse)},
-  { 312, 320, -1, sizeof(::CMsgClientToGCGetBattleReportAggregateStats_CMsgBattleReportAggregateKey)},
-  { 322, 332, -1, sizeof(::CMsgClientToGCGetBattleReportAggregateStats)},
-  { 336, 344, -1, sizeof(::CMsgClientToGCGetBattleReportAggregateStatsResponse)},
-  { 346, 353, -1, sizeof(::CMsgClientToGCGetBattleReportInfo)},
-  { 354, 362, -1, sizeof(::CMsgClientToGCGetBattleReportInfoResponse)},
-  { 364, 373, -1, sizeof(::CMsgClientToGCAcknowledgeBattleReport)},
-  { 376, 384, -1, sizeof(::CMsgClientToGCAcknowledgeBattleReportResponse)},
-  { 386, 395, -1, sizeof(::CMsgClientToGCGetBattleReportMatchHistory)},
-  { 398, 406, -1, sizeof(::CMsgClientToGCGetBattleReportMatchHistoryResponse)},
+  { 12, 68, -1, sizeof(::CMsgBattleReport_Game)},
+  { 118, -1, -1, sizeof(::CMsgBattleReport_GameList)},
+  { 125, 135, -1, sizeof(::CMsgBattleReport_HighlightGeneral)},
+  { 139, 155, -1, sizeof(::CMsgBattleReport_Highlight)},
+  { 165, 173, -1, sizeof(::CMsgBattleReport)},
+  { 175, 188, -1, sizeof(::CMsgBattleReportInfo)},
+  { 195, -1, -1, sizeof(::CMsgBattleReportInfoList)},
+  { 202, -1, -1, sizeof(::CMsgBattleReportHighlights)},
+  { 209, 217, -1, sizeof(::CMsgBattleReportAggregateStats_CMsgBattleReportStat)},
+  { 219, 256, -1, sizeof(::CMsgBattleReportAggregateStats_CMsgBattleReportAggregate)},
+  { 287, -1, -1, sizeof(::CMsgBattleReportAggregateStats)},
+  { 294, -1, -1, sizeof(::CMsgBattleReportAggregatedGeneralStats)},
+  { 300, 310, -1, sizeof(::CMsgClientToGCGetBattleReportResponse)},
+  { 314, 322, -1, sizeof(::CMsgClientToGCGetBattleReportAggregateStats_CMsgBattleReportAggregateKey)},
+  { 324, 334, -1, sizeof(::CMsgClientToGCGetBattleReportAggregateStats)},
+  { 338, 346, -1, sizeof(::CMsgClientToGCGetBattleReportAggregateStatsResponse)},
+  { 348, 355, -1, sizeof(::CMsgClientToGCGetBattleReportInfo)},
+  { 356, 364, -1, sizeof(::CMsgClientToGCGetBattleReportInfoResponse)},
+  { 366, 375, -1, sizeof(::CMsgClientToGCAcknowledgeBattleReport)},
+  { 378, 386, -1, sizeof(::CMsgClientToGCAcknowledgeBattleReportResponse)},
+  { 388, 397, -1, sizeof(::CMsgClientToGCGetBattleReportMatchHistory)},
+  { 400, 408, -1, sizeof(::CMsgClientToGCGetBattleReportMatchHistoryResponse)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -926,8 +929,8 @@ const char descriptor_table_protodef_dota_5fgcmessages_5fclient_5fbattle_5frepor
   "ient.proto\032\025valveextensions.proto\"X\n\035CMs"
   "gClientToGCGetBattleReport\022\022\n\naccount_id"
   "\030\001 \001(\r\022\021\n\ttimestamp\030\002 \001(\r\022\020\n\010duration\030\003 "
-  "\001(\r\"\274\t\n\025CMsgBattleReport_Game\022\017\n\007hero_id"
-  "\030\001 \001(\r\022\r\n\005kills\030\002 \001(\r\022\016\n\006deaths\030\003 \001(\r\022\017\n"
+  "\001(\r\"\324\t\n\025CMsgBattleReport_Game\022\017\n\007hero_id"
+  "\030\001 \001(\005\022\r\n\005kills\030\002 \001(\r\022\016\n\006deaths\030\003 \001(\r\022\017\n"
   "\007assists\030\004 \001(\r\022\023\n\013rank_change\030\005 \001(\005\022\021\n\tl"
   "ast_hits\030\006 \001(\r\022\016\n\006denies\030\025 \001(\r\022\013\n\003gpm\030\007 "
   "\001(\r\022\013\n\003xpm\030\010 \001(\r\0224\n\004role\030\t \001(\0162\026.CMsgBat"
@@ -956,267 +959,268 @@ const char descriptor_table_protodef_dota_5fgcmessages_5fclient_5fbattle_5frepor
   "_purchased_scepter\030, \001(\002\022\021\n\005item0\030- \001(\005:"
   "\002-1\022\021\n\005item1\030. \001(\005:\002-1\022\021\n\005item2\030/ \001(\005:\002-"
   "1\022\021\n\005item3\0300 \001(\005:\002-1\022\021\n\005item4\0301 \001(\005:\002-1\022"
-  "\021\n\005item5\0302 \001(\005:\002-1\"B\n\031CMsgBattleReport_G"
-  "ameList\022%\n\005games\030\001 \003(\0132\026.CMsgBattleRepor"
-  "t_Game\"\252\005\n\020CMsgBattleReport\022%\n\005games\030\001 \003"
-  "(\0132\026.CMsgBattleReport_Game\022/\n\nhighlights"
-  "\030\003 \001(\0132\033.CMsgBattleReportHighlights\032l\n\020H"
-  "ighlightGeneral\022\027\n\017win_loss_window\030\001 \001(\005"
-  "\022\023\n\013win_percent\030\002 \001(\002\022\021\n\tmmr_delta\030\003 \001(\005"
-  "\022\027\n\017highlight_score\030\004 \001(\002\032\317\003\n\tHighlight\022"
-  "\024\n\014highlight_id\030\001 \002(\r\022J\n\010category\030\002 \002(\0162"
-  "#.CMsgBattleReport_HighlightCategory:\023k_"
-  "eHighlightGeneral\022B\n\004tier\030\003 \001(\0162\037.CMsgBa"
-  "ttleReport_HighlightTier:\023k_eHighlightTi"
-  "erLow\022E\n\006rarity\030\004 \001(\0162!.CMsgBattleReport"
-  "_HighlightRarity:\022k_eHighlightCommon\022\r\n\005"
-  "score\030\005 \001(\002\022\022\n\nconfidence\030\006 \001(\002\022\017\n\007hero_"
-  "id\030\007 \001(\r\0224\n\004role\030\010 \001(\0162\026.CMsgBattleRepor"
-  "t_Role:\016k_eUnknownRole\022\036\n\026comparison_del"
-  "ta_value\030\t \001(\002\022K\n\007context\030\n \001(\0162 .CMsgBa"
-  "ttleReport_CompareContext:\030k_eCompareCon"
-  "textInvalid\"\262\001\n\024CMsgBattleReportInfo\022\021\n\t"
-  "timestamp\030\001 \001(\r\022\020\n\010duration\030\002 \001(\r\022\024\n\014ack"
-  "nowledged\030\003 \001(\010\022\030\n\020featured_hero_id\030\004 \001("
-  "\r\022\031\n\021featured_position\030\005 \001(\r\022\024\n\014games_pl"
-  "ayed\030\006 \001(\r\022\024\n\014medal_counts\030\007 \003(\r\"M\n\030CMsg"
-  "BattleReportInfoList\0221\n\022battle_report_in"
-  "fo\030\001 \003(\0132\025.CMsgBattleReportInfo\"M\n\032CMsgB"
-  "attleReportHighlights\022/\n\nhighlights\030\001 \003("
-  "\0132\033.CMsgBattleReport.Highlight\"\345\021\n\036CMsgB"
-  "attleReportAggregateStats\022I\n\006result\030\001 \003("
-  "\01329.CMsgBattleReportAggregateStats.CMsgB"
-  "attleReportAggregate\0323\n\024CMsgBattleReport"
-  "Stat\022\014\n\004mean\030\001 \001(\002\022\r\n\005stdev\030\002 \001(\002\032\302\020\n\031CM"
-  "sgBattleReportAggregate\022\017\n\007hero_id\030\001 \001(\r"
-  "\022\032\n\022predicted_position\030\002 \001(\r\022\022\n\ngame_cou"
-  "nt\030\003 \001(\r\022\021\n\twin_count\030\004 \001(\r\022\026\n\016lane_win_"
-  "count\030\005 \001(\r\022C\n\005kills\030\006 \001(\01324.CMsgBattleR"
-  "eportAggregateStats.CMsgBattleReportStat"
-  "\022D\n\006deaths\030\007 \001(\01324.CMsgBattleReportAggre"
-  "gateStats.CMsgBattleReportStat\022E\n\007assist"
-  "s\030\010 \001(\01324.CMsgBattleReportAggregateStats"
-  ".CMsgBattleReportStat\022I\n\013rank_change\030\t \001"
-  "(\01324.CMsgBattleReportAggregateStats.CMsg"
-  "BattleReportStat\022G\n\tlast_hits\030\n \001(\01324.CM"
-  "sgBattleReportAggregateStats.CMsgBattleR"
-  "eportStat\022D\n\006denies\030\013 \001(\01324.CMsgBattleRe"
-  "portAggregateStats.CMsgBattleReportStat\022"
-  "A\n\003gpm\030\014 \001(\01324.CMsgBattleReportAggregate"
-  "Stats.CMsgBattleReportStat\022A\n\003xpm\030\r \001(\0132"
-  "4.CMsgBattleReportAggregateStats.CMsgBat"
-  "tleReportStat\022J\n\014seconds_dead\030\016 \001(\01324.CM"
-  "sgBattleReportAggregateStats.CMsgBattleR"
-  "eportStat\022J\n\014bounty_runes\030\017 \001(\01324.CMsgBa"
+  "\021\n\005item5\0302 \001(\005:\002-1\022\026\n\016selected_facet\0303 \001"
+  "(\r\"B\n\031CMsgBattleReport_GameList\022%\n\005games"
+  "\030\001 \003(\0132\026.CMsgBattleReport_Game\"\252\005\n\020CMsgB"
+  "attleReport\022%\n\005games\030\001 \003(\0132\026.CMsgBattleR"
+  "eport_Game\022/\n\nhighlights\030\003 \001(\0132\033.CMsgBat"
+  "tleReportHighlights\032l\n\020HighlightGeneral\022"
+  "\027\n\017win_loss_window\030\001 \001(\005\022\023\n\013win_percent\030"
+  "\002 \001(\002\022\021\n\tmmr_delta\030\003 \001(\005\022\027\n\017highlight_sc"
+  "ore\030\004 \001(\002\032\317\003\n\tHighlight\022\024\n\014highlight_id\030"
+  "\001 \002(\r\022J\n\010category\030\002 \002(\0162#.CMsgBattleRepo"
+  "rt_HighlightCategory:\023k_eHighlightGenera"
+  "l\022B\n\004tier\030\003 \001(\0162\037.CMsgBattleReport_Highl"
+  "ightTier:\023k_eHighlightTierLow\022E\n\006rarity\030"
+  "\004 \001(\0162!.CMsgBattleReport_HighlightRarity"
+  ":\022k_eHighlightCommon\022\r\n\005score\030\005 \001(\002\022\022\n\nc"
+  "onfidence\030\006 \001(\002\022\017\n\007hero_id\030\007 \001(\005\0224\n\004role"
+  "\030\010 \001(\0162\026.CMsgBattleReport_Role:\016k_eUnkno"
+  "wnRole\022\036\n\026comparison_delta_value\030\t \001(\002\022K"
+  "\n\007context\030\n \001(\0162 .CMsgBattleReport_Compa"
+  "reContext:\030k_eCompareContextInvalid\"\262\001\n\024"
+  "CMsgBattleReportInfo\022\021\n\ttimestamp\030\001 \001(\r\022"
+  "\020\n\010duration\030\002 \001(\r\022\024\n\014acknowledged\030\003 \001(\010\022"
+  "\030\n\020featured_hero_id\030\004 \001(\005\022\031\n\021featured_po"
+  "sition\030\005 \001(\r\022\024\n\014games_played\030\006 \001(\r\022\024\n\014me"
+  "dal_counts\030\007 \003(\r\"M\n\030CMsgBattleReportInfo"
+  "List\0221\n\022battle_report_info\030\001 \003(\0132\025.CMsgB"
+  "attleReportInfo\"M\n\032CMsgBattleReportHighl"
+  "ights\022/\n\nhighlights\030\001 \003(\0132\033.CMsgBattleRe"
+  "port.Highlight\"\345\021\n\036CMsgBattleReportAggre"
+  "gateStats\022I\n\006result\030\001 \003(\01329.CMsgBattleRe"
+  "portAggregateStats.CMsgBattleReportAggre"
+  "gate\0323\n\024CMsgBattleReportStat\022\014\n\004mean\030\001 \001"
+  "(\002\022\r\n\005stdev\030\002 \001(\002\032\302\020\n\031CMsgBattleReportAg"
+  "gregate\022\017\n\007hero_id\030\001 \001(\005\022\032\n\022predicted_po"
+  "sition\030\002 \001(\r\022\022\n\ngame_count\030\003 \001(\r\022\021\n\twin_"
+  "count\030\004 \001(\r\022\026\n\016lane_win_count\030\005 \001(\r\022C\n\005k"
+  "ills\030\006 \001(\01324.CMsgBattleReportAggregateSt"
+  "ats.CMsgBattleReportStat\022D\n\006deaths\030\007 \001(\013"
+  "24.CMsgBattleReportAggregateStats.CMsgBa"
+  "ttleReportStat\022E\n\007assists\030\010 \001(\01324.CMsgBa"
   "ttleReportAggregateStats.CMsgBattleRepor"
-  "tStat\022I\n\013water_runes\030\020 \001(\01324.CMsgBattleR"
+  "tStat\022I\n\013rank_change\030\t \001(\01324.CMsgBattleR"
   "eportAggregateStats.CMsgBattleReportStat"
-  "\022I\n\013power_runes\030\021 \001(\01324.CMsgBattleReport"
-  "AggregateStats.CMsgBattleReportStat\022[\n\035t"
-  "ime_enemy_t1_tower_destroyed\030\022 \001(\01324.CMs"
+  "\022G\n\tlast_hits\030\n \001(\01324.CMsgBattleReportAg"
+  "gregateStats.CMsgBattleReportStat\022D\n\006den"
+  "ies\030\013 \001(\01324.CMsgBattleReportAggregateSta"
+  "ts.CMsgBattleReportStat\022A\n\003gpm\030\014 \001(\01324.C"
+  "MsgBattleReportAggregateStats.CMsgBattle"
+  "ReportStat\022A\n\003xpm\030\r \001(\01324.CMsgBattleRepo"
+  "rtAggregateStats.CMsgBattleReportStat\022J\n"
+  "\014seconds_dead\030\016 \001(\01324.CMsgBattleReportAg"
+  "gregateStats.CMsgBattleReportStat\022J\n\014bou"
+  "nty_runes\030\017 \001(\01324.CMsgBattleReportAggreg"
+  "ateStats.CMsgBattleReportStat\022I\n\013water_r"
+  "unes\030\020 \001(\01324.CMsgBattleReportAggregateSt"
+  "ats.CMsgBattleReportStat\022I\n\013power_runes\030"
+  "\021 \001(\01324.CMsgBattleReportAggregateStats.C"
+  "MsgBattleReportStat\022[\n\035time_enemy_t1_tow"
+  "er_destroyed\030\022 \001(\01324.CMsgBattleReportAgg"
+  "regateStats.CMsgBattleReportStat\022^\n time"
+  "_friendly_t1_tower_destroyed\030\023 \001(\01324.CMs"
   "gBattleReportAggregateStats.CMsgBattleRe"
-  "portStat\022^\n time_friendly_t1_tower_destr"
-  "oyed\030\023 \001(\01324.CMsgBattleReportAggregateSt"
-  "ats.CMsgBattleReportStat\022P\n\022enemy_roshan"
-  "_kills\030\024 \001(\01324.CMsgBattleReportAggregate"
-  "Stats.CMsgBattleReportStat\022L\n\016teleports_"
-  "used\030\025 \001(\01324.CMsgBattleReportAggregateSt"
-  "ats.CMsgBattleReportStat\022E\n\007dewards\030\026 \001("
-  "\01324.CMsgBattleReportAggregateStats.CMsgB"
-  "attleReportStat\022K\n\rcamps_stacked\030\027 \001(\01324"
-  ".CMsgBattleReportAggregateStats.CMsgBatt"
-  "leReportStat\022J\n\014support_gold\030\030 \001(\01324.CMs"
+  "portStat\022P\n\022enemy_roshan_kills\030\024 \001(\01324.C"
+  "MsgBattleReportAggregateStats.CMsgBattle"
+  "ReportStat\022L\n\016teleports_used\030\025 \001(\01324.CMs"
   "gBattleReportAggregateStats.CMsgBattleRe"
-  "portStat\022I\n\013hero_damage\030\031 \001(\01324.CMsgBatt"
-  "leReportAggregateStats.CMsgBattleReportS"
-  "tat\022J\n\014hero_healing\030\032 \001(\01324.CMsgBattleRe"
+  "portStat\022E\n\007dewards\030\026 \001(\01324.CMsgBattleRe"
   "portAggregateStats.CMsgBattleReportStat\022"
-  "J\n\014tower_damage\030\033 \001(\01324.CMsgBattleReport"
-  "AggregateStats.CMsgBattleReportStat\022O\n\021s"
-  "uccessful_smokes\030\034 \001(\01324.CMsgBattleRepor"
-  "tAggregateStats.CMsgBattleReportStat\022K\n\r"
-  "stun_duration\030\035 \001(\01324.CMsgBattleReportAg"
-  "gregateStats.CMsgBattleReportStat\022F\n\010dur"
-  "ation\030\036 \001(\01324.CMsgBattleReportAggregateS"
-  "tats.CMsgBattleReportStat\022S\n\025friendly_ro"
-  "shan_kills\030\037 \001(\01324.CMsgBattleReportAggre"
-  "gateStats.CMsgBattleReportStat\"(\n&CMsgBa"
-  "ttleReportAggregatedGeneralStats\"\303\004\n%CMs"
-  "gClientToGCGetBattleReportResponse\022!\n\006re"
-  "port\030\001 \001(\0132\021.CMsgBattleReport\022T\n\010respons"
-  "e\030\002 \001(\01620.CMsgClientToGCGetBattleReportR"
-  "esponse.EResponse:\020k_eInternalError\0228\n\017a"
-  "ggregate_stats\030\003 \001(\0132\037.CMsgBattleReportA"
-  "ggregateStats\022#\n\004info\030\004 \001(\0132\025.CMsgBattle"
-  "ReportInfo\"\301\002\n\tEResponse\022\024\n\020k_eInternalE"
-  "rror\020\000\022\016\n\nk_eSuccess\020\001\022\016\n\nk_eTooBusy\020\002\022\017"
-  "\n\013k_eDisabled\020\003\022\027\n\023k_ePermissionDenied\020\004"
-  "\022\036\n\032k_eNotSubscribedToDotaPlus\020\005\022\030\n\024k_eI"
-  "nvalidParameters\020\006\022\035\n\031k_eUnableToGetPlus"
-  "SubInfo\020\007\022\037\n\033k_eUnableToLoadBattleReport"
-  "\020\010\022\037\n\033k_eUnableToSaveBattleReport\020\t\022\034\n\030k"
-  "_eUnableToGetAggregates\020\n\022\033\n\027k_eNotEnoug"
-  "hGamesPlayed\020\013\"\220\002\n+CMsgClientToGCGetBatt"
-  "leReportAggregateStats\022a\n\016aggregate_keys"
-  "\030\001 \003(\0132I.CMsgClientToGCGetBattleReportAg"
-  "gregateStats.CMsgBattleReportAggregateKe"
-  "y\022\021\n\ttimestamp\030\002 \001(\r\022\020\n\010duration\030\003 \001(\r\022\014"
-  "\n\004rank\030\004 \001(\r\032K\n\034CMsgBattleReportAggregat"
-  "eKey\022\017\n\007hero_id\030\001 \001(\r\022\032\n\022predicted_posit"
-  "ion\030\002 \001(\r\"\367\002\n3CMsgClientToGCGetBattleRep"
-  "ortAggregateStatsResponse\0228\n\017aggregate_s"
-  "tats\030\001 \001(\0132\037.CMsgBattleReportAggregateSt"
-  "ats\022b\n\010response\030\002 \001(\0162>.CMsgClientToGCGe"
-  "tBattleReportAggregateStatsResponse.ERes"
-  "ponse:\020k_eInternalError\"\241\001\n\tEResponse\022\024\n"
-  "\020k_eInternalError\020\000\022\016\n\nk_eSuccess\020\001\022\016\n\nk"
-  "_eTooBusy\020\002\022\017\n\013k_eDisabled\020\003\022\027\n\023k_ePermi"
-  "ssionDenied\020\004\022\024\n\020k_eInvalidParams\020\005\022\036\n\032k"
-  "_eNotSubscribedToDotaPlus\020\006\"7\n!CMsgClien"
-  "tToGCGetBattleReportInfo\022\022\n\naccount_id\030\001"
-  " \001(\r\"\317\002\n)CMsgClientToGCGetBattleReportIn"
-  "foResponse\022:\n\027battle_report_info_list\030\001 "
-  "\001(\0132\031.CMsgBattleReportInfoList\022X\n\010respon"
-  "se\030\002 \001(\01624.CMsgClientToGCGetBattleReport"
-  "InfoResponse.EResponse:\020k_eInternalError"
-  "\"\213\001\n\tEResponse\022\024\n\020k_eInternalError\020\000\022\016\n\n"
-  "k_eSuccess\020\001\022\016\n\nk_eTooBusy\020\002\022\017\n\013k_eDisab"
-  "led\020\003\022\027\n\023k_ePermissionDenied\020\004\022\036\n\032k_eNot"
-  "SubscribedToDotaPlus\020\005\"`\n%CMsgClientToGC"
-  "AcknowledgeBattleReport\022\022\n\naccount_id\030\001 "
-  "\001(\r\022\021\n\ttimestamp\030\002 \001(\r\022\020\n\010duration\030\003 \001(\r"
-  "\"\263\003\n-CMsgClientToGCAcknowledgeBattleRepo"
-  "rtResponse\022\\\n\010response\030\001 \001(\01628.CMsgClien"
-  "tToGCAcknowledgeBattleReportResponse.ERe"
-  "sponse:\020k_eInternalError\022\026\n\016shards_award"
-  "ed\030\002 \001(\r\"\213\002\n\tEResponse\022\024\n\020k_eInternalErr"
-  "or\020\000\022\016\n\nk_eSuccess\020\001\022\016\n\nk_eTooBusy\020\002\022\017\n\013"
-  "k_eDisabled\020\003\022\016\n\nk_eTimeout\020\004\022\027\n\023k_ePerm"
-  "issionDenied\020\005\022\037\n\033k_eUnableToLoadBattleR"
-  "eport\020\006\022\032\n\026k_eAlreadyAcknowledged\020\007\022\024\n\020k"
-  "_eUnknownReport\020\010\022\036\n\032k_eNotSubscribedToD"
-  "otaPlus\020\t\022\033\n\027k_eNotEnoughGamesPlayed\020\n\"d"
-  "\n)CMsgClientToGCGetBattleReportMatchHist"
-  "ory\022\022\n\naccount_id\030\001 \001(\r\022\021\n\ttimestamp\030\002 \001"
-  "(\r\022\020\n\010duration\030\003 \001(\r\"\336\002\n1CMsgClientToGCG"
-  "etBattleReportMatchHistoryResponse\022`\n\010re"
-  "sponse\030\001 \001(\0162<.CMsgClientToGCGetBattleRe"
-  "portMatchHistoryResponse.EResponse:\020k_eI"
-  "nternalError\022)\n\005games\030\002 \001(\0132\032.CMsgBattle"
-  "Report_GameList\"\233\001\n\tEResponse\022\024\n\020k_eInte"
-  "rnalError\020\000\022\016\n\nk_eSuccess\020\001\022\016\n\nk_eTooBus"
-  "y\020\002\022\017\n\013k_eDisabled\020\003\022\016\n\nk_eTimeout\020\004\022\027\n\023"
-  "k_ePermissionDenied\020\005\022\036\n\032k_eNotSubscribe"
-  "dToDotaPlus\020\006*\353\030\n\036CMsgBattleReport_Highl"
-  "ightType\022)\n\027k_eHighlightTypeInvalid\020\377\377\377\377"
-  "\377\377\377\377\377\001\032\003\320>\001\022#\n\016k_eGameWinrate\020\000\032\017\302>\014Game"
-  " Winrate\022#\n\016k_eLaneWinrate\020\001\032\017\302>\014Lane Wi"
-  "nrate\022$\n\013k_eMMRDelta\020\002\032\023\302>\020Ranked MMR De"
-  "lta\0222\n\022k_eNumHeroesPlayed\020\003\032\032\302>\027Number o"
-  "f Heroes Played\0220\n\021k_eNumGamesPlayed\020\004\032\031"
-  "\302>\026Number of Games Played\022;\n\031k_eAverageP"
-  "owerRunesTaken\020\005\032\034\302>\031Average Power Runes"
-  " Taken\022=\n\032k_eAverageBountyRunesTaken\020\006\032\035"
-  "\302>\032Average Bounty Runes Taken\022\?\n\030k_eTota"
-  "lKillEnemyT1First\020\007\032!\302>\036Total Enemy T1 D"
-  "estroyed First\022.\n\023k_eTotalRoshanKills\020\010\032"
-  "\025\302>\022Total Roshan Kills\022%\n\017k_eTotalDeward"
-  "s\020\t\032\020\302>\rTotal Dewards\0220\n\024k_eTotalCampsSt"
-  "acked\020\n\032\026\302>\023Total Camps Stacked\022&\n\017k_eMa"
-  "xWinstreak\020\013\032\021\302>\016Max Win Streak\022)\n\021k_eAv"
-  "erageDewards\020\014\032\022\302>\017Average Dewards\022%\n\017k_"
-  "eAverageKills\020\r\032\020\302>\rAverage Kills\022\035\n\013k_e"
-  "MaxKills\020\016\032\014\302>\tMax Kills\022)\n\021k_eAverageAs"
-  "sists\020\017\032\022\302>\017Average Assists\022!\n\rk_eMaxAss"
-  "ists\020\020\032\016\302>\013Max Assists\022\'\n\020k_eAverageDeat"
-  "hs\020\021\032\021\302>\016Average Deaths\022\037\n\014k_eMinDeaths\020"
-  "\022\032\r\302>\nMin Deaths\0224\n\026k_eAverageCampsStack"
-  "ed\020\023\032\030\302>\025Average Camps Stacked\022(\n\020k_eTot"
-  "alLastHits\020\024\032\022\302>\017Total Last Hits\022,\n\022k_eA"
-  "verageLastHits\020\025\032\024\302>\021Average Last Hits\022#"
-  "\n\016k_eTotalDenies\020\026\032\017\302>\014Total Denies\022\'\n\020k"
-  "_eAverageDenies\020\027\032\021\302>\016Average Denies\022q\n "
-  "k_eTotalGamesWithRoshanAdvantage\020\030\032K\302>HT"
-  "otal Games With Roshan Advantage (Player"
-  " team killed Roshan more times)\022q\n\"k_ePe"
-  "rcentGamesWithRoshanAdvantage\020\031\032I\302>FPct "
-  "Games With Roshan Advantage (Player team"
-  " killed Roshan more times)\0224\n\026k_eAverage"
-  "StunDuration\020\032\032\030\302>\025Average Stun Duration"
-  "\0220\n\024k_eTotalStunDuration\020\033\032\026\302>\023Total Stu"
-  "n Duration\0226\n\027k_eAverageTeleportsUsed\020\034\032"
-  "\031\302>\026Average Teleports Used\0222\n\025k_eTotalTe"
-  "leportsUsed\020\035\032\027\302>\024Total Teleports Used\0220"
-  "\n\024k_eAverageHeroDamage\020\036\032\026\302>\023Average Her"
-  "o Damage\022,\n\022k_eTotalHeroDamage\020\037\032\024\302>\021Tot"
-  "al Hero Damage\0222\n\025k_eAverageHeroHealing\020"
-  " \032\027\302>\024Average Hero Healing\022.\n\023k_eTotalHe"
-  "roHealing\020!\032\025\302>\022Total Hero Healing\0222\n\025k_"
-  "eAverageTowerDamage\020\"\032\027\302>\024Average Tower "
-  "Damage\022.\n\023k_eTotalTowerDamage\020#\032\025\302>\022Tota"
-  "l Tower Damage\022(\n\020k_eMaxLossStreak\020$\032\022\302>"
-  "\017Max Loss Streak\0224\n\026k_eAverageGameDurati"
-  "on\020%\032\030\302>\025Average Game Duration\022,\n\022k_eMax"
-  "GameDuration\020&\032\024\302>\021Max Game Duration\022,\n\022"
-  "k_eMinGameDuration\020\'\032\024\302>\021Min Game Durati"
-  "on\0222\n\025k_eAverageWinDuration\020(\032\027\302>\024Averag"
-  "e Win Duration\022*\n\021k_eMaxWinDuration\020)\032\023\302"
-  ">\020Max Win Duration\022*\n\021k_eMinWinDuration\020"
-  "*\032\023\302>\020Min Win Duration\0224\n\026k_eAverageLoss"
-  "Duration\020+\032\030\302>\025Average Loss Duration\022,\n\022"
-  "k_eMaxLossDuration\020,\032\024\302>\021Max Loss Durati"
-  "on\022,\n\022k_eMinLossDuration\020-\032\024\302>\021Min Loss "
-  "Duration\022M\n\034k_ePctGamesEnemyT1TakenFirst"
-  "\020.\032+\302>(Pct Games With Enemy Lane T1 Take"
-  "n First\022,\n\022k_eMaxCampsStacked\020/\032\024\302>\021Max "
-  "Camps Stacked\022!\n\rk_eMaxDewards\0200\032\016\302>\013Max"
-  " Dewards\022*\n\021k_eMaxRoshanKills\0201\032\023\302>\020Max "
-  "Roshan Kills\0225\n\026k_eMaxBountyRunesTaken\0202"
-  "\032\031\302>\026Max Bounty Runes Taken\0223\n\025k_eMaxPow"
-  "erRunesTaken\0203\032\030\302>\025Max Power Runes Taken"
-  "\022\037\n\014k_eMaxDeaths\0204\032\r\302>\nMax Deaths\022$\n\016k_e"
-  "MaxLastHits\0205\032\020\302>\rMax Last Hits\022\037\n\014k_eMa"
-  "xDenies\0206\032\r\302>\nMax Denies\022)\n\021k_eRadiantWi"
-  "nRate\0207\032\022\302>\017Radiant Winrate\022#\n\016k_eDireWi"
-  "nRate\0208\032\017\302>\014Dire Winrate\022.\n\023k_eRadiantGa"
-  "meCount\0209\032\025\302>\022Radiant Game Count\022(\n\020k_eD"
-  "ireGameCount\020:\032\022\302>\017Dire Game Count\022$\n\014k_"
-  "eMaxDamage\020;\032\022\302>\017Max Hero Damage\022!\n\rk_eM"
-  "axHealing\020<\032\016\302>\013Max Healing\022*\n\021k_eMaxTow"
-  "erDamage\020=\032\023\302>\020Max Tower Damage\022!\n\rk_eAv"
-  "erageGPM\020>\032\016\302>\013Average GPM\022\031\n\tk_eMaxGPM\020"
-  "\?\032\n\302>\007Max GPM\022!\n\rk_eAverageXPM\020@\032\016\302>\013Ave"
-  "rage XPM\022\031\n\tk_eMaxXPM\020A\032\n\302>\007Max XPM*\207\001\n\""
-  "CMsgBattleReport_HighlightCategory\022#\n\023k_"
-  "eHighlightGeneral\020\000\032\n\302>\007General\022\035\n\020k_eHi"
-  "ghlightHero\020\001\032\007\302>\004Hero\022\035\n\020k_eHighlightRo"
-  "le\020\002\032\007\302>\004Role*\323\001\n\025CMsgBattleReport_Role\022"
-  " \n\016k_eUnknownRole\020\377\377\377\377\377\377\377\377\377\001\032\003\320>\001\022\035\n\013k_e"
-  "Safelane\020\000\032\014\302>\tSafe Lane\022\033\n\nk_eMidlane\020\001"
-  "\032\013\302>\010Mid Lane\022\033\n\nk_eOfflane\020\002\032\013\302>\010Off La"
-  "ne\022\032\n\nk_eSupport\020\003\032\n\302>\007Support\022#\n\016k_eHar"
-  "dSupport\020\004\032\017\302>\014Hard Support*\206\002\n\037CMsgBatt"
-  "leReport_CompareContext\022*\n\030k_eCompareCon"
-  "textInvalid\020\377\377\377\377\377\377\377\377\377\001\032\003\320>\001\022&\n\020k_eAbsolu"
-  "teValue\020\000\032\020\302>\rOverall Value\0222\n\027k_ePlayer"
-  "sOfSimilarRank\020\001\032\025\302>\022Vs Rank Population\022"
-  "$\n\rk_eAllPlayers\020\002\032\021\302>\016Vs All Players\0225\n"
-  "\031k_ePlayersPersonalHistory\020\003\032\026\302>\023Vs Pers"
-  "onal History*\373\001\n\036CMsgBattleReport_Highli"
-  "ghtTier\022-\n\023k_eHighlightTierLow\020\377\377\377\377\377\377\377\377\377"
-  "\001\032\013\302>\010Tier Low\022\035\n\024k_eHighlightTierNone\020\000"
-  "\032\003\320>\001\022 \n\021k_eHighlightTier1\020\001\032\t\302>\006Tier 1\022"
-  " \n\021k_eHighlightTier2\020\002\032\t\302>\006Tier 2\022 \n\021k_e"
-  "HighlightTier3\020\003\032\t\302>\006Tier 3\022%\n\026k_eHighli"
-  "ghtTierCustom\020\004\032\t\302>\006Custom*\213\001\n CMsgBattl"
-  "eReport_HighlightRarity\022!\n\022k_eHighlightC"
-  "ommon\020\000\032\t\302>\006Common\022%\n\024k_eHighlightUncomm"
-  "on\020\001\032\013\302>\010Uncommon\022\035\n\020k_eHighlightRare\020\002\032"
-  "\007\302>\004Rare*4\n\031CMsgBattleReport_EOutcome\022\n\n"
-  "\006k_eWin\020\000\022\013\n\007k_eLoss\020\001*u\n\035CMsgBattleRepo"
-  "rt_ELaneOutcome\022\"\n\025k_eUnknownLaneOutcome"
-  "\020\377\377\377\377\377\377\377\377\377\001\022\016\n\nk_eWonLane\020\000\022\017\n\013k_eLostLa"
-  "ne\020\001\022\017\n\013k_eEvenLane\020\002"
+  "K\n\rcamps_stacked\030\027 \001(\01324.CMsgBattleRepor"
+  "tAggregateStats.CMsgBattleReportStat\022J\n\014"
+  "support_gold\030\030 \001(\01324.CMsgBattleReportAgg"
+  "regateStats.CMsgBattleReportStat\022I\n\013hero"
+  "_damage\030\031 \001(\01324.CMsgBattleReportAggregat"
+  "eStats.CMsgBattleReportStat\022J\n\014hero_heal"
+  "ing\030\032 \001(\01324.CMsgBattleReportAggregateSta"
+  "ts.CMsgBattleReportStat\022J\n\014tower_damage\030"
+  "\033 \001(\01324.CMsgBattleReportAggregateStats.C"
+  "MsgBattleReportStat\022O\n\021successful_smokes"
+  "\030\034 \001(\01324.CMsgBattleReportAggregateStats."
+  "CMsgBattleReportStat\022K\n\rstun_duration\030\035 "
+  "\001(\01324.CMsgBattleReportAggregateStats.CMs"
+  "gBattleReportStat\022F\n\010duration\030\036 \001(\01324.CM"
+  "sgBattleReportAggregateStats.CMsgBattleR"
+  "eportStat\022S\n\025friendly_roshan_kills\030\037 \001(\013"
+  "24.CMsgBattleReportAggregateStats.CMsgBa"
+  "ttleReportStat\"(\n&CMsgBattleReportAggreg"
+  "atedGeneralStats\"\303\004\n%CMsgClientToGCGetBa"
+  "ttleReportResponse\022!\n\006report\030\001 \001(\0132\021.CMs"
+  "gBattleReport\022T\n\010response\030\002 \001(\01620.CMsgCl"
+  "ientToGCGetBattleReportResponse.ERespons"
+  "e:\020k_eInternalError\0228\n\017aggregate_stats\030\003"
+  " \001(\0132\037.CMsgBattleReportAggregateStats\022#\n"
+  "\004info\030\004 \001(\0132\025.CMsgBattleReportInfo\"\301\002\n\tE"
+  "Response\022\024\n\020k_eInternalError\020\000\022\016\n\nk_eSuc"
+  "cess\020\001\022\016\n\nk_eTooBusy\020\002\022\017\n\013k_eDisabled\020\003\022"
+  "\027\n\023k_ePermissionDenied\020\004\022\036\n\032k_eNotSubscr"
+  "ibedToDotaPlus\020\005\022\030\n\024k_eInvalidParameters"
+  "\020\006\022\035\n\031k_eUnableToGetPlusSubInfo\020\007\022\037\n\033k_e"
+  "UnableToLoadBattleReport\020\010\022\037\n\033k_eUnableT"
+  "oSaveBattleReport\020\t\022\034\n\030k_eUnableToGetAgg"
+  "regates\020\n\022\033\n\027k_eNotEnoughGamesPlayed\020\013\"\220"
+  "\002\n+CMsgClientToGCGetBattleReportAggregat"
+  "eStats\022a\n\016aggregate_keys\030\001 \003(\0132I.CMsgCli"
+  "entToGCGetBattleReportAggregateStats.CMs"
+  "gBattleReportAggregateKey\022\021\n\ttimestamp\030\002"
+  " \001(\r\022\020\n\010duration\030\003 \001(\r\022\014\n\004rank\030\004 \001(\r\032K\n\034"
+  "CMsgBattleReportAggregateKey\022\017\n\007hero_id\030"
+  "\001 \001(\005\022\032\n\022predicted_position\030\002 \001(\r\"\367\002\n3CM"
+  "sgClientToGCGetBattleReportAggregateStat"
+  "sResponse\0228\n\017aggregate_stats\030\001 \001(\0132\037.CMs"
+  "gBattleReportAggregateStats\022b\n\010response\030"
+  "\002 \001(\0162>.CMsgClientToGCGetBattleReportAgg"
+  "regateStatsResponse.EResponse:\020k_eIntern"
+  "alError\"\241\001\n\tEResponse\022\024\n\020k_eInternalErro"
+  "r\020\000\022\016\n\nk_eSuccess\020\001\022\016\n\nk_eTooBusy\020\002\022\017\n\013k"
+  "_eDisabled\020\003\022\027\n\023k_ePermissionDenied\020\004\022\024\n"
+  "\020k_eInvalidParams\020\005\022\036\n\032k_eNotSubscribedT"
+  "oDotaPlus\020\006\"7\n!CMsgClientToGCGetBattleRe"
+  "portInfo\022\022\n\naccount_id\030\001 \001(\r\"\317\002\n)CMsgCli"
+  "entToGCGetBattleReportInfoResponse\022:\n\027ba"
+  "ttle_report_info_list\030\001 \001(\0132\031.CMsgBattle"
+  "ReportInfoList\022X\n\010response\030\002 \001(\01624.CMsgC"
+  "lientToGCGetBattleReportInfoResponse.ERe"
+  "sponse:\020k_eInternalError\"\213\001\n\tEResponse\022\024"
+  "\n\020k_eInternalError\020\000\022\016\n\nk_eSuccess\020\001\022\016\n\n"
+  "k_eTooBusy\020\002\022\017\n\013k_eDisabled\020\003\022\027\n\023k_ePerm"
+  "issionDenied\020\004\022\036\n\032k_eNotSubscribedToDota"
+  "Plus\020\005\"`\n%CMsgClientToGCAcknowledgeBattl"
+  "eReport\022\022\n\naccount_id\030\001 \001(\r\022\021\n\ttimestamp"
+  "\030\002 \001(\r\022\020\n\010duration\030\003 \001(\r\"\263\003\n-CMsgClientT"
+  "oGCAcknowledgeBattleReportResponse\022\\\n\010re"
+  "sponse\030\001 \001(\01628.CMsgClientToGCAcknowledge"
+  "BattleReportResponse.EResponse:\020k_eInter"
+  "nalError\022\026\n\016shards_awarded\030\002 \001(\r\"\213\002\n\tERe"
+  "sponse\022\024\n\020k_eInternalError\020\000\022\016\n\nk_eSucce"
+  "ss\020\001\022\016\n\nk_eTooBusy\020\002\022\017\n\013k_eDisabled\020\003\022\016\n"
+  "\nk_eTimeout\020\004\022\027\n\023k_ePermissionDenied\020\005\022\037"
+  "\n\033k_eUnableToLoadBattleReport\020\006\022\032\n\026k_eAl"
+  "readyAcknowledged\020\007\022\024\n\020k_eUnknownReport\020"
+  "\010\022\036\n\032k_eNotSubscribedToDotaPlus\020\t\022\033\n\027k_e"
+  "NotEnoughGamesPlayed\020\n\"d\n)CMsgClientToGC"
+  "GetBattleReportMatchHistory\022\022\n\naccount_i"
+  "d\030\001 \001(\r\022\021\n\ttimestamp\030\002 \001(\r\022\020\n\010duration\030\003"
+  " \001(\r\"\336\002\n1CMsgClientToGCGetBattleReportMa"
+  "tchHistoryResponse\022`\n\010response\030\001 \001(\0162<.C"
+  "MsgClientToGCGetBattleReportMatchHistory"
+  "Response.EResponse:\020k_eInternalError\022)\n\005"
+  "games\030\002 \001(\0132\032.CMsgBattleReport_GameList\""
+  "\233\001\n\tEResponse\022\024\n\020k_eInternalError\020\000\022\016\n\nk"
+  "_eSuccess\020\001\022\016\n\nk_eTooBusy\020\002\022\017\n\013k_eDisabl"
+  "ed\020\003\022\016\n\nk_eTimeout\020\004\022\027\n\023k_ePermissionDen"
+  "ied\020\005\022\036\n\032k_eNotSubscribedToDotaPlus\020\006*\353\030"
+  "\n\036CMsgBattleReport_HighlightType\022)\n\027k_eH"
+  "ighlightTypeInvalid\020\377\377\377\377\377\377\377\377\377\001\032\003\320>\001\022#\n\016k"
+  "_eGameWinrate\020\000\032\017\302>\014Game Winrate\022#\n\016k_eL"
+  "aneWinrate\020\001\032\017\302>\014Lane Winrate\022$\n\013k_eMMRD"
+  "elta\020\002\032\023\302>\020Ranked MMR Delta\0222\n\022k_eNumHer"
+  "oesPlayed\020\003\032\032\302>\027Number of Heroes Played\022"
+  "0\n\021k_eNumGamesPlayed\020\004\032\031\302>\026Number of Gam"
+  "es Played\022;\n\031k_eAveragePowerRunesTaken\020\005"
+  "\032\034\302>\031Average Power Runes Taken\022=\n\032k_eAve"
+  "rageBountyRunesTaken\020\006\032\035\302>\032Average Bount"
+  "y Runes Taken\022\?\n\030k_eTotalKillEnemyT1Firs"
+  "t\020\007\032!\302>\036Total Enemy T1 Destroyed First\022."
+  "\n\023k_eTotalRoshanKills\020\010\032\025\302>\022Total Roshan"
+  " Kills\022%\n\017k_eTotalDewards\020\t\032\020\302>\rTotal De"
+  "wards\0220\n\024k_eTotalCampsStacked\020\n\032\026\302>\023Tota"
+  "l Camps Stacked\022&\n\017k_eMaxWinstreak\020\013\032\021\302>"
+  "\016Max Win Streak\022)\n\021k_eAverageDewards\020\014\032\022"
+  "\302>\017Average Dewards\022%\n\017k_eAverageKills\020\r\032"
+  "\020\302>\rAverage Kills\022\035\n\013k_eMaxKills\020\016\032\014\302>\tM"
+  "ax Kills\022)\n\021k_eAverageAssists\020\017\032\022\302>\017Aver"
+  "age Assists\022!\n\rk_eMaxAssists\020\020\032\016\302>\013Max A"
+  "ssists\022\'\n\020k_eAverageDeaths\020\021\032\021\302>\016Average"
+  " Deaths\022\037\n\014k_eMinDeaths\020\022\032\r\302>\nMin Deaths"
+  "\0224\n\026k_eAverageCampsStacked\020\023\032\030\302>\025Average"
+  " Camps Stacked\022(\n\020k_eTotalLastHits\020\024\032\022\302>"
+  "\017Total Last Hits\022,\n\022k_eAverageLastHits\020\025"
+  "\032\024\302>\021Average Last Hits\022#\n\016k_eTotalDenies"
+  "\020\026\032\017\302>\014Total Denies\022\'\n\020k_eAverageDenies\020"
+  "\027\032\021\302>\016Average Denies\022q\n k_eTotalGamesWit"
+  "hRoshanAdvantage\020\030\032K\302>HTotal Games With "
+  "Roshan Advantage (Player team killed Ros"
+  "han more times)\022q\n\"k_ePercentGamesWithRo"
+  "shanAdvantage\020\031\032I\302>FPct Games With Rosha"
+  "n Advantage (Player team killed Roshan m"
+  "ore times)\0224\n\026k_eAverageStunDuration\020\032\032\030"
+  "\302>\025Average Stun Duration\0220\n\024k_eTotalStun"
+  "Duration\020\033\032\026\302>\023Total Stun Duration\0226\n\027k_"
+  "eAverageTeleportsUsed\020\034\032\031\302>\026Average Tele"
+  "ports Used\0222\n\025k_eTotalTeleportsUsed\020\035\032\027\302"
+  ">\024Total Teleports Used\0220\n\024k_eAverageHero"
+  "Damage\020\036\032\026\302>\023Average Hero Damage\022,\n\022k_eT"
+  "otalHeroDamage\020\037\032\024\302>\021Total Hero Damage\0222"
+  "\n\025k_eAverageHeroHealing\020 \032\027\302>\024Average He"
+  "ro Healing\022.\n\023k_eTotalHeroHealing\020!\032\025\302>\022"
+  "Total Hero Healing\0222\n\025k_eAverageTowerDam"
+  "age\020\"\032\027\302>\024Average Tower Damage\022.\n\023k_eTot"
+  "alTowerDamage\020#\032\025\302>\022Total Tower Damage\022("
+  "\n\020k_eMaxLossStreak\020$\032\022\302>\017Max Loss Streak"
+  "\0224\n\026k_eAverageGameDuration\020%\032\030\302>\025Average"
+  " Game Duration\022,\n\022k_eMaxGameDuration\020&\032\024"
+  "\302>\021Max Game Duration\022,\n\022k_eMinGameDurati"
+  "on\020\'\032\024\302>\021Min Game Duration\0222\n\025k_eAverage"
+  "WinDuration\020(\032\027\302>\024Average Win Duration\022*"
+  "\n\021k_eMaxWinDuration\020)\032\023\302>\020Max Win Durati"
+  "on\022*\n\021k_eMinWinDuration\020*\032\023\302>\020Min Win Du"
+  "ration\0224\n\026k_eAverageLossDuration\020+\032\030\302>\025A"
+  "verage Loss Duration\022,\n\022k_eMaxLossDurati"
+  "on\020,\032\024\302>\021Max Loss Duration\022,\n\022k_eMinLoss"
+  "Duration\020-\032\024\302>\021Min Loss Duration\022M\n\034k_eP"
+  "ctGamesEnemyT1TakenFirst\020.\032+\302>(Pct Games"
+  " With Enemy Lane T1 Taken First\022,\n\022k_eMa"
+  "xCampsStacked\020/\032\024\302>\021Max Camps Stacked\022!\n"
+  "\rk_eMaxDewards\0200\032\016\302>\013Max Dewards\022*\n\021k_eM"
+  "axRoshanKills\0201\032\023\302>\020Max Roshan Kills\0225\n\026"
+  "k_eMaxBountyRunesTaken\0202\032\031\302>\026Max Bounty "
+  "Runes Taken\0223\n\025k_eMaxPowerRunesTaken\0203\032\030"
+  "\302>\025Max Power Runes Taken\022\037\n\014k_eMaxDeaths"
+  "\0204\032\r\302>\nMax Deaths\022$\n\016k_eMaxLastHits\0205\032\020\302"
+  ">\rMax Last Hits\022\037\n\014k_eMaxDenies\0206\032\r\302>\nMa"
+  "x Denies\022)\n\021k_eRadiantWinRate\0207\032\022\302>\017Radi"
+  "ant Winrate\022#\n\016k_eDireWinRate\0208\032\017\302>\014Dire"
+  " Winrate\022.\n\023k_eRadiantGameCount\0209\032\025\302>\022Ra"
+  "diant Game Count\022(\n\020k_eDireGameCount\020:\032\022"
+  "\302>\017Dire Game Count\022$\n\014k_eMaxDamage\020;\032\022\302>"
+  "\017Max Hero Damage\022!\n\rk_eMaxHealing\020<\032\016\302>\013"
+  "Max Healing\022*\n\021k_eMaxTowerDamage\020=\032\023\302>\020M"
+  "ax Tower Damage\022!\n\rk_eAverageGPM\020>\032\016\302>\013A"
+  "verage GPM\022\031\n\tk_eMaxGPM\020\?\032\n\302>\007Max GPM\022!\n"
+  "\rk_eAverageXPM\020@\032\016\302>\013Average XPM\022\031\n\tk_eM"
+  "axXPM\020A\032\n\302>\007Max XPM*\207\001\n\"CMsgBattleReport"
+  "_HighlightCategory\022#\n\023k_eHighlightGenera"
+  "l\020\000\032\n\302>\007General\022\035\n\020k_eHighlightHero\020\001\032\007\302"
+  ">\004Hero\022\035\n\020k_eHighlightRole\020\002\032\007\302>\004Role*\323\001"
+  "\n\025CMsgBattleReport_Role\022 \n\016k_eUnknownRol"
+  "e\020\377\377\377\377\377\377\377\377\377\001\032\003\320>\001\022\035\n\013k_eSafelane\020\000\032\014\302>\tS"
+  "afe Lane\022\033\n\nk_eMidlane\020\001\032\013\302>\010Mid Lane\022\033\n"
+  "\nk_eOfflane\020\002\032\013\302>\010Off Lane\022\032\n\nk_eSupport"
+  "\020\003\032\n\302>\007Support\022#\n\016k_eHardSupport\020\004\032\017\302>\014H"
+  "ard Support*\206\002\n\037CMsgBattleReport_Compare"
+  "Context\022*\n\030k_eCompareContextInvalid\020\377\377\377\377"
+  "\377\377\377\377\377\001\032\003\320>\001\022&\n\020k_eAbsoluteValue\020\000\032\020\302>\rOv"
+  "erall Value\0222\n\027k_ePlayersOfSimilarRank\020\001"
+  "\032\025\302>\022Vs Rank Population\022$\n\rk_eAllPlayers"
+  "\020\002\032\021\302>\016Vs All Players\0225\n\031k_ePlayersPerso"
+  "nalHistory\020\003\032\026\302>\023Vs Personal History*\373\001\n"
+  "\036CMsgBattleReport_HighlightTier\022-\n\023k_eHi"
+  "ghlightTierLow\020\377\377\377\377\377\377\377\377\377\001\032\013\302>\010Tier Low\022\035"
+  "\n\024k_eHighlightTierNone\020\000\032\003\320>\001\022 \n\021k_eHigh"
+  "lightTier1\020\001\032\t\302>\006Tier 1\022 \n\021k_eHighlightT"
+  "ier2\020\002\032\t\302>\006Tier 2\022 \n\021k_eHighlightTier3\020\003"
+  "\032\t\302>\006Tier 3\022%\n\026k_eHighlightTierCustom\020\004\032"
+  "\t\302>\006Custom*\213\001\n CMsgBattleReport_Highligh"
+  "tRarity\022!\n\022k_eHighlightCommon\020\000\032\t\302>\006Comm"
+  "on\022%\n\024k_eHighlightUncommon\020\001\032\013\302>\010Uncommo"
+  "n\022\035\n\020k_eHighlightRare\020\002\032\007\302>\004Rare*4\n\031CMsg"
+  "BattleReport_EOutcome\022\n\n\006k_eWin\020\000\022\013\n\007k_e"
+  "Loss\020\001*u\n\035CMsgBattleReport_ELaneOutcome\022"
+  "\"\n\025k_eUnknownLaneOutcome\020\377\377\377\377\377\377\377\377\377\001\022\016\n\nk"
+  "_eWonLane\020\000\022\017\n\013k_eLostLane\020\001\022\017\n\013k_eEvenL"
+  "ane\020\002"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_dota_5fgcmessages_5fclient_5fbattle_5freport_2eproto_deps[9] = {
   &::descriptor_table_base_5fgcmessages_2eproto,
@@ -1231,7 +1235,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_dota_5fgcmessages_5
 };
 static ::_pbi::once_flag descriptor_table_dota_5fgcmessages_5fclient_5fbattle_5freport_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_dota_5fgcmessages_5fclient_5fbattle_5freport_2eproto = {
-    false, false, 11981, descriptor_table_protodef_dota_5fgcmessages_5fclient_5fbattle_5freport_2eproto,
+    false, false, 12005, descriptor_table_protodef_dota_5fgcmessages_5fclient_5fbattle_5freport_2eproto,
     "dota_gcmessages_client_battle_report.proto",
     &descriptor_table_dota_5fgcmessages_5fclient_5fbattle_5freport_2eproto_once, descriptor_table_dota_5fgcmessages_5fclient_5fbattle_5freport_2eproto_deps, 9, 23,
     schemas, file_default_instances, TableStruct_dota_5fgcmessages_5fclient_5fbattle_5freport_2eproto::offsets,
@@ -1906,13 +1910,13 @@ class CMsgBattleReport_Game::_Internal {
     (*has_bits)[0] |= 128u;
   }
   static void set_has_role(HasBits* has_bits) {
-    (*has_bits)[1] |= 512u;
+    (*has_bits)[1] |= 1024u;
   }
   static void set_has_outcome(HasBits* has_bits) {
     (*has_bits)[0] |= 256u;
   }
   static void set_has_lane_outcome(HasBits* has_bits) {
-    (*has_bits)[1] |= 1024u;
+    (*has_bits)[1] |= 2048u;
   }
   static void set_has_ranked(HasBits* has_bits) {
     (*has_bits)[0] |= 4096u;
@@ -2008,22 +2012,25 @@ class CMsgBattleReport_Game::_Internal {
     (*has_bits)[1] |= 256u;
   }
   static void set_has_item0(HasBits* has_bits) {
-    (*has_bits)[1] |= 2048u;
-  }
-  static void set_has_item1(HasBits* has_bits) {
     (*has_bits)[1] |= 4096u;
   }
-  static void set_has_item2(HasBits* has_bits) {
+  static void set_has_item1(HasBits* has_bits) {
     (*has_bits)[1] |= 8192u;
   }
-  static void set_has_item3(HasBits* has_bits) {
+  static void set_has_item2(HasBits* has_bits) {
     (*has_bits)[1] |= 16384u;
   }
-  static void set_has_item4(HasBits* has_bits) {
+  static void set_has_item3(HasBits* has_bits) {
     (*has_bits)[1] |= 32768u;
   }
-  static void set_has_item5(HasBits* has_bits) {
+  static void set_has_item4(HasBits* has_bits) {
     (*has_bits)[1] |= 65536u;
+  }
+  static void set_has_item5(HasBits* has_bits) {
+    (*has_bits)[1] |= 131072u;
+  }
+  static void set_has_selected_facet(HasBits* has_bits) {
+    (*has_bits)[1] |= 512u;
   }
 };
 
@@ -2080,6 +2087,7 @@ CMsgBattleReport_Game::CMsgBattleReport_Game(const CMsgBattleReport_Game& from)
     , decltype(_impl_.lobby_type_){}
     , decltype(_impl_.time_purchased_shard_){}
     , decltype(_impl_.time_purchased_scepter_){}
+    , decltype(_impl_.selected_facet_){}
     , decltype(_impl_.role_){}
     , decltype(_impl_.lane_outcome_){}
     , decltype(_impl_.item0_){}
@@ -2103,7 +2111,7 @@ inline void CMsgBattleReport_Game::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.hero_id_){0u}
+    , decltype(_impl_.hero_id_){0}
     , decltype(_impl_.kills_){0u}
     , decltype(_impl_.deaths_){0u}
     , decltype(_impl_.assists_){0u}
@@ -2144,6 +2152,7 @@ inline void CMsgBattleReport_Game::SharedCtor(
     , decltype(_impl_.lobby_type_){0u}
     , decltype(_impl_.time_purchased_shard_){0}
     , decltype(_impl_.time_purchased_scepter_){0}
+    , decltype(_impl_.selected_facet_){0u}
     , decltype(_impl_.role_){-1}
     , decltype(_impl_.lane_outcome_){-1}
     , decltype(_impl_.item0_){-1}
@@ -2206,16 +2215,20 @@ void CMsgBattleReport_Game::Clear() {
         reinterpret_cast<char*>(&_impl_.successful_smokes_)) + sizeof(_impl_.time_purchased_shard_));
   }
   if (cached_has_bits & 0x0000ff00u) {
-    _impl_.time_purchased_scepter_ = 0;
+    ::memset(&_impl_.time_purchased_scepter_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.selected_facet_) -
+        reinterpret_cast<char*>(&_impl_.time_purchased_scepter_)) + sizeof(_impl_.selected_facet_));
     _impl_.role_ = -1;
     _impl_.lane_outcome_ = -1;
     _impl_.item0_ = -1;
     _impl_.item1_ = -1;
     _impl_.item2_ = -1;
     _impl_.item3_ = -1;
-    _impl_.item4_ = -1;
   }
-  _impl_.item5_ = -1;
+  if (cached_has_bits & 0x00030000u) {
+    _impl_.item4_ = -1;
+    _impl_.item5_ = -1;
+  }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -2226,7 +2239,7 @@ const char* CMsgBattleReport_Game::_InternalParse(const char* ptr, ::_pbi::Parse
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional uint32 hero_id = 1;
+      // optional int32 hero_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_hero_id(&_impl_._has_bits_);
@@ -2679,6 +2692,15 @@ const char* CMsgBattleReport_Game::_InternalParse(const char* ptr, ::_pbi::Parse
         } else
           goto handle_unusual;
         continue;
+      // optional uint32 selected_facet = 51;
+      case 51:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 152)) {
+          _Internal::set_has_selected_facet(&_impl_._has_bits_);
+          _impl_.selected_facet_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
       default:
         goto handle_unusual;
     }  // switch
@@ -2709,10 +2731,10 @@ uint8_t* CMsgBattleReport_Game::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional uint32 hero_id = 1;
+  // optional int32 hero_id = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_hero_id(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_hero_id(), target);
   }
 
   // optional uint32 kills = 2;
@@ -2759,7 +2781,7 @@ uint8_t* CMsgBattleReport_Game::_InternalSerialize(
 
   cached_has_bits = _impl_._has_bits_[1];
   // optional .CMsgBattleReport_Role role = 9 [default = k_eUnknownRole];
-  if (cached_has_bits & 0x00000200u) {
+  if (cached_has_bits & 0x00000400u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteEnumToArray(
       9, this->_internal_role(), target);
@@ -2775,7 +2797,7 @@ uint8_t* CMsgBattleReport_Game::_InternalSerialize(
 
   cached_has_bits = _impl_._has_bits_[1];
   // optional .CMsgBattleReport_ELaneOutcome lane_outcome = 11 [default = k_eUnknownLaneOutcome];
-  if (cached_has_bits & 0x00000400u) {
+  if (cached_has_bits & 0x00000800u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteEnumToArray(
       11, this->_internal_lane_outcome(), target);
@@ -2976,39 +2998,45 @@ uint8_t* CMsgBattleReport_Game::_InternalSerialize(
   }
 
   // optional int32 item0 = 45 [default = -1];
-  if (cached_has_bits & 0x00000800u) {
+  if (cached_has_bits & 0x00001000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(45, this->_internal_item0(), target);
   }
 
   // optional int32 item1 = 46 [default = -1];
-  if (cached_has_bits & 0x00001000u) {
+  if (cached_has_bits & 0x00002000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(46, this->_internal_item1(), target);
   }
 
   // optional int32 item2 = 47 [default = -1];
-  if (cached_has_bits & 0x00002000u) {
+  if (cached_has_bits & 0x00004000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(47, this->_internal_item2(), target);
   }
 
   // optional int32 item3 = 48 [default = -1];
-  if (cached_has_bits & 0x00004000u) {
+  if (cached_has_bits & 0x00008000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(48, this->_internal_item3(), target);
   }
 
   // optional int32 item4 = 49 [default = -1];
-  if (cached_has_bits & 0x00008000u) {
+  if (cached_has_bits & 0x00010000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(49, this->_internal_item4(), target);
   }
 
   // optional int32 item5 = 50 [default = -1];
-  if (cached_has_bits & 0x00010000u) {
+  if (cached_has_bits & 0x00020000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(50, this->_internal_item5(), target);
+  }
+
+  // optional uint32 selected_facet = 51;
+  if (cached_has_bits & 0x00000200u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(51, this->_internal_selected_facet(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -3029,9 +3057,9 @@ size_t CMsgBattleReport_Game::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
-    // optional uint32 hero_id = 1;
+    // optional int32 hero_id = 1;
     if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_hero_id());
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_hero_id());
     }
 
     // optional uint32 kills = 2;
@@ -3296,61 +3324,70 @@ size_t CMsgBattleReport_Game::ByteSizeLong() const {
       total_size += 2 + 4;
     }
 
-    // optional .CMsgBattleReport_Role role = 9 [default = k_eUnknownRole];
+    // optional uint32 selected_facet = 51;
     if (cached_has_bits & 0x00000200u) {
+      total_size += 2 +
+        ::_pbi::WireFormatLite::UInt32Size(
+          this->_internal_selected_facet());
+    }
+
+    // optional .CMsgBattleReport_Role role = 9 [default = k_eUnknownRole];
+    if (cached_has_bits & 0x00000400u) {
       total_size += 1 +
         ::_pbi::WireFormatLite::EnumSize(this->_internal_role());
     }
 
     // optional .CMsgBattleReport_ELaneOutcome lane_outcome = 11 [default = k_eUnknownLaneOutcome];
-    if (cached_has_bits & 0x00000400u) {
+    if (cached_has_bits & 0x00000800u) {
       total_size += 1 +
         ::_pbi::WireFormatLite::EnumSize(this->_internal_lane_outcome());
     }
 
     // optional int32 item0 = 45 [default = -1];
-    if (cached_has_bits & 0x00000800u) {
+    if (cached_has_bits & 0x00001000u) {
       total_size += 2 +
         ::_pbi::WireFormatLite::Int32Size(
           this->_internal_item0());
     }
 
     // optional int32 item1 = 46 [default = -1];
-    if (cached_has_bits & 0x00001000u) {
+    if (cached_has_bits & 0x00002000u) {
       total_size += 2 +
         ::_pbi::WireFormatLite::Int32Size(
           this->_internal_item1());
     }
 
     // optional int32 item2 = 47 [default = -1];
-    if (cached_has_bits & 0x00002000u) {
+    if (cached_has_bits & 0x00004000u) {
       total_size += 2 +
         ::_pbi::WireFormatLite::Int32Size(
           this->_internal_item2());
     }
 
     // optional int32 item3 = 48 [default = -1];
-    if (cached_has_bits & 0x00004000u) {
+    if (cached_has_bits & 0x00008000u) {
       total_size += 2 +
         ::_pbi::WireFormatLite::Int32Size(
           this->_internal_item3());
     }
 
+  }
+  if (cached_has_bits & 0x00030000u) {
     // optional int32 item4 = 49 [default = -1];
-    if (cached_has_bits & 0x00008000u) {
+    if (cached_has_bits & 0x00010000u) {
       total_size += 2 +
         ::_pbi::WireFormatLite::Int32Size(
           this->_internal_item4());
     }
 
-  }
-  // optional int32 item5 = 50 [default = -1];
-  if (cached_has_bits & 0x00010000u) {
-    total_size += 2 +
-      ::_pbi::WireFormatLite::Int32Size(
-        this->_internal_item5());
-  }
+    // optional int32 item5 = 50 [default = -1];
+    if (cached_has_bits & 0x00020000u) {
+      total_size += 2 +
+        ::_pbi::WireFormatLite::Int32Size(
+          this->_internal_item5());
+    }
 
+  }
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -3511,30 +3548,36 @@ void CMsgBattleReport_Game::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, 
       _this->_impl_.time_purchased_scepter_ = from._impl_.time_purchased_scepter_;
     }
     if (cached_has_bits & 0x00000200u) {
-      _this->_impl_.role_ = from._impl_.role_;
+      _this->_impl_.selected_facet_ = from._impl_.selected_facet_;
     }
     if (cached_has_bits & 0x00000400u) {
-      _this->_impl_.lane_outcome_ = from._impl_.lane_outcome_;
+      _this->_impl_.role_ = from._impl_.role_;
     }
     if (cached_has_bits & 0x00000800u) {
-      _this->_impl_.item0_ = from._impl_.item0_;
+      _this->_impl_.lane_outcome_ = from._impl_.lane_outcome_;
     }
     if (cached_has_bits & 0x00001000u) {
-      _this->_impl_.item1_ = from._impl_.item1_;
+      _this->_impl_.item0_ = from._impl_.item0_;
     }
     if (cached_has_bits & 0x00002000u) {
-      _this->_impl_.item2_ = from._impl_.item2_;
+      _this->_impl_.item1_ = from._impl_.item1_;
     }
     if (cached_has_bits & 0x00004000u) {
-      _this->_impl_.item3_ = from._impl_.item3_;
+      _this->_impl_.item2_ = from._impl_.item2_;
     }
     if (cached_has_bits & 0x00008000u) {
-      _this->_impl_.item4_ = from._impl_.item4_;
+      _this->_impl_.item3_ = from._impl_.item3_;
     }
     _this->_impl_._has_bits_[1] |= cached_has_bits;
   }
-  if (cached_has_bits & 0x00010000u) {
-    _this->_internal_set_item5(from._internal_item5());
+  if (cached_has_bits & 0x00030000u) {
+    if (cached_has_bits & 0x00010000u) {
+      _this->_impl_.item4_ = from._impl_.item4_;
+    }
+    if (cached_has_bits & 0x00020000u) {
+      _this->_impl_.item5_ = from._impl_.item5_;
+    }
+    _this->_impl_._has_bits_[1] |= cached_has_bits;
   }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -3556,8 +3599,8 @@ void CMsgBattleReport_Game::InternalSwap(CMsgBattleReport_Game* other) {
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   swap(_impl_._has_bits_[1], other->_impl_._has_bits_[1]);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CMsgBattleReport_Game, _impl_.time_purchased_scepter_)
-      + sizeof(CMsgBattleReport_Game::_impl_.time_purchased_scepter_)
+      PROTOBUF_FIELD_OFFSET(CMsgBattleReport_Game, _impl_.selected_facet_)
+      + sizeof(CMsgBattleReport_Game::_impl_.selected_facet_)
       - PROTOBUF_FIELD_OFFSET(CMsgBattleReport_Game, _impl_.hero_id_)>(
           reinterpret_cast<char*>(&_impl_.hero_id_),
           reinterpret_cast<char*>(&other->_impl_.hero_id_));
@@ -4137,7 +4180,7 @@ inline void CMsgBattleReport_Highlight::SharedCtor(
     , decltype(_impl_.rarity_){0}
     , decltype(_impl_.score_){0}
     , decltype(_impl_.confidence_){0}
-    , decltype(_impl_.hero_id_){0u}
+    , decltype(_impl_.hero_id_){0}
     , decltype(_impl_.comparison_delta_value_){0}
     , decltype(_impl_.context_){-1}
     , decltype(_impl_.tier_){-1}
@@ -4256,7 +4299,7 @@ const char* CMsgBattleReport_Highlight::_InternalParse(const char* ptr, ::_pbi::
         } else
           goto handle_unusual;
         continue;
-      // optional uint32 hero_id = 7;
+      // optional int32 hero_id = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 56)) {
           _Internal::set_has_hero_id(&has_bits);
@@ -4370,10 +4413,10 @@ uint8_t* CMsgBattleReport_Highlight::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteFloatToArray(6, this->_internal_confidence(), target);
   }
 
-  // optional uint32 hero_id = 7;
+  // optional int32 hero_id = 7;
   if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(7, this->_internal_hero_id(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(7, this->_internal_hero_id(), target);
   }
 
   // optional .CMsgBattleReport_Role role = 8 [default = k_eUnknownRole];
@@ -4458,9 +4501,9 @@ size_t CMsgBattleReport_Highlight::ByteSizeLong() const {
       total_size += 1 + 4;
     }
 
-    // optional uint32 hero_id = 7;
+    // optional int32 hero_id = 7;
     if (cached_has_bits & 0x00000020u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_hero_id());
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_hero_id());
     }
 
     // optional float comparison_delta_value = 9;
@@ -4886,7 +4929,7 @@ inline void CMsgBattleReportInfo::SharedCtor(
     , decltype(_impl_.timestamp_){0u}
     , decltype(_impl_.duration_){0u}
     , decltype(_impl_.acknowledged_){false}
-    , decltype(_impl_.featured_hero_id_){0u}
+    , decltype(_impl_.featured_hero_id_){0}
     , decltype(_impl_.featured_position_){0u}
     , decltype(_impl_.games_played_){0u}
   };
@@ -4961,7 +5004,7 @@ const char* CMsgBattleReportInfo::_InternalParse(const char* ptr, ::_pbi::ParseC
         } else
           goto handle_unusual;
         continue;
-      // optional uint32 featured_hero_id = 4;
+      // optional int32 featured_hero_id = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
           _Internal::set_has_featured_hero_id(&has_bits);
@@ -5053,10 +5096,10 @@ uint8_t* CMsgBattleReportInfo::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteBoolToArray(3, this->_internal_acknowledged(), target);
   }
 
-  // optional uint32 featured_hero_id = 4;
+  // optional int32 featured_hero_id = 4;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(4, this->_internal_featured_hero_id(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(4, this->_internal_featured_hero_id(), target);
   }
 
   // optional uint32 featured_position = 5;
@@ -5119,9 +5162,9 @@ size_t CMsgBattleReportInfo::ByteSizeLong() const {
       total_size += 1 + 1;
     }
 
-    // optional uint32 featured_hero_id = 4;
+    // optional int32 featured_hero_id = 4;
     if (cached_has_bits & 0x00000008u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_featured_hero_id());
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_featured_hero_id());
     }
 
     // optional uint32 featured_position = 5;
@@ -6210,7 +6253,7 @@ inline void CMsgBattleReportAggregateStats_CMsgBattleReportAggregate::SharedCtor
     , decltype(_impl_.stun_duration_){nullptr}
     , decltype(_impl_.duration_){nullptr}
     , decltype(_impl_.friendly_roshan_kills_){nullptr}
-    , decltype(_impl_.hero_id_){0u}
+    , decltype(_impl_.hero_id_){0}
     , decltype(_impl_.predicted_position_){0u}
     , decltype(_impl_.game_count_){0u}
     , decltype(_impl_.win_count_){0u}
@@ -6396,7 +6439,7 @@ const char* CMsgBattleReportAggregateStats_CMsgBattleReportAggregate::_InternalP
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional uint32 hero_id = 1;
+      // optional int32 hero_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_hero_id(&has_bits);
@@ -6680,10 +6723,10 @@ uint8_t* CMsgBattleReportAggregateStats_CMsgBattleReportAggregate::_InternalSeri
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional uint32 hero_id = 1;
+  // optional int32 hero_id = 1;
   if (cached_has_bits & 0x04000000u) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_hero_id(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_hero_id(), target);
   }
 
   // optional uint32 predicted_position = 2;
@@ -7098,9 +7141,9 @@ size_t CMsgBattleReportAggregateStats_CMsgBattleReportAggregate::ByteSizeLong() 
           *_impl_.friendly_roshan_kills_);
     }
 
-    // optional uint32 hero_id = 1;
+    // optional int32 hero_id = 1;
     if (cached_has_bits & 0x04000000u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_hero_id());
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_hero_id());
     }
 
     // optional uint32 predicted_position = 2;
@@ -7916,7 +7959,7 @@ inline void CMsgClientToGCGetBattleReportAggregateStats_CMsgBattleReportAggregat
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.hero_id_){0u}
+    , decltype(_impl_.hero_id_){0}
     , decltype(_impl_.predicted_position_){0u}
   };
 }
@@ -7961,7 +8004,7 @@ const char* CMsgClientToGCGetBattleReportAggregateStats_CMsgBattleReportAggregat
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional uint32 hero_id = 1;
+      // optional int32 hero_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_hero_id(&has_bits);
@@ -8010,10 +8053,10 @@ uint8_t* CMsgClientToGCGetBattleReportAggregateStats_CMsgBattleReportAggregateKe
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional uint32 hero_id = 1;
+  // optional int32 hero_id = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_hero_id(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_hero_id(), target);
   }
 
   // optional uint32 predicted_position = 2;
@@ -8040,9 +8083,9 @@ size_t CMsgClientToGCGetBattleReportAggregateStats_CMsgBattleReportAggregateKey:
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional uint32 hero_id = 1;
+    // optional int32 hero_id = 1;
     if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_hero_id());
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_hero_id());
     }
 
     // optional uint32 predicted_position = 2;

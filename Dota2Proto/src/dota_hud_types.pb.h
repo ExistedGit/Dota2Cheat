@@ -98,7 +98,7 @@ inline bool EHeroSelectionText_Parse(
 
 // ===================================================================
 
-static const int kHudLocalizeTokenFieldNumber = 50501;
+static const int kHudLocalizeTokenFieldNumber = 51501;
 extern ::PROTOBUF_NAMESPACE_ID::internal::ExtensionIdentifier< ::PROTOBUF_NAMESPACE_ID::EnumValueOptions,
     ::PROTOBUF_NAMESPACE_ID::internal::StringTypeTraits, 9, false >
   hud_localize_token;

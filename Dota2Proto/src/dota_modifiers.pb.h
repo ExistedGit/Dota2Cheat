@@ -229,12 +229,13 @@ class CDOTAModifierBuffTableEntry final :
     kFadeTimeFieldNumber = 13,
     kChannelTimeFieldNumber = 15,
     kMovementSpeedFieldNumber = 22,
-    kSubtleFieldNumber = 14,
-    kAuraFieldNumber = 23,
-    kActiveFieldNumber = 30,
     kActivityFieldNumber = 24,
     kDamageFieldNumber = 25,
     kRangeFieldNumber = 26,
+    kSubtleFieldNumber = 14,
+    kAuraFieldNumber = 23,
+    kActiveFieldNumber = 30,
+    kAuraWithinRangeFieldNumber = 39,
     kDdModifierIndexFieldNumber = 27,
     kAttackSpeedFieldNumber = 33,
     kBonusAllStatsFieldNumber = 35,
@@ -339,7 +340,7 @@ class CDOTAModifierBuffTableEntry final :
   std::string* _internal_mutable_illusion_label();
   public:
 
-  // optional string player_ids = 31 [default = "-1"];
+  // optional string player_ids = 31;
   bool has_player_ids() const;
   private:
   bool _internal_has_player_ids() const;
@@ -541,6 +542,45 @@ class CDOTAModifierBuffTableEntry final :
   void _internal_set_movement_speed(int32_t value);
   public:
 
+  // optional int32 activity = 24;
+  bool has_activity() const;
+  private:
+  bool _internal_has_activity() const;
+  public:
+  void clear_activity();
+  int32_t activity() const;
+  void set_activity(int32_t value);
+  private:
+  int32_t _internal_activity() const;
+  void _internal_set_activity(int32_t value);
+  public:
+
+  // optional int32 damage = 25;
+  bool has_damage() const;
+  private:
+  bool _internal_has_damage() const;
+  public:
+  void clear_damage();
+  int32_t damage() const;
+  void set_damage(int32_t value);
+  private:
+  int32_t _internal_damage() const;
+  void _internal_set_damage(int32_t value);
+  public:
+
+  // optional int32 range = 26;
+  bool has_range() const;
+  private:
+  bool _internal_has_range() const;
+  public:
+  void clear_range();
+  int32_t range() const;
+  void set_range(int32_t value);
+  private:
+  int32_t _internal_range() const;
+  void _internal_set_range(int32_t value);
+  public:
+
   // optional bool subtle = 14;
   bool has_subtle() const;
   private:
@@ -580,43 +620,17 @@ class CDOTAModifierBuffTableEntry final :
   void _internal_set_active(bool value);
   public:
 
-  // optional int32 activity = 24;
-  bool has_activity() const;
+  // optional bool aura_within_range = 39;
+  bool has_aura_within_range() const;
   private:
-  bool _internal_has_activity() const;
+  bool _internal_has_aura_within_range() const;
   public:
-  void clear_activity();
-  int32_t activity() const;
-  void set_activity(int32_t value);
+  void clear_aura_within_range();
+  bool aura_within_range() const;
+  void set_aura_within_range(bool value);
   private:
-  int32_t _internal_activity() const;
-  void _internal_set_activity(int32_t value);
-  public:
-
-  // optional int32 damage = 25;
-  bool has_damage() const;
-  private:
-  bool _internal_has_damage() const;
-  public:
-  void clear_damage();
-  int32_t damage() const;
-  void set_damage(int32_t value);
-  private:
-  int32_t _internal_damage() const;
-  void _internal_set_damage(int32_t value);
-  public:
-
-  // optional int32 range = 26;
-  bool has_range() const;
-  private:
-  bool _internal_has_range() const;
-  public:
-  void clear_range();
-  int32_t range() const;
-  void set_range(int32_t value);
-  private:
-  int32_t _internal_range() const;
-  void _internal_set_range(int32_t value);
+  bool _internal_aura_within_range() const;
+  void _internal_set_aura_within_range(bool value);
   public:
 
   // optional int32 dd_modifier_index = 27;
@@ -806,7 +820,6 @@ class CDOTAModifierBuffTableEntry final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr hero_loop_appear_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr hero_loop_disappear_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr illusion_label_;
-    static const ::PROTOBUF_NAMESPACE_ID::internal::LazyString _i_give_permission_to_break_this_code_default_player_ids_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr player_ids_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr lua_name_;
     ::CMsgVector* v_start_;
@@ -821,12 +834,13 @@ class CDOTAModifierBuffTableEntry final :
     float fade_time_;
     float channel_time_;
     int32_t movement_speed_;
-    bool subtle_;
-    bool aura_;
-    bool active_;
     int32_t activity_;
     int32_t damage_;
     int32_t range_;
+    bool subtle_;
+    bool aura_;
+    bool active_;
+    bool aura_within_range_;
     int32_t dd_modifier_index_;
     int32_t attack_speed_;
     int32_t bonus_all_stats_;
@@ -1040,7 +1054,7 @@ class CDOTALuaModifierEntry final :
 
 // required .DOTA_MODIFIER_ENTRY_TYPE entry_type = 1 [default = DOTA_MODIFIER_ENTRY_TYPE_ACTIVE];
 inline bool CDOTAModifierBuffTableEntry::_internal_has_entry_type() const {
-  bool value = (_impl_._has_bits_[0] & 0x40000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x80000000u) != 0;
   return value;
 }
 inline bool CDOTAModifierBuffTableEntry::has_entry_type() const {
@@ -1048,7 +1062,7 @@ inline bool CDOTAModifierBuffTableEntry::has_entry_type() const {
 }
 inline void CDOTAModifierBuffTableEntry::clear_entry_type() {
   _impl_.entry_type_ = 1;
-  _impl_._has_bits_[0] &= ~0x40000000u;
+  _impl_._has_bits_[0] &= ~0x80000000u;
 }
 inline ::DOTA_MODIFIER_ENTRY_TYPE CDOTAModifierBuffTableEntry::_internal_entry_type() const {
   return static_cast< ::DOTA_MODIFIER_ENTRY_TYPE >(_impl_.entry_type_);
@@ -1059,7 +1073,7 @@ inline ::DOTA_MODIFIER_ENTRY_TYPE CDOTAModifierBuffTableEntry::entry_type() cons
 }
 inline void CDOTAModifierBuffTableEntry::_internal_set_entry_type(::DOTA_MODIFIER_ENTRY_TYPE value) {
   assert(::DOTA_MODIFIER_ENTRY_TYPE_IsValid(value));
-  _impl_._has_bits_[0] |= 0x40000000u;
+  _impl_._has_bits_[0] |= 0x80000000u;
   _impl_.entry_type_ = value;
 }
 inline void CDOTAModifierBuffTableEntry::set_entry_type(::DOTA_MODIFIER_ENTRY_TYPE value) {
@@ -1069,7 +1083,7 @@ inline void CDOTAModifierBuffTableEntry::set_entry_type(::DOTA_MODIFIER_ENTRY_TY
 
 // required uint32 parent = 2 [default = 16777215];
 inline bool CDOTAModifierBuffTableEntry::_internal_has_parent() const {
-  bool value = (_impl_._has_bits_[0] & 0x80000000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000001u) != 0;
   return value;
 }
 inline bool CDOTAModifierBuffTableEntry::has_parent() const {
@@ -1077,7 +1091,7 @@ inline bool CDOTAModifierBuffTableEntry::has_parent() const {
 }
 inline void CDOTAModifierBuffTableEntry::clear_parent() {
   _impl_.parent_ = 16777215u;
-  _impl_._has_bits_[0] &= ~0x80000000u;
+  _impl_._has_bits_[1] &= ~0x00000001u;
 }
 inline uint32_t CDOTAModifierBuffTableEntry::_internal_parent() const {
   return _impl_.parent_;
@@ -1087,7 +1101,7 @@ inline uint32_t CDOTAModifierBuffTableEntry::parent() const {
   return _internal_parent();
 }
 inline void CDOTAModifierBuffTableEntry::_internal_set_parent(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x80000000u;
+  _impl_._has_bits_[1] |= 0x00000001u;
   _impl_.parent_ = value;
 }
 inline void CDOTAModifierBuffTableEntry::set_parent(uint32_t value) {
@@ -1265,7 +1279,7 @@ inline void CDOTAModifierBuffTableEntry::set_creation_time(float value) {
 
 // optional float duration = 9 [default = -1];
 inline bool CDOTAModifierBuffTableEntry::_internal_has_duration() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAModifierBuffTableEntry::has_duration() const {
@@ -1273,7 +1287,7 @@ inline bool CDOTAModifierBuffTableEntry::has_duration() const {
 }
 inline void CDOTAModifierBuffTableEntry::clear_duration() {
   _impl_.duration_ = -1;
-  _impl_._has_bits_[1] &= ~0x00000001u;
+  _impl_._has_bits_[1] &= ~0x00000002u;
 }
 inline float CDOTAModifierBuffTableEntry::_internal_duration() const {
   return _impl_.duration_;
@@ -1283,7 +1297,7 @@ inline float CDOTAModifierBuffTableEntry::duration() const {
   return _internal_duration();
 }
 inline void CDOTAModifierBuffTableEntry::_internal_set_duration(float value) {
-  _impl_._has_bits_[1] |= 0x00000001u;
+  _impl_._has_bits_[1] |= 0x00000002u;
   _impl_.duration_ = value;
 }
 inline void CDOTAModifierBuffTableEntry::set_duration(float value) {
@@ -1293,7 +1307,7 @@ inline void CDOTAModifierBuffTableEntry::set_duration(float value) {
 
 // optional uint32 caster = 10 [default = 16777215];
 inline bool CDOTAModifierBuffTableEntry::_internal_has_caster() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAModifierBuffTableEntry::has_caster() const {
@@ -1301,7 +1315,7 @@ inline bool CDOTAModifierBuffTableEntry::has_caster() const {
 }
 inline void CDOTAModifierBuffTableEntry::clear_caster() {
   _impl_.caster_ = 16777215u;
-  _impl_._has_bits_[1] &= ~0x00000002u;
+  _impl_._has_bits_[1] &= ~0x00000004u;
 }
 inline uint32_t CDOTAModifierBuffTableEntry::_internal_caster() const {
   return _impl_.caster_;
@@ -1311,7 +1325,7 @@ inline uint32_t CDOTAModifierBuffTableEntry::caster() const {
   return _internal_caster();
 }
 inline void CDOTAModifierBuffTableEntry::_internal_set_caster(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000002u;
+  _impl_._has_bits_[1] |= 0x00000004u;
   _impl_.caster_ = value;
 }
 inline void CDOTAModifierBuffTableEntry::set_caster(uint32_t value) {
@@ -1321,7 +1335,7 @@ inline void CDOTAModifierBuffTableEntry::set_caster(uint32_t value) {
 
 // optional uint32 ability = 11 [default = 16777215];
 inline bool CDOTAModifierBuffTableEntry::_internal_has_ability() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000008u) != 0;
   return value;
 }
 inline bool CDOTAModifierBuffTableEntry::has_ability() const {
@@ -1329,7 +1343,7 @@ inline bool CDOTAModifierBuffTableEntry::has_ability() const {
 }
 inline void CDOTAModifierBuffTableEntry::clear_ability() {
   _impl_.ability_ = 16777215u;
-  _impl_._has_bits_[1] &= ~0x00000004u;
+  _impl_._has_bits_[1] &= ~0x00000008u;
 }
 inline uint32_t CDOTAModifierBuffTableEntry::_internal_ability() const {
   return _impl_.ability_;
@@ -1339,7 +1353,7 @@ inline uint32_t CDOTAModifierBuffTableEntry::ability() const {
   return _internal_ability();
 }
 inline void CDOTAModifierBuffTableEntry::_internal_set_ability(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000004u;
+  _impl_._has_bits_[1] |= 0x00000008u;
   _impl_.ability_ = value;
 }
 inline void CDOTAModifierBuffTableEntry::set_ability(uint32_t value) {
@@ -1405,7 +1419,7 @@ inline void CDOTAModifierBuffTableEntry::set_fade_time(float value) {
 
 // optional bool subtle = 14;
 inline bool CDOTAModifierBuffTableEntry::_internal_has_subtle() const {
-  bool value = (_impl_._has_bits_[0] & 0x00080000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00400000u) != 0;
   return value;
 }
 inline bool CDOTAModifierBuffTableEntry::has_subtle() const {
@@ -1413,7 +1427,7 @@ inline bool CDOTAModifierBuffTableEntry::has_subtle() const {
 }
 inline void CDOTAModifierBuffTableEntry::clear_subtle() {
   _impl_.subtle_ = false;
-  _impl_._has_bits_[0] &= ~0x00080000u;
+  _impl_._has_bits_[0] &= ~0x00400000u;
 }
 inline bool CDOTAModifierBuffTableEntry::_internal_subtle() const {
   return _impl_.subtle_;
@@ -1423,7 +1437,7 @@ inline bool CDOTAModifierBuffTableEntry::subtle() const {
   return _internal_subtle();
 }
 inline void CDOTAModifierBuffTableEntry::_internal_set_subtle(bool value) {
-  _impl_._has_bits_[0] |= 0x00080000u;
+  _impl_._has_bits_[0] |= 0x00400000u;
   _impl_.subtle_ = value;
 }
 inline void CDOTAModifierBuffTableEntry::set_subtle(bool value) {
@@ -1935,7 +1949,7 @@ inline void CDOTAModifierBuffTableEntry::set_movement_speed(int32_t value) {
 
 // optional bool aura = 23;
 inline bool CDOTAModifierBuffTableEntry::_internal_has_aura() const {
-  bool value = (_impl_._has_bits_[0] & 0x00100000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00800000u) != 0;
   return value;
 }
 inline bool CDOTAModifierBuffTableEntry::has_aura() const {
@@ -1943,7 +1957,7 @@ inline bool CDOTAModifierBuffTableEntry::has_aura() const {
 }
 inline void CDOTAModifierBuffTableEntry::clear_aura() {
   _impl_.aura_ = false;
-  _impl_._has_bits_[0] &= ~0x00100000u;
+  _impl_._has_bits_[0] &= ~0x00800000u;
 }
 inline bool CDOTAModifierBuffTableEntry::_internal_aura() const {
   return _impl_.aura_;
@@ -1953,7 +1967,7 @@ inline bool CDOTAModifierBuffTableEntry::aura() const {
   return _internal_aura();
 }
 inline void CDOTAModifierBuffTableEntry::_internal_set_aura(bool value) {
-  _impl_._has_bits_[0] |= 0x00100000u;
+  _impl_._has_bits_[0] |= 0x00800000u;
   _impl_.aura_ = value;
 }
 inline void CDOTAModifierBuffTableEntry::set_aura(bool value) {
@@ -1963,7 +1977,7 @@ inline void CDOTAModifierBuffTableEntry::set_aura(bool value) {
 
 // optional int32 activity = 24;
 inline bool CDOTAModifierBuffTableEntry::_internal_has_activity() const {
-  bool value = (_impl_._has_bits_[0] & 0x00400000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00080000u) != 0;
   return value;
 }
 inline bool CDOTAModifierBuffTableEntry::has_activity() const {
@@ -1971,7 +1985,7 @@ inline bool CDOTAModifierBuffTableEntry::has_activity() const {
 }
 inline void CDOTAModifierBuffTableEntry::clear_activity() {
   _impl_.activity_ = 0;
-  _impl_._has_bits_[0] &= ~0x00400000u;
+  _impl_._has_bits_[0] &= ~0x00080000u;
 }
 inline int32_t CDOTAModifierBuffTableEntry::_internal_activity() const {
   return _impl_.activity_;
@@ -1981,7 +1995,7 @@ inline int32_t CDOTAModifierBuffTableEntry::activity() const {
   return _internal_activity();
 }
 inline void CDOTAModifierBuffTableEntry::_internal_set_activity(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00400000u;
+  _impl_._has_bits_[0] |= 0x00080000u;
   _impl_.activity_ = value;
 }
 inline void CDOTAModifierBuffTableEntry::set_activity(int32_t value) {
@@ -1991,7 +2005,7 @@ inline void CDOTAModifierBuffTableEntry::set_activity(int32_t value) {
 
 // optional int32 damage = 25;
 inline bool CDOTAModifierBuffTableEntry::_internal_has_damage() const {
-  bool value = (_impl_._has_bits_[0] & 0x00800000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00100000u) != 0;
   return value;
 }
 inline bool CDOTAModifierBuffTableEntry::has_damage() const {
@@ -1999,7 +2013,7 @@ inline bool CDOTAModifierBuffTableEntry::has_damage() const {
 }
 inline void CDOTAModifierBuffTableEntry::clear_damage() {
   _impl_.damage_ = 0;
-  _impl_._has_bits_[0] &= ~0x00800000u;
+  _impl_._has_bits_[0] &= ~0x00100000u;
 }
 inline int32_t CDOTAModifierBuffTableEntry::_internal_damage() const {
   return _impl_.damage_;
@@ -2009,7 +2023,7 @@ inline int32_t CDOTAModifierBuffTableEntry::damage() const {
   return _internal_damage();
 }
 inline void CDOTAModifierBuffTableEntry::_internal_set_damage(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00800000u;
+  _impl_._has_bits_[0] |= 0x00100000u;
   _impl_.damage_ = value;
 }
 inline void CDOTAModifierBuffTableEntry::set_damage(int32_t value) {
@@ -2019,7 +2033,7 @@ inline void CDOTAModifierBuffTableEntry::set_damage(int32_t value) {
 
 // optional int32 range = 26;
 inline bool CDOTAModifierBuffTableEntry::_internal_has_range() const {
-  bool value = (_impl_._has_bits_[0] & 0x01000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00200000u) != 0;
   return value;
 }
 inline bool CDOTAModifierBuffTableEntry::has_range() const {
@@ -2027,7 +2041,7 @@ inline bool CDOTAModifierBuffTableEntry::has_range() const {
 }
 inline void CDOTAModifierBuffTableEntry::clear_range() {
   _impl_.range_ = 0;
-  _impl_._has_bits_[0] &= ~0x01000000u;
+  _impl_._has_bits_[0] &= ~0x00200000u;
 }
 inline int32_t CDOTAModifierBuffTableEntry::_internal_range() const {
   return _impl_.range_;
@@ -2037,7 +2051,7 @@ inline int32_t CDOTAModifierBuffTableEntry::range() const {
   return _internal_range();
 }
 inline void CDOTAModifierBuffTableEntry::_internal_set_range(int32_t value) {
-  _impl_._has_bits_[0] |= 0x01000000u;
+  _impl_._has_bits_[0] |= 0x00200000u;
   _impl_.range_ = value;
 }
 inline void CDOTAModifierBuffTableEntry::set_range(int32_t value) {
@@ -2047,7 +2061,7 @@ inline void CDOTAModifierBuffTableEntry::set_range(int32_t value) {
 
 // optional int32 dd_modifier_index = 27;
 inline bool CDOTAModifierBuffTableEntry::_internal_has_dd_modifier_index() const {
-  bool value = (_impl_._has_bits_[0] & 0x02000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x04000000u) != 0;
   return value;
 }
 inline bool CDOTAModifierBuffTableEntry::has_dd_modifier_index() const {
@@ -2055,7 +2069,7 @@ inline bool CDOTAModifierBuffTableEntry::has_dd_modifier_index() const {
 }
 inline void CDOTAModifierBuffTableEntry::clear_dd_modifier_index() {
   _impl_.dd_modifier_index_ = 0;
-  _impl_._has_bits_[0] &= ~0x02000000u;
+  _impl_._has_bits_[0] &= ~0x04000000u;
 }
 inline int32_t CDOTAModifierBuffTableEntry::_internal_dd_modifier_index() const {
   return _impl_.dd_modifier_index_;
@@ -2065,7 +2079,7 @@ inline int32_t CDOTAModifierBuffTableEntry::dd_modifier_index() const {
   return _internal_dd_modifier_index();
 }
 inline void CDOTAModifierBuffTableEntry::_internal_set_dd_modifier_index(int32_t value) {
-  _impl_._has_bits_[0] |= 0x02000000u;
+  _impl_._has_bits_[0] |= 0x04000000u;
   _impl_.dd_modifier_index_ = value;
 }
 inline void CDOTAModifierBuffTableEntry::set_dd_modifier_index(int32_t value) {
@@ -2075,7 +2089,7 @@ inline void CDOTAModifierBuffTableEntry::set_dd_modifier_index(int32_t value) {
 
 // optional int32 dd_ability_id = 28 [default = -1];
 inline bool CDOTAModifierBuffTableEntry::_internal_has_dd_ability_id() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000010u) != 0;
   return value;
 }
 inline bool CDOTAModifierBuffTableEntry::has_dd_ability_id() const {
@@ -2083,7 +2097,7 @@ inline bool CDOTAModifierBuffTableEntry::has_dd_ability_id() const {
 }
 inline void CDOTAModifierBuffTableEntry::clear_dd_ability_id() {
   _impl_.dd_ability_id_ = -1;
-  _impl_._has_bits_[1] &= ~0x00000008u;
+  _impl_._has_bits_[1] &= ~0x00000010u;
 }
 inline int32_t CDOTAModifierBuffTableEntry::_internal_dd_ability_id() const {
   return _impl_.dd_ability_id_;
@@ -2093,7 +2107,7 @@ inline int32_t CDOTAModifierBuffTableEntry::dd_ability_id() const {
   return _internal_dd_ability_id();
 }
 inline void CDOTAModifierBuffTableEntry::_internal_set_dd_ability_id(int32_t value) {
-  _impl_._has_bits_[1] |= 0x00000008u;
+  _impl_._has_bits_[1] |= 0x00000010u;
   _impl_.dd_ability_id_ = value;
 }
 inline void CDOTAModifierBuffTableEntry::set_dd_ability_id(int32_t value) {
@@ -2171,7 +2185,7 @@ inline void CDOTAModifierBuffTableEntry::set_allocated_illusion_label(std::strin
 
 // optional bool active = 30;
 inline bool CDOTAModifierBuffTableEntry::_internal_has_active() const {
-  bool value = (_impl_._has_bits_[0] & 0x00200000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x01000000u) != 0;
   return value;
 }
 inline bool CDOTAModifierBuffTableEntry::has_active() const {
@@ -2179,7 +2193,7 @@ inline bool CDOTAModifierBuffTableEntry::has_active() const {
 }
 inline void CDOTAModifierBuffTableEntry::clear_active() {
   _impl_.active_ = false;
-  _impl_._has_bits_[0] &= ~0x00200000u;
+  _impl_._has_bits_[0] &= ~0x01000000u;
 }
 inline bool CDOTAModifierBuffTableEntry::_internal_active() const {
   return _impl_.active_;
@@ -2189,7 +2203,7 @@ inline bool CDOTAModifierBuffTableEntry::active() const {
   return _internal_active();
 }
 inline void CDOTAModifierBuffTableEntry::_internal_set_active(bool value) {
-  _impl_._has_bits_[0] |= 0x00200000u;
+  _impl_._has_bits_[0] |= 0x01000000u;
   _impl_.active_ = value;
 }
 inline void CDOTAModifierBuffTableEntry::set_active(bool value) {
@@ -2197,7 +2211,7 @@ inline void CDOTAModifierBuffTableEntry::set_active(bool value) {
   // @@protoc_insertion_point(field_set:CDOTAModifierBuffTableEntry.active)
 }
 
-// optional string player_ids = 31 [default = "-1"];
+// optional string player_ids = 31;
 inline bool CDOTAModifierBuffTableEntry::_internal_has_player_ids() const {
   bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -2206,12 +2220,11 @@ inline bool CDOTAModifierBuffTableEntry::has_player_ids() const {
   return _internal_has_player_ids();
 }
 inline void CDOTAModifierBuffTableEntry::clear_player_ids() {
-  _impl_.player_ids_.ClearToDefault(::CDOTAModifierBuffTableEntry::Impl_::_i_give_permission_to_break_this_code_default_player_ids_, GetArenaForAllocation());
+  _impl_.player_ids_.ClearToEmpty();
   _impl_._has_bits_[0] &= ~0x00000020u;
 }
 inline const std::string& CDOTAModifierBuffTableEntry::player_ids() const {
   // @@protoc_insertion_point(field_get:CDOTAModifierBuffTableEntry.player_ids)
-  if (_impl_.player_ids_.IsDefault()) return Impl_::_i_give_permission_to_break_this_code_default_player_ids_.get();
   return _internal_player_ids();
 }
 template <typename ArgT0, typename... ArgT>
@@ -2235,7 +2248,7 @@ inline void CDOTAModifierBuffTableEntry::_internal_set_player_ids(const std::str
 }
 inline std::string* CDOTAModifierBuffTableEntry::_internal_mutable_player_ids() {
   _impl_._has_bits_[0] |= 0x00000020u;
-  return _impl_.player_ids_.Mutable(::CDOTAModifierBuffTableEntry::Impl_::_i_give_permission_to_break_this_code_default_player_ids_, GetArenaForAllocation());
+  return _impl_.player_ids_.Mutable(GetArenaForAllocation());
 }
 inline std::string* CDOTAModifierBuffTableEntry::release_player_ids() {
   // @@protoc_insertion_point(field_release:CDOTAModifierBuffTableEntry.player_ids)
@@ -2244,6 +2257,11 @@ inline std::string* CDOTAModifierBuffTableEntry::release_player_ids() {
   }
   _impl_._has_bits_[0] &= ~0x00000020u;
   auto* p = _impl_.player_ids_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.player_ids_.IsDefault()) {
+    _impl_.player_ids_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   return p;
 }
 inline void CDOTAModifierBuffTableEntry::set_allocated_player_ids(std::string* player_ids) {
@@ -2253,6 +2271,11 @@ inline void CDOTAModifierBuffTableEntry::set_allocated_player_ids(std::string* p
     _impl_._has_bits_[0] &= ~0x00000020u;
   }
   _impl_.player_ids_.SetAllocated(player_ids, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.player_ids_.IsDefault()) {
+    _impl_.player_ids_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:CDOTAModifierBuffTableEntry.player_ids)
 }
 
@@ -2326,7 +2349,7 @@ inline void CDOTAModifierBuffTableEntry::set_allocated_lua_name(std::string* lua
 
 // optional int32 attack_speed = 33;
 inline bool CDOTAModifierBuffTableEntry::_internal_has_attack_speed() const {
-  bool value = (_impl_._has_bits_[0] & 0x04000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x08000000u) != 0;
   return value;
 }
 inline bool CDOTAModifierBuffTableEntry::has_attack_speed() const {
@@ -2334,7 +2357,7 @@ inline bool CDOTAModifierBuffTableEntry::has_attack_speed() const {
 }
 inline void CDOTAModifierBuffTableEntry::clear_attack_speed() {
   _impl_.attack_speed_ = 0;
-  _impl_._has_bits_[0] &= ~0x04000000u;
+  _impl_._has_bits_[0] &= ~0x08000000u;
 }
 inline int32_t CDOTAModifierBuffTableEntry::_internal_attack_speed() const {
   return _impl_.attack_speed_;
@@ -2344,7 +2367,7 @@ inline int32_t CDOTAModifierBuffTableEntry::attack_speed() const {
   return _internal_attack_speed();
 }
 inline void CDOTAModifierBuffTableEntry::_internal_set_attack_speed(int32_t value) {
-  _impl_._has_bits_[0] |= 0x04000000u;
+  _impl_._has_bits_[0] |= 0x08000000u;
   _impl_.attack_speed_ = value;
 }
 inline void CDOTAModifierBuffTableEntry::set_attack_speed(int32_t value) {
@@ -2354,7 +2377,7 @@ inline void CDOTAModifierBuffTableEntry::set_attack_speed(int32_t value) {
 
 // optional uint32 aura_owner = 34 [default = 16777215];
 inline bool CDOTAModifierBuffTableEntry::_internal_has_aura_owner() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000020u) != 0;
   return value;
 }
 inline bool CDOTAModifierBuffTableEntry::has_aura_owner() const {
@@ -2362,7 +2385,7 @@ inline bool CDOTAModifierBuffTableEntry::has_aura_owner() const {
 }
 inline void CDOTAModifierBuffTableEntry::clear_aura_owner() {
   _impl_.aura_owner_ = 16777215u;
-  _impl_._has_bits_[1] &= ~0x00000010u;
+  _impl_._has_bits_[1] &= ~0x00000020u;
 }
 inline uint32_t CDOTAModifierBuffTableEntry::_internal_aura_owner() const {
   return _impl_.aura_owner_;
@@ -2372,7 +2395,7 @@ inline uint32_t CDOTAModifierBuffTableEntry::aura_owner() const {
   return _internal_aura_owner();
 }
 inline void CDOTAModifierBuffTableEntry::_internal_set_aura_owner(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000010u;
+  _impl_._has_bits_[1] |= 0x00000020u;
   _impl_.aura_owner_ = value;
 }
 inline void CDOTAModifierBuffTableEntry::set_aura_owner(uint32_t value) {
@@ -2382,7 +2405,7 @@ inline void CDOTAModifierBuffTableEntry::set_aura_owner(uint32_t value) {
 
 // optional int32 bonus_all_stats = 35;
 inline bool CDOTAModifierBuffTableEntry::_internal_has_bonus_all_stats() const {
-  bool value = (_impl_._has_bits_[0] & 0x08000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x10000000u) != 0;
   return value;
 }
 inline bool CDOTAModifierBuffTableEntry::has_bonus_all_stats() const {
@@ -2390,7 +2413,7 @@ inline bool CDOTAModifierBuffTableEntry::has_bonus_all_stats() const {
 }
 inline void CDOTAModifierBuffTableEntry::clear_bonus_all_stats() {
   _impl_.bonus_all_stats_ = 0;
-  _impl_._has_bits_[0] &= ~0x08000000u;
+  _impl_._has_bits_[0] &= ~0x10000000u;
 }
 inline int32_t CDOTAModifierBuffTableEntry::_internal_bonus_all_stats() const {
   return _impl_.bonus_all_stats_;
@@ -2400,7 +2423,7 @@ inline int32_t CDOTAModifierBuffTableEntry::bonus_all_stats() const {
   return _internal_bonus_all_stats();
 }
 inline void CDOTAModifierBuffTableEntry::_internal_set_bonus_all_stats(int32_t value) {
-  _impl_._has_bits_[0] |= 0x08000000u;
+  _impl_._has_bits_[0] |= 0x10000000u;
   _impl_.bonus_all_stats_ = value;
 }
 inline void CDOTAModifierBuffTableEntry::set_bonus_all_stats(int32_t value) {
@@ -2410,7 +2433,7 @@ inline void CDOTAModifierBuffTableEntry::set_bonus_all_stats(int32_t value) {
 
 // optional int32 bonus_health = 36;
 inline bool CDOTAModifierBuffTableEntry::_internal_has_bonus_health() const {
-  bool value = (_impl_._has_bits_[0] & 0x10000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x20000000u) != 0;
   return value;
 }
 inline bool CDOTAModifierBuffTableEntry::has_bonus_health() const {
@@ -2418,7 +2441,7 @@ inline bool CDOTAModifierBuffTableEntry::has_bonus_health() const {
 }
 inline void CDOTAModifierBuffTableEntry::clear_bonus_health() {
   _impl_.bonus_health_ = 0;
-  _impl_._has_bits_[0] &= ~0x10000000u;
+  _impl_._has_bits_[0] &= ~0x20000000u;
 }
 inline int32_t CDOTAModifierBuffTableEntry::_internal_bonus_health() const {
   return _impl_.bonus_health_;
@@ -2428,7 +2451,7 @@ inline int32_t CDOTAModifierBuffTableEntry::bonus_health() const {
   return _internal_bonus_health();
 }
 inline void CDOTAModifierBuffTableEntry::_internal_set_bonus_health(int32_t value) {
-  _impl_._has_bits_[0] |= 0x10000000u;
+  _impl_._has_bits_[0] |= 0x20000000u;
   _impl_.bonus_health_ = value;
 }
 inline void CDOTAModifierBuffTableEntry::set_bonus_health(int32_t value) {
@@ -2438,7 +2461,7 @@ inline void CDOTAModifierBuffTableEntry::set_bonus_health(int32_t value) {
 
 // optional int32 bonus_mana = 37;
 inline bool CDOTAModifierBuffTableEntry::_internal_has_bonus_mana() const {
-  bool value = (_impl_._has_bits_[0] & 0x20000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x40000000u) != 0;
   return value;
 }
 inline bool CDOTAModifierBuffTableEntry::has_bonus_mana() const {
@@ -2446,7 +2469,7 @@ inline bool CDOTAModifierBuffTableEntry::has_bonus_mana() const {
 }
 inline void CDOTAModifierBuffTableEntry::clear_bonus_mana() {
   _impl_.bonus_mana_ = 0;
-  _impl_._has_bits_[0] &= ~0x20000000u;
+  _impl_._has_bits_[0] &= ~0x40000000u;
 }
 inline int32_t CDOTAModifierBuffTableEntry::_internal_bonus_mana() const {
   return _impl_.bonus_mana_;
@@ -2456,7 +2479,7 @@ inline int32_t CDOTAModifierBuffTableEntry::bonus_mana() const {
   return _internal_bonus_mana();
 }
 inline void CDOTAModifierBuffTableEntry::_internal_set_bonus_mana(int32_t value) {
-  _impl_._has_bits_[0] |= 0x20000000u;
+  _impl_._has_bits_[0] |= 0x40000000u;
   _impl_.bonus_mana_ = value;
 }
 inline void CDOTAModifierBuffTableEntry::set_bonus_mana(int32_t value) {
@@ -2466,7 +2489,7 @@ inline void CDOTAModifierBuffTableEntry::set_bonus_mana(int32_t value) {
 
 // optional uint32 custom_entity = 38 [default = 16777215];
 inline bool CDOTAModifierBuffTableEntry::_internal_has_custom_entity() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000020u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000040u) != 0;
   return value;
 }
 inline bool CDOTAModifierBuffTableEntry::has_custom_entity() const {
@@ -2474,7 +2497,7 @@ inline bool CDOTAModifierBuffTableEntry::has_custom_entity() const {
 }
 inline void CDOTAModifierBuffTableEntry::clear_custom_entity() {
   _impl_.custom_entity_ = 16777215u;
-  _impl_._has_bits_[1] &= ~0x00000020u;
+  _impl_._has_bits_[1] &= ~0x00000040u;
 }
 inline uint32_t CDOTAModifierBuffTableEntry::_internal_custom_entity() const {
   return _impl_.custom_entity_;
@@ -2484,12 +2507,40 @@ inline uint32_t CDOTAModifierBuffTableEntry::custom_entity() const {
   return _internal_custom_entity();
 }
 inline void CDOTAModifierBuffTableEntry::_internal_set_custom_entity(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000020u;
+  _impl_._has_bits_[1] |= 0x00000040u;
   _impl_.custom_entity_ = value;
 }
 inline void CDOTAModifierBuffTableEntry::set_custom_entity(uint32_t value) {
   _internal_set_custom_entity(value);
   // @@protoc_insertion_point(field_set:CDOTAModifierBuffTableEntry.custom_entity)
+}
+
+// optional bool aura_within_range = 39;
+inline bool CDOTAModifierBuffTableEntry::_internal_has_aura_within_range() const {
+  bool value = (_impl_._has_bits_[0] & 0x02000000u) != 0;
+  return value;
+}
+inline bool CDOTAModifierBuffTableEntry::has_aura_within_range() const {
+  return _internal_has_aura_within_range();
+}
+inline void CDOTAModifierBuffTableEntry::clear_aura_within_range() {
+  _impl_.aura_within_range_ = false;
+  _impl_._has_bits_[0] &= ~0x02000000u;
+}
+inline bool CDOTAModifierBuffTableEntry::_internal_aura_within_range() const {
+  return _impl_.aura_within_range_;
+}
+inline bool CDOTAModifierBuffTableEntry::aura_within_range() const {
+  // @@protoc_insertion_point(field_get:CDOTAModifierBuffTableEntry.aura_within_range)
+  return _internal_aura_within_range();
+}
+inline void CDOTAModifierBuffTableEntry::_internal_set_aura_within_range(bool value) {
+  _impl_._has_bits_[0] |= 0x02000000u;
+  _impl_.aura_within_range_ = value;
+}
+inline void CDOTAModifierBuffTableEntry::set_aura_within_range(bool value) {
+  _internal_set_aura_within_range(value);
+  // @@protoc_insertion_point(field_set:CDOTAModifierBuffTableEntry.aura_within_range)
 }
 
 // -------------------------------------------------------------------

@@ -46,6 +46,18 @@ struct TableStruct_steammessages_5fsteamlearn_2esteamworkssdk_2eproto {
   static const uint32_t offsets[];
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fsteamlearn_2esteamworkssdk_2eproto;
+class CMsgSteamLearnAccessTokens;
+struct CMsgSteamLearnAccessTokensDefaultTypeInternal;
+extern CMsgSteamLearnAccessTokensDefaultTypeInternal _CMsgSteamLearnAccessTokens_default_instance_;
+class CMsgSteamLearnAccessTokens_CacheDataAccessToken;
+struct CMsgSteamLearnAccessTokens_CacheDataAccessTokenDefaultTypeInternal;
+extern CMsgSteamLearnAccessTokens_CacheDataAccessTokenDefaultTypeInternal _CMsgSteamLearnAccessTokens_CacheDataAccessToken_default_instance_;
+class CMsgSteamLearnAccessTokens_InferenceAccessToken;
+struct CMsgSteamLearnAccessTokens_InferenceAccessTokenDefaultTypeInternal;
+extern CMsgSteamLearnAccessTokens_InferenceAccessTokenDefaultTypeInternal _CMsgSteamLearnAccessTokens_InferenceAccessToken_default_instance_;
+class CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken;
+struct CMsgSteamLearnAccessTokens_SnapshotProjectAccessTokenDefaultTypeInternal;
+extern CMsgSteamLearnAccessTokens_SnapshotProjectAccessTokenDefaultTypeInternal _CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken_default_instance_;
 class CMsgSteamLearnData;
 struct CMsgSteamLearnDataDefaultTypeInternal;
 extern CMsgSteamLearnDataDefaultTypeInternal _CMsgSteamLearnData_default_instance_;
@@ -67,18 +79,6 @@ extern CMsgSteamLearnDataSourceDescElementDefaultTypeInternal _CMsgSteamLearnDat
 class CMsgSteamLearnDataSourceDescObject;
 struct CMsgSteamLearnDataSourceDescObjectDefaultTypeInternal;
 extern CMsgSteamLearnDataSourceDescObjectDefaultTypeInternal _CMsgSteamLearnDataSourceDescObject_default_instance_;
-class CMsgSteamLearnHMACKeys;
-struct CMsgSteamLearnHMACKeysDefaultTypeInternal;
-extern CMsgSteamLearnHMACKeysDefaultTypeInternal _CMsgSteamLearnHMACKeys_default_instance_;
-class CMsgSteamLearnHMACKeys_CacheDataKeys;
-struct CMsgSteamLearnHMACKeys_CacheDataKeysDefaultTypeInternal;
-extern CMsgSteamLearnHMACKeys_CacheDataKeysDefaultTypeInternal _CMsgSteamLearnHMACKeys_CacheDataKeys_default_instance_;
-class CMsgSteamLearnHMACKeys_SnapshotProjectKeys;
-struct CMsgSteamLearnHMACKeys_SnapshotProjectKeysDefaultTypeInternal;
-extern CMsgSteamLearnHMACKeys_SnapshotProjectKeysDefaultTypeInternal _CMsgSteamLearnHMACKeys_SnapshotProjectKeys_default_instance_;
-class CMsgSteamLearn_AccessData;
-struct CMsgSteamLearn_AccessDataDefaultTypeInternal;
-extern CMsgSteamLearn_AccessDataDefaultTypeInternal _CMsgSteamLearn_AccessData_default_instance_;
 class CMsgSteamLearn_BatchOperation_Request;
 struct CMsgSteamLearn_BatchOperation_RequestDefaultTypeInternal;
 extern CMsgSteamLearn_BatchOperation_RequestDefaultTypeInternal _CMsgSteamLearn_BatchOperation_Request_default_instance_;
@@ -91,12 +91,12 @@ extern CMsgSteamLearn_CacheData_RequestDefaultTypeInternal _CMsgSteamLearn_Cache
 class CMsgSteamLearn_CacheData_Response;
 struct CMsgSteamLearn_CacheData_ResponseDefaultTypeInternal;
 extern CMsgSteamLearn_CacheData_ResponseDefaultTypeInternal _CMsgSteamLearn_CacheData_Response_default_instance_;
-class CMsgSteamLearn_GetHMACKeys_Request;
-struct CMsgSteamLearn_GetHMACKeys_RequestDefaultTypeInternal;
-extern CMsgSteamLearn_GetHMACKeys_RequestDefaultTypeInternal _CMsgSteamLearn_GetHMACKeys_Request_default_instance_;
-class CMsgSteamLearn_GetHMACKeys_Response;
-struct CMsgSteamLearn_GetHMACKeys_ResponseDefaultTypeInternal;
-extern CMsgSteamLearn_GetHMACKeys_ResponseDefaultTypeInternal _CMsgSteamLearn_GetHMACKeys_Response_default_instance_;
+class CMsgSteamLearn_GetAccessTokens_Request;
+struct CMsgSteamLearn_GetAccessTokens_RequestDefaultTypeInternal;
+extern CMsgSteamLearn_GetAccessTokens_RequestDefaultTypeInternal _CMsgSteamLearn_GetAccessTokens_Request_default_instance_;
+class CMsgSteamLearn_GetAccessTokens_Response;
+struct CMsgSteamLearn_GetAccessTokens_ResponseDefaultTypeInternal;
+extern CMsgSteamLearn_GetAccessTokens_ResponseDefaultTypeInternal _CMsgSteamLearn_GetAccessTokens_Response_default_instance_;
 class CMsgSteamLearn_InferenceBackend_Response;
 struct CMsgSteamLearn_InferenceBackend_ResponseDefaultTypeInternal;
 extern CMsgSteamLearn_InferenceBackend_ResponseDefaultTypeInternal _CMsgSteamLearn_InferenceBackend_Response_default_instance_;
@@ -112,6 +112,9 @@ extern CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutputDef
 class CMsgSteamLearn_InferenceBackend_Response_Output;
 struct CMsgSteamLearn_InferenceBackend_Response_OutputDefaultTypeInternal;
 extern CMsgSteamLearn_InferenceBackend_Response_OutputDefaultTypeInternal _CMsgSteamLearn_InferenceBackend_Response_Output_default_instance_;
+class CMsgSteamLearn_InferenceBackend_Response_RegressionOutput;
+struct CMsgSteamLearn_InferenceBackend_Response_RegressionOutputDefaultTypeInternal;
+extern CMsgSteamLearn_InferenceBackend_Response_RegressionOutputDefaultTypeInternal _CMsgSteamLearn_InferenceBackend_Response_RegressionOutput_default_instance_;
 class CMsgSteamLearn_InferenceMetadataBackend_Request;
 struct CMsgSteamLearn_InferenceMetadataBackend_RequestDefaultTypeInternal;
 extern CMsgSteamLearn_InferenceMetadataBackend_RequestDefaultTypeInternal _CMsgSteamLearn_InferenceMetadataBackend_Request_default_instance_;
@@ -170,6 +173,10 @@ class CMsgSteamLearn_SnapshotProject_Response;
 struct CMsgSteamLearn_SnapshotProject_ResponseDefaultTypeInternal;
 extern CMsgSteamLearn_SnapshotProject_ResponseDefaultTypeInternal _CMsgSteamLearn_SnapshotProject_Response_default_instance_;
 PROTOBUF_NAMESPACE_OPEN
+template<> ::CMsgSteamLearnAccessTokens* Arena::CreateMaybeMessage<::CMsgSteamLearnAccessTokens>(Arena*);
+template<> ::CMsgSteamLearnAccessTokens_CacheDataAccessToken* Arena::CreateMaybeMessage<::CMsgSteamLearnAccessTokens_CacheDataAccessToken>(Arena*);
+template<> ::CMsgSteamLearnAccessTokens_InferenceAccessToken* Arena::CreateMaybeMessage<::CMsgSteamLearnAccessTokens_InferenceAccessToken>(Arena*);
+template<> ::CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken* Arena::CreateMaybeMessage<::CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken>(Arena*);
 template<> ::CMsgSteamLearnData* Arena::CreateMaybeMessage<::CMsgSteamLearnData>(Arena*);
 template<> ::CMsgSteamLearnDataElement* Arena::CreateMaybeMessage<::CMsgSteamLearnDataElement>(Arena*);
 template<> ::CMsgSteamLearnDataList* Arena::CreateMaybeMessage<::CMsgSteamLearnDataList>(Arena*);
@@ -177,21 +184,18 @@ template<> ::CMsgSteamLearnDataObject* Arena::CreateMaybeMessage<::CMsgSteamLear
 template<> ::CMsgSteamLearnDataSource* Arena::CreateMaybeMessage<::CMsgSteamLearnDataSource>(Arena*);
 template<> ::CMsgSteamLearnDataSourceDescElement* Arena::CreateMaybeMessage<::CMsgSteamLearnDataSourceDescElement>(Arena*);
 template<> ::CMsgSteamLearnDataSourceDescObject* Arena::CreateMaybeMessage<::CMsgSteamLearnDataSourceDescObject>(Arena*);
-template<> ::CMsgSteamLearnHMACKeys* Arena::CreateMaybeMessage<::CMsgSteamLearnHMACKeys>(Arena*);
-template<> ::CMsgSteamLearnHMACKeys_CacheDataKeys* Arena::CreateMaybeMessage<::CMsgSteamLearnHMACKeys_CacheDataKeys>(Arena*);
-template<> ::CMsgSteamLearnHMACKeys_SnapshotProjectKeys* Arena::CreateMaybeMessage<::CMsgSteamLearnHMACKeys_SnapshotProjectKeys>(Arena*);
-template<> ::CMsgSteamLearn_AccessData* Arena::CreateMaybeMessage<::CMsgSteamLearn_AccessData>(Arena*);
 template<> ::CMsgSteamLearn_BatchOperation_Request* Arena::CreateMaybeMessage<::CMsgSteamLearn_BatchOperation_Request>(Arena*);
 template<> ::CMsgSteamLearn_BatchOperation_Response* Arena::CreateMaybeMessage<::CMsgSteamLearn_BatchOperation_Response>(Arena*);
 template<> ::CMsgSteamLearn_CacheData_Request* Arena::CreateMaybeMessage<::CMsgSteamLearn_CacheData_Request>(Arena*);
 template<> ::CMsgSteamLearn_CacheData_Response* Arena::CreateMaybeMessage<::CMsgSteamLearn_CacheData_Response>(Arena*);
-template<> ::CMsgSteamLearn_GetHMACKeys_Request* Arena::CreateMaybeMessage<::CMsgSteamLearn_GetHMACKeys_Request>(Arena*);
-template<> ::CMsgSteamLearn_GetHMACKeys_Response* Arena::CreateMaybeMessage<::CMsgSteamLearn_GetHMACKeys_Response>(Arena*);
+template<> ::CMsgSteamLearn_GetAccessTokens_Request* Arena::CreateMaybeMessage<::CMsgSteamLearn_GetAccessTokens_Request>(Arena*);
+template<> ::CMsgSteamLearn_GetAccessTokens_Response* Arena::CreateMaybeMessage<::CMsgSteamLearn_GetAccessTokens_Response>(Arena*);
 template<> ::CMsgSteamLearn_InferenceBackend_Response* Arena::CreateMaybeMessage<::CMsgSteamLearn_InferenceBackend_Response>(Arena*);
 template<> ::CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput* Arena::CreateMaybeMessage<::CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput>(Arena*);
 template<> ::CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput* Arena::CreateMaybeMessage<::CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput>(Arena*);
 template<> ::CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput* Arena::CreateMaybeMessage<::CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput>(Arena*);
 template<> ::CMsgSteamLearn_InferenceBackend_Response_Output* Arena::CreateMaybeMessage<::CMsgSteamLearn_InferenceBackend_Response_Output>(Arena*);
+template<> ::CMsgSteamLearn_InferenceBackend_Response_RegressionOutput* Arena::CreateMaybeMessage<::CMsgSteamLearn_InferenceBackend_Response_RegressionOutput>(Arena*);
 template<> ::CMsgSteamLearn_InferenceMetadataBackend_Request* Arena::CreateMaybeMessage<::CMsgSteamLearn_InferenceMetadataBackend_Request>(Arena*);
 template<> ::CMsgSteamLearn_InferenceMetadata_Request* Arena::CreateMaybeMessage<::CMsgSteamLearn_InferenceMetadata_Request>(Arena*);
 template<> ::CMsgSteamLearn_InferenceMetadata_Response* Arena::CreateMaybeMessage<::CMsgSteamLearn_InferenceMetadata_Response>(Arena*);
@@ -335,27 +339,28 @@ inline bool ESteamLearnSnapshotProjectResult_Parse(
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<ESteamLearnSnapshotProjectResult>(
     ESteamLearnSnapshotProjectResult_descriptor(), name, value);
 }
-enum ESteamLearnGetHMACKeysResult : int {
-  STEAMLEARN_GET_HMAC_KEYS_SUCCESS = 0
+enum ESteamLearnGetAccessTokensResult : int {
+  STEAMLEARN_GET_ACCESS_TOKENS_ERROR = 0,
+  STEAMLEARN_GET_ACCESS_TOKENS_SUCCESS = 1
 };
-bool ESteamLearnGetHMACKeysResult_IsValid(int value);
-constexpr ESteamLearnGetHMACKeysResult ESteamLearnGetHMACKeysResult_MIN = STEAMLEARN_GET_HMAC_KEYS_SUCCESS;
-constexpr ESteamLearnGetHMACKeysResult ESteamLearnGetHMACKeysResult_MAX = STEAMLEARN_GET_HMAC_KEYS_SUCCESS;
-constexpr int ESteamLearnGetHMACKeysResult_ARRAYSIZE = ESteamLearnGetHMACKeysResult_MAX + 1;
+bool ESteamLearnGetAccessTokensResult_IsValid(int value);
+constexpr ESteamLearnGetAccessTokensResult ESteamLearnGetAccessTokensResult_MIN = STEAMLEARN_GET_ACCESS_TOKENS_ERROR;
+constexpr ESteamLearnGetAccessTokensResult ESteamLearnGetAccessTokensResult_MAX = STEAMLEARN_GET_ACCESS_TOKENS_SUCCESS;
+constexpr int ESteamLearnGetAccessTokensResult_ARRAYSIZE = ESteamLearnGetAccessTokensResult_MAX + 1;
 
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ESteamLearnGetHMACKeysResult_descriptor();
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ESteamLearnGetAccessTokensResult_descriptor();
 template<typename T>
-inline const std::string& ESteamLearnGetHMACKeysResult_Name(T enum_t_value) {
-  static_assert(::std::is_same<T, ESteamLearnGetHMACKeysResult>::value ||
+inline const std::string& ESteamLearnGetAccessTokensResult_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, ESteamLearnGetAccessTokensResult>::value ||
     ::std::is_integral<T>::value,
-    "Incorrect type passed to function ESteamLearnGetHMACKeysResult_Name.");
+    "Incorrect type passed to function ESteamLearnGetAccessTokensResult_Name.");
   return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    ESteamLearnGetHMACKeysResult_descriptor(), enum_t_value);
+    ESteamLearnGetAccessTokensResult_descriptor(), enum_t_value);
 }
-inline bool ESteamLearnGetHMACKeysResult_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, ESteamLearnGetHMACKeysResult* value) {
-  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<ESteamLearnGetHMACKeysResult>(
-    ESteamLearnGetHMACKeysResult_descriptor(), name, value);
+inline bool ESteamLearnGetAccessTokensResult_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, ESteamLearnGetAccessTokensResult* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<ESteamLearnGetAccessTokensResult>(
+    ESteamLearnGetAccessTokensResult_descriptor(), name, value);
 }
 enum ESteamLearnInferenceResult : int {
   STEAMLEARN_INFERENCE_ERROR = 0,
@@ -1878,196 +1883,6 @@ class CMsgSteamLearnDataList final :
 };
 // -------------------------------------------------------------------
 
-class CMsgSteamLearn_AccessData final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearn_AccessData) */ {
- public:
-  inline CMsgSteamLearn_AccessData() : CMsgSteamLearn_AccessData(nullptr) {}
-  ~CMsgSteamLearn_AccessData() override;
-  explicit PROTOBUF_CONSTEXPR CMsgSteamLearn_AccessData(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  CMsgSteamLearn_AccessData(const CMsgSteamLearn_AccessData& from);
-  CMsgSteamLearn_AccessData(CMsgSteamLearn_AccessData&& from) noexcept
-    : CMsgSteamLearn_AccessData() {
-    *this = ::std::move(from);
-  }
-
-  inline CMsgSteamLearn_AccessData& operator=(const CMsgSteamLearn_AccessData& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CMsgSteamLearn_AccessData& operator=(CMsgSteamLearn_AccessData&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const CMsgSteamLearn_AccessData& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const CMsgSteamLearn_AccessData* internal_default_instance() {
-    return reinterpret_cast<const CMsgSteamLearn_AccessData*>(
-               &_CMsgSteamLearn_AccessData_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    7;
-
-  friend void swap(CMsgSteamLearn_AccessData& a, CMsgSteamLearn_AccessData& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CMsgSteamLearn_AccessData* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CMsgSteamLearn_AccessData* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  CMsgSteamLearn_AccessData* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<CMsgSteamLearn_AccessData>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const CMsgSteamLearn_AccessData& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const CMsgSteamLearn_AccessData& from) {
-    CMsgSteamLearn_AccessData::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CMsgSteamLearn_AccessData* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CMsgSteamLearn_AccessData";
-  }
-  protected:
-  explicit CMsgSteamLearn_AccessData(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kPublisherIdFieldNumber = 1,
-    kTimestampFieldNumber = 2,
-    kRandomValueFieldNumber = 3,
-  };
-  // optional uint32 publisher_id = 1;
-  bool has_publisher_id() const;
-  private:
-  bool _internal_has_publisher_id() const;
-  public:
-  void clear_publisher_id();
-  uint32_t publisher_id() const;
-  void set_publisher_id(uint32_t value);
-  private:
-  uint32_t _internal_publisher_id() const;
-  void _internal_set_publisher_id(uint32_t value);
-  public:
-
-  // optional uint32 timestamp = 2;
-  bool has_timestamp() const;
-  private:
-  bool _internal_has_timestamp() const;
-  public:
-  void clear_timestamp();
-  uint32_t timestamp() const;
-  void set_timestamp(uint32_t value);
-  private:
-  uint32_t _internal_timestamp() const;
-  void _internal_set_timestamp(uint32_t value);
-  public:
-
-  // optional uint64 random_value = 3;
-  bool has_random_value() const;
-  private:
-  bool _internal_has_random_value() const;
-  public:
-  void clear_random_value();
-  uint64_t random_value() const;
-  void set_random_value(uint64_t value);
-  private:
-  uint64_t _internal_random_value() const;
-  void _internal_set_random_value(uint64_t value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:CMsgSteamLearn_AccessData)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    uint32_t publisher_id_;
-    uint32_t timestamp_;
-    uint64_t random_value_;
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_steammessages_5fsteamlearn_2esteamworkssdk_2eproto;
-};
-// -------------------------------------------------------------------
-
 class CMsgSteamLearn_RegisterDataSource_Request final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearn_RegisterDataSource_Request) */ {
  public:
@@ -2123,7 +1938,7 @@ class CMsgSteamLearn_RegisterDataSource_Request final :
                &_CMsgSteamLearn_RegisterDataSource_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    7;
 
   friend void swap(CMsgSteamLearn_RegisterDataSource_Request& a, CMsgSteamLearn_RegisterDataSource_Request& b) {
     a.Swap(&b);
@@ -2197,7 +2012,6 @@ class CMsgSteamLearn_RegisterDataSource_Request final :
 
   enum : int {
     kAccessTokenFieldNumber = 1,
-    kAccessDataFieldNumber = 2,
     kDataSourceFieldNumber = 3,
   };
   // optional string access_token = 1;
@@ -2217,24 +2031,6 @@ class CMsgSteamLearn_RegisterDataSource_Request final :
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_access_token(const std::string& value);
   std::string* _internal_mutable_access_token();
   public:
-
-  // optional .CMsgSteamLearn_AccessData access_data = 2;
-  bool has_access_data() const;
-  private:
-  bool _internal_has_access_data() const;
-  public:
-  void clear_access_data();
-  const ::CMsgSteamLearn_AccessData& access_data() const;
-  PROTOBUF_NODISCARD ::CMsgSteamLearn_AccessData* release_access_data();
-  ::CMsgSteamLearn_AccessData* mutable_access_data();
-  void set_allocated_access_data(::CMsgSteamLearn_AccessData* access_data);
-  private:
-  const ::CMsgSteamLearn_AccessData& _internal_access_data() const;
-  ::CMsgSteamLearn_AccessData* _internal_mutable_access_data();
-  public:
-  void unsafe_arena_set_allocated_access_data(
-      ::CMsgSteamLearn_AccessData* access_data);
-  ::CMsgSteamLearn_AccessData* unsafe_arena_release_access_data();
 
   // optional .CMsgSteamLearnDataSource data_source = 3;
   bool has_data_source() const;
@@ -2265,7 +2061,6 @@ class CMsgSteamLearn_RegisterDataSource_Request final :
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr access_token_;
-    ::CMsgSteamLearn_AccessData* access_data_;
     ::CMsgSteamLearnDataSource* data_source_;
   };
   union { Impl_ _impl_; };
@@ -2328,7 +2123,7 @@ class CMsgSteamLearn_RegisterDataSource_Response final :
                &_CMsgSteamLearn_RegisterDataSource_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    8;
 
   friend void swap(CMsgSteamLearn_RegisterDataSource_Response& a, CMsgSteamLearn_RegisterDataSource_Response& b) {
     a.Swap(&b);
@@ -2508,7 +2303,7 @@ class CMsgSteamLearn_CacheData_Request final :
                &_CMsgSteamLearn_CacheData_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    9;
 
   friend void swap(CMsgSteamLearn_CacheData_Request& a, CMsgSteamLearn_CacheData_Request& b) {
     a.Swap(&b);
@@ -2582,7 +2377,6 @@ class CMsgSteamLearn_CacheData_Request final :
 
   enum : int {
     kAccessTokenFieldNumber = 1,
-    kAccessDataFieldNumber = 2,
     kDataFieldNumber = 3,
   };
   // optional string access_token = 1;
@@ -2602,24 +2396,6 @@ class CMsgSteamLearn_CacheData_Request final :
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_access_token(const std::string& value);
   std::string* _internal_mutable_access_token();
   public:
-
-  // optional .CMsgSteamLearn_AccessData access_data = 2;
-  bool has_access_data() const;
-  private:
-  bool _internal_has_access_data() const;
-  public:
-  void clear_access_data();
-  const ::CMsgSteamLearn_AccessData& access_data() const;
-  PROTOBUF_NODISCARD ::CMsgSteamLearn_AccessData* release_access_data();
-  ::CMsgSteamLearn_AccessData* mutable_access_data();
-  void set_allocated_access_data(::CMsgSteamLearn_AccessData* access_data);
-  private:
-  const ::CMsgSteamLearn_AccessData& _internal_access_data() const;
-  ::CMsgSteamLearn_AccessData* _internal_mutable_access_data();
-  public:
-  void unsafe_arena_set_allocated_access_data(
-      ::CMsgSteamLearn_AccessData* access_data);
-  ::CMsgSteamLearn_AccessData* unsafe_arena_release_access_data();
 
   // optional .CMsgSteamLearnData data = 3;
   bool has_data() const;
@@ -2650,7 +2426,6 @@ class CMsgSteamLearn_CacheData_Request final :
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr access_token_;
-    ::CMsgSteamLearn_AccessData* access_data_;
     ::CMsgSteamLearnData* data_;
   };
   union { Impl_ _impl_; };
@@ -2713,7 +2488,7 @@ class CMsgSteamLearn_CacheData_Response final :
                &_CMsgSteamLearn_CacheData_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    10;
 
   friend void swap(CMsgSteamLearn_CacheData_Response& a, CMsgSteamLearn_CacheData_Response& b) {
     a.Swap(&b);
@@ -2873,7 +2648,7 @@ class CMsgSteamLearn_SnapshotProject_Request final :
                &_CMsgSteamLearn_SnapshotProject_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    11;
 
   friend void swap(CMsgSteamLearn_SnapshotProject_Request& a, CMsgSteamLearn_SnapshotProject_Request& b) {
     a.Swap(&b);
@@ -2949,7 +2724,6 @@ class CMsgSteamLearn_SnapshotProject_Request final :
     kKeysFieldNumber = 4,
     kDataFieldNumber = 5,
     kAccessTokenFieldNumber = 1,
-    kAccessDataFieldNumber = 2,
     kProjectIdFieldNumber = 3,
     kPendingDataLimitSecondsFieldNumber = 6,
     kPublishedVersionFieldNumber = 7,
@@ -3012,24 +2786,6 @@ class CMsgSteamLearn_SnapshotProject_Request final :
   std::string* _internal_mutable_access_token();
   public:
 
-  // optional .CMsgSteamLearn_AccessData access_data = 2;
-  bool has_access_data() const;
-  private:
-  bool _internal_has_access_data() const;
-  public:
-  void clear_access_data();
-  const ::CMsgSteamLearn_AccessData& access_data() const;
-  PROTOBUF_NODISCARD ::CMsgSteamLearn_AccessData* release_access_data();
-  ::CMsgSteamLearn_AccessData* mutable_access_data();
-  void set_allocated_access_data(::CMsgSteamLearn_AccessData* access_data);
-  private:
-  const ::CMsgSteamLearn_AccessData& _internal_access_data() const;
-  ::CMsgSteamLearn_AccessData* _internal_mutable_access_data();
-  public:
-  void unsafe_arena_set_allocated_access_data(
-      ::CMsgSteamLearn_AccessData* access_data);
-  ::CMsgSteamLearn_AccessData* unsafe_arena_release_access_data();
-
   // optional uint32 project_id = 3;
   bool has_project_id() const;
   private:
@@ -3082,7 +2838,6 @@ class CMsgSteamLearn_SnapshotProject_Request final :
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t > keys_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearnData > data_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr access_token_;
-    ::CMsgSteamLearn_AccessData* access_data_;
     uint32_t project_id_;
     uint32_t pending_data_limit_seconds_;
     uint32_t published_version_;
@@ -3147,7 +2902,7 @@ class CMsgSteamLearn_SnapshotProject_Response final :
                &_CMsgSteamLearn_SnapshotProject_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    12;
 
   friend void swap(CMsgSteamLearn_SnapshotProject_Response& a, CMsgSteamLearn_SnapshotProject_Response& b) {
     a.Swap(&b);
@@ -3307,7 +3062,7 @@ class CMsgSteamLearn_BatchOperation_Request final :
                &_CMsgSteamLearn_BatchOperation_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    13;
 
   friend void swap(CMsgSteamLearn_BatchOperation_Request& a, CMsgSteamLearn_BatchOperation_Request& b) {
     a.Swap(&b);
@@ -3382,6 +3137,7 @@ class CMsgSteamLearn_BatchOperation_Request final :
   enum : int {
     kCacheDataRequestsFieldNumber = 1,
     kSnapshotRequestsFieldNumber = 2,
+    kInferenceRequestsFieldNumber = 3,
   };
   // repeated .CMsgSteamLearn_CacheData_Request cache_data_requests = 1;
   int cache_data_requests_size() const;
@@ -3419,6 +3175,24 @@ class CMsgSteamLearn_BatchOperation_Request final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_SnapshotProject_Request >&
       snapshot_requests() const;
 
+  // repeated .CMsgSteamLearn_Inference_Request inference_requests = 3;
+  int inference_requests_size() const;
+  private:
+  int _internal_inference_requests_size() const;
+  public:
+  void clear_inference_requests();
+  ::CMsgSteamLearn_Inference_Request* mutable_inference_requests(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_Inference_Request >*
+      mutable_inference_requests();
+  private:
+  const ::CMsgSteamLearn_Inference_Request& _internal_inference_requests(int index) const;
+  ::CMsgSteamLearn_Inference_Request* _internal_add_inference_requests();
+  public:
+  const ::CMsgSteamLearn_Inference_Request& inference_requests(int index) const;
+  ::CMsgSteamLearn_Inference_Request* add_inference_requests();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_Inference_Request >&
+      inference_requests() const;
+
   // @@protoc_insertion_point(class_scope:CMsgSteamLearn_BatchOperation_Request)
  private:
   class _Internal;
@@ -3429,6 +3203,7 @@ class CMsgSteamLearn_BatchOperation_Request final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_CacheData_Request > cache_data_requests_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_SnapshotProject_Request > snapshot_requests_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_Inference_Request > inference_requests_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -3491,7 +3266,7 @@ class CMsgSteamLearn_BatchOperation_Response final :
                &_CMsgSteamLearn_BatchOperation_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    14;
 
   friend void swap(CMsgSteamLearn_BatchOperation_Response& a, CMsgSteamLearn_BatchOperation_Response& b) {
     a.Swap(&b);
@@ -3566,6 +3341,7 @@ class CMsgSteamLearn_BatchOperation_Response final :
   enum : int {
     kCacheDataResponsesFieldNumber = 1,
     kSnapshotResponsesFieldNumber = 2,
+    kInferenceResponsesFieldNumber = 3,
   };
   // repeated .CMsgSteamLearn_CacheData_Response cache_data_responses = 1;
   int cache_data_responses_size() const;
@@ -3603,6 +3379,24 @@ class CMsgSteamLearn_BatchOperation_Response final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_SnapshotProject_Response >&
       snapshot_responses() const;
 
+  // repeated .CMsgSteamLearn_Inference_Response inference_responses = 3;
+  int inference_responses_size() const;
+  private:
+  int _internal_inference_responses_size() const;
+  public:
+  void clear_inference_responses();
+  ::CMsgSteamLearn_Inference_Response* mutable_inference_responses(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_Inference_Response >*
+      mutable_inference_responses();
+  private:
+  const ::CMsgSteamLearn_Inference_Response& _internal_inference_responses(int index) const;
+  ::CMsgSteamLearn_Inference_Response* _internal_add_inference_responses();
+  public:
+  const ::CMsgSteamLearn_Inference_Response& inference_responses(int index) const;
+  ::CMsgSteamLearn_Inference_Response* add_inference_responses();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_Inference_Response >&
+      inference_responses() const;
+
   // @@protoc_insertion_point(class_scope:CMsgSteamLearn_BatchOperation_Response)
  private:
   class _Internal;
@@ -3613,6 +3407,7 @@ class CMsgSteamLearn_BatchOperation_Response final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_CacheData_Response > cache_data_responses_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_SnapshotProject_Response > snapshot_responses_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_Inference_Response > inference_responses_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -3620,24 +3415,24 @@ class CMsgSteamLearn_BatchOperation_Response final :
 };
 // -------------------------------------------------------------------
 
-class CMsgSteamLearnHMACKeys_CacheDataKeys final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearnHMACKeys.CacheDataKeys) */ {
+class CMsgSteamLearnAccessTokens_CacheDataAccessToken final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearnAccessTokens.CacheDataAccessToken) */ {
  public:
-  inline CMsgSteamLearnHMACKeys_CacheDataKeys() : CMsgSteamLearnHMACKeys_CacheDataKeys(nullptr) {}
-  ~CMsgSteamLearnHMACKeys_CacheDataKeys() override;
-  explicit PROTOBUF_CONSTEXPR CMsgSteamLearnHMACKeys_CacheDataKeys(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline CMsgSteamLearnAccessTokens_CacheDataAccessToken() : CMsgSteamLearnAccessTokens_CacheDataAccessToken(nullptr) {}
+  ~CMsgSteamLearnAccessTokens_CacheDataAccessToken() override;
+  explicit PROTOBUF_CONSTEXPR CMsgSteamLearnAccessTokens_CacheDataAccessToken(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  CMsgSteamLearnHMACKeys_CacheDataKeys(const CMsgSteamLearnHMACKeys_CacheDataKeys& from);
-  CMsgSteamLearnHMACKeys_CacheDataKeys(CMsgSteamLearnHMACKeys_CacheDataKeys&& from) noexcept
-    : CMsgSteamLearnHMACKeys_CacheDataKeys() {
+  CMsgSteamLearnAccessTokens_CacheDataAccessToken(const CMsgSteamLearnAccessTokens_CacheDataAccessToken& from);
+  CMsgSteamLearnAccessTokens_CacheDataAccessToken(CMsgSteamLearnAccessTokens_CacheDataAccessToken&& from) noexcept
+    : CMsgSteamLearnAccessTokens_CacheDataAccessToken() {
     *this = ::std::move(from);
   }
 
-  inline CMsgSteamLearnHMACKeys_CacheDataKeys& operator=(const CMsgSteamLearnHMACKeys_CacheDataKeys& from) {
+  inline CMsgSteamLearnAccessTokens_CacheDataAccessToken& operator=(const CMsgSteamLearnAccessTokens_CacheDataAccessToken& from) {
     CopyFrom(from);
     return *this;
   }
-  inline CMsgSteamLearnHMACKeys_CacheDataKeys& operator=(CMsgSteamLearnHMACKeys_CacheDataKeys&& from) noexcept {
+  inline CMsgSteamLearnAccessTokens_CacheDataAccessToken& operator=(CMsgSteamLearnAccessTokens_CacheDataAccessToken&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -3667,20 +3462,20 @@ class CMsgSteamLearnHMACKeys_CacheDataKeys final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const CMsgSteamLearnHMACKeys_CacheDataKeys& default_instance() {
+  static const CMsgSteamLearnAccessTokens_CacheDataAccessToken& default_instance() {
     return *internal_default_instance();
   }
-  static inline const CMsgSteamLearnHMACKeys_CacheDataKeys* internal_default_instance() {
-    return reinterpret_cast<const CMsgSteamLearnHMACKeys_CacheDataKeys*>(
-               &_CMsgSteamLearnHMACKeys_CacheDataKeys_default_instance_);
+  static inline const CMsgSteamLearnAccessTokens_CacheDataAccessToken* internal_default_instance() {
+    return reinterpret_cast<const CMsgSteamLearnAccessTokens_CacheDataAccessToken*>(
+               &_CMsgSteamLearnAccessTokens_CacheDataAccessToken_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    15;
 
-  friend void swap(CMsgSteamLearnHMACKeys_CacheDataKeys& a, CMsgSteamLearnHMACKeys_CacheDataKeys& b) {
+  friend void swap(CMsgSteamLearnAccessTokens_CacheDataAccessToken& a, CMsgSteamLearnAccessTokens_CacheDataAccessToken& b) {
     a.Swap(&b);
   }
-  inline void Swap(CMsgSteamLearnHMACKeys_CacheDataKeys* other) {
+  inline void Swap(CMsgSteamLearnAccessTokens_CacheDataAccessToken* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -3693,7 +3488,7 @@ class CMsgSteamLearnHMACKeys_CacheDataKeys final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(CMsgSteamLearnHMACKeys_CacheDataKeys* other) {
+  void UnsafeArenaSwap(CMsgSteamLearnAccessTokens_CacheDataAccessToken* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -3701,14 +3496,14 @@ class CMsgSteamLearnHMACKeys_CacheDataKeys final :
 
   // implements Message ----------------------------------------------
 
-  CMsgSteamLearnHMACKeys_CacheDataKeys* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<CMsgSteamLearnHMACKeys_CacheDataKeys>(arena);
+  CMsgSteamLearnAccessTokens_CacheDataAccessToken* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgSteamLearnAccessTokens_CacheDataAccessToken>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const CMsgSteamLearnHMACKeys_CacheDataKeys& from);
+  void CopyFrom(const CMsgSteamLearnAccessTokens_CacheDataAccessToken& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const CMsgSteamLearnHMACKeys_CacheDataKeys& from) {
-    CMsgSteamLearnHMACKeys_CacheDataKeys::MergeImpl(*this, from);
+  void MergeFrom( const CMsgSteamLearnAccessTokens_CacheDataAccessToken& from) {
+    CMsgSteamLearnAccessTokens_CacheDataAccessToken::MergeImpl(*this, from);
   }
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
@@ -3726,15 +3521,15 @@ class CMsgSteamLearnHMACKeys_CacheDataKeys final :
   void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(CMsgSteamLearnHMACKeys_CacheDataKeys* other);
+  void InternalSwap(CMsgSteamLearnAccessTokens_CacheDataAccessToken* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CMsgSteamLearnHMACKeys.CacheDataKeys";
+    return "CMsgSteamLearnAccessTokens.CacheDataAccessToken";
   }
   protected:
-  explicit CMsgSteamLearnHMACKeys_CacheDataKeys(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit CMsgSteamLearnAccessTokens_CacheDataAccessToken(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   public:
 
@@ -3748,26 +3543,25 @@ class CMsgSteamLearnHMACKeys_CacheDataKeys final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kKeyFieldNumber = 2,
+    kAccessTokenFieldNumber = 2,
     kDataSourceIdFieldNumber = 1,
-    kVersionFieldNumber = 3,
   };
-  // optional string key = 2;
-  bool has_key() const;
+  // optional string access_token = 2;
+  bool has_access_token() const;
   private:
-  bool _internal_has_key() const;
+  bool _internal_has_access_token() const;
   public:
-  void clear_key();
-  const std::string& key() const;
+  void clear_access_token();
+  const std::string& access_token() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_key(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_key();
-  PROTOBUF_NODISCARD std::string* release_key();
-  void set_allocated_key(std::string* key);
+  void set_access_token(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_access_token();
+  PROTOBUF_NODISCARD std::string* release_access_token();
+  void set_allocated_access_token(std::string* access_token);
   private:
-  const std::string& _internal_key() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_key(const std::string& value);
-  std::string* _internal_mutable_key();
+  const std::string& _internal_access_token() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_access_token(const std::string& value);
+  std::string* _internal_mutable_access_token();
   public:
 
   // optional uint32 data_source_id = 1;
@@ -3783,20 +3577,7 @@ class CMsgSteamLearnHMACKeys_CacheDataKeys final :
   void _internal_set_data_source_id(uint32_t value);
   public:
 
-  // optional uint32 version = 3;
-  bool has_version() const;
-  private:
-  bool _internal_has_version() const;
-  public:
-  void clear_version();
-  uint32_t version() const;
-  void set_version(uint32_t value);
-  private:
-  uint32_t _internal_version() const;
-  void _internal_set_version(uint32_t value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:CMsgSteamLearnHMACKeys.CacheDataKeys)
+  // @@protoc_insertion_point(class_scope:CMsgSteamLearnAccessTokens.CacheDataAccessToken)
  private:
   class _Internal;
 
@@ -3806,33 +3587,32 @@ class CMsgSteamLearnHMACKeys_CacheDataKeys final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr key_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr access_token_;
     uint32_t data_source_id_;
-    uint32_t version_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_steammessages_5fsteamlearn_2esteamworkssdk_2eproto;
 };
 // -------------------------------------------------------------------
 
-class CMsgSteamLearnHMACKeys_SnapshotProjectKeys final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearnHMACKeys.SnapshotProjectKeys) */ {
+class CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearnAccessTokens.SnapshotProjectAccessToken) */ {
  public:
-  inline CMsgSteamLearnHMACKeys_SnapshotProjectKeys() : CMsgSteamLearnHMACKeys_SnapshotProjectKeys(nullptr) {}
-  ~CMsgSteamLearnHMACKeys_SnapshotProjectKeys() override;
-  explicit PROTOBUF_CONSTEXPR CMsgSteamLearnHMACKeys_SnapshotProjectKeys(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken() : CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken(nullptr) {}
+  ~CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken() override;
+  explicit PROTOBUF_CONSTEXPR CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  CMsgSteamLearnHMACKeys_SnapshotProjectKeys(const CMsgSteamLearnHMACKeys_SnapshotProjectKeys& from);
-  CMsgSteamLearnHMACKeys_SnapshotProjectKeys(CMsgSteamLearnHMACKeys_SnapshotProjectKeys&& from) noexcept
-    : CMsgSteamLearnHMACKeys_SnapshotProjectKeys() {
+  CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken(const CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken& from);
+  CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken(CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken&& from) noexcept
+    : CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken() {
     *this = ::std::move(from);
   }
 
-  inline CMsgSteamLearnHMACKeys_SnapshotProjectKeys& operator=(const CMsgSteamLearnHMACKeys_SnapshotProjectKeys& from) {
+  inline CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken& operator=(const CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken& from) {
     CopyFrom(from);
     return *this;
   }
-  inline CMsgSteamLearnHMACKeys_SnapshotProjectKeys& operator=(CMsgSteamLearnHMACKeys_SnapshotProjectKeys&& from) noexcept {
+  inline CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken& operator=(CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -3862,20 +3642,20 @@ class CMsgSteamLearnHMACKeys_SnapshotProjectKeys final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const CMsgSteamLearnHMACKeys_SnapshotProjectKeys& default_instance() {
+  static const CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken& default_instance() {
     return *internal_default_instance();
   }
-  static inline const CMsgSteamLearnHMACKeys_SnapshotProjectKeys* internal_default_instance() {
-    return reinterpret_cast<const CMsgSteamLearnHMACKeys_SnapshotProjectKeys*>(
-               &_CMsgSteamLearnHMACKeys_SnapshotProjectKeys_default_instance_);
+  static inline const CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken* internal_default_instance() {
+    return reinterpret_cast<const CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken*>(
+               &_CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    16;
 
-  friend void swap(CMsgSteamLearnHMACKeys_SnapshotProjectKeys& a, CMsgSteamLearnHMACKeys_SnapshotProjectKeys& b) {
+  friend void swap(CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken& a, CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken& b) {
     a.Swap(&b);
   }
-  inline void Swap(CMsgSteamLearnHMACKeys_SnapshotProjectKeys* other) {
+  inline void Swap(CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -3888,7 +3668,7 @@ class CMsgSteamLearnHMACKeys_SnapshotProjectKeys final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(CMsgSteamLearnHMACKeys_SnapshotProjectKeys* other) {
+  void UnsafeArenaSwap(CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -3896,14 +3676,14 @@ class CMsgSteamLearnHMACKeys_SnapshotProjectKeys final :
 
   // implements Message ----------------------------------------------
 
-  CMsgSteamLearnHMACKeys_SnapshotProjectKeys* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<CMsgSteamLearnHMACKeys_SnapshotProjectKeys>(arena);
+  CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const CMsgSteamLearnHMACKeys_SnapshotProjectKeys& from);
+  void CopyFrom(const CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const CMsgSteamLearnHMACKeys_SnapshotProjectKeys& from) {
-    CMsgSteamLearnHMACKeys_SnapshotProjectKeys::MergeImpl(*this, from);
+  void MergeFrom( const CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken& from) {
+    CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken::MergeImpl(*this, from);
   }
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
@@ -3921,15 +3701,15 @@ class CMsgSteamLearnHMACKeys_SnapshotProjectKeys final :
   void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(CMsgSteamLearnHMACKeys_SnapshotProjectKeys* other);
+  void InternalSwap(CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CMsgSteamLearnHMACKeys.SnapshotProjectKeys";
+    return "CMsgSteamLearnAccessTokens.SnapshotProjectAccessToken";
   }
   protected:
-  explicit CMsgSteamLearnHMACKeys_SnapshotProjectKeys(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   public:
 
@@ -3943,26 +3723,25 @@ class CMsgSteamLearnHMACKeys_SnapshotProjectKeys final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kKeyFieldNumber = 2,
+    kAccessTokenFieldNumber = 2,
     kProjectIdFieldNumber = 1,
-    kPublishedVersionFieldNumber = 3,
   };
-  // optional string key = 2;
-  bool has_key() const;
+  // optional string access_token = 2;
+  bool has_access_token() const;
   private:
-  bool _internal_has_key() const;
+  bool _internal_has_access_token() const;
   public:
-  void clear_key();
-  const std::string& key() const;
+  void clear_access_token();
+  const std::string& access_token() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_key(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_key();
-  PROTOBUF_NODISCARD std::string* release_key();
-  void set_allocated_key(std::string* key);
+  void set_access_token(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_access_token();
+  PROTOBUF_NODISCARD std::string* release_access_token();
+  void set_allocated_access_token(std::string* access_token);
   private:
-  const std::string& _internal_key() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_key(const std::string& value);
-  std::string* _internal_mutable_key();
+  const std::string& _internal_access_token() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_access_token(const std::string& value);
+  std::string* _internal_mutable_access_token();
   public:
 
   // optional uint32 project_id = 1;
@@ -3978,20 +3757,7 @@ class CMsgSteamLearnHMACKeys_SnapshotProjectKeys final :
   void _internal_set_project_id(uint32_t value);
   public:
 
-  // optional uint32 published_version = 3;
-  bool has_published_version() const;
-  private:
-  bool _internal_has_published_version() const;
-  public:
-  void clear_published_version();
-  uint32_t published_version() const;
-  void set_published_version(uint32_t value);
-  private:
-  uint32_t _internal_published_version() const;
-  void _internal_set_published_version(uint32_t value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:CMsgSteamLearnHMACKeys.SnapshotProjectKeys)
+  // @@protoc_insertion_point(class_scope:CMsgSteamLearnAccessTokens.SnapshotProjectAccessToken)
  private:
   class _Internal;
 
@@ -4001,33 +3767,32 @@ class CMsgSteamLearnHMACKeys_SnapshotProjectKeys final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr key_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr access_token_;
     uint32_t project_id_;
-    uint32_t published_version_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_steammessages_5fsteamlearn_2esteamworkssdk_2eproto;
 };
 // -------------------------------------------------------------------
 
-class CMsgSteamLearnHMACKeys final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearnHMACKeys) */ {
+class CMsgSteamLearnAccessTokens_InferenceAccessToken final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearnAccessTokens.InferenceAccessToken) */ {
  public:
-  inline CMsgSteamLearnHMACKeys() : CMsgSteamLearnHMACKeys(nullptr) {}
-  ~CMsgSteamLearnHMACKeys() override;
-  explicit PROTOBUF_CONSTEXPR CMsgSteamLearnHMACKeys(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline CMsgSteamLearnAccessTokens_InferenceAccessToken() : CMsgSteamLearnAccessTokens_InferenceAccessToken(nullptr) {}
+  ~CMsgSteamLearnAccessTokens_InferenceAccessToken() override;
+  explicit PROTOBUF_CONSTEXPR CMsgSteamLearnAccessTokens_InferenceAccessToken(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  CMsgSteamLearnHMACKeys(const CMsgSteamLearnHMACKeys& from);
-  CMsgSteamLearnHMACKeys(CMsgSteamLearnHMACKeys&& from) noexcept
-    : CMsgSteamLearnHMACKeys() {
+  CMsgSteamLearnAccessTokens_InferenceAccessToken(const CMsgSteamLearnAccessTokens_InferenceAccessToken& from);
+  CMsgSteamLearnAccessTokens_InferenceAccessToken(CMsgSteamLearnAccessTokens_InferenceAccessToken&& from) noexcept
+    : CMsgSteamLearnAccessTokens_InferenceAccessToken() {
     *this = ::std::move(from);
   }
 
-  inline CMsgSteamLearnHMACKeys& operator=(const CMsgSteamLearnHMACKeys& from) {
+  inline CMsgSteamLearnAccessTokens_InferenceAccessToken& operator=(const CMsgSteamLearnAccessTokens_InferenceAccessToken& from) {
     CopyFrom(from);
     return *this;
   }
-  inline CMsgSteamLearnHMACKeys& operator=(CMsgSteamLearnHMACKeys&& from) noexcept {
+  inline CMsgSteamLearnAccessTokens_InferenceAccessToken& operator=(CMsgSteamLearnAccessTokens_InferenceAccessToken&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -4057,20 +3822,20 @@ class CMsgSteamLearnHMACKeys final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const CMsgSteamLearnHMACKeys& default_instance() {
+  static const CMsgSteamLearnAccessTokens_InferenceAccessToken& default_instance() {
     return *internal_default_instance();
   }
-  static inline const CMsgSteamLearnHMACKeys* internal_default_instance() {
-    return reinterpret_cast<const CMsgSteamLearnHMACKeys*>(
-               &_CMsgSteamLearnHMACKeys_default_instance_);
+  static inline const CMsgSteamLearnAccessTokens_InferenceAccessToken* internal_default_instance() {
+    return reinterpret_cast<const CMsgSteamLearnAccessTokens_InferenceAccessToken*>(
+               &_CMsgSteamLearnAccessTokens_InferenceAccessToken_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    17;
 
-  friend void swap(CMsgSteamLearnHMACKeys& a, CMsgSteamLearnHMACKeys& b) {
+  friend void swap(CMsgSteamLearnAccessTokens_InferenceAccessToken& a, CMsgSteamLearnAccessTokens_InferenceAccessToken& b) {
     a.Swap(&b);
   }
-  inline void Swap(CMsgSteamLearnHMACKeys* other) {
+  inline void Swap(CMsgSteamLearnAccessTokens_InferenceAccessToken* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -4083,7 +3848,7 @@ class CMsgSteamLearnHMACKeys final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(CMsgSteamLearnHMACKeys* other) {
+  void UnsafeArenaSwap(CMsgSteamLearnAccessTokens_InferenceAccessToken* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -4091,14 +3856,14 @@ class CMsgSteamLearnHMACKeys final :
 
   // implements Message ----------------------------------------------
 
-  CMsgSteamLearnHMACKeys* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<CMsgSteamLearnHMACKeys>(arena);
+  CMsgSteamLearnAccessTokens_InferenceAccessToken* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgSteamLearnAccessTokens_InferenceAccessToken>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const CMsgSteamLearnHMACKeys& from);
+  void CopyFrom(const CMsgSteamLearnAccessTokens_InferenceAccessToken& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const CMsgSteamLearnHMACKeys& from) {
-    CMsgSteamLearnHMACKeys::MergeImpl(*this, from);
+  void MergeFrom( const CMsgSteamLearnAccessTokens_InferenceAccessToken& from) {
+    CMsgSteamLearnAccessTokens_InferenceAccessToken::MergeImpl(*this, from);
   }
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
@@ -4116,15 +3881,15 @@ class CMsgSteamLearnHMACKeys final :
   void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(CMsgSteamLearnHMACKeys* other);
+  void InternalSwap(CMsgSteamLearnAccessTokens_InferenceAccessToken* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CMsgSteamLearnHMACKeys";
+    return "CMsgSteamLearnAccessTokens.InferenceAccessToken";
   }
   protected:
-  explicit CMsgSteamLearnHMACKeys(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit CMsgSteamLearnAccessTokens_InferenceAccessToken(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   public:
 
@@ -4135,71 +3900,44 @@ class CMsgSteamLearnHMACKeys final :
 
   // nested types ----------------------------------------------------
 
-  typedef CMsgSteamLearnHMACKeys_CacheDataKeys CacheDataKeys;
-  typedef CMsgSteamLearnHMACKeys_SnapshotProjectKeys SnapshotProjectKeys;
-
   // accessors -------------------------------------------------------
 
   enum : int {
-    kCacheDataKeysFieldNumber = 2,
-    kSnapshotProjectKeysFieldNumber = 3,
-    kRegisterDataSourceKeyFieldNumber = 1,
+    kAccessTokenFieldNumber = 2,
+    kProjectIdFieldNumber = 1,
   };
-  // repeated .CMsgSteamLearnHMACKeys.CacheDataKeys cache_data_keys = 2;
-  int cache_data_keys_size() const;
+  // optional string access_token = 2;
+  bool has_access_token() const;
   private:
-  int _internal_cache_data_keys_size() const;
+  bool _internal_has_access_token() const;
   public:
-  void clear_cache_data_keys();
-  ::CMsgSteamLearnHMACKeys_CacheDataKeys* mutable_cache_data_keys(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearnHMACKeys_CacheDataKeys >*
-      mutable_cache_data_keys();
-  private:
-  const ::CMsgSteamLearnHMACKeys_CacheDataKeys& _internal_cache_data_keys(int index) const;
-  ::CMsgSteamLearnHMACKeys_CacheDataKeys* _internal_add_cache_data_keys();
-  public:
-  const ::CMsgSteamLearnHMACKeys_CacheDataKeys& cache_data_keys(int index) const;
-  ::CMsgSteamLearnHMACKeys_CacheDataKeys* add_cache_data_keys();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearnHMACKeys_CacheDataKeys >&
-      cache_data_keys() const;
-
-  // repeated .CMsgSteamLearnHMACKeys.SnapshotProjectKeys snapshot_project_keys = 3;
-  int snapshot_project_keys_size() const;
-  private:
-  int _internal_snapshot_project_keys_size() const;
-  public:
-  void clear_snapshot_project_keys();
-  ::CMsgSteamLearnHMACKeys_SnapshotProjectKeys* mutable_snapshot_project_keys(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearnHMACKeys_SnapshotProjectKeys >*
-      mutable_snapshot_project_keys();
-  private:
-  const ::CMsgSteamLearnHMACKeys_SnapshotProjectKeys& _internal_snapshot_project_keys(int index) const;
-  ::CMsgSteamLearnHMACKeys_SnapshotProjectKeys* _internal_add_snapshot_project_keys();
-  public:
-  const ::CMsgSteamLearnHMACKeys_SnapshotProjectKeys& snapshot_project_keys(int index) const;
-  ::CMsgSteamLearnHMACKeys_SnapshotProjectKeys* add_snapshot_project_keys();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearnHMACKeys_SnapshotProjectKeys >&
-      snapshot_project_keys() const;
-
-  // optional string register_data_source_key = 1;
-  bool has_register_data_source_key() const;
-  private:
-  bool _internal_has_register_data_source_key() const;
-  public:
-  void clear_register_data_source_key();
-  const std::string& register_data_source_key() const;
+  void clear_access_token();
+  const std::string& access_token() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_register_data_source_key(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_register_data_source_key();
-  PROTOBUF_NODISCARD std::string* release_register_data_source_key();
-  void set_allocated_register_data_source_key(std::string* register_data_source_key);
+  void set_access_token(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_access_token();
+  PROTOBUF_NODISCARD std::string* release_access_token();
+  void set_allocated_access_token(std::string* access_token);
   private:
-  const std::string& _internal_register_data_source_key() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_register_data_source_key(const std::string& value);
-  std::string* _internal_mutable_register_data_source_key();
+  const std::string& _internal_access_token() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_access_token(const std::string& value);
+  std::string* _internal_mutable_access_token();
   public:
 
-  // @@protoc_insertion_point(class_scope:CMsgSteamLearnHMACKeys)
+  // optional uint32 project_id = 1;
+  bool has_project_id() const;
+  private:
+  bool _internal_has_project_id() const;
+  public:
+  void clear_project_id();
+  uint32_t project_id() const;
+  void set_project_id(uint32_t value);
+  private:
+  uint32_t _internal_project_id() const;
+  void _internal_set_project_id(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgSteamLearnAccessTokens.InferenceAccessToken)
  private:
   class _Internal;
 
@@ -4209,33 +3947,32 @@ class CMsgSteamLearnHMACKeys final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearnHMACKeys_CacheDataKeys > cache_data_keys_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearnHMACKeys_SnapshotProjectKeys > snapshot_project_keys_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr register_data_source_key_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr access_token_;
+    uint32_t project_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_steammessages_5fsteamlearn_2esteamworkssdk_2eproto;
 };
 // -------------------------------------------------------------------
 
-class CMsgSteamLearn_GetHMACKeys_Request final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearn_GetHMACKeys_Request) */ {
+class CMsgSteamLearnAccessTokens final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearnAccessTokens) */ {
  public:
-  inline CMsgSteamLearn_GetHMACKeys_Request() : CMsgSteamLearn_GetHMACKeys_Request(nullptr) {}
-  ~CMsgSteamLearn_GetHMACKeys_Request() override;
-  explicit PROTOBUF_CONSTEXPR CMsgSteamLearn_GetHMACKeys_Request(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline CMsgSteamLearnAccessTokens() : CMsgSteamLearnAccessTokens(nullptr) {}
+  ~CMsgSteamLearnAccessTokens() override;
+  explicit PROTOBUF_CONSTEXPR CMsgSteamLearnAccessTokens(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  CMsgSteamLearn_GetHMACKeys_Request(const CMsgSteamLearn_GetHMACKeys_Request& from);
-  CMsgSteamLearn_GetHMACKeys_Request(CMsgSteamLearn_GetHMACKeys_Request&& from) noexcept
-    : CMsgSteamLearn_GetHMACKeys_Request() {
+  CMsgSteamLearnAccessTokens(const CMsgSteamLearnAccessTokens& from);
+  CMsgSteamLearnAccessTokens(CMsgSteamLearnAccessTokens&& from) noexcept
+    : CMsgSteamLearnAccessTokens() {
     *this = ::std::move(from);
   }
 
-  inline CMsgSteamLearn_GetHMACKeys_Request& operator=(const CMsgSteamLearn_GetHMACKeys_Request& from) {
+  inline CMsgSteamLearnAccessTokens& operator=(const CMsgSteamLearnAccessTokens& from) {
     CopyFrom(from);
     return *this;
   }
-  inline CMsgSteamLearn_GetHMACKeys_Request& operator=(CMsgSteamLearn_GetHMACKeys_Request&& from) noexcept {
+  inline CMsgSteamLearnAccessTokens& operator=(CMsgSteamLearnAccessTokens&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -4265,20 +4002,20 @@ class CMsgSteamLearn_GetHMACKeys_Request final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const CMsgSteamLearn_GetHMACKeys_Request& default_instance() {
+  static const CMsgSteamLearnAccessTokens& default_instance() {
     return *internal_default_instance();
   }
-  static inline const CMsgSteamLearn_GetHMACKeys_Request* internal_default_instance() {
-    return reinterpret_cast<const CMsgSteamLearn_GetHMACKeys_Request*>(
-               &_CMsgSteamLearn_GetHMACKeys_Request_default_instance_);
+  static inline const CMsgSteamLearnAccessTokens* internal_default_instance() {
+    return reinterpret_cast<const CMsgSteamLearnAccessTokens*>(
+               &_CMsgSteamLearnAccessTokens_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    18;
 
-  friend void swap(CMsgSteamLearn_GetHMACKeys_Request& a, CMsgSteamLearn_GetHMACKeys_Request& b) {
+  friend void swap(CMsgSteamLearnAccessTokens& a, CMsgSteamLearnAccessTokens& b) {
     a.Swap(&b);
   }
-  inline void Swap(CMsgSteamLearn_GetHMACKeys_Request* other) {
+  inline void Swap(CMsgSteamLearnAccessTokens* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -4291,7 +4028,7 @@ class CMsgSteamLearn_GetHMACKeys_Request final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(CMsgSteamLearn_GetHMACKeys_Request* other) {
+  void UnsafeArenaSwap(CMsgSteamLearnAccessTokens* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -4299,14 +4036,14 @@ class CMsgSteamLearn_GetHMACKeys_Request final :
 
   // implements Message ----------------------------------------------
 
-  CMsgSteamLearn_GetHMACKeys_Request* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<CMsgSteamLearn_GetHMACKeys_Request>(arena);
+  CMsgSteamLearnAccessTokens* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgSteamLearnAccessTokens>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const CMsgSteamLearn_GetHMACKeys_Request& from);
+  void CopyFrom(const CMsgSteamLearnAccessTokens& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const CMsgSteamLearn_GetHMACKeys_Request& from) {
-    CMsgSteamLearn_GetHMACKeys_Request::MergeImpl(*this, from);
+  void MergeFrom( const CMsgSteamLearnAccessTokens& from) {
+    CMsgSteamLearnAccessTokens::MergeImpl(*this, from);
   }
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
@@ -4324,15 +4061,244 @@ class CMsgSteamLearn_GetHMACKeys_Request final :
   void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(CMsgSteamLearn_GetHMACKeys_Request* other);
+  void InternalSwap(CMsgSteamLearnAccessTokens* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CMsgSteamLearn_GetHMACKeys_Request";
+    return "CMsgSteamLearnAccessTokens";
   }
   protected:
-  explicit CMsgSteamLearn_GetHMACKeys_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit CMsgSteamLearnAccessTokens(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  typedef CMsgSteamLearnAccessTokens_CacheDataAccessToken CacheDataAccessToken;
+  typedef CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken SnapshotProjectAccessToken;
+  typedef CMsgSteamLearnAccessTokens_InferenceAccessToken InferenceAccessToken;
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kCacheDataAccessTokensFieldNumber = 2,
+    kSnapshotProjectAccessTokensFieldNumber = 3,
+    kInferenceAccessTokensFieldNumber = 4,
+    kRegisterDataSourceAccessTokenFieldNumber = 1,
+  };
+  // repeated .CMsgSteamLearnAccessTokens.CacheDataAccessToken cache_data_access_tokens = 2;
+  int cache_data_access_tokens_size() const;
+  private:
+  int _internal_cache_data_access_tokens_size() const;
+  public:
+  void clear_cache_data_access_tokens();
+  ::CMsgSteamLearnAccessTokens_CacheDataAccessToken* mutable_cache_data_access_tokens(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearnAccessTokens_CacheDataAccessToken >*
+      mutable_cache_data_access_tokens();
+  private:
+  const ::CMsgSteamLearnAccessTokens_CacheDataAccessToken& _internal_cache_data_access_tokens(int index) const;
+  ::CMsgSteamLearnAccessTokens_CacheDataAccessToken* _internal_add_cache_data_access_tokens();
+  public:
+  const ::CMsgSteamLearnAccessTokens_CacheDataAccessToken& cache_data_access_tokens(int index) const;
+  ::CMsgSteamLearnAccessTokens_CacheDataAccessToken* add_cache_data_access_tokens();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearnAccessTokens_CacheDataAccessToken >&
+      cache_data_access_tokens() const;
+
+  // repeated .CMsgSteamLearnAccessTokens.SnapshotProjectAccessToken snapshot_project_access_tokens = 3;
+  int snapshot_project_access_tokens_size() const;
+  private:
+  int _internal_snapshot_project_access_tokens_size() const;
+  public:
+  void clear_snapshot_project_access_tokens();
+  ::CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken* mutable_snapshot_project_access_tokens(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken >*
+      mutable_snapshot_project_access_tokens();
+  private:
+  const ::CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken& _internal_snapshot_project_access_tokens(int index) const;
+  ::CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken* _internal_add_snapshot_project_access_tokens();
+  public:
+  const ::CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken& snapshot_project_access_tokens(int index) const;
+  ::CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken* add_snapshot_project_access_tokens();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken >&
+      snapshot_project_access_tokens() const;
+
+  // repeated .CMsgSteamLearnAccessTokens.InferenceAccessToken inference_access_tokens = 4;
+  int inference_access_tokens_size() const;
+  private:
+  int _internal_inference_access_tokens_size() const;
+  public:
+  void clear_inference_access_tokens();
+  ::CMsgSteamLearnAccessTokens_InferenceAccessToken* mutable_inference_access_tokens(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearnAccessTokens_InferenceAccessToken >*
+      mutable_inference_access_tokens();
+  private:
+  const ::CMsgSteamLearnAccessTokens_InferenceAccessToken& _internal_inference_access_tokens(int index) const;
+  ::CMsgSteamLearnAccessTokens_InferenceAccessToken* _internal_add_inference_access_tokens();
+  public:
+  const ::CMsgSteamLearnAccessTokens_InferenceAccessToken& inference_access_tokens(int index) const;
+  ::CMsgSteamLearnAccessTokens_InferenceAccessToken* add_inference_access_tokens();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearnAccessTokens_InferenceAccessToken >&
+      inference_access_tokens() const;
+
+  // optional string register_data_source_access_token = 1;
+  bool has_register_data_source_access_token() const;
+  private:
+  bool _internal_has_register_data_source_access_token() const;
+  public:
+  void clear_register_data_source_access_token();
+  const std::string& register_data_source_access_token() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_register_data_source_access_token(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_register_data_source_access_token();
+  PROTOBUF_NODISCARD std::string* release_register_data_source_access_token();
+  void set_allocated_register_data_source_access_token(std::string* register_data_source_access_token);
+  private:
+  const std::string& _internal_register_data_source_access_token() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_register_data_source_access_token(const std::string& value);
+  std::string* _internal_mutable_register_data_source_access_token();
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgSteamLearnAccessTokens)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearnAccessTokens_CacheDataAccessToken > cache_data_access_tokens_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken > snapshot_project_access_tokens_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearnAccessTokens_InferenceAccessToken > inference_access_tokens_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr register_data_source_access_token_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_steammessages_5fsteamlearn_2esteamworkssdk_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgSteamLearn_GetAccessTokens_Request final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearn_GetAccessTokens_Request) */ {
+ public:
+  inline CMsgSteamLearn_GetAccessTokens_Request() : CMsgSteamLearn_GetAccessTokens_Request(nullptr) {}
+  ~CMsgSteamLearn_GetAccessTokens_Request() override;
+  explicit PROTOBUF_CONSTEXPR CMsgSteamLearn_GetAccessTokens_Request(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgSteamLearn_GetAccessTokens_Request(const CMsgSteamLearn_GetAccessTokens_Request& from);
+  CMsgSteamLearn_GetAccessTokens_Request(CMsgSteamLearn_GetAccessTokens_Request&& from) noexcept
+    : CMsgSteamLearn_GetAccessTokens_Request() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgSteamLearn_GetAccessTokens_Request& operator=(const CMsgSteamLearn_GetAccessTokens_Request& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgSteamLearn_GetAccessTokens_Request& operator=(CMsgSteamLearn_GetAccessTokens_Request&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgSteamLearn_GetAccessTokens_Request& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgSteamLearn_GetAccessTokens_Request* internal_default_instance() {
+    return reinterpret_cast<const CMsgSteamLearn_GetAccessTokens_Request*>(
+               &_CMsgSteamLearn_GetAccessTokens_Request_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    19;
+
+  friend void swap(CMsgSteamLearn_GetAccessTokens_Request& a, CMsgSteamLearn_GetAccessTokens_Request& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgSteamLearn_GetAccessTokens_Request* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgSteamLearn_GetAccessTokens_Request* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgSteamLearn_GetAccessTokens_Request* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgSteamLearn_GetAccessTokens_Request>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgSteamLearn_GetAccessTokens_Request& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgSteamLearn_GetAccessTokens_Request& from) {
+    CMsgSteamLearn_GetAccessTokens_Request::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgSteamLearn_GetAccessTokens_Request* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgSteamLearn_GetAccessTokens_Request";
+  }
+  protected:
+  explicit CMsgSteamLearn_GetAccessTokens_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   public:
 
@@ -4361,7 +4327,7 @@ class CMsgSteamLearn_GetHMACKeys_Request final :
   void _internal_set_appid(uint32_t value);
   public:
 
-  // @@protoc_insertion_point(class_scope:CMsgSteamLearn_GetHMACKeys_Request)
+  // @@protoc_insertion_point(class_scope:CMsgSteamLearn_GetAccessTokens_Request)
  private:
   class _Internal;
 
@@ -4378,24 +4344,24 @@ class CMsgSteamLearn_GetHMACKeys_Request final :
 };
 // -------------------------------------------------------------------
 
-class CMsgSteamLearn_GetHMACKeys_Response final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearn_GetHMACKeys_Response) */ {
+class CMsgSteamLearn_GetAccessTokens_Response final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearn_GetAccessTokens_Response) */ {
  public:
-  inline CMsgSteamLearn_GetHMACKeys_Response() : CMsgSteamLearn_GetHMACKeys_Response(nullptr) {}
-  ~CMsgSteamLearn_GetHMACKeys_Response() override;
-  explicit PROTOBUF_CONSTEXPR CMsgSteamLearn_GetHMACKeys_Response(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline CMsgSteamLearn_GetAccessTokens_Response() : CMsgSteamLearn_GetAccessTokens_Response(nullptr) {}
+  ~CMsgSteamLearn_GetAccessTokens_Response() override;
+  explicit PROTOBUF_CONSTEXPR CMsgSteamLearn_GetAccessTokens_Response(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  CMsgSteamLearn_GetHMACKeys_Response(const CMsgSteamLearn_GetHMACKeys_Response& from);
-  CMsgSteamLearn_GetHMACKeys_Response(CMsgSteamLearn_GetHMACKeys_Response&& from) noexcept
-    : CMsgSteamLearn_GetHMACKeys_Response() {
+  CMsgSteamLearn_GetAccessTokens_Response(const CMsgSteamLearn_GetAccessTokens_Response& from);
+  CMsgSteamLearn_GetAccessTokens_Response(CMsgSteamLearn_GetAccessTokens_Response&& from) noexcept
+    : CMsgSteamLearn_GetAccessTokens_Response() {
     *this = ::std::move(from);
   }
 
-  inline CMsgSteamLearn_GetHMACKeys_Response& operator=(const CMsgSteamLearn_GetHMACKeys_Response& from) {
+  inline CMsgSteamLearn_GetAccessTokens_Response& operator=(const CMsgSteamLearn_GetAccessTokens_Response& from) {
     CopyFrom(from);
     return *this;
   }
-  inline CMsgSteamLearn_GetHMACKeys_Response& operator=(CMsgSteamLearn_GetHMACKeys_Response&& from) noexcept {
+  inline CMsgSteamLearn_GetAccessTokens_Response& operator=(CMsgSteamLearn_GetAccessTokens_Response&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -4425,20 +4391,20 @@ class CMsgSteamLearn_GetHMACKeys_Response final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const CMsgSteamLearn_GetHMACKeys_Response& default_instance() {
+  static const CMsgSteamLearn_GetAccessTokens_Response& default_instance() {
     return *internal_default_instance();
   }
-  static inline const CMsgSteamLearn_GetHMACKeys_Response* internal_default_instance() {
-    return reinterpret_cast<const CMsgSteamLearn_GetHMACKeys_Response*>(
-               &_CMsgSteamLearn_GetHMACKeys_Response_default_instance_);
+  static inline const CMsgSteamLearn_GetAccessTokens_Response* internal_default_instance() {
+    return reinterpret_cast<const CMsgSteamLearn_GetAccessTokens_Response*>(
+               &_CMsgSteamLearn_GetAccessTokens_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     20;
 
-  friend void swap(CMsgSteamLearn_GetHMACKeys_Response& a, CMsgSteamLearn_GetHMACKeys_Response& b) {
+  friend void swap(CMsgSteamLearn_GetAccessTokens_Response& a, CMsgSteamLearn_GetAccessTokens_Response& b) {
     a.Swap(&b);
   }
-  inline void Swap(CMsgSteamLearn_GetHMACKeys_Response* other) {
+  inline void Swap(CMsgSteamLearn_GetAccessTokens_Response* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -4451,7 +4417,7 @@ class CMsgSteamLearn_GetHMACKeys_Response final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(CMsgSteamLearn_GetHMACKeys_Response* other) {
+  void UnsafeArenaSwap(CMsgSteamLearn_GetAccessTokens_Response* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -4459,14 +4425,14 @@ class CMsgSteamLearn_GetHMACKeys_Response final :
 
   // implements Message ----------------------------------------------
 
-  CMsgSteamLearn_GetHMACKeys_Response* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<CMsgSteamLearn_GetHMACKeys_Response>(arena);
+  CMsgSteamLearn_GetAccessTokens_Response* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgSteamLearn_GetAccessTokens_Response>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const CMsgSteamLearn_GetHMACKeys_Response& from);
+  void CopyFrom(const CMsgSteamLearn_GetAccessTokens_Response& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const CMsgSteamLearn_GetHMACKeys_Response& from) {
-    CMsgSteamLearn_GetHMACKeys_Response::MergeImpl(*this, from);
+  void MergeFrom( const CMsgSteamLearn_GetAccessTokens_Response& from) {
+    CMsgSteamLearn_GetAccessTokens_Response::MergeImpl(*this, from);
   }
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
@@ -4484,15 +4450,15 @@ class CMsgSteamLearn_GetHMACKeys_Response final :
   void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(CMsgSteamLearn_GetHMACKeys_Response* other);
+  void InternalSwap(CMsgSteamLearn_GetAccessTokens_Response* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CMsgSteamLearn_GetHMACKeys_Response";
+    return "CMsgSteamLearn_GetAccessTokens_Response";
   }
   protected:
-  explicit CMsgSteamLearn_GetHMACKeys_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit CMsgSteamLearn_GetAccessTokens_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   public:
 
@@ -4506,41 +4472,41 @@ class CMsgSteamLearn_GetHMACKeys_Response final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kKeysFieldNumber = 2,
+    kAccessTokensFieldNumber = 2,
     kResultFieldNumber = 1,
   };
-  // optional .CMsgSteamLearnHMACKeys keys = 2;
-  bool has_keys() const;
+  // optional .CMsgSteamLearnAccessTokens access_tokens = 2;
+  bool has_access_tokens() const;
   private:
-  bool _internal_has_keys() const;
+  bool _internal_has_access_tokens() const;
   public:
-  void clear_keys();
-  const ::CMsgSteamLearnHMACKeys& keys() const;
-  PROTOBUF_NODISCARD ::CMsgSteamLearnHMACKeys* release_keys();
-  ::CMsgSteamLearnHMACKeys* mutable_keys();
-  void set_allocated_keys(::CMsgSteamLearnHMACKeys* keys);
+  void clear_access_tokens();
+  const ::CMsgSteamLearnAccessTokens& access_tokens() const;
+  PROTOBUF_NODISCARD ::CMsgSteamLearnAccessTokens* release_access_tokens();
+  ::CMsgSteamLearnAccessTokens* mutable_access_tokens();
+  void set_allocated_access_tokens(::CMsgSteamLearnAccessTokens* access_tokens);
   private:
-  const ::CMsgSteamLearnHMACKeys& _internal_keys() const;
-  ::CMsgSteamLearnHMACKeys* _internal_mutable_keys();
+  const ::CMsgSteamLearnAccessTokens& _internal_access_tokens() const;
+  ::CMsgSteamLearnAccessTokens* _internal_mutable_access_tokens();
   public:
-  void unsafe_arena_set_allocated_keys(
-      ::CMsgSteamLearnHMACKeys* keys);
-  ::CMsgSteamLearnHMACKeys* unsafe_arena_release_keys();
+  void unsafe_arena_set_allocated_access_tokens(
+      ::CMsgSteamLearnAccessTokens* access_tokens);
+  ::CMsgSteamLearnAccessTokens* unsafe_arena_release_access_tokens();
 
-  // optional .ESteamLearnGetHMACKeysResult result = 1 [default = STEAMLEARN_GET_HMAC_KEYS_SUCCESS];
+  // optional .ESteamLearnGetAccessTokensResult result = 1 [default = STEAMLEARN_GET_ACCESS_TOKENS_ERROR];
   bool has_result() const;
   private:
   bool _internal_has_result() const;
   public:
   void clear_result();
-  ::ESteamLearnGetHMACKeysResult result() const;
-  void set_result(::ESteamLearnGetHMACKeysResult value);
+  ::ESteamLearnGetAccessTokensResult result() const;
+  void set_result(::ESteamLearnGetAccessTokensResult value);
   private:
-  ::ESteamLearnGetHMACKeysResult _internal_result() const;
-  void _internal_set_result(::ESteamLearnGetHMACKeysResult value);
+  ::ESteamLearnGetAccessTokensResult _internal_result() const;
+  void _internal_set_result(::ESteamLearnGetAccessTokensResult value);
   public:
 
-  // @@protoc_insertion_point(class_scope:CMsgSteamLearn_GetHMACKeys_Response)
+  // @@protoc_insertion_point(class_scope:CMsgSteamLearn_GetAccessTokens_Response)
  private:
   class _Internal;
 
@@ -4550,7 +4516,7 @@ class CMsgSteamLearn_GetHMACKeys_Response final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    ::CMsgSteamLearnHMACKeys* keys_;
+    ::CMsgSteamLearnAccessTokens* access_tokens_;
     int result_;
   };
   union { Impl_ _impl_; };
@@ -4688,7 +4654,6 @@ class CMsgSteamLearn_Inference_Request final :
   enum : int {
     kAdditionalDataFieldNumber = 7,
     kAccessTokenFieldNumber = 1,
-    kAccessDataFieldNumber = 2,
     kDataFieldNumber = 6,
     kProjectIdFieldNumber = 3,
     kPublishedVersionFieldNumber = 4,
@@ -4733,24 +4698,6 @@ class CMsgSteamLearn_Inference_Request final :
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_access_token(const std::string& value);
   std::string* _internal_mutable_access_token();
   public:
-
-  // optional .CMsgSteamLearn_AccessData access_data = 2;
-  bool has_access_data() const;
-  private:
-  bool _internal_has_access_data() const;
-  public:
-  void clear_access_data();
-  const ::CMsgSteamLearn_AccessData& access_data() const;
-  PROTOBUF_NODISCARD ::CMsgSteamLearn_AccessData* release_access_data();
-  ::CMsgSteamLearn_AccessData* mutable_access_data();
-  void set_allocated_access_data(::CMsgSteamLearn_AccessData* access_data);
-  private:
-  const ::CMsgSteamLearn_AccessData& _internal_access_data() const;
-  ::CMsgSteamLearn_AccessData* _internal_mutable_access_data();
-  public:
-  void unsafe_arena_set_allocated_access_data(
-      ::CMsgSteamLearn_AccessData* access_data);
-  ::CMsgSteamLearn_AccessData* unsafe_arena_release_access_data();
 
   // optional .CMsgSteamLearnDataList data = 6;
   bool has_data() const;
@@ -4821,7 +4768,6 @@ class CMsgSteamLearn_Inference_Request final :
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< float > additional_data_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr access_token_;
-    ::CMsgSteamLearn_AccessData* access_data_;
     ::CMsgSteamLearnDataList* data_;
     uint32_t project_id_;
     uint32_t published_version_;
@@ -4961,7 +4907,6 @@ class CMsgSteamLearn_InferenceMetadata_Request final :
 
   enum : int {
     kAccessTokenFieldNumber = 1,
-    kAccessDataFieldNumber = 2,
     kProjectIdFieldNumber = 3,
     kPublishedVersionFieldNumber = 4,
     kOverrideTrainIdFieldNumber = 5,
@@ -4983,24 +4928,6 @@ class CMsgSteamLearn_InferenceMetadata_Request final :
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_access_token(const std::string& value);
   std::string* _internal_mutable_access_token();
   public:
-
-  // optional .CMsgSteamLearn_AccessData access_data = 2;
-  bool has_access_data() const;
-  private:
-  bool _internal_has_access_data() const;
-  public:
-  void clear_access_data();
-  const ::CMsgSteamLearn_AccessData& access_data() const;
-  PROTOBUF_NODISCARD ::CMsgSteamLearn_AccessData* release_access_data();
-  ::CMsgSteamLearn_AccessData* mutable_access_data();
-  void set_allocated_access_data(::CMsgSteamLearn_AccessData* access_data);
-  private:
-  const ::CMsgSteamLearn_AccessData& _internal_access_data() const;
-  ::CMsgSteamLearn_AccessData* _internal_mutable_access_data();
-  public:
-  void unsafe_arena_set_allocated_access_data(
-      ::CMsgSteamLearn_AccessData* access_data);
-  ::CMsgSteamLearn_AccessData* unsafe_arena_release_access_data();
 
   // optional uint32 project_id = 3;
   bool has_project_id() const;
@@ -5052,7 +4979,6 @@ class CMsgSteamLearn_InferenceMetadata_Request final :
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr access_token_;
-    ::CMsgSteamLearn_AccessData* access_data_;
     uint32_t project_id_;
     uint32_t published_version_;
     uint32_t override_train_id_;
@@ -7484,6 +7410,166 @@ class CMsgSteamLearn_InferenceMetadata_Response final :
 };
 // -------------------------------------------------------------------
 
+class CMsgSteamLearn_InferenceBackend_Response_RegressionOutput final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearn_InferenceBackend_Response.RegressionOutput) */ {
+ public:
+  inline CMsgSteamLearn_InferenceBackend_Response_RegressionOutput() : CMsgSteamLearn_InferenceBackend_Response_RegressionOutput(nullptr) {}
+  ~CMsgSteamLearn_InferenceBackend_Response_RegressionOutput() override;
+  explicit PROTOBUF_CONSTEXPR CMsgSteamLearn_InferenceBackend_Response_RegressionOutput(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgSteamLearn_InferenceBackend_Response_RegressionOutput(const CMsgSteamLearn_InferenceBackend_Response_RegressionOutput& from);
+  CMsgSteamLearn_InferenceBackend_Response_RegressionOutput(CMsgSteamLearn_InferenceBackend_Response_RegressionOutput&& from) noexcept
+    : CMsgSteamLearn_InferenceBackend_Response_RegressionOutput() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgSteamLearn_InferenceBackend_Response_RegressionOutput& operator=(const CMsgSteamLearn_InferenceBackend_Response_RegressionOutput& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgSteamLearn_InferenceBackend_Response_RegressionOutput& operator=(CMsgSteamLearn_InferenceBackend_Response_RegressionOutput&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgSteamLearn_InferenceBackend_Response_RegressionOutput& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgSteamLearn_InferenceBackend_Response_RegressionOutput* internal_default_instance() {
+    return reinterpret_cast<const CMsgSteamLearn_InferenceBackend_Response_RegressionOutput*>(
+               &_CMsgSteamLearn_InferenceBackend_Response_RegressionOutput_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    35;
+
+  friend void swap(CMsgSteamLearn_InferenceBackend_Response_RegressionOutput& a, CMsgSteamLearn_InferenceBackend_Response_RegressionOutput& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgSteamLearn_InferenceBackend_Response_RegressionOutput* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgSteamLearn_InferenceBackend_Response_RegressionOutput* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgSteamLearn_InferenceBackend_Response_RegressionOutput* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgSteamLearn_InferenceBackend_Response_RegressionOutput>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgSteamLearn_InferenceBackend_Response_RegressionOutput& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgSteamLearn_InferenceBackend_Response_RegressionOutput& from) {
+    CMsgSteamLearn_InferenceBackend_Response_RegressionOutput::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgSteamLearn_InferenceBackend_Response_RegressionOutput* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgSteamLearn_InferenceBackend_Response.RegressionOutput";
+  }
+  protected:
+  explicit CMsgSteamLearn_InferenceBackend_Response_RegressionOutput(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kValueFieldNumber = 1,
+  };
+  // optional float value = 1;
+  bool has_value() const;
+  private:
+  bool _internal_has_value() const;
+  public:
+  void clear_value();
+  float value() const;
+  void set_value(float value);
+  private:
+  float _internal_value() const;
+  void _internal_set_value(float value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgSteamLearn_InferenceBackend_Response.RegressionOutput)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    float value_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_steammessages_5fsteamlearn_2esteamworkssdk_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearn_InferenceBackend_Response.BinaryCrossEntropyOutput) */ {
  public:
@@ -7539,7 +7625,7 @@ class CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput final :
                &_CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    35;
+    36;
 
   friend void swap(CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput& a, CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput& b) {
     a.Swap(&b);
@@ -7699,7 +7785,7 @@ class CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput fin
                &_CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    36;
+    37;
 
   friend void swap(CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput& a, CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput& b) {
     a.Swap(&b);
@@ -7891,7 +7977,7 @@ class CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput fin
                &_CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    37;
+    38;
 
   friend void swap(CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput& a, CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput& b) {
     a.Swap(&b);
@@ -8082,6 +8168,7 @@ class CMsgSteamLearn_InferenceBackend_Response_Output final :
     kBinaryCrossentropy = 1,
     kCategoricalCrossentropy = 2,
     kMultiBinaryCrossentropy = 3,
+    kRegression = 4,
     RESPONSETYPE_NOT_SET = 0,
   };
 
@@ -8090,7 +8177,7 @@ class CMsgSteamLearn_InferenceBackend_Response_Output final :
                &_CMsgSteamLearn_InferenceBackend_Response_Output_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    38;
+    39;
 
   friend void swap(CMsgSteamLearn_InferenceBackend_Response_Output& a, CMsgSteamLearn_InferenceBackend_Response_Output& b) {
     a.Swap(&b);
@@ -8166,6 +8253,7 @@ class CMsgSteamLearn_InferenceBackend_Response_Output final :
     kBinaryCrossentropyFieldNumber = 1,
     kCategoricalCrossentropyFieldNumber = 2,
     kMultiBinaryCrossentropyFieldNumber = 3,
+    kRegressionFieldNumber = 4,
   };
   // .CMsgSteamLearn_InferenceBackend_Response.BinaryCrossEntropyOutput binary_crossentropy = 1;
   bool has_binary_crossentropy() const;
@@ -8221,6 +8309,24 @@ class CMsgSteamLearn_InferenceBackend_Response_Output final :
       ::CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput* multi_binary_crossentropy);
   ::CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput* unsafe_arena_release_multi_binary_crossentropy();
 
+  // .CMsgSteamLearn_InferenceBackend_Response.RegressionOutput regression = 4;
+  bool has_regression() const;
+  private:
+  bool _internal_has_regression() const;
+  public:
+  void clear_regression();
+  const ::CMsgSteamLearn_InferenceBackend_Response_RegressionOutput& regression() const;
+  PROTOBUF_NODISCARD ::CMsgSteamLearn_InferenceBackend_Response_RegressionOutput* release_regression();
+  ::CMsgSteamLearn_InferenceBackend_Response_RegressionOutput* mutable_regression();
+  void set_allocated_regression(::CMsgSteamLearn_InferenceBackend_Response_RegressionOutput* regression);
+  private:
+  const ::CMsgSteamLearn_InferenceBackend_Response_RegressionOutput& _internal_regression() const;
+  ::CMsgSteamLearn_InferenceBackend_Response_RegressionOutput* _internal_mutable_regression();
+  public:
+  void unsafe_arena_set_allocated_regression(
+      ::CMsgSteamLearn_InferenceBackend_Response_RegressionOutput* regression);
+  ::CMsgSteamLearn_InferenceBackend_Response_RegressionOutput* unsafe_arena_release_regression();
+
   void clear_ResponseType();
   ResponseTypeCase ResponseType_case() const;
   // @@protoc_insertion_point(class_scope:CMsgSteamLearn_InferenceBackend_Response.Output)
@@ -8229,6 +8335,7 @@ class CMsgSteamLearn_InferenceBackend_Response_Output final :
   void set_has_binary_crossentropy();
   void set_has_categorical_crossentropy();
   void set_has_multi_binary_crossentropy();
+  void set_has_regression();
 
   inline bool has_ResponseType() const;
   inline void clear_has_ResponseType();
@@ -8243,6 +8350,7 @@ class CMsgSteamLearn_InferenceBackend_Response_Output final :
       ::CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput* binary_crossentropy_;
       ::CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput* categorical_crossentropy_;
       ::CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput* multi_binary_crossentropy_;
+      ::CMsgSteamLearn_InferenceBackend_Response_RegressionOutput* regression_;
     } ResponseType_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
@@ -8308,7 +8416,7 @@ class CMsgSteamLearn_InferenceBackend_Response final :
                &_CMsgSteamLearn_InferenceBackend_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    39;
+    40;
 
   friend void swap(CMsgSteamLearn_InferenceBackend_Response& a, CMsgSteamLearn_InferenceBackend_Response& b) {
     a.Swap(&b);
@@ -8378,6 +8486,7 @@ class CMsgSteamLearn_InferenceBackend_Response final :
 
   // nested types ----------------------------------------------------
 
+  typedef CMsgSteamLearn_InferenceBackend_Response_RegressionOutput RegressionOutput;
   typedef CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput BinaryCrossEntropyOutput;
   typedef CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput MutliBinaryCrossEntropyOutput;
   typedef CMsgSteamLearn_InferenceBackend_Response_CategoricalCrossEntropyOutput CategoricalCrossEntropyOutput;
@@ -8477,7 +8586,7 @@ class CMsgSteamLearn_Inference_Response final :
                &_CMsgSteamLearn_Inference_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    40;
+    41;
 
   friend void swap(CMsgSteamLearn_Inference_Response& a, CMsgSteamLearn_Inference_Response& b) {
     a.Swap(&b);
@@ -8550,9 +8659,32 @@ class CMsgSteamLearn_Inference_Response final :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kKeysFieldNumber = 3,
     kBackendResponseFieldNumber = 2,
     kInferenceResultFieldNumber = 1,
   };
+  // repeated uint64 keys = 3;
+  int keys_size() const;
+  private:
+  int _internal_keys_size() const;
+  public:
+  void clear_keys();
+  private:
+  uint64_t _internal_keys(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+      _internal_keys() const;
+  void _internal_add_keys(uint64_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+      _internal_mutable_keys();
+  public:
+  uint64_t keys(int index) const;
+  void set_keys(int index, uint64_t value);
+  void add_keys(uint64_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+      keys() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+      mutable_keys();
+
   // optional .CMsgSteamLearn_InferenceBackend_Response backend_response = 2;
   bool has_backend_response() const;
   private:
@@ -8594,6 +8726,7 @@ class CMsgSteamLearn_Inference_Response final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t > keys_;
     ::CMsgSteamLearn_InferenceBackend_Response* backend_response_;
     int inference_result_;
   };
@@ -9799,94 +9932,6 @@ CMsgSteamLearnDataList::data() const {
 
 // -------------------------------------------------------------------
 
-// CMsgSteamLearn_AccessData
-
-// optional uint32 publisher_id = 1;
-inline bool CMsgSteamLearn_AccessData::_internal_has_publisher_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool CMsgSteamLearn_AccessData::has_publisher_id() const {
-  return _internal_has_publisher_id();
-}
-inline void CMsgSteamLearn_AccessData::clear_publisher_id() {
-  _impl_.publisher_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000001u;
-}
-inline uint32_t CMsgSteamLearn_AccessData::_internal_publisher_id() const {
-  return _impl_.publisher_id_;
-}
-inline uint32_t CMsgSteamLearn_AccessData::publisher_id() const {
-  // @@protoc_insertion_point(field_get:CMsgSteamLearn_AccessData.publisher_id)
-  return _internal_publisher_id();
-}
-inline void CMsgSteamLearn_AccessData::_internal_set_publisher_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  _impl_.publisher_id_ = value;
-}
-inline void CMsgSteamLearn_AccessData::set_publisher_id(uint32_t value) {
-  _internal_set_publisher_id(value);
-  // @@protoc_insertion_point(field_set:CMsgSteamLearn_AccessData.publisher_id)
-}
-
-// optional uint32 timestamp = 2;
-inline bool CMsgSteamLearn_AccessData::_internal_has_timestamp() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
-  return value;
-}
-inline bool CMsgSteamLearn_AccessData::has_timestamp() const {
-  return _internal_has_timestamp();
-}
-inline void CMsgSteamLearn_AccessData::clear_timestamp() {
-  _impl_.timestamp_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
-}
-inline uint32_t CMsgSteamLearn_AccessData::_internal_timestamp() const {
-  return _impl_.timestamp_;
-}
-inline uint32_t CMsgSteamLearn_AccessData::timestamp() const {
-  // @@protoc_insertion_point(field_get:CMsgSteamLearn_AccessData.timestamp)
-  return _internal_timestamp();
-}
-inline void CMsgSteamLearn_AccessData::_internal_set_timestamp(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  _impl_.timestamp_ = value;
-}
-inline void CMsgSteamLearn_AccessData::set_timestamp(uint32_t value) {
-  _internal_set_timestamp(value);
-  // @@protoc_insertion_point(field_set:CMsgSteamLearn_AccessData.timestamp)
-}
-
-// optional uint64 random_value = 3;
-inline bool CMsgSteamLearn_AccessData::_internal_has_random_value() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
-  return value;
-}
-inline bool CMsgSteamLearn_AccessData::has_random_value() const {
-  return _internal_has_random_value();
-}
-inline void CMsgSteamLearn_AccessData::clear_random_value() {
-  _impl_.random_value_ = uint64_t{0u};
-  _impl_._has_bits_[0] &= ~0x00000004u;
-}
-inline uint64_t CMsgSteamLearn_AccessData::_internal_random_value() const {
-  return _impl_.random_value_;
-}
-inline uint64_t CMsgSteamLearn_AccessData::random_value() const {
-  // @@protoc_insertion_point(field_get:CMsgSteamLearn_AccessData.random_value)
-  return _internal_random_value();
-}
-inline void CMsgSteamLearn_AccessData::_internal_set_random_value(uint64_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
-  _impl_.random_value_ = value;
-}
-inline void CMsgSteamLearn_AccessData::set_random_value(uint64_t value) {
-  _internal_set_random_value(value);
-  // @@protoc_insertion_point(field_set:CMsgSteamLearn_AccessData.random_value)
-}
-
-// -------------------------------------------------------------------
-
 // CMsgSteamLearn_RegisterDataSource_Request
 
 // optional string access_token = 1;
@@ -9957,99 +10002,9 @@ inline void CMsgSteamLearn_RegisterDataSource_Request::set_allocated_access_toke
   // @@protoc_insertion_point(field_set_allocated:CMsgSteamLearn_RegisterDataSource_Request.access_token)
 }
 
-// optional .CMsgSteamLearn_AccessData access_data = 2;
-inline bool CMsgSteamLearn_RegisterDataSource_Request::_internal_has_access_data() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
-  PROTOBUF_ASSUME(!value || _impl_.access_data_ != nullptr);
-  return value;
-}
-inline bool CMsgSteamLearn_RegisterDataSource_Request::has_access_data() const {
-  return _internal_has_access_data();
-}
-inline void CMsgSteamLearn_RegisterDataSource_Request::clear_access_data() {
-  if (_impl_.access_data_ != nullptr) _impl_.access_data_->Clear();
-  _impl_._has_bits_[0] &= ~0x00000002u;
-}
-inline const ::CMsgSteamLearn_AccessData& CMsgSteamLearn_RegisterDataSource_Request::_internal_access_data() const {
-  const ::CMsgSteamLearn_AccessData* p = _impl_.access_data_;
-  return p != nullptr ? *p : reinterpret_cast<const ::CMsgSteamLearn_AccessData&>(
-      ::_CMsgSteamLearn_AccessData_default_instance_);
-}
-inline const ::CMsgSteamLearn_AccessData& CMsgSteamLearn_RegisterDataSource_Request::access_data() const {
-  // @@protoc_insertion_point(field_get:CMsgSteamLearn_RegisterDataSource_Request.access_data)
-  return _internal_access_data();
-}
-inline void CMsgSteamLearn_RegisterDataSource_Request::unsafe_arena_set_allocated_access_data(
-    ::CMsgSteamLearn_AccessData* access_data) {
-  if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.access_data_);
-  }
-  _impl_.access_data_ = access_data;
-  if (access_data) {
-    _impl_._has_bits_[0] |= 0x00000002u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000002u;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CMsgSteamLearn_RegisterDataSource_Request.access_data)
-}
-inline ::CMsgSteamLearn_AccessData* CMsgSteamLearn_RegisterDataSource_Request::release_access_data() {
-  _impl_._has_bits_[0] &= ~0x00000002u;
-  ::CMsgSteamLearn_AccessData* temp = _impl_.access_data_;
-  _impl_.access_data_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
-  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
-#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArenaForAllocation() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return temp;
-}
-inline ::CMsgSteamLearn_AccessData* CMsgSteamLearn_RegisterDataSource_Request::unsafe_arena_release_access_data() {
-  // @@protoc_insertion_point(field_release:CMsgSteamLearn_RegisterDataSource_Request.access_data)
-  _impl_._has_bits_[0] &= ~0x00000002u;
-  ::CMsgSteamLearn_AccessData* temp = _impl_.access_data_;
-  _impl_.access_data_ = nullptr;
-  return temp;
-}
-inline ::CMsgSteamLearn_AccessData* CMsgSteamLearn_RegisterDataSource_Request::_internal_mutable_access_data() {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  if (_impl_.access_data_ == nullptr) {
-    auto* p = CreateMaybeMessage<::CMsgSteamLearn_AccessData>(GetArenaForAllocation());
-    _impl_.access_data_ = p;
-  }
-  return _impl_.access_data_;
-}
-inline ::CMsgSteamLearn_AccessData* CMsgSteamLearn_RegisterDataSource_Request::mutable_access_data() {
-  ::CMsgSteamLearn_AccessData* _msg = _internal_mutable_access_data();
-  // @@protoc_insertion_point(field_mutable:CMsgSteamLearn_RegisterDataSource_Request.access_data)
-  return _msg;
-}
-inline void CMsgSteamLearn_RegisterDataSource_Request::set_allocated_access_data(::CMsgSteamLearn_AccessData* access_data) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  if (message_arena == nullptr) {
-    delete _impl_.access_data_;
-  }
-  if (access_data) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(access_data);
-    if (message_arena != submessage_arena) {
-      access_data = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, access_data, submessage_arena);
-    }
-    _impl_._has_bits_[0] |= 0x00000002u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000002u;
-  }
-  _impl_.access_data_ = access_data;
-  // @@protoc_insertion_point(field_set_allocated:CMsgSteamLearn_RegisterDataSource_Request.access_data)
-}
-
 // optional .CMsgSteamLearnDataSource data_source = 3;
 inline bool CMsgSteamLearn_RegisterDataSource_Request::_internal_has_data_source() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.data_source_ != nullptr);
   return value;
 }
@@ -10058,7 +10013,7 @@ inline bool CMsgSteamLearn_RegisterDataSource_Request::has_data_source() const {
 }
 inline void CMsgSteamLearn_RegisterDataSource_Request::clear_data_source() {
   if (_impl_.data_source_ != nullptr) _impl_.data_source_->Clear();
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline const ::CMsgSteamLearnDataSource& CMsgSteamLearn_RegisterDataSource_Request::_internal_data_source() const {
   const ::CMsgSteamLearnDataSource* p = _impl_.data_source_;
@@ -10076,14 +10031,14 @@ inline void CMsgSteamLearn_RegisterDataSource_Request::unsafe_arena_set_allocate
   }
   _impl_.data_source_ = data_source;
   if (data_source) {
-    _impl_._has_bits_[0] |= 0x00000004u;
+    _impl_._has_bits_[0] |= 0x00000002u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000004u;
+    _impl_._has_bits_[0] &= ~0x00000002u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CMsgSteamLearn_RegisterDataSource_Request.data_source)
 }
 inline ::CMsgSteamLearnDataSource* CMsgSteamLearn_RegisterDataSource_Request::release_data_source() {
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
   ::CMsgSteamLearnDataSource* temp = _impl_.data_source_;
   _impl_.data_source_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
@@ -10099,13 +10054,13 @@ inline ::CMsgSteamLearnDataSource* CMsgSteamLearn_RegisterDataSource_Request::re
 }
 inline ::CMsgSteamLearnDataSource* CMsgSteamLearn_RegisterDataSource_Request::unsafe_arena_release_data_source() {
   // @@protoc_insertion_point(field_release:CMsgSteamLearn_RegisterDataSource_Request.data_source)
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
   ::CMsgSteamLearnDataSource* temp = _impl_.data_source_;
   _impl_.data_source_ = nullptr;
   return temp;
 }
 inline ::CMsgSteamLearnDataSource* CMsgSteamLearn_RegisterDataSource_Request::_internal_mutable_data_source() {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   if (_impl_.data_source_ == nullptr) {
     auto* p = CreateMaybeMessage<::CMsgSteamLearnDataSource>(GetArenaForAllocation());
     _impl_.data_source_ = p;
@@ -10129,9 +10084,9 @@ inline void CMsgSteamLearn_RegisterDataSource_Request::set_allocated_data_source
       data_source = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, data_source, submessage_arena);
     }
-    _impl_._has_bits_[0] |= 0x00000004u;
+    _impl_._has_bits_[0] |= 0x00000002u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000004u;
+    _impl_._has_bits_[0] &= ~0x00000002u;
   }
   _impl_.data_source_ = data_source;
   // @@protoc_insertion_point(field_set_allocated:CMsgSteamLearn_RegisterDataSource_Request.data_source)
@@ -10332,99 +10287,9 @@ inline void CMsgSteamLearn_CacheData_Request::set_allocated_access_token(std::st
   // @@protoc_insertion_point(field_set_allocated:CMsgSteamLearn_CacheData_Request.access_token)
 }
 
-// optional .CMsgSteamLearn_AccessData access_data = 2;
-inline bool CMsgSteamLearn_CacheData_Request::_internal_has_access_data() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
-  PROTOBUF_ASSUME(!value || _impl_.access_data_ != nullptr);
-  return value;
-}
-inline bool CMsgSteamLearn_CacheData_Request::has_access_data() const {
-  return _internal_has_access_data();
-}
-inline void CMsgSteamLearn_CacheData_Request::clear_access_data() {
-  if (_impl_.access_data_ != nullptr) _impl_.access_data_->Clear();
-  _impl_._has_bits_[0] &= ~0x00000002u;
-}
-inline const ::CMsgSteamLearn_AccessData& CMsgSteamLearn_CacheData_Request::_internal_access_data() const {
-  const ::CMsgSteamLearn_AccessData* p = _impl_.access_data_;
-  return p != nullptr ? *p : reinterpret_cast<const ::CMsgSteamLearn_AccessData&>(
-      ::_CMsgSteamLearn_AccessData_default_instance_);
-}
-inline const ::CMsgSteamLearn_AccessData& CMsgSteamLearn_CacheData_Request::access_data() const {
-  // @@protoc_insertion_point(field_get:CMsgSteamLearn_CacheData_Request.access_data)
-  return _internal_access_data();
-}
-inline void CMsgSteamLearn_CacheData_Request::unsafe_arena_set_allocated_access_data(
-    ::CMsgSteamLearn_AccessData* access_data) {
-  if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.access_data_);
-  }
-  _impl_.access_data_ = access_data;
-  if (access_data) {
-    _impl_._has_bits_[0] |= 0x00000002u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000002u;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CMsgSteamLearn_CacheData_Request.access_data)
-}
-inline ::CMsgSteamLearn_AccessData* CMsgSteamLearn_CacheData_Request::release_access_data() {
-  _impl_._has_bits_[0] &= ~0x00000002u;
-  ::CMsgSteamLearn_AccessData* temp = _impl_.access_data_;
-  _impl_.access_data_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
-  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
-#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArenaForAllocation() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return temp;
-}
-inline ::CMsgSteamLearn_AccessData* CMsgSteamLearn_CacheData_Request::unsafe_arena_release_access_data() {
-  // @@protoc_insertion_point(field_release:CMsgSteamLearn_CacheData_Request.access_data)
-  _impl_._has_bits_[0] &= ~0x00000002u;
-  ::CMsgSteamLearn_AccessData* temp = _impl_.access_data_;
-  _impl_.access_data_ = nullptr;
-  return temp;
-}
-inline ::CMsgSteamLearn_AccessData* CMsgSteamLearn_CacheData_Request::_internal_mutable_access_data() {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  if (_impl_.access_data_ == nullptr) {
-    auto* p = CreateMaybeMessage<::CMsgSteamLearn_AccessData>(GetArenaForAllocation());
-    _impl_.access_data_ = p;
-  }
-  return _impl_.access_data_;
-}
-inline ::CMsgSteamLearn_AccessData* CMsgSteamLearn_CacheData_Request::mutable_access_data() {
-  ::CMsgSteamLearn_AccessData* _msg = _internal_mutable_access_data();
-  // @@protoc_insertion_point(field_mutable:CMsgSteamLearn_CacheData_Request.access_data)
-  return _msg;
-}
-inline void CMsgSteamLearn_CacheData_Request::set_allocated_access_data(::CMsgSteamLearn_AccessData* access_data) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  if (message_arena == nullptr) {
-    delete _impl_.access_data_;
-  }
-  if (access_data) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(access_data);
-    if (message_arena != submessage_arena) {
-      access_data = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, access_data, submessage_arena);
-    }
-    _impl_._has_bits_[0] |= 0x00000002u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000002u;
-  }
-  _impl_.access_data_ = access_data;
-  // @@protoc_insertion_point(field_set_allocated:CMsgSteamLearn_CacheData_Request.access_data)
-}
-
 // optional .CMsgSteamLearnData data = 3;
 inline bool CMsgSteamLearn_CacheData_Request::_internal_has_data() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.data_ != nullptr);
   return value;
 }
@@ -10433,7 +10298,7 @@ inline bool CMsgSteamLearn_CacheData_Request::has_data() const {
 }
 inline void CMsgSteamLearn_CacheData_Request::clear_data() {
   if (_impl_.data_ != nullptr) _impl_.data_->Clear();
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline const ::CMsgSteamLearnData& CMsgSteamLearn_CacheData_Request::_internal_data() const {
   const ::CMsgSteamLearnData* p = _impl_.data_;
@@ -10451,14 +10316,14 @@ inline void CMsgSteamLearn_CacheData_Request::unsafe_arena_set_allocated_data(
   }
   _impl_.data_ = data;
   if (data) {
-    _impl_._has_bits_[0] |= 0x00000004u;
+    _impl_._has_bits_[0] |= 0x00000002u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000004u;
+    _impl_._has_bits_[0] &= ~0x00000002u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CMsgSteamLearn_CacheData_Request.data)
 }
 inline ::CMsgSteamLearnData* CMsgSteamLearn_CacheData_Request::release_data() {
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
   ::CMsgSteamLearnData* temp = _impl_.data_;
   _impl_.data_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
@@ -10474,13 +10339,13 @@ inline ::CMsgSteamLearnData* CMsgSteamLearn_CacheData_Request::release_data() {
 }
 inline ::CMsgSteamLearnData* CMsgSteamLearn_CacheData_Request::unsafe_arena_release_data() {
   // @@protoc_insertion_point(field_release:CMsgSteamLearn_CacheData_Request.data)
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
   ::CMsgSteamLearnData* temp = _impl_.data_;
   _impl_.data_ = nullptr;
   return temp;
 }
 inline ::CMsgSteamLearnData* CMsgSteamLearn_CacheData_Request::_internal_mutable_data() {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   if (_impl_.data_ == nullptr) {
     auto* p = CreateMaybeMessage<::CMsgSteamLearnData>(GetArenaForAllocation());
     _impl_.data_ = p;
@@ -10504,9 +10369,9 @@ inline void CMsgSteamLearn_CacheData_Request::set_allocated_data(::CMsgSteamLear
       data = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, data, submessage_arena);
     }
-    _impl_._has_bits_[0] |= 0x00000004u;
+    _impl_._has_bits_[0] |= 0x00000002u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000004u;
+    _impl_._has_bits_[0] &= ~0x00000002u;
   }
   _impl_.data_ = data;
   // @@protoc_insertion_point(field_set_allocated:CMsgSteamLearn_CacheData_Request.data)
@@ -10617,99 +10482,9 @@ inline void CMsgSteamLearn_SnapshotProject_Request::set_allocated_access_token(s
   // @@protoc_insertion_point(field_set_allocated:CMsgSteamLearn_SnapshotProject_Request.access_token)
 }
 
-// optional .CMsgSteamLearn_AccessData access_data = 2;
-inline bool CMsgSteamLearn_SnapshotProject_Request::_internal_has_access_data() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
-  PROTOBUF_ASSUME(!value || _impl_.access_data_ != nullptr);
-  return value;
-}
-inline bool CMsgSteamLearn_SnapshotProject_Request::has_access_data() const {
-  return _internal_has_access_data();
-}
-inline void CMsgSteamLearn_SnapshotProject_Request::clear_access_data() {
-  if (_impl_.access_data_ != nullptr) _impl_.access_data_->Clear();
-  _impl_._has_bits_[0] &= ~0x00000002u;
-}
-inline const ::CMsgSteamLearn_AccessData& CMsgSteamLearn_SnapshotProject_Request::_internal_access_data() const {
-  const ::CMsgSteamLearn_AccessData* p = _impl_.access_data_;
-  return p != nullptr ? *p : reinterpret_cast<const ::CMsgSteamLearn_AccessData&>(
-      ::_CMsgSteamLearn_AccessData_default_instance_);
-}
-inline const ::CMsgSteamLearn_AccessData& CMsgSteamLearn_SnapshotProject_Request::access_data() const {
-  // @@protoc_insertion_point(field_get:CMsgSteamLearn_SnapshotProject_Request.access_data)
-  return _internal_access_data();
-}
-inline void CMsgSteamLearn_SnapshotProject_Request::unsafe_arena_set_allocated_access_data(
-    ::CMsgSteamLearn_AccessData* access_data) {
-  if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.access_data_);
-  }
-  _impl_.access_data_ = access_data;
-  if (access_data) {
-    _impl_._has_bits_[0] |= 0x00000002u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000002u;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CMsgSteamLearn_SnapshotProject_Request.access_data)
-}
-inline ::CMsgSteamLearn_AccessData* CMsgSteamLearn_SnapshotProject_Request::release_access_data() {
-  _impl_._has_bits_[0] &= ~0x00000002u;
-  ::CMsgSteamLearn_AccessData* temp = _impl_.access_data_;
-  _impl_.access_data_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
-  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
-#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArenaForAllocation() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return temp;
-}
-inline ::CMsgSteamLearn_AccessData* CMsgSteamLearn_SnapshotProject_Request::unsafe_arena_release_access_data() {
-  // @@protoc_insertion_point(field_release:CMsgSteamLearn_SnapshotProject_Request.access_data)
-  _impl_._has_bits_[0] &= ~0x00000002u;
-  ::CMsgSteamLearn_AccessData* temp = _impl_.access_data_;
-  _impl_.access_data_ = nullptr;
-  return temp;
-}
-inline ::CMsgSteamLearn_AccessData* CMsgSteamLearn_SnapshotProject_Request::_internal_mutable_access_data() {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  if (_impl_.access_data_ == nullptr) {
-    auto* p = CreateMaybeMessage<::CMsgSteamLearn_AccessData>(GetArenaForAllocation());
-    _impl_.access_data_ = p;
-  }
-  return _impl_.access_data_;
-}
-inline ::CMsgSteamLearn_AccessData* CMsgSteamLearn_SnapshotProject_Request::mutable_access_data() {
-  ::CMsgSteamLearn_AccessData* _msg = _internal_mutable_access_data();
-  // @@protoc_insertion_point(field_mutable:CMsgSteamLearn_SnapshotProject_Request.access_data)
-  return _msg;
-}
-inline void CMsgSteamLearn_SnapshotProject_Request::set_allocated_access_data(::CMsgSteamLearn_AccessData* access_data) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  if (message_arena == nullptr) {
-    delete _impl_.access_data_;
-  }
-  if (access_data) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(access_data);
-    if (message_arena != submessage_arena) {
-      access_data = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, access_data, submessage_arena);
-    }
-    _impl_._has_bits_[0] |= 0x00000002u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000002u;
-  }
-  _impl_.access_data_ = access_data;
-  // @@protoc_insertion_point(field_set_allocated:CMsgSteamLearn_SnapshotProject_Request.access_data)
-}
-
 // optional uint32 project_id = 3;
 inline bool CMsgSteamLearn_SnapshotProject_Request::_internal_has_project_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CMsgSteamLearn_SnapshotProject_Request::has_project_id() const {
@@ -10717,7 +10492,7 @@ inline bool CMsgSteamLearn_SnapshotProject_Request::has_project_id() const {
 }
 inline void CMsgSteamLearn_SnapshotProject_Request::clear_project_id() {
   _impl_.project_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline uint32_t CMsgSteamLearn_SnapshotProject_Request::_internal_project_id() const {
   return _impl_.project_id_;
@@ -10727,7 +10502,7 @@ inline uint32_t CMsgSteamLearn_SnapshotProject_Request::project_id() const {
   return _internal_project_id();
 }
 inline void CMsgSteamLearn_SnapshotProject_Request::_internal_set_project_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.project_id_ = value;
 }
 inline void CMsgSteamLearn_SnapshotProject_Request::set_project_id(uint32_t value) {
@@ -10737,7 +10512,7 @@ inline void CMsgSteamLearn_SnapshotProject_Request::set_project_id(uint32_t valu
 
 // optional uint32 published_version = 7;
 inline bool CMsgSteamLearn_SnapshotProject_Request::_internal_has_published_version() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CMsgSteamLearn_SnapshotProject_Request::has_published_version() const {
@@ -10745,7 +10520,7 @@ inline bool CMsgSteamLearn_SnapshotProject_Request::has_published_version() cons
 }
 inline void CMsgSteamLearn_SnapshotProject_Request::clear_published_version() {
   _impl_.published_version_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline uint32_t CMsgSteamLearn_SnapshotProject_Request::_internal_published_version() const {
   return _impl_.published_version_;
@@ -10755,7 +10530,7 @@ inline uint32_t CMsgSteamLearn_SnapshotProject_Request::published_version() cons
   return _internal_published_version();
 }
 inline void CMsgSteamLearn_SnapshotProject_Request::_internal_set_published_version(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.published_version_ = value;
 }
 inline void CMsgSteamLearn_SnapshotProject_Request::set_published_version(uint32_t value) {
@@ -10852,7 +10627,7 @@ CMsgSteamLearn_SnapshotProject_Request::data() const {
 
 // optional uint32 pending_data_limit_seconds = 6;
 inline bool CMsgSteamLearn_SnapshotProject_Request::_internal_has_pending_data_limit_seconds() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CMsgSteamLearn_SnapshotProject_Request::has_pending_data_limit_seconds() const {
@@ -10860,7 +10635,7 @@ inline bool CMsgSteamLearn_SnapshotProject_Request::has_pending_data_limit_secon
 }
 inline void CMsgSteamLearn_SnapshotProject_Request::clear_pending_data_limit_seconds() {
   _impl_.pending_data_limit_seconds_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline uint32_t CMsgSteamLearn_SnapshotProject_Request::_internal_pending_data_limit_seconds() const {
   return _impl_.pending_data_limit_seconds_;
@@ -10870,7 +10645,7 @@ inline uint32_t CMsgSteamLearn_SnapshotProject_Request::pending_data_limit_secon
   return _internal_pending_data_limit_seconds();
 }
 inline void CMsgSteamLearn_SnapshotProject_Request::_internal_set_pending_data_limit_seconds(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.pending_data_limit_seconds_ = value;
 }
 inline void CMsgSteamLearn_SnapshotProject_Request::set_pending_data_limit_seconds(uint32_t value) {
@@ -10995,6 +10770,46 @@ CMsgSteamLearn_BatchOperation_Request::snapshot_requests() const {
   return _impl_.snapshot_requests_;
 }
 
+// repeated .CMsgSteamLearn_Inference_Request inference_requests = 3;
+inline int CMsgSteamLearn_BatchOperation_Request::_internal_inference_requests_size() const {
+  return _impl_.inference_requests_.size();
+}
+inline int CMsgSteamLearn_BatchOperation_Request::inference_requests_size() const {
+  return _internal_inference_requests_size();
+}
+inline void CMsgSteamLearn_BatchOperation_Request::clear_inference_requests() {
+  _impl_.inference_requests_.Clear();
+}
+inline ::CMsgSteamLearn_Inference_Request* CMsgSteamLearn_BatchOperation_Request::mutable_inference_requests(int index) {
+  // @@protoc_insertion_point(field_mutable:CMsgSteamLearn_BatchOperation_Request.inference_requests)
+  return _impl_.inference_requests_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_Inference_Request >*
+CMsgSteamLearn_BatchOperation_Request::mutable_inference_requests() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearn_BatchOperation_Request.inference_requests)
+  return &_impl_.inference_requests_;
+}
+inline const ::CMsgSteamLearn_Inference_Request& CMsgSteamLearn_BatchOperation_Request::_internal_inference_requests(int index) const {
+  return _impl_.inference_requests_.Get(index);
+}
+inline const ::CMsgSteamLearn_Inference_Request& CMsgSteamLearn_BatchOperation_Request::inference_requests(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_BatchOperation_Request.inference_requests)
+  return _internal_inference_requests(index);
+}
+inline ::CMsgSteamLearn_Inference_Request* CMsgSteamLearn_BatchOperation_Request::_internal_add_inference_requests() {
+  return _impl_.inference_requests_.Add();
+}
+inline ::CMsgSteamLearn_Inference_Request* CMsgSteamLearn_BatchOperation_Request::add_inference_requests() {
+  ::CMsgSteamLearn_Inference_Request* _add = _internal_add_inference_requests();
+  // @@protoc_insertion_point(field_add:CMsgSteamLearn_BatchOperation_Request.inference_requests)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_Inference_Request >&
+CMsgSteamLearn_BatchOperation_Request::inference_requests() const {
+  // @@protoc_insertion_point(field_list:CMsgSteamLearn_BatchOperation_Request.inference_requests)
+  return _impl_.inference_requests_;
+}
+
 // -------------------------------------------------------------------
 
 // CMsgSteamLearn_BatchOperation_Response
@@ -11079,518 +10894,642 @@ CMsgSteamLearn_BatchOperation_Response::snapshot_responses() const {
   return _impl_.snapshot_responses_;
 }
 
+// repeated .CMsgSteamLearn_Inference_Response inference_responses = 3;
+inline int CMsgSteamLearn_BatchOperation_Response::_internal_inference_responses_size() const {
+  return _impl_.inference_responses_.size();
+}
+inline int CMsgSteamLearn_BatchOperation_Response::inference_responses_size() const {
+  return _internal_inference_responses_size();
+}
+inline void CMsgSteamLearn_BatchOperation_Response::clear_inference_responses() {
+  _impl_.inference_responses_.Clear();
+}
+inline ::CMsgSteamLearn_Inference_Response* CMsgSteamLearn_BatchOperation_Response::mutable_inference_responses(int index) {
+  // @@protoc_insertion_point(field_mutable:CMsgSteamLearn_BatchOperation_Response.inference_responses)
+  return _impl_.inference_responses_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_Inference_Response >*
+CMsgSteamLearn_BatchOperation_Response::mutable_inference_responses() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearn_BatchOperation_Response.inference_responses)
+  return &_impl_.inference_responses_;
+}
+inline const ::CMsgSteamLearn_Inference_Response& CMsgSteamLearn_BatchOperation_Response::_internal_inference_responses(int index) const {
+  return _impl_.inference_responses_.Get(index);
+}
+inline const ::CMsgSteamLearn_Inference_Response& CMsgSteamLearn_BatchOperation_Response::inference_responses(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_BatchOperation_Response.inference_responses)
+  return _internal_inference_responses(index);
+}
+inline ::CMsgSteamLearn_Inference_Response* CMsgSteamLearn_BatchOperation_Response::_internal_add_inference_responses() {
+  return _impl_.inference_responses_.Add();
+}
+inline ::CMsgSteamLearn_Inference_Response* CMsgSteamLearn_BatchOperation_Response::add_inference_responses() {
+  ::CMsgSteamLearn_Inference_Response* _add = _internal_add_inference_responses();
+  // @@protoc_insertion_point(field_add:CMsgSteamLearn_BatchOperation_Response.inference_responses)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearn_Inference_Response >&
+CMsgSteamLearn_BatchOperation_Response::inference_responses() const {
+  // @@protoc_insertion_point(field_list:CMsgSteamLearn_BatchOperation_Response.inference_responses)
+  return _impl_.inference_responses_;
+}
+
 // -------------------------------------------------------------------
 
-// CMsgSteamLearnHMACKeys_CacheDataKeys
+// CMsgSteamLearnAccessTokens_CacheDataAccessToken
 
 // optional uint32 data_source_id = 1;
-inline bool CMsgSteamLearnHMACKeys_CacheDataKeys::_internal_has_data_source_id() const {
+inline bool CMsgSteamLearnAccessTokens_CacheDataAccessToken::_internal_has_data_source_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
-inline bool CMsgSteamLearnHMACKeys_CacheDataKeys::has_data_source_id() const {
+inline bool CMsgSteamLearnAccessTokens_CacheDataAccessToken::has_data_source_id() const {
   return _internal_has_data_source_id();
 }
-inline void CMsgSteamLearnHMACKeys_CacheDataKeys::clear_data_source_id() {
+inline void CMsgSteamLearnAccessTokens_CacheDataAccessToken::clear_data_source_id() {
   _impl_.data_source_id_ = 0u;
   _impl_._has_bits_[0] &= ~0x00000002u;
 }
-inline uint32_t CMsgSteamLearnHMACKeys_CacheDataKeys::_internal_data_source_id() const {
+inline uint32_t CMsgSteamLearnAccessTokens_CacheDataAccessToken::_internal_data_source_id() const {
   return _impl_.data_source_id_;
 }
-inline uint32_t CMsgSteamLearnHMACKeys_CacheDataKeys::data_source_id() const {
-  // @@protoc_insertion_point(field_get:CMsgSteamLearnHMACKeys.CacheDataKeys.data_source_id)
+inline uint32_t CMsgSteamLearnAccessTokens_CacheDataAccessToken::data_source_id() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnAccessTokens.CacheDataAccessToken.data_source_id)
   return _internal_data_source_id();
 }
-inline void CMsgSteamLearnHMACKeys_CacheDataKeys::_internal_set_data_source_id(uint32_t value) {
+inline void CMsgSteamLearnAccessTokens_CacheDataAccessToken::_internal_set_data_source_id(uint32_t value) {
   _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.data_source_id_ = value;
 }
-inline void CMsgSteamLearnHMACKeys_CacheDataKeys::set_data_source_id(uint32_t value) {
+inline void CMsgSteamLearnAccessTokens_CacheDataAccessToken::set_data_source_id(uint32_t value) {
   _internal_set_data_source_id(value);
-  // @@protoc_insertion_point(field_set:CMsgSteamLearnHMACKeys.CacheDataKeys.data_source_id)
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnAccessTokens.CacheDataAccessToken.data_source_id)
 }
 
-// optional uint32 version = 3;
-inline bool CMsgSteamLearnHMACKeys_CacheDataKeys::_internal_has_version() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
-  return value;
-}
-inline bool CMsgSteamLearnHMACKeys_CacheDataKeys::has_version() const {
-  return _internal_has_version();
-}
-inline void CMsgSteamLearnHMACKeys_CacheDataKeys::clear_version() {
-  _impl_.version_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000004u;
-}
-inline uint32_t CMsgSteamLearnHMACKeys_CacheDataKeys::_internal_version() const {
-  return _impl_.version_;
-}
-inline uint32_t CMsgSteamLearnHMACKeys_CacheDataKeys::version() const {
-  // @@protoc_insertion_point(field_get:CMsgSteamLearnHMACKeys.CacheDataKeys.version)
-  return _internal_version();
-}
-inline void CMsgSteamLearnHMACKeys_CacheDataKeys::_internal_set_version(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
-  _impl_.version_ = value;
-}
-inline void CMsgSteamLearnHMACKeys_CacheDataKeys::set_version(uint32_t value) {
-  _internal_set_version(value);
-  // @@protoc_insertion_point(field_set:CMsgSteamLearnHMACKeys.CacheDataKeys.version)
-}
-
-// optional string key = 2;
-inline bool CMsgSteamLearnHMACKeys_CacheDataKeys::_internal_has_key() const {
+// optional string access_token = 2;
+inline bool CMsgSteamLearnAccessTokens_CacheDataAccessToken::_internal_has_access_token() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
-inline bool CMsgSteamLearnHMACKeys_CacheDataKeys::has_key() const {
-  return _internal_has_key();
+inline bool CMsgSteamLearnAccessTokens_CacheDataAccessToken::has_access_token() const {
+  return _internal_has_access_token();
 }
-inline void CMsgSteamLearnHMACKeys_CacheDataKeys::clear_key() {
-  _impl_.key_.ClearToEmpty();
+inline void CMsgSteamLearnAccessTokens_CacheDataAccessToken::clear_access_token() {
+  _impl_.access_token_.ClearToEmpty();
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline const std::string& CMsgSteamLearnHMACKeys_CacheDataKeys::key() const {
-  // @@protoc_insertion_point(field_get:CMsgSteamLearnHMACKeys.CacheDataKeys.key)
-  return _internal_key();
+inline const std::string& CMsgSteamLearnAccessTokens_CacheDataAccessToken::access_token() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnAccessTokens.CacheDataAccessToken.access_token)
+  return _internal_access_token();
 }
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
-void CMsgSteamLearnHMACKeys_CacheDataKeys::set_key(ArgT0&& arg0, ArgT... args) {
+void CMsgSteamLearnAccessTokens_CacheDataAccessToken::set_access_token(ArgT0&& arg0, ArgT... args) {
  _impl_._has_bits_[0] |= 0x00000001u;
- _impl_.key_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:CMsgSteamLearnHMACKeys.CacheDataKeys.key)
+ _impl_.access_token_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnAccessTokens.CacheDataAccessToken.access_token)
 }
-inline std::string* CMsgSteamLearnHMACKeys_CacheDataKeys::mutable_key() {
-  std::string* _s = _internal_mutable_key();
-  // @@protoc_insertion_point(field_mutable:CMsgSteamLearnHMACKeys.CacheDataKeys.key)
+inline std::string* CMsgSteamLearnAccessTokens_CacheDataAccessToken::mutable_access_token() {
+  std::string* _s = _internal_mutable_access_token();
+  // @@protoc_insertion_point(field_mutable:CMsgSteamLearnAccessTokens.CacheDataAccessToken.access_token)
   return _s;
 }
-inline const std::string& CMsgSteamLearnHMACKeys_CacheDataKeys::_internal_key() const {
-  return _impl_.key_.Get();
+inline const std::string& CMsgSteamLearnAccessTokens_CacheDataAccessToken::_internal_access_token() const {
+  return _impl_.access_token_.Get();
 }
-inline void CMsgSteamLearnHMACKeys_CacheDataKeys::_internal_set_key(const std::string& value) {
+inline void CMsgSteamLearnAccessTokens_CacheDataAccessToken::_internal_set_access_token(const std::string& value) {
   _impl_._has_bits_[0] |= 0x00000001u;
-  _impl_.key_.Set(value, GetArenaForAllocation());
+  _impl_.access_token_.Set(value, GetArenaForAllocation());
 }
-inline std::string* CMsgSteamLearnHMACKeys_CacheDataKeys::_internal_mutable_key() {
+inline std::string* CMsgSteamLearnAccessTokens_CacheDataAccessToken::_internal_mutable_access_token() {
   _impl_._has_bits_[0] |= 0x00000001u;
-  return _impl_.key_.Mutable(GetArenaForAllocation());
+  return _impl_.access_token_.Mutable(GetArenaForAllocation());
 }
-inline std::string* CMsgSteamLearnHMACKeys_CacheDataKeys::release_key() {
-  // @@protoc_insertion_point(field_release:CMsgSteamLearnHMACKeys.CacheDataKeys.key)
-  if (!_internal_has_key()) {
+inline std::string* CMsgSteamLearnAccessTokens_CacheDataAccessToken::release_access_token() {
+  // @@protoc_insertion_point(field_release:CMsgSteamLearnAccessTokens.CacheDataAccessToken.access_token)
+  if (!_internal_has_access_token()) {
     return nullptr;
   }
   _impl_._has_bits_[0] &= ~0x00000001u;
-  auto* p = _impl_.key_.Release();
+  auto* p = _impl_.access_token_.Release();
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.key_.IsDefault()) {
-    _impl_.key_.Set("", GetArenaForAllocation());
+  if (_impl_.access_token_.IsDefault()) {
+    _impl_.access_token_.Set("", GetArenaForAllocation());
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   return p;
 }
-inline void CMsgSteamLearnHMACKeys_CacheDataKeys::set_allocated_key(std::string* key) {
-  if (key != nullptr) {
+inline void CMsgSteamLearnAccessTokens_CacheDataAccessToken::set_allocated_access_token(std::string* access_token) {
+  if (access_token != nullptr) {
     _impl_._has_bits_[0] |= 0x00000001u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000001u;
   }
-  _impl_.key_.SetAllocated(key, GetArenaForAllocation());
+  _impl_.access_token_.SetAllocated(access_token, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.key_.IsDefault()) {
-    _impl_.key_.Set("", GetArenaForAllocation());
+  if (_impl_.access_token_.IsDefault()) {
+    _impl_.access_token_.Set("", GetArenaForAllocation());
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:CMsgSteamLearnHMACKeys.CacheDataKeys.key)
+  // @@protoc_insertion_point(field_set_allocated:CMsgSteamLearnAccessTokens.CacheDataAccessToken.access_token)
 }
 
 // -------------------------------------------------------------------
 
-// CMsgSteamLearnHMACKeys_SnapshotProjectKeys
+// CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken
 
 // optional uint32 project_id = 1;
-inline bool CMsgSteamLearnHMACKeys_SnapshotProjectKeys::_internal_has_project_id() const {
+inline bool CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken::_internal_has_project_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
-inline bool CMsgSteamLearnHMACKeys_SnapshotProjectKeys::has_project_id() const {
+inline bool CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken::has_project_id() const {
   return _internal_has_project_id();
 }
-inline void CMsgSteamLearnHMACKeys_SnapshotProjectKeys::clear_project_id() {
+inline void CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken::clear_project_id() {
   _impl_.project_id_ = 0u;
   _impl_._has_bits_[0] &= ~0x00000002u;
 }
-inline uint32_t CMsgSteamLearnHMACKeys_SnapshotProjectKeys::_internal_project_id() const {
+inline uint32_t CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken::_internal_project_id() const {
   return _impl_.project_id_;
 }
-inline uint32_t CMsgSteamLearnHMACKeys_SnapshotProjectKeys::project_id() const {
-  // @@protoc_insertion_point(field_get:CMsgSteamLearnHMACKeys.SnapshotProjectKeys.project_id)
+inline uint32_t CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken::project_id() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnAccessTokens.SnapshotProjectAccessToken.project_id)
   return _internal_project_id();
 }
-inline void CMsgSteamLearnHMACKeys_SnapshotProjectKeys::_internal_set_project_id(uint32_t value) {
+inline void CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken::_internal_set_project_id(uint32_t value) {
   _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.project_id_ = value;
 }
-inline void CMsgSteamLearnHMACKeys_SnapshotProjectKeys::set_project_id(uint32_t value) {
+inline void CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken::set_project_id(uint32_t value) {
   _internal_set_project_id(value);
-  // @@protoc_insertion_point(field_set:CMsgSteamLearnHMACKeys.SnapshotProjectKeys.project_id)
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnAccessTokens.SnapshotProjectAccessToken.project_id)
 }
 
-// optional uint32 published_version = 3;
-inline bool CMsgSteamLearnHMACKeys_SnapshotProjectKeys::_internal_has_published_version() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
-  return value;
-}
-inline bool CMsgSteamLearnHMACKeys_SnapshotProjectKeys::has_published_version() const {
-  return _internal_has_published_version();
-}
-inline void CMsgSteamLearnHMACKeys_SnapshotProjectKeys::clear_published_version() {
-  _impl_.published_version_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000004u;
-}
-inline uint32_t CMsgSteamLearnHMACKeys_SnapshotProjectKeys::_internal_published_version() const {
-  return _impl_.published_version_;
-}
-inline uint32_t CMsgSteamLearnHMACKeys_SnapshotProjectKeys::published_version() const {
-  // @@protoc_insertion_point(field_get:CMsgSteamLearnHMACKeys.SnapshotProjectKeys.published_version)
-  return _internal_published_version();
-}
-inline void CMsgSteamLearnHMACKeys_SnapshotProjectKeys::_internal_set_published_version(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
-  _impl_.published_version_ = value;
-}
-inline void CMsgSteamLearnHMACKeys_SnapshotProjectKeys::set_published_version(uint32_t value) {
-  _internal_set_published_version(value);
-  // @@protoc_insertion_point(field_set:CMsgSteamLearnHMACKeys.SnapshotProjectKeys.published_version)
-}
-
-// optional string key = 2;
-inline bool CMsgSteamLearnHMACKeys_SnapshotProjectKeys::_internal_has_key() const {
+// optional string access_token = 2;
+inline bool CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken::_internal_has_access_token() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
-inline bool CMsgSteamLearnHMACKeys_SnapshotProjectKeys::has_key() const {
-  return _internal_has_key();
+inline bool CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken::has_access_token() const {
+  return _internal_has_access_token();
 }
-inline void CMsgSteamLearnHMACKeys_SnapshotProjectKeys::clear_key() {
-  _impl_.key_.ClearToEmpty();
+inline void CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken::clear_access_token() {
+  _impl_.access_token_.ClearToEmpty();
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline const std::string& CMsgSteamLearnHMACKeys_SnapshotProjectKeys::key() const {
-  // @@protoc_insertion_point(field_get:CMsgSteamLearnHMACKeys.SnapshotProjectKeys.key)
-  return _internal_key();
+inline const std::string& CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken::access_token() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnAccessTokens.SnapshotProjectAccessToken.access_token)
+  return _internal_access_token();
 }
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
-void CMsgSteamLearnHMACKeys_SnapshotProjectKeys::set_key(ArgT0&& arg0, ArgT... args) {
+void CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken::set_access_token(ArgT0&& arg0, ArgT... args) {
  _impl_._has_bits_[0] |= 0x00000001u;
- _impl_.key_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:CMsgSteamLearnHMACKeys.SnapshotProjectKeys.key)
+ _impl_.access_token_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnAccessTokens.SnapshotProjectAccessToken.access_token)
 }
-inline std::string* CMsgSteamLearnHMACKeys_SnapshotProjectKeys::mutable_key() {
-  std::string* _s = _internal_mutable_key();
-  // @@protoc_insertion_point(field_mutable:CMsgSteamLearnHMACKeys.SnapshotProjectKeys.key)
+inline std::string* CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken::mutable_access_token() {
+  std::string* _s = _internal_mutable_access_token();
+  // @@protoc_insertion_point(field_mutable:CMsgSteamLearnAccessTokens.SnapshotProjectAccessToken.access_token)
   return _s;
 }
-inline const std::string& CMsgSteamLearnHMACKeys_SnapshotProjectKeys::_internal_key() const {
-  return _impl_.key_.Get();
+inline const std::string& CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken::_internal_access_token() const {
+  return _impl_.access_token_.Get();
 }
-inline void CMsgSteamLearnHMACKeys_SnapshotProjectKeys::_internal_set_key(const std::string& value) {
+inline void CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken::_internal_set_access_token(const std::string& value) {
   _impl_._has_bits_[0] |= 0x00000001u;
-  _impl_.key_.Set(value, GetArenaForAllocation());
+  _impl_.access_token_.Set(value, GetArenaForAllocation());
 }
-inline std::string* CMsgSteamLearnHMACKeys_SnapshotProjectKeys::_internal_mutable_key() {
+inline std::string* CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken::_internal_mutable_access_token() {
   _impl_._has_bits_[0] |= 0x00000001u;
-  return _impl_.key_.Mutable(GetArenaForAllocation());
+  return _impl_.access_token_.Mutable(GetArenaForAllocation());
 }
-inline std::string* CMsgSteamLearnHMACKeys_SnapshotProjectKeys::release_key() {
-  // @@protoc_insertion_point(field_release:CMsgSteamLearnHMACKeys.SnapshotProjectKeys.key)
-  if (!_internal_has_key()) {
+inline std::string* CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken::release_access_token() {
+  // @@protoc_insertion_point(field_release:CMsgSteamLearnAccessTokens.SnapshotProjectAccessToken.access_token)
+  if (!_internal_has_access_token()) {
     return nullptr;
   }
   _impl_._has_bits_[0] &= ~0x00000001u;
-  auto* p = _impl_.key_.Release();
+  auto* p = _impl_.access_token_.Release();
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.key_.IsDefault()) {
-    _impl_.key_.Set("", GetArenaForAllocation());
+  if (_impl_.access_token_.IsDefault()) {
+    _impl_.access_token_.Set("", GetArenaForAllocation());
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   return p;
 }
-inline void CMsgSteamLearnHMACKeys_SnapshotProjectKeys::set_allocated_key(std::string* key) {
-  if (key != nullptr) {
+inline void CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken::set_allocated_access_token(std::string* access_token) {
+  if (access_token != nullptr) {
     _impl_._has_bits_[0] |= 0x00000001u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000001u;
   }
-  _impl_.key_.SetAllocated(key, GetArenaForAllocation());
+  _impl_.access_token_.SetAllocated(access_token, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.key_.IsDefault()) {
-    _impl_.key_.Set("", GetArenaForAllocation());
+  if (_impl_.access_token_.IsDefault()) {
+    _impl_.access_token_.Set("", GetArenaForAllocation());
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:CMsgSteamLearnHMACKeys.SnapshotProjectKeys.key)
+  // @@protoc_insertion_point(field_set_allocated:CMsgSteamLearnAccessTokens.SnapshotProjectAccessToken.access_token)
 }
 
 // -------------------------------------------------------------------
 
-// CMsgSteamLearnHMACKeys
+// CMsgSteamLearnAccessTokens_InferenceAccessToken
 
-// optional string register_data_source_key = 1;
-inline bool CMsgSteamLearnHMACKeys::_internal_has_register_data_source_key() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool CMsgSteamLearnHMACKeys::has_register_data_source_key() const {
-  return _internal_has_register_data_source_key();
-}
-inline void CMsgSteamLearnHMACKeys::clear_register_data_source_key() {
-  _impl_.register_data_source_key_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000001u;
-}
-inline const std::string& CMsgSteamLearnHMACKeys::register_data_source_key() const {
-  // @@protoc_insertion_point(field_get:CMsgSteamLearnHMACKeys.register_data_source_key)
-  return _internal_register_data_source_key();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void CMsgSteamLearnHMACKeys::set_register_data_source_key(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000001u;
- _impl_.register_data_source_key_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:CMsgSteamLearnHMACKeys.register_data_source_key)
-}
-inline std::string* CMsgSteamLearnHMACKeys::mutable_register_data_source_key() {
-  std::string* _s = _internal_mutable_register_data_source_key();
-  // @@protoc_insertion_point(field_mutable:CMsgSteamLearnHMACKeys.register_data_source_key)
-  return _s;
-}
-inline const std::string& CMsgSteamLearnHMACKeys::_internal_register_data_source_key() const {
-  return _impl_.register_data_source_key_.Get();
-}
-inline void CMsgSteamLearnHMACKeys::_internal_set_register_data_source_key(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  _impl_.register_data_source_key_.Set(value, GetArenaForAllocation());
-}
-inline std::string* CMsgSteamLearnHMACKeys::_internal_mutable_register_data_source_key() {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  return _impl_.register_data_source_key_.Mutable(GetArenaForAllocation());
-}
-inline std::string* CMsgSteamLearnHMACKeys::release_register_data_source_key() {
-  // @@protoc_insertion_point(field_release:CMsgSteamLearnHMACKeys.register_data_source_key)
-  if (!_internal_has_register_data_source_key()) {
-    return nullptr;
-  }
-  _impl_._has_bits_[0] &= ~0x00000001u;
-  auto* p = _impl_.register_data_source_key_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.register_data_source_key_.IsDefault()) {
-    _impl_.register_data_source_key_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
-}
-inline void CMsgSteamLearnHMACKeys::set_allocated_register_data_source_key(std::string* register_data_source_key) {
-  if (register_data_source_key != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000001u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
-  }
-  _impl_.register_data_source_key_.SetAllocated(register_data_source_key, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.register_data_source_key_.IsDefault()) {
-    _impl_.register_data_source_key_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:CMsgSteamLearnHMACKeys.register_data_source_key)
-}
-
-// repeated .CMsgSteamLearnHMACKeys.CacheDataKeys cache_data_keys = 2;
-inline int CMsgSteamLearnHMACKeys::_internal_cache_data_keys_size() const {
-  return _impl_.cache_data_keys_.size();
-}
-inline int CMsgSteamLearnHMACKeys::cache_data_keys_size() const {
-  return _internal_cache_data_keys_size();
-}
-inline void CMsgSteamLearnHMACKeys::clear_cache_data_keys() {
-  _impl_.cache_data_keys_.Clear();
-}
-inline ::CMsgSteamLearnHMACKeys_CacheDataKeys* CMsgSteamLearnHMACKeys::mutable_cache_data_keys(int index) {
-  // @@protoc_insertion_point(field_mutable:CMsgSteamLearnHMACKeys.cache_data_keys)
-  return _impl_.cache_data_keys_.Mutable(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearnHMACKeys_CacheDataKeys >*
-CMsgSteamLearnHMACKeys::mutable_cache_data_keys() {
-  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearnHMACKeys.cache_data_keys)
-  return &_impl_.cache_data_keys_;
-}
-inline const ::CMsgSteamLearnHMACKeys_CacheDataKeys& CMsgSteamLearnHMACKeys::_internal_cache_data_keys(int index) const {
-  return _impl_.cache_data_keys_.Get(index);
-}
-inline const ::CMsgSteamLearnHMACKeys_CacheDataKeys& CMsgSteamLearnHMACKeys::cache_data_keys(int index) const {
-  // @@protoc_insertion_point(field_get:CMsgSteamLearnHMACKeys.cache_data_keys)
-  return _internal_cache_data_keys(index);
-}
-inline ::CMsgSteamLearnHMACKeys_CacheDataKeys* CMsgSteamLearnHMACKeys::_internal_add_cache_data_keys() {
-  return _impl_.cache_data_keys_.Add();
-}
-inline ::CMsgSteamLearnHMACKeys_CacheDataKeys* CMsgSteamLearnHMACKeys::add_cache_data_keys() {
-  ::CMsgSteamLearnHMACKeys_CacheDataKeys* _add = _internal_add_cache_data_keys();
-  // @@protoc_insertion_point(field_add:CMsgSteamLearnHMACKeys.cache_data_keys)
-  return _add;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearnHMACKeys_CacheDataKeys >&
-CMsgSteamLearnHMACKeys::cache_data_keys() const {
-  // @@protoc_insertion_point(field_list:CMsgSteamLearnHMACKeys.cache_data_keys)
-  return _impl_.cache_data_keys_;
-}
-
-// repeated .CMsgSteamLearnHMACKeys.SnapshotProjectKeys snapshot_project_keys = 3;
-inline int CMsgSteamLearnHMACKeys::_internal_snapshot_project_keys_size() const {
-  return _impl_.snapshot_project_keys_.size();
-}
-inline int CMsgSteamLearnHMACKeys::snapshot_project_keys_size() const {
-  return _internal_snapshot_project_keys_size();
-}
-inline void CMsgSteamLearnHMACKeys::clear_snapshot_project_keys() {
-  _impl_.snapshot_project_keys_.Clear();
-}
-inline ::CMsgSteamLearnHMACKeys_SnapshotProjectKeys* CMsgSteamLearnHMACKeys::mutable_snapshot_project_keys(int index) {
-  // @@protoc_insertion_point(field_mutable:CMsgSteamLearnHMACKeys.snapshot_project_keys)
-  return _impl_.snapshot_project_keys_.Mutable(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearnHMACKeys_SnapshotProjectKeys >*
-CMsgSteamLearnHMACKeys::mutable_snapshot_project_keys() {
-  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearnHMACKeys.snapshot_project_keys)
-  return &_impl_.snapshot_project_keys_;
-}
-inline const ::CMsgSteamLearnHMACKeys_SnapshotProjectKeys& CMsgSteamLearnHMACKeys::_internal_snapshot_project_keys(int index) const {
-  return _impl_.snapshot_project_keys_.Get(index);
-}
-inline const ::CMsgSteamLearnHMACKeys_SnapshotProjectKeys& CMsgSteamLearnHMACKeys::snapshot_project_keys(int index) const {
-  // @@protoc_insertion_point(field_get:CMsgSteamLearnHMACKeys.snapshot_project_keys)
-  return _internal_snapshot_project_keys(index);
-}
-inline ::CMsgSteamLearnHMACKeys_SnapshotProjectKeys* CMsgSteamLearnHMACKeys::_internal_add_snapshot_project_keys() {
-  return _impl_.snapshot_project_keys_.Add();
-}
-inline ::CMsgSteamLearnHMACKeys_SnapshotProjectKeys* CMsgSteamLearnHMACKeys::add_snapshot_project_keys() {
-  ::CMsgSteamLearnHMACKeys_SnapshotProjectKeys* _add = _internal_add_snapshot_project_keys();
-  // @@protoc_insertion_point(field_add:CMsgSteamLearnHMACKeys.snapshot_project_keys)
-  return _add;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearnHMACKeys_SnapshotProjectKeys >&
-CMsgSteamLearnHMACKeys::snapshot_project_keys() const {
-  // @@protoc_insertion_point(field_list:CMsgSteamLearnHMACKeys.snapshot_project_keys)
-  return _impl_.snapshot_project_keys_;
-}
-
-// -------------------------------------------------------------------
-
-// CMsgSteamLearn_GetHMACKeys_Request
-
-// optional uint32 appid = 1;
-inline bool CMsgSteamLearn_GetHMACKeys_Request::_internal_has_appid() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool CMsgSteamLearn_GetHMACKeys_Request::has_appid() const {
-  return _internal_has_appid();
-}
-inline void CMsgSteamLearn_GetHMACKeys_Request::clear_appid() {
-  _impl_.appid_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000001u;
-}
-inline uint32_t CMsgSteamLearn_GetHMACKeys_Request::_internal_appid() const {
-  return _impl_.appid_;
-}
-inline uint32_t CMsgSteamLearn_GetHMACKeys_Request::appid() const {
-  // @@protoc_insertion_point(field_get:CMsgSteamLearn_GetHMACKeys_Request.appid)
-  return _internal_appid();
-}
-inline void CMsgSteamLearn_GetHMACKeys_Request::_internal_set_appid(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  _impl_.appid_ = value;
-}
-inline void CMsgSteamLearn_GetHMACKeys_Request::set_appid(uint32_t value) {
-  _internal_set_appid(value);
-  // @@protoc_insertion_point(field_set:CMsgSteamLearn_GetHMACKeys_Request.appid)
-}
-
-// -------------------------------------------------------------------
-
-// CMsgSteamLearn_GetHMACKeys_Response
-
-// optional .ESteamLearnGetHMACKeysResult result = 1 [default = STEAMLEARN_GET_HMAC_KEYS_SUCCESS];
-inline bool CMsgSteamLearn_GetHMACKeys_Response::_internal_has_result() const {
+// optional uint32 project_id = 1;
+inline bool CMsgSteamLearnAccessTokens_InferenceAccessToken::_internal_has_project_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
-inline bool CMsgSteamLearn_GetHMACKeys_Response::has_result() const {
-  return _internal_has_result();
+inline bool CMsgSteamLearnAccessTokens_InferenceAccessToken::has_project_id() const {
+  return _internal_has_project_id();
 }
-inline void CMsgSteamLearn_GetHMACKeys_Response::clear_result() {
-  _impl_.result_ = 0;
+inline void CMsgSteamLearnAccessTokens_InferenceAccessToken::clear_project_id() {
+  _impl_.project_id_ = 0u;
   _impl_._has_bits_[0] &= ~0x00000002u;
 }
-inline ::ESteamLearnGetHMACKeysResult CMsgSteamLearn_GetHMACKeys_Response::_internal_result() const {
-  return static_cast< ::ESteamLearnGetHMACKeysResult >(_impl_.result_);
+inline uint32_t CMsgSteamLearnAccessTokens_InferenceAccessToken::_internal_project_id() const {
+  return _impl_.project_id_;
 }
-inline ::ESteamLearnGetHMACKeysResult CMsgSteamLearn_GetHMACKeys_Response::result() const {
-  // @@protoc_insertion_point(field_get:CMsgSteamLearn_GetHMACKeys_Response.result)
-  return _internal_result();
+inline uint32_t CMsgSteamLearnAccessTokens_InferenceAccessToken::project_id() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnAccessTokens.InferenceAccessToken.project_id)
+  return _internal_project_id();
 }
-inline void CMsgSteamLearn_GetHMACKeys_Response::_internal_set_result(::ESteamLearnGetHMACKeysResult value) {
-  assert(::ESteamLearnGetHMACKeysResult_IsValid(value));
+inline void CMsgSteamLearnAccessTokens_InferenceAccessToken::_internal_set_project_id(uint32_t value) {
   _impl_._has_bits_[0] |= 0x00000002u;
-  _impl_.result_ = value;
+  _impl_.project_id_ = value;
 }
-inline void CMsgSteamLearn_GetHMACKeys_Response::set_result(::ESteamLearnGetHMACKeysResult value) {
-  _internal_set_result(value);
-  // @@protoc_insertion_point(field_set:CMsgSteamLearn_GetHMACKeys_Response.result)
+inline void CMsgSteamLearnAccessTokens_InferenceAccessToken::set_project_id(uint32_t value) {
+  _internal_set_project_id(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnAccessTokens.InferenceAccessToken.project_id)
 }
 
-// optional .CMsgSteamLearnHMACKeys keys = 2;
-inline bool CMsgSteamLearn_GetHMACKeys_Response::_internal_has_keys() const {
+// optional string access_token = 2;
+inline bool CMsgSteamLearnAccessTokens_InferenceAccessToken::_internal_has_access_token() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  PROTOBUF_ASSUME(!value || _impl_.keys_ != nullptr);
   return value;
 }
-inline bool CMsgSteamLearn_GetHMACKeys_Response::has_keys() const {
-  return _internal_has_keys();
+inline bool CMsgSteamLearnAccessTokens_InferenceAccessToken::has_access_token() const {
+  return _internal_has_access_token();
 }
-inline void CMsgSteamLearn_GetHMACKeys_Response::clear_keys() {
-  if (_impl_.keys_ != nullptr) _impl_.keys_->Clear();
+inline void CMsgSteamLearnAccessTokens_InferenceAccessToken::clear_access_token() {
+  _impl_.access_token_.ClearToEmpty();
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline const ::CMsgSteamLearnHMACKeys& CMsgSteamLearn_GetHMACKeys_Response::_internal_keys() const {
-  const ::CMsgSteamLearnHMACKeys* p = _impl_.keys_;
-  return p != nullptr ? *p : reinterpret_cast<const ::CMsgSteamLearnHMACKeys&>(
-      ::_CMsgSteamLearnHMACKeys_default_instance_);
+inline const std::string& CMsgSteamLearnAccessTokens_InferenceAccessToken::access_token() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnAccessTokens.InferenceAccessToken.access_token)
+  return _internal_access_token();
 }
-inline const ::CMsgSteamLearnHMACKeys& CMsgSteamLearn_GetHMACKeys_Response::keys() const {
-  // @@protoc_insertion_point(field_get:CMsgSteamLearn_GetHMACKeys_Response.keys)
-  return _internal_keys();
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CMsgSteamLearnAccessTokens_InferenceAccessToken::set_access_token(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_.access_token_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnAccessTokens.InferenceAccessToken.access_token)
 }
-inline void CMsgSteamLearn_GetHMACKeys_Response::unsafe_arena_set_allocated_keys(
-    ::CMsgSteamLearnHMACKeys* keys) {
-  if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.keys_);
+inline std::string* CMsgSteamLearnAccessTokens_InferenceAccessToken::mutable_access_token() {
+  std::string* _s = _internal_mutable_access_token();
+  // @@protoc_insertion_point(field_mutable:CMsgSteamLearnAccessTokens.InferenceAccessToken.access_token)
+  return _s;
+}
+inline const std::string& CMsgSteamLearnAccessTokens_InferenceAccessToken::_internal_access_token() const {
+  return _impl_.access_token_.Get();
+}
+inline void CMsgSteamLearnAccessTokens_InferenceAccessToken::_internal_set_access_token(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.access_token_.Set(value, GetArenaForAllocation());
+}
+inline std::string* CMsgSteamLearnAccessTokens_InferenceAccessToken::_internal_mutable_access_token() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  return _impl_.access_token_.Mutable(GetArenaForAllocation());
+}
+inline std::string* CMsgSteamLearnAccessTokens_InferenceAccessToken::release_access_token() {
+  // @@protoc_insertion_point(field_release:CMsgSteamLearnAccessTokens.InferenceAccessToken.access_token)
+  if (!_internal_has_access_token()) {
+    return nullptr;
   }
-  _impl_.keys_ = keys;
-  if (keys) {
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  auto* p = _impl_.access_token_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.access_token_.IsDefault()) {
+    _impl_.access_token_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void CMsgSteamLearnAccessTokens_InferenceAccessToken::set_allocated_access_token(std::string* access_token) {
+  if (access_token != nullptr) {
     _impl_._has_bits_[0] |= 0x00000001u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000001u;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CMsgSteamLearn_GetHMACKeys_Response.keys)
+  _impl_.access_token_.SetAllocated(access_token, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.access_token_.IsDefault()) {
+    _impl_.access_token_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:CMsgSteamLearnAccessTokens.InferenceAccessToken.access_token)
 }
-inline ::CMsgSteamLearnHMACKeys* CMsgSteamLearn_GetHMACKeys_Response::release_keys() {
+
+// -------------------------------------------------------------------
+
+// CMsgSteamLearnAccessTokens
+
+// optional string register_data_source_access_token = 1;
+inline bool CMsgSteamLearnAccessTokens::_internal_has_register_data_source_access_token() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearnAccessTokens::has_register_data_source_access_token() const {
+  return _internal_has_register_data_source_access_token();
+}
+inline void CMsgSteamLearnAccessTokens::clear_register_data_source_access_token() {
+  _impl_.register_data_source_access_token_.ClearToEmpty();
   _impl_._has_bits_[0] &= ~0x00000001u;
-  ::CMsgSteamLearnHMACKeys* temp = _impl_.keys_;
-  _impl_.keys_ = nullptr;
+}
+inline const std::string& CMsgSteamLearnAccessTokens::register_data_source_access_token() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnAccessTokens.register_data_source_access_token)
+  return _internal_register_data_source_access_token();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CMsgSteamLearnAccessTokens::set_register_data_source_access_token(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_.register_data_source_access_token_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnAccessTokens.register_data_source_access_token)
+}
+inline std::string* CMsgSteamLearnAccessTokens::mutable_register_data_source_access_token() {
+  std::string* _s = _internal_mutable_register_data_source_access_token();
+  // @@protoc_insertion_point(field_mutable:CMsgSteamLearnAccessTokens.register_data_source_access_token)
+  return _s;
+}
+inline const std::string& CMsgSteamLearnAccessTokens::_internal_register_data_source_access_token() const {
+  return _impl_.register_data_source_access_token_.Get();
+}
+inline void CMsgSteamLearnAccessTokens::_internal_set_register_data_source_access_token(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.register_data_source_access_token_.Set(value, GetArenaForAllocation());
+}
+inline std::string* CMsgSteamLearnAccessTokens::_internal_mutable_register_data_source_access_token() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  return _impl_.register_data_source_access_token_.Mutable(GetArenaForAllocation());
+}
+inline std::string* CMsgSteamLearnAccessTokens::release_register_data_source_access_token() {
+  // @@protoc_insertion_point(field_release:CMsgSteamLearnAccessTokens.register_data_source_access_token)
+  if (!_internal_has_register_data_source_access_token()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  auto* p = _impl_.register_data_source_access_token_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.register_data_source_access_token_.IsDefault()) {
+    _impl_.register_data_source_access_token_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void CMsgSteamLearnAccessTokens::set_allocated_register_data_source_access_token(std::string* register_data_source_access_token) {
+  if (register_data_source_access_token != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.register_data_source_access_token_.SetAllocated(register_data_source_access_token, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.register_data_source_access_token_.IsDefault()) {
+    _impl_.register_data_source_access_token_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:CMsgSteamLearnAccessTokens.register_data_source_access_token)
+}
+
+// repeated .CMsgSteamLearnAccessTokens.CacheDataAccessToken cache_data_access_tokens = 2;
+inline int CMsgSteamLearnAccessTokens::_internal_cache_data_access_tokens_size() const {
+  return _impl_.cache_data_access_tokens_.size();
+}
+inline int CMsgSteamLearnAccessTokens::cache_data_access_tokens_size() const {
+  return _internal_cache_data_access_tokens_size();
+}
+inline void CMsgSteamLearnAccessTokens::clear_cache_data_access_tokens() {
+  _impl_.cache_data_access_tokens_.Clear();
+}
+inline ::CMsgSteamLearnAccessTokens_CacheDataAccessToken* CMsgSteamLearnAccessTokens::mutable_cache_data_access_tokens(int index) {
+  // @@protoc_insertion_point(field_mutable:CMsgSteamLearnAccessTokens.cache_data_access_tokens)
+  return _impl_.cache_data_access_tokens_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearnAccessTokens_CacheDataAccessToken >*
+CMsgSteamLearnAccessTokens::mutable_cache_data_access_tokens() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearnAccessTokens.cache_data_access_tokens)
+  return &_impl_.cache_data_access_tokens_;
+}
+inline const ::CMsgSteamLearnAccessTokens_CacheDataAccessToken& CMsgSteamLearnAccessTokens::_internal_cache_data_access_tokens(int index) const {
+  return _impl_.cache_data_access_tokens_.Get(index);
+}
+inline const ::CMsgSteamLearnAccessTokens_CacheDataAccessToken& CMsgSteamLearnAccessTokens::cache_data_access_tokens(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnAccessTokens.cache_data_access_tokens)
+  return _internal_cache_data_access_tokens(index);
+}
+inline ::CMsgSteamLearnAccessTokens_CacheDataAccessToken* CMsgSteamLearnAccessTokens::_internal_add_cache_data_access_tokens() {
+  return _impl_.cache_data_access_tokens_.Add();
+}
+inline ::CMsgSteamLearnAccessTokens_CacheDataAccessToken* CMsgSteamLearnAccessTokens::add_cache_data_access_tokens() {
+  ::CMsgSteamLearnAccessTokens_CacheDataAccessToken* _add = _internal_add_cache_data_access_tokens();
+  // @@protoc_insertion_point(field_add:CMsgSteamLearnAccessTokens.cache_data_access_tokens)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearnAccessTokens_CacheDataAccessToken >&
+CMsgSteamLearnAccessTokens::cache_data_access_tokens() const {
+  // @@protoc_insertion_point(field_list:CMsgSteamLearnAccessTokens.cache_data_access_tokens)
+  return _impl_.cache_data_access_tokens_;
+}
+
+// repeated .CMsgSteamLearnAccessTokens.SnapshotProjectAccessToken snapshot_project_access_tokens = 3;
+inline int CMsgSteamLearnAccessTokens::_internal_snapshot_project_access_tokens_size() const {
+  return _impl_.snapshot_project_access_tokens_.size();
+}
+inline int CMsgSteamLearnAccessTokens::snapshot_project_access_tokens_size() const {
+  return _internal_snapshot_project_access_tokens_size();
+}
+inline void CMsgSteamLearnAccessTokens::clear_snapshot_project_access_tokens() {
+  _impl_.snapshot_project_access_tokens_.Clear();
+}
+inline ::CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken* CMsgSteamLearnAccessTokens::mutable_snapshot_project_access_tokens(int index) {
+  // @@protoc_insertion_point(field_mutable:CMsgSteamLearnAccessTokens.snapshot_project_access_tokens)
+  return _impl_.snapshot_project_access_tokens_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken >*
+CMsgSteamLearnAccessTokens::mutable_snapshot_project_access_tokens() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearnAccessTokens.snapshot_project_access_tokens)
+  return &_impl_.snapshot_project_access_tokens_;
+}
+inline const ::CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken& CMsgSteamLearnAccessTokens::_internal_snapshot_project_access_tokens(int index) const {
+  return _impl_.snapshot_project_access_tokens_.Get(index);
+}
+inline const ::CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken& CMsgSteamLearnAccessTokens::snapshot_project_access_tokens(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnAccessTokens.snapshot_project_access_tokens)
+  return _internal_snapshot_project_access_tokens(index);
+}
+inline ::CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken* CMsgSteamLearnAccessTokens::_internal_add_snapshot_project_access_tokens() {
+  return _impl_.snapshot_project_access_tokens_.Add();
+}
+inline ::CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken* CMsgSteamLearnAccessTokens::add_snapshot_project_access_tokens() {
+  ::CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken* _add = _internal_add_snapshot_project_access_tokens();
+  // @@protoc_insertion_point(field_add:CMsgSteamLearnAccessTokens.snapshot_project_access_tokens)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearnAccessTokens_SnapshotProjectAccessToken >&
+CMsgSteamLearnAccessTokens::snapshot_project_access_tokens() const {
+  // @@protoc_insertion_point(field_list:CMsgSteamLearnAccessTokens.snapshot_project_access_tokens)
+  return _impl_.snapshot_project_access_tokens_;
+}
+
+// repeated .CMsgSteamLearnAccessTokens.InferenceAccessToken inference_access_tokens = 4;
+inline int CMsgSteamLearnAccessTokens::_internal_inference_access_tokens_size() const {
+  return _impl_.inference_access_tokens_.size();
+}
+inline int CMsgSteamLearnAccessTokens::inference_access_tokens_size() const {
+  return _internal_inference_access_tokens_size();
+}
+inline void CMsgSteamLearnAccessTokens::clear_inference_access_tokens() {
+  _impl_.inference_access_tokens_.Clear();
+}
+inline ::CMsgSteamLearnAccessTokens_InferenceAccessToken* CMsgSteamLearnAccessTokens::mutable_inference_access_tokens(int index) {
+  // @@protoc_insertion_point(field_mutable:CMsgSteamLearnAccessTokens.inference_access_tokens)
+  return _impl_.inference_access_tokens_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearnAccessTokens_InferenceAccessToken >*
+CMsgSteamLearnAccessTokens::mutable_inference_access_tokens() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearnAccessTokens.inference_access_tokens)
+  return &_impl_.inference_access_tokens_;
+}
+inline const ::CMsgSteamLearnAccessTokens_InferenceAccessToken& CMsgSteamLearnAccessTokens::_internal_inference_access_tokens(int index) const {
+  return _impl_.inference_access_tokens_.Get(index);
+}
+inline const ::CMsgSteamLearnAccessTokens_InferenceAccessToken& CMsgSteamLearnAccessTokens::inference_access_tokens(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnAccessTokens.inference_access_tokens)
+  return _internal_inference_access_tokens(index);
+}
+inline ::CMsgSteamLearnAccessTokens_InferenceAccessToken* CMsgSteamLearnAccessTokens::_internal_add_inference_access_tokens() {
+  return _impl_.inference_access_tokens_.Add();
+}
+inline ::CMsgSteamLearnAccessTokens_InferenceAccessToken* CMsgSteamLearnAccessTokens::add_inference_access_tokens() {
+  ::CMsgSteamLearnAccessTokens_InferenceAccessToken* _add = _internal_add_inference_access_tokens();
+  // @@protoc_insertion_point(field_add:CMsgSteamLearnAccessTokens.inference_access_tokens)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearnAccessTokens_InferenceAccessToken >&
+CMsgSteamLearnAccessTokens::inference_access_tokens() const {
+  // @@protoc_insertion_point(field_list:CMsgSteamLearnAccessTokens.inference_access_tokens)
+  return _impl_.inference_access_tokens_;
+}
+
+// -------------------------------------------------------------------
+
+// CMsgSteamLearn_GetAccessTokens_Request
+
+// optional uint32 appid = 1;
+inline bool CMsgSteamLearn_GetAccessTokens_Request::_internal_has_appid() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearn_GetAccessTokens_Request::has_appid() const {
+  return _internal_has_appid();
+}
+inline void CMsgSteamLearn_GetAccessTokens_Request::clear_appid() {
+  _impl_.appid_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline uint32_t CMsgSteamLearn_GetAccessTokens_Request::_internal_appid() const {
+  return _impl_.appid_;
+}
+inline uint32_t CMsgSteamLearn_GetAccessTokens_Request::appid() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_GetAccessTokens_Request.appid)
+  return _internal_appid();
+}
+inline void CMsgSteamLearn_GetAccessTokens_Request::_internal_set_appid(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.appid_ = value;
+}
+inline void CMsgSteamLearn_GetAccessTokens_Request::set_appid(uint32_t value) {
+  _internal_set_appid(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearn_GetAccessTokens_Request.appid)
+}
+
+// -------------------------------------------------------------------
+
+// CMsgSteamLearn_GetAccessTokens_Response
+
+// optional .ESteamLearnGetAccessTokensResult result = 1 [default = STEAMLEARN_GET_ACCESS_TOKENS_ERROR];
+inline bool CMsgSteamLearn_GetAccessTokens_Response::_internal_has_result() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearn_GetAccessTokens_Response::has_result() const {
+  return _internal_has_result();
+}
+inline void CMsgSteamLearn_GetAccessTokens_Response::clear_result() {
+  _impl_.result_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline ::ESteamLearnGetAccessTokensResult CMsgSteamLearn_GetAccessTokens_Response::_internal_result() const {
+  return static_cast< ::ESteamLearnGetAccessTokensResult >(_impl_.result_);
+}
+inline ::ESteamLearnGetAccessTokensResult CMsgSteamLearn_GetAccessTokens_Response::result() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_GetAccessTokens_Response.result)
+  return _internal_result();
+}
+inline void CMsgSteamLearn_GetAccessTokens_Response::_internal_set_result(::ESteamLearnGetAccessTokensResult value) {
+  assert(::ESteamLearnGetAccessTokensResult_IsValid(value));
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.result_ = value;
+}
+inline void CMsgSteamLearn_GetAccessTokens_Response::set_result(::ESteamLearnGetAccessTokensResult value) {
+  _internal_set_result(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearn_GetAccessTokens_Response.result)
+}
+
+// optional .CMsgSteamLearnAccessTokens access_tokens = 2;
+inline bool CMsgSteamLearn_GetAccessTokens_Response::_internal_has_access_tokens() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.access_tokens_ != nullptr);
+  return value;
+}
+inline bool CMsgSteamLearn_GetAccessTokens_Response::has_access_tokens() const {
+  return _internal_has_access_tokens();
+}
+inline void CMsgSteamLearn_GetAccessTokens_Response::clear_access_tokens() {
+  if (_impl_.access_tokens_ != nullptr) _impl_.access_tokens_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline const ::CMsgSteamLearnAccessTokens& CMsgSteamLearn_GetAccessTokens_Response::_internal_access_tokens() const {
+  const ::CMsgSteamLearnAccessTokens* p = _impl_.access_tokens_;
+  return p != nullptr ? *p : reinterpret_cast<const ::CMsgSteamLearnAccessTokens&>(
+      ::_CMsgSteamLearnAccessTokens_default_instance_);
+}
+inline const ::CMsgSteamLearnAccessTokens& CMsgSteamLearn_GetAccessTokens_Response::access_tokens() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_GetAccessTokens_Response.access_tokens)
+  return _internal_access_tokens();
+}
+inline void CMsgSteamLearn_GetAccessTokens_Response::unsafe_arena_set_allocated_access_tokens(
+    ::CMsgSteamLearnAccessTokens* access_tokens) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.access_tokens_);
+  }
+  _impl_.access_tokens_ = access_tokens;
+  if (access_tokens) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CMsgSteamLearn_GetAccessTokens_Response.access_tokens)
+}
+inline ::CMsgSteamLearnAccessTokens* CMsgSteamLearn_GetAccessTokens_Response::release_access_tokens() {
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::CMsgSteamLearnAccessTokens* temp = _impl_.access_tokens_;
+  _impl_.access_tokens_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
   auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
   temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
@@ -11602,44 +11541,44 @@ inline ::CMsgSteamLearnHMACKeys* CMsgSteamLearn_GetHMACKeys_Response::release_ke
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::CMsgSteamLearnHMACKeys* CMsgSteamLearn_GetHMACKeys_Response::unsafe_arena_release_keys() {
-  // @@protoc_insertion_point(field_release:CMsgSteamLearn_GetHMACKeys_Response.keys)
+inline ::CMsgSteamLearnAccessTokens* CMsgSteamLearn_GetAccessTokens_Response::unsafe_arena_release_access_tokens() {
+  // @@protoc_insertion_point(field_release:CMsgSteamLearn_GetAccessTokens_Response.access_tokens)
   _impl_._has_bits_[0] &= ~0x00000001u;
-  ::CMsgSteamLearnHMACKeys* temp = _impl_.keys_;
-  _impl_.keys_ = nullptr;
+  ::CMsgSteamLearnAccessTokens* temp = _impl_.access_tokens_;
+  _impl_.access_tokens_ = nullptr;
   return temp;
 }
-inline ::CMsgSteamLearnHMACKeys* CMsgSteamLearn_GetHMACKeys_Response::_internal_mutable_keys() {
+inline ::CMsgSteamLearnAccessTokens* CMsgSteamLearn_GetAccessTokens_Response::_internal_mutable_access_tokens() {
   _impl_._has_bits_[0] |= 0x00000001u;
-  if (_impl_.keys_ == nullptr) {
-    auto* p = CreateMaybeMessage<::CMsgSteamLearnHMACKeys>(GetArenaForAllocation());
-    _impl_.keys_ = p;
+  if (_impl_.access_tokens_ == nullptr) {
+    auto* p = CreateMaybeMessage<::CMsgSteamLearnAccessTokens>(GetArenaForAllocation());
+    _impl_.access_tokens_ = p;
   }
-  return _impl_.keys_;
+  return _impl_.access_tokens_;
 }
-inline ::CMsgSteamLearnHMACKeys* CMsgSteamLearn_GetHMACKeys_Response::mutable_keys() {
-  ::CMsgSteamLearnHMACKeys* _msg = _internal_mutable_keys();
-  // @@protoc_insertion_point(field_mutable:CMsgSteamLearn_GetHMACKeys_Response.keys)
+inline ::CMsgSteamLearnAccessTokens* CMsgSteamLearn_GetAccessTokens_Response::mutable_access_tokens() {
+  ::CMsgSteamLearnAccessTokens* _msg = _internal_mutable_access_tokens();
+  // @@protoc_insertion_point(field_mutable:CMsgSteamLearn_GetAccessTokens_Response.access_tokens)
   return _msg;
 }
-inline void CMsgSteamLearn_GetHMACKeys_Response::set_allocated_keys(::CMsgSteamLearnHMACKeys* keys) {
+inline void CMsgSteamLearn_GetAccessTokens_Response::set_allocated_access_tokens(::CMsgSteamLearnAccessTokens* access_tokens) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
-    delete _impl_.keys_;
+    delete _impl_.access_tokens_;
   }
-  if (keys) {
+  if (access_tokens) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(keys);
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(access_tokens);
     if (message_arena != submessage_arena) {
-      keys = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, keys, submessage_arena);
+      access_tokens = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, access_tokens, submessage_arena);
     }
     _impl_._has_bits_[0] |= 0x00000001u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000001u;
   }
-  _impl_.keys_ = keys;
-  // @@protoc_insertion_point(field_set_allocated:CMsgSteamLearn_GetHMACKeys_Response.keys)
+  _impl_.access_tokens_ = access_tokens;
+  // @@protoc_insertion_point(field_set_allocated:CMsgSteamLearn_GetAccessTokens_Response.access_tokens)
 }
 
 // -------------------------------------------------------------------
@@ -11714,99 +11653,9 @@ inline void CMsgSteamLearn_Inference_Request::set_allocated_access_token(std::st
   // @@protoc_insertion_point(field_set_allocated:CMsgSteamLearn_Inference_Request.access_token)
 }
 
-// optional .CMsgSteamLearn_AccessData access_data = 2;
-inline bool CMsgSteamLearn_Inference_Request::_internal_has_access_data() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
-  PROTOBUF_ASSUME(!value || _impl_.access_data_ != nullptr);
-  return value;
-}
-inline bool CMsgSteamLearn_Inference_Request::has_access_data() const {
-  return _internal_has_access_data();
-}
-inline void CMsgSteamLearn_Inference_Request::clear_access_data() {
-  if (_impl_.access_data_ != nullptr) _impl_.access_data_->Clear();
-  _impl_._has_bits_[0] &= ~0x00000002u;
-}
-inline const ::CMsgSteamLearn_AccessData& CMsgSteamLearn_Inference_Request::_internal_access_data() const {
-  const ::CMsgSteamLearn_AccessData* p = _impl_.access_data_;
-  return p != nullptr ? *p : reinterpret_cast<const ::CMsgSteamLearn_AccessData&>(
-      ::_CMsgSteamLearn_AccessData_default_instance_);
-}
-inline const ::CMsgSteamLearn_AccessData& CMsgSteamLearn_Inference_Request::access_data() const {
-  // @@protoc_insertion_point(field_get:CMsgSteamLearn_Inference_Request.access_data)
-  return _internal_access_data();
-}
-inline void CMsgSteamLearn_Inference_Request::unsafe_arena_set_allocated_access_data(
-    ::CMsgSteamLearn_AccessData* access_data) {
-  if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.access_data_);
-  }
-  _impl_.access_data_ = access_data;
-  if (access_data) {
-    _impl_._has_bits_[0] |= 0x00000002u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000002u;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CMsgSteamLearn_Inference_Request.access_data)
-}
-inline ::CMsgSteamLearn_AccessData* CMsgSteamLearn_Inference_Request::release_access_data() {
-  _impl_._has_bits_[0] &= ~0x00000002u;
-  ::CMsgSteamLearn_AccessData* temp = _impl_.access_data_;
-  _impl_.access_data_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
-  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
-#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArenaForAllocation() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return temp;
-}
-inline ::CMsgSteamLearn_AccessData* CMsgSteamLearn_Inference_Request::unsafe_arena_release_access_data() {
-  // @@protoc_insertion_point(field_release:CMsgSteamLearn_Inference_Request.access_data)
-  _impl_._has_bits_[0] &= ~0x00000002u;
-  ::CMsgSteamLearn_AccessData* temp = _impl_.access_data_;
-  _impl_.access_data_ = nullptr;
-  return temp;
-}
-inline ::CMsgSteamLearn_AccessData* CMsgSteamLearn_Inference_Request::_internal_mutable_access_data() {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  if (_impl_.access_data_ == nullptr) {
-    auto* p = CreateMaybeMessage<::CMsgSteamLearn_AccessData>(GetArenaForAllocation());
-    _impl_.access_data_ = p;
-  }
-  return _impl_.access_data_;
-}
-inline ::CMsgSteamLearn_AccessData* CMsgSteamLearn_Inference_Request::mutable_access_data() {
-  ::CMsgSteamLearn_AccessData* _msg = _internal_mutable_access_data();
-  // @@protoc_insertion_point(field_mutable:CMsgSteamLearn_Inference_Request.access_data)
-  return _msg;
-}
-inline void CMsgSteamLearn_Inference_Request::set_allocated_access_data(::CMsgSteamLearn_AccessData* access_data) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  if (message_arena == nullptr) {
-    delete _impl_.access_data_;
-  }
-  if (access_data) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(access_data);
-    if (message_arena != submessage_arena) {
-      access_data = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, access_data, submessage_arena);
-    }
-    _impl_._has_bits_[0] |= 0x00000002u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000002u;
-  }
-  _impl_.access_data_ = access_data;
-  // @@protoc_insertion_point(field_set_allocated:CMsgSteamLearn_Inference_Request.access_data)
-}
-
 // optional uint32 project_id = 3;
 inline bool CMsgSteamLearn_Inference_Request::_internal_has_project_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CMsgSteamLearn_Inference_Request::has_project_id() const {
@@ -11814,7 +11663,7 @@ inline bool CMsgSteamLearn_Inference_Request::has_project_id() const {
 }
 inline void CMsgSteamLearn_Inference_Request::clear_project_id() {
   _impl_.project_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline uint32_t CMsgSteamLearn_Inference_Request::_internal_project_id() const {
   return _impl_.project_id_;
@@ -11824,7 +11673,7 @@ inline uint32_t CMsgSteamLearn_Inference_Request::project_id() const {
   return _internal_project_id();
 }
 inline void CMsgSteamLearn_Inference_Request::_internal_set_project_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.project_id_ = value;
 }
 inline void CMsgSteamLearn_Inference_Request::set_project_id(uint32_t value) {
@@ -11834,7 +11683,7 @@ inline void CMsgSteamLearn_Inference_Request::set_project_id(uint32_t value) {
 
 // optional uint32 published_version = 4;
 inline bool CMsgSteamLearn_Inference_Request::_internal_has_published_version() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CMsgSteamLearn_Inference_Request::has_published_version() const {
@@ -11842,7 +11691,7 @@ inline bool CMsgSteamLearn_Inference_Request::has_published_version() const {
 }
 inline void CMsgSteamLearn_Inference_Request::clear_published_version() {
   _impl_.published_version_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline uint32_t CMsgSteamLearn_Inference_Request::_internal_published_version() const {
   return _impl_.published_version_;
@@ -11852,7 +11701,7 @@ inline uint32_t CMsgSteamLearn_Inference_Request::published_version() const {
   return _internal_published_version();
 }
 inline void CMsgSteamLearn_Inference_Request::_internal_set_published_version(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.published_version_ = value;
 }
 inline void CMsgSteamLearn_Inference_Request::set_published_version(uint32_t value) {
@@ -11862,7 +11711,7 @@ inline void CMsgSteamLearn_Inference_Request::set_published_version(uint32_t val
 
 // optional uint32 override_train_id = 5;
 inline bool CMsgSteamLearn_Inference_Request::_internal_has_override_train_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CMsgSteamLearn_Inference_Request::has_override_train_id() const {
@@ -11870,7 +11719,7 @@ inline bool CMsgSteamLearn_Inference_Request::has_override_train_id() const {
 }
 inline void CMsgSteamLearn_Inference_Request::clear_override_train_id() {
   _impl_.override_train_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000020u;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline uint32_t CMsgSteamLearn_Inference_Request::_internal_override_train_id() const {
   return _impl_.override_train_id_;
@@ -11880,7 +11729,7 @@ inline uint32_t CMsgSteamLearn_Inference_Request::override_train_id() const {
   return _internal_override_train_id();
 }
 inline void CMsgSteamLearn_Inference_Request::_internal_set_override_train_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.override_train_id_ = value;
 }
 inline void CMsgSteamLearn_Inference_Request::set_override_train_id(uint32_t value) {
@@ -11890,7 +11739,7 @@ inline void CMsgSteamLearn_Inference_Request::set_override_train_id(uint32_t val
 
 // optional .CMsgSteamLearnDataList data = 6;
 inline bool CMsgSteamLearn_Inference_Request::_internal_has_data() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.data_ != nullptr);
   return value;
 }
@@ -11899,7 +11748,7 @@ inline bool CMsgSteamLearn_Inference_Request::has_data() const {
 }
 inline void CMsgSteamLearn_Inference_Request::clear_data() {
   if (_impl_.data_ != nullptr) _impl_.data_->Clear();
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline const ::CMsgSteamLearnDataList& CMsgSteamLearn_Inference_Request::_internal_data() const {
   const ::CMsgSteamLearnDataList* p = _impl_.data_;
@@ -11917,14 +11766,14 @@ inline void CMsgSteamLearn_Inference_Request::unsafe_arena_set_allocated_data(
   }
   _impl_.data_ = data;
   if (data) {
-    _impl_._has_bits_[0] |= 0x00000004u;
+    _impl_._has_bits_[0] |= 0x00000002u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000004u;
+    _impl_._has_bits_[0] &= ~0x00000002u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CMsgSteamLearn_Inference_Request.data)
 }
 inline ::CMsgSteamLearnDataList* CMsgSteamLearn_Inference_Request::release_data() {
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
   ::CMsgSteamLearnDataList* temp = _impl_.data_;
   _impl_.data_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
@@ -11940,13 +11789,13 @@ inline ::CMsgSteamLearnDataList* CMsgSteamLearn_Inference_Request::release_data(
 }
 inline ::CMsgSteamLearnDataList* CMsgSteamLearn_Inference_Request::unsafe_arena_release_data() {
   // @@protoc_insertion_point(field_release:CMsgSteamLearn_Inference_Request.data)
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
   ::CMsgSteamLearnDataList* temp = _impl_.data_;
   _impl_.data_ = nullptr;
   return temp;
 }
 inline ::CMsgSteamLearnDataList* CMsgSteamLearn_Inference_Request::_internal_mutable_data() {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   if (_impl_.data_ == nullptr) {
     auto* p = CreateMaybeMessage<::CMsgSteamLearnDataList>(GetArenaForAllocation());
     _impl_.data_ = p;
@@ -11970,9 +11819,9 @@ inline void CMsgSteamLearn_Inference_Request::set_allocated_data(::CMsgSteamLear
       data = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, data, submessage_arena);
     }
-    _impl_._has_bits_[0] |= 0x00000004u;
+    _impl_._has_bits_[0] |= 0x00000002u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000004u;
+    _impl_._has_bits_[0] &= ~0x00000002u;
   }
   _impl_.data_ = data;
   // @@protoc_insertion_point(field_set_allocated:CMsgSteamLearn_Inference_Request.data)
@@ -12097,99 +11946,9 @@ inline void CMsgSteamLearn_InferenceMetadata_Request::set_allocated_access_token
   // @@protoc_insertion_point(field_set_allocated:CMsgSteamLearn_InferenceMetadata_Request.access_token)
 }
 
-// optional .CMsgSteamLearn_AccessData access_data = 2;
-inline bool CMsgSteamLearn_InferenceMetadata_Request::_internal_has_access_data() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
-  PROTOBUF_ASSUME(!value || _impl_.access_data_ != nullptr);
-  return value;
-}
-inline bool CMsgSteamLearn_InferenceMetadata_Request::has_access_data() const {
-  return _internal_has_access_data();
-}
-inline void CMsgSteamLearn_InferenceMetadata_Request::clear_access_data() {
-  if (_impl_.access_data_ != nullptr) _impl_.access_data_->Clear();
-  _impl_._has_bits_[0] &= ~0x00000002u;
-}
-inline const ::CMsgSteamLearn_AccessData& CMsgSteamLearn_InferenceMetadata_Request::_internal_access_data() const {
-  const ::CMsgSteamLearn_AccessData* p = _impl_.access_data_;
-  return p != nullptr ? *p : reinterpret_cast<const ::CMsgSteamLearn_AccessData&>(
-      ::_CMsgSteamLearn_AccessData_default_instance_);
-}
-inline const ::CMsgSteamLearn_AccessData& CMsgSteamLearn_InferenceMetadata_Request::access_data() const {
-  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceMetadata_Request.access_data)
-  return _internal_access_data();
-}
-inline void CMsgSteamLearn_InferenceMetadata_Request::unsafe_arena_set_allocated_access_data(
-    ::CMsgSteamLearn_AccessData* access_data) {
-  if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.access_data_);
-  }
-  _impl_.access_data_ = access_data;
-  if (access_data) {
-    _impl_._has_bits_[0] |= 0x00000002u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000002u;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CMsgSteamLearn_InferenceMetadata_Request.access_data)
-}
-inline ::CMsgSteamLearn_AccessData* CMsgSteamLearn_InferenceMetadata_Request::release_access_data() {
-  _impl_._has_bits_[0] &= ~0x00000002u;
-  ::CMsgSteamLearn_AccessData* temp = _impl_.access_data_;
-  _impl_.access_data_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
-  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
-#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArenaForAllocation() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return temp;
-}
-inline ::CMsgSteamLearn_AccessData* CMsgSteamLearn_InferenceMetadata_Request::unsafe_arena_release_access_data() {
-  // @@protoc_insertion_point(field_release:CMsgSteamLearn_InferenceMetadata_Request.access_data)
-  _impl_._has_bits_[0] &= ~0x00000002u;
-  ::CMsgSteamLearn_AccessData* temp = _impl_.access_data_;
-  _impl_.access_data_ = nullptr;
-  return temp;
-}
-inline ::CMsgSteamLearn_AccessData* CMsgSteamLearn_InferenceMetadata_Request::_internal_mutable_access_data() {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  if (_impl_.access_data_ == nullptr) {
-    auto* p = CreateMaybeMessage<::CMsgSteamLearn_AccessData>(GetArenaForAllocation());
-    _impl_.access_data_ = p;
-  }
-  return _impl_.access_data_;
-}
-inline ::CMsgSteamLearn_AccessData* CMsgSteamLearn_InferenceMetadata_Request::mutable_access_data() {
-  ::CMsgSteamLearn_AccessData* _msg = _internal_mutable_access_data();
-  // @@protoc_insertion_point(field_mutable:CMsgSteamLearn_InferenceMetadata_Request.access_data)
-  return _msg;
-}
-inline void CMsgSteamLearn_InferenceMetadata_Request::set_allocated_access_data(::CMsgSteamLearn_AccessData* access_data) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  if (message_arena == nullptr) {
-    delete _impl_.access_data_;
-  }
-  if (access_data) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(access_data);
-    if (message_arena != submessage_arena) {
-      access_data = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, access_data, submessage_arena);
-    }
-    _impl_._has_bits_[0] |= 0x00000002u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000002u;
-  }
-  _impl_.access_data_ = access_data;
-  // @@protoc_insertion_point(field_set_allocated:CMsgSteamLearn_InferenceMetadata_Request.access_data)
-}
-
 // optional uint32 project_id = 3;
 inline bool CMsgSteamLearn_InferenceMetadata_Request::_internal_has_project_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CMsgSteamLearn_InferenceMetadata_Request::has_project_id() const {
@@ -12197,7 +11956,7 @@ inline bool CMsgSteamLearn_InferenceMetadata_Request::has_project_id() const {
 }
 inline void CMsgSteamLearn_InferenceMetadata_Request::clear_project_id() {
   _impl_.project_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline uint32_t CMsgSteamLearn_InferenceMetadata_Request::_internal_project_id() const {
   return _impl_.project_id_;
@@ -12207,7 +11966,7 @@ inline uint32_t CMsgSteamLearn_InferenceMetadata_Request::project_id() const {
   return _internal_project_id();
 }
 inline void CMsgSteamLearn_InferenceMetadata_Request::_internal_set_project_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.project_id_ = value;
 }
 inline void CMsgSteamLearn_InferenceMetadata_Request::set_project_id(uint32_t value) {
@@ -12217,7 +11976,7 @@ inline void CMsgSteamLearn_InferenceMetadata_Request::set_project_id(uint32_t va
 
 // optional uint32 published_version = 4;
 inline bool CMsgSteamLearn_InferenceMetadata_Request::_internal_has_published_version() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CMsgSteamLearn_InferenceMetadata_Request::has_published_version() const {
@@ -12225,7 +11984,7 @@ inline bool CMsgSteamLearn_InferenceMetadata_Request::has_published_version() co
 }
 inline void CMsgSteamLearn_InferenceMetadata_Request::clear_published_version() {
   _impl_.published_version_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline uint32_t CMsgSteamLearn_InferenceMetadata_Request::_internal_published_version() const {
   return _impl_.published_version_;
@@ -12235,7 +11994,7 @@ inline uint32_t CMsgSteamLearn_InferenceMetadata_Request::published_version() co
   return _internal_published_version();
 }
 inline void CMsgSteamLearn_InferenceMetadata_Request::_internal_set_published_version(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.published_version_ = value;
 }
 inline void CMsgSteamLearn_InferenceMetadata_Request::set_published_version(uint32_t value) {
@@ -12245,7 +12004,7 @@ inline void CMsgSteamLearn_InferenceMetadata_Request::set_published_version(uint
 
 // optional uint32 override_train_id = 5;
 inline bool CMsgSteamLearn_InferenceMetadata_Request::_internal_has_override_train_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CMsgSteamLearn_InferenceMetadata_Request::has_override_train_id() const {
@@ -12253,7 +12012,7 @@ inline bool CMsgSteamLearn_InferenceMetadata_Request::has_override_train_id() co
 }
 inline void CMsgSteamLearn_InferenceMetadata_Request::clear_override_train_id() {
   _impl_.override_train_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline uint32_t CMsgSteamLearn_InferenceMetadata_Request::_internal_override_train_id() const {
   return _impl_.override_train_id_;
@@ -12263,7 +12022,7 @@ inline uint32_t CMsgSteamLearn_InferenceMetadata_Request::override_train_id() co
   return _internal_override_train_id();
 }
 inline void CMsgSteamLearn_InferenceMetadata_Request::_internal_set_override_train_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.override_train_id_ = value;
 }
 inline void CMsgSteamLearn_InferenceMetadata_Request::set_override_train_id(uint32_t value) {
@@ -13925,6 +13684,38 @@ inline void CMsgSteamLearn_InferenceMetadata_Response::set_allocated_snapshot_hi
 
 // -------------------------------------------------------------------
 
+// CMsgSteamLearn_InferenceBackend_Response_RegressionOutput
+
+// optional float value = 1;
+inline bool CMsgSteamLearn_InferenceBackend_Response_RegressionOutput::_internal_has_value() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearn_InferenceBackend_Response_RegressionOutput::has_value() const {
+  return _internal_has_value();
+}
+inline void CMsgSteamLearn_InferenceBackend_Response_RegressionOutput::clear_value() {
+  _impl_.value_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline float CMsgSteamLearn_InferenceBackend_Response_RegressionOutput::_internal_value() const {
+  return _impl_.value_;
+}
+inline float CMsgSteamLearn_InferenceBackend_Response_RegressionOutput::value() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceBackend_Response.RegressionOutput.value)
+  return _internal_value();
+}
+inline void CMsgSteamLearn_InferenceBackend_Response_RegressionOutput::_internal_set_value(float value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.value_ = value;
+}
+inline void CMsgSteamLearn_InferenceBackend_Response_RegressionOutput::set_value(float value) {
+  _internal_set_value(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearn_InferenceBackend_Response.RegressionOutput.value)
+}
+
+// -------------------------------------------------------------------
+
 // CMsgSteamLearn_InferenceBackend_Response_BinaryCrossEntropyOutput
 
 // optional float value = 1;
@@ -14377,6 +14168,80 @@ inline ::CMsgSteamLearn_InferenceBackend_Response_MutliBinaryCrossEntropyOutput*
   return _msg;
 }
 
+// .CMsgSteamLearn_InferenceBackend_Response.RegressionOutput regression = 4;
+inline bool CMsgSteamLearn_InferenceBackend_Response_Output::_internal_has_regression() const {
+  return ResponseType_case() == kRegression;
+}
+inline bool CMsgSteamLearn_InferenceBackend_Response_Output::has_regression() const {
+  return _internal_has_regression();
+}
+inline void CMsgSteamLearn_InferenceBackend_Response_Output::set_has_regression() {
+  _impl_._oneof_case_[0] = kRegression;
+}
+inline void CMsgSteamLearn_InferenceBackend_Response_Output::clear_regression() {
+  if (_internal_has_regression()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.ResponseType_.regression_;
+    }
+    clear_has_ResponseType();
+  }
+}
+inline ::CMsgSteamLearn_InferenceBackend_Response_RegressionOutput* CMsgSteamLearn_InferenceBackend_Response_Output::release_regression() {
+  // @@protoc_insertion_point(field_release:CMsgSteamLearn_InferenceBackend_Response.Output.regression)
+  if (_internal_has_regression()) {
+    clear_has_ResponseType();
+    ::CMsgSteamLearn_InferenceBackend_Response_RegressionOutput* temp = _impl_.ResponseType_.regression_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.ResponseType_.regression_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::CMsgSteamLearn_InferenceBackend_Response_RegressionOutput& CMsgSteamLearn_InferenceBackend_Response_Output::_internal_regression() const {
+  return _internal_has_regression()
+      ? *_impl_.ResponseType_.regression_
+      : reinterpret_cast< ::CMsgSteamLearn_InferenceBackend_Response_RegressionOutput&>(::_CMsgSteamLearn_InferenceBackend_Response_RegressionOutput_default_instance_);
+}
+inline const ::CMsgSteamLearn_InferenceBackend_Response_RegressionOutput& CMsgSteamLearn_InferenceBackend_Response_Output::regression() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_InferenceBackend_Response.Output.regression)
+  return _internal_regression();
+}
+inline ::CMsgSteamLearn_InferenceBackend_Response_RegressionOutput* CMsgSteamLearn_InferenceBackend_Response_Output::unsafe_arena_release_regression() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:CMsgSteamLearn_InferenceBackend_Response.Output.regression)
+  if (_internal_has_regression()) {
+    clear_has_ResponseType();
+    ::CMsgSteamLearn_InferenceBackend_Response_RegressionOutput* temp = _impl_.ResponseType_.regression_;
+    _impl_.ResponseType_.regression_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void CMsgSteamLearn_InferenceBackend_Response_Output::unsafe_arena_set_allocated_regression(::CMsgSteamLearn_InferenceBackend_Response_RegressionOutput* regression) {
+  clear_ResponseType();
+  if (regression) {
+    set_has_regression();
+    _impl_.ResponseType_.regression_ = regression;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CMsgSteamLearn_InferenceBackend_Response.Output.regression)
+}
+inline ::CMsgSteamLearn_InferenceBackend_Response_RegressionOutput* CMsgSteamLearn_InferenceBackend_Response_Output::_internal_mutable_regression() {
+  if (!_internal_has_regression()) {
+    clear_ResponseType();
+    set_has_regression();
+    _impl_.ResponseType_.regression_ = CreateMaybeMessage< ::CMsgSteamLearn_InferenceBackend_Response_RegressionOutput >(GetArenaForAllocation());
+  }
+  return _impl_.ResponseType_.regression_;
+}
+inline ::CMsgSteamLearn_InferenceBackend_Response_RegressionOutput* CMsgSteamLearn_InferenceBackend_Response_Output::mutable_regression() {
+  ::CMsgSteamLearn_InferenceBackend_Response_RegressionOutput* _msg = _internal_mutable_regression();
+  // @@protoc_insertion_point(field_mutable:CMsgSteamLearn_InferenceBackend_Response.Output.regression)
+  return _msg;
+}
+
 inline bool CMsgSteamLearn_InferenceBackend_Response_Output::has_ResponseType() const {
   return ResponseType_case() != RESPONSETYPE_NOT_SET;
 }
@@ -14553,9 +14418,58 @@ inline void CMsgSteamLearn_Inference_Response::set_allocated_backend_response(::
   // @@protoc_insertion_point(field_set_allocated:CMsgSteamLearn_Inference_Response.backend_response)
 }
 
+// repeated uint64 keys = 3;
+inline int CMsgSteamLearn_Inference_Response::_internal_keys_size() const {
+  return _impl_.keys_.size();
+}
+inline int CMsgSteamLearn_Inference_Response::keys_size() const {
+  return _internal_keys_size();
+}
+inline void CMsgSteamLearn_Inference_Response::clear_keys() {
+  _impl_.keys_.Clear();
+}
+inline uint64_t CMsgSteamLearn_Inference_Response::_internal_keys(int index) const {
+  return _impl_.keys_.Get(index);
+}
+inline uint64_t CMsgSteamLearn_Inference_Response::keys(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearn_Inference_Response.keys)
+  return _internal_keys(index);
+}
+inline void CMsgSteamLearn_Inference_Response::set_keys(int index, uint64_t value) {
+  _impl_.keys_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearn_Inference_Response.keys)
+}
+inline void CMsgSteamLearn_Inference_Response::_internal_add_keys(uint64_t value) {
+  _impl_.keys_.Add(value);
+}
+inline void CMsgSteamLearn_Inference_Response::add_keys(uint64_t value) {
+  _internal_add_keys(value);
+  // @@protoc_insertion_point(field_add:CMsgSteamLearn_Inference_Response.keys)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+CMsgSteamLearn_Inference_Response::_internal_keys() const {
+  return _impl_.keys_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+CMsgSteamLearn_Inference_Response::keys() const {
+  // @@protoc_insertion_point(field_list:CMsgSteamLearn_Inference_Response.keys)
+  return _internal_keys();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+CMsgSteamLearn_Inference_Response::_internal_mutable_keys() {
+  return &_impl_.keys_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+CMsgSteamLearn_Inference_Response::mutable_keys() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearn_Inference_Response.keys)
+  return _internal_mutable_keys();
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
@@ -14662,10 +14576,10 @@ template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::ESteamLearnSnapshotProjectResult>() {
   return ::ESteamLearnSnapshotProjectResult_descriptor();
 }
-template <> struct is_proto_enum< ::ESteamLearnGetHMACKeysResult> : ::std::true_type {};
+template <> struct is_proto_enum< ::ESteamLearnGetAccessTokensResult> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::ESteamLearnGetHMACKeysResult>() {
-  return ::ESteamLearnGetHMACKeysResult_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::ESteamLearnGetAccessTokensResult>() {
+  return ::ESteamLearnGetAccessTokensResult_descriptor();
 }
 template <> struct is_proto_enum< ::ESteamLearnInferenceResult> : ::std::true_type {};
 template <>

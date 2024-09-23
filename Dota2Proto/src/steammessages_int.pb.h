@@ -56,12 +56,6 @@ extern CGCMsgGetIPASNResponseDefaultTypeInternal _CGCMsgGetIPASNResponse_default
 class CGCMsgGetIPLocation;
 struct CGCMsgGetIPLocationDefaultTypeInternal;
 extern CGCMsgGetIPLocationDefaultTypeInternal _CGCMsgGetIPLocation_default_instance_;
-class CGCMsgGetSystemStats;
-struct CGCMsgGetSystemStatsDefaultTypeInternal;
-extern CGCMsgGetSystemStatsDefaultTypeInternal _CGCMsgGetSystemStats_default_instance_;
-class CGCMsgGetSystemStatsResponse;
-struct CGCMsgGetSystemStatsResponseDefaultTypeInternal;
-extern CGCMsgGetSystemStatsResponseDefaultTypeInternal _CGCMsgGetSystemStatsResponse_default_instance_;
 class CGCMsgMemCachedDelete;
 struct CGCMsgMemCachedDeleteDefaultTypeInternal;
 extern CGCMsgMemCachedDeleteDefaultTypeInternal _CGCMsgMemCachedDelete_default_instance_;
@@ -92,21 +86,12 @@ extern CGCMsgSQLStatsDefaultTypeInternal _CGCMsgSQLStats_default_instance_;
 class CGCMsgSQLStatsResponse;
 struct CGCMsgSQLStatsResponseDefaultTypeInternal;
 extern CGCMsgSQLStatsResponseDefaultTypeInternal _CGCMsgSQLStatsResponse_default_instance_;
-class CGCMsgSystemStatsSchema;
-struct CGCMsgSystemStatsSchemaDefaultTypeInternal;
-extern CGCMsgSystemStatsSchemaDefaultTypeInternal _CGCMsgSystemStatsSchema_default_instance_;
 class CGCSystemMsg_GetPurchaseTrust_Request;
 struct CGCSystemMsg_GetPurchaseTrust_RequestDefaultTypeInternal;
 extern CGCSystemMsg_GetPurchaseTrust_RequestDefaultTypeInternal _CGCSystemMsg_GetPurchaseTrust_Request_default_instance_;
 class CGCSystemMsg_GetPurchaseTrust_Response;
 struct CGCSystemMsg_GetPurchaseTrust_ResponseDefaultTypeInternal;
 extern CGCSystemMsg_GetPurchaseTrust_ResponseDefaultTypeInternal _CGCSystemMsg_GetPurchaseTrust_Response_default_instance_;
-class CGCSystemMsg_ReportExternalPurchase_Request;
-struct CGCSystemMsg_ReportExternalPurchase_RequestDefaultTypeInternal;
-extern CGCSystemMsg_ReportExternalPurchase_RequestDefaultTypeInternal _CGCSystemMsg_ReportExternalPurchase_Request_default_instance_;
-class CGCSystemMsg_ReportExternalPurchase_Response;
-struct CGCSystemMsg_ReportExternalPurchase_ResponseDefaultTypeInternal;
-extern CGCSystemMsg_ReportExternalPurchase_ResponseDefaultTypeInternal _CGCSystemMsg_ReportExternalPurchase_Response_default_instance_;
 class CIPASNInfo;
 struct CIPASNInfoDefaultTypeInternal;
 extern CIPASNInfoDefaultTypeInternal _CIPASNInfo_default_instance_;
@@ -128,18 +113,6 @@ extern CMsgAMGetLicensesDefaultTypeInternal _CMsgAMGetLicenses_default_instance_
 class CMsgAMGetLicensesResponse;
 struct CMsgAMGetLicensesResponseDefaultTypeInternal;
 extern CMsgAMGetLicensesResponseDefaultTypeInternal _CMsgAMGetLicensesResponse_default_instance_;
-class CMsgAMGetUserGameStats;
-struct CMsgAMGetUserGameStatsDefaultTypeInternal;
-extern CMsgAMGetUserGameStatsDefaultTypeInternal _CMsgAMGetUserGameStats_default_instance_;
-class CMsgAMGetUserGameStatsResponse;
-struct CMsgAMGetUserGameStatsResponseDefaultTypeInternal;
-extern CMsgAMGetUserGameStatsResponseDefaultTypeInternal _CMsgAMGetUserGameStatsResponse_default_instance_;
-class CMsgAMGetUserGameStatsResponse_Achievement_Blocks;
-struct CMsgAMGetUserGameStatsResponse_Achievement_BlocksDefaultTypeInternal;
-extern CMsgAMGetUserGameStatsResponse_Achievement_BlocksDefaultTypeInternal _CMsgAMGetUserGameStatsResponse_Achievement_Blocks_default_instance_;
-class CMsgAMGetUserGameStatsResponse_Stats;
-struct CMsgAMGetUserGameStatsResponse_StatsDefaultTypeInternal;
-extern CMsgAMGetUserGameStatsResponse_StatsDefaultTypeInternal _CMsgAMGetUserGameStatsResponse_Stats_default_instance_;
 class CMsgAMGrantGuestPasses2;
 struct CMsgAMGrantGuestPasses2DefaultTypeInternal;
 extern CMsgAMGrantGuestPasses2DefaultTypeInternal _CMsgAMGrantGuestPasses2_default_instance_;
@@ -158,18 +131,6 @@ extern CMsgAMSendEmail_PersonaNameReplacementTokenDefaultTypeInternal _CMsgAMSen
 class CMsgAMSendEmail_ReplacementToken;
 struct CMsgAMSendEmail_ReplacementTokenDefaultTypeInternal;
 extern CMsgAMSendEmail_ReplacementTokenDefaultTypeInternal _CMsgAMSendEmail_ReplacementToken_default_instance_;
-class CMsgDPPartnerMicroTxns;
-struct CMsgDPPartnerMicroTxnsDefaultTypeInternal;
-extern CMsgDPPartnerMicroTxnsDefaultTypeInternal _CMsgDPPartnerMicroTxns_default_instance_;
-class CMsgDPPartnerMicroTxnsResponse;
-struct CMsgDPPartnerMicroTxnsResponseDefaultTypeInternal;
-extern CMsgDPPartnerMicroTxnsResponseDefaultTypeInternal _CMsgDPPartnerMicroTxnsResponse_default_instance_;
-class CMsgDPPartnerMicroTxns_PartnerInfo;
-struct CMsgDPPartnerMicroTxns_PartnerInfoDefaultTypeInternal;
-extern CMsgDPPartnerMicroTxns_PartnerInfoDefaultTypeInternal _CMsgDPPartnerMicroTxns_PartnerInfo_default_instance_;
-class CMsgDPPartnerMicroTxns_PartnerMicroTxn;
-struct CMsgDPPartnerMicroTxns_PartnerMicroTxnDefaultTypeInternal;
-extern CMsgDPPartnerMicroTxns_PartnerMicroTxnDefaultTypeInternal _CMsgDPPartnerMicroTxns_PartnerMicroTxn_default_instance_;
 class CMsgGCCheckClanMembership;
 struct CMsgGCCheckClanMembershipDefaultTypeInternal;
 extern CMsgGCCheckClanMembershipDefaultTypeInternal _CMsgGCCheckClanMembership_default_instance_;
@@ -200,12 +161,6 @@ extern CMsgGCGetEmailTemplateDefaultTypeInternal _CMsgGCGetEmailTemplate_default
 class CMsgGCGetEmailTemplateResponse;
 struct CMsgGCGetEmailTemplateResponseDefaultTypeInternal;
 extern CMsgGCGetEmailTemplateResponseDefaultTypeInternal _CMsgGCGetEmailTemplateResponse_default_instance_;
-class CMsgGCGetPartnerAccountLink;
-struct CMsgGCGetPartnerAccountLinkDefaultTypeInternal;
-extern CMsgGCGetPartnerAccountLinkDefaultTypeInternal _CMsgGCGetPartnerAccountLink_default_instance_;
-class CMsgGCGetPartnerAccountLink_Response;
-struct CMsgGCGetPartnerAccountLink_ResponseDefaultTypeInternal;
-extern CMsgGCGetPartnerAccountLink_ResponseDefaultTypeInternal _CMsgGCGetPartnerAccountLink_Response_default_instance_;
 class CMsgGCGetPersonaNames;
 struct CMsgGCGetPersonaNamesDefaultTypeInternal;
 extern CMsgGCGetPersonaNamesDefaultTypeInternal _CMsgGCGetPersonaNames_default_instance_;
@@ -215,9 +170,6 @@ extern CMsgGCGetPersonaNames_ResponseDefaultTypeInternal _CMsgGCGetPersonaNames_
 class CMsgGCGetPersonaNames_Response_PersonaName;
 struct CMsgGCGetPersonaNames_Response_PersonaNameDefaultTypeInternal;
 extern CMsgGCGetPersonaNames_Response_PersonaNameDefaultTypeInternal _CMsgGCGetPersonaNames_Response_PersonaName_default_instance_;
-class CMsgGCHAccountTwoFactorChange;
-struct CMsgGCHAccountTwoFactorChangeDefaultTypeInternal;
-extern CMsgGCHAccountTwoFactorChangeDefaultTypeInternal _CMsgGCHAccountTwoFactorChange_default_instance_;
 class CMsgGCHAccountVacStatusChange;
 struct CMsgGCHAccountVacStatusChangeDefaultTypeInternal;
 extern CMsgGCHAccountVacStatusChangeDefaultTypeInternal _CMsgGCHAccountVacStatusChange_default_instance_;
@@ -339,8 +291,6 @@ PROTOBUF_NAMESPACE_OPEN
 template<> ::CGCMsgGetIPASN* Arena::CreateMaybeMessage<::CGCMsgGetIPASN>(Arena*);
 template<> ::CGCMsgGetIPASNResponse* Arena::CreateMaybeMessage<::CGCMsgGetIPASNResponse>(Arena*);
 template<> ::CGCMsgGetIPLocation* Arena::CreateMaybeMessage<::CGCMsgGetIPLocation>(Arena*);
-template<> ::CGCMsgGetSystemStats* Arena::CreateMaybeMessage<::CGCMsgGetSystemStats>(Arena*);
-template<> ::CGCMsgGetSystemStatsResponse* Arena::CreateMaybeMessage<::CGCMsgGetSystemStatsResponse>(Arena*);
 template<> ::CGCMsgMemCachedDelete* Arena::CreateMaybeMessage<::CGCMsgMemCachedDelete>(Arena*);
 template<> ::CGCMsgMemCachedGet* Arena::CreateMaybeMessage<::CGCMsgMemCachedGet>(Arena*);
 template<> ::CGCMsgMemCachedGetResponse* Arena::CreateMaybeMessage<::CGCMsgMemCachedGetResponse>(Arena*);
@@ -351,11 +301,8 @@ template<> ::CGCMsgMemCachedStats* Arena::CreateMaybeMessage<::CGCMsgMemCachedSt
 template<> ::CGCMsgMemCachedStatsResponse* Arena::CreateMaybeMessage<::CGCMsgMemCachedStatsResponse>(Arena*);
 template<> ::CGCMsgSQLStats* Arena::CreateMaybeMessage<::CGCMsgSQLStats>(Arena*);
 template<> ::CGCMsgSQLStatsResponse* Arena::CreateMaybeMessage<::CGCMsgSQLStatsResponse>(Arena*);
-template<> ::CGCMsgSystemStatsSchema* Arena::CreateMaybeMessage<::CGCMsgSystemStatsSchema>(Arena*);
 template<> ::CGCSystemMsg_GetPurchaseTrust_Request* Arena::CreateMaybeMessage<::CGCSystemMsg_GetPurchaseTrust_Request>(Arena*);
 template<> ::CGCSystemMsg_GetPurchaseTrust_Response* Arena::CreateMaybeMessage<::CGCSystemMsg_GetPurchaseTrust_Response>(Arena*);
-template<> ::CGCSystemMsg_ReportExternalPurchase_Request* Arena::CreateMaybeMessage<::CGCSystemMsg_ReportExternalPurchase_Request>(Arena*);
-template<> ::CGCSystemMsg_ReportExternalPurchase_Response* Arena::CreateMaybeMessage<::CGCSystemMsg_ReportExternalPurchase_Response>(Arena*);
 template<> ::CIPASNInfo* Arena::CreateMaybeMessage<::CIPASNInfo>(Arena*);
 template<> ::CMsgAMAddFreeLicense* Arena::CreateMaybeMessage<::CMsgAMAddFreeLicense>(Arena*);
 template<> ::CMsgAMAddFreeLicenseResponse* Arena::CreateMaybeMessage<::CMsgAMAddFreeLicenseResponse>(Arena*);
@@ -363,20 +310,12 @@ template<> ::CMsgAMFindAccounts* Arena::CreateMaybeMessage<::CMsgAMFindAccounts>
 template<> ::CMsgAMFindAccountsResponse* Arena::CreateMaybeMessage<::CMsgAMFindAccountsResponse>(Arena*);
 template<> ::CMsgAMGetLicenses* Arena::CreateMaybeMessage<::CMsgAMGetLicenses>(Arena*);
 template<> ::CMsgAMGetLicensesResponse* Arena::CreateMaybeMessage<::CMsgAMGetLicensesResponse>(Arena*);
-template<> ::CMsgAMGetUserGameStats* Arena::CreateMaybeMessage<::CMsgAMGetUserGameStats>(Arena*);
-template<> ::CMsgAMGetUserGameStatsResponse* Arena::CreateMaybeMessage<::CMsgAMGetUserGameStatsResponse>(Arena*);
-template<> ::CMsgAMGetUserGameStatsResponse_Achievement_Blocks* Arena::CreateMaybeMessage<::CMsgAMGetUserGameStatsResponse_Achievement_Blocks>(Arena*);
-template<> ::CMsgAMGetUserGameStatsResponse_Stats* Arena::CreateMaybeMessage<::CMsgAMGetUserGameStatsResponse_Stats>(Arena*);
 template<> ::CMsgAMGrantGuestPasses2* Arena::CreateMaybeMessage<::CMsgAMGrantGuestPasses2>(Arena*);
 template<> ::CMsgAMGrantGuestPasses2Response* Arena::CreateMaybeMessage<::CMsgAMGrantGuestPasses2Response>(Arena*);
 template<> ::CMsgAMSendEmail* Arena::CreateMaybeMessage<::CMsgAMSendEmail>(Arena*);
 template<> ::CMsgAMSendEmailResponse* Arena::CreateMaybeMessage<::CMsgAMSendEmailResponse>(Arena*);
 template<> ::CMsgAMSendEmail_PersonaNameReplacementToken* Arena::CreateMaybeMessage<::CMsgAMSendEmail_PersonaNameReplacementToken>(Arena*);
 template<> ::CMsgAMSendEmail_ReplacementToken* Arena::CreateMaybeMessage<::CMsgAMSendEmail_ReplacementToken>(Arena*);
-template<> ::CMsgDPPartnerMicroTxns* Arena::CreateMaybeMessage<::CMsgDPPartnerMicroTxns>(Arena*);
-template<> ::CMsgDPPartnerMicroTxnsResponse* Arena::CreateMaybeMessage<::CMsgDPPartnerMicroTxnsResponse>(Arena*);
-template<> ::CMsgDPPartnerMicroTxns_PartnerInfo* Arena::CreateMaybeMessage<::CMsgDPPartnerMicroTxns_PartnerInfo>(Arena*);
-template<> ::CMsgDPPartnerMicroTxns_PartnerMicroTxn* Arena::CreateMaybeMessage<::CMsgDPPartnerMicroTxns_PartnerMicroTxn>(Arena*);
 template<> ::CMsgGCCheckClanMembership* Arena::CreateMaybeMessage<::CMsgGCCheckClanMembership>(Arena*);
 template<> ::CMsgGCCheckClanMembership_Response* Arena::CreateMaybeMessage<::CMsgGCCheckClanMembership_Response>(Arena*);
 template<> ::CMsgGCCheckFriendship* Arena::CreateMaybeMessage<::CMsgGCCheckFriendship>(Arena*);
@@ -387,12 +326,9 @@ template<> ::CMsgGCGetCommandList* Arena::CreateMaybeMessage<::CMsgGCGetCommandL
 template<> ::CMsgGCGetCommandListResponse* Arena::CreateMaybeMessage<::CMsgGCGetCommandListResponse>(Arena*);
 template<> ::CMsgGCGetEmailTemplate* Arena::CreateMaybeMessage<::CMsgGCGetEmailTemplate>(Arena*);
 template<> ::CMsgGCGetEmailTemplateResponse* Arena::CreateMaybeMessage<::CMsgGCGetEmailTemplateResponse>(Arena*);
-template<> ::CMsgGCGetPartnerAccountLink* Arena::CreateMaybeMessage<::CMsgGCGetPartnerAccountLink>(Arena*);
-template<> ::CMsgGCGetPartnerAccountLink_Response* Arena::CreateMaybeMessage<::CMsgGCGetPartnerAccountLink_Response>(Arena*);
 template<> ::CMsgGCGetPersonaNames* Arena::CreateMaybeMessage<::CMsgGCGetPersonaNames>(Arena*);
 template<> ::CMsgGCGetPersonaNames_Response* Arena::CreateMaybeMessage<::CMsgGCGetPersonaNames_Response>(Arena*);
 template<> ::CMsgGCGetPersonaNames_Response_PersonaName* Arena::CreateMaybeMessage<::CMsgGCGetPersonaNames_Response_PersonaName>(Arena*);
-template<> ::CMsgGCHAccountTwoFactorChange* Arena::CreateMaybeMessage<::CMsgGCHAccountTwoFactorChange>(Arena*);
 template<> ::CMsgGCHAccountVacStatusChange* Arena::CreateMaybeMessage<::CMsgGCHAccountVacStatusChange>(Arena*);
 template<> ::CMsgGCHAppCheersGetAllowedTypes* Arena::CreateMaybeMessage<::CMsgGCHAppCheersGetAllowedTypes>(Arena*);
 template<> ::CMsgGCHAppCheersGetAllowedTypesResponse* Arena::CreateMaybeMessage<::CMsgGCHAppCheersGetAllowedTypesResponse>(Arena*);
@@ -508,60 +444,6 @@ inline bool CMsgGCMsgSetOptions_GCSQLVersion_Parse(
     ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, CMsgGCMsgSetOptions_GCSQLVersion* value) {
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<CMsgGCMsgSetOptions_GCSQLVersion>(
     CMsgGCMsgSetOptions_GCSQLVersion_descriptor(), name, value);
-}
-enum CMsgDPPartnerMicroTxnsResponse_EErrorCode : int {
-  CMsgDPPartnerMicroTxnsResponse_EErrorCode_k_MsgValid = 0,
-  CMsgDPPartnerMicroTxnsResponse_EErrorCode_k_MsgInvalidAppID = 1,
-  CMsgDPPartnerMicroTxnsResponse_EErrorCode_k_MsgInvalidPartnerInfo = 2,
-  CMsgDPPartnerMicroTxnsResponse_EErrorCode_k_MsgNoTransactions = 3,
-  CMsgDPPartnerMicroTxnsResponse_EErrorCode_k_MsgSQLFailure = 4,
-  CMsgDPPartnerMicroTxnsResponse_EErrorCode_k_MsgPartnerInfoDiscrepancy = 5,
-  CMsgDPPartnerMicroTxnsResponse_EErrorCode_k_MsgTransactionInsertFailed = 7,
-  CMsgDPPartnerMicroTxnsResponse_EErrorCode_k_MsgAlreadyRunning = 8,
-  CMsgDPPartnerMicroTxnsResponse_EErrorCode_k_MsgInvalidTransactionData = 9
-};
-bool CMsgDPPartnerMicroTxnsResponse_EErrorCode_IsValid(int value);
-constexpr CMsgDPPartnerMicroTxnsResponse_EErrorCode CMsgDPPartnerMicroTxnsResponse_EErrorCode_EErrorCode_MIN = CMsgDPPartnerMicroTxnsResponse_EErrorCode_k_MsgValid;
-constexpr CMsgDPPartnerMicroTxnsResponse_EErrorCode CMsgDPPartnerMicroTxnsResponse_EErrorCode_EErrorCode_MAX = CMsgDPPartnerMicroTxnsResponse_EErrorCode_k_MsgInvalidTransactionData;
-constexpr int CMsgDPPartnerMicroTxnsResponse_EErrorCode_EErrorCode_ARRAYSIZE = CMsgDPPartnerMicroTxnsResponse_EErrorCode_EErrorCode_MAX + 1;
-
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgDPPartnerMicroTxnsResponse_EErrorCode_descriptor();
-template<typename T>
-inline const std::string& CMsgDPPartnerMicroTxnsResponse_EErrorCode_Name(T enum_t_value) {
-  static_assert(::std::is_same<T, CMsgDPPartnerMicroTxnsResponse_EErrorCode>::value ||
-    ::std::is_integral<T>::value,
-    "Incorrect type passed to function CMsgDPPartnerMicroTxnsResponse_EErrorCode_Name.");
-  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    CMsgDPPartnerMicroTxnsResponse_EErrorCode_descriptor(), enum_t_value);
-}
-inline bool CMsgDPPartnerMicroTxnsResponse_EErrorCode_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, CMsgDPPartnerMicroTxnsResponse_EErrorCode* value) {
-  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<CMsgDPPartnerMicroTxnsResponse_EErrorCode>(
-    CMsgDPPartnerMicroTxnsResponse_EErrorCode_descriptor(), name, value);
-}
-enum EMobilePaymentProvider : int {
-  k_EMobilePaymentProvider_Invalid = 0,
-  k_EMobilePaymentProvider_GooglePlay = 1,
-  k_EMobilePaymentProvider_AppleAppStore = 2
-};
-bool EMobilePaymentProvider_IsValid(int value);
-constexpr EMobilePaymentProvider EMobilePaymentProvider_MIN = k_EMobilePaymentProvider_Invalid;
-constexpr EMobilePaymentProvider EMobilePaymentProvider_MAX = k_EMobilePaymentProvider_AppleAppStore;
-constexpr int EMobilePaymentProvider_ARRAYSIZE = EMobilePaymentProvider_MAX + 1;
-
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EMobilePaymentProvider_descriptor();
-template<typename T>
-inline const std::string& EMobilePaymentProvider_Name(T enum_t_value) {
-  static_assert(::std::is_same<T, EMobilePaymentProvider>::value ||
-    ::std::is_integral<T>::value,
-    "Incorrect type passed to function EMobilePaymentProvider_Name.");
-  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    EMobilePaymentProvider_descriptor(), enum_t_value);
-}
-inline bool EMobilePaymentProvider_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, EMobilePaymentProvider* value) {
-  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EMobilePaymentProvider>(
-    EMobilePaymentProvider_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -3253,803 +3135,6 @@ class CMsgAMGetLicensesResponse final :
 };
 // -------------------------------------------------------------------
 
-class CMsgAMGetUserGameStats final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgAMGetUserGameStats) */ {
- public:
-  inline CMsgAMGetUserGameStats() : CMsgAMGetUserGameStats(nullptr) {}
-  ~CMsgAMGetUserGameStats() override;
-  explicit PROTOBUF_CONSTEXPR CMsgAMGetUserGameStats(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  CMsgAMGetUserGameStats(const CMsgAMGetUserGameStats& from);
-  CMsgAMGetUserGameStats(CMsgAMGetUserGameStats&& from) noexcept
-    : CMsgAMGetUserGameStats() {
-    *this = ::std::move(from);
-  }
-
-  inline CMsgAMGetUserGameStats& operator=(const CMsgAMGetUserGameStats& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CMsgAMGetUserGameStats& operator=(CMsgAMGetUserGameStats&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const CMsgAMGetUserGameStats& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const CMsgAMGetUserGameStats* internal_default_instance() {
-    return reinterpret_cast<const CMsgAMGetUserGameStats*>(
-               &_CMsgAMGetUserGameStats_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    13;
-
-  friend void swap(CMsgAMGetUserGameStats& a, CMsgAMGetUserGameStats& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CMsgAMGetUserGameStats* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CMsgAMGetUserGameStats* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  CMsgAMGetUserGameStats* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<CMsgAMGetUserGameStats>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const CMsgAMGetUserGameStats& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const CMsgAMGetUserGameStats& from) {
-    CMsgAMGetUserGameStats::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CMsgAMGetUserGameStats* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CMsgAMGetUserGameStats";
-  }
-  protected:
-  explicit CMsgAMGetUserGameStats(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kStatsFieldNumber = 3,
-    kSteamIdFieldNumber = 1,
-    kGameIdFieldNumber = 2,
-  };
-  // repeated uint32 stats = 3;
-  int stats_size() const;
-  private:
-  int _internal_stats_size() const;
-  public:
-  void clear_stats();
-  private:
-  uint32_t _internal_stats(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-      _internal_stats() const;
-  void _internal_add_stats(uint32_t value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-      _internal_mutable_stats();
-  public:
-  uint32_t stats(int index) const;
-  void set_stats(int index, uint32_t value);
-  void add_stats(uint32_t value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-      stats() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-      mutable_stats();
-
-  // optional fixed64 steam_id = 1;
-  bool has_steam_id() const;
-  private:
-  bool _internal_has_steam_id() const;
-  public:
-  void clear_steam_id();
-  uint64_t steam_id() const;
-  void set_steam_id(uint64_t value);
-  private:
-  uint64_t _internal_steam_id() const;
-  void _internal_set_steam_id(uint64_t value);
-  public:
-
-  // optional fixed64 game_id = 2;
-  bool has_game_id() const;
-  private:
-  bool _internal_has_game_id() const;
-  public:
-  void clear_game_id();
-  uint64_t game_id() const;
-  void set_game_id(uint64_t value);
-  private:
-  uint64_t _internal_game_id() const;
-  void _internal_set_game_id(uint64_t value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:CMsgAMGetUserGameStats)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > stats_;
-    uint64_t steam_id_;
-    uint64_t game_id_;
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_steammessages_5fint_2eproto;
-};
-// -------------------------------------------------------------------
-
-class CMsgAMGetUserGameStatsResponse_Stats final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgAMGetUserGameStatsResponse.Stats) */ {
- public:
-  inline CMsgAMGetUserGameStatsResponse_Stats() : CMsgAMGetUserGameStatsResponse_Stats(nullptr) {}
-  ~CMsgAMGetUserGameStatsResponse_Stats() override;
-  explicit PROTOBUF_CONSTEXPR CMsgAMGetUserGameStatsResponse_Stats(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  CMsgAMGetUserGameStatsResponse_Stats(const CMsgAMGetUserGameStatsResponse_Stats& from);
-  CMsgAMGetUserGameStatsResponse_Stats(CMsgAMGetUserGameStatsResponse_Stats&& from) noexcept
-    : CMsgAMGetUserGameStatsResponse_Stats() {
-    *this = ::std::move(from);
-  }
-
-  inline CMsgAMGetUserGameStatsResponse_Stats& operator=(const CMsgAMGetUserGameStatsResponse_Stats& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CMsgAMGetUserGameStatsResponse_Stats& operator=(CMsgAMGetUserGameStatsResponse_Stats&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const CMsgAMGetUserGameStatsResponse_Stats& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const CMsgAMGetUserGameStatsResponse_Stats* internal_default_instance() {
-    return reinterpret_cast<const CMsgAMGetUserGameStatsResponse_Stats*>(
-               &_CMsgAMGetUserGameStatsResponse_Stats_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    14;
-
-  friend void swap(CMsgAMGetUserGameStatsResponse_Stats& a, CMsgAMGetUserGameStatsResponse_Stats& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CMsgAMGetUserGameStatsResponse_Stats* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CMsgAMGetUserGameStatsResponse_Stats* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  CMsgAMGetUserGameStatsResponse_Stats* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<CMsgAMGetUserGameStatsResponse_Stats>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const CMsgAMGetUserGameStatsResponse_Stats& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const CMsgAMGetUserGameStatsResponse_Stats& from) {
-    CMsgAMGetUserGameStatsResponse_Stats::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CMsgAMGetUserGameStatsResponse_Stats* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CMsgAMGetUserGameStatsResponse.Stats";
-  }
-  protected:
-  explicit CMsgAMGetUserGameStatsResponse_Stats(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kStatIdFieldNumber = 1,
-    kStatValueFieldNumber = 2,
-  };
-  // optional uint32 stat_id = 1;
-  bool has_stat_id() const;
-  private:
-  bool _internal_has_stat_id() const;
-  public:
-  void clear_stat_id();
-  uint32_t stat_id() const;
-  void set_stat_id(uint32_t value);
-  private:
-  uint32_t _internal_stat_id() const;
-  void _internal_set_stat_id(uint32_t value);
-  public:
-
-  // optional uint32 stat_value = 2;
-  bool has_stat_value() const;
-  private:
-  bool _internal_has_stat_value() const;
-  public:
-  void clear_stat_value();
-  uint32_t stat_value() const;
-  void set_stat_value(uint32_t value);
-  private:
-  uint32_t _internal_stat_value() const;
-  void _internal_set_stat_value(uint32_t value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:CMsgAMGetUserGameStatsResponse.Stats)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    uint32_t stat_id_;
-    uint32_t stat_value_;
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_steammessages_5fint_2eproto;
-};
-// -------------------------------------------------------------------
-
-class CMsgAMGetUserGameStatsResponse_Achievement_Blocks final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgAMGetUserGameStatsResponse.Achievement_Blocks) */ {
- public:
-  inline CMsgAMGetUserGameStatsResponse_Achievement_Blocks() : CMsgAMGetUserGameStatsResponse_Achievement_Blocks(nullptr) {}
-  ~CMsgAMGetUserGameStatsResponse_Achievement_Blocks() override;
-  explicit PROTOBUF_CONSTEXPR CMsgAMGetUserGameStatsResponse_Achievement_Blocks(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  CMsgAMGetUserGameStatsResponse_Achievement_Blocks(const CMsgAMGetUserGameStatsResponse_Achievement_Blocks& from);
-  CMsgAMGetUserGameStatsResponse_Achievement_Blocks(CMsgAMGetUserGameStatsResponse_Achievement_Blocks&& from) noexcept
-    : CMsgAMGetUserGameStatsResponse_Achievement_Blocks() {
-    *this = ::std::move(from);
-  }
-
-  inline CMsgAMGetUserGameStatsResponse_Achievement_Blocks& operator=(const CMsgAMGetUserGameStatsResponse_Achievement_Blocks& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CMsgAMGetUserGameStatsResponse_Achievement_Blocks& operator=(CMsgAMGetUserGameStatsResponse_Achievement_Blocks&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const CMsgAMGetUserGameStatsResponse_Achievement_Blocks& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const CMsgAMGetUserGameStatsResponse_Achievement_Blocks* internal_default_instance() {
-    return reinterpret_cast<const CMsgAMGetUserGameStatsResponse_Achievement_Blocks*>(
-               &_CMsgAMGetUserGameStatsResponse_Achievement_Blocks_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    15;
-
-  friend void swap(CMsgAMGetUserGameStatsResponse_Achievement_Blocks& a, CMsgAMGetUserGameStatsResponse_Achievement_Blocks& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CMsgAMGetUserGameStatsResponse_Achievement_Blocks* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CMsgAMGetUserGameStatsResponse_Achievement_Blocks* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  CMsgAMGetUserGameStatsResponse_Achievement_Blocks* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<CMsgAMGetUserGameStatsResponse_Achievement_Blocks>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const CMsgAMGetUserGameStatsResponse_Achievement_Blocks& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const CMsgAMGetUserGameStatsResponse_Achievement_Blocks& from) {
-    CMsgAMGetUserGameStatsResponse_Achievement_Blocks::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CMsgAMGetUserGameStatsResponse_Achievement_Blocks* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CMsgAMGetUserGameStatsResponse.Achievement_Blocks";
-  }
-  protected:
-  explicit CMsgAMGetUserGameStatsResponse_Achievement_Blocks(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kAchievementIdFieldNumber = 1,
-    kAchievementBitIdFieldNumber = 2,
-    kUnlockTimeFieldNumber = 3,
-  };
-  // optional uint32 achievement_id = 1;
-  bool has_achievement_id() const;
-  private:
-  bool _internal_has_achievement_id() const;
-  public:
-  void clear_achievement_id();
-  uint32_t achievement_id() const;
-  void set_achievement_id(uint32_t value);
-  private:
-  uint32_t _internal_achievement_id() const;
-  void _internal_set_achievement_id(uint32_t value);
-  public:
-
-  // optional uint32 achievement_bit_id = 2;
-  bool has_achievement_bit_id() const;
-  private:
-  bool _internal_has_achievement_bit_id() const;
-  public:
-  void clear_achievement_bit_id();
-  uint32_t achievement_bit_id() const;
-  void set_achievement_bit_id(uint32_t value);
-  private:
-  uint32_t _internal_achievement_bit_id() const;
-  void _internal_set_achievement_bit_id(uint32_t value);
-  public:
-
-  // optional fixed32 unlock_time = 3;
-  bool has_unlock_time() const;
-  private:
-  bool _internal_has_unlock_time() const;
-  public:
-  void clear_unlock_time();
-  uint32_t unlock_time() const;
-  void set_unlock_time(uint32_t value);
-  private:
-  uint32_t _internal_unlock_time() const;
-  void _internal_set_unlock_time(uint32_t value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:CMsgAMGetUserGameStatsResponse.Achievement_Blocks)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    uint32_t achievement_id_;
-    uint32_t achievement_bit_id_;
-    uint32_t unlock_time_;
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_steammessages_5fint_2eproto;
-};
-// -------------------------------------------------------------------
-
-class CMsgAMGetUserGameStatsResponse final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgAMGetUserGameStatsResponse) */ {
- public:
-  inline CMsgAMGetUserGameStatsResponse() : CMsgAMGetUserGameStatsResponse(nullptr) {}
-  ~CMsgAMGetUserGameStatsResponse() override;
-  explicit PROTOBUF_CONSTEXPR CMsgAMGetUserGameStatsResponse(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  CMsgAMGetUserGameStatsResponse(const CMsgAMGetUserGameStatsResponse& from);
-  CMsgAMGetUserGameStatsResponse(CMsgAMGetUserGameStatsResponse&& from) noexcept
-    : CMsgAMGetUserGameStatsResponse() {
-    *this = ::std::move(from);
-  }
-
-  inline CMsgAMGetUserGameStatsResponse& operator=(const CMsgAMGetUserGameStatsResponse& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CMsgAMGetUserGameStatsResponse& operator=(CMsgAMGetUserGameStatsResponse&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const CMsgAMGetUserGameStatsResponse& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const CMsgAMGetUserGameStatsResponse* internal_default_instance() {
-    return reinterpret_cast<const CMsgAMGetUserGameStatsResponse*>(
-               &_CMsgAMGetUserGameStatsResponse_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    16;
-
-  friend void swap(CMsgAMGetUserGameStatsResponse& a, CMsgAMGetUserGameStatsResponse& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CMsgAMGetUserGameStatsResponse* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CMsgAMGetUserGameStatsResponse* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  CMsgAMGetUserGameStatsResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<CMsgAMGetUserGameStatsResponse>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const CMsgAMGetUserGameStatsResponse& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const CMsgAMGetUserGameStatsResponse& from) {
-    CMsgAMGetUserGameStatsResponse::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CMsgAMGetUserGameStatsResponse* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CMsgAMGetUserGameStatsResponse";
-  }
-  protected:
-  explicit CMsgAMGetUserGameStatsResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  typedef CMsgAMGetUserGameStatsResponse_Stats Stats;
-  typedef CMsgAMGetUserGameStatsResponse_Achievement_Blocks Achievement_Blocks;
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kStatsFieldNumber = 4,
-    kAchievementBlocksFieldNumber = 5,
-    kSteamIdFieldNumber = 1,
-    kGameIdFieldNumber = 2,
-    kEresultFieldNumber = 3,
-  };
-  // repeated .CMsgAMGetUserGameStatsResponse.Stats stats = 4;
-  int stats_size() const;
-  private:
-  int _internal_stats_size() const;
-  public:
-  void clear_stats();
-  ::CMsgAMGetUserGameStatsResponse_Stats* mutable_stats(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgAMGetUserGameStatsResponse_Stats >*
-      mutable_stats();
-  private:
-  const ::CMsgAMGetUserGameStatsResponse_Stats& _internal_stats(int index) const;
-  ::CMsgAMGetUserGameStatsResponse_Stats* _internal_add_stats();
-  public:
-  const ::CMsgAMGetUserGameStatsResponse_Stats& stats(int index) const;
-  ::CMsgAMGetUserGameStatsResponse_Stats* add_stats();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgAMGetUserGameStatsResponse_Stats >&
-      stats() const;
-
-  // repeated .CMsgAMGetUserGameStatsResponse.Achievement_Blocks achievement_blocks = 5;
-  int achievement_blocks_size() const;
-  private:
-  int _internal_achievement_blocks_size() const;
-  public:
-  void clear_achievement_blocks();
-  ::CMsgAMGetUserGameStatsResponse_Achievement_Blocks* mutable_achievement_blocks(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgAMGetUserGameStatsResponse_Achievement_Blocks >*
-      mutable_achievement_blocks();
-  private:
-  const ::CMsgAMGetUserGameStatsResponse_Achievement_Blocks& _internal_achievement_blocks(int index) const;
-  ::CMsgAMGetUserGameStatsResponse_Achievement_Blocks* _internal_add_achievement_blocks();
-  public:
-  const ::CMsgAMGetUserGameStatsResponse_Achievement_Blocks& achievement_blocks(int index) const;
-  ::CMsgAMGetUserGameStatsResponse_Achievement_Blocks* add_achievement_blocks();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgAMGetUserGameStatsResponse_Achievement_Blocks >&
-      achievement_blocks() const;
-
-  // optional fixed64 steam_id = 1;
-  bool has_steam_id() const;
-  private:
-  bool _internal_has_steam_id() const;
-  public:
-  void clear_steam_id();
-  uint64_t steam_id() const;
-  void set_steam_id(uint64_t value);
-  private:
-  uint64_t _internal_steam_id() const;
-  void _internal_set_steam_id(uint64_t value);
-  public:
-
-  // optional fixed64 game_id = 2;
-  bool has_game_id() const;
-  private:
-  bool _internal_has_game_id() const;
-  public:
-  void clear_game_id();
-  uint64_t game_id() const;
-  void set_game_id(uint64_t value);
-  private:
-  uint64_t _internal_game_id() const;
-  void _internal_set_game_id(uint64_t value);
-  public:
-
-  // optional int32 eresult = 3 [default = 2];
-  bool has_eresult() const;
-  private:
-  bool _internal_has_eresult() const;
-  public:
-  void clear_eresult();
-  int32_t eresult() const;
-  void set_eresult(int32_t value);
-  private:
-  int32_t _internal_eresult() const;
-  void _internal_set_eresult(int32_t value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:CMsgAMGetUserGameStatsResponse)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgAMGetUserGameStatsResponse_Stats > stats_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgAMGetUserGameStatsResponse_Achievement_Blocks > achievement_blocks_;
-    uint64_t steam_id_;
-    uint64_t game_id_;
-    int32_t eresult_;
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_steammessages_5fint_2eproto;
-};
-// -------------------------------------------------------------------
-
 class CMsgGCGetCommandList final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgGCGetCommandList) */ {
  public:
@@ -4105,7 +3190,7 @@ class CMsgGCGetCommandList final :
                &_CMsgGCGetCommandList_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    13;
 
   friend void swap(CMsgGCGetCommandList& a, CMsgGCGetCommandList& b) {
     a.Swap(&b);
@@ -4285,7 +3370,7 @@ class CMsgGCGetCommandListResponse final :
                &_CMsgGCGetCommandListResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    14;
 
   friend void swap(CMsgGCGetCommandListResponse& a, CMsgGCGetCommandListResponse& b) {
     a.Swap(&b);
@@ -4455,7 +3540,7 @@ class CGCMsgMemCachedGet final :
                &_CGCMsgMemCachedGet_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    15;
 
   friend void swap(CGCMsgMemCachedGet& a, CGCMsgMemCachedGet& b) {
     a.Swap(&b);
@@ -4625,7 +3710,7 @@ class CGCMsgMemCachedGetResponse_ValueTag final :
                &_CGCMsgMemCachedGetResponse_ValueTag_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    16;
 
   friend void swap(CGCMsgMemCachedGetResponse_ValueTag& a, CGCMsgMemCachedGetResponse_ValueTag& b) {
     a.Swap(&b);
@@ -4805,7 +3890,7 @@ class CGCMsgMemCachedGetResponse final :
                &_CGCMsgMemCachedGetResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    17;
 
   friend void swap(CGCMsgMemCachedGetResponse& a, CGCMsgMemCachedGetResponse& b) {
     a.Swap(&b);
@@ -4971,7 +4056,7 @@ class CGCMsgMemCachedSet_KeyPair final :
                &_CGCMsgMemCachedSet_KeyPair_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    18;
 
   friend void swap(CGCMsgMemCachedSet_KeyPair& a, CGCMsgMemCachedSet_KeyPair& b) {
     a.Swap(&b);
@@ -5156,7 +4241,7 @@ class CGCMsgMemCachedSet final :
                &_CGCMsgMemCachedSet_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    19;
 
   friend void swap(CGCMsgMemCachedSet& a, CGCMsgMemCachedSet& b) {
     a.Swap(&b);
@@ -5322,7 +4407,7 @@ class CGCMsgMemCachedDelete final :
                &_CGCMsgMemCachedDelete_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    20;
 
   friend void swap(CGCMsgMemCachedDelete& a, CGCMsgMemCachedDelete& b) {
     a.Swap(&b);
@@ -5491,7 +4576,7 @@ class CGCMsgMemCachedStats final :
                &_CGCMsgMemCachedStats_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    21;
 
   friend void swap(CGCMsgMemCachedStats& a, CGCMsgMemCachedStats& b) {
     a.Swap(&b);
@@ -5617,7 +4702,7 @@ class CGCMsgMemCachedStatsResponse final :
                &_CGCMsgMemCachedStatsResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    26;
+    22;
 
   friend void swap(CGCMsgMemCachedStatsResponse& a, CGCMsgMemCachedStatsResponse& b) {
     a.Swap(&b);
@@ -5972,7 +5057,7 @@ class CGCMsgSQLStats final :
                &_CGCMsgSQLStats_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    27;
+    23;
 
   friend void swap(CGCMsgSQLStats& a, CGCMsgSQLStats& b) {
     a.Swap(&b);
@@ -6132,7 +5217,7 @@ class CGCMsgSQLStatsResponse final :
                &_CGCMsgSQLStatsResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    28;
+    24;
 
   friend void swap(CGCMsgSQLStatsResponse& a, CGCMsgSQLStatsResponse& b) {
     a.Swap(&b);
@@ -6412,7 +5497,7 @@ class CMsgAMAddFreeLicense final :
                &_CMsgAMAddFreeLicense_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    29;
+    25;
 
   friend void swap(CMsgAMAddFreeLicense& a, CMsgAMAddFreeLicense& b) {
     a.Swap(&b);
@@ -6622,7 +5707,7 @@ class CMsgAMAddFreeLicenseResponse final :
                &_CMsgAMAddFreeLicenseResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    30;
+    26;
 
   friend void swap(CMsgAMAddFreeLicenseResponse& a, CMsgAMAddFreeLicenseResponse& b) {
     a.Swap(&b);
@@ -6812,7 +5897,7 @@ class CGCMsgGetIPLocation final :
                &_CGCMsgGetIPLocation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    31;
+    27;
 
   friend void swap(CGCMsgGetIPLocation& a, CGCMsgGetIPLocation& b) {
     a.Swap(&b);
@@ -6980,7 +6065,7 @@ class CGCMsgGetIPASN final :
                &_CGCMsgGetIPASN_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    32;
+    28;
 
   friend void swap(CGCMsgGetIPASN& a, CGCMsgGetIPASN& b) {
     a.Swap(&b);
@@ -7148,7 +6233,7 @@ class CIPASNInfo final :
                &_CIPASNInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    33;
+    29;
 
   friend void swap(CIPASNInfo& a, CIPASNInfo& b) {
     a.Swap(&b);
@@ -7323,7 +6408,7 @@ class CGCMsgGetIPASNResponse final :
                &_CGCMsgGetIPASNResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    34;
+    30;
 
   friend void swap(CGCMsgGetIPASNResponse& a, CGCMsgGetIPASNResponse& b) {
     a.Swap(&b);
@@ -7432,656 +6517,6 @@ class CGCMsgGetIPASNResponse final :
 };
 // -------------------------------------------------------------------
 
-class CGCMsgSystemStatsSchema final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CGCMsgSystemStatsSchema) */ {
- public:
-  inline CGCMsgSystemStatsSchema() : CGCMsgSystemStatsSchema(nullptr) {}
-  ~CGCMsgSystemStatsSchema() override;
-  explicit PROTOBUF_CONSTEXPR CGCMsgSystemStatsSchema(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  CGCMsgSystemStatsSchema(const CGCMsgSystemStatsSchema& from);
-  CGCMsgSystemStatsSchema(CGCMsgSystemStatsSchema&& from) noexcept
-    : CGCMsgSystemStatsSchema() {
-    *this = ::std::move(from);
-  }
-
-  inline CGCMsgSystemStatsSchema& operator=(const CGCMsgSystemStatsSchema& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CGCMsgSystemStatsSchema& operator=(CGCMsgSystemStatsSchema&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const CGCMsgSystemStatsSchema& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const CGCMsgSystemStatsSchema* internal_default_instance() {
-    return reinterpret_cast<const CGCMsgSystemStatsSchema*>(
-               &_CGCMsgSystemStatsSchema_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    35;
-
-  friend void swap(CGCMsgSystemStatsSchema& a, CGCMsgSystemStatsSchema& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CGCMsgSystemStatsSchema* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CGCMsgSystemStatsSchema* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  CGCMsgSystemStatsSchema* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<CGCMsgSystemStatsSchema>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const CGCMsgSystemStatsSchema& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const CGCMsgSystemStatsSchema& from) {
-    CGCMsgSystemStatsSchema::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CGCMsgSystemStatsSchema* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CGCMsgSystemStatsSchema";
-  }
-  protected:
-  explicit CGCMsgSystemStatsSchema(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kSchemaKvFieldNumber = 2,
-    kGcAppIdFieldNumber = 1,
-  };
-  // optional bytes schema_kv = 2;
-  bool has_schema_kv() const;
-  private:
-  bool _internal_has_schema_kv() const;
-  public:
-  void clear_schema_kv();
-  const std::string& schema_kv() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_schema_kv(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_schema_kv();
-  PROTOBUF_NODISCARD std::string* release_schema_kv();
-  void set_allocated_schema_kv(std::string* schema_kv);
-  private:
-  const std::string& _internal_schema_kv() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_schema_kv(const std::string& value);
-  std::string* _internal_mutable_schema_kv();
-  public:
-
-  // optional uint32 gc_app_id = 1;
-  bool has_gc_app_id() const;
-  private:
-  bool _internal_has_gc_app_id() const;
-  public:
-  void clear_gc_app_id();
-  uint32_t gc_app_id() const;
-  void set_gc_app_id(uint32_t value);
-  private:
-  uint32_t _internal_gc_app_id() const;
-  void _internal_set_gc_app_id(uint32_t value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:CGCMsgSystemStatsSchema)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr schema_kv_;
-    uint32_t gc_app_id_;
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_steammessages_5fint_2eproto;
-};
-// -------------------------------------------------------------------
-
-class CGCMsgGetSystemStats final :
-    public ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase /* @@protoc_insertion_point(class_definition:CGCMsgGetSystemStats) */ {
- public:
-  inline CGCMsgGetSystemStats() : CGCMsgGetSystemStats(nullptr) {}
-  explicit PROTOBUF_CONSTEXPR CGCMsgGetSystemStats(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  CGCMsgGetSystemStats(const CGCMsgGetSystemStats& from);
-  CGCMsgGetSystemStats(CGCMsgGetSystemStats&& from) noexcept
-    : CGCMsgGetSystemStats() {
-    *this = ::std::move(from);
-  }
-
-  inline CGCMsgGetSystemStats& operator=(const CGCMsgGetSystemStats& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CGCMsgGetSystemStats& operator=(CGCMsgGetSystemStats&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const CGCMsgGetSystemStats& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const CGCMsgGetSystemStats* internal_default_instance() {
-    return reinterpret_cast<const CGCMsgGetSystemStats*>(
-               &_CGCMsgGetSystemStats_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    36;
-
-  friend void swap(CGCMsgGetSystemStats& a, CGCMsgGetSystemStats& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CGCMsgGetSystemStats* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CGCMsgGetSystemStats* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  CGCMsgGetSystemStats* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<CGCMsgGetSystemStats>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyFrom;
-  inline void CopyFrom(const CGCMsgGetSystemStats& from) {
-    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl(*this, from);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeFrom;
-  void MergeFrom(const CGCMsgGetSystemStats& from) {
-    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl(*this, from);
-  }
-  public:
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CGCMsgGetSystemStats";
-  }
-  protected:
-  explicit CGCMsgGetSystemStats(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // @@protoc_insertion_point(class_scope:CGCMsgGetSystemStats)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-  };
-  friend struct ::TableStruct_steammessages_5fint_2eproto;
-};
-// -------------------------------------------------------------------
-
-class CGCMsgGetSystemStatsResponse final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CGCMsgGetSystemStatsResponse) */ {
- public:
-  inline CGCMsgGetSystemStatsResponse() : CGCMsgGetSystemStatsResponse(nullptr) {}
-  ~CGCMsgGetSystemStatsResponse() override;
-  explicit PROTOBUF_CONSTEXPR CGCMsgGetSystemStatsResponse(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  CGCMsgGetSystemStatsResponse(const CGCMsgGetSystemStatsResponse& from);
-  CGCMsgGetSystemStatsResponse(CGCMsgGetSystemStatsResponse&& from) noexcept
-    : CGCMsgGetSystemStatsResponse() {
-    *this = ::std::move(from);
-  }
-
-  inline CGCMsgGetSystemStatsResponse& operator=(const CGCMsgGetSystemStatsResponse& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CGCMsgGetSystemStatsResponse& operator=(CGCMsgGetSystemStatsResponse&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const CGCMsgGetSystemStatsResponse& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const CGCMsgGetSystemStatsResponse* internal_default_instance() {
-    return reinterpret_cast<const CGCMsgGetSystemStatsResponse*>(
-               &_CGCMsgGetSystemStatsResponse_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    37;
-
-  friend void swap(CGCMsgGetSystemStatsResponse& a, CGCMsgGetSystemStatsResponse& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CGCMsgGetSystemStatsResponse* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CGCMsgGetSystemStatsResponse* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  CGCMsgGetSystemStatsResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<CGCMsgGetSystemStatsResponse>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const CGCMsgGetSystemStatsResponse& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const CGCMsgGetSystemStatsResponse& from) {
-    CGCMsgGetSystemStatsResponse::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CGCMsgGetSystemStatsResponse* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CGCMsgGetSystemStatsResponse";
-  }
-  protected:
-  explicit CGCMsgGetSystemStatsResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kStatsKvFieldNumber = 2,
-    kGcAppIdFieldNumber = 1,
-    kActiveJobsFieldNumber = 3,
-    kYieldingJobsFieldNumber = 4,
-    kUserSessionsFieldNumber = 5,
-    kGameServerSessionsFieldNumber = 6,
-    kSocachesFieldNumber = 7,
-    kSocachesToUnloadFieldNumber = 8,
-    kSocachesLoadingFieldNumber = 9,
-    kWritebackQueueFieldNumber = 10,
-    kSteamidLocksFieldNumber = 11,
-    kLogonQueueFieldNumber = 12,
-    kLogonJobsFieldNumber = 13,
-  };
-  // optional bytes stats_kv = 2;
-  bool has_stats_kv() const;
-  private:
-  bool _internal_has_stats_kv() const;
-  public:
-  void clear_stats_kv();
-  const std::string& stats_kv() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_stats_kv(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_stats_kv();
-  PROTOBUF_NODISCARD std::string* release_stats_kv();
-  void set_allocated_stats_kv(std::string* stats_kv);
-  private:
-  const std::string& _internal_stats_kv() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_stats_kv(const std::string& value);
-  std::string* _internal_mutable_stats_kv();
-  public:
-
-  // optional uint32 gc_app_id = 1;
-  bool has_gc_app_id() const;
-  private:
-  bool _internal_has_gc_app_id() const;
-  public:
-  void clear_gc_app_id();
-  uint32_t gc_app_id() const;
-  void set_gc_app_id(uint32_t value);
-  private:
-  uint32_t _internal_gc_app_id() const;
-  void _internal_set_gc_app_id(uint32_t value);
-  public:
-
-  // optional uint32 active_jobs = 3;
-  bool has_active_jobs() const;
-  private:
-  bool _internal_has_active_jobs() const;
-  public:
-  void clear_active_jobs();
-  uint32_t active_jobs() const;
-  void set_active_jobs(uint32_t value);
-  private:
-  uint32_t _internal_active_jobs() const;
-  void _internal_set_active_jobs(uint32_t value);
-  public:
-
-  // optional uint32 yielding_jobs = 4;
-  bool has_yielding_jobs() const;
-  private:
-  bool _internal_has_yielding_jobs() const;
-  public:
-  void clear_yielding_jobs();
-  uint32_t yielding_jobs() const;
-  void set_yielding_jobs(uint32_t value);
-  private:
-  uint32_t _internal_yielding_jobs() const;
-  void _internal_set_yielding_jobs(uint32_t value);
-  public:
-
-  // optional uint32 user_sessions = 5;
-  bool has_user_sessions() const;
-  private:
-  bool _internal_has_user_sessions() const;
-  public:
-  void clear_user_sessions();
-  uint32_t user_sessions() const;
-  void set_user_sessions(uint32_t value);
-  private:
-  uint32_t _internal_user_sessions() const;
-  void _internal_set_user_sessions(uint32_t value);
-  public:
-
-  // optional uint32 game_server_sessions = 6;
-  bool has_game_server_sessions() const;
-  private:
-  bool _internal_has_game_server_sessions() const;
-  public:
-  void clear_game_server_sessions();
-  uint32_t game_server_sessions() const;
-  void set_game_server_sessions(uint32_t value);
-  private:
-  uint32_t _internal_game_server_sessions() const;
-  void _internal_set_game_server_sessions(uint32_t value);
-  public:
-
-  // optional uint32 socaches = 7;
-  bool has_socaches() const;
-  private:
-  bool _internal_has_socaches() const;
-  public:
-  void clear_socaches();
-  uint32_t socaches() const;
-  void set_socaches(uint32_t value);
-  private:
-  uint32_t _internal_socaches() const;
-  void _internal_set_socaches(uint32_t value);
-  public:
-
-  // optional uint32 socaches_to_unload = 8;
-  bool has_socaches_to_unload() const;
-  private:
-  bool _internal_has_socaches_to_unload() const;
-  public:
-  void clear_socaches_to_unload();
-  uint32_t socaches_to_unload() const;
-  void set_socaches_to_unload(uint32_t value);
-  private:
-  uint32_t _internal_socaches_to_unload() const;
-  void _internal_set_socaches_to_unload(uint32_t value);
-  public:
-
-  // optional uint32 socaches_loading = 9;
-  bool has_socaches_loading() const;
-  private:
-  bool _internal_has_socaches_loading() const;
-  public:
-  void clear_socaches_loading();
-  uint32_t socaches_loading() const;
-  void set_socaches_loading(uint32_t value);
-  private:
-  uint32_t _internal_socaches_loading() const;
-  void _internal_set_socaches_loading(uint32_t value);
-  public:
-
-  // optional uint32 writeback_queue = 10;
-  bool has_writeback_queue() const;
-  private:
-  bool _internal_has_writeback_queue() const;
-  public:
-  void clear_writeback_queue();
-  uint32_t writeback_queue() const;
-  void set_writeback_queue(uint32_t value);
-  private:
-  uint32_t _internal_writeback_queue() const;
-  void _internal_set_writeback_queue(uint32_t value);
-  public:
-
-  // optional uint32 steamid_locks = 11;
-  bool has_steamid_locks() const;
-  private:
-  bool _internal_has_steamid_locks() const;
-  public:
-  void clear_steamid_locks();
-  uint32_t steamid_locks() const;
-  void set_steamid_locks(uint32_t value);
-  private:
-  uint32_t _internal_steamid_locks() const;
-  void _internal_set_steamid_locks(uint32_t value);
-  public:
-
-  // optional uint32 logon_queue = 12;
-  bool has_logon_queue() const;
-  private:
-  bool _internal_has_logon_queue() const;
-  public:
-  void clear_logon_queue();
-  uint32_t logon_queue() const;
-  void set_logon_queue(uint32_t value);
-  private:
-  uint32_t _internal_logon_queue() const;
-  void _internal_set_logon_queue(uint32_t value);
-  public:
-
-  // optional uint32 logon_jobs = 13;
-  bool has_logon_jobs() const;
-  private:
-  bool _internal_has_logon_jobs() const;
-  public:
-  void clear_logon_jobs();
-  uint32_t logon_jobs() const;
-  void set_logon_jobs(uint32_t value);
-  private:
-  uint32_t _internal_logon_jobs() const;
-  void _internal_set_logon_jobs(uint32_t value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:CGCMsgGetSystemStatsResponse)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr stats_kv_;
-    uint32_t gc_app_id_;
-    uint32_t active_jobs_;
-    uint32_t yielding_jobs_;
-    uint32_t user_sessions_;
-    uint32_t game_server_sessions_;
-    uint32_t socaches_;
-    uint32_t socaches_to_unload_;
-    uint32_t socaches_loading_;
-    uint32_t writeback_queue_;
-    uint32_t steamid_locks_;
-    uint32_t logon_queue_;
-    uint32_t logon_jobs_;
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_steammessages_5fint_2eproto;
-};
-// -------------------------------------------------------------------
-
 class CMsgAMSendEmail_ReplacementToken final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgAMSendEmail.ReplacementToken) */ {
  public:
@@ -8137,7 +6572,7 @@ class CMsgAMSendEmail_ReplacementToken final :
                &_CMsgAMSendEmail_ReplacementToken_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    38;
+    31;
 
   friend void swap(CMsgAMSendEmail_ReplacementToken& a, CMsgAMSendEmail_ReplacementToken& b) {
     a.Swap(&b);
@@ -8322,7 +6757,7 @@ class CMsgAMSendEmail_PersonaNameReplacementToken final :
                &_CMsgAMSendEmail_PersonaNameReplacementToken_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    39;
+    32;
 
   friend void swap(CMsgAMSendEmail_PersonaNameReplacementToken& a, CMsgAMSendEmail_PersonaNameReplacementToken& b) {
     a.Swap(&b);
@@ -8502,7 +6937,7 @@ class CMsgAMSendEmail final :
                &_CMsgAMSendEmail_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    40;
+    33;
 
   friend void swap(CMsgAMSendEmail& a, CMsgAMSendEmail& b) {
     a.Swap(&b);
@@ -8750,7 +7185,7 @@ class CMsgAMSendEmailResponse final :
                &_CMsgAMSendEmailResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    41;
+    34;
 
   friend void swap(CMsgAMSendEmailResponse& a, CMsgAMSendEmailResponse& b) {
     a.Swap(&b);
@@ -8910,7 +7345,7 @@ class CMsgGCGetEmailTemplate final :
                &_CMsgGCGetEmailTemplate_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    42;
+    35;
 
   friend void swap(CMsgGCGetEmailTemplate& a, CMsgGCGetEmailTemplate& b) {
     a.Swap(&b);
@@ -9115,7 +7550,7 @@ class CMsgGCGetEmailTemplateResponse final :
                &_CMsgGCGetEmailTemplateResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    43;
+    36;
 
   friend void swap(CMsgGCGetEmailTemplateResponse& a, CMsgGCGetEmailTemplateResponse& b) {
     a.Swap(&b);
@@ -9310,7 +7745,7 @@ class CMsgAMGrantGuestPasses2 final :
                &_CMsgAMGrantGuestPasses2_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    44;
+    37;
 
   friend void swap(CMsgAMGrantGuestPasses2& a, CMsgAMGrantGuestPasses2& b) {
     a.Swap(&b);
@@ -9530,7 +7965,7 @@ class CMsgAMGrantGuestPasses2Response final :
                &_CMsgAMGrantGuestPasses2Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    45;
+    38;
 
   friend void swap(CMsgAMGrantGuestPasses2Response& a, CMsgAMGrantGuestPasses2Response& b) {
     a.Swap(&b);
@@ -9705,7 +8140,7 @@ class CMsgGCGetPersonaNames final :
                &_CMsgGCGetPersonaNames_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    46;
+    39;
 
   friend void swap(CMsgGCGetPersonaNames& a, CMsgGCGetPersonaNames& b) {
     a.Swap(&b);
@@ -9873,7 +8308,7 @@ class CMsgGCGetPersonaNames_Response_PersonaName final :
                &_CMsgGCGetPersonaNames_Response_PersonaName_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    47;
+    40;
 
   friend void swap(CMsgGCGetPersonaNames_Response_PersonaName& a, CMsgGCGetPersonaNames_Response_PersonaName& b) {
     a.Swap(&b);
@@ -10053,7 +8488,7 @@ class CMsgGCGetPersonaNames_Response final :
                &_CMsgGCGetPersonaNames_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    48;
+    41;
 
   friend void swap(CMsgGCGetPersonaNames_Response& a, CMsgGCGetPersonaNames_Response& b) {
     a.Swap(&b);
@@ -10243,7 +8678,7 @@ class CMsgGCCheckFriendship final :
                &_CMsgGCCheckFriendship_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    49;
+    42;
 
   friend void swap(CMsgGCCheckFriendship& a, CMsgGCCheckFriendship& b) {
     a.Swap(&b);
@@ -10418,7 +8853,7 @@ class CMsgGCCheckFriendship_Response final :
                &_CMsgGCCheckFriendship_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    50;
+    43;
 
   friend void swap(CMsgGCCheckFriendship_Response& a, CMsgGCCheckFriendship_Response& b) {
     a.Swap(&b);
@@ -10593,7 +9028,7 @@ class CMsgGCGetAppFriendsList final :
                &_CMsgGCGetAppFriendsList_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    51;
+    44;
 
   friend void swap(CMsgGCGetAppFriendsList& a, CMsgGCGetAppFriendsList& b) {
     a.Swap(&b);
@@ -10668,6 +9103,7 @@ class CMsgGCGetAppFriendsList final :
   enum : int {
     kSteamidFieldNumber = 1,
     kIncludeFriendshipTimestampsFieldNumber = 2,
+    kIncludeFriendsWithNoPlayTimeFieldNumber = 3,
   };
   // optional fixed64 steamid = 1;
   bool has_steamid() const;
@@ -10695,6 +9131,19 @@ class CMsgGCGetAppFriendsList final :
   void _internal_set_include_friendship_timestamps(bool value);
   public:
 
+  // optional bool include_friends_with_no_play_time = 3;
+  bool has_include_friends_with_no_play_time() const;
+  private:
+  bool _internal_has_include_friends_with_no_play_time() const;
+  public:
+  void clear_include_friends_with_no_play_time();
+  bool include_friends_with_no_play_time() const;
+  void set_include_friends_with_no_play_time(bool value);
+  private:
+  bool _internal_include_friends_with_no_play_time() const;
+  void _internal_set_include_friends_with_no_play_time(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CMsgGCGetAppFriendsList)
  private:
   class _Internal;
@@ -10707,6 +9156,7 @@ class CMsgGCGetAppFriendsList final :
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint64_t steamid_;
     bool include_friendship_timestamps_;
+    bool include_friends_with_no_play_time_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_steammessages_5fint_2eproto;
@@ -10768,7 +9218,7 @@ class CMsgGCGetAppFriendsList_Response final :
                &_CMsgGCGetAppFriendsList_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    52;
+    45;
 
   friend void swap(CMsgGCGetAppFriendsList_Response& a, CMsgGCGetAppFriendsList_Response& b) {
     a.Swap(&b);
@@ -11000,7 +9450,7 @@ class CMsgGCMsgMasterSetDirectory_SubGC final :
                &_CMsgGCMsgMasterSetDirectory_SubGC_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    53;
+    46;
 
   friend void swap(CMsgGCMsgMasterSetDirectory_SubGC& a, CMsgGCMsgMasterSetDirectory_SubGC& b) {
     a.Swap(&b);
@@ -11240,7 +9690,7 @@ class CMsgGCMsgMasterSetDirectory final :
                &_CMsgGCMsgMasterSetDirectory_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    54;
+    47;
 
   friend void swap(CMsgGCMsgMasterSetDirectory& a, CMsgGCMsgMasterSetDirectory& b) {
     a.Swap(&b);
@@ -11422,7 +9872,7 @@ class CMsgGCMsgMasterSetDirectory_Response final :
                &_CMsgGCMsgMasterSetDirectory_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    55;
+    48;
 
   friend void swap(CMsgGCMsgMasterSetDirectory_Response& a, CMsgGCMsgMasterSetDirectory_Response& b) {
     a.Swap(&b);
@@ -11602,7 +10052,7 @@ class CMsgGCMsgWebAPIJobRequestForwardResponse final :
                &_CMsgGCMsgWebAPIJobRequestForwardResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    56;
+    49;
 
   friend void swap(CMsgGCMsgWebAPIJobRequestForwardResponse& a, CMsgGCMsgWebAPIJobRequestForwardResponse& b) {
     a.Swap(&b);
@@ -11762,7 +10212,7 @@ class CGCSystemMsg_GetPurchaseTrust_Request final :
                &_CGCSystemMsg_GetPurchaseTrust_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    57;
+    50;
 
   friend void swap(CGCSystemMsg_GetPurchaseTrust_Request& a, CGCSystemMsg_GetPurchaseTrust_Request& b) {
     a.Swap(&b);
@@ -11922,7 +10372,7 @@ class CGCSystemMsg_GetPurchaseTrust_Response final :
                &_CGCSystemMsg_GetPurchaseTrust_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    58;
+    51;
 
   friend void swap(CGCSystemMsg_GetPurchaseTrust_Response& a, CGCSystemMsg_GetPurchaseTrust_Response& b) {
     a.Swap(&b);
@@ -12127,7 +10577,7 @@ class CMsgGCHAccountVacStatusChange final :
                &_CMsgGCHAccountVacStatusChange_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    59;
+    52;
 
   friend void swap(CMsgGCHAccountVacStatusChange& a, CMsgGCHAccountVacStatusChange& b) {
     a.Swap(&b);
@@ -12292,386 +10742,6 @@ class CMsgGCHAccountVacStatusChange final :
 };
 // -------------------------------------------------------------------
 
-class CMsgGCGetPartnerAccountLink final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgGCGetPartnerAccountLink) */ {
- public:
-  inline CMsgGCGetPartnerAccountLink() : CMsgGCGetPartnerAccountLink(nullptr) {}
-  ~CMsgGCGetPartnerAccountLink() override;
-  explicit PROTOBUF_CONSTEXPR CMsgGCGetPartnerAccountLink(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  CMsgGCGetPartnerAccountLink(const CMsgGCGetPartnerAccountLink& from);
-  CMsgGCGetPartnerAccountLink(CMsgGCGetPartnerAccountLink&& from) noexcept
-    : CMsgGCGetPartnerAccountLink() {
-    *this = ::std::move(from);
-  }
-
-  inline CMsgGCGetPartnerAccountLink& operator=(const CMsgGCGetPartnerAccountLink& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CMsgGCGetPartnerAccountLink& operator=(CMsgGCGetPartnerAccountLink&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const CMsgGCGetPartnerAccountLink& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const CMsgGCGetPartnerAccountLink* internal_default_instance() {
-    return reinterpret_cast<const CMsgGCGetPartnerAccountLink*>(
-               &_CMsgGCGetPartnerAccountLink_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    60;
-
-  friend void swap(CMsgGCGetPartnerAccountLink& a, CMsgGCGetPartnerAccountLink& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CMsgGCGetPartnerAccountLink* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CMsgGCGetPartnerAccountLink* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  CMsgGCGetPartnerAccountLink* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<CMsgGCGetPartnerAccountLink>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const CMsgGCGetPartnerAccountLink& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const CMsgGCGetPartnerAccountLink& from) {
-    CMsgGCGetPartnerAccountLink::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CMsgGCGetPartnerAccountLink* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CMsgGCGetPartnerAccountLink";
-  }
-  protected:
-  explicit CMsgGCGetPartnerAccountLink(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kSteamidFieldNumber = 1,
-  };
-  // optional fixed64 steamid = 1;
-  bool has_steamid() const;
-  private:
-  bool _internal_has_steamid() const;
-  public:
-  void clear_steamid();
-  uint64_t steamid() const;
-  void set_steamid(uint64_t value);
-  private:
-  uint64_t _internal_steamid() const;
-  void _internal_set_steamid(uint64_t value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:CMsgGCGetPartnerAccountLink)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    uint64_t steamid_;
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_steammessages_5fint_2eproto;
-};
-// -------------------------------------------------------------------
-
-class CMsgGCGetPartnerAccountLink_Response final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgGCGetPartnerAccountLink_Response) */ {
- public:
-  inline CMsgGCGetPartnerAccountLink_Response() : CMsgGCGetPartnerAccountLink_Response(nullptr) {}
-  ~CMsgGCGetPartnerAccountLink_Response() override;
-  explicit PROTOBUF_CONSTEXPR CMsgGCGetPartnerAccountLink_Response(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  CMsgGCGetPartnerAccountLink_Response(const CMsgGCGetPartnerAccountLink_Response& from);
-  CMsgGCGetPartnerAccountLink_Response(CMsgGCGetPartnerAccountLink_Response&& from) noexcept
-    : CMsgGCGetPartnerAccountLink_Response() {
-    *this = ::std::move(from);
-  }
-
-  inline CMsgGCGetPartnerAccountLink_Response& operator=(const CMsgGCGetPartnerAccountLink_Response& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CMsgGCGetPartnerAccountLink_Response& operator=(CMsgGCGetPartnerAccountLink_Response&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const CMsgGCGetPartnerAccountLink_Response& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const CMsgGCGetPartnerAccountLink_Response* internal_default_instance() {
-    return reinterpret_cast<const CMsgGCGetPartnerAccountLink_Response*>(
-               &_CMsgGCGetPartnerAccountLink_Response_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    61;
-
-  friend void swap(CMsgGCGetPartnerAccountLink_Response& a, CMsgGCGetPartnerAccountLink_Response& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CMsgGCGetPartnerAccountLink_Response* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CMsgGCGetPartnerAccountLink_Response* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  CMsgGCGetPartnerAccountLink_Response* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<CMsgGCGetPartnerAccountLink_Response>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const CMsgGCGetPartnerAccountLink_Response& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const CMsgGCGetPartnerAccountLink_Response& from) {
-    CMsgGCGetPartnerAccountLink_Response::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CMsgGCGetPartnerAccountLink_Response* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CMsgGCGetPartnerAccountLink_Response";
-  }
-  protected:
-  explicit CMsgGCGetPartnerAccountLink_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kPwidFieldNumber = 1,
-    kNexonidFieldNumber = 2,
-    kAgeclassFieldNumber = 3,
-    kIdVerifiedFieldNumber = 4,
-    kIsAdultFieldNumber = 5,
-  };
-  // optional uint32 pwid = 1;
-  bool has_pwid() const;
-  private:
-  bool _internal_has_pwid() const;
-  public:
-  void clear_pwid();
-  uint32_t pwid() const;
-  void set_pwid(uint32_t value);
-  private:
-  uint32_t _internal_pwid() const;
-  void _internal_set_pwid(uint32_t value);
-  public:
-
-  // optional uint32 nexonid = 2;
-  bool has_nexonid() const;
-  private:
-  bool _internal_has_nexonid() const;
-  public:
-  void clear_nexonid();
-  uint32_t nexonid() const;
-  void set_nexonid(uint32_t value);
-  private:
-  uint32_t _internal_nexonid() const;
-  void _internal_set_nexonid(uint32_t value);
-  public:
-
-  // optional int32 ageclass = 3 [default = 0];
-  bool has_ageclass() const;
-  private:
-  bool _internal_has_ageclass() const;
-  public:
-  void clear_ageclass();
-  int32_t ageclass() const;
-  void set_ageclass(int32_t value);
-  private:
-  int32_t _internal_ageclass() const;
-  void _internal_set_ageclass(int32_t value);
-  public:
-
-  // optional bool id_verified = 4 [default = true];
-  bool has_id_verified() const;
-  private:
-  bool _internal_has_id_verified() const;
-  public:
-  void clear_id_verified();
-  bool id_verified() const;
-  void set_id_verified(bool value);
-  private:
-  bool _internal_id_verified() const;
-  void _internal_set_id_verified(bool value);
-  public:
-
-  // optional bool is_adult = 5 [default = true];
-  bool has_is_adult() const;
-  private:
-  bool _internal_has_is_adult() const;
-  public:
-  void clear_is_adult();
-  bool is_adult() const;
-  void set_is_adult(bool value);
-  private:
-  bool _internal_is_adult() const;
-  void _internal_set_is_adult(bool value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:CMsgGCGetPartnerAccountLink_Response)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    uint32_t pwid_;
-    uint32_t nexonid_;
-    int32_t ageclass_;
-    bool id_verified_;
-    bool is_adult_;
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_steammessages_5fint_2eproto;
-};
-// -------------------------------------------------------------------
-
 class CMsgGCRoutingInfo final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgGCRoutingInfo) */ {
  public:
@@ -12727,7 +10797,7 @@ class CMsgGCRoutingInfo final :
                &_CMsgGCRoutingInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    62;
+    53;
 
   friend void swap(CMsgGCRoutingInfo& a, CMsgGCRoutingInfo& b) {
     a.Swap(&b);
@@ -12999,7 +11069,7 @@ class CMsgGCMsgMasterSetWebAPIRouting_Entry final :
                &_CMsgGCMsgMasterSetWebAPIRouting_Entry_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    63;
+    54;
 
   friend void swap(CMsgGCMsgMasterSetWebAPIRouting_Entry& a, CMsgGCMsgMasterSetWebAPIRouting_Entry& b) {
     a.Swap(&b);
@@ -13204,7 +11274,7 @@ class CMsgGCMsgMasterSetWebAPIRouting final :
                &_CMsgGCMsgMasterSetWebAPIRouting_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    64;
+    55;
 
   friend void swap(CMsgGCMsgMasterSetWebAPIRouting& a, CMsgGCMsgMasterSetWebAPIRouting& b) {
     a.Swap(&b);
@@ -13370,7 +11440,7 @@ class CMsgGCMsgMasterSetClientMsgRouting_Entry final :
                &_CMsgGCMsgMasterSetClientMsgRouting_Entry_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    65;
+    56;
 
   friend void swap(CMsgGCMsgMasterSetClientMsgRouting_Entry& a, CMsgGCMsgMasterSetClientMsgRouting_Entry& b) {
     a.Swap(&b);
@@ -13550,7 +11620,7 @@ class CMsgGCMsgMasterSetClientMsgRouting final :
                &_CMsgGCMsgMasterSetClientMsgRouting_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    66;
+    57;
 
   friend void swap(CMsgGCMsgMasterSetClientMsgRouting& a, CMsgGCMsgMasterSetClientMsgRouting& b) {
     a.Swap(&b);
@@ -13716,7 +11786,7 @@ class CMsgGCMsgMasterSetWebAPIRouting_Response final :
                &_CMsgGCMsgMasterSetWebAPIRouting_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    67;
+    58;
 
   friend void swap(CMsgGCMsgMasterSetWebAPIRouting_Response& a, CMsgGCMsgMasterSetWebAPIRouting_Response& b) {
     a.Swap(&b);
@@ -13876,7 +11946,7 @@ class CMsgGCMsgMasterSetClientMsgRouting_Response final :
                &_CMsgGCMsgMasterSetClientMsgRouting_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    68;
+    59;
 
   friend void swap(CMsgGCMsgMasterSetClientMsgRouting_Response& a, CMsgGCMsgMasterSetClientMsgRouting_Response& b) {
     a.Swap(&b);
@@ -14036,7 +12106,7 @@ class CMsgGCMsgSetOptions_MessageRange final :
                &_CMsgGCMsgSetOptions_MessageRange_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    69;
+    60;
 
   friend void swap(CMsgGCMsgSetOptions_MessageRange& a, CMsgGCMsgSetOptions_MessageRange& b) {
     a.Swap(&b);
@@ -14214,7 +12284,7 @@ class CMsgGCMsgSetOptions final :
                &_CMsgGCMsgSetOptions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    70;
+    61;
 
   friend void swap(CMsgGCMsgSetOptions& a, CMsgGCMsgSetOptions& b) {
     a.Swap(&b);
@@ -14479,7 +12549,7 @@ class CMsgGCHUpdateSession_ExtraField final :
                &_CMsgGCHUpdateSession_ExtraField_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    71;
+    62;
 
   friend void swap(CMsgGCHUpdateSession_ExtraField& a, CMsgGCHUpdateSession_ExtraField& b) {
     a.Swap(&b);
@@ -14664,7 +12734,7 @@ class CMsgGCHUpdateSession final :
                &_CMsgGCHUpdateSession_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    72;
+    63;
 
   friend void swap(CMsgGCHUpdateSession& a, CMsgGCHUpdateSession& b) {
     a.Swap(&b);
@@ -14951,7 +13021,7 @@ class CMsgNotificationOfSuspiciousActivity_MultipleGameInstances final :
                &_CMsgNotificationOfSuspiciousActivity_MultipleGameInstances_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    73;
+    64;
 
   friend void swap(CMsgNotificationOfSuspiciousActivity_MultipleGameInstances& a, CMsgNotificationOfSuspiciousActivity_MultipleGameInstances& b) {
     a.Swap(&b);
@@ -15135,7 +13205,7 @@ class CMsgNotificationOfSuspiciousActivity final :
                &_CMsgNotificationOfSuspiciousActivity_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    74;
+    65;
 
   friend void swap(CMsgNotificationOfSuspiciousActivity& a, CMsgNotificationOfSuspiciousActivity& b) {
     a.Swap(&b);
@@ -15277,1078 +13347,6 @@ class CMsgNotificationOfSuspiciousActivity final :
 };
 // -------------------------------------------------------------------
 
-class CMsgDPPartnerMicroTxns_PartnerMicroTxn final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgDPPartnerMicroTxns.PartnerMicroTxn) */ {
- public:
-  inline CMsgDPPartnerMicroTxns_PartnerMicroTxn() : CMsgDPPartnerMicroTxns_PartnerMicroTxn(nullptr) {}
-  ~CMsgDPPartnerMicroTxns_PartnerMicroTxn() override;
-  explicit PROTOBUF_CONSTEXPR CMsgDPPartnerMicroTxns_PartnerMicroTxn(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  CMsgDPPartnerMicroTxns_PartnerMicroTxn(const CMsgDPPartnerMicroTxns_PartnerMicroTxn& from);
-  CMsgDPPartnerMicroTxns_PartnerMicroTxn(CMsgDPPartnerMicroTxns_PartnerMicroTxn&& from) noexcept
-    : CMsgDPPartnerMicroTxns_PartnerMicroTxn() {
-    *this = ::std::move(from);
-  }
-
-  inline CMsgDPPartnerMicroTxns_PartnerMicroTxn& operator=(const CMsgDPPartnerMicroTxns_PartnerMicroTxn& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CMsgDPPartnerMicroTxns_PartnerMicroTxn& operator=(CMsgDPPartnerMicroTxns_PartnerMicroTxn&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const CMsgDPPartnerMicroTxns_PartnerMicroTxn& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const CMsgDPPartnerMicroTxns_PartnerMicroTxn* internal_default_instance() {
-    return reinterpret_cast<const CMsgDPPartnerMicroTxns_PartnerMicroTxn*>(
-               &_CMsgDPPartnerMicroTxns_PartnerMicroTxn_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    75;
-
-  friend void swap(CMsgDPPartnerMicroTxns_PartnerMicroTxn& a, CMsgDPPartnerMicroTxns_PartnerMicroTxn& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CMsgDPPartnerMicroTxns_PartnerMicroTxn* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CMsgDPPartnerMicroTxns_PartnerMicroTxn* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  CMsgDPPartnerMicroTxns_PartnerMicroTxn* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<CMsgDPPartnerMicroTxns_PartnerMicroTxn>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const CMsgDPPartnerMicroTxns_PartnerMicroTxn& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const CMsgDPPartnerMicroTxns_PartnerMicroTxn& from) {
-    CMsgDPPartnerMicroTxns_PartnerMicroTxn::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CMsgDPPartnerMicroTxns_PartnerMicroTxn* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CMsgDPPartnerMicroTxns.PartnerMicroTxn";
-  }
-  protected:
-  explicit CMsgDPPartnerMicroTxns_PartnerMicroTxn(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kCountryCodeFieldNumber = 14,
-    kRegionCodeFieldNumber = 15,
-    kInitTimeFieldNumber = 1,
-    kLastUpdateTimeFieldNumber = 2,
-    kTxnIdFieldNumber = 3,
-    kAccountIdFieldNumber = 4,
-    kLineItemFieldNumber = 5,
-    kItemIdFieldNumber = 6,
-    kPriceFieldNumber = 8,
-    kTaxFieldNumber = 9,
-    kDefIndexFieldNumber = 7,
-    kPurchaseTypeFieldNumber = 12,
-    kPriceUsdFieldNumber = 10,
-    kTaxUsdFieldNumber = 11,
-    kSteamTxnTypeFieldNumber = 13,
-    kQuantityFieldNumber = 16,
-    kRefTransIdFieldNumber = 17,
-  };
-  // optional string country_code = 14;
-  bool has_country_code() const;
-  private:
-  bool _internal_has_country_code() const;
-  public:
-  void clear_country_code();
-  const std::string& country_code() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_country_code(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_country_code();
-  PROTOBUF_NODISCARD std::string* release_country_code();
-  void set_allocated_country_code(std::string* country_code);
-  private:
-  const std::string& _internal_country_code() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_country_code(const std::string& value);
-  std::string* _internal_mutable_country_code();
-  public:
-
-  // optional string region_code = 15;
-  bool has_region_code() const;
-  private:
-  bool _internal_has_region_code() const;
-  public:
-  void clear_region_code();
-  const std::string& region_code() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_region_code(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_region_code();
-  PROTOBUF_NODISCARD std::string* release_region_code();
-  void set_allocated_region_code(std::string* region_code);
-  private:
-  const std::string& _internal_region_code() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_region_code(const std::string& value);
-  std::string* _internal_mutable_region_code();
-  public:
-
-  // optional uint32 init_time = 1;
-  bool has_init_time() const;
-  private:
-  bool _internal_has_init_time() const;
-  public:
-  void clear_init_time();
-  uint32_t init_time() const;
-  void set_init_time(uint32_t value);
-  private:
-  uint32_t _internal_init_time() const;
-  void _internal_set_init_time(uint32_t value);
-  public:
-
-  // optional uint32 last_update_time = 2;
-  bool has_last_update_time() const;
-  private:
-  bool _internal_has_last_update_time() const;
-  public:
-  void clear_last_update_time();
-  uint32_t last_update_time() const;
-  void set_last_update_time(uint32_t value);
-  private:
-  uint32_t _internal_last_update_time() const;
-  void _internal_set_last_update_time(uint32_t value);
-  public:
-
-  // optional uint64 txn_id = 3;
-  bool has_txn_id() const;
-  private:
-  bool _internal_has_txn_id() const;
-  public:
-  void clear_txn_id();
-  uint64_t txn_id() const;
-  void set_txn_id(uint64_t value);
-  private:
-  uint64_t _internal_txn_id() const;
-  void _internal_set_txn_id(uint64_t value);
-  public:
-
-  // optional uint32 account_id = 4;
-  bool has_account_id() const;
-  private:
-  bool _internal_has_account_id() const;
-  public:
-  void clear_account_id();
-  uint32_t account_id() const;
-  void set_account_id(uint32_t value);
-  private:
-  uint32_t _internal_account_id() const;
-  void _internal_set_account_id(uint32_t value);
-  public:
-
-  // optional uint32 line_item = 5;
-  bool has_line_item() const;
-  private:
-  bool _internal_has_line_item() const;
-  public:
-  void clear_line_item();
-  uint32_t line_item() const;
-  void set_line_item(uint32_t value);
-  private:
-  uint32_t _internal_line_item() const;
-  void _internal_set_line_item(uint32_t value);
-  public:
-
-  // optional uint64 item_id = 6;
-  bool has_item_id() const;
-  private:
-  bool _internal_has_item_id() const;
-  public:
-  void clear_item_id();
-  uint64_t item_id() const;
-  void set_item_id(uint64_t value);
-  private:
-  uint64_t _internal_item_id() const;
-  void _internal_set_item_id(uint64_t value);
-  public:
-
-  // optional uint64 price = 8;
-  bool has_price() const;
-  private:
-  bool _internal_has_price() const;
-  public:
-  void clear_price();
-  uint64_t price() const;
-  void set_price(uint64_t value);
-  private:
-  uint64_t _internal_price() const;
-  void _internal_set_price(uint64_t value);
-  public:
-
-  // optional uint64 tax = 9;
-  bool has_tax() const;
-  private:
-  bool _internal_has_tax() const;
-  public:
-  void clear_tax();
-  uint64_t tax() const;
-  void set_tax(uint64_t value);
-  private:
-  uint64_t _internal_tax() const;
-  void _internal_set_tax(uint64_t value);
-  public:
-
-  // optional uint32 def_index = 7;
-  bool has_def_index() const;
-  private:
-  bool _internal_has_def_index() const;
-  public:
-  void clear_def_index();
-  uint32_t def_index() const;
-  void set_def_index(uint32_t value);
-  private:
-  uint32_t _internal_def_index() const;
-  void _internal_set_def_index(uint32_t value);
-  public:
-
-  // optional uint32 purchase_type = 12;
-  bool has_purchase_type() const;
-  private:
-  bool _internal_has_purchase_type() const;
-  public:
-  void clear_purchase_type();
-  uint32_t purchase_type() const;
-  void set_purchase_type(uint32_t value);
-  private:
-  uint32_t _internal_purchase_type() const;
-  void _internal_set_purchase_type(uint32_t value);
-  public:
-
-  // optional uint64 price_usd = 10;
-  bool has_price_usd() const;
-  private:
-  bool _internal_has_price_usd() const;
-  public:
-  void clear_price_usd();
-  uint64_t price_usd() const;
-  void set_price_usd(uint64_t value);
-  private:
-  uint64_t _internal_price_usd() const;
-  void _internal_set_price_usd(uint64_t value);
-  public:
-
-  // optional uint64 tax_usd = 11;
-  bool has_tax_usd() const;
-  private:
-  bool _internal_has_tax_usd() const;
-  public:
-  void clear_tax_usd();
-  uint64_t tax_usd() const;
-  void set_tax_usd(uint64_t value);
-  private:
-  uint64_t _internal_tax_usd() const;
-  void _internal_set_tax_usd(uint64_t value);
-  public:
-
-  // optional uint32 steam_txn_type = 13;
-  bool has_steam_txn_type() const;
-  private:
-  bool _internal_has_steam_txn_type() const;
-  public:
-  void clear_steam_txn_type();
-  uint32_t steam_txn_type() const;
-  void set_steam_txn_type(uint32_t value);
-  private:
-  uint32_t _internal_steam_txn_type() const;
-  void _internal_set_steam_txn_type(uint32_t value);
-  public:
-
-  // optional int32 quantity = 16;
-  bool has_quantity() const;
-  private:
-  bool _internal_has_quantity() const;
-  public:
-  void clear_quantity();
-  int32_t quantity() const;
-  void set_quantity(int32_t value);
-  private:
-  int32_t _internal_quantity() const;
-  void _internal_set_quantity(int32_t value);
-  public:
-
-  // optional uint64 ref_trans_id = 17;
-  bool has_ref_trans_id() const;
-  private:
-  bool _internal_has_ref_trans_id() const;
-  public:
-  void clear_ref_trans_id();
-  uint64_t ref_trans_id() const;
-  void set_ref_trans_id(uint64_t value);
-  private:
-  uint64_t _internal_ref_trans_id() const;
-  void _internal_set_ref_trans_id(uint64_t value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:CMsgDPPartnerMicroTxns.PartnerMicroTxn)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr country_code_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr region_code_;
-    uint32_t init_time_;
-    uint32_t last_update_time_;
-    uint64_t txn_id_;
-    uint32_t account_id_;
-    uint32_t line_item_;
-    uint64_t item_id_;
-    uint64_t price_;
-    uint64_t tax_;
-    uint32_t def_index_;
-    uint32_t purchase_type_;
-    uint64_t price_usd_;
-    uint64_t tax_usd_;
-    uint32_t steam_txn_type_;
-    int32_t quantity_;
-    uint64_t ref_trans_id_;
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_steammessages_5fint_2eproto;
-};
-// -------------------------------------------------------------------
-
-class CMsgDPPartnerMicroTxns_PartnerInfo final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgDPPartnerMicroTxns.PartnerInfo) */ {
- public:
-  inline CMsgDPPartnerMicroTxns_PartnerInfo() : CMsgDPPartnerMicroTxns_PartnerInfo(nullptr) {}
-  ~CMsgDPPartnerMicroTxns_PartnerInfo() override;
-  explicit PROTOBUF_CONSTEXPR CMsgDPPartnerMicroTxns_PartnerInfo(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  CMsgDPPartnerMicroTxns_PartnerInfo(const CMsgDPPartnerMicroTxns_PartnerInfo& from);
-  CMsgDPPartnerMicroTxns_PartnerInfo(CMsgDPPartnerMicroTxns_PartnerInfo&& from) noexcept
-    : CMsgDPPartnerMicroTxns_PartnerInfo() {
-    *this = ::std::move(from);
-  }
-
-  inline CMsgDPPartnerMicroTxns_PartnerInfo& operator=(const CMsgDPPartnerMicroTxns_PartnerInfo& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CMsgDPPartnerMicroTxns_PartnerInfo& operator=(CMsgDPPartnerMicroTxns_PartnerInfo&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const CMsgDPPartnerMicroTxns_PartnerInfo& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const CMsgDPPartnerMicroTxns_PartnerInfo* internal_default_instance() {
-    return reinterpret_cast<const CMsgDPPartnerMicroTxns_PartnerInfo*>(
-               &_CMsgDPPartnerMicroTxns_PartnerInfo_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    76;
-
-  friend void swap(CMsgDPPartnerMicroTxns_PartnerInfo& a, CMsgDPPartnerMicroTxns_PartnerInfo& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CMsgDPPartnerMicroTxns_PartnerInfo* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CMsgDPPartnerMicroTxns_PartnerInfo* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  CMsgDPPartnerMicroTxns_PartnerInfo* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<CMsgDPPartnerMicroTxns_PartnerInfo>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const CMsgDPPartnerMicroTxns_PartnerInfo& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const CMsgDPPartnerMicroTxns_PartnerInfo& from) {
-    CMsgDPPartnerMicroTxns_PartnerInfo::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CMsgDPPartnerMicroTxns_PartnerInfo* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CMsgDPPartnerMicroTxns.PartnerInfo";
-  }
-  protected:
-  explicit CMsgDPPartnerMicroTxns_PartnerInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kPartnerNameFieldNumber = 2,
-    kCurrencyCodeFieldNumber = 3,
-    kCurrencyNameFieldNumber = 4,
-    kPartnerIdFieldNumber = 1,
-  };
-  // optional string partner_name = 2;
-  bool has_partner_name() const;
-  private:
-  bool _internal_has_partner_name() const;
-  public:
-  void clear_partner_name();
-  const std::string& partner_name() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_partner_name(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_partner_name();
-  PROTOBUF_NODISCARD std::string* release_partner_name();
-  void set_allocated_partner_name(std::string* partner_name);
-  private:
-  const std::string& _internal_partner_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_partner_name(const std::string& value);
-  std::string* _internal_mutable_partner_name();
-  public:
-
-  // optional string currency_code = 3;
-  bool has_currency_code() const;
-  private:
-  bool _internal_has_currency_code() const;
-  public:
-  void clear_currency_code();
-  const std::string& currency_code() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_currency_code(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_currency_code();
-  PROTOBUF_NODISCARD std::string* release_currency_code();
-  void set_allocated_currency_code(std::string* currency_code);
-  private:
-  const std::string& _internal_currency_code() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_currency_code(const std::string& value);
-  std::string* _internal_mutable_currency_code();
-  public:
-
-  // optional string currency_name = 4;
-  bool has_currency_name() const;
-  private:
-  bool _internal_has_currency_name() const;
-  public:
-  void clear_currency_name();
-  const std::string& currency_name() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_currency_name(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_currency_name();
-  PROTOBUF_NODISCARD std::string* release_currency_name();
-  void set_allocated_currency_name(std::string* currency_name);
-  private:
-  const std::string& _internal_currency_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_currency_name(const std::string& value);
-  std::string* _internal_mutable_currency_name();
-  public:
-
-  // optional uint32 partner_id = 1;
-  bool has_partner_id() const;
-  private:
-  bool _internal_has_partner_id() const;
-  public:
-  void clear_partner_id();
-  uint32_t partner_id() const;
-  void set_partner_id(uint32_t value);
-  private:
-  uint32_t _internal_partner_id() const;
-  void _internal_set_partner_id(uint32_t value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:CMsgDPPartnerMicroTxns.PartnerInfo)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr partner_name_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr currency_code_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr currency_name_;
-    uint32_t partner_id_;
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_steammessages_5fint_2eproto;
-};
-// -------------------------------------------------------------------
-
-class CMsgDPPartnerMicroTxns final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgDPPartnerMicroTxns) */ {
- public:
-  inline CMsgDPPartnerMicroTxns() : CMsgDPPartnerMicroTxns(nullptr) {}
-  ~CMsgDPPartnerMicroTxns() override;
-  explicit PROTOBUF_CONSTEXPR CMsgDPPartnerMicroTxns(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  CMsgDPPartnerMicroTxns(const CMsgDPPartnerMicroTxns& from);
-  CMsgDPPartnerMicroTxns(CMsgDPPartnerMicroTxns&& from) noexcept
-    : CMsgDPPartnerMicroTxns() {
-    *this = ::std::move(from);
-  }
-
-  inline CMsgDPPartnerMicroTxns& operator=(const CMsgDPPartnerMicroTxns& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CMsgDPPartnerMicroTxns& operator=(CMsgDPPartnerMicroTxns&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const CMsgDPPartnerMicroTxns& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const CMsgDPPartnerMicroTxns* internal_default_instance() {
-    return reinterpret_cast<const CMsgDPPartnerMicroTxns*>(
-               &_CMsgDPPartnerMicroTxns_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    77;
-
-  friend void swap(CMsgDPPartnerMicroTxns& a, CMsgDPPartnerMicroTxns& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CMsgDPPartnerMicroTxns* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CMsgDPPartnerMicroTxns* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  CMsgDPPartnerMicroTxns* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<CMsgDPPartnerMicroTxns>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const CMsgDPPartnerMicroTxns& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const CMsgDPPartnerMicroTxns& from) {
-    CMsgDPPartnerMicroTxns::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CMsgDPPartnerMicroTxns* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CMsgDPPartnerMicroTxns";
-  }
-  protected:
-  explicit CMsgDPPartnerMicroTxns(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  typedef CMsgDPPartnerMicroTxns_PartnerMicroTxn PartnerMicroTxn;
-  typedef CMsgDPPartnerMicroTxns_PartnerInfo PartnerInfo;
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kTransactionsFieldNumber = 4,
-    kGcNameFieldNumber = 2,
-    kPartnerFieldNumber = 3,
-    kAppidFieldNumber = 1,
-  };
-  // repeated .CMsgDPPartnerMicroTxns.PartnerMicroTxn transactions = 4;
-  int transactions_size() const;
-  private:
-  int _internal_transactions_size() const;
-  public:
-  void clear_transactions();
-  ::CMsgDPPartnerMicroTxns_PartnerMicroTxn* mutable_transactions(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgDPPartnerMicroTxns_PartnerMicroTxn >*
-      mutable_transactions();
-  private:
-  const ::CMsgDPPartnerMicroTxns_PartnerMicroTxn& _internal_transactions(int index) const;
-  ::CMsgDPPartnerMicroTxns_PartnerMicroTxn* _internal_add_transactions();
-  public:
-  const ::CMsgDPPartnerMicroTxns_PartnerMicroTxn& transactions(int index) const;
-  ::CMsgDPPartnerMicroTxns_PartnerMicroTxn* add_transactions();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgDPPartnerMicroTxns_PartnerMicroTxn >&
-      transactions() const;
-
-  // optional string gc_name = 2;
-  bool has_gc_name() const;
-  private:
-  bool _internal_has_gc_name() const;
-  public:
-  void clear_gc_name();
-  const std::string& gc_name() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_gc_name(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_gc_name();
-  PROTOBUF_NODISCARD std::string* release_gc_name();
-  void set_allocated_gc_name(std::string* gc_name);
-  private:
-  const std::string& _internal_gc_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_gc_name(const std::string& value);
-  std::string* _internal_mutable_gc_name();
-  public:
-
-  // optional .CMsgDPPartnerMicroTxns.PartnerInfo partner = 3;
-  bool has_partner() const;
-  private:
-  bool _internal_has_partner() const;
-  public:
-  void clear_partner();
-  const ::CMsgDPPartnerMicroTxns_PartnerInfo& partner() const;
-  PROTOBUF_NODISCARD ::CMsgDPPartnerMicroTxns_PartnerInfo* release_partner();
-  ::CMsgDPPartnerMicroTxns_PartnerInfo* mutable_partner();
-  void set_allocated_partner(::CMsgDPPartnerMicroTxns_PartnerInfo* partner);
-  private:
-  const ::CMsgDPPartnerMicroTxns_PartnerInfo& _internal_partner() const;
-  ::CMsgDPPartnerMicroTxns_PartnerInfo* _internal_mutable_partner();
-  public:
-  void unsafe_arena_set_allocated_partner(
-      ::CMsgDPPartnerMicroTxns_PartnerInfo* partner);
-  ::CMsgDPPartnerMicroTxns_PartnerInfo* unsafe_arena_release_partner();
-
-  // optional uint32 appid = 1;
-  bool has_appid() const;
-  private:
-  bool _internal_has_appid() const;
-  public:
-  void clear_appid();
-  uint32_t appid() const;
-  void set_appid(uint32_t value);
-  private:
-  uint32_t _internal_appid() const;
-  void _internal_set_appid(uint32_t value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:CMsgDPPartnerMicroTxns)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgDPPartnerMicroTxns_PartnerMicroTxn > transactions_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr gc_name_;
-    ::CMsgDPPartnerMicroTxns_PartnerInfo* partner_;
-    uint32_t appid_;
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_steammessages_5fint_2eproto;
-};
-// -------------------------------------------------------------------
-
-class CMsgDPPartnerMicroTxnsResponse final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgDPPartnerMicroTxnsResponse) */ {
- public:
-  inline CMsgDPPartnerMicroTxnsResponse() : CMsgDPPartnerMicroTxnsResponse(nullptr) {}
-  ~CMsgDPPartnerMicroTxnsResponse() override;
-  explicit PROTOBUF_CONSTEXPR CMsgDPPartnerMicroTxnsResponse(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  CMsgDPPartnerMicroTxnsResponse(const CMsgDPPartnerMicroTxnsResponse& from);
-  CMsgDPPartnerMicroTxnsResponse(CMsgDPPartnerMicroTxnsResponse&& from) noexcept
-    : CMsgDPPartnerMicroTxnsResponse() {
-    *this = ::std::move(from);
-  }
-
-  inline CMsgDPPartnerMicroTxnsResponse& operator=(const CMsgDPPartnerMicroTxnsResponse& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CMsgDPPartnerMicroTxnsResponse& operator=(CMsgDPPartnerMicroTxnsResponse&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const CMsgDPPartnerMicroTxnsResponse& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const CMsgDPPartnerMicroTxnsResponse* internal_default_instance() {
-    return reinterpret_cast<const CMsgDPPartnerMicroTxnsResponse*>(
-               &_CMsgDPPartnerMicroTxnsResponse_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    78;
-
-  friend void swap(CMsgDPPartnerMicroTxnsResponse& a, CMsgDPPartnerMicroTxnsResponse& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CMsgDPPartnerMicroTxnsResponse* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CMsgDPPartnerMicroTxnsResponse* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  CMsgDPPartnerMicroTxnsResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<CMsgDPPartnerMicroTxnsResponse>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const CMsgDPPartnerMicroTxnsResponse& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const CMsgDPPartnerMicroTxnsResponse& from) {
-    CMsgDPPartnerMicroTxnsResponse::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CMsgDPPartnerMicroTxnsResponse* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CMsgDPPartnerMicroTxnsResponse";
-  }
-  protected:
-  explicit CMsgDPPartnerMicroTxnsResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  typedef CMsgDPPartnerMicroTxnsResponse_EErrorCode EErrorCode;
-  static constexpr EErrorCode k_MsgValid =
-    CMsgDPPartnerMicroTxnsResponse_EErrorCode_k_MsgValid;
-  static constexpr EErrorCode k_MsgInvalidAppID =
-    CMsgDPPartnerMicroTxnsResponse_EErrorCode_k_MsgInvalidAppID;
-  static constexpr EErrorCode k_MsgInvalidPartnerInfo =
-    CMsgDPPartnerMicroTxnsResponse_EErrorCode_k_MsgInvalidPartnerInfo;
-  static constexpr EErrorCode k_MsgNoTransactions =
-    CMsgDPPartnerMicroTxnsResponse_EErrorCode_k_MsgNoTransactions;
-  static constexpr EErrorCode k_MsgSQLFailure =
-    CMsgDPPartnerMicroTxnsResponse_EErrorCode_k_MsgSQLFailure;
-  static constexpr EErrorCode k_MsgPartnerInfoDiscrepancy =
-    CMsgDPPartnerMicroTxnsResponse_EErrorCode_k_MsgPartnerInfoDiscrepancy;
-  static constexpr EErrorCode k_MsgTransactionInsertFailed =
-    CMsgDPPartnerMicroTxnsResponse_EErrorCode_k_MsgTransactionInsertFailed;
-  static constexpr EErrorCode k_MsgAlreadyRunning =
-    CMsgDPPartnerMicroTxnsResponse_EErrorCode_k_MsgAlreadyRunning;
-  static constexpr EErrorCode k_MsgInvalidTransactionData =
-    CMsgDPPartnerMicroTxnsResponse_EErrorCode_k_MsgInvalidTransactionData;
-  static inline bool EErrorCode_IsValid(int value) {
-    return CMsgDPPartnerMicroTxnsResponse_EErrorCode_IsValid(value);
-  }
-  static constexpr EErrorCode EErrorCode_MIN =
-    CMsgDPPartnerMicroTxnsResponse_EErrorCode_EErrorCode_MIN;
-  static constexpr EErrorCode EErrorCode_MAX =
-    CMsgDPPartnerMicroTxnsResponse_EErrorCode_EErrorCode_MAX;
-  static constexpr int EErrorCode_ARRAYSIZE =
-    CMsgDPPartnerMicroTxnsResponse_EErrorCode_EErrorCode_ARRAYSIZE;
-  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
-  EErrorCode_descriptor() {
-    return CMsgDPPartnerMicroTxnsResponse_EErrorCode_descriptor();
-  }
-  template<typename T>
-  static inline const std::string& EErrorCode_Name(T enum_t_value) {
-    static_assert(::std::is_same<T, EErrorCode>::value ||
-      ::std::is_integral<T>::value,
-      "Incorrect type passed to function EErrorCode_Name.");
-    return CMsgDPPartnerMicroTxnsResponse_EErrorCode_Name(enum_t_value);
-  }
-  static inline bool EErrorCode_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
-      EErrorCode* value) {
-    return CMsgDPPartnerMicroTxnsResponse_EErrorCode_Parse(name, value);
-  }
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kEerrorcodeFieldNumber = 2,
-    kEresultFieldNumber = 1,
-  };
-  // optional .CMsgDPPartnerMicroTxnsResponse.EErrorCode eerrorcode = 2 [default = k_MsgValid];
-  bool has_eerrorcode() const;
-  private:
-  bool _internal_has_eerrorcode() const;
-  public:
-  void clear_eerrorcode();
-  ::CMsgDPPartnerMicroTxnsResponse_EErrorCode eerrorcode() const;
-  void set_eerrorcode(::CMsgDPPartnerMicroTxnsResponse_EErrorCode value);
-  private:
-  ::CMsgDPPartnerMicroTxnsResponse_EErrorCode _internal_eerrorcode() const;
-  void _internal_set_eerrorcode(::CMsgDPPartnerMicroTxnsResponse_EErrorCode value);
-  public:
-
-  // optional uint32 eresult = 1 [default = 2];
-  bool has_eresult() const;
-  private:
-  bool _internal_has_eresult() const;
-  public:
-  void clear_eresult();
-  uint32_t eresult() const;
-  void set_eresult(uint32_t value);
-  private:
-  uint32_t _internal_eresult() const;
-  void _internal_set_eresult(uint32_t value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:CMsgDPPartnerMicroTxnsResponse)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    int eerrorcode_;
-    uint32_t eresult_;
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_steammessages_5fint_2eproto;
-};
-// -------------------------------------------------------------------
-
 class CMsgGCHVacVerificationChange final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgGCHVacVerificationChange) */ {
  public:
@@ -16404,7 +13402,7 @@ class CMsgGCHVacVerificationChange final :
                &_CMsgGCHVacVerificationChange_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    79;
+    66;
 
   friend void swap(CMsgGCHVacVerificationChange& a, CMsgGCHVacVerificationChange& b) {
     a.Swap(&b);
@@ -16539,196 +13537,6 @@ class CMsgGCHVacVerificationChange final :
 };
 // -------------------------------------------------------------------
 
-class CMsgGCHAccountTwoFactorChange final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgGCHAccountTwoFactorChange) */ {
- public:
-  inline CMsgGCHAccountTwoFactorChange() : CMsgGCHAccountTwoFactorChange(nullptr) {}
-  ~CMsgGCHAccountTwoFactorChange() override;
-  explicit PROTOBUF_CONSTEXPR CMsgGCHAccountTwoFactorChange(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  CMsgGCHAccountTwoFactorChange(const CMsgGCHAccountTwoFactorChange& from);
-  CMsgGCHAccountTwoFactorChange(CMsgGCHAccountTwoFactorChange&& from) noexcept
-    : CMsgGCHAccountTwoFactorChange() {
-    *this = ::std::move(from);
-  }
-
-  inline CMsgGCHAccountTwoFactorChange& operator=(const CMsgGCHAccountTwoFactorChange& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CMsgGCHAccountTwoFactorChange& operator=(CMsgGCHAccountTwoFactorChange&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const CMsgGCHAccountTwoFactorChange& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const CMsgGCHAccountTwoFactorChange* internal_default_instance() {
-    return reinterpret_cast<const CMsgGCHAccountTwoFactorChange*>(
-               &_CMsgGCHAccountTwoFactorChange_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    80;
-
-  friend void swap(CMsgGCHAccountTwoFactorChange& a, CMsgGCHAccountTwoFactorChange& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CMsgGCHAccountTwoFactorChange* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CMsgGCHAccountTwoFactorChange* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  CMsgGCHAccountTwoFactorChange* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<CMsgGCHAccountTwoFactorChange>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const CMsgGCHAccountTwoFactorChange& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const CMsgGCHAccountTwoFactorChange& from) {
-    CMsgGCHAccountTwoFactorChange::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CMsgGCHAccountTwoFactorChange* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CMsgGCHAccountTwoFactorChange";
-  }
-  protected:
-  explicit CMsgGCHAccountTwoFactorChange(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kSteamidFieldNumber = 1,
-    kAppidFieldNumber = 2,
-    kTwofactorEnabledFieldNumber = 3,
-  };
-  // optional fixed64 steamid = 1;
-  bool has_steamid() const;
-  private:
-  bool _internal_has_steamid() const;
-  public:
-  void clear_steamid();
-  uint64_t steamid() const;
-  void set_steamid(uint64_t value);
-  private:
-  uint64_t _internal_steamid() const;
-  void _internal_set_steamid(uint64_t value);
-  public:
-
-  // optional uint32 appid = 2;
-  bool has_appid() const;
-  private:
-  bool _internal_has_appid() const;
-  public:
-  void clear_appid();
-  uint32_t appid() const;
-  void set_appid(uint32_t value);
-  private:
-  uint32_t _internal_appid() const;
-  void _internal_set_appid(uint32_t value);
-  public:
-
-  // optional bool twofactor_enabled = 3;
-  bool has_twofactor_enabled() const;
-  private:
-  bool _internal_has_twofactor_enabled() const;
-  public:
-  void clear_twofactor_enabled();
-  bool twofactor_enabled() const;
-  void set_twofactor_enabled(bool value);
-  private:
-  bool _internal_twofactor_enabled() const;
-  void _internal_set_twofactor_enabled(bool value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:CMsgGCHAccountTwoFactorChange)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    uint64_t steamid_;
-    uint32_t appid_;
-    bool twofactor_enabled_;
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_steammessages_5fint_2eproto;
-};
-// -------------------------------------------------------------------
-
 class CMsgGCCheckClanMembership final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgGCCheckClanMembership) */ {
  public:
@@ -16784,7 +13592,7 @@ class CMsgGCCheckClanMembership final :
                &_CMsgGCCheckClanMembership_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    81;
+    67;
 
   friend void swap(CMsgGCCheckClanMembership& a, CMsgGCCheckClanMembership& b) {
     a.Swap(&b);
@@ -16959,7 +13767,7 @@ class CMsgGCCheckClanMembership_Response final :
                &_CMsgGCCheckClanMembership_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    82;
+    68;
 
   friend void swap(CMsgGCCheckClanMembership_Response& a, CMsgGCCheckClanMembership_Response& b) {
     a.Swap(&b);
@@ -17119,7 +13927,7 @@ class CMsgGCHAppCheersReceived_CheerTypeAmount final :
                &_CMsgGCHAppCheersReceived_CheerTypeAmount_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    83;
+    69;
 
   friend void swap(CMsgGCHAppCheersReceived_CheerTypeAmount& a, CMsgGCHAppCheersReceived_CheerTypeAmount& b) {
     a.Swap(&b);
@@ -17294,7 +14102,7 @@ class CMsgGCHAppCheersReceived_CheerTarget final :
                &_CMsgGCHAppCheersReceived_CheerTarget_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    84;
+    70;
 
   friend void swap(CMsgGCHAppCheersReceived_CheerTarget& a, CMsgGCHAppCheersReceived_CheerTarget& b) {
     a.Swap(&b);
@@ -17474,7 +14282,7 @@ class CMsgGCHAppCheersReceived final :
                &_CMsgGCHAppCheersReceived_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    85;
+    71;
 
   friend void swap(CMsgGCHAppCheersReceived& a, CMsgGCHAppCheersReceived& b) {
     a.Swap(&b);
@@ -17657,7 +14465,7 @@ class CMsgGCHAppCheersGetAllowedTypes final :
                &_CMsgGCHAppCheersGetAllowedTypes_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    86;
+    72;
 
   friend void swap(CMsgGCHAppCheersGetAllowedTypes& a, CMsgGCHAppCheersGetAllowedTypes& b) {
     a.Swap(&b);
@@ -17832,7 +14640,7 @@ class CMsgGCHAppCheersGetAllowedTypesResponse_CheerRemaps final :
                &_CMsgGCHAppCheersGetAllowedTypesResponse_CheerRemaps_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    87;
+    73;
 
   friend void swap(CMsgGCHAppCheersGetAllowedTypesResponse_CheerRemaps& a, CMsgGCHAppCheersGetAllowedTypesResponse_CheerRemaps& b) {
     a.Swap(&b);
@@ -18031,7 +14839,7 @@ class CMsgGCHAppCheersGetAllowedTypesResponse final :
                &_CMsgGCHAppCheersGetAllowedTypesResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    88;
+    74;
 
   friend void swap(CMsgGCHAppCheersGetAllowedTypesResponse& a, CMsgGCHAppCheersGetAllowedTypesResponse& b) {
     a.Swap(&b);
@@ -18182,546 +14990,6 @@ class CMsgGCHAppCheersGetAllowedTypesResponse final :
 };
 // -------------------------------------------------------------------
 
-class CGCSystemMsg_ReportExternalPurchase_Request final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CGCSystemMsg_ReportExternalPurchase_Request) */ {
- public:
-  inline CGCSystemMsg_ReportExternalPurchase_Request() : CGCSystemMsg_ReportExternalPurchase_Request(nullptr) {}
-  ~CGCSystemMsg_ReportExternalPurchase_Request() override;
-  explicit PROTOBUF_CONSTEXPR CGCSystemMsg_ReportExternalPurchase_Request(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  CGCSystemMsg_ReportExternalPurchase_Request(const CGCSystemMsg_ReportExternalPurchase_Request& from);
-  CGCSystemMsg_ReportExternalPurchase_Request(CGCSystemMsg_ReportExternalPurchase_Request&& from) noexcept
-    : CGCSystemMsg_ReportExternalPurchase_Request() {
-    *this = ::std::move(from);
-  }
-
-  inline CGCSystemMsg_ReportExternalPurchase_Request& operator=(const CGCSystemMsg_ReportExternalPurchase_Request& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CGCSystemMsg_ReportExternalPurchase_Request& operator=(CGCSystemMsg_ReportExternalPurchase_Request&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const CGCSystemMsg_ReportExternalPurchase_Request& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const CGCSystemMsg_ReportExternalPurchase_Request* internal_default_instance() {
-    return reinterpret_cast<const CGCSystemMsg_ReportExternalPurchase_Request*>(
-               &_CGCSystemMsg_ReportExternalPurchase_Request_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    89;
-
-  friend void swap(CGCSystemMsg_ReportExternalPurchase_Request& a, CGCSystemMsg_ReportExternalPurchase_Request& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CGCSystemMsg_ReportExternalPurchase_Request* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CGCSystemMsg_ReportExternalPurchase_Request* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  CGCSystemMsg_ReportExternalPurchase_Request* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<CGCSystemMsg_ReportExternalPurchase_Request>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const CGCSystemMsg_ReportExternalPurchase_Request& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const CGCSystemMsg_ReportExternalPurchase_Request& from) {
-    CGCSystemMsg_ReportExternalPurchase_Request::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CGCSystemMsg_ReportExternalPurchase_Request* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CGCSystemMsg_ReportExternalPurchase_Request";
-  }
-  protected:
-  explicit CGCSystemMsg_ReportExternalPurchase_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kProviderOrderidFieldNumber = 5,
-    kCurrencyFieldNumber = 7,
-    kItemDescriptionFieldNumber = 10,
-    kLanguageFieldNumber = 11,
-    kCategoryFieldNumber = 12,
-    kSteamidFieldNumber = 2,
-    kAppidFieldNumber = 1,
-    kProviderFieldNumber = 3,
-    kOrderidFieldNumber = 4,
-    kAmountFieldNumber = 6,
-    kQuantityFieldNumber = 8,
-    kItemidFieldNumber = 9,
-    kTimeCreatedFieldNumber = 13,
-  };
-  // optional string provider_orderid = 5;
-  bool has_provider_orderid() const;
-  private:
-  bool _internal_has_provider_orderid() const;
-  public:
-  void clear_provider_orderid();
-  const std::string& provider_orderid() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_provider_orderid(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_provider_orderid();
-  PROTOBUF_NODISCARD std::string* release_provider_orderid();
-  void set_allocated_provider_orderid(std::string* provider_orderid);
-  private:
-  const std::string& _internal_provider_orderid() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_provider_orderid(const std::string& value);
-  std::string* _internal_mutable_provider_orderid();
-  public:
-
-  // optional string currency = 7;
-  bool has_currency() const;
-  private:
-  bool _internal_has_currency() const;
-  public:
-  void clear_currency();
-  const std::string& currency() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_currency(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_currency();
-  PROTOBUF_NODISCARD std::string* release_currency();
-  void set_allocated_currency(std::string* currency);
-  private:
-  const std::string& _internal_currency() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_currency(const std::string& value);
-  std::string* _internal_mutable_currency();
-  public:
-
-  // optional string item_description = 10;
-  bool has_item_description() const;
-  private:
-  bool _internal_has_item_description() const;
-  public:
-  void clear_item_description();
-  const std::string& item_description() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_item_description(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_item_description();
-  PROTOBUF_NODISCARD std::string* release_item_description();
-  void set_allocated_item_description(std::string* item_description);
-  private:
-  const std::string& _internal_item_description() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_item_description(const std::string& value);
-  std::string* _internal_mutable_item_description();
-  public:
-
-  // optional string language = 11;
-  bool has_language() const;
-  private:
-  bool _internal_has_language() const;
-  public:
-  void clear_language();
-  const std::string& language() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_language(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_language();
-  PROTOBUF_NODISCARD std::string* release_language();
-  void set_allocated_language(std::string* language);
-  private:
-  const std::string& _internal_language() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_language(const std::string& value);
-  std::string* _internal_mutable_language();
-  public:
-
-  // optional string category = 12;
-  bool has_category() const;
-  private:
-  bool _internal_has_category() const;
-  public:
-  void clear_category();
-  const std::string& category() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_category(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_category();
-  PROTOBUF_NODISCARD std::string* release_category();
-  void set_allocated_category(std::string* category);
-  private:
-  const std::string& _internal_category() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_category(const std::string& value);
-  std::string* _internal_mutable_category();
-  public:
-
-  // optional fixed64 steamid = 2;
-  bool has_steamid() const;
-  private:
-  bool _internal_has_steamid() const;
-  public:
-  void clear_steamid();
-  uint64_t steamid() const;
-  void set_steamid(uint64_t value);
-  private:
-  uint64_t _internal_steamid() const;
-  void _internal_set_steamid(uint64_t value);
-  public:
-
-  // optional uint32 appid = 1;
-  bool has_appid() const;
-  private:
-  bool _internal_has_appid() const;
-  public:
-  void clear_appid();
-  uint32_t appid() const;
-  void set_appid(uint32_t value);
-  private:
-  uint32_t _internal_appid() const;
-  void _internal_set_appid(uint32_t value);
-  public:
-
-  // optional .EMobilePaymentProvider provider = 3 [default = k_EMobilePaymentProvider_Invalid];
-  bool has_provider() const;
-  private:
-  bool _internal_has_provider() const;
-  public:
-  void clear_provider();
-  ::EMobilePaymentProvider provider() const;
-  void set_provider(::EMobilePaymentProvider value);
-  private:
-  ::EMobilePaymentProvider _internal_provider() const;
-  void _internal_set_provider(::EMobilePaymentProvider value);
-  public:
-
-  // optional uint64 orderid = 4;
-  bool has_orderid() const;
-  private:
-  bool _internal_has_orderid() const;
-  public:
-  void clear_orderid();
-  uint64_t orderid() const;
-  void set_orderid(uint64_t value);
-  private:
-  uint64_t _internal_orderid() const;
-  void _internal_set_orderid(uint64_t value);
-  public:
-
-  // optional int64 amount = 6;
-  bool has_amount() const;
-  private:
-  bool _internal_has_amount() const;
-  public:
-  void clear_amount();
-  int64_t amount() const;
-  void set_amount(int64_t value);
-  private:
-  int64_t _internal_amount() const;
-  void _internal_set_amount(int64_t value);
-  public:
-
-  // optional uint32 quantity = 8;
-  bool has_quantity() const;
-  private:
-  bool _internal_has_quantity() const;
-  public:
-  void clear_quantity();
-  uint32_t quantity() const;
-  void set_quantity(uint32_t value);
-  private:
-  uint32_t _internal_quantity() const;
-  void _internal_set_quantity(uint32_t value);
-  public:
-
-  // optional uint32 itemid = 9;
-  bool has_itemid() const;
-  private:
-  bool _internal_has_itemid() const;
-  public:
-  void clear_itemid();
-  uint32_t itemid() const;
-  void set_itemid(uint32_t value);
-  private:
-  uint32_t _internal_itemid() const;
-  void _internal_set_itemid(uint32_t value);
-  public:
-
-  // optional uint32 time_created = 13;
-  bool has_time_created() const;
-  private:
-  bool _internal_has_time_created() const;
-  public:
-  void clear_time_created();
-  uint32_t time_created() const;
-  void set_time_created(uint32_t value);
-  private:
-  uint32_t _internal_time_created() const;
-  void _internal_set_time_created(uint32_t value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:CGCSystemMsg_ReportExternalPurchase_Request)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr provider_orderid_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr currency_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr item_description_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr language_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr category_;
-    uint64_t steamid_;
-    uint32_t appid_;
-    int provider_;
-    uint64_t orderid_;
-    int64_t amount_;
-    uint32_t quantity_;
-    uint32_t itemid_;
-    uint32_t time_created_;
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_steammessages_5fint_2eproto;
-};
-// -------------------------------------------------------------------
-
-class CGCSystemMsg_ReportExternalPurchase_Response final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CGCSystemMsg_ReportExternalPurchase_Response) */ {
- public:
-  inline CGCSystemMsg_ReportExternalPurchase_Response() : CGCSystemMsg_ReportExternalPurchase_Response(nullptr) {}
-  ~CGCSystemMsg_ReportExternalPurchase_Response() override;
-  explicit PROTOBUF_CONSTEXPR CGCSystemMsg_ReportExternalPurchase_Response(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  CGCSystemMsg_ReportExternalPurchase_Response(const CGCSystemMsg_ReportExternalPurchase_Response& from);
-  CGCSystemMsg_ReportExternalPurchase_Response(CGCSystemMsg_ReportExternalPurchase_Response&& from) noexcept
-    : CGCSystemMsg_ReportExternalPurchase_Response() {
-    *this = ::std::move(from);
-  }
-
-  inline CGCSystemMsg_ReportExternalPurchase_Response& operator=(const CGCSystemMsg_ReportExternalPurchase_Response& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CGCSystemMsg_ReportExternalPurchase_Response& operator=(CGCSystemMsg_ReportExternalPurchase_Response&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const CGCSystemMsg_ReportExternalPurchase_Response& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const CGCSystemMsg_ReportExternalPurchase_Response* internal_default_instance() {
-    return reinterpret_cast<const CGCSystemMsg_ReportExternalPurchase_Response*>(
-               &_CGCSystemMsg_ReportExternalPurchase_Response_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    90;
-
-  friend void swap(CGCSystemMsg_ReportExternalPurchase_Response& a, CGCSystemMsg_ReportExternalPurchase_Response& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CGCSystemMsg_ReportExternalPurchase_Response* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CGCSystemMsg_ReportExternalPurchase_Response* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  CGCSystemMsg_ReportExternalPurchase_Response* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<CGCSystemMsg_ReportExternalPurchase_Response>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const CGCSystemMsg_ReportExternalPurchase_Response& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const CGCSystemMsg_ReportExternalPurchase_Response& from) {
-    CGCSystemMsg_ReportExternalPurchase_Response::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CGCSystemMsg_ReportExternalPurchase_Response* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CGCSystemMsg_ReportExternalPurchase_Response";
-  }
-  protected:
-  explicit CGCSystemMsg_ReportExternalPurchase_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kTransidFieldNumber = 1,
-    kOrderidFieldNumber = 2,
-  };
-  // optional fixed64 transid = 1;
-  bool has_transid() const;
-  private:
-  bool _internal_has_transid() const;
-  public:
-  void clear_transid();
-  uint64_t transid() const;
-  void set_transid(uint64_t value);
-  private:
-  uint64_t _internal_transid() const;
-  void _internal_set_transid(uint64_t value);
-  public:
-
-  // optional uint64 orderid = 2;
-  bool has_orderid() const;
-  private:
-  bool _internal_has_orderid() const;
-  public:
-  void clear_orderid();
-  uint64_t orderid() const;
-  void set_orderid(uint64_t value);
-  private:
-  uint64_t _internal_orderid() const;
-  void _internal_set_orderid(uint64_t value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:CGCSystemMsg_ReportExternalPurchase_Response)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    uint64_t transid_;
-    uint64_t orderid_;
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_steammessages_5fint_2eproto;
-};
-// -------------------------------------------------------------------
-
 class CWorkshop_AddSpecialPayment_Request final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CWorkshop_AddSpecialPayment_Request) */ {
  public:
@@ -18777,7 +15045,7 @@ class CWorkshop_AddSpecialPayment_Request final :
                &_CWorkshop_AddSpecialPayment_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    91;
+    75;
 
   friend void swap(CWorkshop_AddSpecialPayment_Request& a, CWorkshop_AddSpecialPayment_Request& b) {
     a.Swap(&b);
@@ -19001,7 +15269,7 @@ class CWorkshop_AddSpecialPayment_Response final :
                &_CWorkshop_AddSpecialPayment_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    92;
+    76;
 
   friend void swap(CWorkshop_AddSpecialPayment_Response& a, CWorkshop_AddSpecialPayment_Response& b) {
     a.Swap(&b);
@@ -19127,7 +15395,7 @@ class CWorkshop_GetSpecialPayments_Request final :
                &_CWorkshop_GetSpecialPayments_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    93;
+    77;
 
   friend void swap(CWorkshop_GetSpecialPayments_Request& a, CWorkshop_GetSpecialPayments_Request& b) {
     a.Swap(&b);
@@ -19322,7 +15590,7 @@ class CWorkshop_GetSpecialPayments_Response_SpecialPayment final :
                &_CWorkshop_GetSpecialPayments_Response_SpecialPayment_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    94;
+    78;
 
   friend void swap(CWorkshop_GetSpecialPayments_Response_SpecialPayment& a, CWorkshop_GetSpecialPayments_Response_SpecialPayment& b) {
     a.Swap(&b);
@@ -19547,7 +15815,7 @@ class CWorkshop_GetSpecialPayments_Response final :
                &_CWorkshop_GetSpecialPayments_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    95;
+    79;
 
   friend void swap(CWorkshop_GetSpecialPayments_Response& a, CWorkshop_GetSpecialPayments_Response& b) {
     a.Swap(&b);
@@ -21820,429 +18088,6 @@ inline void CMsgAMGetLicensesResponse::set_result(uint32_t value) {
 
 // -------------------------------------------------------------------
 
-// CMsgAMGetUserGameStats
-
-// optional fixed64 steam_id = 1;
-inline bool CMsgAMGetUserGameStats::_internal_has_steam_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool CMsgAMGetUserGameStats::has_steam_id() const {
-  return _internal_has_steam_id();
-}
-inline void CMsgAMGetUserGameStats::clear_steam_id() {
-  _impl_.steam_id_ = uint64_t{0u};
-  _impl_._has_bits_[0] &= ~0x00000001u;
-}
-inline uint64_t CMsgAMGetUserGameStats::_internal_steam_id() const {
-  return _impl_.steam_id_;
-}
-inline uint64_t CMsgAMGetUserGameStats::steam_id() const {
-  // @@protoc_insertion_point(field_get:CMsgAMGetUserGameStats.steam_id)
-  return _internal_steam_id();
-}
-inline void CMsgAMGetUserGameStats::_internal_set_steam_id(uint64_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  _impl_.steam_id_ = value;
-}
-inline void CMsgAMGetUserGameStats::set_steam_id(uint64_t value) {
-  _internal_set_steam_id(value);
-  // @@protoc_insertion_point(field_set:CMsgAMGetUserGameStats.steam_id)
-}
-
-// optional fixed64 game_id = 2;
-inline bool CMsgAMGetUserGameStats::_internal_has_game_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
-  return value;
-}
-inline bool CMsgAMGetUserGameStats::has_game_id() const {
-  return _internal_has_game_id();
-}
-inline void CMsgAMGetUserGameStats::clear_game_id() {
-  _impl_.game_id_ = uint64_t{0u};
-  _impl_._has_bits_[0] &= ~0x00000002u;
-}
-inline uint64_t CMsgAMGetUserGameStats::_internal_game_id() const {
-  return _impl_.game_id_;
-}
-inline uint64_t CMsgAMGetUserGameStats::game_id() const {
-  // @@protoc_insertion_point(field_get:CMsgAMGetUserGameStats.game_id)
-  return _internal_game_id();
-}
-inline void CMsgAMGetUserGameStats::_internal_set_game_id(uint64_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  _impl_.game_id_ = value;
-}
-inline void CMsgAMGetUserGameStats::set_game_id(uint64_t value) {
-  _internal_set_game_id(value);
-  // @@protoc_insertion_point(field_set:CMsgAMGetUserGameStats.game_id)
-}
-
-// repeated uint32 stats = 3;
-inline int CMsgAMGetUserGameStats::_internal_stats_size() const {
-  return _impl_.stats_.size();
-}
-inline int CMsgAMGetUserGameStats::stats_size() const {
-  return _internal_stats_size();
-}
-inline void CMsgAMGetUserGameStats::clear_stats() {
-  _impl_.stats_.Clear();
-}
-inline uint32_t CMsgAMGetUserGameStats::_internal_stats(int index) const {
-  return _impl_.stats_.Get(index);
-}
-inline uint32_t CMsgAMGetUserGameStats::stats(int index) const {
-  // @@protoc_insertion_point(field_get:CMsgAMGetUserGameStats.stats)
-  return _internal_stats(index);
-}
-inline void CMsgAMGetUserGameStats::set_stats(int index, uint32_t value) {
-  _impl_.stats_.Set(index, value);
-  // @@protoc_insertion_point(field_set:CMsgAMGetUserGameStats.stats)
-}
-inline void CMsgAMGetUserGameStats::_internal_add_stats(uint32_t value) {
-  _impl_.stats_.Add(value);
-}
-inline void CMsgAMGetUserGameStats::add_stats(uint32_t value) {
-  _internal_add_stats(value);
-  // @@protoc_insertion_point(field_add:CMsgAMGetUserGameStats.stats)
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-CMsgAMGetUserGameStats::_internal_stats() const {
-  return _impl_.stats_;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-CMsgAMGetUserGameStats::stats() const {
-  // @@protoc_insertion_point(field_list:CMsgAMGetUserGameStats.stats)
-  return _internal_stats();
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-CMsgAMGetUserGameStats::_internal_mutable_stats() {
-  return &_impl_.stats_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-CMsgAMGetUserGameStats::mutable_stats() {
-  // @@protoc_insertion_point(field_mutable_list:CMsgAMGetUserGameStats.stats)
-  return _internal_mutable_stats();
-}
-
-// -------------------------------------------------------------------
-
-// CMsgAMGetUserGameStatsResponse_Stats
-
-// optional uint32 stat_id = 1;
-inline bool CMsgAMGetUserGameStatsResponse_Stats::_internal_has_stat_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool CMsgAMGetUserGameStatsResponse_Stats::has_stat_id() const {
-  return _internal_has_stat_id();
-}
-inline void CMsgAMGetUserGameStatsResponse_Stats::clear_stat_id() {
-  _impl_.stat_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000001u;
-}
-inline uint32_t CMsgAMGetUserGameStatsResponse_Stats::_internal_stat_id() const {
-  return _impl_.stat_id_;
-}
-inline uint32_t CMsgAMGetUserGameStatsResponse_Stats::stat_id() const {
-  // @@protoc_insertion_point(field_get:CMsgAMGetUserGameStatsResponse.Stats.stat_id)
-  return _internal_stat_id();
-}
-inline void CMsgAMGetUserGameStatsResponse_Stats::_internal_set_stat_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  _impl_.stat_id_ = value;
-}
-inline void CMsgAMGetUserGameStatsResponse_Stats::set_stat_id(uint32_t value) {
-  _internal_set_stat_id(value);
-  // @@protoc_insertion_point(field_set:CMsgAMGetUserGameStatsResponse.Stats.stat_id)
-}
-
-// optional uint32 stat_value = 2;
-inline bool CMsgAMGetUserGameStatsResponse_Stats::_internal_has_stat_value() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
-  return value;
-}
-inline bool CMsgAMGetUserGameStatsResponse_Stats::has_stat_value() const {
-  return _internal_has_stat_value();
-}
-inline void CMsgAMGetUserGameStatsResponse_Stats::clear_stat_value() {
-  _impl_.stat_value_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
-}
-inline uint32_t CMsgAMGetUserGameStatsResponse_Stats::_internal_stat_value() const {
-  return _impl_.stat_value_;
-}
-inline uint32_t CMsgAMGetUserGameStatsResponse_Stats::stat_value() const {
-  // @@protoc_insertion_point(field_get:CMsgAMGetUserGameStatsResponse.Stats.stat_value)
-  return _internal_stat_value();
-}
-inline void CMsgAMGetUserGameStatsResponse_Stats::_internal_set_stat_value(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  _impl_.stat_value_ = value;
-}
-inline void CMsgAMGetUserGameStatsResponse_Stats::set_stat_value(uint32_t value) {
-  _internal_set_stat_value(value);
-  // @@protoc_insertion_point(field_set:CMsgAMGetUserGameStatsResponse.Stats.stat_value)
-}
-
-// -------------------------------------------------------------------
-
-// CMsgAMGetUserGameStatsResponse_Achievement_Blocks
-
-// optional uint32 achievement_id = 1;
-inline bool CMsgAMGetUserGameStatsResponse_Achievement_Blocks::_internal_has_achievement_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool CMsgAMGetUserGameStatsResponse_Achievement_Blocks::has_achievement_id() const {
-  return _internal_has_achievement_id();
-}
-inline void CMsgAMGetUserGameStatsResponse_Achievement_Blocks::clear_achievement_id() {
-  _impl_.achievement_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000001u;
-}
-inline uint32_t CMsgAMGetUserGameStatsResponse_Achievement_Blocks::_internal_achievement_id() const {
-  return _impl_.achievement_id_;
-}
-inline uint32_t CMsgAMGetUserGameStatsResponse_Achievement_Blocks::achievement_id() const {
-  // @@protoc_insertion_point(field_get:CMsgAMGetUserGameStatsResponse.Achievement_Blocks.achievement_id)
-  return _internal_achievement_id();
-}
-inline void CMsgAMGetUserGameStatsResponse_Achievement_Blocks::_internal_set_achievement_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  _impl_.achievement_id_ = value;
-}
-inline void CMsgAMGetUserGameStatsResponse_Achievement_Blocks::set_achievement_id(uint32_t value) {
-  _internal_set_achievement_id(value);
-  // @@protoc_insertion_point(field_set:CMsgAMGetUserGameStatsResponse.Achievement_Blocks.achievement_id)
-}
-
-// optional uint32 achievement_bit_id = 2;
-inline bool CMsgAMGetUserGameStatsResponse_Achievement_Blocks::_internal_has_achievement_bit_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
-  return value;
-}
-inline bool CMsgAMGetUserGameStatsResponse_Achievement_Blocks::has_achievement_bit_id() const {
-  return _internal_has_achievement_bit_id();
-}
-inline void CMsgAMGetUserGameStatsResponse_Achievement_Blocks::clear_achievement_bit_id() {
-  _impl_.achievement_bit_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
-}
-inline uint32_t CMsgAMGetUserGameStatsResponse_Achievement_Blocks::_internal_achievement_bit_id() const {
-  return _impl_.achievement_bit_id_;
-}
-inline uint32_t CMsgAMGetUserGameStatsResponse_Achievement_Blocks::achievement_bit_id() const {
-  // @@protoc_insertion_point(field_get:CMsgAMGetUserGameStatsResponse.Achievement_Blocks.achievement_bit_id)
-  return _internal_achievement_bit_id();
-}
-inline void CMsgAMGetUserGameStatsResponse_Achievement_Blocks::_internal_set_achievement_bit_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  _impl_.achievement_bit_id_ = value;
-}
-inline void CMsgAMGetUserGameStatsResponse_Achievement_Blocks::set_achievement_bit_id(uint32_t value) {
-  _internal_set_achievement_bit_id(value);
-  // @@protoc_insertion_point(field_set:CMsgAMGetUserGameStatsResponse.Achievement_Blocks.achievement_bit_id)
-}
-
-// optional fixed32 unlock_time = 3;
-inline bool CMsgAMGetUserGameStatsResponse_Achievement_Blocks::_internal_has_unlock_time() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
-  return value;
-}
-inline bool CMsgAMGetUserGameStatsResponse_Achievement_Blocks::has_unlock_time() const {
-  return _internal_has_unlock_time();
-}
-inline void CMsgAMGetUserGameStatsResponse_Achievement_Blocks::clear_unlock_time() {
-  _impl_.unlock_time_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000004u;
-}
-inline uint32_t CMsgAMGetUserGameStatsResponse_Achievement_Blocks::_internal_unlock_time() const {
-  return _impl_.unlock_time_;
-}
-inline uint32_t CMsgAMGetUserGameStatsResponse_Achievement_Blocks::unlock_time() const {
-  // @@protoc_insertion_point(field_get:CMsgAMGetUserGameStatsResponse.Achievement_Blocks.unlock_time)
-  return _internal_unlock_time();
-}
-inline void CMsgAMGetUserGameStatsResponse_Achievement_Blocks::_internal_set_unlock_time(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
-  _impl_.unlock_time_ = value;
-}
-inline void CMsgAMGetUserGameStatsResponse_Achievement_Blocks::set_unlock_time(uint32_t value) {
-  _internal_set_unlock_time(value);
-  // @@protoc_insertion_point(field_set:CMsgAMGetUserGameStatsResponse.Achievement_Blocks.unlock_time)
-}
-
-// -------------------------------------------------------------------
-
-// CMsgAMGetUserGameStatsResponse
-
-// optional fixed64 steam_id = 1;
-inline bool CMsgAMGetUserGameStatsResponse::_internal_has_steam_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool CMsgAMGetUserGameStatsResponse::has_steam_id() const {
-  return _internal_has_steam_id();
-}
-inline void CMsgAMGetUserGameStatsResponse::clear_steam_id() {
-  _impl_.steam_id_ = uint64_t{0u};
-  _impl_._has_bits_[0] &= ~0x00000001u;
-}
-inline uint64_t CMsgAMGetUserGameStatsResponse::_internal_steam_id() const {
-  return _impl_.steam_id_;
-}
-inline uint64_t CMsgAMGetUserGameStatsResponse::steam_id() const {
-  // @@protoc_insertion_point(field_get:CMsgAMGetUserGameStatsResponse.steam_id)
-  return _internal_steam_id();
-}
-inline void CMsgAMGetUserGameStatsResponse::_internal_set_steam_id(uint64_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  _impl_.steam_id_ = value;
-}
-inline void CMsgAMGetUserGameStatsResponse::set_steam_id(uint64_t value) {
-  _internal_set_steam_id(value);
-  // @@protoc_insertion_point(field_set:CMsgAMGetUserGameStatsResponse.steam_id)
-}
-
-// optional fixed64 game_id = 2;
-inline bool CMsgAMGetUserGameStatsResponse::_internal_has_game_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
-  return value;
-}
-inline bool CMsgAMGetUserGameStatsResponse::has_game_id() const {
-  return _internal_has_game_id();
-}
-inline void CMsgAMGetUserGameStatsResponse::clear_game_id() {
-  _impl_.game_id_ = uint64_t{0u};
-  _impl_._has_bits_[0] &= ~0x00000002u;
-}
-inline uint64_t CMsgAMGetUserGameStatsResponse::_internal_game_id() const {
-  return _impl_.game_id_;
-}
-inline uint64_t CMsgAMGetUserGameStatsResponse::game_id() const {
-  // @@protoc_insertion_point(field_get:CMsgAMGetUserGameStatsResponse.game_id)
-  return _internal_game_id();
-}
-inline void CMsgAMGetUserGameStatsResponse::_internal_set_game_id(uint64_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  _impl_.game_id_ = value;
-}
-inline void CMsgAMGetUserGameStatsResponse::set_game_id(uint64_t value) {
-  _internal_set_game_id(value);
-  // @@protoc_insertion_point(field_set:CMsgAMGetUserGameStatsResponse.game_id)
-}
-
-// optional int32 eresult = 3 [default = 2];
-inline bool CMsgAMGetUserGameStatsResponse::_internal_has_eresult() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
-  return value;
-}
-inline bool CMsgAMGetUserGameStatsResponse::has_eresult() const {
-  return _internal_has_eresult();
-}
-inline void CMsgAMGetUserGameStatsResponse::clear_eresult() {
-  _impl_.eresult_ = 2;
-  _impl_._has_bits_[0] &= ~0x00000004u;
-}
-inline int32_t CMsgAMGetUserGameStatsResponse::_internal_eresult() const {
-  return _impl_.eresult_;
-}
-inline int32_t CMsgAMGetUserGameStatsResponse::eresult() const {
-  // @@protoc_insertion_point(field_get:CMsgAMGetUserGameStatsResponse.eresult)
-  return _internal_eresult();
-}
-inline void CMsgAMGetUserGameStatsResponse::_internal_set_eresult(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
-  _impl_.eresult_ = value;
-}
-inline void CMsgAMGetUserGameStatsResponse::set_eresult(int32_t value) {
-  _internal_set_eresult(value);
-  // @@protoc_insertion_point(field_set:CMsgAMGetUserGameStatsResponse.eresult)
-}
-
-// repeated .CMsgAMGetUserGameStatsResponse.Stats stats = 4;
-inline int CMsgAMGetUserGameStatsResponse::_internal_stats_size() const {
-  return _impl_.stats_.size();
-}
-inline int CMsgAMGetUserGameStatsResponse::stats_size() const {
-  return _internal_stats_size();
-}
-inline void CMsgAMGetUserGameStatsResponse::clear_stats() {
-  _impl_.stats_.Clear();
-}
-inline ::CMsgAMGetUserGameStatsResponse_Stats* CMsgAMGetUserGameStatsResponse::mutable_stats(int index) {
-  // @@protoc_insertion_point(field_mutable:CMsgAMGetUserGameStatsResponse.stats)
-  return _impl_.stats_.Mutable(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgAMGetUserGameStatsResponse_Stats >*
-CMsgAMGetUserGameStatsResponse::mutable_stats() {
-  // @@protoc_insertion_point(field_mutable_list:CMsgAMGetUserGameStatsResponse.stats)
-  return &_impl_.stats_;
-}
-inline const ::CMsgAMGetUserGameStatsResponse_Stats& CMsgAMGetUserGameStatsResponse::_internal_stats(int index) const {
-  return _impl_.stats_.Get(index);
-}
-inline const ::CMsgAMGetUserGameStatsResponse_Stats& CMsgAMGetUserGameStatsResponse::stats(int index) const {
-  // @@protoc_insertion_point(field_get:CMsgAMGetUserGameStatsResponse.stats)
-  return _internal_stats(index);
-}
-inline ::CMsgAMGetUserGameStatsResponse_Stats* CMsgAMGetUserGameStatsResponse::_internal_add_stats() {
-  return _impl_.stats_.Add();
-}
-inline ::CMsgAMGetUserGameStatsResponse_Stats* CMsgAMGetUserGameStatsResponse::add_stats() {
-  ::CMsgAMGetUserGameStatsResponse_Stats* _add = _internal_add_stats();
-  // @@protoc_insertion_point(field_add:CMsgAMGetUserGameStatsResponse.stats)
-  return _add;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgAMGetUserGameStatsResponse_Stats >&
-CMsgAMGetUserGameStatsResponse::stats() const {
-  // @@protoc_insertion_point(field_list:CMsgAMGetUserGameStatsResponse.stats)
-  return _impl_.stats_;
-}
-
-// repeated .CMsgAMGetUserGameStatsResponse.Achievement_Blocks achievement_blocks = 5;
-inline int CMsgAMGetUserGameStatsResponse::_internal_achievement_blocks_size() const {
-  return _impl_.achievement_blocks_.size();
-}
-inline int CMsgAMGetUserGameStatsResponse::achievement_blocks_size() const {
-  return _internal_achievement_blocks_size();
-}
-inline void CMsgAMGetUserGameStatsResponse::clear_achievement_blocks() {
-  _impl_.achievement_blocks_.Clear();
-}
-inline ::CMsgAMGetUserGameStatsResponse_Achievement_Blocks* CMsgAMGetUserGameStatsResponse::mutable_achievement_blocks(int index) {
-  // @@protoc_insertion_point(field_mutable:CMsgAMGetUserGameStatsResponse.achievement_blocks)
-  return _impl_.achievement_blocks_.Mutable(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgAMGetUserGameStatsResponse_Achievement_Blocks >*
-CMsgAMGetUserGameStatsResponse::mutable_achievement_blocks() {
-  // @@protoc_insertion_point(field_mutable_list:CMsgAMGetUserGameStatsResponse.achievement_blocks)
-  return &_impl_.achievement_blocks_;
-}
-inline const ::CMsgAMGetUserGameStatsResponse_Achievement_Blocks& CMsgAMGetUserGameStatsResponse::_internal_achievement_blocks(int index) const {
-  return _impl_.achievement_blocks_.Get(index);
-}
-inline const ::CMsgAMGetUserGameStatsResponse_Achievement_Blocks& CMsgAMGetUserGameStatsResponse::achievement_blocks(int index) const {
-  // @@protoc_insertion_point(field_get:CMsgAMGetUserGameStatsResponse.achievement_blocks)
-  return _internal_achievement_blocks(index);
-}
-inline ::CMsgAMGetUserGameStatsResponse_Achievement_Blocks* CMsgAMGetUserGameStatsResponse::_internal_add_achievement_blocks() {
-  return _impl_.achievement_blocks_.Add();
-}
-inline ::CMsgAMGetUserGameStatsResponse_Achievement_Blocks* CMsgAMGetUserGameStatsResponse::add_achievement_blocks() {
-  ::CMsgAMGetUserGameStatsResponse_Achievement_Blocks* _add = _internal_add_achievement_blocks();
-  // @@protoc_insertion_point(field_add:CMsgAMGetUserGameStatsResponse.achievement_blocks)
-  return _add;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgAMGetUserGameStatsResponse_Achievement_Blocks >&
-CMsgAMGetUserGameStatsResponse::achievement_blocks() const {
-  // @@protoc_insertion_point(field_list:CMsgAMGetUserGameStatsResponse.achievement_blocks)
-  return _impl_.achievement_blocks_;
-}
-
-// -------------------------------------------------------------------
-
 // CMsgGCGetCommandList
 
 // optional uint32 app_id = 1;
@@ -24046,518 +19891,6 @@ CGCMsgGetIPASNResponse::infos() const {
 
 // -------------------------------------------------------------------
 
-// CGCMsgSystemStatsSchema
-
-// optional uint32 gc_app_id = 1;
-inline bool CGCMsgSystemStatsSchema::_internal_has_gc_app_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
-  return value;
-}
-inline bool CGCMsgSystemStatsSchema::has_gc_app_id() const {
-  return _internal_has_gc_app_id();
-}
-inline void CGCMsgSystemStatsSchema::clear_gc_app_id() {
-  _impl_.gc_app_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
-}
-inline uint32_t CGCMsgSystemStatsSchema::_internal_gc_app_id() const {
-  return _impl_.gc_app_id_;
-}
-inline uint32_t CGCMsgSystemStatsSchema::gc_app_id() const {
-  // @@protoc_insertion_point(field_get:CGCMsgSystemStatsSchema.gc_app_id)
-  return _internal_gc_app_id();
-}
-inline void CGCMsgSystemStatsSchema::_internal_set_gc_app_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  _impl_.gc_app_id_ = value;
-}
-inline void CGCMsgSystemStatsSchema::set_gc_app_id(uint32_t value) {
-  _internal_set_gc_app_id(value);
-  // @@protoc_insertion_point(field_set:CGCMsgSystemStatsSchema.gc_app_id)
-}
-
-// optional bytes schema_kv = 2;
-inline bool CGCMsgSystemStatsSchema::_internal_has_schema_kv() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool CGCMsgSystemStatsSchema::has_schema_kv() const {
-  return _internal_has_schema_kv();
-}
-inline void CGCMsgSystemStatsSchema::clear_schema_kv() {
-  _impl_.schema_kv_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000001u;
-}
-inline const std::string& CGCMsgSystemStatsSchema::schema_kv() const {
-  // @@protoc_insertion_point(field_get:CGCMsgSystemStatsSchema.schema_kv)
-  return _internal_schema_kv();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void CGCMsgSystemStatsSchema::set_schema_kv(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000001u;
- _impl_.schema_kv_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:CGCMsgSystemStatsSchema.schema_kv)
-}
-inline std::string* CGCMsgSystemStatsSchema::mutable_schema_kv() {
-  std::string* _s = _internal_mutable_schema_kv();
-  // @@protoc_insertion_point(field_mutable:CGCMsgSystemStatsSchema.schema_kv)
-  return _s;
-}
-inline const std::string& CGCMsgSystemStatsSchema::_internal_schema_kv() const {
-  return _impl_.schema_kv_.Get();
-}
-inline void CGCMsgSystemStatsSchema::_internal_set_schema_kv(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  _impl_.schema_kv_.Set(value, GetArenaForAllocation());
-}
-inline std::string* CGCMsgSystemStatsSchema::_internal_mutable_schema_kv() {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  return _impl_.schema_kv_.Mutable(GetArenaForAllocation());
-}
-inline std::string* CGCMsgSystemStatsSchema::release_schema_kv() {
-  // @@protoc_insertion_point(field_release:CGCMsgSystemStatsSchema.schema_kv)
-  if (!_internal_has_schema_kv()) {
-    return nullptr;
-  }
-  _impl_._has_bits_[0] &= ~0x00000001u;
-  auto* p = _impl_.schema_kv_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.schema_kv_.IsDefault()) {
-    _impl_.schema_kv_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
-}
-inline void CGCMsgSystemStatsSchema::set_allocated_schema_kv(std::string* schema_kv) {
-  if (schema_kv != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000001u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
-  }
-  _impl_.schema_kv_.SetAllocated(schema_kv, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.schema_kv_.IsDefault()) {
-    _impl_.schema_kv_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:CGCMsgSystemStatsSchema.schema_kv)
-}
-
-// -------------------------------------------------------------------
-
-// CGCMsgGetSystemStats
-
-// -------------------------------------------------------------------
-
-// CGCMsgGetSystemStatsResponse
-
-// optional uint32 gc_app_id = 1;
-inline bool CGCMsgGetSystemStatsResponse::_internal_has_gc_app_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
-  return value;
-}
-inline bool CGCMsgGetSystemStatsResponse::has_gc_app_id() const {
-  return _internal_has_gc_app_id();
-}
-inline void CGCMsgGetSystemStatsResponse::clear_gc_app_id() {
-  _impl_.gc_app_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
-}
-inline uint32_t CGCMsgGetSystemStatsResponse::_internal_gc_app_id() const {
-  return _impl_.gc_app_id_;
-}
-inline uint32_t CGCMsgGetSystemStatsResponse::gc_app_id() const {
-  // @@protoc_insertion_point(field_get:CGCMsgGetSystemStatsResponse.gc_app_id)
-  return _internal_gc_app_id();
-}
-inline void CGCMsgGetSystemStatsResponse::_internal_set_gc_app_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  _impl_.gc_app_id_ = value;
-}
-inline void CGCMsgGetSystemStatsResponse::set_gc_app_id(uint32_t value) {
-  _internal_set_gc_app_id(value);
-  // @@protoc_insertion_point(field_set:CGCMsgGetSystemStatsResponse.gc_app_id)
-}
-
-// optional bytes stats_kv = 2;
-inline bool CGCMsgGetSystemStatsResponse::_internal_has_stats_kv() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool CGCMsgGetSystemStatsResponse::has_stats_kv() const {
-  return _internal_has_stats_kv();
-}
-inline void CGCMsgGetSystemStatsResponse::clear_stats_kv() {
-  _impl_.stats_kv_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000001u;
-}
-inline const std::string& CGCMsgGetSystemStatsResponse::stats_kv() const {
-  // @@protoc_insertion_point(field_get:CGCMsgGetSystemStatsResponse.stats_kv)
-  return _internal_stats_kv();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void CGCMsgGetSystemStatsResponse::set_stats_kv(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000001u;
- _impl_.stats_kv_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:CGCMsgGetSystemStatsResponse.stats_kv)
-}
-inline std::string* CGCMsgGetSystemStatsResponse::mutable_stats_kv() {
-  std::string* _s = _internal_mutable_stats_kv();
-  // @@protoc_insertion_point(field_mutable:CGCMsgGetSystemStatsResponse.stats_kv)
-  return _s;
-}
-inline const std::string& CGCMsgGetSystemStatsResponse::_internal_stats_kv() const {
-  return _impl_.stats_kv_.Get();
-}
-inline void CGCMsgGetSystemStatsResponse::_internal_set_stats_kv(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  _impl_.stats_kv_.Set(value, GetArenaForAllocation());
-}
-inline std::string* CGCMsgGetSystemStatsResponse::_internal_mutable_stats_kv() {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  return _impl_.stats_kv_.Mutable(GetArenaForAllocation());
-}
-inline std::string* CGCMsgGetSystemStatsResponse::release_stats_kv() {
-  // @@protoc_insertion_point(field_release:CGCMsgGetSystemStatsResponse.stats_kv)
-  if (!_internal_has_stats_kv()) {
-    return nullptr;
-  }
-  _impl_._has_bits_[0] &= ~0x00000001u;
-  auto* p = _impl_.stats_kv_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.stats_kv_.IsDefault()) {
-    _impl_.stats_kv_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
-}
-inline void CGCMsgGetSystemStatsResponse::set_allocated_stats_kv(std::string* stats_kv) {
-  if (stats_kv != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000001u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
-  }
-  _impl_.stats_kv_.SetAllocated(stats_kv, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.stats_kv_.IsDefault()) {
-    _impl_.stats_kv_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:CGCMsgGetSystemStatsResponse.stats_kv)
-}
-
-// optional uint32 active_jobs = 3;
-inline bool CGCMsgGetSystemStatsResponse::_internal_has_active_jobs() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
-  return value;
-}
-inline bool CGCMsgGetSystemStatsResponse::has_active_jobs() const {
-  return _internal_has_active_jobs();
-}
-inline void CGCMsgGetSystemStatsResponse::clear_active_jobs() {
-  _impl_.active_jobs_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000004u;
-}
-inline uint32_t CGCMsgGetSystemStatsResponse::_internal_active_jobs() const {
-  return _impl_.active_jobs_;
-}
-inline uint32_t CGCMsgGetSystemStatsResponse::active_jobs() const {
-  // @@protoc_insertion_point(field_get:CGCMsgGetSystemStatsResponse.active_jobs)
-  return _internal_active_jobs();
-}
-inline void CGCMsgGetSystemStatsResponse::_internal_set_active_jobs(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
-  _impl_.active_jobs_ = value;
-}
-inline void CGCMsgGetSystemStatsResponse::set_active_jobs(uint32_t value) {
-  _internal_set_active_jobs(value);
-  // @@protoc_insertion_point(field_set:CGCMsgGetSystemStatsResponse.active_jobs)
-}
-
-// optional uint32 yielding_jobs = 4;
-inline bool CGCMsgGetSystemStatsResponse::_internal_has_yielding_jobs() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
-  return value;
-}
-inline bool CGCMsgGetSystemStatsResponse::has_yielding_jobs() const {
-  return _internal_has_yielding_jobs();
-}
-inline void CGCMsgGetSystemStatsResponse::clear_yielding_jobs() {
-  _impl_.yielding_jobs_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000008u;
-}
-inline uint32_t CGCMsgGetSystemStatsResponse::_internal_yielding_jobs() const {
-  return _impl_.yielding_jobs_;
-}
-inline uint32_t CGCMsgGetSystemStatsResponse::yielding_jobs() const {
-  // @@protoc_insertion_point(field_get:CGCMsgGetSystemStatsResponse.yielding_jobs)
-  return _internal_yielding_jobs();
-}
-inline void CGCMsgGetSystemStatsResponse::_internal_set_yielding_jobs(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
-  _impl_.yielding_jobs_ = value;
-}
-inline void CGCMsgGetSystemStatsResponse::set_yielding_jobs(uint32_t value) {
-  _internal_set_yielding_jobs(value);
-  // @@protoc_insertion_point(field_set:CGCMsgGetSystemStatsResponse.yielding_jobs)
-}
-
-// optional uint32 user_sessions = 5;
-inline bool CGCMsgGetSystemStatsResponse::_internal_has_user_sessions() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
-  return value;
-}
-inline bool CGCMsgGetSystemStatsResponse::has_user_sessions() const {
-  return _internal_has_user_sessions();
-}
-inline void CGCMsgGetSystemStatsResponse::clear_user_sessions() {
-  _impl_.user_sessions_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000010u;
-}
-inline uint32_t CGCMsgGetSystemStatsResponse::_internal_user_sessions() const {
-  return _impl_.user_sessions_;
-}
-inline uint32_t CGCMsgGetSystemStatsResponse::user_sessions() const {
-  // @@protoc_insertion_point(field_get:CGCMsgGetSystemStatsResponse.user_sessions)
-  return _internal_user_sessions();
-}
-inline void CGCMsgGetSystemStatsResponse::_internal_set_user_sessions(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
-  _impl_.user_sessions_ = value;
-}
-inline void CGCMsgGetSystemStatsResponse::set_user_sessions(uint32_t value) {
-  _internal_set_user_sessions(value);
-  // @@protoc_insertion_point(field_set:CGCMsgGetSystemStatsResponse.user_sessions)
-}
-
-// optional uint32 game_server_sessions = 6;
-inline bool CGCMsgGetSystemStatsResponse::_internal_has_game_server_sessions() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
-  return value;
-}
-inline bool CGCMsgGetSystemStatsResponse::has_game_server_sessions() const {
-  return _internal_has_game_server_sessions();
-}
-inline void CGCMsgGetSystemStatsResponse::clear_game_server_sessions() {
-  _impl_.game_server_sessions_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000020u;
-}
-inline uint32_t CGCMsgGetSystemStatsResponse::_internal_game_server_sessions() const {
-  return _impl_.game_server_sessions_;
-}
-inline uint32_t CGCMsgGetSystemStatsResponse::game_server_sessions() const {
-  // @@protoc_insertion_point(field_get:CGCMsgGetSystemStatsResponse.game_server_sessions)
-  return _internal_game_server_sessions();
-}
-inline void CGCMsgGetSystemStatsResponse::_internal_set_game_server_sessions(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000020u;
-  _impl_.game_server_sessions_ = value;
-}
-inline void CGCMsgGetSystemStatsResponse::set_game_server_sessions(uint32_t value) {
-  _internal_set_game_server_sessions(value);
-  // @@protoc_insertion_point(field_set:CGCMsgGetSystemStatsResponse.game_server_sessions)
-}
-
-// optional uint32 socaches = 7;
-inline bool CGCMsgGetSystemStatsResponse::_internal_has_socaches() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
-  return value;
-}
-inline bool CGCMsgGetSystemStatsResponse::has_socaches() const {
-  return _internal_has_socaches();
-}
-inline void CGCMsgGetSystemStatsResponse::clear_socaches() {
-  _impl_.socaches_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000040u;
-}
-inline uint32_t CGCMsgGetSystemStatsResponse::_internal_socaches() const {
-  return _impl_.socaches_;
-}
-inline uint32_t CGCMsgGetSystemStatsResponse::socaches() const {
-  // @@protoc_insertion_point(field_get:CGCMsgGetSystemStatsResponse.socaches)
-  return _internal_socaches();
-}
-inline void CGCMsgGetSystemStatsResponse::_internal_set_socaches(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000040u;
-  _impl_.socaches_ = value;
-}
-inline void CGCMsgGetSystemStatsResponse::set_socaches(uint32_t value) {
-  _internal_set_socaches(value);
-  // @@protoc_insertion_point(field_set:CGCMsgGetSystemStatsResponse.socaches)
-}
-
-// optional uint32 socaches_to_unload = 8;
-inline bool CGCMsgGetSystemStatsResponse::_internal_has_socaches_to_unload() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
-  return value;
-}
-inline bool CGCMsgGetSystemStatsResponse::has_socaches_to_unload() const {
-  return _internal_has_socaches_to_unload();
-}
-inline void CGCMsgGetSystemStatsResponse::clear_socaches_to_unload() {
-  _impl_.socaches_to_unload_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000080u;
-}
-inline uint32_t CGCMsgGetSystemStatsResponse::_internal_socaches_to_unload() const {
-  return _impl_.socaches_to_unload_;
-}
-inline uint32_t CGCMsgGetSystemStatsResponse::socaches_to_unload() const {
-  // @@protoc_insertion_point(field_get:CGCMsgGetSystemStatsResponse.socaches_to_unload)
-  return _internal_socaches_to_unload();
-}
-inline void CGCMsgGetSystemStatsResponse::_internal_set_socaches_to_unload(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000080u;
-  _impl_.socaches_to_unload_ = value;
-}
-inline void CGCMsgGetSystemStatsResponse::set_socaches_to_unload(uint32_t value) {
-  _internal_set_socaches_to_unload(value);
-  // @@protoc_insertion_point(field_set:CGCMsgGetSystemStatsResponse.socaches_to_unload)
-}
-
-// optional uint32 socaches_loading = 9;
-inline bool CGCMsgGetSystemStatsResponse::_internal_has_socaches_loading() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000100u) != 0;
-  return value;
-}
-inline bool CGCMsgGetSystemStatsResponse::has_socaches_loading() const {
-  return _internal_has_socaches_loading();
-}
-inline void CGCMsgGetSystemStatsResponse::clear_socaches_loading() {
-  _impl_.socaches_loading_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000100u;
-}
-inline uint32_t CGCMsgGetSystemStatsResponse::_internal_socaches_loading() const {
-  return _impl_.socaches_loading_;
-}
-inline uint32_t CGCMsgGetSystemStatsResponse::socaches_loading() const {
-  // @@protoc_insertion_point(field_get:CGCMsgGetSystemStatsResponse.socaches_loading)
-  return _internal_socaches_loading();
-}
-inline void CGCMsgGetSystemStatsResponse::_internal_set_socaches_loading(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000100u;
-  _impl_.socaches_loading_ = value;
-}
-inline void CGCMsgGetSystemStatsResponse::set_socaches_loading(uint32_t value) {
-  _internal_set_socaches_loading(value);
-  // @@protoc_insertion_point(field_set:CGCMsgGetSystemStatsResponse.socaches_loading)
-}
-
-// optional uint32 writeback_queue = 10;
-inline bool CGCMsgGetSystemStatsResponse::_internal_has_writeback_queue() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000200u) != 0;
-  return value;
-}
-inline bool CGCMsgGetSystemStatsResponse::has_writeback_queue() const {
-  return _internal_has_writeback_queue();
-}
-inline void CGCMsgGetSystemStatsResponse::clear_writeback_queue() {
-  _impl_.writeback_queue_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000200u;
-}
-inline uint32_t CGCMsgGetSystemStatsResponse::_internal_writeback_queue() const {
-  return _impl_.writeback_queue_;
-}
-inline uint32_t CGCMsgGetSystemStatsResponse::writeback_queue() const {
-  // @@protoc_insertion_point(field_get:CGCMsgGetSystemStatsResponse.writeback_queue)
-  return _internal_writeback_queue();
-}
-inline void CGCMsgGetSystemStatsResponse::_internal_set_writeback_queue(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000200u;
-  _impl_.writeback_queue_ = value;
-}
-inline void CGCMsgGetSystemStatsResponse::set_writeback_queue(uint32_t value) {
-  _internal_set_writeback_queue(value);
-  // @@protoc_insertion_point(field_set:CGCMsgGetSystemStatsResponse.writeback_queue)
-}
-
-// optional uint32 steamid_locks = 11;
-inline bool CGCMsgGetSystemStatsResponse::_internal_has_steamid_locks() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000400u) != 0;
-  return value;
-}
-inline bool CGCMsgGetSystemStatsResponse::has_steamid_locks() const {
-  return _internal_has_steamid_locks();
-}
-inline void CGCMsgGetSystemStatsResponse::clear_steamid_locks() {
-  _impl_.steamid_locks_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000400u;
-}
-inline uint32_t CGCMsgGetSystemStatsResponse::_internal_steamid_locks() const {
-  return _impl_.steamid_locks_;
-}
-inline uint32_t CGCMsgGetSystemStatsResponse::steamid_locks() const {
-  // @@protoc_insertion_point(field_get:CGCMsgGetSystemStatsResponse.steamid_locks)
-  return _internal_steamid_locks();
-}
-inline void CGCMsgGetSystemStatsResponse::_internal_set_steamid_locks(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000400u;
-  _impl_.steamid_locks_ = value;
-}
-inline void CGCMsgGetSystemStatsResponse::set_steamid_locks(uint32_t value) {
-  _internal_set_steamid_locks(value);
-  // @@protoc_insertion_point(field_set:CGCMsgGetSystemStatsResponse.steamid_locks)
-}
-
-// optional uint32 logon_queue = 12;
-inline bool CGCMsgGetSystemStatsResponse::_internal_has_logon_queue() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000800u) != 0;
-  return value;
-}
-inline bool CGCMsgGetSystemStatsResponse::has_logon_queue() const {
-  return _internal_has_logon_queue();
-}
-inline void CGCMsgGetSystemStatsResponse::clear_logon_queue() {
-  _impl_.logon_queue_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000800u;
-}
-inline uint32_t CGCMsgGetSystemStatsResponse::_internal_logon_queue() const {
-  return _impl_.logon_queue_;
-}
-inline uint32_t CGCMsgGetSystemStatsResponse::logon_queue() const {
-  // @@protoc_insertion_point(field_get:CGCMsgGetSystemStatsResponse.logon_queue)
-  return _internal_logon_queue();
-}
-inline void CGCMsgGetSystemStatsResponse::_internal_set_logon_queue(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000800u;
-  _impl_.logon_queue_ = value;
-}
-inline void CGCMsgGetSystemStatsResponse::set_logon_queue(uint32_t value) {
-  _internal_set_logon_queue(value);
-  // @@protoc_insertion_point(field_set:CGCMsgGetSystemStatsResponse.logon_queue)
-}
-
-// optional uint32 logon_jobs = 13;
-inline bool CGCMsgGetSystemStatsResponse::_internal_has_logon_jobs() const {
-  bool value = (_impl_._has_bits_[0] & 0x00001000u) != 0;
-  return value;
-}
-inline bool CGCMsgGetSystemStatsResponse::has_logon_jobs() const {
-  return _internal_has_logon_jobs();
-}
-inline void CGCMsgGetSystemStatsResponse::clear_logon_jobs() {
-  _impl_.logon_jobs_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00001000u;
-}
-inline uint32_t CGCMsgGetSystemStatsResponse::_internal_logon_jobs() const {
-  return _impl_.logon_jobs_;
-}
-inline uint32_t CGCMsgGetSystemStatsResponse::logon_jobs() const {
-  // @@protoc_insertion_point(field_get:CGCMsgGetSystemStatsResponse.logon_jobs)
-  return _internal_logon_jobs();
-}
-inline void CGCMsgGetSystemStatsResponse::_internal_set_logon_jobs(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00001000u;
-  _impl_.logon_jobs_ = value;
-}
-inline void CGCMsgGetSystemStatsResponse::set_logon_jobs(uint32_t value) {
-  _internal_set_logon_jobs(value);
-  // @@protoc_insertion_point(field_set:CGCMsgGetSystemStatsResponse.logon_jobs)
-}
-
-// -------------------------------------------------------------------
-
 // CMsgAMSendEmail_ReplacementToken
 
 // optional string token_name = 1;
@@ -25894,6 +21227,34 @@ inline void CMsgGCGetAppFriendsList::set_include_friendship_timestamps(bool valu
   // @@protoc_insertion_point(field_set:CMsgGCGetAppFriendsList.include_friendship_timestamps)
 }
 
+// optional bool include_friends_with_no_play_time = 3;
+inline bool CMsgGCGetAppFriendsList::_internal_has_include_friends_with_no_play_time() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CMsgGCGetAppFriendsList::has_include_friends_with_no_play_time() const {
+  return _internal_has_include_friends_with_no_play_time();
+}
+inline void CMsgGCGetAppFriendsList::clear_include_friends_with_no_play_time() {
+  _impl_.include_friends_with_no_play_time_ = false;
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline bool CMsgGCGetAppFriendsList::_internal_include_friends_with_no_play_time() const {
+  return _impl_.include_friends_with_no_play_time_;
+}
+inline bool CMsgGCGetAppFriendsList::include_friends_with_no_play_time() const {
+  // @@protoc_insertion_point(field_get:CMsgGCGetAppFriendsList.include_friends_with_no_play_time)
+  return _internal_include_friends_with_no_play_time();
+}
+inline void CMsgGCGetAppFriendsList::_internal_set_include_friends_with_no_play_time(bool value) {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.include_friends_with_no_play_time_ = value;
+}
+inline void CMsgGCGetAppFriendsList::set_include_friends_with_no_play_time(bool value) {
+  _internal_set_include_friends_with_no_play_time(value);
+  // @@protoc_insertion_point(field_set:CMsgGCGetAppFriendsList.include_friends_with_no_play_time)
+}
+
 // -------------------------------------------------------------------
 
 // CMsgGCGetAppFriendsList_Response
@@ -26865,182 +22226,6 @@ inline void CMsgGCHAccountVacStatusChange::_internal_set_is_banned_future(bool v
 inline void CMsgGCHAccountVacStatusChange::set_is_banned_future(bool value) {
   _internal_set_is_banned_future(value);
   // @@protoc_insertion_point(field_set:CMsgGCHAccountVacStatusChange.is_banned_future)
-}
-
-// -------------------------------------------------------------------
-
-// CMsgGCGetPartnerAccountLink
-
-// optional fixed64 steamid = 1;
-inline bool CMsgGCGetPartnerAccountLink::_internal_has_steamid() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool CMsgGCGetPartnerAccountLink::has_steamid() const {
-  return _internal_has_steamid();
-}
-inline void CMsgGCGetPartnerAccountLink::clear_steamid() {
-  _impl_.steamid_ = uint64_t{0u};
-  _impl_._has_bits_[0] &= ~0x00000001u;
-}
-inline uint64_t CMsgGCGetPartnerAccountLink::_internal_steamid() const {
-  return _impl_.steamid_;
-}
-inline uint64_t CMsgGCGetPartnerAccountLink::steamid() const {
-  // @@protoc_insertion_point(field_get:CMsgGCGetPartnerAccountLink.steamid)
-  return _internal_steamid();
-}
-inline void CMsgGCGetPartnerAccountLink::_internal_set_steamid(uint64_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  _impl_.steamid_ = value;
-}
-inline void CMsgGCGetPartnerAccountLink::set_steamid(uint64_t value) {
-  _internal_set_steamid(value);
-  // @@protoc_insertion_point(field_set:CMsgGCGetPartnerAccountLink.steamid)
-}
-
-// -------------------------------------------------------------------
-
-// CMsgGCGetPartnerAccountLink_Response
-
-// optional uint32 pwid = 1;
-inline bool CMsgGCGetPartnerAccountLink_Response::_internal_has_pwid() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool CMsgGCGetPartnerAccountLink_Response::has_pwid() const {
-  return _internal_has_pwid();
-}
-inline void CMsgGCGetPartnerAccountLink_Response::clear_pwid() {
-  _impl_.pwid_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000001u;
-}
-inline uint32_t CMsgGCGetPartnerAccountLink_Response::_internal_pwid() const {
-  return _impl_.pwid_;
-}
-inline uint32_t CMsgGCGetPartnerAccountLink_Response::pwid() const {
-  // @@protoc_insertion_point(field_get:CMsgGCGetPartnerAccountLink_Response.pwid)
-  return _internal_pwid();
-}
-inline void CMsgGCGetPartnerAccountLink_Response::_internal_set_pwid(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  _impl_.pwid_ = value;
-}
-inline void CMsgGCGetPartnerAccountLink_Response::set_pwid(uint32_t value) {
-  _internal_set_pwid(value);
-  // @@protoc_insertion_point(field_set:CMsgGCGetPartnerAccountLink_Response.pwid)
-}
-
-// optional uint32 nexonid = 2;
-inline bool CMsgGCGetPartnerAccountLink_Response::_internal_has_nexonid() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
-  return value;
-}
-inline bool CMsgGCGetPartnerAccountLink_Response::has_nexonid() const {
-  return _internal_has_nexonid();
-}
-inline void CMsgGCGetPartnerAccountLink_Response::clear_nexonid() {
-  _impl_.nexonid_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
-}
-inline uint32_t CMsgGCGetPartnerAccountLink_Response::_internal_nexonid() const {
-  return _impl_.nexonid_;
-}
-inline uint32_t CMsgGCGetPartnerAccountLink_Response::nexonid() const {
-  // @@protoc_insertion_point(field_get:CMsgGCGetPartnerAccountLink_Response.nexonid)
-  return _internal_nexonid();
-}
-inline void CMsgGCGetPartnerAccountLink_Response::_internal_set_nexonid(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  _impl_.nexonid_ = value;
-}
-inline void CMsgGCGetPartnerAccountLink_Response::set_nexonid(uint32_t value) {
-  _internal_set_nexonid(value);
-  // @@protoc_insertion_point(field_set:CMsgGCGetPartnerAccountLink_Response.nexonid)
-}
-
-// optional int32 ageclass = 3 [default = 0];
-inline bool CMsgGCGetPartnerAccountLink_Response::_internal_has_ageclass() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
-  return value;
-}
-inline bool CMsgGCGetPartnerAccountLink_Response::has_ageclass() const {
-  return _internal_has_ageclass();
-}
-inline void CMsgGCGetPartnerAccountLink_Response::clear_ageclass() {
-  _impl_.ageclass_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000004u;
-}
-inline int32_t CMsgGCGetPartnerAccountLink_Response::_internal_ageclass() const {
-  return _impl_.ageclass_;
-}
-inline int32_t CMsgGCGetPartnerAccountLink_Response::ageclass() const {
-  // @@protoc_insertion_point(field_get:CMsgGCGetPartnerAccountLink_Response.ageclass)
-  return _internal_ageclass();
-}
-inline void CMsgGCGetPartnerAccountLink_Response::_internal_set_ageclass(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
-  _impl_.ageclass_ = value;
-}
-inline void CMsgGCGetPartnerAccountLink_Response::set_ageclass(int32_t value) {
-  _internal_set_ageclass(value);
-  // @@protoc_insertion_point(field_set:CMsgGCGetPartnerAccountLink_Response.ageclass)
-}
-
-// optional bool id_verified = 4 [default = true];
-inline bool CMsgGCGetPartnerAccountLink_Response::_internal_has_id_verified() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
-  return value;
-}
-inline bool CMsgGCGetPartnerAccountLink_Response::has_id_verified() const {
-  return _internal_has_id_verified();
-}
-inline void CMsgGCGetPartnerAccountLink_Response::clear_id_verified() {
-  _impl_.id_verified_ = true;
-  _impl_._has_bits_[0] &= ~0x00000008u;
-}
-inline bool CMsgGCGetPartnerAccountLink_Response::_internal_id_verified() const {
-  return _impl_.id_verified_;
-}
-inline bool CMsgGCGetPartnerAccountLink_Response::id_verified() const {
-  // @@protoc_insertion_point(field_get:CMsgGCGetPartnerAccountLink_Response.id_verified)
-  return _internal_id_verified();
-}
-inline void CMsgGCGetPartnerAccountLink_Response::_internal_set_id_verified(bool value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
-  _impl_.id_verified_ = value;
-}
-inline void CMsgGCGetPartnerAccountLink_Response::set_id_verified(bool value) {
-  _internal_set_id_verified(value);
-  // @@protoc_insertion_point(field_set:CMsgGCGetPartnerAccountLink_Response.id_verified)
-}
-
-// optional bool is_adult = 5 [default = true];
-inline bool CMsgGCGetPartnerAccountLink_Response::_internal_has_is_adult() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
-  return value;
-}
-inline bool CMsgGCGetPartnerAccountLink_Response::has_is_adult() const {
-  return _internal_has_is_adult();
-}
-inline void CMsgGCGetPartnerAccountLink_Response::clear_is_adult() {
-  _impl_.is_adult_ = true;
-  _impl_._has_bits_[0] &= ~0x00000010u;
-}
-inline bool CMsgGCGetPartnerAccountLink_Response::_internal_is_adult() const {
-  return _impl_.is_adult_;
-}
-inline bool CMsgGCGetPartnerAccountLink_Response::is_adult() const {
-  // @@protoc_insertion_point(field_get:CMsgGCGetPartnerAccountLink_Response.is_adult)
-  return _internal_is_adult();
-}
-inline void CMsgGCGetPartnerAccountLink_Response::_internal_set_is_adult(bool value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
-  _impl_.is_adult_ = value;
-}
-inline void CMsgGCGetPartnerAccountLink_Response::set_is_adult(bool value) {
-  _internal_set_is_adult(value);
-  // @@protoc_insertion_point(field_set:CMsgGCGetPartnerAccountLink_Response.is_adult)
 }
 
 // -------------------------------------------------------------------
@@ -28569,1093 +23754,6 @@ inline void CMsgNotificationOfSuspiciousActivity::set_allocated_multiple_instanc
 
 // -------------------------------------------------------------------
 
-// CMsgDPPartnerMicroTxns_PartnerMicroTxn
-
-// optional uint32 init_time = 1;
-inline bool CMsgDPPartnerMicroTxns_PartnerMicroTxn::_internal_has_init_time() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
-  return value;
-}
-inline bool CMsgDPPartnerMicroTxns_PartnerMicroTxn::has_init_time() const {
-  return _internal_has_init_time();
-}
-inline void CMsgDPPartnerMicroTxns_PartnerMicroTxn::clear_init_time() {
-  _impl_.init_time_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000004u;
-}
-inline uint32_t CMsgDPPartnerMicroTxns_PartnerMicroTxn::_internal_init_time() const {
-  return _impl_.init_time_;
-}
-inline uint32_t CMsgDPPartnerMicroTxns_PartnerMicroTxn::init_time() const {
-  // @@protoc_insertion_point(field_get:CMsgDPPartnerMicroTxns.PartnerMicroTxn.init_time)
-  return _internal_init_time();
-}
-inline void CMsgDPPartnerMicroTxns_PartnerMicroTxn::_internal_set_init_time(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
-  _impl_.init_time_ = value;
-}
-inline void CMsgDPPartnerMicroTxns_PartnerMicroTxn::set_init_time(uint32_t value) {
-  _internal_set_init_time(value);
-  // @@protoc_insertion_point(field_set:CMsgDPPartnerMicroTxns.PartnerMicroTxn.init_time)
-}
-
-// optional uint32 last_update_time = 2;
-inline bool CMsgDPPartnerMicroTxns_PartnerMicroTxn::_internal_has_last_update_time() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
-  return value;
-}
-inline bool CMsgDPPartnerMicroTxns_PartnerMicroTxn::has_last_update_time() const {
-  return _internal_has_last_update_time();
-}
-inline void CMsgDPPartnerMicroTxns_PartnerMicroTxn::clear_last_update_time() {
-  _impl_.last_update_time_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000008u;
-}
-inline uint32_t CMsgDPPartnerMicroTxns_PartnerMicroTxn::_internal_last_update_time() const {
-  return _impl_.last_update_time_;
-}
-inline uint32_t CMsgDPPartnerMicroTxns_PartnerMicroTxn::last_update_time() const {
-  // @@protoc_insertion_point(field_get:CMsgDPPartnerMicroTxns.PartnerMicroTxn.last_update_time)
-  return _internal_last_update_time();
-}
-inline void CMsgDPPartnerMicroTxns_PartnerMicroTxn::_internal_set_last_update_time(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
-  _impl_.last_update_time_ = value;
-}
-inline void CMsgDPPartnerMicroTxns_PartnerMicroTxn::set_last_update_time(uint32_t value) {
-  _internal_set_last_update_time(value);
-  // @@protoc_insertion_point(field_set:CMsgDPPartnerMicroTxns.PartnerMicroTxn.last_update_time)
-}
-
-// optional uint64 txn_id = 3;
-inline bool CMsgDPPartnerMicroTxns_PartnerMicroTxn::_internal_has_txn_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
-  return value;
-}
-inline bool CMsgDPPartnerMicroTxns_PartnerMicroTxn::has_txn_id() const {
-  return _internal_has_txn_id();
-}
-inline void CMsgDPPartnerMicroTxns_PartnerMicroTxn::clear_txn_id() {
-  _impl_.txn_id_ = uint64_t{0u};
-  _impl_._has_bits_[0] &= ~0x00000010u;
-}
-inline uint64_t CMsgDPPartnerMicroTxns_PartnerMicroTxn::_internal_txn_id() const {
-  return _impl_.txn_id_;
-}
-inline uint64_t CMsgDPPartnerMicroTxns_PartnerMicroTxn::txn_id() const {
-  // @@protoc_insertion_point(field_get:CMsgDPPartnerMicroTxns.PartnerMicroTxn.txn_id)
-  return _internal_txn_id();
-}
-inline void CMsgDPPartnerMicroTxns_PartnerMicroTxn::_internal_set_txn_id(uint64_t value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
-  _impl_.txn_id_ = value;
-}
-inline void CMsgDPPartnerMicroTxns_PartnerMicroTxn::set_txn_id(uint64_t value) {
-  _internal_set_txn_id(value);
-  // @@protoc_insertion_point(field_set:CMsgDPPartnerMicroTxns.PartnerMicroTxn.txn_id)
-}
-
-// optional uint32 account_id = 4;
-inline bool CMsgDPPartnerMicroTxns_PartnerMicroTxn::_internal_has_account_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
-  return value;
-}
-inline bool CMsgDPPartnerMicroTxns_PartnerMicroTxn::has_account_id() const {
-  return _internal_has_account_id();
-}
-inline void CMsgDPPartnerMicroTxns_PartnerMicroTxn::clear_account_id() {
-  _impl_.account_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000020u;
-}
-inline uint32_t CMsgDPPartnerMicroTxns_PartnerMicroTxn::_internal_account_id() const {
-  return _impl_.account_id_;
-}
-inline uint32_t CMsgDPPartnerMicroTxns_PartnerMicroTxn::account_id() const {
-  // @@protoc_insertion_point(field_get:CMsgDPPartnerMicroTxns.PartnerMicroTxn.account_id)
-  return _internal_account_id();
-}
-inline void CMsgDPPartnerMicroTxns_PartnerMicroTxn::_internal_set_account_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000020u;
-  _impl_.account_id_ = value;
-}
-inline void CMsgDPPartnerMicroTxns_PartnerMicroTxn::set_account_id(uint32_t value) {
-  _internal_set_account_id(value);
-  // @@protoc_insertion_point(field_set:CMsgDPPartnerMicroTxns.PartnerMicroTxn.account_id)
-}
-
-// optional uint32 line_item = 5;
-inline bool CMsgDPPartnerMicroTxns_PartnerMicroTxn::_internal_has_line_item() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
-  return value;
-}
-inline bool CMsgDPPartnerMicroTxns_PartnerMicroTxn::has_line_item() const {
-  return _internal_has_line_item();
-}
-inline void CMsgDPPartnerMicroTxns_PartnerMicroTxn::clear_line_item() {
-  _impl_.line_item_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000040u;
-}
-inline uint32_t CMsgDPPartnerMicroTxns_PartnerMicroTxn::_internal_line_item() const {
-  return _impl_.line_item_;
-}
-inline uint32_t CMsgDPPartnerMicroTxns_PartnerMicroTxn::line_item() const {
-  // @@protoc_insertion_point(field_get:CMsgDPPartnerMicroTxns.PartnerMicroTxn.line_item)
-  return _internal_line_item();
-}
-inline void CMsgDPPartnerMicroTxns_PartnerMicroTxn::_internal_set_line_item(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000040u;
-  _impl_.line_item_ = value;
-}
-inline void CMsgDPPartnerMicroTxns_PartnerMicroTxn::set_line_item(uint32_t value) {
-  _internal_set_line_item(value);
-  // @@protoc_insertion_point(field_set:CMsgDPPartnerMicroTxns.PartnerMicroTxn.line_item)
-}
-
-// optional uint64 item_id = 6;
-inline bool CMsgDPPartnerMicroTxns_PartnerMicroTxn::_internal_has_item_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
-  return value;
-}
-inline bool CMsgDPPartnerMicroTxns_PartnerMicroTxn::has_item_id() const {
-  return _internal_has_item_id();
-}
-inline void CMsgDPPartnerMicroTxns_PartnerMicroTxn::clear_item_id() {
-  _impl_.item_id_ = uint64_t{0u};
-  _impl_._has_bits_[0] &= ~0x00000080u;
-}
-inline uint64_t CMsgDPPartnerMicroTxns_PartnerMicroTxn::_internal_item_id() const {
-  return _impl_.item_id_;
-}
-inline uint64_t CMsgDPPartnerMicroTxns_PartnerMicroTxn::item_id() const {
-  // @@protoc_insertion_point(field_get:CMsgDPPartnerMicroTxns.PartnerMicroTxn.item_id)
-  return _internal_item_id();
-}
-inline void CMsgDPPartnerMicroTxns_PartnerMicroTxn::_internal_set_item_id(uint64_t value) {
-  _impl_._has_bits_[0] |= 0x00000080u;
-  _impl_.item_id_ = value;
-}
-inline void CMsgDPPartnerMicroTxns_PartnerMicroTxn::set_item_id(uint64_t value) {
-  _internal_set_item_id(value);
-  // @@protoc_insertion_point(field_set:CMsgDPPartnerMicroTxns.PartnerMicroTxn.item_id)
-}
-
-// optional uint32 def_index = 7;
-inline bool CMsgDPPartnerMicroTxns_PartnerMicroTxn::_internal_has_def_index() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000400u) != 0;
-  return value;
-}
-inline bool CMsgDPPartnerMicroTxns_PartnerMicroTxn::has_def_index() const {
-  return _internal_has_def_index();
-}
-inline void CMsgDPPartnerMicroTxns_PartnerMicroTxn::clear_def_index() {
-  _impl_.def_index_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000400u;
-}
-inline uint32_t CMsgDPPartnerMicroTxns_PartnerMicroTxn::_internal_def_index() const {
-  return _impl_.def_index_;
-}
-inline uint32_t CMsgDPPartnerMicroTxns_PartnerMicroTxn::def_index() const {
-  // @@protoc_insertion_point(field_get:CMsgDPPartnerMicroTxns.PartnerMicroTxn.def_index)
-  return _internal_def_index();
-}
-inline void CMsgDPPartnerMicroTxns_PartnerMicroTxn::_internal_set_def_index(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000400u;
-  _impl_.def_index_ = value;
-}
-inline void CMsgDPPartnerMicroTxns_PartnerMicroTxn::set_def_index(uint32_t value) {
-  _internal_set_def_index(value);
-  // @@protoc_insertion_point(field_set:CMsgDPPartnerMicroTxns.PartnerMicroTxn.def_index)
-}
-
-// optional uint64 price = 8;
-inline bool CMsgDPPartnerMicroTxns_PartnerMicroTxn::_internal_has_price() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000100u) != 0;
-  return value;
-}
-inline bool CMsgDPPartnerMicroTxns_PartnerMicroTxn::has_price() const {
-  return _internal_has_price();
-}
-inline void CMsgDPPartnerMicroTxns_PartnerMicroTxn::clear_price() {
-  _impl_.price_ = uint64_t{0u};
-  _impl_._has_bits_[0] &= ~0x00000100u;
-}
-inline uint64_t CMsgDPPartnerMicroTxns_PartnerMicroTxn::_internal_price() const {
-  return _impl_.price_;
-}
-inline uint64_t CMsgDPPartnerMicroTxns_PartnerMicroTxn::price() const {
-  // @@protoc_insertion_point(field_get:CMsgDPPartnerMicroTxns.PartnerMicroTxn.price)
-  return _internal_price();
-}
-inline void CMsgDPPartnerMicroTxns_PartnerMicroTxn::_internal_set_price(uint64_t value) {
-  _impl_._has_bits_[0] |= 0x00000100u;
-  _impl_.price_ = value;
-}
-inline void CMsgDPPartnerMicroTxns_PartnerMicroTxn::set_price(uint64_t value) {
-  _internal_set_price(value);
-  // @@protoc_insertion_point(field_set:CMsgDPPartnerMicroTxns.PartnerMicroTxn.price)
-}
-
-// optional uint64 tax = 9;
-inline bool CMsgDPPartnerMicroTxns_PartnerMicroTxn::_internal_has_tax() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000200u) != 0;
-  return value;
-}
-inline bool CMsgDPPartnerMicroTxns_PartnerMicroTxn::has_tax() const {
-  return _internal_has_tax();
-}
-inline void CMsgDPPartnerMicroTxns_PartnerMicroTxn::clear_tax() {
-  _impl_.tax_ = uint64_t{0u};
-  _impl_._has_bits_[0] &= ~0x00000200u;
-}
-inline uint64_t CMsgDPPartnerMicroTxns_PartnerMicroTxn::_internal_tax() const {
-  return _impl_.tax_;
-}
-inline uint64_t CMsgDPPartnerMicroTxns_PartnerMicroTxn::tax() const {
-  // @@protoc_insertion_point(field_get:CMsgDPPartnerMicroTxns.PartnerMicroTxn.tax)
-  return _internal_tax();
-}
-inline void CMsgDPPartnerMicroTxns_PartnerMicroTxn::_internal_set_tax(uint64_t value) {
-  _impl_._has_bits_[0] |= 0x00000200u;
-  _impl_.tax_ = value;
-}
-inline void CMsgDPPartnerMicroTxns_PartnerMicroTxn::set_tax(uint64_t value) {
-  _internal_set_tax(value);
-  // @@protoc_insertion_point(field_set:CMsgDPPartnerMicroTxns.PartnerMicroTxn.tax)
-}
-
-// optional uint64 price_usd = 10;
-inline bool CMsgDPPartnerMicroTxns_PartnerMicroTxn::_internal_has_price_usd() const {
-  bool value = (_impl_._has_bits_[0] & 0x00001000u) != 0;
-  return value;
-}
-inline bool CMsgDPPartnerMicroTxns_PartnerMicroTxn::has_price_usd() const {
-  return _internal_has_price_usd();
-}
-inline void CMsgDPPartnerMicroTxns_PartnerMicroTxn::clear_price_usd() {
-  _impl_.price_usd_ = uint64_t{0u};
-  _impl_._has_bits_[0] &= ~0x00001000u;
-}
-inline uint64_t CMsgDPPartnerMicroTxns_PartnerMicroTxn::_internal_price_usd() const {
-  return _impl_.price_usd_;
-}
-inline uint64_t CMsgDPPartnerMicroTxns_PartnerMicroTxn::price_usd() const {
-  // @@protoc_insertion_point(field_get:CMsgDPPartnerMicroTxns.PartnerMicroTxn.price_usd)
-  return _internal_price_usd();
-}
-inline void CMsgDPPartnerMicroTxns_PartnerMicroTxn::_internal_set_price_usd(uint64_t value) {
-  _impl_._has_bits_[0] |= 0x00001000u;
-  _impl_.price_usd_ = value;
-}
-inline void CMsgDPPartnerMicroTxns_PartnerMicroTxn::set_price_usd(uint64_t value) {
-  _internal_set_price_usd(value);
-  // @@protoc_insertion_point(field_set:CMsgDPPartnerMicroTxns.PartnerMicroTxn.price_usd)
-}
-
-// optional uint64 tax_usd = 11;
-inline bool CMsgDPPartnerMicroTxns_PartnerMicroTxn::_internal_has_tax_usd() const {
-  bool value = (_impl_._has_bits_[0] & 0x00002000u) != 0;
-  return value;
-}
-inline bool CMsgDPPartnerMicroTxns_PartnerMicroTxn::has_tax_usd() const {
-  return _internal_has_tax_usd();
-}
-inline void CMsgDPPartnerMicroTxns_PartnerMicroTxn::clear_tax_usd() {
-  _impl_.tax_usd_ = uint64_t{0u};
-  _impl_._has_bits_[0] &= ~0x00002000u;
-}
-inline uint64_t CMsgDPPartnerMicroTxns_PartnerMicroTxn::_internal_tax_usd() const {
-  return _impl_.tax_usd_;
-}
-inline uint64_t CMsgDPPartnerMicroTxns_PartnerMicroTxn::tax_usd() const {
-  // @@protoc_insertion_point(field_get:CMsgDPPartnerMicroTxns.PartnerMicroTxn.tax_usd)
-  return _internal_tax_usd();
-}
-inline void CMsgDPPartnerMicroTxns_PartnerMicroTxn::_internal_set_tax_usd(uint64_t value) {
-  _impl_._has_bits_[0] |= 0x00002000u;
-  _impl_.tax_usd_ = value;
-}
-inline void CMsgDPPartnerMicroTxns_PartnerMicroTxn::set_tax_usd(uint64_t value) {
-  _internal_set_tax_usd(value);
-  // @@protoc_insertion_point(field_set:CMsgDPPartnerMicroTxns.PartnerMicroTxn.tax_usd)
-}
-
-// optional uint32 purchase_type = 12;
-inline bool CMsgDPPartnerMicroTxns_PartnerMicroTxn::_internal_has_purchase_type() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000800u) != 0;
-  return value;
-}
-inline bool CMsgDPPartnerMicroTxns_PartnerMicroTxn::has_purchase_type() const {
-  return _internal_has_purchase_type();
-}
-inline void CMsgDPPartnerMicroTxns_PartnerMicroTxn::clear_purchase_type() {
-  _impl_.purchase_type_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000800u;
-}
-inline uint32_t CMsgDPPartnerMicroTxns_PartnerMicroTxn::_internal_purchase_type() const {
-  return _impl_.purchase_type_;
-}
-inline uint32_t CMsgDPPartnerMicroTxns_PartnerMicroTxn::purchase_type() const {
-  // @@protoc_insertion_point(field_get:CMsgDPPartnerMicroTxns.PartnerMicroTxn.purchase_type)
-  return _internal_purchase_type();
-}
-inline void CMsgDPPartnerMicroTxns_PartnerMicroTxn::_internal_set_purchase_type(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000800u;
-  _impl_.purchase_type_ = value;
-}
-inline void CMsgDPPartnerMicroTxns_PartnerMicroTxn::set_purchase_type(uint32_t value) {
-  _internal_set_purchase_type(value);
-  // @@protoc_insertion_point(field_set:CMsgDPPartnerMicroTxns.PartnerMicroTxn.purchase_type)
-}
-
-// optional uint32 steam_txn_type = 13;
-inline bool CMsgDPPartnerMicroTxns_PartnerMicroTxn::_internal_has_steam_txn_type() const {
-  bool value = (_impl_._has_bits_[0] & 0x00004000u) != 0;
-  return value;
-}
-inline bool CMsgDPPartnerMicroTxns_PartnerMicroTxn::has_steam_txn_type() const {
-  return _internal_has_steam_txn_type();
-}
-inline void CMsgDPPartnerMicroTxns_PartnerMicroTxn::clear_steam_txn_type() {
-  _impl_.steam_txn_type_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00004000u;
-}
-inline uint32_t CMsgDPPartnerMicroTxns_PartnerMicroTxn::_internal_steam_txn_type() const {
-  return _impl_.steam_txn_type_;
-}
-inline uint32_t CMsgDPPartnerMicroTxns_PartnerMicroTxn::steam_txn_type() const {
-  // @@protoc_insertion_point(field_get:CMsgDPPartnerMicroTxns.PartnerMicroTxn.steam_txn_type)
-  return _internal_steam_txn_type();
-}
-inline void CMsgDPPartnerMicroTxns_PartnerMicroTxn::_internal_set_steam_txn_type(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00004000u;
-  _impl_.steam_txn_type_ = value;
-}
-inline void CMsgDPPartnerMicroTxns_PartnerMicroTxn::set_steam_txn_type(uint32_t value) {
-  _internal_set_steam_txn_type(value);
-  // @@protoc_insertion_point(field_set:CMsgDPPartnerMicroTxns.PartnerMicroTxn.steam_txn_type)
-}
-
-// optional string country_code = 14;
-inline bool CMsgDPPartnerMicroTxns_PartnerMicroTxn::_internal_has_country_code() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool CMsgDPPartnerMicroTxns_PartnerMicroTxn::has_country_code() const {
-  return _internal_has_country_code();
-}
-inline void CMsgDPPartnerMicroTxns_PartnerMicroTxn::clear_country_code() {
-  _impl_.country_code_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000001u;
-}
-inline const std::string& CMsgDPPartnerMicroTxns_PartnerMicroTxn::country_code() const {
-  // @@protoc_insertion_point(field_get:CMsgDPPartnerMicroTxns.PartnerMicroTxn.country_code)
-  return _internal_country_code();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void CMsgDPPartnerMicroTxns_PartnerMicroTxn::set_country_code(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000001u;
- _impl_.country_code_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:CMsgDPPartnerMicroTxns.PartnerMicroTxn.country_code)
-}
-inline std::string* CMsgDPPartnerMicroTxns_PartnerMicroTxn::mutable_country_code() {
-  std::string* _s = _internal_mutable_country_code();
-  // @@protoc_insertion_point(field_mutable:CMsgDPPartnerMicroTxns.PartnerMicroTxn.country_code)
-  return _s;
-}
-inline const std::string& CMsgDPPartnerMicroTxns_PartnerMicroTxn::_internal_country_code() const {
-  return _impl_.country_code_.Get();
-}
-inline void CMsgDPPartnerMicroTxns_PartnerMicroTxn::_internal_set_country_code(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  _impl_.country_code_.Set(value, GetArenaForAllocation());
-}
-inline std::string* CMsgDPPartnerMicroTxns_PartnerMicroTxn::_internal_mutable_country_code() {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  return _impl_.country_code_.Mutable(GetArenaForAllocation());
-}
-inline std::string* CMsgDPPartnerMicroTxns_PartnerMicroTxn::release_country_code() {
-  // @@protoc_insertion_point(field_release:CMsgDPPartnerMicroTxns.PartnerMicroTxn.country_code)
-  if (!_internal_has_country_code()) {
-    return nullptr;
-  }
-  _impl_._has_bits_[0] &= ~0x00000001u;
-  auto* p = _impl_.country_code_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.country_code_.IsDefault()) {
-    _impl_.country_code_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
-}
-inline void CMsgDPPartnerMicroTxns_PartnerMicroTxn::set_allocated_country_code(std::string* country_code) {
-  if (country_code != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000001u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
-  }
-  _impl_.country_code_.SetAllocated(country_code, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.country_code_.IsDefault()) {
-    _impl_.country_code_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:CMsgDPPartnerMicroTxns.PartnerMicroTxn.country_code)
-}
-
-// optional string region_code = 15;
-inline bool CMsgDPPartnerMicroTxns_PartnerMicroTxn::_internal_has_region_code() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
-  return value;
-}
-inline bool CMsgDPPartnerMicroTxns_PartnerMicroTxn::has_region_code() const {
-  return _internal_has_region_code();
-}
-inline void CMsgDPPartnerMicroTxns_PartnerMicroTxn::clear_region_code() {
-  _impl_.region_code_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000002u;
-}
-inline const std::string& CMsgDPPartnerMicroTxns_PartnerMicroTxn::region_code() const {
-  // @@protoc_insertion_point(field_get:CMsgDPPartnerMicroTxns.PartnerMicroTxn.region_code)
-  return _internal_region_code();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void CMsgDPPartnerMicroTxns_PartnerMicroTxn::set_region_code(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000002u;
- _impl_.region_code_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:CMsgDPPartnerMicroTxns.PartnerMicroTxn.region_code)
-}
-inline std::string* CMsgDPPartnerMicroTxns_PartnerMicroTxn::mutable_region_code() {
-  std::string* _s = _internal_mutable_region_code();
-  // @@protoc_insertion_point(field_mutable:CMsgDPPartnerMicroTxns.PartnerMicroTxn.region_code)
-  return _s;
-}
-inline const std::string& CMsgDPPartnerMicroTxns_PartnerMicroTxn::_internal_region_code() const {
-  return _impl_.region_code_.Get();
-}
-inline void CMsgDPPartnerMicroTxns_PartnerMicroTxn::_internal_set_region_code(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  _impl_.region_code_.Set(value, GetArenaForAllocation());
-}
-inline std::string* CMsgDPPartnerMicroTxns_PartnerMicroTxn::_internal_mutable_region_code() {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  return _impl_.region_code_.Mutable(GetArenaForAllocation());
-}
-inline std::string* CMsgDPPartnerMicroTxns_PartnerMicroTxn::release_region_code() {
-  // @@protoc_insertion_point(field_release:CMsgDPPartnerMicroTxns.PartnerMicroTxn.region_code)
-  if (!_internal_has_region_code()) {
-    return nullptr;
-  }
-  _impl_._has_bits_[0] &= ~0x00000002u;
-  auto* p = _impl_.region_code_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.region_code_.IsDefault()) {
-    _impl_.region_code_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
-}
-inline void CMsgDPPartnerMicroTxns_PartnerMicroTxn::set_allocated_region_code(std::string* region_code) {
-  if (region_code != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000002u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000002u;
-  }
-  _impl_.region_code_.SetAllocated(region_code, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.region_code_.IsDefault()) {
-    _impl_.region_code_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:CMsgDPPartnerMicroTxns.PartnerMicroTxn.region_code)
-}
-
-// optional int32 quantity = 16;
-inline bool CMsgDPPartnerMicroTxns_PartnerMicroTxn::_internal_has_quantity() const {
-  bool value = (_impl_._has_bits_[0] & 0x00008000u) != 0;
-  return value;
-}
-inline bool CMsgDPPartnerMicroTxns_PartnerMicroTxn::has_quantity() const {
-  return _internal_has_quantity();
-}
-inline void CMsgDPPartnerMicroTxns_PartnerMicroTxn::clear_quantity() {
-  _impl_.quantity_ = 0;
-  _impl_._has_bits_[0] &= ~0x00008000u;
-}
-inline int32_t CMsgDPPartnerMicroTxns_PartnerMicroTxn::_internal_quantity() const {
-  return _impl_.quantity_;
-}
-inline int32_t CMsgDPPartnerMicroTxns_PartnerMicroTxn::quantity() const {
-  // @@protoc_insertion_point(field_get:CMsgDPPartnerMicroTxns.PartnerMicroTxn.quantity)
-  return _internal_quantity();
-}
-inline void CMsgDPPartnerMicroTxns_PartnerMicroTxn::_internal_set_quantity(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00008000u;
-  _impl_.quantity_ = value;
-}
-inline void CMsgDPPartnerMicroTxns_PartnerMicroTxn::set_quantity(int32_t value) {
-  _internal_set_quantity(value);
-  // @@protoc_insertion_point(field_set:CMsgDPPartnerMicroTxns.PartnerMicroTxn.quantity)
-}
-
-// optional uint64 ref_trans_id = 17;
-inline bool CMsgDPPartnerMicroTxns_PartnerMicroTxn::_internal_has_ref_trans_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00010000u) != 0;
-  return value;
-}
-inline bool CMsgDPPartnerMicroTxns_PartnerMicroTxn::has_ref_trans_id() const {
-  return _internal_has_ref_trans_id();
-}
-inline void CMsgDPPartnerMicroTxns_PartnerMicroTxn::clear_ref_trans_id() {
-  _impl_.ref_trans_id_ = uint64_t{0u};
-  _impl_._has_bits_[0] &= ~0x00010000u;
-}
-inline uint64_t CMsgDPPartnerMicroTxns_PartnerMicroTxn::_internal_ref_trans_id() const {
-  return _impl_.ref_trans_id_;
-}
-inline uint64_t CMsgDPPartnerMicroTxns_PartnerMicroTxn::ref_trans_id() const {
-  // @@protoc_insertion_point(field_get:CMsgDPPartnerMicroTxns.PartnerMicroTxn.ref_trans_id)
-  return _internal_ref_trans_id();
-}
-inline void CMsgDPPartnerMicroTxns_PartnerMicroTxn::_internal_set_ref_trans_id(uint64_t value) {
-  _impl_._has_bits_[0] |= 0x00010000u;
-  _impl_.ref_trans_id_ = value;
-}
-inline void CMsgDPPartnerMicroTxns_PartnerMicroTxn::set_ref_trans_id(uint64_t value) {
-  _internal_set_ref_trans_id(value);
-  // @@protoc_insertion_point(field_set:CMsgDPPartnerMicroTxns.PartnerMicroTxn.ref_trans_id)
-}
-
-// -------------------------------------------------------------------
-
-// CMsgDPPartnerMicroTxns_PartnerInfo
-
-// optional uint32 partner_id = 1;
-inline bool CMsgDPPartnerMicroTxns_PartnerInfo::_internal_has_partner_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
-  return value;
-}
-inline bool CMsgDPPartnerMicroTxns_PartnerInfo::has_partner_id() const {
-  return _internal_has_partner_id();
-}
-inline void CMsgDPPartnerMicroTxns_PartnerInfo::clear_partner_id() {
-  _impl_.partner_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000008u;
-}
-inline uint32_t CMsgDPPartnerMicroTxns_PartnerInfo::_internal_partner_id() const {
-  return _impl_.partner_id_;
-}
-inline uint32_t CMsgDPPartnerMicroTxns_PartnerInfo::partner_id() const {
-  // @@protoc_insertion_point(field_get:CMsgDPPartnerMicroTxns.PartnerInfo.partner_id)
-  return _internal_partner_id();
-}
-inline void CMsgDPPartnerMicroTxns_PartnerInfo::_internal_set_partner_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
-  _impl_.partner_id_ = value;
-}
-inline void CMsgDPPartnerMicroTxns_PartnerInfo::set_partner_id(uint32_t value) {
-  _internal_set_partner_id(value);
-  // @@protoc_insertion_point(field_set:CMsgDPPartnerMicroTxns.PartnerInfo.partner_id)
-}
-
-// optional string partner_name = 2;
-inline bool CMsgDPPartnerMicroTxns_PartnerInfo::_internal_has_partner_name() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool CMsgDPPartnerMicroTxns_PartnerInfo::has_partner_name() const {
-  return _internal_has_partner_name();
-}
-inline void CMsgDPPartnerMicroTxns_PartnerInfo::clear_partner_name() {
-  _impl_.partner_name_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000001u;
-}
-inline const std::string& CMsgDPPartnerMicroTxns_PartnerInfo::partner_name() const {
-  // @@protoc_insertion_point(field_get:CMsgDPPartnerMicroTxns.PartnerInfo.partner_name)
-  return _internal_partner_name();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void CMsgDPPartnerMicroTxns_PartnerInfo::set_partner_name(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000001u;
- _impl_.partner_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:CMsgDPPartnerMicroTxns.PartnerInfo.partner_name)
-}
-inline std::string* CMsgDPPartnerMicroTxns_PartnerInfo::mutable_partner_name() {
-  std::string* _s = _internal_mutable_partner_name();
-  // @@protoc_insertion_point(field_mutable:CMsgDPPartnerMicroTxns.PartnerInfo.partner_name)
-  return _s;
-}
-inline const std::string& CMsgDPPartnerMicroTxns_PartnerInfo::_internal_partner_name() const {
-  return _impl_.partner_name_.Get();
-}
-inline void CMsgDPPartnerMicroTxns_PartnerInfo::_internal_set_partner_name(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  _impl_.partner_name_.Set(value, GetArenaForAllocation());
-}
-inline std::string* CMsgDPPartnerMicroTxns_PartnerInfo::_internal_mutable_partner_name() {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  return _impl_.partner_name_.Mutable(GetArenaForAllocation());
-}
-inline std::string* CMsgDPPartnerMicroTxns_PartnerInfo::release_partner_name() {
-  // @@protoc_insertion_point(field_release:CMsgDPPartnerMicroTxns.PartnerInfo.partner_name)
-  if (!_internal_has_partner_name()) {
-    return nullptr;
-  }
-  _impl_._has_bits_[0] &= ~0x00000001u;
-  auto* p = _impl_.partner_name_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.partner_name_.IsDefault()) {
-    _impl_.partner_name_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
-}
-inline void CMsgDPPartnerMicroTxns_PartnerInfo::set_allocated_partner_name(std::string* partner_name) {
-  if (partner_name != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000001u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
-  }
-  _impl_.partner_name_.SetAllocated(partner_name, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.partner_name_.IsDefault()) {
-    _impl_.partner_name_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:CMsgDPPartnerMicroTxns.PartnerInfo.partner_name)
-}
-
-// optional string currency_code = 3;
-inline bool CMsgDPPartnerMicroTxns_PartnerInfo::_internal_has_currency_code() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
-  return value;
-}
-inline bool CMsgDPPartnerMicroTxns_PartnerInfo::has_currency_code() const {
-  return _internal_has_currency_code();
-}
-inline void CMsgDPPartnerMicroTxns_PartnerInfo::clear_currency_code() {
-  _impl_.currency_code_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000002u;
-}
-inline const std::string& CMsgDPPartnerMicroTxns_PartnerInfo::currency_code() const {
-  // @@protoc_insertion_point(field_get:CMsgDPPartnerMicroTxns.PartnerInfo.currency_code)
-  return _internal_currency_code();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void CMsgDPPartnerMicroTxns_PartnerInfo::set_currency_code(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000002u;
- _impl_.currency_code_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:CMsgDPPartnerMicroTxns.PartnerInfo.currency_code)
-}
-inline std::string* CMsgDPPartnerMicroTxns_PartnerInfo::mutable_currency_code() {
-  std::string* _s = _internal_mutable_currency_code();
-  // @@protoc_insertion_point(field_mutable:CMsgDPPartnerMicroTxns.PartnerInfo.currency_code)
-  return _s;
-}
-inline const std::string& CMsgDPPartnerMicroTxns_PartnerInfo::_internal_currency_code() const {
-  return _impl_.currency_code_.Get();
-}
-inline void CMsgDPPartnerMicroTxns_PartnerInfo::_internal_set_currency_code(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  _impl_.currency_code_.Set(value, GetArenaForAllocation());
-}
-inline std::string* CMsgDPPartnerMicroTxns_PartnerInfo::_internal_mutable_currency_code() {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  return _impl_.currency_code_.Mutable(GetArenaForAllocation());
-}
-inline std::string* CMsgDPPartnerMicroTxns_PartnerInfo::release_currency_code() {
-  // @@protoc_insertion_point(field_release:CMsgDPPartnerMicroTxns.PartnerInfo.currency_code)
-  if (!_internal_has_currency_code()) {
-    return nullptr;
-  }
-  _impl_._has_bits_[0] &= ~0x00000002u;
-  auto* p = _impl_.currency_code_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.currency_code_.IsDefault()) {
-    _impl_.currency_code_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
-}
-inline void CMsgDPPartnerMicroTxns_PartnerInfo::set_allocated_currency_code(std::string* currency_code) {
-  if (currency_code != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000002u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000002u;
-  }
-  _impl_.currency_code_.SetAllocated(currency_code, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.currency_code_.IsDefault()) {
-    _impl_.currency_code_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:CMsgDPPartnerMicroTxns.PartnerInfo.currency_code)
-}
-
-// optional string currency_name = 4;
-inline bool CMsgDPPartnerMicroTxns_PartnerInfo::_internal_has_currency_name() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
-  return value;
-}
-inline bool CMsgDPPartnerMicroTxns_PartnerInfo::has_currency_name() const {
-  return _internal_has_currency_name();
-}
-inline void CMsgDPPartnerMicroTxns_PartnerInfo::clear_currency_name() {
-  _impl_.currency_name_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000004u;
-}
-inline const std::string& CMsgDPPartnerMicroTxns_PartnerInfo::currency_name() const {
-  // @@protoc_insertion_point(field_get:CMsgDPPartnerMicroTxns.PartnerInfo.currency_name)
-  return _internal_currency_name();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void CMsgDPPartnerMicroTxns_PartnerInfo::set_currency_name(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000004u;
- _impl_.currency_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:CMsgDPPartnerMicroTxns.PartnerInfo.currency_name)
-}
-inline std::string* CMsgDPPartnerMicroTxns_PartnerInfo::mutable_currency_name() {
-  std::string* _s = _internal_mutable_currency_name();
-  // @@protoc_insertion_point(field_mutable:CMsgDPPartnerMicroTxns.PartnerInfo.currency_name)
-  return _s;
-}
-inline const std::string& CMsgDPPartnerMicroTxns_PartnerInfo::_internal_currency_name() const {
-  return _impl_.currency_name_.Get();
-}
-inline void CMsgDPPartnerMicroTxns_PartnerInfo::_internal_set_currency_name(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
-  _impl_.currency_name_.Set(value, GetArenaForAllocation());
-}
-inline std::string* CMsgDPPartnerMicroTxns_PartnerInfo::_internal_mutable_currency_name() {
-  _impl_._has_bits_[0] |= 0x00000004u;
-  return _impl_.currency_name_.Mutable(GetArenaForAllocation());
-}
-inline std::string* CMsgDPPartnerMicroTxns_PartnerInfo::release_currency_name() {
-  // @@protoc_insertion_point(field_release:CMsgDPPartnerMicroTxns.PartnerInfo.currency_name)
-  if (!_internal_has_currency_name()) {
-    return nullptr;
-  }
-  _impl_._has_bits_[0] &= ~0x00000004u;
-  auto* p = _impl_.currency_name_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.currency_name_.IsDefault()) {
-    _impl_.currency_name_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
-}
-inline void CMsgDPPartnerMicroTxns_PartnerInfo::set_allocated_currency_name(std::string* currency_name) {
-  if (currency_name != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000004u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000004u;
-  }
-  _impl_.currency_name_.SetAllocated(currency_name, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.currency_name_.IsDefault()) {
-    _impl_.currency_name_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:CMsgDPPartnerMicroTxns.PartnerInfo.currency_name)
-}
-
-// -------------------------------------------------------------------
-
-// CMsgDPPartnerMicroTxns
-
-// optional uint32 appid = 1;
-inline bool CMsgDPPartnerMicroTxns::_internal_has_appid() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
-  return value;
-}
-inline bool CMsgDPPartnerMicroTxns::has_appid() const {
-  return _internal_has_appid();
-}
-inline void CMsgDPPartnerMicroTxns::clear_appid() {
-  _impl_.appid_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000004u;
-}
-inline uint32_t CMsgDPPartnerMicroTxns::_internal_appid() const {
-  return _impl_.appid_;
-}
-inline uint32_t CMsgDPPartnerMicroTxns::appid() const {
-  // @@protoc_insertion_point(field_get:CMsgDPPartnerMicroTxns.appid)
-  return _internal_appid();
-}
-inline void CMsgDPPartnerMicroTxns::_internal_set_appid(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
-  _impl_.appid_ = value;
-}
-inline void CMsgDPPartnerMicroTxns::set_appid(uint32_t value) {
-  _internal_set_appid(value);
-  // @@protoc_insertion_point(field_set:CMsgDPPartnerMicroTxns.appid)
-}
-
-// optional string gc_name = 2;
-inline bool CMsgDPPartnerMicroTxns::_internal_has_gc_name() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool CMsgDPPartnerMicroTxns::has_gc_name() const {
-  return _internal_has_gc_name();
-}
-inline void CMsgDPPartnerMicroTxns::clear_gc_name() {
-  _impl_.gc_name_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000001u;
-}
-inline const std::string& CMsgDPPartnerMicroTxns::gc_name() const {
-  // @@protoc_insertion_point(field_get:CMsgDPPartnerMicroTxns.gc_name)
-  return _internal_gc_name();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void CMsgDPPartnerMicroTxns::set_gc_name(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000001u;
- _impl_.gc_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:CMsgDPPartnerMicroTxns.gc_name)
-}
-inline std::string* CMsgDPPartnerMicroTxns::mutable_gc_name() {
-  std::string* _s = _internal_mutable_gc_name();
-  // @@protoc_insertion_point(field_mutable:CMsgDPPartnerMicroTxns.gc_name)
-  return _s;
-}
-inline const std::string& CMsgDPPartnerMicroTxns::_internal_gc_name() const {
-  return _impl_.gc_name_.Get();
-}
-inline void CMsgDPPartnerMicroTxns::_internal_set_gc_name(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  _impl_.gc_name_.Set(value, GetArenaForAllocation());
-}
-inline std::string* CMsgDPPartnerMicroTxns::_internal_mutable_gc_name() {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  return _impl_.gc_name_.Mutable(GetArenaForAllocation());
-}
-inline std::string* CMsgDPPartnerMicroTxns::release_gc_name() {
-  // @@protoc_insertion_point(field_release:CMsgDPPartnerMicroTxns.gc_name)
-  if (!_internal_has_gc_name()) {
-    return nullptr;
-  }
-  _impl_._has_bits_[0] &= ~0x00000001u;
-  auto* p = _impl_.gc_name_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.gc_name_.IsDefault()) {
-    _impl_.gc_name_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
-}
-inline void CMsgDPPartnerMicroTxns::set_allocated_gc_name(std::string* gc_name) {
-  if (gc_name != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000001u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
-  }
-  _impl_.gc_name_.SetAllocated(gc_name, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.gc_name_.IsDefault()) {
-    _impl_.gc_name_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:CMsgDPPartnerMicroTxns.gc_name)
-}
-
-// optional .CMsgDPPartnerMicroTxns.PartnerInfo partner = 3;
-inline bool CMsgDPPartnerMicroTxns::_internal_has_partner() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
-  PROTOBUF_ASSUME(!value || _impl_.partner_ != nullptr);
-  return value;
-}
-inline bool CMsgDPPartnerMicroTxns::has_partner() const {
-  return _internal_has_partner();
-}
-inline void CMsgDPPartnerMicroTxns::clear_partner() {
-  if (_impl_.partner_ != nullptr) _impl_.partner_->Clear();
-  _impl_._has_bits_[0] &= ~0x00000002u;
-}
-inline const ::CMsgDPPartnerMicroTxns_PartnerInfo& CMsgDPPartnerMicroTxns::_internal_partner() const {
-  const ::CMsgDPPartnerMicroTxns_PartnerInfo* p = _impl_.partner_;
-  return p != nullptr ? *p : reinterpret_cast<const ::CMsgDPPartnerMicroTxns_PartnerInfo&>(
-      ::_CMsgDPPartnerMicroTxns_PartnerInfo_default_instance_);
-}
-inline const ::CMsgDPPartnerMicroTxns_PartnerInfo& CMsgDPPartnerMicroTxns::partner() const {
-  // @@protoc_insertion_point(field_get:CMsgDPPartnerMicroTxns.partner)
-  return _internal_partner();
-}
-inline void CMsgDPPartnerMicroTxns::unsafe_arena_set_allocated_partner(
-    ::CMsgDPPartnerMicroTxns_PartnerInfo* partner) {
-  if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.partner_);
-  }
-  _impl_.partner_ = partner;
-  if (partner) {
-    _impl_._has_bits_[0] |= 0x00000002u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000002u;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CMsgDPPartnerMicroTxns.partner)
-}
-inline ::CMsgDPPartnerMicroTxns_PartnerInfo* CMsgDPPartnerMicroTxns::release_partner() {
-  _impl_._has_bits_[0] &= ~0x00000002u;
-  ::CMsgDPPartnerMicroTxns_PartnerInfo* temp = _impl_.partner_;
-  _impl_.partner_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
-  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
-#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArenaForAllocation() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return temp;
-}
-inline ::CMsgDPPartnerMicroTxns_PartnerInfo* CMsgDPPartnerMicroTxns::unsafe_arena_release_partner() {
-  // @@protoc_insertion_point(field_release:CMsgDPPartnerMicroTxns.partner)
-  _impl_._has_bits_[0] &= ~0x00000002u;
-  ::CMsgDPPartnerMicroTxns_PartnerInfo* temp = _impl_.partner_;
-  _impl_.partner_ = nullptr;
-  return temp;
-}
-inline ::CMsgDPPartnerMicroTxns_PartnerInfo* CMsgDPPartnerMicroTxns::_internal_mutable_partner() {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  if (_impl_.partner_ == nullptr) {
-    auto* p = CreateMaybeMessage<::CMsgDPPartnerMicroTxns_PartnerInfo>(GetArenaForAllocation());
-    _impl_.partner_ = p;
-  }
-  return _impl_.partner_;
-}
-inline ::CMsgDPPartnerMicroTxns_PartnerInfo* CMsgDPPartnerMicroTxns::mutable_partner() {
-  ::CMsgDPPartnerMicroTxns_PartnerInfo* _msg = _internal_mutable_partner();
-  // @@protoc_insertion_point(field_mutable:CMsgDPPartnerMicroTxns.partner)
-  return _msg;
-}
-inline void CMsgDPPartnerMicroTxns::set_allocated_partner(::CMsgDPPartnerMicroTxns_PartnerInfo* partner) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  if (message_arena == nullptr) {
-    delete _impl_.partner_;
-  }
-  if (partner) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(partner);
-    if (message_arena != submessage_arena) {
-      partner = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, partner, submessage_arena);
-    }
-    _impl_._has_bits_[0] |= 0x00000002u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000002u;
-  }
-  _impl_.partner_ = partner;
-  // @@protoc_insertion_point(field_set_allocated:CMsgDPPartnerMicroTxns.partner)
-}
-
-// repeated .CMsgDPPartnerMicroTxns.PartnerMicroTxn transactions = 4;
-inline int CMsgDPPartnerMicroTxns::_internal_transactions_size() const {
-  return _impl_.transactions_.size();
-}
-inline int CMsgDPPartnerMicroTxns::transactions_size() const {
-  return _internal_transactions_size();
-}
-inline void CMsgDPPartnerMicroTxns::clear_transactions() {
-  _impl_.transactions_.Clear();
-}
-inline ::CMsgDPPartnerMicroTxns_PartnerMicroTxn* CMsgDPPartnerMicroTxns::mutable_transactions(int index) {
-  // @@protoc_insertion_point(field_mutable:CMsgDPPartnerMicroTxns.transactions)
-  return _impl_.transactions_.Mutable(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgDPPartnerMicroTxns_PartnerMicroTxn >*
-CMsgDPPartnerMicroTxns::mutable_transactions() {
-  // @@protoc_insertion_point(field_mutable_list:CMsgDPPartnerMicroTxns.transactions)
-  return &_impl_.transactions_;
-}
-inline const ::CMsgDPPartnerMicroTxns_PartnerMicroTxn& CMsgDPPartnerMicroTxns::_internal_transactions(int index) const {
-  return _impl_.transactions_.Get(index);
-}
-inline const ::CMsgDPPartnerMicroTxns_PartnerMicroTxn& CMsgDPPartnerMicroTxns::transactions(int index) const {
-  // @@protoc_insertion_point(field_get:CMsgDPPartnerMicroTxns.transactions)
-  return _internal_transactions(index);
-}
-inline ::CMsgDPPartnerMicroTxns_PartnerMicroTxn* CMsgDPPartnerMicroTxns::_internal_add_transactions() {
-  return _impl_.transactions_.Add();
-}
-inline ::CMsgDPPartnerMicroTxns_PartnerMicroTxn* CMsgDPPartnerMicroTxns::add_transactions() {
-  ::CMsgDPPartnerMicroTxns_PartnerMicroTxn* _add = _internal_add_transactions();
-  // @@protoc_insertion_point(field_add:CMsgDPPartnerMicroTxns.transactions)
-  return _add;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgDPPartnerMicroTxns_PartnerMicroTxn >&
-CMsgDPPartnerMicroTxns::transactions() const {
-  // @@protoc_insertion_point(field_list:CMsgDPPartnerMicroTxns.transactions)
-  return _impl_.transactions_;
-}
-
-// -------------------------------------------------------------------
-
-// CMsgDPPartnerMicroTxnsResponse
-
-// optional uint32 eresult = 1 [default = 2];
-inline bool CMsgDPPartnerMicroTxnsResponse::_internal_has_eresult() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
-  return value;
-}
-inline bool CMsgDPPartnerMicroTxnsResponse::has_eresult() const {
-  return _internal_has_eresult();
-}
-inline void CMsgDPPartnerMicroTxnsResponse::clear_eresult() {
-  _impl_.eresult_ = 2u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
-}
-inline uint32_t CMsgDPPartnerMicroTxnsResponse::_internal_eresult() const {
-  return _impl_.eresult_;
-}
-inline uint32_t CMsgDPPartnerMicroTxnsResponse::eresult() const {
-  // @@protoc_insertion_point(field_get:CMsgDPPartnerMicroTxnsResponse.eresult)
-  return _internal_eresult();
-}
-inline void CMsgDPPartnerMicroTxnsResponse::_internal_set_eresult(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  _impl_.eresult_ = value;
-}
-inline void CMsgDPPartnerMicroTxnsResponse::set_eresult(uint32_t value) {
-  _internal_set_eresult(value);
-  // @@protoc_insertion_point(field_set:CMsgDPPartnerMicroTxnsResponse.eresult)
-}
-
-// optional .CMsgDPPartnerMicroTxnsResponse.EErrorCode eerrorcode = 2 [default = k_MsgValid];
-inline bool CMsgDPPartnerMicroTxnsResponse::_internal_has_eerrorcode() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool CMsgDPPartnerMicroTxnsResponse::has_eerrorcode() const {
-  return _internal_has_eerrorcode();
-}
-inline void CMsgDPPartnerMicroTxnsResponse::clear_eerrorcode() {
-  _impl_.eerrorcode_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000001u;
-}
-inline ::CMsgDPPartnerMicroTxnsResponse_EErrorCode CMsgDPPartnerMicroTxnsResponse::_internal_eerrorcode() const {
-  return static_cast< ::CMsgDPPartnerMicroTxnsResponse_EErrorCode >(_impl_.eerrorcode_);
-}
-inline ::CMsgDPPartnerMicroTxnsResponse_EErrorCode CMsgDPPartnerMicroTxnsResponse::eerrorcode() const {
-  // @@protoc_insertion_point(field_get:CMsgDPPartnerMicroTxnsResponse.eerrorcode)
-  return _internal_eerrorcode();
-}
-inline void CMsgDPPartnerMicroTxnsResponse::_internal_set_eerrorcode(::CMsgDPPartnerMicroTxnsResponse_EErrorCode value) {
-  assert(::CMsgDPPartnerMicroTxnsResponse_EErrorCode_IsValid(value));
-  _impl_._has_bits_[0] |= 0x00000001u;
-  _impl_.eerrorcode_ = value;
-}
-inline void CMsgDPPartnerMicroTxnsResponse::set_eerrorcode(::CMsgDPPartnerMicroTxnsResponse_EErrorCode value) {
-  _internal_set_eerrorcode(value);
-  // @@protoc_insertion_point(field_set:CMsgDPPartnerMicroTxnsResponse.eerrorcode)
-}
-
-// -------------------------------------------------------------------
-
 // CMsgGCHVacVerificationChange
 
 // optional fixed64 steamid = 1;
@@ -29740,94 +23838,6 @@ inline void CMsgGCHVacVerificationChange::_internal_set_is_verified(bool value) 
 inline void CMsgGCHVacVerificationChange::set_is_verified(bool value) {
   _internal_set_is_verified(value);
   // @@protoc_insertion_point(field_set:CMsgGCHVacVerificationChange.is_verified)
-}
-
-// -------------------------------------------------------------------
-
-// CMsgGCHAccountTwoFactorChange
-
-// optional fixed64 steamid = 1;
-inline bool CMsgGCHAccountTwoFactorChange::_internal_has_steamid() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool CMsgGCHAccountTwoFactorChange::has_steamid() const {
-  return _internal_has_steamid();
-}
-inline void CMsgGCHAccountTwoFactorChange::clear_steamid() {
-  _impl_.steamid_ = uint64_t{0u};
-  _impl_._has_bits_[0] &= ~0x00000001u;
-}
-inline uint64_t CMsgGCHAccountTwoFactorChange::_internal_steamid() const {
-  return _impl_.steamid_;
-}
-inline uint64_t CMsgGCHAccountTwoFactorChange::steamid() const {
-  // @@protoc_insertion_point(field_get:CMsgGCHAccountTwoFactorChange.steamid)
-  return _internal_steamid();
-}
-inline void CMsgGCHAccountTwoFactorChange::_internal_set_steamid(uint64_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  _impl_.steamid_ = value;
-}
-inline void CMsgGCHAccountTwoFactorChange::set_steamid(uint64_t value) {
-  _internal_set_steamid(value);
-  // @@protoc_insertion_point(field_set:CMsgGCHAccountTwoFactorChange.steamid)
-}
-
-// optional uint32 appid = 2;
-inline bool CMsgGCHAccountTwoFactorChange::_internal_has_appid() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
-  return value;
-}
-inline bool CMsgGCHAccountTwoFactorChange::has_appid() const {
-  return _internal_has_appid();
-}
-inline void CMsgGCHAccountTwoFactorChange::clear_appid() {
-  _impl_.appid_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
-}
-inline uint32_t CMsgGCHAccountTwoFactorChange::_internal_appid() const {
-  return _impl_.appid_;
-}
-inline uint32_t CMsgGCHAccountTwoFactorChange::appid() const {
-  // @@protoc_insertion_point(field_get:CMsgGCHAccountTwoFactorChange.appid)
-  return _internal_appid();
-}
-inline void CMsgGCHAccountTwoFactorChange::_internal_set_appid(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  _impl_.appid_ = value;
-}
-inline void CMsgGCHAccountTwoFactorChange::set_appid(uint32_t value) {
-  _internal_set_appid(value);
-  // @@protoc_insertion_point(field_set:CMsgGCHAccountTwoFactorChange.appid)
-}
-
-// optional bool twofactor_enabled = 3;
-inline bool CMsgGCHAccountTwoFactorChange::_internal_has_twofactor_enabled() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
-  return value;
-}
-inline bool CMsgGCHAccountTwoFactorChange::has_twofactor_enabled() const {
-  return _internal_has_twofactor_enabled();
-}
-inline void CMsgGCHAccountTwoFactorChange::clear_twofactor_enabled() {
-  _impl_.twofactor_enabled_ = false;
-  _impl_._has_bits_[0] &= ~0x00000004u;
-}
-inline bool CMsgGCHAccountTwoFactorChange::_internal_twofactor_enabled() const {
-  return _impl_.twofactor_enabled_;
-}
-inline bool CMsgGCHAccountTwoFactorChange::twofactor_enabled() const {
-  // @@protoc_insertion_point(field_get:CMsgGCHAccountTwoFactorChange.twofactor_enabled)
-  return _internal_twofactor_enabled();
-}
-inline void CMsgGCHAccountTwoFactorChange::_internal_set_twofactor_enabled(bool value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
-  _impl_.twofactor_enabled_ = value;
-}
-inline void CMsgGCHAccountTwoFactorChange::set_twofactor_enabled(bool value) {
-  _internal_set_twofactor_enabled(value);
-  // @@protoc_insertion_point(field_set:CMsgGCHAccountTwoFactorChange.twofactor_enabled)
 }
 
 // -------------------------------------------------------------------
@@ -30410,635 +24420,6 @@ inline void CMsgGCHAppCheersGetAllowedTypesResponse::_internal_set_cache_duratio
 inline void CMsgGCHAppCheersGetAllowedTypesResponse::set_cache_duration(uint32_t value) {
   _internal_set_cache_duration(value);
   // @@protoc_insertion_point(field_set:CMsgGCHAppCheersGetAllowedTypesResponse.cache_duration)
-}
-
-// -------------------------------------------------------------------
-
-// CGCSystemMsg_ReportExternalPurchase_Request
-
-// optional uint32 appid = 1;
-inline bool CGCSystemMsg_ReportExternalPurchase_Request::_internal_has_appid() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
-  return value;
-}
-inline bool CGCSystemMsg_ReportExternalPurchase_Request::has_appid() const {
-  return _internal_has_appid();
-}
-inline void CGCSystemMsg_ReportExternalPurchase_Request::clear_appid() {
-  _impl_.appid_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000040u;
-}
-inline uint32_t CGCSystemMsg_ReportExternalPurchase_Request::_internal_appid() const {
-  return _impl_.appid_;
-}
-inline uint32_t CGCSystemMsg_ReportExternalPurchase_Request::appid() const {
-  // @@protoc_insertion_point(field_get:CGCSystemMsg_ReportExternalPurchase_Request.appid)
-  return _internal_appid();
-}
-inline void CGCSystemMsg_ReportExternalPurchase_Request::_internal_set_appid(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000040u;
-  _impl_.appid_ = value;
-}
-inline void CGCSystemMsg_ReportExternalPurchase_Request::set_appid(uint32_t value) {
-  _internal_set_appid(value);
-  // @@protoc_insertion_point(field_set:CGCSystemMsg_ReportExternalPurchase_Request.appid)
-}
-
-// optional fixed64 steamid = 2;
-inline bool CGCSystemMsg_ReportExternalPurchase_Request::_internal_has_steamid() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
-  return value;
-}
-inline bool CGCSystemMsg_ReportExternalPurchase_Request::has_steamid() const {
-  return _internal_has_steamid();
-}
-inline void CGCSystemMsg_ReportExternalPurchase_Request::clear_steamid() {
-  _impl_.steamid_ = uint64_t{0u};
-  _impl_._has_bits_[0] &= ~0x00000020u;
-}
-inline uint64_t CGCSystemMsg_ReportExternalPurchase_Request::_internal_steamid() const {
-  return _impl_.steamid_;
-}
-inline uint64_t CGCSystemMsg_ReportExternalPurchase_Request::steamid() const {
-  // @@protoc_insertion_point(field_get:CGCSystemMsg_ReportExternalPurchase_Request.steamid)
-  return _internal_steamid();
-}
-inline void CGCSystemMsg_ReportExternalPurchase_Request::_internal_set_steamid(uint64_t value) {
-  _impl_._has_bits_[0] |= 0x00000020u;
-  _impl_.steamid_ = value;
-}
-inline void CGCSystemMsg_ReportExternalPurchase_Request::set_steamid(uint64_t value) {
-  _internal_set_steamid(value);
-  // @@protoc_insertion_point(field_set:CGCSystemMsg_ReportExternalPurchase_Request.steamid)
-}
-
-// optional .EMobilePaymentProvider provider = 3 [default = k_EMobilePaymentProvider_Invalid];
-inline bool CGCSystemMsg_ReportExternalPurchase_Request::_internal_has_provider() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
-  return value;
-}
-inline bool CGCSystemMsg_ReportExternalPurchase_Request::has_provider() const {
-  return _internal_has_provider();
-}
-inline void CGCSystemMsg_ReportExternalPurchase_Request::clear_provider() {
-  _impl_.provider_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000080u;
-}
-inline ::EMobilePaymentProvider CGCSystemMsg_ReportExternalPurchase_Request::_internal_provider() const {
-  return static_cast< ::EMobilePaymentProvider >(_impl_.provider_);
-}
-inline ::EMobilePaymentProvider CGCSystemMsg_ReportExternalPurchase_Request::provider() const {
-  // @@protoc_insertion_point(field_get:CGCSystemMsg_ReportExternalPurchase_Request.provider)
-  return _internal_provider();
-}
-inline void CGCSystemMsg_ReportExternalPurchase_Request::_internal_set_provider(::EMobilePaymentProvider value) {
-  assert(::EMobilePaymentProvider_IsValid(value));
-  _impl_._has_bits_[0] |= 0x00000080u;
-  _impl_.provider_ = value;
-}
-inline void CGCSystemMsg_ReportExternalPurchase_Request::set_provider(::EMobilePaymentProvider value) {
-  _internal_set_provider(value);
-  // @@protoc_insertion_point(field_set:CGCSystemMsg_ReportExternalPurchase_Request.provider)
-}
-
-// optional uint64 orderid = 4;
-inline bool CGCSystemMsg_ReportExternalPurchase_Request::_internal_has_orderid() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000100u) != 0;
-  return value;
-}
-inline bool CGCSystemMsg_ReportExternalPurchase_Request::has_orderid() const {
-  return _internal_has_orderid();
-}
-inline void CGCSystemMsg_ReportExternalPurchase_Request::clear_orderid() {
-  _impl_.orderid_ = uint64_t{0u};
-  _impl_._has_bits_[0] &= ~0x00000100u;
-}
-inline uint64_t CGCSystemMsg_ReportExternalPurchase_Request::_internal_orderid() const {
-  return _impl_.orderid_;
-}
-inline uint64_t CGCSystemMsg_ReportExternalPurchase_Request::orderid() const {
-  // @@protoc_insertion_point(field_get:CGCSystemMsg_ReportExternalPurchase_Request.orderid)
-  return _internal_orderid();
-}
-inline void CGCSystemMsg_ReportExternalPurchase_Request::_internal_set_orderid(uint64_t value) {
-  _impl_._has_bits_[0] |= 0x00000100u;
-  _impl_.orderid_ = value;
-}
-inline void CGCSystemMsg_ReportExternalPurchase_Request::set_orderid(uint64_t value) {
-  _internal_set_orderid(value);
-  // @@protoc_insertion_point(field_set:CGCSystemMsg_ReportExternalPurchase_Request.orderid)
-}
-
-// optional string provider_orderid = 5;
-inline bool CGCSystemMsg_ReportExternalPurchase_Request::_internal_has_provider_orderid() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool CGCSystemMsg_ReportExternalPurchase_Request::has_provider_orderid() const {
-  return _internal_has_provider_orderid();
-}
-inline void CGCSystemMsg_ReportExternalPurchase_Request::clear_provider_orderid() {
-  _impl_.provider_orderid_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000001u;
-}
-inline const std::string& CGCSystemMsg_ReportExternalPurchase_Request::provider_orderid() const {
-  // @@protoc_insertion_point(field_get:CGCSystemMsg_ReportExternalPurchase_Request.provider_orderid)
-  return _internal_provider_orderid();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void CGCSystemMsg_ReportExternalPurchase_Request::set_provider_orderid(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000001u;
- _impl_.provider_orderid_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:CGCSystemMsg_ReportExternalPurchase_Request.provider_orderid)
-}
-inline std::string* CGCSystemMsg_ReportExternalPurchase_Request::mutable_provider_orderid() {
-  std::string* _s = _internal_mutable_provider_orderid();
-  // @@protoc_insertion_point(field_mutable:CGCSystemMsg_ReportExternalPurchase_Request.provider_orderid)
-  return _s;
-}
-inline const std::string& CGCSystemMsg_ReportExternalPurchase_Request::_internal_provider_orderid() const {
-  return _impl_.provider_orderid_.Get();
-}
-inline void CGCSystemMsg_ReportExternalPurchase_Request::_internal_set_provider_orderid(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  _impl_.provider_orderid_.Set(value, GetArenaForAllocation());
-}
-inline std::string* CGCSystemMsg_ReportExternalPurchase_Request::_internal_mutable_provider_orderid() {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  return _impl_.provider_orderid_.Mutable(GetArenaForAllocation());
-}
-inline std::string* CGCSystemMsg_ReportExternalPurchase_Request::release_provider_orderid() {
-  // @@protoc_insertion_point(field_release:CGCSystemMsg_ReportExternalPurchase_Request.provider_orderid)
-  if (!_internal_has_provider_orderid()) {
-    return nullptr;
-  }
-  _impl_._has_bits_[0] &= ~0x00000001u;
-  auto* p = _impl_.provider_orderid_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.provider_orderid_.IsDefault()) {
-    _impl_.provider_orderid_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
-}
-inline void CGCSystemMsg_ReportExternalPurchase_Request::set_allocated_provider_orderid(std::string* provider_orderid) {
-  if (provider_orderid != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000001u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
-  }
-  _impl_.provider_orderid_.SetAllocated(provider_orderid, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.provider_orderid_.IsDefault()) {
-    _impl_.provider_orderid_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:CGCSystemMsg_ReportExternalPurchase_Request.provider_orderid)
-}
-
-// optional int64 amount = 6;
-inline bool CGCSystemMsg_ReportExternalPurchase_Request::_internal_has_amount() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000200u) != 0;
-  return value;
-}
-inline bool CGCSystemMsg_ReportExternalPurchase_Request::has_amount() const {
-  return _internal_has_amount();
-}
-inline void CGCSystemMsg_ReportExternalPurchase_Request::clear_amount() {
-  _impl_.amount_ = int64_t{0};
-  _impl_._has_bits_[0] &= ~0x00000200u;
-}
-inline int64_t CGCSystemMsg_ReportExternalPurchase_Request::_internal_amount() const {
-  return _impl_.amount_;
-}
-inline int64_t CGCSystemMsg_ReportExternalPurchase_Request::amount() const {
-  // @@protoc_insertion_point(field_get:CGCSystemMsg_ReportExternalPurchase_Request.amount)
-  return _internal_amount();
-}
-inline void CGCSystemMsg_ReportExternalPurchase_Request::_internal_set_amount(int64_t value) {
-  _impl_._has_bits_[0] |= 0x00000200u;
-  _impl_.amount_ = value;
-}
-inline void CGCSystemMsg_ReportExternalPurchase_Request::set_amount(int64_t value) {
-  _internal_set_amount(value);
-  // @@protoc_insertion_point(field_set:CGCSystemMsg_ReportExternalPurchase_Request.amount)
-}
-
-// optional string currency = 7;
-inline bool CGCSystemMsg_ReportExternalPurchase_Request::_internal_has_currency() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
-  return value;
-}
-inline bool CGCSystemMsg_ReportExternalPurchase_Request::has_currency() const {
-  return _internal_has_currency();
-}
-inline void CGCSystemMsg_ReportExternalPurchase_Request::clear_currency() {
-  _impl_.currency_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000002u;
-}
-inline const std::string& CGCSystemMsg_ReportExternalPurchase_Request::currency() const {
-  // @@protoc_insertion_point(field_get:CGCSystemMsg_ReportExternalPurchase_Request.currency)
-  return _internal_currency();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void CGCSystemMsg_ReportExternalPurchase_Request::set_currency(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000002u;
- _impl_.currency_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:CGCSystemMsg_ReportExternalPurchase_Request.currency)
-}
-inline std::string* CGCSystemMsg_ReportExternalPurchase_Request::mutable_currency() {
-  std::string* _s = _internal_mutable_currency();
-  // @@protoc_insertion_point(field_mutable:CGCSystemMsg_ReportExternalPurchase_Request.currency)
-  return _s;
-}
-inline const std::string& CGCSystemMsg_ReportExternalPurchase_Request::_internal_currency() const {
-  return _impl_.currency_.Get();
-}
-inline void CGCSystemMsg_ReportExternalPurchase_Request::_internal_set_currency(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  _impl_.currency_.Set(value, GetArenaForAllocation());
-}
-inline std::string* CGCSystemMsg_ReportExternalPurchase_Request::_internal_mutable_currency() {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  return _impl_.currency_.Mutable(GetArenaForAllocation());
-}
-inline std::string* CGCSystemMsg_ReportExternalPurchase_Request::release_currency() {
-  // @@protoc_insertion_point(field_release:CGCSystemMsg_ReportExternalPurchase_Request.currency)
-  if (!_internal_has_currency()) {
-    return nullptr;
-  }
-  _impl_._has_bits_[0] &= ~0x00000002u;
-  auto* p = _impl_.currency_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.currency_.IsDefault()) {
-    _impl_.currency_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
-}
-inline void CGCSystemMsg_ReportExternalPurchase_Request::set_allocated_currency(std::string* currency) {
-  if (currency != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000002u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000002u;
-  }
-  _impl_.currency_.SetAllocated(currency, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.currency_.IsDefault()) {
-    _impl_.currency_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:CGCSystemMsg_ReportExternalPurchase_Request.currency)
-}
-
-// optional uint32 quantity = 8;
-inline bool CGCSystemMsg_ReportExternalPurchase_Request::_internal_has_quantity() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000400u) != 0;
-  return value;
-}
-inline bool CGCSystemMsg_ReportExternalPurchase_Request::has_quantity() const {
-  return _internal_has_quantity();
-}
-inline void CGCSystemMsg_ReportExternalPurchase_Request::clear_quantity() {
-  _impl_.quantity_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000400u;
-}
-inline uint32_t CGCSystemMsg_ReportExternalPurchase_Request::_internal_quantity() const {
-  return _impl_.quantity_;
-}
-inline uint32_t CGCSystemMsg_ReportExternalPurchase_Request::quantity() const {
-  // @@protoc_insertion_point(field_get:CGCSystemMsg_ReportExternalPurchase_Request.quantity)
-  return _internal_quantity();
-}
-inline void CGCSystemMsg_ReportExternalPurchase_Request::_internal_set_quantity(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000400u;
-  _impl_.quantity_ = value;
-}
-inline void CGCSystemMsg_ReportExternalPurchase_Request::set_quantity(uint32_t value) {
-  _internal_set_quantity(value);
-  // @@protoc_insertion_point(field_set:CGCSystemMsg_ReportExternalPurchase_Request.quantity)
-}
-
-// optional uint32 itemid = 9;
-inline bool CGCSystemMsg_ReportExternalPurchase_Request::_internal_has_itemid() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000800u) != 0;
-  return value;
-}
-inline bool CGCSystemMsg_ReportExternalPurchase_Request::has_itemid() const {
-  return _internal_has_itemid();
-}
-inline void CGCSystemMsg_ReportExternalPurchase_Request::clear_itemid() {
-  _impl_.itemid_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000800u;
-}
-inline uint32_t CGCSystemMsg_ReportExternalPurchase_Request::_internal_itemid() const {
-  return _impl_.itemid_;
-}
-inline uint32_t CGCSystemMsg_ReportExternalPurchase_Request::itemid() const {
-  // @@protoc_insertion_point(field_get:CGCSystemMsg_ReportExternalPurchase_Request.itemid)
-  return _internal_itemid();
-}
-inline void CGCSystemMsg_ReportExternalPurchase_Request::_internal_set_itemid(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000800u;
-  _impl_.itemid_ = value;
-}
-inline void CGCSystemMsg_ReportExternalPurchase_Request::set_itemid(uint32_t value) {
-  _internal_set_itemid(value);
-  // @@protoc_insertion_point(field_set:CGCSystemMsg_ReportExternalPurchase_Request.itemid)
-}
-
-// optional string item_description = 10;
-inline bool CGCSystemMsg_ReportExternalPurchase_Request::_internal_has_item_description() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
-  return value;
-}
-inline bool CGCSystemMsg_ReportExternalPurchase_Request::has_item_description() const {
-  return _internal_has_item_description();
-}
-inline void CGCSystemMsg_ReportExternalPurchase_Request::clear_item_description() {
-  _impl_.item_description_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000004u;
-}
-inline const std::string& CGCSystemMsg_ReportExternalPurchase_Request::item_description() const {
-  // @@protoc_insertion_point(field_get:CGCSystemMsg_ReportExternalPurchase_Request.item_description)
-  return _internal_item_description();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void CGCSystemMsg_ReportExternalPurchase_Request::set_item_description(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000004u;
- _impl_.item_description_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:CGCSystemMsg_ReportExternalPurchase_Request.item_description)
-}
-inline std::string* CGCSystemMsg_ReportExternalPurchase_Request::mutable_item_description() {
-  std::string* _s = _internal_mutable_item_description();
-  // @@protoc_insertion_point(field_mutable:CGCSystemMsg_ReportExternalPurchase_Request.item_description)
-  return _s;
-}
-inline const std::string& CGCSystemMsg_ReportExternalPurchase_Request::_internal_item_description() const {
-  return _impl_.item_description_.Get();
-}
-inline void CGCSystemMsg_ReportExternalPurchase_Request::_internal_set_item_description(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
-  _impl_.item_description_.Set(value, GetArenaForAllocation());
-}
-inline std::string* CGCSystemMsg_ReportExternalPurchase_Request::_internal_mutable_item_description() {
-  _impl_._has_bits_[0] |= 0x00000004u;
-  return _impl_.item_description_.Mutable(GetArenaForAllocation());
-}
-inline std::string* CGCSystemMsg_ReportExternalPurchase_Request::release_item_description() {
-  // @@protoc_insertion_point(field_release:CGCSystemMsg_ReportExternalPurchase_Request.item_description)
-  if (!_internal_has_item_description()) {
-    return nullptr;
-  }
-  _impl_._has_bits_[0] &= ~0x00000004u;
-  auto* p = _impl_.item_description_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.item_description_.IsDefault()) {
-    _impl_.item_description_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
-}
-inline void CGCSystemMsg_ReportExternalPurchase_Request::set_allocated_item_description(std::string* item_description) {
-  if (item_description != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000004u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000004u;
-  }
-  _impl_.item_description_.SetAllocated(item_description, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.item_description_.IsDefault()) {
-    _impl_.item_description_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:CGCSystemMsg_ReportExternalPurchase_Request.item_description)
-}
-
-// optional string language = 11;
-inline bool CGCSystemMsg_ReportExternalPurchase_Request::_internal_has_language() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
-  return value;
-}
-inline bool CGCSystemMsg_ReportExternalPurchase_Request::has_language() const {
-  return _internal_has_language();
-}
-inline void CGCSystemMsg_ReportExternalPurchase_Request::clear_language() {
-  _impl_.language_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000008u;
-}
-inline const std::string& CGCSystemMsg_ReportExternalPurchase_Request::language() const {
-  // @@protoc_insertion_point(field_get:CGCSystemMsg_ReportExternalPurchase_Request.language)
-  return _internal_language();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void CGCSystemMsg_ReportExternalPurchase_Request::set_language(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000008u;
- _impl_.language_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:CGCSystemMsg_ReportExternalPurchase_Request.language)
-}
-inline std::string* CGCSystemMsg_ReportExternalPurchase_Request::mutable_language() {
-  std::string* _s = _internal_mutable_language();
-  // @@protoc_insertion_point(field_mutable:CGCSystemMsg_ReportExternalPurchase_Request.language)
-  return _s;
-}
-inline const std::string& CGCSystemMsg_ReportExternalPurchase_Request::_internal_language() const {
-  return _impl_.language_.Get();
-}
-inline void CGCSystemMsg_ReportExternalPurchase_Request::_internal_set_language(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
-  _impl_.language_.Set(value, GetArenaForAllocation());
-}
-inline std::string* CGCSystemMsg_ReportExternalPurchase_Request::_internal_mutable_language() {
-  _impl_._has_bits_[0] |= 0x00000008u;
-  return _impl_.language_.Mutable(GetArenaForAllocation());
-}
-inline std::string* CGCSystemMsg_ReportExternalPurchase_Request::release_language() {
-  // @@protoc_insertion_point(field_release:CGCSystemMsg_ReportExternalPurchase_Request.language)
-  if (!_internal_has_language()) {
-    return nullptr;
-  }
-  _impl_._has_bits_[0] &= ~0x00000008u;
-  auto* p = _impl_.language_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.language_.IsDefault()) {
-    _impl_.language_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
-}
-inline void CGCSystemMsg_ReportExternalPurchase_Request::set_allocated_language(std::string* language) {
-  if (language != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000008u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000008u;
-  }
-  _impl_.language_.SetAllocated(language, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.language_.IsDefault()) {
-    _impl_.language_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:CGCSystemMsg_ReportExternalPurchase_Request.language)
-}
-
-// optional string category = 12;
-inline bool CGCSystemMsg_ReportExternalPurchase_Request::_internal_has_category() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
-  return value;
-}
-inline bool CGCSystemMsg_ReportExternalPurchase_Request::has_category() const {
-  return _internal_has_category();
-}
-inline void CGCSystemMsg_ReportExternalPurchase_Request::clear_category() {
-  _impl_.category_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000010u;
-}
-inline const std::string& CGCSystemMsg_ReportExternalPurchase_Request::category() const {
-  // @@protoc_insertion_point(field_get:CGCSystemMsg_ReportExternalPurchase_Request.category)
-  return _internal_category();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void CGCSystemMsg_ReportExternalPurchase_Request::set_category(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000010u;
- _impl_.category_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:CGCSystemMsg_ReportExternalPurchase_Request.category)
-}
-inline std::string* CGCSystemMsg_ReportExternalPurchase_Request::mutable_category() {
-  std::string* _s = _internal_mutable_category();
-  // @@protoc_insertion_point(field_mutable:CGCSystemMsg_ReportExternalPurchase_Request.category)
-  return _s;
-}
-inline const std::string& CGCSystemMsg_ReportExternalPurchase_Request::_internal_category() const {
-  return _impl_.category_.Get();
-}
-inline void CGCSystemMsg_ReportExternalPurchase_Request::_internal_set_category(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
-  _impl_.category_.Set(value, GetArenaForAllocation());
-}
-inline std::string* CGCSystemMsg_ReportExternalPurchase_Request::_internal_mutable_category() {
-  _impl_._has_bits_[0] |= 0x00000010u;
-  return _impl_.category_.Mutable(GetArenaForAllocation());
-}
-inline std::string* CGCSystemMsg_ReportExternalPurchase_Request::release_category() {
-  // @@protoc_insertion_point(field_release:CGCSystemMsg_ReportExternalPurchase_Request.category)
-  if (!_internal_has_category()) {
-    return nullptr;
-  }
-  _impl_._has_bits_[0] &= ~0x00000010u;
-  auto* p = _impl_.category_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.category_.IsDefault()) {
-    _impl_.category_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
-}
-inline void CGCSystemMsg_ReportExternalPurchase_Request::set_allocated_category(std::string* category) {
-  if (category != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000010u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000010u;
-  }
-  _impl_.category_.SetAllocated(category, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.category_.IsDefault()) {
-    _impl_.category_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:CGCSystemMsg_ReportExternalPurchase_Request.category)
-}
-
-// optional uint32 time_created = 13;
-inline bool CGCSystemMsg_ReportExternalPurchase_Request::_internal_has_time_created() const {
-  bool value = (_impl_._has_bits_[0] & 0x00001000u) != 0;
-  return value;
-}
-inline bool CGCSystemMsg_ReportExternalPurchase_Request::has_time_created() const {
-  return _internal_has_time_created();
-}
-inline void CGCSystemMsg_ReportExternalPurchase_Request::clear_time_created() {
-  _impl_.time_created_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00001000u;
-}
-inline uint32_t CGCSystemMsg_ReportExternalPurchase_Request::_internal_time_created() const {
-  return _impl_.time_created_;
-}
-inline uint32_t CGCSystemMsg_ReportExternalPurchase_Request::time_created() const {
-  // @@protoc_insertion_point(field_get:CGCSystemMsg_ReportExternalPurchase_Request.time_created)
-  return _internal_time_created();
-}
-inline void CGCSystemMsg_ReportExternalPurchase_Request::_internal_set_time_created(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00001000u;
-  _impl_.time_created_ = value;
-}
-inline void CGCSystemMsg_ReportExternalPurchase_Request::set_time_created(uint32_t value) {
-  _internal_set_time_created(value);
-  // @@protoc_insertion_point(field_set:CGCSystemMsg_ReportExternalPurchase_Request.time_created)
-}
-
-// -------------------------------------------------------------------
-
-// CGCSystemMsg_ReportExternalPurchase_Response
-
-// optional fixed64 transid = 1;
-inline bool CGCSystemMsg_ReportExternalPurchase_Response::_internal_has_transid() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool CGCSystemMsg_ReportExternalPurchase_Response::has_transid() const {
-  return _internal_has_transid();
-}
-inline void CGCSystemMsg_ReportExternalPurchase_Response::clear_transid() {
-  _impl_.transid_ = uint64_t{0u};
-  _impl_._has_bits_[0] &= ~0x00000001u;
-}
-inline uint64_t CGCSystemMsg_ReportExternalPurchase_Response::_internal_transid() const {
-  return _impl_.transid_;
-}
-inline uint64_t CGCSystemMsg_ReportExternalPurchase_Response::transid() const {
-  // @@protoc_insertion_point(field_get:CGCSystemMsg_ReportExternalPurchase_Response.transid)
-  return _internal_transid();
-}
-inline void CGCSystemMsg_ReportExternalPurchase_Response::_internal_set_transid(uint64_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  _impl_.transid_ = value;
-}
-inline void CGCSystemMsg_ReportExternalPurchase_Response::set_transid(uint64_t value) {
-  _internal_set_transid(value);
-  // @@protoc_insertion_point(field_set:CGCSystemMsg_ReportExternalPurchase_Response.transid)
-}
-
-// optional uint64 orderid = 2;
-inline bool CGCSystemMsg_ReportExternalPurchase_Response::_internal_has_orderid() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
-  return value;
-}
-inline bool CGCSystemMsg_ReportExternalPurchase_Response::has_orderid() const {
-  return _internal_has_orderid();
-}
-inline void CGCSystemMsg_ReportExternalPurchase_Response::clear_orderid() {
-  _impl_.orderid_ = uint64_t{0u};
-  _impl_._has_bits_[0] &= ~0x00000002u;
-}
-inline uint64_t CGCSystemMsg_ReportExternalPurchase_Response::_internal_orderid() const {
-  return _impl_.orderid_;
-}
-inline uint64_t CGCSystemMsg_ReportExternalPurchase_Response::orderid() const {
-  // @@protoc_insertion_point(field_get:CGCSystemMsg_ReportExternalPurchase_Response.orderid)
-  return _internal_orderid();
-}
-inline void CGCSystemMsg_ReportExternalPurchase_Response::_internal_set_orderid(uint64_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  _impl_.orderid_ = value;
-}
-inline void CGCSystemMsg_ReportExternalPurchase_Response::set_orderid(uint64_t value) {
-  _internal_set_orderid(value);
-  // @@protoc_insertion_point(field_set:CGCSystemMsg_ReportExternalPurchase_Response.orderid)
 }
 
 // -------------------------------------------------------------------
@@ -31746,38 +25127,6 @@ CWorkshop_GetSpecialPayments_Response::special_payments() const {
 
 // -------------------------------------------------------------------
 
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
 
 // @@protoc_insertion_point(namespace_scope)
 
@@ -31798,16 +25147,6 @@ template <> struct is_proto_enum< ::CMsgGCMsgSetOptions_GCSQLVersion> : ::std::t
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::CMsgGCMsgSetOptions_GCSQLVersion>() {
   return ::CMsgGCMsgSetOptions_GCSQLVersion_descriptor();
-}
-template <> struct is_proto_enum< ::CMsgDPPartnerMicroTxnsResponse_EErrorCode> : ::std::true_type {};
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::CMsgDPPartnerMicroTxnsResponse_EErrorCode>() {
-  return ::CMsgDPPartnerMicroTxnsResponse_EErrorCode_descriptor();
-}
-template <> struct is_proto_enum< ::EMobilePaymentProvider> : ::std::true_type {};
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::EMobilePaymentProvider>() {
-  return ::EMobilePaymentProvider_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE

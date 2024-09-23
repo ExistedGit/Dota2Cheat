@@ -1,0 +1,103 @@
+{
+  "\\game\\dota\\bin\\win64\\": {
+    "client.dll": {
+      "CRenderGameSystem": {
+        "methods": {
+          "WorldToProjectionMatrix": "48 63 C2 48 8D 0D ? ? ? ? 48 C1 E0 06"
+        }
+      },
+      "CSource2Client": {
+        "methods": {
+          "NotifyDisconnect": "48 89 5C 24 ? 57 48 83 EC 70 8B DA 48 8D 4C 24",
+          "GetNetworkFieldChangeCallbackQueue": "48 8B 05 ? ? ? ? 48 8B 88 ? ? ? ? 48 8B 01 48 FF 60 08",
+          "FrameStageNotify": "48 89 5C 24 ? 56 48 83 EC 40 8B 05 ? ? ? ? 8D 5A FF",
+          "VoiceReliable": "48 83 EC 28 48 8B 0D ? ? ? ? 48 85 C9 74 10 E8 ? ? ? ? 84 C0"
+        }
+      },
+      "CDOTA_Buff": {
+        "methods": {
+          "OnAddModifier": "89 51 78 C3 CC CC CC CC CC CC CC CC CC CC CC CC 48 89 5C 24 ? 57 48 81 EC"
+        }
+      },
+      "C_BaseEntity": {
+        "mappedName": "CBaseEntity",
+        "methods": {
+          "GetSchemaBinding": "48 8B 41 10 48 8B 48 08 48 8B 81 ? ? ? ? 48 85 C0 75 14 48 8B 49 30 48 85 C9 74 0B 48 8B 49 18 33 D2 E9 ? ? ? ? C3 CC CC CC CC CC CC CC 48 8B 41 10 48 8B 48 08 48 8B 81 ? ? ? ? 48 85 C0 75 14 48 8B 49 30 48 85 C9 74 0B 48 8B 49 18 33 D2 E9 ? ? ? ? C3 CC CC CC CC CC CC CC 48 8B 41 10 48 8B 48 08 48 8B 81 ? ? ? ? 48 85 C0 75 14 48 8B 49 30 48 85 C9 74 0B 48 8B 49 18 33 D2 E9 ? ? ? ? C3 CC CC CC CC CC CC CC 48 8B 41 10 48 8B 48 08 48 8B 81 ? ? ? ? 48 85 C0 75 14 48 8B 49 30 48 85 C9 74 0B 48 8B 49 18 33 D2 E9 ? ? ? ? C3 CC CC CC CC CC CC CC 48 8B 41 10 48 8B 48 08 48 8B 81 ? ? ? ? 48 85 C0 75 14 48 8B 49 30 48 85 C9 74 0B 48 8B 49 18 33 D2 E9 ? ? ? ? C3 CC CC CC CC CC CC CC 48 8B 41 10 48 8B 48 08 48 8B 81 ? ? ? ? 48 85 C0 75 14 48 8B 49 30 48 85 C9 74 0B 48 8B 49 18 33 D2 E9 ? ? ? ? C3 CC CC CC CC CC CC CC 48 8B 41 10 48 8B 48 08 48 8B 81 ? ? ? ? 48 85 C0 75 14 48 8B 49 30 48 85 C9 74 0B 48 8B 49 18 33 D2 E9 ? ? ? ? C3 CC CC CC CC CC CC CC 48 8B 41 10 48 8B 48 08 48 8B 81 ? ? ? ? 48 85 C0 75 14 48 8B 49 30 48 85 C9 74 0B 48 8B 49 18 33 D2 E9 ? ? ? ? C3 CC CC CC CC CC CC CC 48 8B 41 10 48 8B 48 08 48 8B 81 ? ? ? ? 48 85 C0 75 14 48 8B 49 30 48 85 C9 74 0B 48 8B 49 18 33 D2 E9 ? ? ? ? C3 CC CC CC CC CC CC CC 48 8B 41 10 48 8B 48 08 48 8B 81 ? ? ? ? 48 85 C0 75 14 48 8B 49 30 48 85 C9 74 0B 48 8B 49 18 33 D2 E9 ? ? ? ? C3 CC CC CC CC CC CC CC 48 8B 41 10 48 8B 48 08 48 8B 81 ? ? ? ? 48 85 C0 75 14 48 8B 49 30 48 85 C9 74 0B 48 8B 49 18 33 D2 E9 ? ? ? ? C3 CC CC CC CC CC CC CC 48 8B 41 10 48 8B 48 08 48 8B 81 ? ? ? ? 48 85 C0 75 14 48 8B 49 30 48 85 C9 74 0B 48 8B 49 18 33 D2 E9 ? ? ? ? C3 CC CC CC CC CC CC CC 48 8B 41 10 48 8B 48 08 48 8B 81 ? ? ? ? 48 85 C0 75 14 48 8B 49 30 48 85 C9 74 0B 48 8B 49 18 33 D2 E9 ? ? ? ? C3 CC CC CC CC CC CC CC 48 8B 41 10 48 8B 48 08 48 8B 81 ? ? ? ? 48 85 C0 75 14 48 8B 49 30 48 85 C9 74 0B 48 8B 49 18 33 D2 E9 ? ? ? ? C3 CC CC CC CC CC CC CC 48 83 EC 28 48 8B 05"
+        }
+      },
+      "C_DOTA_BaseNPC": {
+        "mappedName": "CDOTABaseNPC",
+        "methods": {
+          "GetIdealSpeed": "40 53 48 83 EC 20 48 8B 01 48 8B D9 FF 90 ? ? ? ? 45 33 C0",
+          "OnWearablesChanged": {
+            "pattern": "E8 ? ? ? ? 80 BB ? ? ? ? ? 74 07 80 8B",
+            "steps": [[0, 1]]
+          },
+          "GetAttackRange": "48 8B C4 48 89 58 08 48 89 70 10 48 89 78 18 55 41 56 41 57 48 8D A8 ? ? ? ? 48 81 EC ? ? ? ? 45 33 F6",
+          "GetPhysicalArmorValue": "48 89 5C 24 ? 57 48 83 EC 30 48 8B 01 0F B6 FA",
+          "GetMagicalArmorValue": "48 8B C4 48 89 58 08 48 89 70 10 48 89 78 18 55 41 54 41 55 41 56 41 57 48 8D A8 ? ? ? ? 48 81 EC ? ? ? ? 0F 29 70 C8 49 8B F0"
+        }
+      },
+      "C_DOTABaseAbility": {
+        "mappedName": "CDOTABaseAbility",
+        "methods": {
+          "GetEffectiveCastRange": "4C 8B DC 55 53 57 41 54"
+        }
+      },
+      "CGameSceneNode": {
+        "methods": {
+          "SetScale": "48 83 EC 28 48 89 6C 24 ? 48 89 74 24"
+        }
+      },
+      "CDOTA_ParticleManager": {
+        "mappedName": "CDOTAParticleManager",
+        "methods": {
+          "CreateParticle": "48 8B C4 48 89 58 10 48 89 68 18 56 57 41 56 48 81 EC ? ? ? ? 33 ED"
+        }
+      }
+    }
+  },
+  "\\game\\bin\\win64\\": {
+    "particles.dll": {
+      "CParticleCollection": {
+        "methods": {
+          "SetRenderingEnabled": "4C 8B DC 55 56 41 54",
+          "SetControlPoint": "4D 8B C8 44 8B C2 48 C7 C2"
+        }
+      }
+    },
+    "networksystem.dll": {
+      "CNetChan": {
+        "methods": {
+          "PostReceivedNetMessage": "48 83 EC 48 8B 44 24 78",
+          "SendNetMessage": {
+            "pattern": "E8 ? ? ? ? 48 8D 05 ? ? ? ? 48 89 44 24 ? 0F B6 44 24 ? 41 84 C5",
+            "steps": [[0, 1]]
+          }
+        }
+      }
+    },
+    "engine2.dll": {
+      "CEngineServiceMgr": {
+        "methods": {
+          "GetScreenSize": "48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC 20 33 DB 48 8B F1"
+        }
+      },
+      "CEngineClient": {
+        "methods": {
+          "IsInGame": "48 8B 05 ? ? ? ? 48 85 C0 74 15 80 B8 ? ? ? ? ? 75 0B"
+        }
+      }
+    },
+    "panorama.dll": {
+      "panorama::CUIEngineSource2": {
+        "mappedName": "CUIEngineSource2",
+        "methods": {
+          "RunFrame": "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 48 83 EC 20 33 DB",
+          "IsValidPanelPointer": "8B 81 ? ? ? ? 4C 8B D9 83 F8 FF 74 41",
+          "RunScript": "4C 89 4C 24 ? 4C 89 44 24 ? 48 89 54 24 ? 55"
+        }
+      }
+    }
+  }
+}

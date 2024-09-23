@@ -317,6 +317,7 @@ PROTOBUF_CONSTEXPR CMsgDotaScenario_Hero::CMsgDotaScenario_Hero(
   , /*decltype(_impl_.first_blood_given_)*/false
   , /*decltype(_impl_.bounty_runes_)*/0
   , /*decltype(_impl_.outposts_captured_)*/0
+  , /*decltype(_impl_.hero_facet_)*/0u
   , /*decltype(_impl_.player_id_)*/-1
   , /*decltype(_impl_.respawn_seconds_)*/-1} {}
 struct CMsgDotaScenario_HeroDefaultTypeInternal {
@@ -713,8 +714,9 @@ const uint32_t TableStruct_dota_5fscenariomessages_2eproto::offsets[] PROTOBUF_S
   PROTOBUF_FIELD_OFFSET(::CMsgDotaScenario_Hero, _impl_.enemy_kills_),
   PROTOBUF_FIELD_OFFSET(::CMsgDotaScenario_Hero, _impl_.damage_stats_),
   PROTOBUF_FIELD_OFFSET(::CMsgDotaScenario_Hero, _impl_.abilities_),
+  PROTOBUF_FIELD_OFFSET(::CMsgDotaScenario_Hero, _impl_.hero_facet_),
   2,
-  58,
+  59,
   3,
   0,
   4,
@@ -766,7 +768,7 @@ const uint32_t TableStruct_dota_5fscenariomessages_2eproto::offsets[] PROTOBUF_S
   50,
   51,
   52,
-  59,
+  60,
   53,
   54,
   55,
@@ -776,6 +778,7 @@ const uint32_t TableStruct_dota_5fscenariomessages_2eproto::offsets[] PROTOBUF_S
   ~0u,
   ~0u,
   ~0u,
+  58,
   PROTOBUF_FIELD_OFFSET(::CMsgDotaScenario_Stock, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgDotaScenario_Stock, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -926,13 +929,13 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 148, 156, -1, sizeof(::CMsgDotaScenario_HeroHeroFloat)},
   { 158, 169, -1, sizeof(::CMsgDotaScenario_DamageStatsByType)},
   { 174, 182, -1, sizeof(::CMsgDotaScenario_HeroAbility)},
-  { 184, 253, -1, sizeof(::CMsgDotaScenario_Hero)},
-  { 316, 328, -1, sizeof(::CMsgDotaScenario_Stock)},
-  { 334, 345, -1, sizeof(::CMsgDotaScenario_Building)},
-  { 350, 360, -1, sizeof(::CMsgDotaScenario_Entity)},
-  { 364, 379, -1, sizeof(::CMsgDotaScenario_Item)},
-  { 388, 410, -1, sizeof(::CMsgDotaScenario_Modifier)},
-  { 426, 441, -1, sizeof(::CMsgDotaScenario)},
+  { 184, 254, -1, sizeof(::CMsgDotaScenario_Hero)},
+  { 318, 330, -1, sizeof(::CMsgDotaScenario_Stock)},
+  { 336, 347, -1, sizeof(::CMsgDotaScenario_Building)},
+  { 352, 362, -1, sizeof(::CMsgDotaScenario_Entity)},
+  { 366, 381, -1, sizeof(::CMsgDotaScenario_Item)},
+  { 390, 412, -1, sizeof(::CMsgDotaScenario_Modifier)},
+  { 428, 443, -1, sizeof(::CMsgDotaScenario)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -976,7 +979,7 @@ const char descriptor_table_protodef_dota_5fscenariomessages_2eproto[] PROTOBUF_
   "CScenarioEnt_SpiritBear\022\024\n\010owner_id\030\001 \001("
   "\005:\002-1\022\017\n\007team_id\030\002 \001(\005\"A\n\030CScenarioEnt_D"
   "roppedItem\022%\n\010position\030\001 \001(\0132\023.CScenario"
-  "_Position\"\262 \n\020CMsgDotaScenario\022\020\n\010lobby_"
+  "_Position\"\307 \n\020CMsgDotaScenario\022\020\n\010lobby_"
   "id\030\001 \001(\004\022$\n\004game\030\002 \001(\0132\026.CMsgDotaScenari"
   "o.Game\022%\n\005teams\030\003 \003(\0132\026.CMsgDotaScenario"
   ".Team\022&\n\006heroes\030\004 \003(\0132\026.CMsgDotaScenario"
@@ -1007,7 +1010,7 @@ const char descriptor_table_protodef_dota_5fscenariomessages_2eproto[] PROTOBUF_
   "reduction\030\003 \001(\005\022\036\n\026outgoing_pre_reductio"
   "n\030\004 \001(\005\022\037\n\027outgoing_post_reduction\030\005 \001(\005"
   "\032*\n\013HeroAbility\022\014\n\004name\030\001 \001(\t\022\r\n\005level\030\002"
-  " \001(\005\032\334\014\n\004Hero\022\020\n\010steam_id\030\001 \001(\006\022\025\n\tplaye"
+  " \001(\005\032\361\014\n\004Hero\022\020\n\010steam_id\030\001 \001(\006\022\025\n\tplaye"
   "r_id\030\002 \001(\005:\002-1\022\017\n\007team_id\030\003 \001(\005\022\014\n\004hero\030"
   "\004 \001(\t\022\020\n\010total_xp\030\005 \001(\005\022\030\n\020bkb_charges_u"
   "sed\030\006 \001(\005\022\031\n\021aeon_charges_used\030\007 \001(\005\022\025\n\r"
@@ -1047,46 +1050,47 @@ const char descriptor_table_protodef_dota_5fscenariomessages_2eproto[] PROTOBUF_
   "_kills\030\226\001 \003(\0132\035.CMsgDotaScenario.HeroHer"
   "oInt\022:\n\014damage_stats\030\227\001 \003(\0132#.CMsgDotaSc"
   "enario.DamageStatsByType\0221\n\tabilities\030\230\001"
-  " \003(\0132\035.CMsgDotaScenario.HeroAbility\032\203\001\n\005"
-  "Stock\022\014\n\004name\030\001 \001(\t\022\027\n\013team_number\030\002 \001(\005"
-  ":\002-1\022\025\n\tplayer_id\030\003 \001(\005:\002-1\022\025\n\rcurrent_s"
-  "tock\030\004 \001(\005\022\020\n\010cooldown\030\005 \001(\002\022\023\n\013bonus_st"
-  "ock\030\006 \001(\005\032t\n\010Building\022\023\n\013entity_name\030\001 \001"
-  "(\t\022\024\n\014entity_class\030\002 \001(\t\022\017\n\007team_id\030\003 \001("
-  "\005\022\024\n\014is_destroyed\030\004 \001(\010\022\026\n\013health_frac\030\005"
-  " \001(\002:\0011\032\260\001\n\006Entity\022&\n\007courier\030\001 \001(\0132\025.CS"
-  "cenarioEnt_Courier\022\036\n\003npc\030\002 \001(\0132\021.CScena"
-  "rioEnt_NPC\022-\n\013spirit_bear\030\003 \001(\0132\030.CScena"
-  "rioEnt_SpiritBear\022/\n\014dropped_item\030\004 \001(\0132"
-  "\031.CScenarioEnt_DroppedItem\032\347\001\n\004Item\022\014\n\004n"
-  "ame\030\001 \001(\t\022-\n\010location\030\002 \001(\0132\033.CMsgDotaSc"
-  "enario.EntityRef\022\024\n\010owner_id\030\003 \001(\005:\002-1\022\021"
-  "\n\titem_slot\030\004 \001(\005\022\031\n\021neutral_drop_team\030\005"
-  " \001(\005\022\017\n\007charges\030\006 \001(\005\022\031\n\021secondary_charg"
-  "es\030\007 \001(\005\022\024\n\010lifetime\030\010 \001(\002:\002-1\022\034\n\020stored"
-  "_rune_type\030\t \001(\005:\002-1\032\347\004\n\010Modifier\022\014\n\004nam"
-  "e\030\001 \001(\t\022+\n\006parent\030\002 \001(\0132\033.CMsgDotaScenar"
-  "io.EntityRef\022+\n\006caster\030\003 \001(\0132\033.CMsgDotaS"
-  "cenario.EntityRef\022,\n\007ability\030\004 \001(\0132\033.CMs"
-  "gDotaScenario.EntityRef\022\024\n\010duration\030\005 \001("
-  "\002:\002-1\022\035\n\022lifetime_remaining\030\006 \001(\002:\0010\022\023\n\013"
-  "stack_count\030\007 \001(\005\022\037\n\027create_even_if_exis"
-  "ting\030\010 \001(\010\022\035\n\025create_without_caster\030\t \001("
-  "\010\022\036\n\026create_without_ability\030\n \001(\010\022 \n\030moo"
-  "nshard_consumed_bonus\030d \001(\005\022-\n%moonshard"
-  "_consumed_bonus_night_vision\030e \001(\005\022\033\n\023wa"
-  "rdtruesight_range\030n \001(\005\022;\n3ultimate_scep"
-  "ter_consumed_alchemist_bonus_all_stats\030x"
-  " \001(\005\0228\n0ultimate_scepter_consumed_alchem"
-  "ist_bonus_health\030y \001(\005\0226\n.ultimate_scept"
-  "er_consumed_alchemist_bonus_mana\030z \001(\005"
+  " \003(\0132\035.CMsgDotaScenario.HeroAbility\022\023\n\nh"
+  "ero_facet\030\231\001 \001(\r\032\203\001\n\005Stock\022\014\n\004name\030\001 \001(\t"
+  "\022\027\n\013team_number\030\002 \001(\005:\002-1\022\025\n\tplayer_id\030\003"
+  " \001(\005:\002-1\022\025\n\rcurrent_stock\030\004 \001(\005\022\020\n\010coold"
+  "own\030\005 \001(\002\022\023\n\013bonus_stock\030\006 \001(\005\032t\n\010Buildi"
+  "ng\022\023\n\013entity_name\030\001 \001(\t\022\024\n\014entity_class\030"
+  "\002 \001(\t\022\017\n\007team_id\030\003 \001(\005\022\024\n\014is_destroyed\030\004"
+  " \001(\010\022\026\n\013health_frac\030\005 \001(\002:\0011\032\260\001\n\006Entity\022"
+  "&\n\007courier\030\001 \001(\0132\025.CScenarioEnt_Courier\022"
+  "\036\n\003npc\030\002 \001(\0132\021.CScenarioEnt_NPC\022-\n\013spiri"
+  "t_bear\030\003 \001(\0132\030.CScenarioEnt_SpiritBear\022/"
+  "\n\014dropped_item\030\004 \001(\0132\031.CScenarioEnt_Drop"
+  "pedItem\032\347\001\n\004Item\022\014\n\004name\030\001 \001(\t\022-\n\010locati"
+  "on\030\002 \001(\0132\033.CMsgDotaScenario.EntityRef\022\024\n"
+  "\010owner_id\030\003 \001(\005:\002-1\022\021\n\titem_slot\030\004 \001(\005\022\031"
+  "\n\021neutral_drop_team\030\005 \001(\005\022\017\n\007charges\030\006 \001"
+  "(\005\022\031\n\021secondary_charges\030\007 \001(\005\022\024\n\010lifetim"
+  "e\030\010 \001(\002:\002-1\022\034\n\020stored_rune_type\030\t \001(\005:\002-"
+  "1\032\347\004\n\010Modifier\022\014\n\004name\030\001 \001(\t\022+\n\006parent\030\002"
+  " \001(\0132\033.CMsgDotaScenario.EntityRef\022+\n\006cas"
+  "ter\030\003 \001(\0132\033.CMsgDotaScenario.EntityRef\022,"
+  "\n\007ability\030\004 \001(\0132\033.CMsgDotaScenario.Entit"
+  "yRef\022\024\n\010duration\030\005 \001(\002:\002-1\022\035\n\022lifetime_r"
+  "emaining\030\006 \001(\002:\0010\022\023\n\013stack_count\030\007 \001(\005\022\037"
+  "\n\027create_even_if_existing\030\010 \001(\010\022\035\n\025creat"
+  "e_without_caster\030\t \001(\010\022\036\n\026create_without"
+  "_ability\030\n \001(\010\022 \n\030moonshard_consumed_bon"
+  "us\030d \001(\005\022-\n%moonshard_consumed_bonus_nig"
+  "ht_vision\030e \001(\005\022\033\n\023wardtruesight_range\030n"
+  " \001(\005\022;\n3ultimate_scepter_consumed_alchem"
+  "ist_bonus_all_stats\030x \001(\005\0228\n0ultimate_sc"
+  "epter_consumed_alchemist_bonus_health\030y "
+  "\001(\005\0226\n.ultimate_scepter_consumed_alchemi"
+  "st_bonus_mana\030z \001(\005"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_dota_5fscenariomessages_2eproto_deps[1] = {
   &::descriptor_table_dota_5fshared_5fenums_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_dota_5fscenariomessages_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_dota_5fscenariomessages_2eproto = {
-    false, false, 4798, descriptor_table_protodef_dota_5fscenariomessages_2eproto,
+    false, false, 4819, descriptor_table_protodef_dota_5fscenariomessages_2eproto,
     "dota_scenariomessages.proto",
     &descriptor_table_dota_5fscenariomessages_2eproto_once, descriptor_table_dota_5fscenariomessages_2eproto_deps, 1, 21,
     schemas, file_default_instances, TableStruct_dota_5fscenariomessages_2eproto::offsets,
@@ -5248,7 +5252,7 @@ class CMsgDotaScenario_Hero::_Internal {
     (*has_bits)[0] |= 4u;
   }
   static void set_has_player_id(HasBits* has_bits) {
-    (*has_bits)[1] |= 67108864u;
+    (*has_bits)[1] |= 134217728u;
   }
   static void set_has_team_id(HasBits* has_bits) {
     (*has_bits)[0] |= 8u;
@@ -5404,7 +5408,7 @@ class CMsgDotaScenario_Hero::_Internal {
     (*has_bits)[1] |= 1048576u;
   }
   static void set_has_respawn_seconds(HasBits* has_bits) {
-    (*has_bits)[1] |= 134217728u;
+    (*has_bits)[1] |= 268435456u;
   }
   static void set_has_last_buyback_time(HasBits* has_bits) {
     (*has_bits)[1] |= 2097152u;
@@ -5424,6 +5428,9 @@ class CMsgDotaScenario_Hero::_Internal {
   static const ::CScenario_Position& position(const CMsgDotaScenario_Hero* msg);
   static void set_has_position(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
+  }
+  static void set_has_hero_facet(HasBits* has_bits) {
+    (*has_bits)[1] |= 67108864u;
   }
 };
 
@@ -5504,6 +5511,7 @@ CMsgDotaScenario_Hero::CMsgDotaScenario_Hero(const CMsgDotaScenario_Hero& from)
     , decltype(_impl_.first_blood_given_){}
     , decltype(_impl_.bounty_runes_){}
     , decltype(_impl_.outposts_captured_){}
+    , decltype(_impl_.hero_facet_){}
     , decltype(_impl_.player_id_){}
     , decltype(_impl_.respawn_seconds_){}};
 
@@ -5593,6 +5601,7 @@ inline void CMsgDotaScenario_Hero::SharedCtor(
     , decltype(_impl_.first_blood_given_){false}
     , decltype(_impl_.bounty_runes_){0}
     , decltype(_impl_.outposts_captured_){0}
+    , decltype(_impl_.hero_facet_){0u}
     , decltype(_impl_.player_id_){-1}
     , decltype(_impl_.respawn_seconds_){-1}
   };
@@ -5679,10 +5688,10 @@ void CMsgDotaScenario_Hero::Clear() {
         reinterpret_cast<char*>(&_impl_.first_blood_given_) -
         reinterpret_cast<char*>(&_impl_.gold_lost_to_death_)) + sizeof(_impl_.first_blood_given_));
   }
-  if (cached_has_bits & 0x0f000000u) {
+  if (cached_has_bits & 0x1f000000u) {
     ::memset(&_impl_.bounty_runes_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.outposts_captured_) -
-        reinterpret_cast<char*>(&_impl_.bounty_runes_)) + sizeof(_impl_.outposts_captured_));
+        reinterpret_cast<char*>(&_impl_.hero_facet_) -
+        reinterpret_cast<char*>(&_impl_.bounty_runes_)) + sizeof(_impl_.hero_facet_));
     _impl_.player_id_ = -1;
     _impl_.respawn_seconds_ = -1;
   }
@@ -6277,6 +6286,15 @@ const char* CMsgDotaScenario_Hero::_InternalParse(const char* ptr, ::_pbi::Parse
         } else
           goto handle_unusual;
         continue;
+      // optional uint32 hero_facet = 153;
+      case 153:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 200)) {
+          _Internal::set_has_hero_facet(&_impl_._has_bits_);
+          _impl_.hero_facet_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
       default:
         goto handle_unusual;
     }  // switch
@@ -6315,7 +6333,7 @@ uint8_t* CMsgDotaScenario_Hero::_InternalSerialize(
 
   cached_has_bits = _impl_._has_bits_[1];
   // optional int32 player_id = 2 [default = -1];
-  if (cached_has_bits & 0x04000000u) {
+  if (cached_has_bits & 0x08000000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_player_id(), target);
   }
@@ -6633,7 +6651,7 @@ uint8_t* CMsgDotaScenario_Hero::_InternalSerialize(
   }
 
   // optional int32 respawn_seconds = 68 [default = -1];
-  if (cached_has_bits & 0x08000000u) {
+  if (cached_has_bits & 0x10000000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(68, this->_internal_respawn_seconds(), target);
   }
@@ -6698,6 +6716,13 @@ uint8_t* CMsgDotaScenario_Hero::_InternalSerialize(
     const auto& repfield = this->_internal_abilities(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
         InternalWriteMessage(152, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  cached_has_bits = _impl_._has_bits_[1];
+  // optional uint32 hero_facet = 153;
+  if (cached_has_bits & 0x04000000u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(153, this->_internal_hero_facet(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -7107,7 +7132,7 @@ size_t CMsgDotaScenario_Hero::ByteSizeLong() const {
     }
 
   }
-  if (cached_has_bits & 0x0f000000u) {
+  if (cached_has_bits & 0x1f000000u) {
     // optional int32 bounty_runes = 73;
     if (cached_has_bits & 0x01000000u) {
       total_size += 2 +
@@ -7122,13 +7147,20 @@ size_t CMsgDotaScenario_Hero::ByteSizeLong() const {
           this->_internal_outposts_captured());
     }
 
-    // optional int32 player_id = 2 [default = -1];
+    // optional uint32 hero_facet = 153;
     if (cached_has_bits & 0x04000000u) {
+      total_size += 2 +
+        ::_pbi::WireFormatLite::UInt32Size(
+          this->_internal_hero_facet());
+    }
+
+    // optional int32 player_id = 2 [default = -1];
+    if (cached_has_bits & 0x08000000u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
     }
 
     // optional int32 respawn_seconds = 68 [default = -1];
-    if (cached_has_bits & 0x08000000u) {
+    if (cached_has_bits & 0x10000000u) {
       total_size += 2 +
         ::_pbi::WireFormatLite::Int32Size(
           this->_internal_respawn_seconds());
@@ -7348,7 +7380,7 @@ void CMsgDotaScenario_Hero::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, 
     }
     _this->_impl_._has_bits_[1] |= cached_has_bits;
   }
-  if (cached_has_bits & 0x0f000000u) {
+  if (cached_has_bits & 0x1f000000u) {
     if (cached_has_bits & 0x01000000u) {
       _this->_impl_.bounty_runes_ = from._impl_.bounty_runes_;
     }
@@ -7356,9 +7388,12 @@ void CMsgDotaScenario_Hero::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, 
       _this->_impl_.outposts_captured_ = from._impl_.outposts_captured_;
     }
     if (cached_has_bits & 0x04000000u) {
-      _this->_impl_.player_id_ = from._impl_.player_id_;
+      _this->_impl_.hero_facet_ = from._impl_.hero_facet_;
     }
     if (cached_has_bits & 0x08000000u) {
+      _this->_impl_.player_id_ = from._impl_.player_id_;
+    }
+    if (cached_has_bits & 0x10000000u) {
       _this->_impl_.respawn_seconds_ = from._impl_.respawn_seconds_;
     }
     _this->_impl_._has_bits_[1] |= cached_has_bits;
@@ -7392,8 +7427,8 @@ void CMsgDotaScenario_Hero::InternalSwap(CMsgDotaScenario_Hero* other) {
       &other->_impl_.hero_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CMsgDotaScenario_Hero, _impl_.outposts_captured_)
-      + sizeof(CMsgDotaScenario_Hero::_impl_.outposts_captured_)
+      PROTOBUF_FIELD_OFFSET(CMsgDotaScenario_Hero, _impl_.hero_facet_)
+      + sizeof(CMsgDotaScenario_Hero::_impl_.hero_facet_)
       - PROTOBUF_FIELD_OFFSET(CMsgDotaScenario_Hero, _impl_.position_)>(
           reinterpret_cast<char*>(&_impl_.position_),
           reinterpret_cast<char*>(&other->_impl_.position_));

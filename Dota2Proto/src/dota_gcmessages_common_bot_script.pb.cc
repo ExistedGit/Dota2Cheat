@@ -42,7 +42,7 @@ PROTOBUF_CONSTEXPR CMsgBotWorldState_Player::CMsgBotWorldState_Player(
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.location_)*/nullptr
   , /*decltype(_impl_.player_id_)*/0
-  , /*decltype(_impl_.hero_id_)*/0u
+  , /*decltype(_impl_.hero_id_)*/0
   , /*decltype(_impl_.is_alive_)*/false
   , /*decltype(_impl_.respawn_time_)*/0
   , /*decltype(_impl_.kills_)*/0u
@@ -1079,7 +1079,7 @@ const char descriptor_table_protodef_dota_5fgcmessages_5fcommon_5fbot_5fscript_2
   " \003(\0132\034.CMsgBotWorldState.EventTree\032)\n\006Ve"
   "ctor\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002\022\t\n\001z\030\003 \001(\002\032\376\001"
   "\n\006Player\022\027\n\tplayer_id\030\001 \001(\005B\004\310\344\035\001\022\017\n\007her"
-  "o_id\030\002 \001(\r\022\020\n\010is_alive\030\003 \001(\010\022\024\n\014respawn_"
+  "o_id\030\002 \001(\005\022\020\n\010is_alive\030\003 \001(\010\022\024\n\014respawn_"
   "time\030\004 \001(\002\022\r\n\005kills\030\005 \001(\r\022\016\n\006deaths\030\006 \001("
   "\r\022\017\n\007assists\030\007 \001(\r\022\017\n\007team_id\030\010 \001(\r\022\'\n\023p"
   "rimary_unit_handle\030\t \001(\r:\n4294967295\022\013\n\003"
@@ -1669,7 +1669,7 @@ inline void CMsgBotWorldState_Player::SharedCtor(
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.location_){nullptr}
     , decltype(_impl_.player_id_){0}
-    , decltype(_impl_.hero_id_){0u}
+    , decltype(_impl_.hero_id_){0}
     , decltype(_impl_.is_alive_){false}
     , decltype(_impl_.respawn_time_){0}
     , decltype(_impl_.kills_){0u}
@@ -1741,7 +1741,7 @@ const char* CMsgBotWorldState_Player::_InternalParse(const char* ptr, ::_pbi::Pa
         } else
           goto handle_unusual;
         continue;
-      // optional uint32 hero_id = 2;
+      // optional int32 hero_id = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _Internal::set_has_hero_id(&has_bits);
@@ -1867,10 +1867,10 @@ uint8_t* CMsgBotWorldState_Player::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
   }
 
-  // optional uint32 hero_id = 2;
+  // optional int32 hero_id = 2;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_hero_id(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_hero_id(), target);
   }
 
   // optional bool is_alive = 3;
@@ -1958,9 +1958,9 @@ size_t CMsgBotWorldState_Player::ByteSizeLong() const {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
     }
 
-    // optional uint32 hero_id = 2;
+    // optional int32 hero_id = 2;
     if (cached_has_bits & 0x00000004u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_hero_id());
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_hero_id());
     }
 
     // optional bool is_alive = 3;

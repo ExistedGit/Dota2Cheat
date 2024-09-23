@@ -28,6 +28,7 @@ PROTOBUF_CONSTEXPR CSODOTAPartyMember::CSODOTAPartyMember(
   , /*decltype(_impl_._region_ping_codes_cached_byte_size_)*/{0}
   , /*decltype(_impl_.region_ping_times_)*/{}
   , /*decltype(_impl_._region_ping_times_cached_byte_size_)*/{0}
+  , /*decltype(_impl_.banned_hero_ids_)*/{}
   , /*decltype(_impl_.region_ping_failed_bitmask_)*/0u
   , /*decltype(_impl_.tourney_skill_level_)*/0u
   , /*decltype(_impl_.tourney_buyin_)*/0u
@@ -105,7 +106,9 @@ PROTOBUF_CONSTEXPR CSODOTAParty::CSODOTAParty(
   , /*decltype(_impl_.restricted_from_ranked_)*/false
   , /*decltype(_impl_.bot_difficulty_mask_)*/0u
   , /*decltype(_impl_.bot_script_index_mask_)*/0u
-  , /*decltype(_impl_.restricted_from_ranked_account_id_)*/0u} {}
+  , /*decltype(_impl_.restricted_from_ranked_account_id_)*/0u
+  , /*decltype(_impl_.rank_spread_likert_scale_)*/0u
+  , /*decltype(_impl_.behavior_score_likert_scale_)*/0u} {}
 struct CSODOTAPartyDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CSODOTAPartyDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -340,6 +343,7 @@ const uint32_t TableStruct_dota_5fgcmessages_5fcommon_5fmatch_5fmanagement_2epro
   PROTOBUF_FIELD_OFFSET(::CSODOTAPartyMember, _impl_.has_hp_resource_),
   PROTOBUF_FIELD_OFFSET(::CSODOTAPartyMember, _impl_.joined_from_partyfinder_),
   PROTOBUF_FIELD_OFFSET(::CSODOTAPartyMember, _impl_.is_steam_china_),
+  PROTOBUF_FIELD_OFFSET(::CSODOTAPartyMember, _impl_.banned_hero_ids_),
   4,
   ~0u,
   ~0u,
@@ -354,6 +358,7 @@ const uint32_t TableStruct_dota_5fgcmessages_5fcommon_5fmatch_5fmanagement_2epro
   9,
   10,
   11,
+  ~0u,
   PROTOBUF_FIELD_OFFSET(::CSODOTAParty, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CSODOTAParty, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -413,6 +418,8 @@ const uint32_t TableStruct_dota_5fgcmessages_5fcommon_5fmatch_5fmanagement_2epro
   PROTOBUF_FIELD_OFFSET(::CSODOTAParty, _impl_.bot_script_index_mask_),
   PROTOBUF_FIELD_OFFSET(::CSODOTAParty, _impl_.restricted_from_ranked_),
   PROTOBUF_FIELD_OFFSET(::CSODOTAParty, _impl_.restricted_from_ranked_account_id_),
+  PROTOBUF_FIELD_OFFSET(::CSODOTAParty, _impl_.rank_spread_likert_scale_),
+  PROTOBUF_FIELD_OFFSET(::CSODOTAParty, _impl_.behavior_score_likert_scale_),
   2,
   3,
   ~0u,
@@ -466,6 +473,8 @@ const uint32_t TableStruct_dota_5fgcmessages_5fcommon_5fmatch_5fmanagement_2epro
   47,
   45,
   48,
+  49,
+  50,
   PROTOBUF_FIELD_OFFSET(::CSODOTAPartyInvite_PartyMember, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CSODOTAPartyInvite_PartyMember, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -613,21 +622,21 @@ const uint32_t TableStruct_dota_5fgcmessages_5fcommon_5fmatch_5fmanagement_2epro
   PROTOBUF_FIELD_OFFSET(::CMvpData, _impl_.mvps_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, 20, -1, sizeof(::CSODOTAPartyMember)},
-  { 34, 93, -1, sizeof(::CSODOTAParty)},
-  { 146, 155, -1, sizeof(::CSODOTAPartyInvite_PartyMember)},
-  { 158, 172, -1, sizeof(::CSODOTAPartyInvite)},
-  { 180, 192, -1, sizeof(::CMsgLeaverState)},
-  { 198, 206, -1, sizeof(::CMsgReadyCheckStatus_ReadyMember)},
-  { 208, 218, -1, sizeof(::CMsgReadyCheckStatus)},
-  { 222, -1, -1, sizeof(::CMsgPartyReadyCheckRequest)},
-  { 228, 235, -1, sizeof(::CMsgPartyReadyCheckResponse)},
-  { 236, 243, -1, sizeof(::CMsgPartyReadyCheckAcknowledge)},
-  { 244, 251, -1, sizeof(::CMsgLobbyEventGameDetails)},
-  { 252, 261, -1, sizeof(::CMsgMatchMatchmakingStats)},
-  { 264, 272, -1, sizeof(::CMvpData_MvpDatum_MvpAccolade)},
-  { 274, 282, -1, sizeof(::CMvpData_MvpDatum)},
-  { 284, -1, -1, sizeof(::CMvpData)},
+  { 0, 21, -1, sizeof(::CSODOTAPartyMember)},
+  { 36, 97, -1, sizeof(::CSODOTAParty)},
+  { 152, 161, -1, sizeof(::CSODOTAPartyInvite_PartyMember)},
+  { 164, 178, -1, sizeof(::CSODOTAPartyInvite)},
+  { 186, 198, -1, sizeof(::CMsgLeaverState)},
+  { 204, 212, -1, sizeof(::CMsgReadyCheckStatus_ReadyMember)},
+  { 214, 224, -1, sizeof(::CMsgReadyCheckStatus)},
+  { 228, -1, -1, sizeof(::CMsgPartyReadyCheckRequest)},
+  { 234, 241, -1, sizeof(::CMsgPartyReadyCheckResponse)},
+  { 242, 249, -1, sizeof(::CMsgPartyReadyCheckAcknowledge)},
+  { 250, 257, -1, sizeof(::CMsgLobbyEventGameDetails)},
+  { 258, 267, -1, sizeof(::CMsgMatchMatchmakingStats)},
+  { 270, 278, -1, sizeof(::CMvpData_MvpDatum_MvpAccolade)},
+  { 280, 288, -1, sizeof(::CMvpData_MvpDatum)},
+  { 290, -1, -1, sizeof(::CMvpData)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -651,7 +660,7 @@ static const ::_pb::Message* const file_default_instances[] = {
 const char descriptor_table_protodef_dota_5fgcmessages_5fcommon_5fmatch_5fmanagement_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n-dota_gcmessages_common_match_managemen"
   "t.proto\032\023steammessages.proto\032\026gcsdk_gcme"
-  "ssages.proto\032\027dota_shared_enums.proto\"\236\003"
+  "ssages.proto\032\027dota_shared_enums.proto\"\267\003"
   "\n\022CSODOTAPartyMember\022\020\n\010is_coach\030\002 \001(\010\022\035"
   "\n\021region_ping_codes\030\004 \003(\rB\002\020\001\022\035\n\021region_"
   "ping_times\030\005 \003(\rB\002\020\001\022\"\n\032region_ping_fail"
@@ -662,465 +671,472 @@ const char descriptor_table_protodef_dota_5fgcmessages_5fcommon_5fmatch_5fmanage
   "election_flags\030\013 \001(\r\022\036\n\026high_priority_di"
   "sabled\030\016 \001(\010\022\027\n\017has_hp_resource\030\017 \001(\010\022\037\n"
   "\027joined_from_partyfinder\030\014 \001(\010\022\026\n\016is_ste"
-  "am_china\030\020 \001(\010\"\305\016\n\014CSODOTAParty\022\026\n\010party"
-  "_id\030\001 \001(\004B\004\200\246\035\001\022\021\n\tleader_id\030\002 \001(\006\022\022\n\nme"
-  "mber_ids\030\003 \003(\006\022\022\n\ngame_modes\030\004 \001(\r\022&\n\005st"
-  "ate\030\006 \001(\0162\023.CSODOTAParty.State:\002UI\022*\n\"ef"
-  "fective_started_matchmaking_time\030\007 \001(\r\022$"
-  "\n\034raw_started_matchmaking_time\030  \001(\r\022\032\n\022"
-  "attempt_start_time\030! \001(\r\022\023\n\013attempt_num\030"
-  "\" \001(\r\022\023\n\013matchgroups\030\013 \001(\r\022\037\n\027low_priori"
-  "ty_account_id\030\023 \001(\r\0221\n\nmatch_type\030\025 \001(\0162"
-  "\n.MatchType:\021MATCH_TYPE_CASUAL\022\017\n\007team_i"
-  "d\030\027 \001(\r\022\021\n\tteam_name\0303 \001(\t\022\024\n\014team_ui_lo"
-  "go\0304 \001(\004\022\026\n\016team_base_logo\0305 \001(\004\022!\n\031matc"
-  "h_disabled_until_date\030\030 \001(\r\022!\n\031match_dis"
-  "abled_account_id\030\031 \001(\r\022%\n\035matchmaking_ma"
-  "x_range_minutes\030\032 \001(\r\022\026\n\016matchlanguages\030"
-  "\033 \001(\r\022$\n\007members\030\035 \003(\0132\023.CSODOTAPartyMem"
-  "ber\022$\n\034low_priority_games_remaining\030# \001("
-  "\r\022\036\n\026open_for_join_requests\030( \001(\010\022)\n\014sen"
-  "t_invites\030) \003(\0132\023.CSODOTAPartyInvite\022)\n\014"
-  "recv_invites\030* \003(\0132\023.CSODOTAPartyInvite\022"
-  "\025\n\raccount_flags\030+ \001(\r\022\033\n\023region_select_"
-  "flags\030, \001(\r\022\037\n\027exclusive_tournament_id\030-"
-  " \001(\r\022\033\n\023tourney_division_id\030/ \001(\r\022\035\n\025tou"
-  "rney_schedule_time\0300 \001(\r\022\033\n\023tourney_skil"
-  "l_level\0301 \001(\r\022\035\n\025tourney_bracket_round\0302"
-  " \001(\r\022#\n\033tourney_queue_deadline_time\0306 \001("
-  "\r\022f\n\034tourney_queue_deadline_state\0307 \001(\0162"
-  "\033.ETourneyQueueDeadlineState:#k_ETourney"
-  "QueueDeadlineState_Normal\022#\n\033party_build"
-  "er_slots_to_fill\0308 \001(\r\022\"\n\032party_builder_"
-  "match_groups\0309 \001(\r\022 \n\030party_builder_star"
-  "t_time\030: \001(\r\022\022\n\nsolo_queue\030; \001(\010\022\035\n\025stea"
-  "m_clan_account_id\030= \001(\r\022*\n\013ready_check\030>"
-  " \001(\0132\025.CMsgReadyCheckStatus\022\'\n\037custom_ga"
-  "me_disabled_until_date\030\? \001(\r\022\'\n\037custom_g"
-  "ame_disabled_account_id\030@ \001(\r\022\032\n\022is_chal"
-  "lenge_match\030A \001(\010\022\"\n\032party_search_beacon"
-  "_active\030B \001(\010\022\031\n\021matchmaking_flags\030C \001(\r"
-  "\022M\n\023high_priority_state\030D \001(\0162\025.EHighPri"
-  "orityMMState:\031k_EHighPriorityMM_Unknown\022"
-  "\037\n\027lane_selections_enabled\030E \001(\010\022#\n\033cust"
-  "om_game_difficulty_mask\030F \001(\r\022\026\n\016is_stea"
-  "m_china\030G \001(\010\022\033\n\023bot_difficulty_mask\030H \001"
-  "(\r\022\035\n\025bot_script_index_mask\030I \001(\r\022\036\n\026res"
-  "tricted_from_ranked\030J \001(\010\022)\n!restricted_"
-  "from_ranked_account_id\030K \001(\r\"0\n\005State\022\006\n"
-  "\002UI\020\000\022\021\n\rFINDING_MATCH\020\001\022\014\n\010IN_MATCH\020\002\"\233"
-  "\002\n\022CSODOTAPartyInvite\022\026\n\010group_id\030\001 \001(\004B"
-  "\004\200\246\035\001\022\021\n\tsender_id\030\002 \001(\006\022\023\n\013sender_name\030"
-  "\003 \001(\t\0220\n\007members\030\004 \003(\0132\037.CSODOTAPartyInv"
-  "ite.PartyMember\022\017\n\007team_id\030\005 \001(\r\022\033\n\023low_"
-  "priority_status\030\006 \001(\010\022\020\n\010as_coach\030\007 \001(\010\022"
-  "\022\n\ninvite_gid\030\010 \001(\006\032\?\n\013PartyMember\022\014\n\004na"
-  "me\030\001 \001(\t\022\020\n\010steam_id\030\002 \001(\006\022\020\n\010is_coach\030\004"
-  " \001(\010\"\325\001\n\017CMsgLeaverState\022\023\n\013lobby_state\030"
-  "\001 \001(\r\022>\n\ngame_state\030\002 \001(\0162\017.DOTA_GameSta"
-  "te:\031DOTA_GAMERULES_STATE_INIT\022\027\n\017leaver_"
-  "detected\030\003 \001(\010\022\034\n\024first_blood_happened\030\004"
-  " \001(\010\022\035\n\025discard_match_results\030\005 \001(\010\022\027\n\017m"
-  "ass_disconnect\030\006 \001(\010\"\213\002\n\024CMsgReadyCheckS"
-  "tatus\022\027\n\017start_timestamp\030\001 \001(\r\022\030\n\020finish"
-  "_timestamp\030\002 \001(\r\022\034\n\024initiator_account_id"
-  "\030\003 \001(\r\0228\n\rready_members\030\004 \003(\0132!.CMsgRead"
-  "yCheckStatus.ReadyMember\032h\n\013ReadyMember\022"
-  "\022\n\naccount_id\030\001 \001(\r\022E\n\014ready_status\030\002 \001("
-  "\0162\022.EReadyCheckStatus:\033k_EReadyCheckStat"
-  "us_Unknown\"\034\n\032CMsgPartyReadyCheckRequest"
-  "\"l\n\033CMsgPartyReadyCheckResponse\022M\n\006resul"
-  "t\030\001 \001(\0162\031.EReadyCheckRequestResult:\"k_ER"
-  "eadyCheckRequestResult_Success\"g\n\036CMsgPa"
-  "rtyReadyCheckAcknowledge\022E\n\014ready_status"
-  "\030\001 \001(\0162\022.EReadyCheckStatus:\033k_EReadyChec"
-  "kStatus_Unknown\",\n\031CMsgLobbyEventGameDet"
-  "ails\022\017\n\007kv_data\030\001 \001(\014\"\271\001\n\031CMsgMatchMatch"
-  "makingStats\022\032\n\022average_queue_time\030\001 \001(\r\022"
-  "\032\n\022maximum_queue_time\030\002 \001(\r\022d\n\027behavior_"
-  "score_variance\030\003 \001(\0162\034.EMatchBehaviorSco"
-  "reVariance:%k_EMatchBehaviorScoreVarianc"
-  "e_Invalid\"\347j\n\010CMvpData\022 \n\004mvps\030\001 \003(\0132\022.C"
-  "MvpData.MvpDatum\032\270j\n\010MvpDatum\022\023\n\013player_"
-  "slot\030\001 \001(\r\0221\n\taccolades\030\002 \003(\0132\036.CMvpData"
-  ".MvpDatum.MvpAccolade\032\343i\n\013MvpAccolade\022C\n"
-  "\004type\030\001 \001(\0162..CMvpData.MvpDatum.MvpAccol"
-  "ade.MvpAccoladeType:\005kills\022\024\n\014detail_val"
-  "ue\030\002 \001(\002\"\370h\n\017MvpAccoladeType\022\t\n\005kills\020\001\022"
-  "\n\n\006deaths\020\002\022\013\n\007assists\020\003\022\r\n\tnet_worth\020\005\022"
-  "\016\n\nitem_value\020\006\022\026\n\022support_gold_spent\020\007\022"
-  "\020\n\014wards_placed\020\010\022\013\n\007dewards\020\t\022\021\n\rcamps_"
-  "stacked\020\n\022\r\n\tlast_hits\020\013\022\n\n\006denies\020\014\022\"\n\036"
-  "kKillEaterEvent_Killing_Sprees\020\r\022\033\n\027kKil"
-  "lEaterEvent_Godlike\020\016\022$\n kKillEaterEvent"
-  "_Towers_Destroyed\020\017\022.\n*kKillEaterEventTy"
-  "pe_Invoker_SunstrikeKills\020\020\022!\n\035kKillEate"
-  "rEventType_Axe_Culls\020\021\022-\n)kKillEaterEven"
-  "tType_Axe_BattleHungerKills\020\022\022&\n\"kKillEa"
-  "terEventType_LowHealthKills\020\023\022,\n(kKillEa"
-  "terEventType_Invoker_TornadoKills\020\024\022(\n$k"
-  "KillEaterEventType_Sven_DoubleStuns\020\025\022*\n"
-  "&kKillEaterEventType_Sven_WarcryAssists\020"
-  "\026\022.\n*kKillEaterEventType_Sven_CleaveDoub"
-  "leKills\020\027\022/\n+kKillEaterEventType_Sven_Te"
-  "leportInterrupts\020\030\022,\n(kKillEaterEventTyp"
-  "e_Faceless_MultiChrono\020\031\022,\n(kKillEaterEv"
-  "entType_Faceless_ChronoKills\020\032\022(\n$kKillE"
-  "aterEventType_Ursa_MultiShocks\020\033\022#\n\037kKil"
-  "lEaterEventType_RoshanKills\020\034\022(\n$kKillEa"
-  "terEventType_Lion_FingerKills\020\035\022,\n(kKill"
-  "EaterEventType_Riki_SmokedHeroKills\020 \022.\n"
-  "*kKillEaterEventType_HeroesRevealedWithD"
-  "ust\020!\0227\n3kKillEaterEventType_SkeletonKin"
-  "g_ReincarnationKills\020\"\022+\n\'kKillEaterEven"
-  "tType_Skywrath_FlareKills\020#\022/\n+kKillEate"
-  "rEventType_Leshrac_SplitEarthStuns\020$\022,\n("
-  "kKillEaterEventType_Mirana_MaxStunArrows"
-  "\020%\0228\n4kKillEaterEventType_PhantomAssassi"
-  "n_CoupdeGraceCrits\020&\0223\n/kKillEaterEventT"
-  "ype_PhantomAssassin_DaggerCrits\020\'\022(\n$kKi"
-  "llEaterEventType_Meepo_Earthbinds\020(\0220\n,k"
-  "KillEaterEventType_Bloodseeker_RuptureKi"
-  "lls\020)\022,\n(kKillEaterEventType_Slark_Leash"
-  "edEnemies\020*\0222\n.kKillEaterEventType_Disru"
-  "ptor_FountainGlimpses\020+\022+\n\'kKillEaterEve"
-  "ntType_Rubick_SpellsStolen\020,\022.\n*kKillEat"
-  "erEventType_Rubick_UltimatesStolen\020-\022*\n&"
-  "kKillEaterEventType_Doom_EnemiesDoomed\020."
-  "\0220\n,kKillEaterEventType_Omniknight_Purif"
-  "ications\020/\0221\n-kKillEaterEventType_Omnikn"
-  "ight_AlliesRepelled\0200\0222\n.kKillEaterEvent"
-  "Type_Omniknight_EnemiesRepelled\0201\0222\n.kKi"
-  "llEaterEventType_Warlock_FiveHeroFatalBo"
-  "nds\0202\0228\n4kKillEaterEventType_CrystalMaid"
-  "en_FrostbittenEnemies\0203\0222\n.kKillEaterEve"
-  "ntType_CrystalMaiden_CrystalNovas\0204\0221\n-k"
-  "KillEaterEventType_Kunkka_DoubleHeroTorr"
-  "ents\0205\0223\n/kKillEaterEventType_Kunkka_Tri"
-  "pleHeroGhostShips\0206\0221\n-kKillEaterEventTy"
-  "pe_NagaSiren_EnemiesEnsnared\0207\0224\n0kKillE"
-  "aterEventType_NagaSiren_TripleHeroRipTid"
-  "es\0208\0223\n/kKillEaterEventType_Lycan_KillsD"
-  "uringShapeshift\0209\022,\n(kKillEaterEventType"
-  "_Pudge_DismemberKills\020:\022/\n+kKillEaterEve"
-  "ntType_Pudge_EnemyHeroesHooked\020;\022\'\n#kKil"
-  "lEaterEventType_Pudge_HookKills\020<\0225\n1kKi"
-  "llEaterEventType_Pudge_UnseenEnemyHeroes"
-  "Hooked\020=\0222\n.kKillEaterEventType_DrowRang"
-  "er_EnemiesSilenced\020>\0224\n0kKillEaterEventT"
-  "ype_DrowRanger_MultiHeroSilences\020\?\0220\n,kK"
-  "illEaterEventType_DrowRanger_SilencedKil"
-  "ls\020@\0222\n.kKillEaterEventType_DrowRanger_F"
-  "rostArrowKills\020A\0226\n2kKillEaterEventType_"
-  "DragonKnight_KillsInDragonForm\020B\0225\n1kKil"
-  "lEaterEventType_DragonKnight_BreatheFire"
-  "Kills\020C\0220\n,kKillEaterEventType_DragonKni"
-  "ght_SplashKills\020D\022-\n)kKillEaterEventType"
-  "_WitchDoctor_CaskStuns\020E\0221\n-kKillEaterEv"
-  "entType_WitchDoctor_MaledictKills\020F\0226\n2k"
-  "KillEaterEventType_WitchDoctor_MultiHero"
-  "Maledicts\020G\0222\n.kKillEaterEventType_Witch"
-  "Doctor_DeathWardKills\020H\0224\n0kKillEaterEve"
-  "ntType_Disruptor_ThunderStrikeKills\020I\0220\n"
-  ",kKillEaterEventType_Disruptor_HeroesGli"
-  "mpsed\020J\0228\n4kKillEaterEventType_CrystalMa"
-  "iden_FreezingFieldKills\020K\022/\n+kKillEaterE"
-  "ventType_Medusa_EnemiesPetrified\020M\022/\n+kK"
-  "illEaterEventType_Warlock_FatalBondsKill"
-  "s\020N\022*\n&kKillEaterEventType_Warlock_Golem"
-  "Kills\020O\022*\n&kKillEaterEventType_Tusk_Walr"
-  "usPunches\020P\022*\n&kKillEaterEventType_Tusk_"
-  "SnowballStuns\020Q\0220\n,kKillEaterEventType_E"
-  "arthshaker_FissureStuns\020R\0222\n.kKillEaterE"
-  "ventType_Earthshaker_3HeroEchoslams\020S\0222\n"
-  ".kKillEaterEventType_SandKing_Burrowstri"
-  "keStuns\020T\022/\n+kKillEaterEventType_SandKin"
-  "g_EpicenterKills\020U\0225\n1kKillEaterEventTyp"
-  "e_SkywrathMage_AncientSealKills\020V\0228\n4kKi"
-  "llEaterEventType_SkywrathMage_Concussive"
-  "ShotKills\020W\022,\n(kKillEaterEventType_Luna_"
-  "LucentBeamKills\020X\022)\n%kKillEaterEventType"
-  "_Luna_EclipseKills\020Y\0228\n4kKillEaterEventT"
-  "ype_KeeperOfTheLight_IlluminateKills\020Z\0226"
-  "\n2kKillEaterEventType_KeeperOfTheLight_M"
-  "anaLeakStuns\020[\022:\n6kKillEaterEventType_Ke"
-  "eperOfTheLight_TeammatesRecalled\020\\\0220\n,kK"
-  "illEaterEventType_LegionCommander_DuelsW"
-  "on\020]\022-\n)kKillEaterEventType_Beastmaster_"
-  "RoarKills\020^\0222\n.kKillEaterEventType_Beast"
-  "master_RoarMultiKills\020_\0225\n1kKillEaterEve"
-  "ntType_Windrunner_FocusFireBuildings\020`\0221"
-  "\n-kKillEaterEventType_Windrunner_Powersh"
-  "otKills\020a\0226\n2kKillEaterEventType_Phantom"
-  "Assassin_DaggerLastHits\020b\022:\n6kKillEaterE"
-  "ventType_PhantomAssassin_PhantomStrikeKi"
-  "lls\020c\0224\n0kKillEaterEventType_DeathProphe"
-  "t_CryptSwarmKills\020d\022:\n6kKillEaterEventTy"
-  "pe_DeathProphet_ExorcismBuildingKills\020e\022"
-  "<\n8kKillEaterEventType_DeathProphet_Exor"
-  "cismSpiritsSummoned\020f\0226\n2kKillEaterEvent"
-  "Type_DeathProphet_MultiHeroSilences\020g\022-\n"
-  ")kKillEaterEventType_Abaddon_MistCoilKil"
-  "ls\020h\022.\n*kKillEaterEventType_Abaddon_Mist"
-  "CoilHealed\020i\0222\n.kKillEaterEventType_Abad"
-  "don_AphoticShieldKills\020j\0222\n.kKillEaterEv"
-  "entType_Lich_ChainFrostTripleKills\020k\0221\n-"
-  "kKillEaterEventType_Lich_ChainFrostMulti"
-  "Kills\020l\022.\n*kKillEaterEventType_Lich_Chai"
-  "nFrostBounces\020m\022)\n%kKillEaterEventType_U"
-  "rsa_EnragedKills\020n\022,\n(kKillEaterEventTyp"
-  "e_Ursa_EarthshockKills\020o\022-\n)kKillEaterEv"
-  "entType_Lina_LagunaBladeKills\020p\022-\n)kKill"
-  "EaterEventType_Lina_DragonSlaveKills\020q\0222"
-  "\n.kKillEaterEventType_Lina_LightStrikeAr"
-  "rayStuns\020r\022&\n\"kKillEaterEvent_Barracks_D"
-  "estroyed\020s\022-\n)kKillEaterEvent_TemplarAss"
-  "assin_MeldKills\020t\0220\n,kKillEaterEvent_Tem"
-  "plarAssassin_HeroesSlowed\020u\022-\n)kKillEate"
-  "rEvent_Sniper_AssassinationKills\020v\022(\n$kK"
-  "illEaterEvent_Sniper_HeadshotStuns\020w\022*\n&"
-  "kKillEaterEvent_EarthSpirit_SmashStuns\020x"
-  "\022,\n(kKillEaterEvent_EarthSpirit_GripSile"
-  "nces\020y\022-\n)kKillEaterEvent_ShadowShaman_S"
-  "hackleKills\020z\022)\n%kKillEaterEvent_ShadowS"
-  "haman_HexKills\020{\022*\n&kKillEaterEvent_Cent"
-  "aur_EnemiesStomped\020|\022+\n\'kKillEaterEvent_"
-  "Centaur_DoubleEdgeKills\020}\022\'\n#kKillEaterE"
-  "vent_Centaur_ReturnKills\020~\022.\n*kKillEater"
-  "Event_EmberSpirit_EnemiesChained\020\177\0228\n3kK"
-  "illEaterEvent_EmberSpirit_SleightOfFistM"
-  "ultiKills\020\200\001\022\"\n\035kKillEaterEvent_Puck_Orb"
-  "Kills\020\201\001\0222\n-kKillEaterEvent_VengefulSpir"
-  "it_EnemiesStunned\020\202\001\022*\n%kKillEaterEvent_"
-  "Lifestealer_RageKills\020\203\001\0220\n+kKillEaterEv"
-  "ent_Lifestealer_OpenWoundsKills\020\204\001\022,\n\'kK"
-  "illEaterEvent_Lifestealer_InfestKills\020\205\001"
-  "\022+\n&kKillEaterEvent_ElderTitan_SpiritKil"
-  "ls\020\206\001\022*\n%kKillEaterEvent_ElderTitan_Good"
-  "Stomps\020\207\001\022*\n%kKillEaterEvent_Clockwerk_R"
-  "ocketKills\020\210\001\022/\n*kKillEaterEvent_Clockwe"
-  "rk_BlindRocketKills\020\211\001\022*\n%kKillEaterEven"
-  "t_StormSpirit_BallKills\020\212\001\0223\n.kKillEater"
-  "Event_StormSpirit_DoubleRemnantKills\020\213\001\022"
-  ",\n\'kKillEaterEvent_StormSpirit_VortexKil"
-  "ls\020\214\001\022.\n)kKillEaterEvent_Tinker_DoubleMi"
-  "ssileKills\020\215\001\022&\n!kKillEaterEvent_Tinker_"
-  "LaserKills\020\216\001\022)\n$kKillEaterEvent_Techies"
-  "_SuicideKills\020\217\001\022*\n%kKillEaterEvent_Tech"
-  "ies_LandMineKills\020\220\001\022,\n\'kKillEaterEvent_"
-  "Techies_StatisTrapStuns\020\221\001\022,\n\'kKillEater"
-  "Event_Techies_RemoteMineKills\020\222\001\0220\n+kKil"
-  "lEaterEvent_ShadowFiend_TripleRazeKills\020"
-  "\223\001\0222\n-kKillEaterEvent_ShadowFiend_Requie"
-  "mMultiKills\020\224\001\022+\n&kKillEaterEvent_Shadow"
-  "Fiend_QRazeKills\020\225\001\022+\n&kKillEaterEvent_S"
-  "hadowFiend_WRazeKills\020\226\001\022+\n&kKillEaterEv"
-  "ent_ShadowFiend_ERazeKills\020\227\001\022+\n&kKillEa"
-  "terEvent_Oracle_FatesEdictKills\020\230\001\022-\n(kK"
-  "illEaterEvent_Oracle_FalsePromiseSaves\020\231"
-  "\001\022.\n)kKillEaterEvent_Juggernaut_Omnislas"
-  "hKills\020\232\001\0227\n2kKillEaterEventType_Skeleto"
-  "nKing_SkeletonHeroKills\020\235\001\022:\n5kKillEater"
-  "EventType_DarkWillow_CursedCrownTripleSt"
-  "uns\020\236\001\0221\n,kKillEaterEventType_Dazzle_Sha"
-  "llowGraveSaves\020\237\001\0220\n+kKillEaterEventType"
-  "_Dazzle_PoisonTouchKills\020\240\001\022%\n kKillEate"
-  "rEventType_ThreeManMeks\020\241\001\0220\n+kKillEater"
-  "EventType_Viper_PoisonAttackKills\020\242\001\0221\n,"
-  "kKillEaterEventType_Viper_CorrosiveSkinK"
-  "ills\020\243\001\022\'\n\"kKillEaterEventType_ThreeHero"
-  "Veils\020\244\001\0225\n0kKillEaterEventType_Viper_Ki"
-  "llsDuringViperStrike\020\245\001\022(\n#kKillEaterEve"
-  "ntType_SolarCrestKills\020\246\001\022,\n\'kKillEaterE"
-  "ventType_Tiny_TreeThrowKills\020\247\001\022+\n&kKill"
-  "EaterEventType_Riki_BackstabKills\020\250\001\0228\n3"
-  "kKillEaterEventType_Phoenix_ThreeHeroSup"
-  "ernovaStuns\020\251\001\0227\n2kKillEaterEventType_Te"
-  "rrorblade_MetamorphosisKills\020\252\001\022.\n)kKill"
-  "EaterEventType_Lion_GreatFingerKills\020\253\001\022"
-  ";\n6kKillEaterEventType_Antimage_SpellsBl"
-  "ockedWithAghanims\020\254\001\0223\n.kKillEaterEventT"
-  "ype_Antimage_ThreeManManaVoids\020\255\001\0225\n0kKi"
-  "llEaterEventType_ArcWarden_TempestDouble"
-  "Kills\020\256\001\0223\n.kKillEaterEventType_ArcWarde"
-  "n_SparkWraithKills\020\257\001\022+\n&kKillEaterEvent"
-  "Type_Bane_BrainSapKills\020\260\001\022-\n(kKillEater"
-  "EventType_Bane_FiendsGripKills\020\261\001\0227\n2kKi"
-  "llEaterEventType_Batrider_TripleHeroFlam"
-  "ebreaks\020\262\001\0223\n.kKillEaterEventType_Batrid"
-  "er_DoubleHeroLassoes\020\263\001\022:\n5kKillEaterEve"
-  "ntType_Brewmaster_KillsDuringPrimalSplit"
-  "\020\264\001\022>\n9kKillEaterEventType_Bristleback_K"
-  "illsUnderFourQuillStacks\020\265\001\0227\n2kKillEate"
-  "rEventType_Bristleback_TripleHeroNasalGo"
-  "o\020\266\001\0228\n3kKillEaterEventType_Broodmother_"
-  "SpiderlingHeroKills\020\267\001\0223\n.kKillEaterEven"
-  "tType_Broodmother_KillsInsideWeb\020\270\001\0222\n-k"
-  "KillEaterEventType_Centaur_ThreeHeroStam"
-  "pede\020\271\001\0225\n0kKillEaterEventType_ChaosKnig"
-  "ht_RealityRiftKills\020\272\001\0220\n+kKillEaterEven"
-  "tType_Chen_KillsWithPenitence\020\273\001\022:\n5kKil"
-  "lEaterEventType_CrystalMaiden_TwoHeroCry"
-  "stalNovas\020\274\001\022>\n9kKillEaterEventType_Crys"
-  "talMaiden_ThreeHeroFreezingFields\020\275\001\022/\n*"
-  "kKillEaterEventType_Dazzle_ShadowWaveKil"
-  "ls\020\276\001\0221\n,kKillEaterEventType_DeathProphe"
-  "t_SiphonKills\020\277\001\022=\n8kKillEaterEventType_"
-  "DeathProphet_ExorcismKillsDuringEuls\020\300\001\022"
-  "C\n>kKillEaterEventType_Disruptor_ThreeHe"
-  "roKineticFieldStaticStorm\020\301\001\0224\n/kKillEat"
-  "erEventType_Doom_InfernalBladeBurnKills\020"
-  "\302\001\022@\n;kKillEaterEventType_DrowRanger_Pre"
-  "cisionAuraCreepTowerKills\020\303\001\0221\n,kKillEat"
-  "erEventType_EmberSpirit_RemnantKills\020\304\001\022"
-  "7\n2kKillEaterEventType_EmberSpirit_Sleig"
-  "htOfFistKills\020\305\001\022<\n7kKillEaterEventType_"
-  "Enigma_MidnightPulseBlackHoleCombos\020\306\001\0222"
-  "\n-kKillEaterEventType_Enigma_ThreeManBla"
-  "ckHoles\020\307\001\022;\n6kKillEaterEventType_Facele"
-  "ssVoid_MultiHeroTimeDilation\020\310\001\0227\n2kKill"
-  "EaterEventType_Gyrocopter_ThreeHeroFlakC"
-  "annon\020\311\001\0226\n1kKillEaterEventType_Gyrocopt"
-  "er_HomingMissileKills\020\312\001\0226\n1kKillEaterEv"
-  "entType_Gyrocopter_RocketBarrageKills\020\313\001"
-  "\0224\n/kKillEaterEventType_Huskar_KillsDuri"
-  "ngLifeBreak\020\314\001\0221\n,kKillEaterEventType_Hu"
-  "skar_BurningSpearKills\020\315\001\0221\n,kKillEaterE"
-  "ventType_Invoker_MultiHeroIceWall\020\316\001\022-\n("
-  "kKillEaterEventType_Invoker_ThreeHeroEMP"
-  "\020\317\001\0228\n3kKillEaterEventType_Invoker_Three"
-  "HeroDeafeningBlast\020\320\001\0225\n0kKillEaterEvent"
-  "Type_Invoker_MultiHeroChaosMeteor\020\321\001\0223\n."
-  "kKillEaterEventType_Jakiro_MultiHeroDual"
-  "Breath\020\322\001\0226\n1kKillEaterEventType_Jakiro_"
-  "IcePathMacropyreCombos\020\323\001\022/\n*kKillEaterE"
-  "ventType_Leshrac_PulseNovaKills\020\324\001\0228\n3kK"
-  "illEaterEventType_Leshrac_ThreeHeroLight"
-  "ningStorm\020\325\001\0224\n/kKillEaterEventType_Lion"
-  "_ThreeHeroFingerOfDeath\020\326\001\022(\n#kKillEater"
-  "EventType_Meepo_PoofKills\020\327\001\0222\n-kKillEat"
-  "erEventType_Meepo_MultiHeroEarthbinds\020\330\001"
-  "\0224\n/kKillEaterEventType_NightStalker_Nig"
-  "httimeKills\020\331\001\0227\n2kKillEaterEventType_Mo"
-  "rphling_KillsDuringReplicate\020\332\001\0220\n+kKill"
-  "EaterEventType_OgreMagi_FireblastKills\020\333"
-  "\001\022-\n(kKillEaterEventType_OgreMagi_Ignite"
-  "Kills\020\334\001\022.\n)kKillEaterEventType_Dominati"
-  "ngKillStreaks\020\335\001\022(\n#kKillEaterEventType_"
-  "MegaKillStreaks\020\336\001\0220\n+kKillEaterEventTyp"
-  "e_Alchemist_AghanimsGiven\020\337\001\022,\n\'kKillEat"
-  "erEventType_VeilsLeadingToKills\020\340\001\022+\n&kK"
-  "illEaterEventType_DustLeadingToKills\020\341\001\022"
-  "7\n2kKillEaterEventType_WitchDoctor_Multi"
-  "HeroCaskStuns\020\342\001\022-\n(kKillEaterEventType_"
-  "Weaver_ShukuchiKills\020\343\001\0229\n4kKillEaterEve"
-  "ntType_Windrunner_ShackleFocusFireKills\020"
-  "\344\001\022B\n=kKillEaterEventType_VengefulSpirit"
-  "_VengeanceAuraIllusionKills\020\345\001\022.\n)kKillE"
-  "aterEventType_Tusk_WalrusPunchKills\020\346\001\022/"
-  "\n*kKillEaterEventType_Tinker_MultiHeroLa"
-  "sers\020\347\001\022;\n6kKillEaterEventType_TemplarAs"
-  "sassin_MultiHeroPsiBlades\020\350\001\0225\n0kKillEat"
-  "erEventType_Sven_KillsDuringGodsStrength"
-  "\020\351\001\0222\n-kKillEaterEventType_Sniper_ThreeH"
-  "eroShrapnels\020\352\001\0225\n0kKillEaterEventType_S"
-  "lark_KillsDuringShadowDance\020\353\001\022:\n5kKillE"
-  "aterEventType_ShadowShaman_MultiHeroEthe"
-  "rShocks\020\354\001\022=\n8kKillEaterEventType_Shadow"
-  "Shaman_SerpentWardShackleKills\020\355\001\0227\n2kKi"
-  "llEaterEventType_Riki_ThreeHeroTricksOfT"
-  "heTrade\020\356\001\0221\n,kKillEaterEventType_Razor_"
-  "EyeOfTheStormKills\020\357\001\022-\n(kKillEaterEvent"
-  "Type_Pugna_LifeDrainKills\020\360\001\022>\n9kKillEat"
-  "erEventType_ObsidianDestroyer_SanitysEcl"
-  "ipseKills\020\361\001\0224\n/kKillEaterEventType_Orac"
-  "le_MultiHeroFortunesEnd\020\362\001\0225\n0kKillEater"
-  "EventType_Omniknight_PurificationKills\020\363"
-  "\001\022C\n>kKillEaterEventType_NightStalker_En"
-  "emyMissesUnderCripplingFear\020\364\001\0224\n/kKillE"
-  "aterEventType_Warlock_ThreeHeroFatalBond"
-  "s\020\365\001\0223\n.kKillEaterEventType_Riki_TricksO"
-  "fTheTradeKills\020\366\001\0225\n0kKillEaterEventType"
-  "_Earthshaker_AftershockHits10\020\367\001\0223\n.kKil"
-  "lEaterEventType_Earthshaker_5HeroEchosla"
-  "ms\020\370\001\0222\n-kKillEaterEventType_Lina_Laguna"
-  "BladeHeroKills\020\371\001\0222\n-kKillEaterEventType"
-  "_Lina_LightStrikeHeroStuns\020\372\001\0226\n1kKillEa"
-  "terEventType_Earthshaker_FissureMultiStu"
-  "ns\020\373\001\022/\n*kKillEaterEventType_Earthshaker"
-  "_TotemKills\020\374\001\0223\n.kKillEaterEventType_Pa"
-  "ngolier_SwashbuckleKills\020\375\001\0222\n-kKillEate"
-  "rEventType_Furion_EnemyHeroesTrapped\020\376\001\022"
-  "4\n/kKillEaterEventType_Pangolier_Heartpi"
-  "ercerKills\020\377\001\0222\n-kKillEaterEventType_Med"
-  "usa_MultiHeroStoneGaze\020\200\002\022.\n)kKillEaterE"
-  "ventType_Medusa_SplitShotKills\020\201\002\0222\n-kKi"
-  "llEaterEventType_Mirana_MultiHeroStarsto"
-  "rm\020\202\002\0228\n3kKillEaterEventType_Mirana_Kill"
-  "sFromMoonlightShadow\020\203\002\0220\n+kKillEaterEve"
-  "ntType_Magnus_MultiHeroSkewers\020\204\002\0228\n3kKi"
-  "llEaterEventType_Magnus_MultiHeroReverse"
-  "Polarity\020\205\002\0229\n4kKillEaterEventType_Magnu"
-  "s_HeroesSlowedWithShockwave\020\206\002\0220\n+kKillE"
-  "aterEventType_NagaSiren_MultiHeroSong\020\207\002"
-  "\0225\n0kKillEaterEventType_NagaSiren_Allies"
-  "HealedBySong\020\210\002\0220\n+kKillEaterEventType_L"
-  "oneDruid_MultiHeroRoar\020\211\002\0221\n,kKillEaterE"
-  "ventType_LoneDruid_BattleCryKills\020\212\002\0225\n0"
-  "kKillEaterEventType_WinterWyvern_ThreeHe"
-  "roCurses\020\213\002\022\?\n:kKillEaterEventType_Antim"
-  "age_SpellsBlockedWithCounterspell\020\214\002\0222\n-"
-  "kKillEaterEventType_Mars_EnemiesKilledIn"
-  "Arena\020\215\002\0221\n,kKillEaterEventType_Mars_Mul"
-  "tiHeroGodsRebuke\020\216\002\022-\n(kKillEaterEventTy"
-  "pe_Mars_GodsRebukeKills\020\217\002\0222\n-kKillEater"
-  "EventType_Snapfire_LizardBlobsKills\020\220\002\0224"
-  "\n/kKillEaterEventType_Snapfire_TwoHeroCo"
-  "okieStuns\020\221\002\022\026\n\021Custom_KillStreak\020\222\002\022-\n("
-  "kKillEaterEventType_Muerta_DeadShotKills"
-  "\020\223\002\0222\n-kKillEaterEventType_Muerta_Pierce"
-  "TheVeilKills\020\224\002\0221\n,kKillEaterEventType_M"
-  "uerta_MultiHeroDeadShot\020\225\002\0227\n2kKillEater"
-  "EventType_Muerta_DeadShotsIntoTheCalling"
-  "\020\226\002*\253\001\n\016ELaneSelection\022\035\n\031k_ELaneSelecti"
-  "on_SAFELANE\020\000\022\034\n\030k_ELaneSelection_OFFLAN"
-  "E\020\001\022\034\n\030k_ELaneSelection_MIDLANE\020\002\022\034\n\030k_E"
-  "LaneSelection_SUPPORT\020\003\022 \n\034k_ELaneSelect"
-  "ion_HARDSUPPORT\020\004*\333\002\n\023ELaneSelectionFlag"
-  "s\022\"\n\036k_ELaneSelectionFlags_SAFELANE\020\001\022!\n"
-  "\035k_ELaneSelectionFlags_OFFLANE\020\002\022!\n\035k_EL"
-  "aneSelectionFlags_MIDLANE\020\004\022!\n\035k_ELaneSe"
-  "lectionFlags_SUPPORT\020\010\022%\n!k_ELaneSelecti"
-  "onFlags_HARDSUPPORT\020\020\022\"\n\036k_ELaneSelectio"
-  "nFlagGroup_None\020\000\022\"\n\036k_ELaneSelectionFla"
-  "gGroup_CORE\020\007\022%\n!k_ELaneSelectionFlagGro"
-  "up_SUPPORT\020\030\022!\n\035k_ELaneSelectionFlagGrou"
-  "p_ALL\020\037*i\n\026EPartyMatchmakingFlags\022!\n\035k_E"
-  "PartyMatchmakingFlags_None\020\000\022,\n(k_EParty"
-  "MatchmakingFlags_LargeRankSpread\020\001*\334\002\n\024E"
-  "HighPriorityMMState\022\035\n\031k_EHighPriorityMM"
-  "_Unknown\020\000\022#\n\037k_EHighPriorityMM_MissingM"
-  "MData\020\001\022%\n!k_EHighPriorityMM_ResourceMis"
-  "sing\020\002\022&\n\"k_EHighPriorityMM_ManuallyDisa"
-  "bled\020\003\022!\n\035k_EHighPriorityMM_Min_Enabled\020"
-  "@\022&\n\"k_EHighPriorityMM_AllRolesSelected\020"
-  "A\022#\n\037k_EHighPriorityMM_UsingResource\020B\022\037"
-  "\n\033k_EHighPriorityMM_FiveStack\020C\022 \n\034k_EHi"
-  "ghPriorityMM_HighDemand\020D*u\n\021EReadyCheck"
-  "Status\022\037\n\033k_EReadyCheckStatus_Unknown\020\000\022"
-  " \n\034k_EReadyCheckStatus_NotReady\020\001\022\035\n\031k_E"
-  "ReadyCheckStatus_Ready\020\002*\366\001\n\030EReadyCheck"
-  "RequestResult\022&\n\"k_EReadyCheckRequestRes"
-  "ult_Success\020\000\0220\n,k_EReadyCheckRequestRes"
-  "ult_AlreadyInProgress\020\001\022)\n%k_EReadyCheck"
-  "RequestResult_NotInParty\020\002\022(\n$k_EReadyCh"
-  "eckRequestResult_SendError\020\003\022+\n\'k_EReady"
-  "CheckRequestResult_UnknownError\020\004*\301\001\n\033EM"
-  "atchBehaviorScoreVariance\022)\n%k_EMatchBeh"
-  "aviorScoreVariance_Invalid\020\000\022%\n!k_EMatch"
-  "BehaviorScoreVariance_Low\020\001\022(\n$k_EMatchB"
-  "ehaviorScoreVariance_Medium\020\002\022&\n\"k_EMatc"
-  "hBehaviorScoreVariance_High\020\003"
+  "am_china\030\020 \001(\010\022\027\n\017banned_hero_ids\030\021 \003(\005\""
+  "\214\017\n\014CSODOTAParty\022\026\n\010party_id\030\001 \001(\004B\004\200\246\035\001"
+  "\022\021\n\tleader_id\030\002 \001(\006\022\022\n\nmember_ids\030\003 \003(\006\022"
+  "\022\n\ngame_modes\030\004 \001(\r\022&\n\005state\030\006 \001(\0162\023.CSO"
+  "DOTAParty.State:\002UI\022*\n\"effective_started"
+  "_matchmaking_time\030\007 \001(\r\022$\n\034raw_started_m"
+  "atchmaking_time\030  \001(\r\022\032\n\022attempt_start_t"
+  "ime\030! \001(\r\022\023\n\013attempt_num\030\" \001(\r\022\023\n\013matchg"
+  "roups\030\013 \001(\r\022\037\n\027low_priority_account_id\030\023"
+  " \001(\r\0221\n\nmatch_type\030\025 \001(\0162\n.MatchType:\021MA"
+  "TCH_TYPE_CASUAL\022\017\n\007team_id\030\027 \001(\r\022\021\n\tteam"
+  "_name\0303 \001(\t\022\024\n\014team_ui_logo\0304 \001(\004\022\026\n\016tea"
+  "m_base_logo\0305 \001(\004\022!\n\031match_disabled_unti"
+  "l_date\030\030 \001(\r\022!\n\031match_disabled_account_i"
+  "d\030\031 \001(\r\022%\n\035matchmaking_max_range_minutes"
+  "\030\032 \001(\r\022\026\n\016matchlanguages\030\033 \001(\r\022$\n\007member"
+  "s\030\035 \003(\0132\023.CSODOTAPartyMember\022$\n\034low_prio"
+  "rity_games_remaining\030# \001(\r\022\036\n\026open_for_j"
+  "oin_requests\030( \001(\010\022)\n\014sent_invites\030) \003(\013"
+  "2\023.CSODOTAPartyInvite\022)\n\014recv_invites\030* "
+  "\003(\0132\023.CSODOTAPartyInvite\022\025\n\raccount_flag"
+  "s\030+ \001(\r\022\033\n\023region_select_flags\030, \001(\r\022\037\n\027"
+  "exclusive_tournament_id\030- \001(\r\022\033\n\023tourney"
+  "_division_id\030/ \001(\r\022\035\n\025tourney_schedule_t"
+  "ime\0300 \001(\r\022\033\n\023tourney_skill_level\0301 \001(\r\022\035"
+  "\n\025tourney_bracket_round\0302 \001(\r\022#\n\033tourney"
+  "_queue_deadline_time\0306 \001(\r\022f\n\034tourney_qu"
+  "eue_deadline_state\0307 \001(\0162\033.ETourneyQueue"
+  "DeadlineState:#k_ETourneyQueueDeadlineSt"
+  "ate_Normal\022#\n\033party_builder_slots_to_fil"
+  "l\0308 \001(\r\022\"\n\032party_builder_match_groups\0309 "
+  "\001(\r\022 \n\030party_builder_start_time\030: \001(\r\022\022\n"
+  "\nsolo_queue\030; \001(\010\022\035\n\025steam_clan_account_"
+  "id\030= \001(\r\022*\n\013ready_check\030> \001(\0132\025.CMsgRead"
+  "yCheckStatus\022\'\n\037custom_game_disabled_unt"
+  "il_date\030\? \001(\r\022\'\n\037custom_game_disabled_ac"
+  "count_id\030@ \001(\r\022\032\n\022is_challenge_match\030A \001"
+  "(\010\022\"\n\032party_search_beacon_active\030B \001(\010\022\031"
+  "\n\021matchmaking_flags\030C \001(\r\022M\n\023high_priori"
+  "ty_state\030D \001(\0162\025.EHighPriorityMMState:\031k"
+  "_EHighPriorityMM_Unknown\022\037\n\027lane_selecti"
+  "ons_enabled\030E \001(\010\022#\n\033custom_game_difficu"
+  "lty_mask\030F \001(\r\022\026\n\016is_steam_china\030G \001(\010\022\033"
+  "\n\023bot_difficulty_mask\030H \001(\r\022\035\n\025bot_scrip"
+  "t_index_mask\030I \001(\r\022\036\n\026restricted_from_ra"
+  "nked\030J \001(\010\022)\n!restricted_from_ranked_acc"
+  "ount_id\030K \001(\r\022 \n\030rank_spread_likert_scal"
+  "e\030L \001(\r\022#\n\033behavior_score_likert_scale\030M"
+  " \001(\r\"0\n\005State\022\006\n\002UI\020\000\022\021\n\rFINDING_MATCH\020\001"
+  "\022\014\n\010IN_MATCH\020\002\"\233\002\n\022CSODOTAPartyInvite\022\026\n"
+  "\010group_id\030\001 \001(\004B\004\200\246\035\001\022\021\n\tsender_id\030\002 \001(\006"
+  "\022\023\n\013sender_name\030\003 \001(\t\0220\n\007members\030\004 \003(\0132\037"
+  ".CSODOTAPartyInvite.PartyMember\022\017\n\007team_"
+  "id\030\005 \001(\r\022\033\n\023low_priority_status\030\006 \001(\010\022\020\n"
+  "\010as_coach\030\007 \001(\010\022\022\n\ninvite_gid\030\010 \001(\006\032\?\n\013P"
+  "artyMember\022\014\n\004name\030\001 \001(\t\022\020\n\010steam_id\030\002 \001"
+  "(\006\022\020\n\010is_coach\030\004 \001(\010\"\325\001\n\017CMsgLeaverState"
+  "\022\023\n\013lobby_state\030\001 \001(\r\022>\n\ngame_state\030\002 \001("
+  "\0162\017.DOTA_GameState:\031DOTA_GAMERULES_STATE"
+  "_INIT\022\027\n\017leaver_detected\030\003 \001(\010\022\034\n\024first_"
+  "blood_happened\030\004 \001(\010\022\035\n\025discard_match_re"
+  "sults\030\005 \001(\010\022\027\n\017mass_disconnect\030\006 \001(\010\"\213\002\n"
+  "\024CMsgReadyCheckStatus\022\027\n\017start_timestamp"
+  "\030\001 \001(\r\022\030\n\020finish_timestamp\030\002 \001(\r\022\034\n\024init"
+  "iator_account_id\030\003 \001(\r\0228\n\rready_members\030"
+  "\004 \003(\0132!.CMsgReadyCheckStatus.ReadyMember"
+  "\032h\n\013ReadyMember\022\022\n\naccount_id\030\001 \001(\r\022E\n\014r"
+  "eady_status\030\002 \001(\0162\022.EReadyCheckStatus:\033k"
+  "_EReadyCheckStatus_Unknown\"\034\n\032CMsgPartyR"
+  "eadyCheckRequest\"l\n\033CMsgPartyReadyCheckR"
+  "esponse\022M\n\006result\030\001 \001(\0162\031.EReadyCheckReq"
+  "uestResult:\"k_EReadyCheckRequestResult_S"
+  "uccess\"g\n\036CMsgPartyReadyCheckAcknowledge"
+  "\022E\n\014ready_status\030\001 \001(\0162\022.EReadyCheckStat"
+  "us:\033k_EReadyCheckStatus_Unknown\",\n\031CMsgL"
+  "obbyEventGameDetails\022\017\n\007kv_data\030\001 \001(\014\"\271\001"
+  "\n\031CMsgMatchMatchmakingStats\022\032\n\022average_q"
+  "ueue_time\030\001 \001(\r\022\032\n\022maximum_queue_time\030\002 "
+  "\001(\r\022d\n\027behavior_score_variance\030\003 \001(\0162\034.E"
+  "MatchBehaviorScoreVariance:%k_EMatchBeha"
+  "viorScoreVariance_Invalid\"\215l\n\010CMvpData\022 "
+  "\n\004mvps\030\001 \003(\0132\022.CMvpData.MvpDatum\032\336k\n\010Mvp"
+  "Datum\022\023\n\013player_slot\030\001 \001(\r\0221\n\taccolades\030"
+  "\002 \003(\0132\036.CMvpData.MvpDatum.MvpAccolade\032\211k"
+  "\n\013MvpAccolade\022C\n\004type\030\001 \001(\0162..CMvpData.M"
+  "vpDatum.MvpAccolade.MvpAccoladeType:\005kil"
+  "ls\022\024\n\014detail_value\030\002 \001(\002\"\236j\n\017MvpAccolade"
+  "Type\022\t\n\005kills\020\001\022\n\n\006deaths\020\002\022\013\n\007assists\020\003"
+  "\022\r\n\tnet_worth\020\005\022\016\n\nitem_value\020\006\022\026\n\022suppo"
+  "rt_gold_spent\020\007\022\020\n\014wards_placed\020\010\022\013\n\007dew"
+  "ards\020\t\022\021\n\rcamps_stacked\020\n\022\r\n\tlast_hits\020\013"
+  "\022\n\n\006denies\020\014\022\"\n\036kKillEaterEvent_Killing_"
+  "Sprees\020\r\022\033\n\027kKillEaterEvent_Godlike\020\016\022$\n"
+  " kKillEaterEvent_Towers_Destroyed\020\017\022.\n*k"
+  "KillEaterEventType_Invoker_SunstrikeKill"
+  "s\020\020\022!\n\035kKillEaterEventType_Axe_Culls\020\021\022-"
+  "\n)kKillEaterEventType_Axe_BattleHungerKi"
+  "lls\020\022\022&\n\"kKillEaterEventType_LowHealthKi"
+  "lls\020\023\022,\n(kKillEaterEventType_Invoker_Tor"
+  "nadoKills\020\024\022(\n$kKillEaterEventType_Sven_"
+  "DoubleStuns\020\025\022*\n&kKillEaterEventType_Sve"
+  "n_WarcryAssists\020\026\022.\n*kKillEaterEventType"
+  "_Sven_CleaveDoubleKills\020\027\022/\n+kKillEaterE"
+  "ventType_Sven_TeleportInterrupts\020\030\022,\n(kK"
+  "illEaterEventType_Faceless_MultiChrono\020\031"
+  "\022,\n(kKillEaterEventType_Faceless_ChronoK"
+  "ills\020\032\022(\n$kKillEaterEventType_Ursa_Multi"
+  "Shocks\020\033\022#\n\037kKillEaterEventType_RoshanKi"
+  "lls\020\034\022(\n$kKillEaterEventType_Lion_Finger"
+  "Kills\020\035\022,\n(kKillEaterEventType_Riki_Smok"
+  "edHeroKills\020 \022.\n*kKillEaterEventType_Her"
+  "oesRevealedWithDust\020!\0227\n3kKillEaterEvent"
+  "Type_SkeletonKing_ReincarnationKills\020\"\022+"
+  "\n\'kKillEaterEventType_Skywrath_FlareKill"
+  "s\020#\022/\n+kKillEaterEventType_Leshrac_Split"
+  "EarthStuns\020$\022,\n(kKillEaterEventType_Mira"
+  "na_MaxStunArrows\020%\0228\n4kKillEaterEventTyp"
+  "e_PhantomAssassin_CoupdeGraceCrits\020&\0223\n/"
+  "kKillEaterEventType_PhantomAssassin_Dagg"
+  "erCrits\020\'\022(\n$kKillEaterEventType_Meepo_E"
+  "arthbinds\020(\0220\n,kKillEaterEventType_Blood"
+  "seeker_RuptureKills\020)\022,\n(kKillEaterEvent"
+  "Type_Slark_LeashedEnemies\020*\0222\n.kKillEate"
+  "rEventType_Disruptor_FountainGlimpses\020+\022"
+  "+\n\'kKillEaterEventType_Rubick_SpellsStol"
+  "en\020,\022.\n*kKillEaterEventType_Rubick_Ultim"
+  "atesStolen\020-\022*\n&kKillEaterEventType_Doom"
+  "_EnemiesDoomed\020.\0220\n,kKillEaterEventType_"
+  "Omniknight_Purifications\020/\0221\n-kKillEater"
+  "EventType_Omniknight_AlliesRepelled\0200\0222\n"
+  ".kKillEaterEventType_Omniknight_EnemiesR"
+  "epelled\0201\0222\n.kKillEaterEventType_Warlock"
+  "_FiveHeroFatalBonds\0202\0228\n4kKillEaterEvent"
+  "Type_CrystalMaiden_FrostbittenEnemies\0203\022"
+  "2\n.kKillEaterEventType_CrystalMaiden_Cry"
+  "stalNovas\0204\0221\n-kKillEaterEventType_Kunkk"
+  "a_DoubleHeroTorrents\0205\0223\n/kKillEaterEven"
+  "tType_Kunkka_TripleHeroGhostShips\0206\0221\n-k"
+  "KillEaterEventType_NagaSiren_EnemiesEnsn"
+  "ared\0207\0224\n0kKillEaterEventType_NagaSiren_"
+  "TripleHeroRipTides\0208\0223\n/kKillEaterEventT"
+  "ype_Lycan_KillsDuringShapeshift\0209\022,\n(kKi"
+  "llEaterEventType_Pudge_DismemberKills\020:\022"
+  "/\n+kKillEaterEventType_Pudge_EnemyHeroes"
+  "Hooked\020;\022\'\n#kKillEaterEventType_Pudge_Ho"
+  "okKills\020<\0225\n1kKillEaterEventType_Pudge_U"
+  "nseenEnemyHeroesHooked\020=\0222\n.kKillEaterEv"
+  "entType_DrowRanger_EnemiesSilenced\020>\0224\n0"
+  "kKillEaterEventType_DrowRanger_MultiHero"
+  "Silences\020\?\0220\n,kKillEaterEventType_DrowRa"
+  "nger_SilencedKills\020@\0222\n.kKillEaterEventT"
+  "ype_DrowRanger_FrostArrowKills\020A\0226\n2kKil"
+  "lEaterEventType_DragonKnight_KillsInDrag"
+  "onForm\020B\0225\n1kKillEaterEventType_DragonKn"
+  "ight_BreatheFireKills\020C\0220\n,kKillEaterEve"
+  "ntType_DragonKnight_SplashKills\020D\022-\n)kKi"
+  "llEaterEventType_WitchDoctor_CaskStuns\020E"
+  "\0221\n-kKillEaterEventType_WitchDoctor_Male"
+  "dictKills\020F\0226\n2kKillEaterEventType_Witch"
+  "Doctor_MultiHeroMaledicts\020G\0222\n.kKillEate"
+  "rEventType_WitchDoctor_DeathWardKills\020H\022"
+  "4\n0kKillEaterEventType_Disruptor_Thunder"
+  "StrikeKills\020I\0220\n,kKillEaterEventType_Dis"
+  "ruptor_HeroesGlimpsed\020J\0228\n4kKillEaterEve"
+  "ntType_CrystalMaiden_FreezingFieldKills\020"
+  "K\022/\n+kKillEaterEventType_Medusa_EnemiesP"
+  "etrified\020M\022/\n+kKillEaterEventType_Warloc"
+  "k_FatalBondsKills\020N\022*\n&kKillEaterEventTy"
+  "pe_Warlock_GolemKills\020O\022*\n&kKillEaterEve"
+  "ntType_Tusk_WalrusPunches\020P\022*\n&kKillEate"
+  "rEventType_Tusk_SnowballStuns\020Q\0220\n,kKill"
+  "EaterEventType_Earthshaker_FissureStuns\020"
+  "R\0222\n.kKillEaterEventType_Earthshaker_3He"
+  "roEchoslams\020S\0222\n.kKillEaterEventType_San"
+  "dKing_BurrowstrikeStuns\020T\022/\n+kKillEaterE"
+  "ventType_SandKing_EpicenterKills\020U\0225\n1kK"
+  "illEaterEventType_SkywrathMage_AncientSe"
+  "alKills\020V\0228\n4kKillEaterEventType_Skywrat"
+  "hMage_ConcussiveShotKills\020W\022,\n(kKillEate"
+  "rEventType_Luna_LucentBeamKills\020X\022)\n%kKi"
+  "llEaterEventType_Luna_EclipseKills\020Y\0228\n4"
+  "kKillEaterEventType_KeeperOfTheLight_Ill"
+  "uminateKills\020Z\0226\n2kKillEaterEventType_Ke"
+  "eperOfTheLight_ManaLeakStuns\020[\022:\n6kKillE"
+  "aterEventType_KeeperOfTheLight_Teammates"
+  "Recalled\020\\\0220\n,kKillEaterEventType_Legion"
+  "Commander_DuelsWon\020]\022-\n)kKillEaterEventT"
+  "ype_Beastmaster_RoarKills\020^\0222\n.kKillEate"
+  "rEventType_Beastmaster_RoarMultiKills\020_\022"
+  "5\n1kKillEaterEventType_Windrunner_FocusF"
+  "ireBuildings\020`\0221\n-kKillEaterEventType_Wi"
+  "ndrunner_PowershotKills\020a\0226\n2kKillEaterE"
+  "ventType_PhantomAssassin_DaggerLastHits\020"
+  "b\022:\n6kKillEaterEventType_PhantomAssassin"
+  "_PhantomStrikeKills\020c\0224\n0kKillEaterEvent"
+  "Type_DeathProphet_CryptSwarmKills\020d\022:\n6k"
+  "KillEaterEventType_DeathProphet_Exorcism"
+  "BuildingKills\020e\022<\n8kKillEaterEventType_D"
+  "eathProphet_ExorcismSpiritsSummoned\020f\0226\n"
+  "2kKillEaterEventType_DeathProphet_MultiH"
+  "eroSilences\020g\022-\n)kKillEaterEventType_Aba"
+  "ddon_MistCoilKills\020h\022.\n*kKillEaterEventT"
+  "ype_Abaddon_MistCoilHealed\020i\0222\n.kKillEat"
+  "erEventType_Abaddon_AphoticShieldKills\020j"
+  "\0222\n.kKillEaterEventType_Lich_ChainFrostT"
+  "ripleKills\020k\0221\n-kKillEaterEventType_Lich"
+  "_ChainFrostMultiKills\020l\022.\n*kKillEaterEve"
+  "ntType_Lich_ChainFrostBounces\020m\022)\n%kKill"
+  "EaterEventType_Ursa_EnragedKills\020n\022,\n(kK"
+  "illEaterEventType_Ursa_EarthshockKills\020o"
+  "\022-\n)kKillEaterEventType_Lina_LagunaBlade"
+  "Kills\020p\022-\n)kKillEaterEventType_Lina_Drag"
+  "onSlaveKills\020q\0222\n.kKillEaterEventType_Li"
+  "na_LightStrikeArrayStuns\020r\022&\n\"kKillEater"
+  "Event_Barracks_Destroyed\020s\022-\n)kKillEater"
+  "Event_TemplarAssassin_MeldKills\020t\0220\n,kKi"
+  "llEaterEvent_TemplarAssassin_HeroesSlowe"
+  "d\020u\022-\n)kKillEaterEvent_Sniper_Assassinat"
+  "ionKills\020v\022(\n$kKillEaterEvent_Sniper_Hea"
+  "dshotStuns\020w\022*\n&kKillEaterEvent_EarthSpi"
+  "rit_SmashStuns\020x\022,\n(kKillEaterEvent_Eart"
+  "hSpirit_GripSilences\020y\022-\n)kKillEaterEven"
+  "t_ShadowShaman_ShackleKills\020z\022)\n%kKillEa"
+  "terEvent_ShadowShaman_HexKills\020{\022*\n&kKil"
+  "lEaterEvent_Centaur_EnemiesStomped\020|\022+\n\'"
+  "kKillEaterEvent_Centaur_DoubleEdgeKills\020"
+  "}\022\'\n#kKillEaterEvent_Centaur_ReturnKills"
+  "\020~\022.\n*kKillEaterEvent_EmberSpirit_Enemie"
+  "sChained\020\177\0228\n3kKillEaterEvent_EmberSpiri"
+  "t_SleightOfFistMultiKills\020\200\001\022\"\n\035kKillEat"
+  "erEvent_Puck_OrbKills\020\201\001\0222\n-kKillEaterEv"
+  "ent_VengefulSpirit_EnemiesStunned\020\202\001\022*\n%"
+  "kKillEaterEvent_Lifestealer_RageKills\020\203\001"
+  "\0220\n+kKillEaterEvent_Lifestealer_OpenWoun"
+  "dsKills\020\204\001\022,\n\'kKillEaterEvent_Lifesteale"
+  "r_InfestKills\020\205\001\022+\n&kKillEaterEvent_Elde"
+  "rTitan_SpiritKills\020\206\001\022*\n%kKillEaterEvent"
+  "_ElderTitan_GoodStomps\020\207\001\022*\n%kKillEaterE"
+  "vent_Clockwerk_RocketKills\020\210\001\022/\n*kKillEa"
+  "terEvent_Clockwerk_BlindRocketKills\020\211\001\022*"
+  "\n%kKillEaterEvent_StormSpirit_BallKills\020"
+  "\212\001\0223\n.kKillEaterEvent_StormSpirit_Double"
+  "RemnantKills\020\213\001\022,\n\'kKillEaterEvent_Storm"
+  "Spirit_VortexKills\020\214\001\022.\n)kKillEaterEvent"
+  "_Tinker_DoubleMissileKills\020\215\001\022&\n!kKillEa"
+  "terEvent_Tinker_LaserKills\020\216\001\022)\n$kKillEa"
+  "terEvent_Techies_SuicideKills\020\217\001\022*\n%kKil"
+  "lEaterEvent_Techies_LandMineKills\020\220\001\022,\n\'"
+  "kKillEaterEvent_Techies_StatisTrapStuns\020"
+  "\221\001\022,\n\'kKillEaterEvent_Techies_RemoteMine"
+  "Kills\020\222\001\0220\n+kKillEaterEvent_ShadowFiend_"
+  "TripleRazeKills\020\223\001\0222\n-kKillEaterEvent_Sh"
+  "adowFiend_RequiemMultiKills\020\224\001\022+\n&kKillE"
+  "aterEvent_ShadowFiend_QRazeKills\020\225\001\022+\n&k"
+  "KillEaterEvent_ShadowFiend_WRazeKills\020\226\001"
+  "\022+\n&kKillEaterEvent_ShadowFiend_ERazeKil"
+  "ls\020\227\001\022+\n&kKillEaterEvent_Oracle_FatesEdi"
+  "ctKills\020\230\001\022-\n(kKillEaterEvent_Oracle_Fal"
+  "sePromiseSaves\020\231\001\022.\n)kKillEaterEvent_Jug"
+  "gernaut_OmnislashKills\020\232\001\0227\n2kKillEaterE"
+  "ventType_SkeletonKing_SkeletonHeroKills\020"
+  "\235\001\022:\n5kKillEaterEventType_DarkWillow_Cur"
+  "sedCrownTripleStuns\020\236\001\0221\n,kKillEaterEven"
+  "tType_Dazzle_ShallowGraveSaves\020\237\001\0220\n+kKi"
+  "llEaterEventType_Dazzle_PoisonTouchKills"
+  "\020\240\001\022%\n kKillEaterEventType_ThreeManMeks\020"
+  "\241\001\0220\n+kKillEaterEventType_Viper_PoisonAt"
+  "tackKills\020\242\001\0221\n,kKillEaterEventType_Vipe"
+  "r_CorrosiveSkinKills\020\243\001\022\'\n\"kKillEaterEve"
+  "ntType_ThreeHeroVeils\020\244\001\0225\n0kKillEaterEv"
+  "entType_Viper_KillsDuringViperStrike\020\245\001\022"
+  "(\n#kKillEaterEventType_SolarCrestKills\020\246"
+  "\001\022,\n\'kKillEaterEventType_Tiny_TreeThrowK"
+  "ills\020\247\001\022+\n&kKillEaterEventType_Riki_Back"
+  "stabKills\020\250\001\0228\n3kKillEaterEventType_Phoe"
+  "nix_ThreeHeroSupernovaStuns\020\251\001\0227\n2kKillE"
+  "aterEventType_Terrorblade_MetamorphosisK"
+  "ills\020\252\001\022.\n)kKillEaterEventType_Lion_Grea"
+  "tFingerKills\020\253\001\022;\n6kKillEaterEventType_A"
+  "ntimage_SpellsBlockedWithAghanims\020\254\001\0223\n."
+  "kKillEaterEventType_Antimage_ThreeManMan"
+  "aVoids\020\255\001\0225\n0kKillEaterEventType_ArcWard"
+  "en_TempestDoubleKills\020\256\001\0223\n.kKillEaterEv"
+  "entType_ArcWarden_SparkWraithKills\020\257\001\022+\n"
+  "&kKillEaterEventType_Bane_BrainSapKills\020"
+  "\260\001\022-\n(kKillEaterEventType_Bane_FiendsGri"
+  "pKills\020\261\001\0227\n2kKillEaterEventType_Batride"
+  "r_TripleHeroFlamebreaks\020\262\001\0223\n.kKillEater"
+  "EventType_Batrider_DoubleHeroLassoes\020\263\001\022"
+  ":\n5kKillEaterEventType_Brewmaster_KillsD"
+  "uringPrimalSplit\020\264\001\022>\n9kKillEaterEventTy"
+  "pe_Bristleback_KillsUnderFourQuillStacks"
+  "\020\265\001\0227\n2kKillEaterEventType_Bristleback_T"
+  "ripleHeroNasalGoo\020\266\001\0228\n3kKillEaterEventT"
+  "ype_Broodmother_SpiderlingHeroKills\020\267\001\0223"
+  "\n.kKillEaterEventType_Broodmother_KillsI"
+  "nsideWeb\020\270\001\0222\n-kKillEaterEventType_Centa"
+  "ur_ThreeHeroStampede\020\271\001\0225\n0kKillEaterEve"
+  "ntType_ChaosKnight_RealityRiftKills\020\272\001\0220"
+  "\n+kKillEaterEventType_Chen_KillsWithPeni"
+  "tence\020\273\001\022:\n5kKillEaterEventType_CrystalM"
+  "aiden_TwoHeroCrystalNovas\020\274\001\022>\n9kKillEat"
+  "erEventType_CrystalMaiden_ThreeHeroFreez"
+  "ingFields\020\275\001\022/\n*kKillEaterEventType_Dazz"
+  "le_ShadowWaveKills\020\276\001\0221\n,kKillEaterEvent"
+  "Type_DeathProphet_SiphonKills\020\277\001\022=\n8kKil"
+  "lEaterEventType_DeathProphet_ExorcismKil"
+  "lsDuringEuls\020\300\001\022C\n>kKillEaterEventType_D"
+  "isruptor_ThreeHeroKineticFieldStaticStor"
+  "m\020\301\001\0224\n/kKillEaterEventType_Doom_Inferna"
+  "lBladeBurnKills\020\302\001\022@\n;kKillEaterEventTyp"
+  "e_DrowRanger_PrecisionAuraCreepTowerKill"
+  "s\020\303\001\0221\n,kKillEaterEventType_EmberSpirit_"
+  "RemnantKills\020\304\001\0227\n2kKillEaterEventType_E"
+  "mberSpirit_SleightOfFistKills\020\305\001\022<\n7kKil"
+  "lEaterEventType_Enigma_MidnightPulseBlac"
+  "kHoleCombos\020\306\001\0222\n-kKillEaterEventType_En"
+  "igma_ThreeManBlackHoles\020\307\001\022;\n6kKillEater"
+  "EventType_FacelessVoid_MultiHeroTimeDila"
+  "tion\020\310\001\0227\n2kKillEaterEventType_Gyrocopte"
+  "r_ThreeHeroFlakCannon\020\311\001\0226\n1kKillEaterEv"
+  "entType_Gyrocopter_HomingMissileKills\020\312\001"
+  "\0226\n1kKillEaterEventType_Gyrocopter_Rocke"
+  "tBarrageKills\020\313\001\0224\n/kKillEaterEventType_"
+  "Huskar_KillsDuringLifeBreak\020\314\001\0221\n,kKillE"
+  "aterEventType_Huskar_BurningSpearKills\020\315"
+  "\001\0221\n,kKillEaterEventType_Invoker_MultiHe"
+  "roIceWall\020\316\001\022-\n(kKillEaterEventType_Invo"
+  "ker_ThreeHeroEMP\020\317\001\0228\n3kKillEaterEventTy"
+  "pe_Invoker_ThreeHeroDeafeningBlast\020\320\001\0225\n"
+  "0kKillEaterEventType_Invoker_MultiHeroCh"
+  "aosMeteor\020\321\001\0223\n.kKillEaterEventType_Jaki"
+  "ro_MultiHeroDualBreath\020\322\001\0226\n1kKillEaterE"
+  "ventType_Jakiro_IcePathMacropyreCombos\020\323"
+  "\001\022/\n*kKillEaterEventType_Leshrac_PulseNo"
+  "vaKills\020\324\001\0228\n3kKillEaterEventType_Leshra"
+  "c_ThreeHeroLightningStorm\020\325\001\0224\n/kKillEat"
+  "erEventType_Lion_ThreeHeroFingerOfDeath\020"
+  "\326\001\022(\n#kKillEaterEventType_Meepo_PoofKill"
+  "s\020\327\001\0222\n-kKillEaterEventType_Meepo_MultiH"
+  "eroEarthbinds\020\330\001\0224\n/kKillEaterEventType_"
+  "NightStalker_NighttimeKills\020\331\001\0227\n2kKillE"
+  "aterEventType_Morphling_KillsDuringRepli"
+  "cate\020\332\001\0220\n+kKillEaterEventType_OgreMagi_"
+  "FireblastKills\020\333\001\022-\n(kKillEaterEventType"
+  "_OgreMagi_IgniteKills\020\334\001\022.\n)kKillEaterEv"
+  "entType_DominatingKillStreaks\020\335\001\022(\n#kKil"
+  "lEaterEventType_MegaKillStreaks\020\336\001\0220\n+kK"
+  "illEaterEventType_Alchemist_AghanimsGive"
+  "n\020\337\001\022,\n\'kKillEaterEventType_VeilsLeading"
+  "ToKills\020\340\001\022+\n&kKillEaterEventType_DustLe"
+  "adingToKills\020\341\001\0227\n2kKillEaterEventType_W"
+  "itchDoctor_MultiHeroCaskStuns\020\342\001\022-\n(kKil"
+  "lEaterEventType_Weaver_ShukuchiKills\020\343\001\022"
+  "9\n4kKillEaterEventType_Windrunner_Shackl"
+  "eFocusFireKills\020\344\001\022B\n=kKillEaterEventTyp"
+  "e_VengefulSpirit_VengeanceAuraIllusionKi"
+  "lls\020\345\001\022.\n)kKillEaterEventType_Tusk_Walru"
+  "sPunchKills\020\346\001\022/\n*kKillEaterEventType_Ti"
+  "nker_MultiHeroLasers\020\347\001\022;\n6kKillEaterEve"
+  "ntType_TemplarAssassin_MultiHeroPsiBlade"
+  "s\020\350\001\0225\n0kKillEaterEventType_Sven_KillsDu"
+  "ringGodsStrength\020\351\001\0222\n-kKillEaterEventTy"
+  "pe_Sniper_ThreeHeroShrapnels\020\352\001\0225\n0kKill"
+  "EaterEventType_Slark_KillsDuringShadowDa"
+  "nce\020\353\001\022:\n5kKillEaterEventType_ShadowSham"
+  "an_MultiHeroEtherShocks\020\354\001\022=\n8kKillEater"
+  "EventType_ShadowShaman_SerpentWardShackl"
+  "eKills\020\355\001\0227\n2kKillEaterEventType_Riki_Th"
+  "reeHeroTricksOfTheTrade\020\356\001\0221\n,kKillEater"
+  "EventType_Razor_EyeOfTheStormKills\020\357\001\022-\n"
+  "(kKillEaterEventType_Pugna_LifeDrainKill"
+  "s\020\360\001\022>\n9kKillEaterEventType_ObsidianDest"
+  "royer_SanitysEclipseKills\020\361\001\0224\n/kKillEat"
+  "erEventType_Oracle_MultiHeroFortunesEnd\020"
+  "\362\001\0225\n0kKillEaterEventType_Omniknight_Pur"
+  "ificationKills\020\363\001\022C\n>kKillEaterEventType"
+  "_NightStalker_EnemyMissesUnderCripplingF"
+  "ear\020\364\001\0224\n/kKillEaterEventType_Warlock_Th"
+  "reeHeroFatalBonds\020\365\001\0223\n.kKillEaterEventT"
+  "ype_Riki_TricksOfTheTradeKills\020\366\001\0225\n0kKi"
+  "llEaterEventType_Earthshaker_AftershockH"
+  "its10\020\367\001\0223\n.kKillEaterEventType_Earthsha"
+  "ker_5HeroEchoslams\020\370\001\0222\n-kKillEaterEvent"
+  "Type_Lina_LagunaBladeHeroKills\020\371\001\0222\n-kKi"
+  "llEaterEventType_Lina_LightStrikeHeroStu"
+  "ns\020\372\001\0226\n1kKillEaterEventType_Earthshaker"
+  "_FissureMultiStuns\020\373\001\022/\n*kKillEaterEvent"
+  "Type_Earthshaker_TotemKills\020\374\001\0223\n.kKillE"
+  "aterEventType_Pangolier_SwashbuckleKills"
+  "\020\375\001\0222\n-kKillEaterEventType_Furion_EnemyH"
+  "eroesTrapped\020\376\001\0224\n/kKillEaterEventType_P"
+  "angolier_HeartpiercerKills\020\377\001\0222\n-kKillEa"
+  "terEventType_Medusa_MultiHeroStoneGaze\020\200"
+  "\002\022.\n)kKillEaterEventType_Medusa_SplitSho"
+  "tKills\020\201\002\0222\n-kKillEaterEventType_Mirana_"
+  "MultiHeroStarstorm\020\202\002\0228\n3kKillEaterEvent"
+  "Type_Mirana_KillsFromMoonlightShadow\020\203\002\022"
+  "0\n+kKillEaterEventType_Magnus_MultiHeroS"
+  "kewers\020\204\002\0228\n3kKillEaterEventType_Magnus_"
+  "MultiHeroReversePolarity\020\205\002\0229\n4kKillEate"
+  "rEventType_Magnus_HeroesSlowedWithShockw"
+  "ave\020\206\002\0220\n+kKillEaterEventType_NagaSiren_"
+  "MultiHeroSong\020\207\002\0225\n0kKillEaterEventType_"
+  "NagaSiren_AlliesHealedBySong\020\210\002\0220\n+kKill"
+  "EaterEventType_LoneDruid_MultiHeroRoar\020\211"
+  "\002\0221\n,kKillEaterEventType_LoneDruid_Battl"
+  "eCryKills\020\212\002\0225\n0kKillEaterEventType_Wint"
+  "erWyvern_ThreeHeroCurses\020\213\002\022\?\n:kKillEate"
+  "rEventType_Antimage_SpellsBlockedWithCou"
+  "nterspell\020\214\002\0222\n-kKillEaterEventType_Mars"
+  "_EnemiesKilledInArena\020\215\002\0221\n,kKillEaterEv"
+  "entType_Mars_MultiHeroGodsRebuke\020\216\002\022-\n(k"
+  "KillEaterEventType_Mars_GodsRebukeKills\020"
+  "\217\002\0222\n-kKillEaterEventType_Snapfire_Lizar"
+  "dBlobsKills\020\220\002\0224\n/kKillEaterEventType_Sn"
+  "apfire_TwoHeroCookieStuns\020\221\002\022\026\n\021Custom_K"
+  "illStreak\020\222\002\022-\n(kKillEaterEventType_Muer"
+  "ta_DeadShotKills\020\223\002\0222\n-kKillEaterEventTy"
+  "pe_Muerta_PierceTheVeilKills\020\224\002\0221\n,kKill"
+  "EaterEventType_Muerta_MultiHeroDeadShot\020"
+  "\225\002\0227\n2kKillEaterEventType_Muerta_DeadSho"
+  "tsIntoTheCalling\020\226\002\0227\n2kKillEaterEventTy"
+  "pe_Ringmaster_LongRangeDaggerHits\020\227\002\0222\n-"
+  "kKillEaterEventType_Ringmaster_MultiHero"
+  "Whips\020\230\002\0227\n2kKillEaterEventType_Ringmast"
+  "er_MultiHeroMesmerizes\020\231\002*\253\001\n\016ELaneSelec"
+  "tion\022\035\n\031k_ELaneSelection_SAFELANE\020\000\022\034\n\030k"
+  "_ELaneSelection_OFFLANE\020\001\022\034\n\030k_ELaneSele"
+  "ction_MIDLANE\020\002\022\034\n\030k_ELaneSelection_SUPP"
+  "ORT\020\003\022 \n\034k_ELaneSelection_HARDSUPPORT\020\004*"
+  "\333\002\n\023ELaneSelectionFlags\022\"\n\036k_ELaneSelect"
+  "ionFlags_SAFELANE\020\001\022!\n\035k_ELaneSelectionF"
+  "lags_OFFLANE\020\002\022!\n\035k_ELaneSelectionFlags_"
+  "MIDLANE\020\004\022!\n\035k_ELaneSelectionFlags_SUPPO"
+  "RT\020\010\022%\n!k_ELaneSelectionFlags_HARDSUPPOR"
+  "T\020\020\022\"\n\036k_ELaneSelectionFlagGroup_None\020\000\022"
+  "\"\n\036k_ELaneSelectionFlagGroup_CORE\020\007\022%\n!k"
+  "_ELaneSelectionFlagGroup_SUPPORT\020\030\022!\n\035k_"
+  "ELaneSelectionFlagGroup_ALL\020\037*i\n\026EPartyM"
+  "atchmakingFlags\022!\n\035k_EPartyMatchmakingFl"
+  "ags_None\020\000\022,\n(k_EPartyMatchmakingFlags_L"
+  "argeRankSpread\020\001*\334\002\n\024EHighPriorityMMStat"
+  "e\022\035\n\031k_EHighPriorityMM_Unknown\020\000\022#\n\037k_EH"
+  "ighPriorityMM_MissingMMData\020\001\022%\n!k_EHigh"
+  "PriorityMM_ResourceMissing\020\002\022&\n\"k_EHighP"
+  "riorityMM_ManuallyDisabled\020\003\022!\n\035k_EHighP"
+  "riorityMM_Min_Enabled\020@\022&\n\"k_EHighPriori"
+  "tyMM_AllRolesSelected\020A\022#\n\037k_EHighPriori"
+  "tyMM_UsingResource\020B\022\037\n\033k_EHighPriorityM"
+  "M_FiveStack\020C\022 \n\034k_EHighPriorityMM_HighD"
+  "emand\020D*u\n\021EReadyCheckStatus\022\037\n\033k_EReady"
+  "CheckStatus_Unknown\020\000\022 \n\034k_EReadyCheckSt"
+  "atus_NotReady\020\001\022\035\n\031k_EReadyCheckStatus_R"
+  "eady\020\002*\366\001\n\030EReadyCheckRequestResult\022&\n\"k"
+  "_EReadyCheckRequestResult_Success\020\000\0220\n,k"
+  "_EReadyCheckRequestResult_AlreadyInProgr"
+  "ess\020\001\022)\n%k_EReadyCheckRequestResult_NotI"
+  "nParty\020\002\022(\n$k_EReadyCheckRequestResult_S"
+  "endError\020\003\022+\n\'k_EReadyCheckRequestResult"
+  "_UnknownError\020\004*\301\001\n\033EMatchBehaviorScoreV"
+  "ariance\022)\n%k_EMatchBehaviorScoreVariance"
+  "_Invalid\020\000\022%\n!k_EMatchBehaviorScoreVaria"
+  "nce_Low\020\001\022(\n$k_EMatchBehaviorScoreVarian"
+  "ce_Medium\020\002\022&\n\"k_EMatchBehaviorScoreVari"
+  "ance_High\020\003"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_dota_5fgcmessages_5fcommon_5fmatch_5fmanagement_2eproto_deps[3] = {
   &::descriptor_table_dota_5fshared_5fenums_2eproto,
@@ -1129,7 +1145,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_dota_5fgcmessages_5
 };
 static ::_pbi::once_flag descriptor_table_dota_5fgcmessages_5fcommon_5fmatch_5fmanagement_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_dota_5fgcmessages_5fcommon_5fmatch_5fmanagement_2eproto = {
-    false, false, 18869, descriptor_table_protodef_dota_5fgcmessages_5fcommon_5fmatch_5fmanagement_2eproto,
+    false, false, 19131, descriptor_table_protodef_dota_5fgcmessages_5fcommon_5fmatch_5fmanagement_2eproto,
     "dota_gcmessages_common_match_management.proto",
     &descriptor_table_dota_5fgcmessages_5fcommon_5fmatch_5fmanagement_2eproto_once, descriptor_table_dota_5fgcmessages_5fcommon_5fmatch_5fmanagement_2eproto_deps, 3, 15,
     schemas, file_default_instances, TableStruct_dota_5fgcmessages_5fcommon_5fmatch_5fmanagement_2eproto::offsets,
@@ -1443,6 +1459,9 @@ bool CMvpData_MvpDatum_MvpAccolade_MvpAccoladeType_IsValid(int value) {
     case 276:
     case 277:
     case 278:
+    case 279:
+    case 280:
+    case 281:
       return true;
     default:
       return false;
@@ -1722,6 +1741,9 @@ constexpr CMvpData_MvpDatum_MvpAccolade_MvpAccoladeType CMvpData_MvpDatum_MvpAcc
 constexpr CMvpData_MvpDatum_MvpAccolade_MvpAccoladeType CMvpData_MvpDatum_MvpAccolade::kKillEaterEventType_Muerta_PierceTheVeilKills;
 constexpr CMvpData_MvpDatum_MvpAccolade_MvpAccoladeType CMvpData_MvpDatum_MvpAccolade::kKillEaterEventType_Muerta_MultiHeroDeadShot;
 constexpr CMvpData_MvpDatum_MvpAccolade_MvpAccoladeType CMvpData_MvpDatum_MvpAccolade::kKillEaterEventType_Muerta_DeadShotsIntoTheCalling;
+constexpr CMvpData_MvpDatum_MvpAccolade_MvpAccoladeType CMvpData_MvpDatum_MvpAccolade::kKillEaterEventType_Ringmaster_LongRangeDaggerHits;
+constexpr CMvpData_MvpDatum_MvpAccolade_MvpAccoladeType CMvpData_MvpDatum_MvpAccolade::kKillEaterEventType_Ringmaster_MultiHeroWhips;
+constexpr CMvpData_MvpDatum_MvpAccolade_MvpAccoladeType CMvpData_MvpDatum_MvpAccolade::kKillEaterEventType_Ringmaster_MultiHeroMesmerizes;
 constexpr CMvpData_MvpDatum_MvpAccolade_MvpAccoladeType CMvpData_MvpDatum_MvpAccolade::MvpAccoladeType_MIN;
 constexpr CMvpData_MvpDatum_MvpAccolade_MvpAccoladeType CMvpData_MvpDatum_MvpAccolade::MvpAccoladeType_MAX;
 constexpr int CMvpData_MvpDatum_MvpAccolade::MvpAccoladeType_ARRAYSIZE;
@@ -1907,6 +1929,7 @@ CSODOTAPartyMember::CSODOTAPartyMember(const CSODOTAPartyMember& from)
     , /*decltype(_impl_._region_ping_codes_cached_byte_size_)*/{0}
     , decltype(_impl_.region_ping_times_){from._impl_.region_ping_times_}
     , /*decltype(_impl_._region_ping_times_cached_byte_size_)*/{0}
+    , decltype(_impl_.banned_hero_ids_){from._impl_.banned_hero_ids_}
     , decltype(_impl_.region_ping_failed_bitmask_){}
     , decltype(_impl_.tourney_skill_level_){}
     , decltype(_impl_.tourney_buyin_){}
@@ -1938,6 +1961,7 @@ inline void CSODOTAPartyMember::SharedCtor(
     , /*decltype(_impl_._region_ping_codes_cached_byte_size_)*/{0}
     , decltype(_impl_.region_ping_times_){arena}
     , /*decltype(_impl_._region_ping_times_cached_byte_size_)*/{0}
+    , decltype(_impl_.banned_hero_ids_){arena}
     , decltype(_impl_.region_ping_failed_bitmask_){0u}
     , decltype(_impl_.tourney_skill_level_){0u}
     , decltype(_impl_.tourney_buyin_){0u}
@@ -1966,6 +1990,7 @@ inline void CSODOTAPartyMember::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   _impl_.region_ping_codes_.~RepeatedField();
   _impl_.region_ping_times_.~RepeatedField();
+  _impl_.banned_hero_ids_.~RepeatedField();
 }
 
 void CSODOTAPartyMember::SetCachedSize(int size) const {
@@ -1980,6 +2005,7 @@ void CSODOTAPartyMember::Clear() {
 
   _impl_.region_ping_codes_.Clear();
   _impl_.region_ping_times_.Clear();
+  _impl_.banned_hero_ids_.Clear();
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
     ::memset(&_impl_.region_ping_failed_bitmask_, 0, static_cast<size_t>(
@@ -2132,6 +2158,22 @@ const char* CSODOTAPartyMember::_InternalParse(const char* ptr, ::_pbi::ParseCon
         } else
           goto handle_unusual;
         continue;
+      // repeated int32 banned_hero_ids = 17;
+      case 17:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 136)) {
+          ptr -= 2;
+          do {
+            ptr += 2;
+            _internal_add_banned_hero_ids(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<136>(ptr));
+        } else if (static_cast<uint8_t>(tag) == 138) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedInt32Parser(_internal_mutable_banned_hero_ids(), ptr, ctx);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
       default:
         goto handle_unusual;
     }  // switch
@@ -2253,6 +2295,12 @@ uint8_t* CSODOTAPartyMember::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteBoolToArray(16, this->_internal_is_steam_china(), target);
   }
 
+  // repeated int32 banned_hero_ids = 17;
+  for (int i = 0, n = this->_internal_banned_hero_ids_size(); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(17, this->_internal_banned_hero_ids(i), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -2294,6 +2342,15 @@ size_t CSODOTAPartyMember::ByteSizeLong() const {
     int cached_size = ::_pbi::ToCachedSize(data_size);
     _impl_._region_ping_times_cached_byte_size_.store(cached_size,
                                     std::memory_order_relaxed);
+    total_size += data_size;
+  }
+
+  // repeated int32 banned_hero_ids = 17;
+  {
+    size_t data_size = ::_pbi::WireFormatLite::
+      Int32Size(this->_impl_.banned_hero_ids_);
+    total_size += 2 *
+                  ::_pbi::FromIntSize(this->_internal_banned_hero_ids_size());
     total_size += data_size;
   }
 
@@ -2382,6 +2439,7 @@ void CSODOTAPartyMember::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, con
 
   _this->_impl_.region_ping_codes_.MergeFrom(from._impl_.region_ping_codes_);
   _this->_impl_.region_ping_times_.MergeFrom(from._impl_.region_ping_times_);
+  _this->_impl_.banned_hero_ids_.MergeFrom(from._impl_.banned_hero_ids_);
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
     if (cached_has_bits & 0x00000001u) {
@@ -2445,6 +2503,7 @@ void CSODOTAPartyMember::InternalSwap(CSODOTAPartyMember* other) {
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   _impl_.region_ping_codes_.InternalSwap(&other->_impl_.region_ping_codes_);
   _impl_.region_ping_times_.InternalSwap(&other->_impl_.region_ping_times_);
+  _impl_.banned_hero_ids_.InternalSwap(&other->_impl_.banned_hero_ids_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CSODOTAPartyMember, _impl_.is_steam_china_)
       + sizeof(CSODOTAPartyMember::_impl_.is_steam_china_)
@@ -2612,6 +2671,12 @@ class CSODOTAParty::_Internal {
   static void set_has_restricted_from_ranked_account_id(HasBits* has_bits) {
     (*has_bits)[1] |= 65536u;
   }
+  static void set_has_rank_spread_likert_scale(HasBits* has_bits) {
+    (*has_bits)[1] |= 131072u;
+  }
+  static void set_has_behavior_score_likert_scale(HasBits* has_bits) {
+    (*has_bits)[1] |= 262144u;
+  }
 };
 
 const ::CMsgReadyCheckStatus&
@@ -2682,7 +2747,9 @@ CSODOTAParty::CSODOTAParty(const CSODOTAParty& from)
     , decltype(_impl_.restricted_from_ranked_){}
     , decltype(_impl_.bot_difficulty_mask_){}
     , decltype(_impl_.bot_script_index_mask_){}
-    , decltype(_impl_.restricted_from_ranked_account_id_){}};
+    , decltype(_impl_.restricted_from_ranked_account_id_){}
+    , decltype(_impl_.rank_spread_likert_scale_){}
+    , decltype(_impl_.behavior_score_likert_scale_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   _impl_.team_name_.InitDefault();
@@ -2697,8 +2764,8 @@ CSODOTAParty::CSODOTAParty(const CSODOTAParty& from)
     _this->_impl_.ready_check_ = new ::CMsgReadyCheckStatus(*from._impl_.ready_check_);
   }
   ::memcpy(&_impl_.party_id_, &from._impl_.party_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.restricted_from_ranked_account_id_) -
-    reinterpret_cast<char*>(&_impl_.party_id_)) + sizeof(_impl_.restricted_from_ranked_account_id_));
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.behavior_score_likert_scale_) -
+    reinterpret_cast<char*>(&_impl_.party_id_)) + sizeof(_impl_.behavior_score_likert_scale_));
   // @@protoc_insertion_point(copy_constructor:CSODOTAParty)
 }
 
@@ -2762,6 +2829,8 @@ inline void CSODOTAParty::SharedCtor(
     , decltype(_impl_.bot_difficulty_mask_){0u}
     , decltype(_impl_.bot_script_index_mask_){0u}
     , decltype(_impl_.restricted_from_ranked_account_id_){0u}
+    , decltype(_impl_.rank_spread_likert_scale_){0u}
+    , decltype(_impl_.behavior_score_likert_scale_){0u}
   };
   _impl_.team_name_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -2843,7 +2912,11 @@ void CSODOTAParty::Clear() {
         reinterpret_cast<char*>(&_impl_.bot_script_index_mask_) -
         reinterpret_cast<char*>(&_impl_.matchmaking_flags_)) + sizeof(_impl_.bot_script_index_mask_));
   }
-  _impl_.restricted_from_ranked_account_id_ = 0u;
+  if (cached_has_bits & 0x00070000u) {
+    ::memset(&_impl_.restricted_from_ranked_account_id_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.behavior_score_likert_scale_) -
+        reinterpret_cast<char*>(&_impl_.restricted_from_ranked_account_id_)) + sizeof(_impl_.behavior_score_likert_scale_));
+  }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -3368,6 +3441,24 @@ const char* CSODOTAParty::_InternalParse(const char* ptr, ::_pbi::ParseContext* 
         } else
           goto handle_unusual;
         continue;
+      // optional uint32 rank_spread_likert_scale = 76;
+      case 76:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 96)) {
+          _Internal::set_has_rank_spread_likert_scale(&_impl_._has_bits_);
+          _impl_.rank_spread_likert_scale_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 behavior_score_likert_scale = 77;
+      case 77:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 104)) {
+          _Internal::set_has_behavior_score_likert_scale(&_impl_._has_bits_);
+          _impl_.behavior_score_likert_scale_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
       default:
         goto handle_unusual;
     }  // switch
@@ -3734,6 +3825,18 @@ uint8_t* CSODOTAParty::_InternalSerialize(
   if (cached_has_bits & 0x00010000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(75, this->_internal_restricted_from_ranked_account_id(), target);
+  }
+
+  // optional uint32 rank_spread_likert_scale = 76;
+  if (cached_has_bits & 0x00020000u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(76, this->_internal_rank_spread_likert_scale(), target);
+  }
+
+  // optional uint32 behavior_score_likert_scale = 77;
+  if (cached_has_bits & 0x00040000u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(77, this->_internal_behavior_score_likert_scale(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -4104,13 +4207,29 @@ size_t CSODOTAParty::ByteSizeLong() const {
     }
 
   }
-  // optional uint32 restricted_from_ranked_account_id = 75;
-  if (cached_has_bits & 0x00010000u) {
-    total_size += 2 +
-      ::_pbi::WireFormatLite::UInt32Size(
-        this->_internal_restricted_from_ranked_account_id());
-  }
+  if (cached_has_bits & 0x00070000u) {
+    // optional uint32 restricted_from_ranked_account_id = 75;
+    if (cached_has_bits & 0x00010000u) {
+      total_size += 2 +
+        ::_pbi::WireFormatLite::UInt32Size(
+          this->_internal_restricted_from_ranked_account_id());
+    }
 
+    // optional uint32 rank_spread_likert_scale = 76;
+    if (cached_has_bits & 0x00020000u) {
+      total_size += 2 +
+        ::_pbi::WireFormatLite::UInt32Size(
+          this->_internal_rank_spread_likert_scale());
+    }
+
+    // optional uint32 behavior_score_likert_scale = 77;
+    if (cached_has_bits & 0x00040000u) {
+      total_size += 2 +
+        ::_pbi::WireFormatLite::UInt32Size(
+          this->_internal_behavior_score_likert_scale());
+    }
+
+  }
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -4298,8 +4417,17 @@ void CSODOTAParty::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::P
     }
     _this->_impl_._has_bits_[1] |= cached_has_bits;
   }
-  if (cached_has_bits & 0x00010000u) {
-    _this->_internal_set_restricted_from_ranked_account_id(from._internal_restricted_from_ranked_account_id());
+  if (cached_has_bits & 0x00070000u) {
+    if (cached_has_bits & 0x00010000u) {
+      _this->_impl_.restricted_from_ranked_account_id_ = from._impl_.restricted_from_ranked_account_id_;
+    }
+    if (cached_has_bits & 0x00020000u) {
+      _this->_impl_.rank_spread_likert_scale_ = from._impl_.rank_spread_likert_scale_;
+    }
+    if (cached_has_bits & 0x00040000u) {
+      _this->_impl_.behavior_score_likert_scale_ = from._impl_.behavior_score_likert_scale_;
+    }
+    _this->_impl_._has_bits_[1] |= cached_has_bits;
   }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -4331,8 +4459,8 @@ void CSODOTAParty::InternalSwap(CSODOTAParty* other) {
       &other->_impl_.team_name_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CSODOTAParty, _impl_.restricted_from_ranked_account_id_)
-      + sizeof(CSODOTAParty::_impl_.restricted_from_ranked_account_id_)
+      PROTOBUF_FIELD_OFFSET(CSODOTAParty, _impl_.behavior_score_likert_scale_)
+      + sizeof(CSODOTAParty::_impl_.behavior_score_likert_scale_)
       - PROTOBUF_FIELD_OFFSET(CSODOTAParty, _impl_.ready_check_)>(
           reinterpret_cast<char*>(&_impl_.ready_check_),
           reinterpret_cast<char*>(&other->_impl_.ready_check_));

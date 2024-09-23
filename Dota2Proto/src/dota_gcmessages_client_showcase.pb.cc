@@ -114,7 +114,7 @@ PROTOBUF_CONSTEXPR CMsgShowcaseItem_Hero_Data::CMsgShowcaseItem_Hero_Data(
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.econ_items_)*/{}
-  , /*decltype(_impl_.actual_hero_id_)*/0u
+  , /*decltype(_impl_.actual_hero_id_)*/0
   , /*decltype(_impl_.plus_hero_xp_)*/0u} {}
 struct CMsgShowcaseItem_Hero_DataDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CMsgShowcaseItem_Hero_DataDefaultTypeInternal()
@@ -133,7 +133,7 @@ PROTOBUF_CONSTEXPR CMsgShowcaseItem_Hero::CMsgShowcaseItem_Hero(
   , /*decltype(_impl_.animation_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.data_)*/nullptr
   , /*decltype(_impl_.plus_info_)*/nullptr
-  , /*decltype(_impl_.hero_id_)*/0u
+  , /*decltype(_impl_.hero_id_)*/0
   , /*decltype(_impl_.rotation_)*/0u
   , /*decltype(_impl_.flags_)*/0u
   , /*decltype(_impl_.animation_offset_)*/0u
@@ -170,7 +170,7 @@ PROTOBUF_CONSTEXPR CMsgShowcaseItem_HeroIcon::CMsgShowcaseItem_HeroIcon(
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.data_)*/nullptr
   , /*decltype(_impl_.econ_item_ref_)*/nullptr
-  , /*decltype(_impl_.hero_id_)*/0u} {}
+  , /*decltype(_impl_.hero_id_)*/0} {}
 struct CMsgShowcaseItem_HeroIconDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CMsgShowcaseItem_HeroIconDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -184,7 +184,7 @@ PROTOBUF_CONSTEXPR CMsgShowcaseItem_PlayerMatch_Data::CMsgShowcaseItem_PlayerMat
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.hero_id_)*/0u
+  , /*decltype(_impl_.hero_id_)*/0
   , /*decltype(_impl_.timestamp_)*/0u
   , /*decltype(_impl_.duration_)*/0u
   , /*decltype(_impl_.game_mode_)*/0
@@ -1216,6 +1216,7 @@ const uint32_t TableStruct_dota_5fgcmessages_5fclient_5fshowcase_2eproto::offset
   ::_pbi::kInvalidFieldOffsetTag,
   ::_pbi::kInvalidFieldOffsetTag,
   ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::CMsgShowcaseItemData, _impl_.item_),
   PROTOBUF_FIELD_OFFSET(::CMsgShowcaseItemPosition, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgShowcaseItemPosition, _internal_metadata_),
@@ -1621,41 +1622,41 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 232, 239, -1, sizeof(::CMsgShowcaseBackground_Data)},
   { 240, 251, -1, sizeof(::CMsgShowcaseBackground)},
   { 256, -1, -1, sizeof(::CMsgShowcaseItemData)},
-  { 282, 298, -1, sizeof(::CMsgShowcaseItemPosition)},
-  { 308, 319, -1, sizeof(::CMsgShowcaseItem)},
-  { 324, 333, -1, sizeof(::CMsgShowcase)},
-  { 336, 344, -1, sizeof(::CMsgClientToGCShowcaseGetUserData)},
-  { 346, 354, -1, sizeof(::CMsgClientToGCShowcaseGetUserDataResponse)},
-  { 356, 365, -1, sizeof(::CMsgClientToGCShowcaseSetUserData)},
-  { 368, 377, -1, sizeof(::CMsgClientToGCShowcaseSetUserDataResponse)},
-  { 380, 389, -1, sizeof(::CMsgClientToGCShowcaseSubmitReport)},
-  { 392, 399, -1, sizeof(::CMsgClientToGCShowcaseSubmitReportResponse)},
-  { 400, 409, -1, sizeof(::CMsgShowcaseReportsRollupInfo)},
-  { 412, -1, -1, sizeof(::CMsgShowcaseReportsRollupList)},
-  { 419, 428, -1, sizeof(::CMsgShowcaseReportsRollupEntry)},
-  { 431, 439, -1, sizeof(::CMsgShowcaseReportsRollup)},
-  { 441, -1, -1, sizeof(::CMsgClientToGCShowcaseAdminGetReportsRollupList)},
-  { 447, 455, -1, sizeof(::CMsgClientToGCShowcaseAdminGetReportsRollupListResponse)},
-  { 457, 464, -1, sizeof(::CMsgClientToGCShowcaseAdminGetReportsRollup)},
-  { 465, 473, -1, sizeof(::CMsgClientToGCShowcaseAdminGetReportsRollupResponse)},
-  { 475, 485, -1, sizeof(::CMsgShowcaseAuditEntry)},
-  { 489, 499, -1, sizeof(::CMsgShowcaseReport)},
-  { 503, 512, -1, sizeof(::CMsgShowcaseAdminUserDetails)},
-  { 515, 522, -1, sizeof(::CMsgClientToGCShowcaseAdminGetUserDetails)},
-  { 523, 531, -1, sizeof(::CMsgClientToGCShowcaseAdminGetUserDetailsResponse)},
-  { 533, 541, -1, sizeof(::CMsgClientToGCShowcaseAdminReset)},
-  { 543, 550, -1, sizeof(::CMsgClientToGCShowcaseAdminResetResponse)},
-  { 551, 559, -1, sizeof(::CMsgClientToGCShowcaseAdminLockAccount)},
-  { 561, 568, -1, sizeof(::CMsgClientToGCShowcaseAdminLockAccountResponse)},
-  { 569, 577, -1, sizeof(::CMsgClientToGCShowcaseAdminConvict)},
-  { 579, 586, -1, sizeof(::CMsgClientToGCShowcaseAdminConvictResponse)},
-  { 587, 595, -1, sizeof(::CMsgClientToGCShowcaseAdminExonerate)},
-  { 597, 604, -1, sizeof(::CMsgClientToGCShowcaseAdminExonerateResponse)},
-  { 605, 614, -1, sizeof(::CMsgShowcaseModerationInfo)},
-  { 617, 625, -1, sizeof(::CMsgClientToGCShowcaseModerationGetQueue)},
-  { 627, 635, -1, sizeof(::CMsgClientToGCShowcaseModerationGetQueueResponse)},
-  { 637, 647, -1, sizeof(::CMsgClientToGCShowcaseModerationApplyModeration)},
-  { 651, 658, -1, sizeof(::CMsgClientToGCShowcaseModerationApplyModerationResponse)},
+  { 283, 299, -1, sizeof(::CMsgShowcaseItemPosition)},
+  { 309, 320, -1, sizeof(::CMsgShowcaseItem)},
+  { 325, 334, -1, sizeof(::CMsgShowcase)},
+  { 337, 345, -1, sizeof(::CMsgClientToGCShowcaseGetUserData)},
+  { 347, 355, -1, sizeof(::CMsgClientToGCShowcaseGetUserDataResponse)},
+  { 357, 366, -1, sizeof(::CMsgClientToGCShowcaseSetUserData)},
+  { 369, 378, -1, sizeof(::CMsgClientToGCShowcaseSetUserDataResponse)},
+  { 381, 390, -1, sizeof(::CMsgClientToGCShowcaseSubmitReport)},
+  { 393, 400, -1, sizeof(::CMsgClientToGCShowcaseSubmitReportResponse)},
+  { 401, 410, -1, sizeof(::CMsgShowcaseReportsRollupInfo)},
+  { 413, -1, -1, sizeof(::CMsgShowcaseReportsRollupList)},
+  { 420, 429, -1, sizeof(::CMsgShowcaseReportsRollupEntry)},
+  { 432, 440, -1, sizeof(::CMsgShowcaseReportsRollup)},
+  { 442, -1, -1, sizeof(::CMsgClientToGCShowcaseAdminGetReportsRollupList)},
+  { 448, 456, -1, sizeof(::CMsgClientToGCShowcaseAdminGetReportsRollupListResponse)},
+  { 458, 465, -1, sizeof(::CMsgClientToGCShowcaseAdminGetReportsRollup)},
+  { 466, 474, -1, sizeof(::CMsgClientToGCShowcaseAdminGetReportsRollupResponse)},
+  { 476, 486, -1, sizeof(::CMsgShowcaseAuditEntry)},
+  { 490, 500, -1, sizeof(::CMsgShowcaseReport)},
+  { 504, 513, -1, sizeof(::CMsgShowcaseAdminUserDetails)},
+  { 516, 523, -1, sizeof(::CMsgClientToGCShowcaseAdminGetUserDetails)},
+  { 524, 532, -1, sizeof(::CMsgClientToGCShowcaseAdminGetUserDetailsResponse)},
+  { 534, 542, -1, sizeof(::CMsgClientToGCShowcaseAdminReset)},
+  { 544, 551, -1, sizeof(::CMsgClientToGCShowcaseAdminResetResponse)},
+  { 552, 560, -1, sizeof(::CMsgClientToGCShowcaseAdminLockAccount)},
+  { 562, 569, -1, sizeof(::CMsgClientToGCShowcaseAdminLockAccountResponse)},
+  { 570, 578, -1, sizeof(::CMsgClientToGCShowcaseAdminConvict)},
+  { 580, 587, -1, sizeof(::CMsgClientToGCShowcaseAdminConvictResponse)},
+  { 588, 596, -1, sizeof(::CMsgClientToGCShowcaseAdminExonerate)},
+  { 598, 605, -1, sizeof(::CMsgClientToGCShowcaseAdminExonerateResponse)},
+  { 606, 615, -1, sizeof(::CMsgShowcaseModerationInfo)},
+  { 618, 626, -1, sizeof(::CMsgClientToGCShowcaseModerationGetQueue)},
+  { 628, 636, -1, sizeof(::CMsgClientToGCShowcaseModerationGetQueueResponse)},
+  { 638, 648, -1, sizeof(::CMsgClientToGCShowcaseModerationApplyModeration)},
+  { 652, 659, -1, sizeof(::CMsgClientToGCShowcaseModerationApplyModerationResponse)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -1741,7 +1742,7 @@ const char descriptor_table_protodef_dota_5fgcmessages_5fclient_5fshowcase_2epro
   "2\036.CMsgShowcaseEconItemReference\032\'\n\004Data"
   "\022\037\n\tecon_item\030\001 \001(\0132\014.CSOEconItem\"\277\003\n\025CM"
   "sgShowcaseItem_Hero\022)\n\004data\030\001 \001(\0132\033.CMsg"
-  "ShowcaseItem_Hero.Data\022\017\n\007hero_id\030\002 \001(\r\022"
+  "ShowcaseItem_Hero.Data\022\017\n\007hero_id\030\002 \001(\005\022"
   "6\n\016econ_item_refs\030\003 \003(\0132\036.CMsgShowcaseEc"
   "onItemReference\022\020\n\010rotation\030\004 \001(\r\022\r\n\005fla"
   "gs\030\005 \001(\r\022$\n\tplus_info\030\006 \001(\0132\021.CMsgHeroPl"
@@ -1750,16 +1751,16 @@ const char descriptor_table_protodef_dota_5fgcmessages_5fclient_5fshowcase_2epro
   "on_offset\030\t \001(\r\022\021\n\004zoom\030\n \001(\r:\003100\022\022\n\nsl"
   "ot_index\030\013 \001(\r\022\023\n\013model_index\030\014 \001(\r\032V\n\004D"
   "ata\022 \n\necon_items\030\001 \003(\0132\014.CSOEconItem\022\026\n"
-  "\016actual_hero_id\030\002 \001(\r\022\024\n\014plus_hero_xp\030\003 "
+  "\016actual_hero_id\030\002 \001(\005\022\024\n\014plus_hero_xp\030\003 "
   "\001(\r\"\273\001\n\031CMsgShowcaseItem_HeroIcon\022-\n\004dat"
   "a\030\001 \001(\0132\037.CMsgShowcaseItem_HeroIcon.Data"
-  "\022\017\n\007hero_id\030\002 \001(\r\0225\n\recon_item_ref\030\003 \001(\013"
+  "\022\017\n\007hero_id\030\002 \001(\005\0225\n\recon_item_ref\030\003 \001(\013"
   "2\036.CMsgShowcaseEconItemReference\032\'\n\004Data"
   "\022\037\n\tecon_item\030\001 \001(\0132\014.CSOEconItem\"\265\003\n\034CM"
   "sgShowcaseItem_PlayerMatch\0220\n\004data\030\001 \001(\013"
   "2\".CMsgShowcaseItem_PlayerMatch.Data\022\020\n\010"
   "match_id\030\002 \001(\004\022\023\n\013player_slot\030\003 \001(\r\032\356\001\n\004"
-  "Data\022\017\n\007hero_id\030\001 \001(\r\022\021\n\ttimestamp\030\002 \001(\r"
+  "Data\022\017\n\007hero_id\030\001 \001(\005\022\021\n\ttimestamp\030\002 \001(\r"
   "\022\020\n\010duration\030\003 \001(\r\0225\n\tgame_mode\030\004 \001(\0162\016."
   "DOTA_GameMode:\022DOTA_GAMEMODE_NONE\022I\n\007out"
   "come\030\005 \001(\0162,.CMsgShowcaseItem_PlayerMatc"
@@ -1786,7 +1787,7 @@ const char descriptor_table_protodef_dota_5fgcmessages_5fclient_5fshowcase_2epro
   "g_screen_ref\030\002 \001(\0132\036.CMsgShowcaseEconIte"
   "mReference\022\013\n\003dim\030\003 \001(\r\022\014\n\004blur\030\004 \001(\r\022\025\n"
   "\rbackground_id\030\005 \001(\r\032,\n\004Data\022$\n\016loading_"
-  "screen\030\001 \001(\0132\014.CSOEconItem\"\246\007\n\024CMsgShowc"
+  "screen\030\001 \001(\0132\014.CSOEconItem\"\330\007\n\024CMsgShowc"
   "aseItemData\022*\n\006trophy\030\001 \001(\0132\030.CMsgShowca"
   "seItem_TrophyH\000\0224\n\016econ_item_icon\030\002 \001(\0132"
   "\032.CMsgShowcaseItem_EconItemH\000\022-\n\007sticker"
@@ -1808,219 +1809,220 @@ const char descriptor_table_protodef_dota_5fgcmessages_5fclient_5fshowcase_2epro
   "m_EconItemH\000\022+\n\005creep\030\021 \001(\0132\032.CMsgShowca"
   "seItem_EconItemH\000\022+\n\005tower\030\022 \001(\0132\032.CMsgS"
   "howcaseItem_EconItemH\000\022,\n\006effigy\030\023 \001(\0132\032"
-  ".CMsgShowcaseItem_EconItemH\000\022-\n\nbackgrou"
-  "nd\030d \001(\0132\027.CMsgShowcaseBackgroundH\000B\006\n\004i"
-  "tem\"\363\001\n\030CMsgShowcaseItemPosition\022\022\n\nposi"
-  "tion_x\030\001 \001(\005\022\022\n\nposition_y\030\002 \001(\005\022\r\n\005scal"
-  "e\030\003 \001(\r\022\r\n\005width\030\004 \001(\r\022\016\n\006height\030\005 \001(\r\022\020"
-  "\n\010rotation\030\006 \001(\r\022\021\n\tparent_id\030\007 \001(\r\022\"\n\032p"
-  "arent_attachment_point_id\030\010 \001(\r\022\033\n\023attac"
-  "hment_anchor_x\030\t \001(\r\022\033\n\023attachment_ancho"
-  "r_y\030\n \001(\r\"\324\001\n\020CMsgShowcaseItem\022\030\n\020showca"
-  "se_item_id\030\001 \001(\r\0220\n\ritem_position\030\002 \001(\0132"
-  "\031.CMsgShowcaseItemPosition\022(\n\titem_data\030"
-  "\003 \001(\0132\025.CMsgShowcaseItemData\022;\n\005state\030\004 "
-  "\001(\0162\023.EShowcaseItemState:\027k_eShowcaseIte"
-  "mState_Ok\022\r\n\005flags\030\005 \001(\r\"\210\002\n\014CMsgShowcas"
-  "e\022)\n\016showcase_items\030\001 \003(\0132\021.CMsgShowcase"
-  "Item\022%\n\nbackground\030\003 \001(\0132\021.CMsgShowcaseI"
-  "tem\022O\n\020moderation_state\030\004 \001(\0162\036.CMsgShow"
-  "case.EModerationState:\025k_eModerationStat"
-  "e_Ok\"U\n\020EModerationState\022\031\n\025k_eModeratio"
-  "nState_Ok\020\000\022&\n\"k_eModerationState_Pendin"
-  "gApproval\020\001\"w\n!CMsgClientToGCShowcaseGet"
-  "UserData\022\022\n\naccount_id\030\001 \001(\r\022>\n\rshowcase"
-  "_type\030\002 \001(\0162\016.EShowcaseType:\027k_eShowcase"
-  "Type_Invalid\"\242\002\n)CMsgClientToGCShowcaseG"
-  "etUserDataResponse\022X\n\010response\030\001 \001(\01624.C"
-  "MsgClientToGCShowcaseGetUserDataResponse"
-  ".EResponse:\020k_eInternalError\022\037\n\010showcase"
-  "\030\002 \001(\0132\r.CMsgShowcase\"z\n\tEResponse\022\024\n\020k_"
-  "eInternalError\020\000\022\016\n\nk_eSuccess\020\001\022\016\n\nk_eT"
-  "ooBusy\020\002\022\017\n\013k_eDisabled\020\003\022\016\n\nk_eTimeout\020"
-  "\004\022\026\n\022k_eUnknownShowcase\020\005\"\234\001\n!CMsgClient"
-  "ToGCShowcaseSetUserData\022>\n\rshowcase_type"
-  "\030\001 \001(\0162\016.EShowcaseType:\027k_eShowcaseType_"
-  "Invalid\022\037\n\010showcase\030\002 \001(\0132\r.CMsgShowcase"
-  "\022\026\n\016format_version\030\003 \001(\r\"\227\003\n)CMsgClientT"
-  "oGCShowcaseSetUserDataResponse\022X\n\010respon"
-  "se\030\001 \001(\01624.CMsgClientToGCShowcaseSetUser"
-  "DataResponse.EResponse:\020k_eInternalError"
-  "\022)\n\022validated_showcase\030\002 \001(\0132\r.CMsgShowc"
-  "ase\022\036\n\026locked_until_timestamp\030\003 \001(\r\"\304\001\n\t"
-  "EResponse\022\024\n\020k_eInternalError\020\000\022\016\n\nk_eSu"
-  "ccess\020\001\022\016\n\nk_eTooBusy\020\002\022\017\n\013k_eDisabled\020\003"
-  "\022\016\n\nk_eTimeout\020\004\022\016\n\nk_eInvalid\020\005\022\030\n\024k_eL"
-  "ockedFromEditing\020\006\022\025\n\021k_eBudgetExceeded\020"
-  "\007\022\037\n\033k_eCommunicationScoreTooLow\020\010\"\227\001\n\"C"
-  "MsgClientToGCShowcaseSubmitReport\022\031\n\021tar"
-  "get_account_id\030\001 \001(\r\022>\n\rshowcase_type\030\002 "
-  "\001(\0162\016.EShowcaseType:\027k_eShowcaseType_Inv"
-  "alid\022\026\n\016report_comment\030\003 \001(\t\"\203\002\n*CMsgCli"
-  "entToGCShowcaseSubmitReportResponse\022Y\n\010r"
-  "esponse\030\001 \001(\01625.CMsgClientToGCShowcaseSu"
-  "bmitReportResponse.EResponse:\020k_eInterna"
-  "lError\"z\n\tEResponse\022\024\n\020k_eInternalError\020"
+  ".CMsgShowcaseItem_EconItemH\000\0220\n\ndecorati"
+  "on\030\024 \001(\0132\032.CMsgShowcaseItem_EconItemH\000\022-"
+  "\n\nbackground\030d \001(\0132\027.CMsgShowcaseBackgro"
+  "undH\000B\006\n\004item\"\363\001\n\030CMsgShowcaseItemPositi"
+  "on\022\022\n\nposition_x\030\001 \001(\005\022\022\n\nposition_y\030\002 \001"
+  "(\005\022\r\n\005scale\030\003 \001(\r\022\r\n\005width\030\004 \001(\r\022\016\n\006heig"
+  "ht\030\005 \001(\r\022\020\n\010rotation\030\006 \001(\r\022\021\n\tparent_id\030"
+  "\007 \001(\r\022\"\n\032parent_attachment_point_id\030\010 \001("
+  "\r\022\033\n\023attachment_anchor_x\030\t \001(\r\022\033\n\023attach"
+  "ment_anchor_y\030\n \001(\r\"\324\001\n\020CMsgShowcaseItem"
+  "\022\030\n\020showcase_item_id\030\001 \001(\r\0220\n\ritem_posit"
+  "ion\030\002 \001(\0132\031.CMsgShowcaseItemPosition\022(\n\t"
+  "item_data\030\003 \001(\0132\025.CMsgShowcaseItemData\022;"
+  "\n\005state\030\004 \001(\0162\023.EShowcaseItemState:\027k_eS"
+  "howcaseItemState_Ok\022\r\n\005flags\030\005 \001(\r\"\210\002\n\014C"
+  "MsgShowcase\022)\n\016showcase_items\030\001 \003(\0132\021.CM"
+  "sgShowcaseItem\022%\n\nbackground\030\003 \001(\0132\021.CMs"
+  "gShowcaseItem\022O\n\020moderation_state\030\004 \001(\0162"
+  "\036.CMsgShowcase.EModerationState:\025k_eMode"
+  "rationState_Ok\"U\n\020EModerationState\022\031\n\025k_"
+  "eModerationState_Ok\020\000\022&\n\"k_eModerationSt"
+  "ate_PendingApproval\020\001\"w\n!CMsgClientToGCS"
+  "howcaseGetUserData\022\022\n\naccount_id\030\001 \001(\r\022>"
+  "\n\rshowcase_type\030\002 \001(\0162\016.EShowcaseType:\027k"
+  "_eShowcaseType_Invalid\"\242\002\n)CMsgClientToG"
+  "CShowcaseGetUserDataResponse\022X\n\010response"
+  "\030\001 \001(\01624.CMsgClientToGCShowcaseGetUserDa"
+  "taResponse.EResponse:\020k_eInternalError\022\037"
+  "\n\010showcase\030\002 \001(\0132\r.CMsgShowcase\"z\n\tEResp"
+  "onse\022\024\n\020k_eInternalError\020\000\022\016\n\nk_eSuccess"
+  "\020\001\022\016\n\nk_eTooBusy\020\002\022\017\n\013k_eDisabled\020\003\022\016\n\nk"
+  "_eTimeout\020\004\022\026\n\022k_eUnknownShowcase\020\005\"\234\001\n!"
+  "CMsgClientToGCShowcaseSetUserData\022>\n\rsho"
+  "wcase_type\030\001 \001(\0162\016.EShowcaseType:\027k_eSho"
+  "wcaseType_Invalid\022\037\n\010showcase\030\002 \001(\0132\r.CM"
+  "sgShowcase\022\026\n\016format_version\030\003 \001(\r\"\227\003\n)C"
+  "MsgClientToGCShowcaseSetUserDataResponse"
+  "\022X\n\010response\030\001 \001(\01624.CMsgClientToGCShowc"
+  "aseSetUserDataResponse.EResponse:\020k_eInt"
+  "ernalError\022)\n\022validated_showcase\030\002 \001(\0132\r"
+  ".CMsgShowcase\022\036\n\026locked_until_timestamp\030"
+  "\003 \001(\r\"\304\001\n\tEResponse\022\024\n\020k_eInternalError\020"
   "\000\022\016\n\nk_eSuccess\020\001\022\016\n\nk_eTooBusy\020\002\022\017\n\013k_e"
-  "Disabled\020\003\022\016\n\nk_eTimeout\020\004\022\026\n\022k_eAlready"
-  "Reported\020\005\"b\n\035CMsgShowcaseReportsRollupI"
-  "nfo\022\021\n\trollup_id\030\001 \001(\r\022\027\n\017start_timestam"
-  "p\030\002 \001(\r\022\025\n\rend_timestamp\030\003 \001(\r\"P\n\035CMsgSh"
-  "owcaseReportsRollupList\022/\n\007rollups\030\001 \003(\013"
-  "2\036.CMsgShowcaseReportsRollupInfo\"\212\001\n\036CMs"
-  "gShowcaseReportsRollupEntry\022\022\n\naccount_i"
+  "Disabled\020\003\022\016\n\nk_eTimeout\020\004\022\016\n\nk_eInvalid"
+  "\020\005\022\030\n\024k_eLockedFromEditing\020\006\022\025\n\021k_eBudge"
+  "tExceeded\020\007\022\037\n\033k_eCommunicationScoreTooL"
+  "ow\020\010\"\227\001\n\"CMsgClientToGCShowcaseSubmitRep"
+  "ort\022\031\n\021target_account_id\030\001 \001(\r\022>\n\rshowca"
+  "se_type\030\002 \001(\0162\016.EShowcaseType:\027k_eShowca"
+  "seType_Invalid\022\026\n\016report_comment\030\003 \001(\t\"\203"
+  "\002\n*CMsgClientToGCShowcaseSubmitReportRes"
+  "ponse\022Y\n\010response\030\001 \001(\01625.CMsgClientToGC"
+  "ShowcaseSubmitReportResponse.EResponse:\020"
+  "k_eInternalError\"z\n\tEResponse\022\024\n\020k_eInte"
+  "rnalError\020\000\022\016\n\nk_eSuccess\020\001\022\016\n\nk_eTooBus"
+  "y\020\002\022\017\n\013k_eDisabled\020\003\022\016\n\nk_eTimeout\020\004\022\026\n\022"
+  "k_eAlreadyReported\020\005\"b\n\035CMsgShowcaseRepo"
+  "rtsRollupInfo\022\021\n\trollup_id\030\001 \001(\r\022\027\n\017star"
+  "t_timestamp\030\002 \001(\r\022\025\n\rend_timestamp\030\003 \001(\r"
+  "\"P\n\035CMsgShowcaseReportsRollupList\022/\n\007rol"
+  "lups\030\001 \003(\0132\036.CMsgShowcaseReportsRollupIn"
+  "fo\"\212\001\n\036CMsgShowcaseReportsRollupEntry\022\022\n"
+  "\naccount_id\030\001 \001(\r\022>\n\rshowcase_type\030\002 \001(\016"
+  "2\016.EShowcaseType:\027k_eShowcaseType_Invali"
+  "d\022\024\n\014report_count\030\003 \001(\r\"\211\001\n\031CMsgShowcase"
+  "ReportsRollup\0223\n\013rollup_info\030\001 \001(\0132\036.CMs"
+  "gShowcaseReportsRollupInfo\0227\n\016rollup_ent"
+  "ries\030\002 \003(\0132\037.CMsgShowcaseReportsRollupEn"
+  "try\"1\n/CMsgClientToGCShowcaseAdminGetRep"
+  "ortsRollupList\"\317\002\n7CMsgClientToGCShowcas"
+  "eAdminGetReportsRollupListResponse\022f\n\010re"
+  "sponse\030\001 \001(\0162B.CMsgClientToGCShowcaseAdm"
+  "inGetReportsRollupListResponse.EResponse"
+  ":\020k_eInternalError\0223\n\013rollup_list\030\002 \001(\0132"
+  "\036.CMsgShowcaseReportsRollupList\"w\n\tEResp"
+  "onse\022\024\n\020k_eInternalError\020\000\022\016\n\nk_eSuccess"
+  "\020\001\022\016\n\nk_eTooBusy\020\002\022\017\n\013k_eDisabled\020\003\022\016\n\nk"
+  "_eTimeout\020\004\022\023\n\017k_eNoPermission\020\005\"@\n+CMsg"
+  "ClientToGCShowcaseAdminGetReportsRollup\022"
+  "\021\n\trollup_id\030\001 \001(\r\"\320\002\n3CMsgClientToGCSho"
+  "wcaseAdminGetReportsRollupResponse\022b\n\010re"
+  "sponse\030\001 \001(\0162>.CMsgClientToGCShowcaseAdm"
+  "inGetReportsRollupResponse.EResponse:\020k_"
+  "eInternalError\022*\n\006rollup\030\002 \001(\0132\032.CMsgSho"
+  "wcaseReportsRollup\"\210\001\n\tEResponse\022\024\n\020k_eI"
+  "nternalError\020\000\022\016\n\nk_eSuccess\020\001\022\016\n\nk_eToo"
+  "Busy\020\002\022\017\n\013k_eDisabled\020\003\022\016\n\nk_eTimeout\020\004\022"
+  "\023\n\017k_eNoPermission\020\005\022\017\n\013k_eNotFound\020\006\"\314\001"
+  "\n\026CMsgShowcaseAuditEntry\022>\n\rshowcase_typ"
+  "e\030\001 \001(\0162\016.EShowcaseType:\027k_eShowcaseType"
+  "_Invalid\022K\n\014audit_action\030\002 \001(\0162\025.EShowca"
+  "seAuditAction:\036k_eShowcaseAuditAction_In"
+  "valid\022\022\n\naudit_data\030\003 \001(\004\022\021\n\ttimestamp\030\004"
+  " \001(\r\"\243\001\n\022CMsgShowcaseReport\022\033\n\023reporter_"
+  "account_id\030\001 \001(\r\022>\n\rshowcase_type\030\002 \001(\0162"
+  "\016.EShowcaseType:\027k_eShowcaseType_Invalid"
+  "\022\030\n\020report_timestamp\030\003 \001(\r\022\026\n\016report_com"
+  "ment\030\004 \001(\t\"\224\001\n\034CMsgShowcaseAdminUserDeta"
+  "ils\022\036\n\026locked_until_timestamp\030\001 \001(\r\022.\n\ra"
+  "udit_entries\030\002 \003(\0132\027.CMsgShowcaseAuditEn"
+  "try\022$\n\007reports\030\003 \003(\0132\023.CMsgShowcaseRepor"
+  "t\"\?\n)CMsgClientToGCShowcaseAdminGetUserD"
+  "etails\022\022\n\naccount_id\030\001 \001(\r\"\303\002\n1CMsgClien"
+  "tToGCShowcaseAdminGetUserDetailsResponse"
+  "\022`\n\010response\030\001 \001(\0162<.CMsgClientToGCShowc"
+  "aseAdminGetUserDetailsResponse.EResponse"
+  ":\020k_eInternalError\0223\n\014user_details\030\002 \001(\013"
+  "2\035.CMsgShowcaseAdminUserDetails\"w\n\tEResp"
+  "onse\022\024\n\020k_eInternalError\020\000\022\016\n\nk_eSuccess"
+  "\020\001\022\016\n\nk_eTooBusy\020\002\022\017\n\013k_eDisabled\020\003\022\016\n\nk"
+  "_eTimeout\020\004\022\023\n\017k_eNoPermission\020\005\"}\n CMsg"
+  "ClientToGCShowcaseAdminReset\022\031\n\021target_a"
+  "ccount_id\030\001 \001(\r\022>\n\rshowcase_type\030\002 \001(\0162\016"
+  ".EShowcaseType:\027k_eShowcaseType_Invalid\""
+  "\374\001\n(CMsgClientToGCShowcaseAdminResetResp"
+  "onse\022W\n\010response\030\001 \001(\01623.CMsgClientToGCS"
+  "howcaseAdminResetResponse.EResponse:\020k_e"
+  "InternalError\"w\n\tEResponse\022\024\n\020k_eInterna"
+  "lError\020\000\022\016\n\nk_eSuccess\020\001\022\016\n\nk_eTooBusy\020\002"
+  "\022\017\n\013k_eDisabled\020\003\022\016\n\nk_eTimeout\020\004\022\023\n\017k_e"
+  "NoPermission\020\005\"c\n&CMsgClientToGCShowcase"
+  "AdminLockAccount\022\031\n\021target_account_id\030\001 "
+  "\001(\r\022\036\n\026locked_until_timestamp\030\002 \001(\r\"\210\002\n."
+  "CMsgClientToGCShowcaseAdminLockAccountRe"
+  "sponse\022]\n\010response\030\001 \001(\01629.CMsgClientToG"
+  "CShowcaseAdminLockAccountResponse.ERespo"
+  "nse:\020k_eInternalError\"w\n\tEResponse\022\024\n\020k_"
+  "eInternalError\020\000\022\016\n\nk_eSuccess\020\001\022\016\n\nk_eT"
+  "ooBusy\020\002\022\017\n\013k_eDisabled\020\003\022\016\n\nk_eTimeout\020"
+  "\004\022\023\n\017k_eNoPermission\020\005\"\177\n\"CMsgClientToGC"
+  "ShowcaseAdminConvict\022\031\n\021target_account_i"
   "d\030\001 \001(\r\022>\n\rshowcase_type\030\002 \001(\0162\016.EShowca"
-  "seType:\027k_eShowcaseType_Invalid\022\024\n\014repor"
-  "t_count\030\003 \001(\r\"\211\001\n\031CMsgShowcaseReportsRol"
-  "lup\0223\n\013rollup_info\030\001 \001(\0132\036.CMsgShowcaseR"
-  "eportsRollupInfo\0227\n\016rollup_entries\030\002 \003(\013"
-  "2\037.CMsgShowcaseReportsRollupEntry\"1\n/CMs"
-  "gClientToGCShowcaseAdminGetReportsRollup"
-  "List\"\317\002\n7CMsgClientToGCShowcaseAdminGetR"
-  "eportsRollupListResponse\022f\n\010response\030\001 \001"
-  "(\0162B.CMsgClientToGCShowcaseAdminGetRepor"
-  "tsRollupListResponse.EResponse:\020k_eInter"
-  "nalError\0223\n\013rollup_list\030\002 \001(\0132\036.CMsgShow"
-  "caseReportsRollupList\"w\n\tEResponse\022\024\n\020k_"
-  "eInternalError\020\000\022\016\n\nk_eSuccess\020\001\022\016\n\nk_eT"
-  "ooBusy\020\002\022\017\n\013k_eDisabled\020\003\022\016\n\nk_eTimeout\020"
-  "\004\022\023\n\017k_eNoPermission\020\005\"@\n+CMsgClientToGC"
-  "ShowcaseAdminGetReportsRollup\022\021\n\trollup_"
-  "id\030\001 \001(\r\"\320\002\n3CMsgClientToGCShowcaseAdmin"
-  "GetReportsRollupResponse\022b\n\010response\030\001 \001"
-  "(\0162>.CMsgClientToGCShowcaseAdminGetRepor"
-  "tsRollupResponse.EResponse:\020k_eInternalE"
-  "rror\022*\n\006rollup\030\002 \001(\0132\032.CMsgShowcaseRepor"
-  "tsRollup\"\210\001\n\tEResponse\022\024\n\020k_eInternalErr"
-  "or\020\000\022\016\n\nk_eSuccess\020\001\022\016\n\nk_eTooBusy\020\002\022\017\n\013"
-  "k_eDisabled\020\003\022\016\n\nk_eTimeout\020\004\022\023\n\017k_eNoPe"
-  "rmission\020\005\022\017\n\013k_eNotFound\020\006\"\314\001\n\026CMsgShow"
-  "caseAuditEntry\022>\n\rshowcase_type\030\001 \001(\0162\016."
-  "EShowcaseType:\027k_eShowcaseType_Invalid\022K"
-  "\n\014audit_action\030\002 \001(\0162\025.EShowcaseAuditAct"
-  "ion:\036k_eShowcaseAuditAction_Invalid\022\022\n\na"
-  "udit_data\030\003 \001(\004\022\021\n\ttimestamp\030\004 \001(\r\"\243\001\n\022C"
-  "MsgShowcaseReport\022\033\n\023reporter_account_id"
-  "\030\001 \001(\r\022>\n\rshowcase_type\030\002 \001(\0162\016.EShowcas"
-  "eType:\027k_eShowcaseType_Invalid\022\030\n\020report"
-  "_timestamp\030\003 \001(\r\022\026\n\016report_comment\030\004 \001(\t"
-  "\"\224\001\n\034CMsgShowcaseAdminUserDetails\022\036\n\026loc"
-  "ked_until_timestamp\030\001 \001(\r\022.\n\raudit_entri"
-  "es\030\002 \003(\0132\027.CMsgShowcaseAuditEntry\022$\n\007rep"
-  "orts\030\003 \003(\0132\023.CMsgShowcaseReport\"\?\n)CMsgC"
-  "lientToGCShowcaseAdminGetUserDetails\022\022\n\n"
-  "account_id\030\001 \001(\r\"\303\002\n1CMsgClientToGCShowc"
-  "aseAdminGetUserDetailsResponse\022`\n\010respon"
-  "se\030\001 \001(\0162<.CMsgClientToGCShowcaseAdminGe"
-  "tUserDetailsResponse.EResponse:\020k_eInter"
-  "nalError\0223\n\014user_details\030\002 \001(\0132\035.CMsgSho"
-  "wcaseAdminUserDetails\"w\n\tEResponse\022\024\n\020k_"
-  "eInternalError\020\000\022\016\n\nk_eSuccess\020\001\022\016\n\nk_eT"
-  "ooBusy\020\002\022\017\n\013k_eDisabled\020\003\022\016\n\nk_eTimeout\020"
-  "\004\022\023\n\017k_eNoPermission\020\005\"}\n CMsgClientToGC"
-  "ShowcaseAdminReset\022\031\n\021target_account_id\030"
-  "\001 \001(\r\022>\n\rshowcase_type\030\002 \001(\0162\016.EShowcase"
-  "Type:\027k_eShowcaseType_Invalid\"\374\001\n(CMsgCl"
-  "ientToGCShowcaseAdminResetResponse\022W\n\010re"
-  "sponse\030\001 \001(\01623.CMsgClientToGCShowcaseAdm"
-  "inResetResponse.EResponse:\020k_eInternalEr"
-  "ror\"w\n\tEResponse\022\024\n\020k_eInternalError\020\000\022\016"
-  "\n\nk_eSuccess\020\001\022\016\n\nk_eTooBusy\020\002\022\017\n\013k_eDis"
-  "abled\020\003\022\016\n\nk_eTimeout\020\004\022\023\n\017k_eNoPermissi"
-  "on\020\005\"c\n&CMsgClientToGCShowcaseAdminLockA"
-  "ccount\022\031\n\021target_account_id\030\001 \001(\r\022\036\n\026loc"
-  "ked_until_timestamp\030\002 \001(\r\"\210\002\n.CMsgClient"
-  "ToGCShowcaseAdminLockAccountResponse\022]\n\010"
-  "response\030\001 \001(\01629.CMsgClientToGCShowcaseA"
-  "dminLockAccountResponse.EResponse:\020k_eIn"
-  "ternalError\"w\n\tEResponse\022\024\n\020k_eInternalE"
-  "rror\020\000\022\016\n\nk_eSuccess\020\001\022\016\n\nk_eTooBusy\020\002\022\017"
-  "\n\013k_eDisabled\020\003\022\016\n\nk_eTimeout\020\004\022\023\n\017k_eNo"
-  "Permission\020\005\"\177\n\"CMsgClientToGCShowcaseAd"
-  "minConvict\022\031\n\021target_account_id\030\001 \001(\r\022>\n"
-  "\rshowcase_type\030\002 \001(\0162\016.EShowcaseType:\027k_"
-  "eShowcaseType_Invalid\"\232\002\n*CMsgClientToGC"
-  "ShowcaseAdminConvictResponse\022Y\n\010response"
-  "\030\001 \001(\01625.CMsgClientToGCShowcaseAdminConv"
-  "ictResponse.EResponse:\020k_eInternalError\""
-  "\220\001\n\tEResponse\022\024\n\020k_eInternalError\020\000\022\016\n\nk"
-  "_eSuccess\020\001\022\016\n\nk_eTooBusy\020\002\022\017\n\013k_eDisabl"
-  "ed\020\003\022\016\n\nk_eTimeout\020\004\022\023\n\017k_eNoPermission\020"
-  "\005\022\027\n\023k_eAlreadyConvicted\020\006\"\201\001\n$CMsgClien"
-  "tToGCShowcaseAdminExonerate\022\031\n\021target_ac"
-  "count_id\030\001 \001(\r\022>\n\rshowcase_type\030\002 \001(\0162\016."
-  "EShowcaseType:\027k_eShowcaseType_Invalid\"\237"
-  "\002\n,CMsgClientToGCShowcaseAdminExonerateR"
-  "esponse\022[\n\010response\030\001 \001(\01627.CMsgClientTo"
-  "GCShowcaseAdminExonerateResponse.ERespon"
-  "se:\020k_eInternalError\"\221\001\n\tEResponse\022\024\n\020k_"
-  "eInternalError\020\000\022\016\n\nk_eSuccess\020\001\022\016\n\nk_eT"
-  "ooBusy\020\002\022\017\n\013k_eDisabled\020\003\022\016\n\nk_eTimeout\020"
-  "\004\022\023\n\017k_eNoPermission\020\005\022\030\n\024k_eAlreadyExon"
-  "erated\020\006\"\214\001\n\032CMsgShowcaseModerationInfo\022"
-  "\022\n\naccount_id\030\001 \001(\r\022>\n\rshowcase_type\030\002 \001"
-  "(\0162\016.EShowcaseType:\027k_eShowcaseType_Inva"
-  "lid\022\032\n\022showcase_timestamp\030\003 \001(\r\"Y\n(CMsgC"
-  "lientToGCShowcaseModerationGetQueue\022\027\n\017s"
-  "tart_timestamp\030\001 \001(\r\022\024\n\014result_count\030\002 \001"
-  "(\r\"\274\002\n0CMsgClientToGCShowcaseModerationG"
-  "etQueueResponse\022_\n\010response\030\001 \001(\0162;.CMsg"
-  "ClientToGCShowcaseModerationGetQueueResp"
-  "onse.EResponse:\020k_eInternalError\022.\n\tshow"
-  "cases\030\002 \003(\0132\033.CMsgShowcaseModerationInfo"
-  "\"w\n\tEResponse\022\024\n\020k_eInternalError\020\000\022\016\n\nk"
-  "_eSuccess\020\001\022\016\n\nk_eTooBusy\020\002\022\017\n\013k_eDisabl"
-  "ed\020\003\022\016\n\nk_eTimeout\020\004\022\023\n\017k_eNoPermission\020"
-  "\005\"\262\001\n/CMsgClientToGCShowcaseModerationAp"
-  "plyModeration\022\022\n\naccount_id\030\001 \001(\r\022>\n\rsho"
-  "wcase_type\030\002 \001(\0162\016.EShowcaseType:\027k_eSho"
-  "wcaseType_Invalid\022\032\n\022showcase_timestamp\030"
-  "\003 \001(\r\022\017\n\007approve\030\004 \001(\010\"\250\002\n7CMsgClientToG"
-  "CShowcaseModerationApplyModerationRespon"
-  "se\022f\n\010response\030\001 \001(\0162B.CMsgClientToGCSho"
-  "wcaseModerationApplyModerationResponse.E"
-  "Response:\020k_eInternalError\"\204\001\n\tEResponse"
-  "\022\024\n\020k_eInternalError\020\000\022\016\n\nk_eSuccess\020\001\022\016"
-  "\n\nk_eTooBusy\020\002\022\017\n\013k_eDisabled\020\003\022\016\n\nk_eTi"
-  "meout\020\004\022\023\n\017k_eNoPermission\020\005\022\013\n\007k_eGone\020"
-  "\006*\213\002\n\025EShowcaseHeroPlusFlag\022 \n\034k_eShowca"
-  "seHeroPlusFlag_None\020\000\022\'\n#k_eShowcaseHero"
-  "PlusFlag_BadgePosTop\020\001\022*\n&k_eShowcaseHer"
-  "oPlusFlag_BadgePosBottom\020\002\022(\n$k_eShowcas"
-  "eHeroPlusFlag_BadgePosLeft\020\004\022)\n%k_eShowc"
-  "aseHeroPlusFlag_BadgePosRight\020\010\022&\n\"k_eSh"
-  "owcaseHeroPlusFlag_ShowRelics\020\020*\266\001\n\rESho"
-  "wcaseType\022\033\n\027k_eShowcaseType_Invalid\020\000\022\033"
-  "\n\027k_eShowcaseType_Profile\020\001\022\037\n\033k_eShowca"
-  "seType_MiniProfile\020\002\022\"\n\036k_eShowcaseType_"
-  "DefaultProfile\020\003\022&\n\"k_eShowcaseType_Defa"
-  "ultMiniProfile\020\004*\367\001\n\022EShowcaseItemState\022"
-  "\033\n\027k_eShowcaseItemState_Ok\020\000\022+\n\'k_eShowc"
-  "aseItemState_MinorModifications\020\001\022(\n$k_e"
-  "ShowcaseItemState_ValidityUnknown\020\002\022)\n%k"
-  "_eShowcaseItemState_PartiallyInvalid\020\003\022 "
-  "\n\034k_eShowcaseItemState_Invalid\020\004\022 \n\034k_eS"
-  "howcaseItemState_Failure\020\005*\233\003\n\024EShowcase"
-  "AuditAction\022\"\n\036k_eShowcaseAuditAction_In"
-  "valid\020\000\022*\n&k_eShowcaseAuditAction_Showca"
-  "seChanged\020\001\022-\n)k_eShowcaseAuditAction_Ad"
-  "minShowcaseReset\020\002\0225\n1k_eShowcaseAuditAc"
-  "tion_AdminShowcaseAccountLocked\020\003\0222\n.k_e"
-  "ShowcaseAuditAction_AdminShowcaseExonera"
-  "ted\020\004\0221\n-k_eShowcaseAuditAction_AdminSho"
-  "wcaseConvicted\020\005\0222\n.k_eShowcaseAuditActi"
-  "on_AdminModerationApproved\020\006\0222\n.k_eShowc"
-  "aseAuditAction_AdminModerationRejected\020\007"
-  "*[\n\021EShowcaseItemFlag\022\034\n\030k_eShowcaseItem"
-  "Flag_None\020\000\022(\n$k_eShowcaseItemFlag_FlipH"
-  "orizontally\020\001*\237\002\n\026EShowcaseItemFlag_Hero"
-  "\022!\n\035k_eShowcaseItemFlag_Hero_None\020\000\022)\n%k"
-  "_eShowcaseItemFlag_Hero_ShowPedestal\020\001\022."
-  "\n*k_eShowcaseItemFlag_Hero_UseCurrentLoa"
-  "dout\020\002\022)\n%k_eShowcaseItemFlag_Hero_ShowH"
-  "eroCard\020\004\022-\n)k_eShowcaseItemFlag_Hero_He"
-  "roCardHideName\020\010\022-\n)k_eShowcaseItemFlag_"
-  "Hero_HeroCardUseMovie\020\020"
+  "seType:\027k_eShowcaseType_Invalid\"\232\002\n*CMsg"
+  "ClientToGCShowcaseAdminConvictResponse\022Y"
+  "\n\010response\030\001 \001(\01625.CMsgClientToGCShowcas"
+  "eAdminConvictResponse.EResponse:\020k_eInte"
+  "rnalError\"\220\001\n\tEResponse\022\024\n\020k_eInternalEr"
+  "ror\020\000\022\016\n\nk_eSuccess\020\001\022\016\n\nk_eTooBusy\020\002\022\017\n"
+  "\013k_eDisabled\020\003\022\016\n\nk_eTimeout\020\004\022\023\n\017k_eNoP"
+  "ermission\020\005\022\027\n\023k_eAlreadyConvicted\020\006\"\201\001\n"
+  "$CMsgClientToGCShowcaseAdminExonerate\022\031\n"
+  "\021target_account_id\030\001 \001(\r\022>\n\rshowcase_typ"
+  "e\030\002 \001(\0162\016.EShowcaseType:\027k_eShowcaseType"
+  "_Invalid\"\237\002\n,CMsgClientToGCShowcaseAdmin"
+  "ExonerateResponse\022[\n\010response\030\001 \001(\01627.CM"
+  "sgClientToGCShowcaseAdminExonerateRespon"
+  "se.EResponse:\020k_eInternalError\"\221\001\n\tEResp"
+  "onse\022\024\n\020k_eInternalError\020\000\022\016\n\nk_eSuccess"
+  "\020\001\022\016\n\nk_eTooBusy\020\002\022\017\n\013k_eDisabled\020\003\022\016\n\nk"
+  "_eTimeout\020\004\022\023\n\017k_eNoPermission\020\005\022\030\n\024k_eA"
+  "lreadyExonerated\020\006\"\214\001\n\032CMsgShowcaseModer"
+  "ationInfo\022\022\n\naccount_id\030\001 \001(\r\022>\n\rshowcas"
+  "e_type\030\002 \001(\0162\016.EShowcaseType:\027k_eShowcas"
+  "eType_Invalid\022\032\n\022showcase_timestamp\030\003 \001("
+  "\r\"Y\n(CMsgClientToGCShowcaseModerationGet"
+  "Queue\022\027\n\017start_timestamp\030\001 \001(\r\022\024\n\014result"
+  "_count\030\002 \001(\r\"\274\002\n0CMsgClientToGCShowcaseM"
+  "oderationGetQueueResponse\022_\n\010response\030\001 "
+  "\001(\0162;.CMsgClientToGCShowcaseModerationGe"
+  "tQueueResponse.EResponse:\020k_eInternalErr"
+  "or\022.\n\tshowcases\030\002 \003(\0132\033.CMsgShowcaseMode"
+  "rationInfo\"w\n\tEResponse\022\024\n\020k_eInternalEr"
+  "ror\020\000\022\016\n\nk_eSuccess\020\001\022\016\n\nk_eTooBusy\020\002\022\017\n"
+  "\013k_eDisabled\020\003\022\016\n\nk_eTimeout\020\004\022\023\n\017k_eNoP"
+  "ermission\020\005\"\262\001\n/CMsgClientToGCShowcaseMo"
+  "derationApplyModeration\022\022\n\naccount_id\030\001 "
+  "\001(\r\022>\n\rshowcase_type\030\002 \001(\0162\016.EShowcaseTy"
+  "pe:\027k_eShowcaseType_Invalid\022\032\n\022showcase_"
+  "timestamp\030\003 \001(\r\022\017\n\007approve\030\004 \001(\010\"\250\002\n7CMs"
+  "gClientToGCShowcaseModerationApplyModera"
+  "tionResponse\022f\n\010response\030\001 \001(\0162B.CMsgCli"
+  "entToGCShowcaseModerationApplyModeration"
+  "Response.EResponse:\020k_eInternalError\"\204\001\n"
+  "\tEResponse\022\024\n\020k_eInternalError\020\000\022\016\n\nk_eS"
+  "uccess\020\001\022\016\n\nk_eTooBusy\020\002\022\017\n\013k_eDisabled\020"
+  "\003\022\016\n\nk_eTimeout\020\004\022\023\n\017k_eNoPermission\020\005\022\013"
+  "\n\007k_eGone\020\006*\213\002\n\025EShowcaseHeroPlusFlag\022 \n"
+  "\034k_eShowcaseHeroPlusFlag_None\020\000\022\'\n#k_eSh"
+  "owcaseHeroPlusFlag_BadgePosTop\020\001\022*\n&k_eS"
+  "howcaseHeroPlusFlag_BadgePosBottom\020\002\022(\n$"
+  "k_eShowcaseHeroPlusFlag_BadgePosLeft\020\004\022)"
+  "\n%k_eShowcaseHeroPlusFlag_BadgePosRight\020"
+  "\010\022&\n\"k_eShowcaseHeroPlusFlag_ShowRelics\020"
+  "\020*\266\001\n\rEShowcaseType\022\033\n\027k_eShowcaseType_I"
+  "nvalid\020\000\022\033\n\027k_eShowcaseType_Profile\020\001\022\037\n"
+  "\033k_eShowcaseType_MiniProfile\020\002\022\"\n\036k_eSho"
+  "wcaseType_DefaultProfile\020\003\022&\n\"k_eShowcas"
+  "eType_DefaultMiniProfile\020\004*\367\001\n\022EShowcase"
+  "ItemState\022\033\n\027k_eShowcaseItemState_Ok\020\000\022+"
+  "\n\'k_eShowcaseItemState_MinorModification"
+  "s\020\001\022(\n$k_eShowcaseItemState_ValidityUnkn"
+  "own\020\002\022)\n%k_eShowcaseItemState_PartiallyI"
+  "nvalid\020\003\022 \n\034k_eShowcaseItemState_Invalid"
+  "\020\004\022 \n\034k_eShowcaseItemState_Failure\020\005*\233\003\n"
+  "\024EShowcaseAuditAction\022\"\n\036k_eShowcaseAudi"
+  "tAction_Invalid\020\000\022*\n&k_eShowcaseAuditAct"
+  "ion_ShowcaseChanged\020\001\022-\n)k_eShowcaseAudi"
+  "tAction_AdminShowcaseReset\020\002\0225\n1k_eShowc"
+  "aseAuditAction_AdminShowcaseAccountLocke"
+  "d\020\003\0222\n.k_eShowcaseAuditAction_AdminShowc"
+  "aseExonerated\020\004\0221\n-k_eShowcaseAuditActio"
+  "n_AdminShowcaseConvicted\020\005\0222\n.k_eShowcas"
+  "eAuditAction_AdminModerationApproved\020\006\0222"
+  "\n.k_eShowcaseAuditAction_AdminModeration"
+  "Rejected\020\007*[\n\021EShowcaseItemFlag\022\034\n\030k_eSh"
+  "owcaseItemFlag_None\020\000\022(\n$k_eShowcaseItem"
+  "Flag_FlipHorizontally\020\001*\237\002\n\026EShowcaseIte"
+  "mFlag_Hero\022!\n\035k_eShowcaseItemFlag_Hero_N"
+  "one\020\000\022)\n%k_eShowcaseItemFlag_Hero_ShowPe"
+  "destal\020\001\022.\n*k_eShowcaseItemFlag_Hero_Use"
+  "CurrentLoadout\020\002\022)\n%k_eShowcaseItemFlag_"
+  "Hero_ShowHeroCard\020\004\022-\n)k_eShowcaseItemFl"
+  "ag_Hero_HeroCardHideName\020\010\022-\n)k_eShowcas"
+  "eItemFlag_Hero_HeroCardUseMovie\020\020"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_dota_5fgcmessages_5fclient_5fshowcase_2eproto_deps[9] = {
   &::descriptor_table_base_5fgcmessages_2eproto,
@@ -2035,7 +2037,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_dota_5fgcmessages_5
 };
 static ::_pbi::once_flag descriptor_table_dota_5fgcmessages_5fclient_5fshowcase_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_dota_5fgcmessages_5fclient_5fshowcase_2eproto = {
-    false, false, 11943, descriptor_table_protodef_dota_5fgcmessages_5fclient_5fshowcase_2eproto,
+    false, false, 11993, descriptor_table_protodef_dota_5fgcmessages_5fclient_5fshowcase_2eproto,
     "dota_gcmessages_client_showcase.proto",
     &descriptor_table_dota_5fgcmessages_5fclient_5fshowcase_2eproto_once, descriptor_table_dota_5fgcmessages_5fclient_5fshowcase_2eproto_deps, 9, 60,
     schemas, file_default_instances, TableStruct_dota_5fgcmessages_5fclient_5fshowcase_2eproto::offsets,
@@ -4005,7 +4007,7 @@ inline void CMsgShowcaseItem_Hero_Data::SharedCtor(
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.econ_items_){arena}
-    , decltype(_impl_.actual_hero_id_){0u}
+    , decltype(_impl_.actual_hero_id_){0}
     , decltype(_impl_.plus_hero_xp_){0u}
   };
 }
@@ -4065,7 +4067,7 @@ const char* CMsgShowcaseItem_Hero_Data::_InternalParse(const char* ptr, ::_pbi::
         } else
           goto handle_unusual;
         continue;
-      // optional uint32 actual_hero_id = 2;
+      // optional int32 actual_hero_id = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _Internal::set_has_actual_hero_id(&has_bits);
@@ -4122,10 +4124,10 @@ uint8_t* CMsgShowcaseItem_Hero_Data::_InternalSerialize(
   }
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional uint32 actual_hero_id = 2;
+  // optional int32 actual_hero_id = 2;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_actual_hero_id(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_actual_hero_id(), target);
   }
 
   // optional uint32 plus_hero_xp = 3;
@@ -4159,9 +4161,9 @@ size_t CMsgShowcaseItem_Hero_Data::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional uint32 actual_hero_id = 2;
+    // optional int32 actual_hero_id = 2;
     if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_actual_hero_id());
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_actual_hero_id());
     }
 
     // optional uint32 plus_hero_xp = 3;
@@ -4339,7 +4341,7 @@ inline void CMsgShowcaseItem_Hero::SharedCtor(
     , decltype(_impl_.animation_name_){}
     , decltype(_impl_.data_){nullptr}
     , decltype(_impl_.plus_info_){nullptr}
-    , decltype(_impl_.hero_id_){0u}
+    , decltype(_impl_.hero_id_){0}
     , decltype(_impl_.rotation_){0u}
     , decltype(_impl_.flags_){0u}
     , decltype(_impl_.animation_offset_){0u}
@@ -4425,7 +4427,7 @@ const char* CMsgShowcaseItem_Hero::_InternalParse(const char* ptr, ::_pbi::Parse
         } else
           goto handle_unusual;
         continue;
-      // optional uint32 hero_id = 2;
+      // optional int32 hero_id = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _Internal::set_has_hero_id(&has_bits);
@@ -4568,10 +4570,10 @@ uint8_t* CMsgShowcaseItem_Hero::_InternalSerialize(
         _Internal::data(this).GetCachedSize(), target, stream);
   }
 
-  // optional uint32 hero_id = 2;
+  // optional int32 hero_id = 2;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_hero_id(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_hero_id(), target);
   }
 
   // repeated .CMsgShowcaseEconItemReference econ_item_refs = 3;
@@ -4687,9 +4689,9 @@ size_t CMsgShowcaseItem_Hero::ByteSizeLong() const {
           *_impl_.plus_info_);
     }
 
-    // optional uint32 hero_id = 2;
+    // optional int32 hero_id = 2;
     if (cached_has_bits & 0x00000008u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_hero_id());
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_hero_id());
     }
 
     // optional uint32 rotation = 4;
@@ -5104,7 +5106,7 @@ inline void CMsgShowcaseItem_HeroIcon::SharedCtor(
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.data_){nullptr}
     , decltype(_impl_.econ_item_ref_){nullptr}
-    , decltype(_impl_.hero_id_){0u}
+    , decltype(_impl_.hero_id_){0}
   };
 }
 
@@ -5144,7 +5146,7 @@ void CMsgShowcaseItem_HeroIcon::Clear() {
       _impl_.econ_item_ref_->Clear();
     }
   }
-  _impl_.hero_id_ = 0u;
+  _impl_.hero_id_ = 0;
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -5164,7 +5166,7 @@ const char* CMsgShowcaseItem_HeroIcon::_InternalParse(const char* ptr, ::_pbi::P
         } else
           goto handle_unusual;
         continue;
-      // optional uint32 hero_id = 2;
+      // optional int32 hero_id = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _Internal::set_has_hero_id(&has_bits);
@@ -5219,10 +5221,10 @@ uint8_t* CMsgShowcaseItem_HeroIcon::_InternalSerialize(
         _Internal::data(this).GetCachedSize(), target, stream);
   }
 
-  // optional uint32 hero_id = 2;
+  // optional int32 hero_id = 2;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_hero_id(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_hero_id(), target);
   }
 
   // optional .CMsgShowcaseEconItemReference econ_item_ref = 3;
@@ -5264,9 +5266,9 @@ size_t CMsgShowcaseItem_HeroIcon::ByteSizeLong() const {
           *_impl_.econ_item_ref_);
     }
 
-    // optional uint32 hero_id = 2;
+    // optional int32 hero_id = 2;
     if (cached_has_bits & 0x00000004u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_hero_id());
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_hero_id());
     }
 
   }
@@ -5401,7 +5403,7 @@ inline void CMsgShowcaseItem_PlayerMatch_Data::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.hero_id_){0u}
+    , decltype(_impl_.hero_id_){0}
     , decltype(_impl_.timestamp_){0u}
     , decltype(_impl_.duration_){0u}
     , decltype(_impl_.game_mode_){0}
@@ -5452,7 +5454,7 @@ const char* CMsgShowcaseItem_PlayerMatch_Data::_InternalParse(const char* ptr, :
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional uint32 hero_id = 1;
+      // optional int32 hero_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_hero_id(&has_bits);
@@ -5563,10 +5565,10 @@ uint8_t* CMsgShowcaseItem_PlayerMatch_Data::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional uint32 hero_id = 1;
+  // optional int32 hero_id = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_hero_id(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_hero_id(), target);
   }
 
   // optional uint32 timestamp = 2;
@@ -5631,9 +5633,9 @@ size_t CMsgShowcaseItem_PlayerMatch_Data::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
-    // optional uint32 hero_id = 1;
+    // optional int32 hero_id = 1;
     if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_hero_id());
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_hero_id());
     }
 
     // optional uint32 timestamp = 2;
@@ -8126,6 +8128,7 @@ class CMsgShowcaseItemData::_Internal {
   static const ::CMsgShowcaseItem_EconItem& creep(const CMsgShowcaseItemData* msg);
   static const ::CMsgShowcaseItem_EconItem& tower(const CMsgShowcaseItemData* msg);
   static const ::CMsgShowcaseItem_EconItem& effigy(const CMsgShowcaseItemData* msg);
+  static const ::CMsgShowcaseItem_EconItem& decoration(const CMsgShowcaseItemData* msg);
   static const ::CMsgShowcaseBackground& background(const CMsgShowcaseItemData* msg);
 };
 
@@ -8200,6 +8203,10 @@ CMsgShowcaseItemData::_Internal::tower(const CMsgShowcaseItemData* msg) {
 const ::CMsgShowcaseItem_EconItem&
 CMsgShowcaseItemData::_Internal::effigy(const CMsgShowcaseItemData* msg) {
   return *msg->_impl_.item_.effigy_;
+}
+const ::CMsgShowcaseItem_EconItem&
+CMsgShowcaseItemData::_Internal::decoration(const CMsgShowcaseItemData* msg) {
+  return *msg->_impl_.item_.decoration_;
 }
 const ::CMsgShowcaseBackground&
 CMsgShowcaseItemData::_Internal::background(const CMsgShowcaseItemData* msg) {
@@ -8475,6 +8482,21 @@ void CMsgShowcaseItemData::set_allocated_effigy(::CMsgShowcaseItem_EconItem* eff
   }
   // @@protoc_insertion_point(field_set_allocated:CMsgShowcaseItemData.effigy)
 }
+void CMsgShowcaseItemData::set_allocated_decoration(::CMsgShowcaseItem_EconItem* decoration) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_item();
+  if (decoration) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(decoration);
+    if (message_arena != submessage_arena) {
+      decoration = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, decoration, submessage_arena);
+    }
+    set_has_decoration();
+    _impl_.item_.decoration_ = decoration;
+  }
+  // @@protoc_insertion_point(field_set_allocated:CMsgShowcaseItemData.decoration)
+}
 void CMsgShowcaseItemData::set_allocated_background(::CMsgShowcaseBackground* background) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   clear_item();
@@ -8595,6 +8617,11 @@ CMsgShowcaseItemData::CMsgShowcaseItemData(const CMsgShowcaseItemData& from)
     case kEffigy: {
       _this->_internal_mutable_effigy()->::CMsgShowcaseItem_EconItem::MergeFrom(
           from._internal_effigy());
+      break;
+    }
+    case kDecoration: {
+      _this->_internal_mutable_decoration()->::CMsgShowcaseItem_EconItem::MergeFrom(
+          from._internal_decoration());
       break;
     }
     case kBackground: {
@@ -8749,6 +8776,12 @@ void CMsgShowcaseItemData::clear_item() {
     case kEffigy: {
       if (GetArenaForAllocation() == nullptr) {
         delete _impl_.item_.effigy_;
+      }
+      break;
+    }
+    case kDecoration: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete _impl_.item_.decoration_;
       }
       break;
     }
@@ -8926,6 +8959,14 @@ const char* CMsgShowcaseItemData::_InternalParse(const char* ptr, ::_pbi::ParseC
         } else
           goto handle_unusual;
         continue;
+      // .CMsgShowcaseItem_EconItem decoration = 20;
+      case 20:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 162)) {
+          ptr = ctx->ParseMessage(_internal_mutable_decoration(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
       // .CMsgShowcaseBackground background = 100;
       case 100:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
@@ -9070,6 +9111,12 @@ uint8_t* CMsgShowcaseItemData::_InternalSerialize(
       target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
         InternalWriteMessage(19, _Internal::effigy(this),
           _Internal::effigy(this).GetCachedSize(), target, stream);
+      break;
+    }
+    case kDecoration: {
+      target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(20, _Internal::decoration(this),
+          _Internal::decoration(this).GetCachedSize(), target, stream);
       break;
     }
     case kBackground: {
@@ -9223,6 +9270,13 @@ size_t CMsgShowcaseItemData::ByteSizeLong() const {
           *_impl_.item_.effigy_);
       break;
     }
+    // .CMsgShowcaseItem_EconItem decoration = 20;
+    case kDecoration: {
+      total_size += 2 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.item_.decoration_);
+      break;
+    }
     // .CMsgShowcaseBackground background = 100;
     case kBackground: {
       total_size += 2 +
@@ -9341,6 +9395,11 @@ void CMsgShowcaseItemData::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, c
     case kEffigy: {
       _this->_internal_mutable_effigy()->::CMsgShowcaseItem_EconItem::MergeFrom(
           from._internal_effigy());
+      break;
+    }
+    case kDecoration: {
+      _this->_internal_mutable_decoration()->::CMsgShowcaseItem_EconItem::MergeFrom(
+          from._internal_decoration());
       break;
     }
     case kBackground: {

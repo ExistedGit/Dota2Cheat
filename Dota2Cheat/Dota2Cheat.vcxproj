@@ -467,6 +467,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />
+    <None Include="vcpkg.json" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Dota2Proto\Dota2Proto.vcxproj">

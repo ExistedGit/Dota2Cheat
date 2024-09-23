@@ -2,48 +2,52 @@
   "CEngineClient": {
     "IsInGame": 31
   },
-  "CParticleCollection": {
-    "SetControlPoint": 16,
-    "SetRenderingEnabled": 94
+  "CBaseEntity": {
+    "GetSchemaBinding": 37
+  },
+  "CDOTABaseAbility": {
+    "GetEffectiveCastRange": 265
+  },
+  "CDOTABaseNPC": {
+    "GetAttackRange": 286,
+    "GetIdealSpeed": 241,
+    "GetMagicalArmorValue": 290,
+    "GetPhysicalArmorValue": 289,
+    "OnWearablesChanged": 266,
+    "IsRoshan": 61
   },
   "CDOTAParticleManager": {
     "CreateParticle": 9
   },
-  "CDOTABaseNPC": {
-    "OnWearablesChanged": 263,
-    "IsRoshan": 61,
-    "GetIdealSpeed": 241,
-    "GetAttackRange": 286,
-    "GetPhysicalArmorValue": 289,
-    "GetMagicalArmorValue": 290
-  },
-  "CDOTABaseAbility": {
-    "GetEffectiveCastRange": 261
-  },
   "CDOTA_Buff": {
     "OnAddModifier": 42
   },
-  "CUIEngineSource2": {
-    "RunFrame": 6,
-    "IsValidPanelPointer": 33,
-    "RunScript": 81
-  },
-  "CBaseEntity": {
-    "GetSchemaBinding": 37
-  },
-  "CSource2Client": {
-    "GetNetworkFieldChangeCallbackQueue": 27,
-    "VoiceReliable": 112,
-    "NotifyDisconnect": 14,
-	"FrameStageNotify": 31
-  },
-  "CRenderGameSystem": {
-	"WorldToProjectionMatrix": 57
-  },
   "CEngineServiceMgr": {
-	 "GetScreenSize": 45
+    "GetScreenSize": 45
   },
   "CGameSceneNode": {
-	"SetScale": 10
+    "SetScale": 10
+  },
+  "CNetChan": {
+    "PostReceivedNetMessage": 71,
+    "SendNetMessage": 34
+  },
+  "CParticleCollection": {
+    "SetControlPoint": 16,
+    "SetRenderingEnabled": 94
+  },
+  "CRenderGameSystem": {
+    "WorldToProjectionMatrix": 57
+  },
+  "CSource2Client": {
+    "FrameStageNotify": 34,
+    "GetNetworkFieldChangeCallbackQueue": 27,
+    "NotifyDisconnect": 14,
+    "VoiceReliable": 112
+  },
+  "CUIEngineSource2": {
+    "IsValidPanelPointer": 33,
+    "RunFrame": 6,
+    "RunScript": 81
   }
 }

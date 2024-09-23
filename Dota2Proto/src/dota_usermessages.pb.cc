@@ -153,6 +153,22 @@ struct CDOTAUserMsg_ProjectileParticleCPDataDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CDOTAUserMsg_ProjectileParticleCPDataDefaultTypeInternal _CDOTAUserMsg_ProjectileParticleCPData_default_instance_;
+PROTOBUF_CONSTEXPR CDOTAUserMsg_UpdateLinearProjectileCPData::CDOTAUserMsg_UpdateLinearProjectileCPData(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.vector_)*/nullptr
+  , /*decltype(_impl_.handle_)*/0
+  , /*decltype(_impl_.control_point_)*/0} {}
+struct CDOTAUserMsg_UpdateLinearProjectileCPDataDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CDOTAUserMsg_UpdateLinearProjectileCPDataDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CDOTAUserMsg_UpdateLinearProjectileCPDataDefaultTypeInternal() {}
+  union {
+    CDOTAUserMsg_UpdateLinearProjectileCPData _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CDOTAUserMsg_UpdateLinearProjectileCPDataDefaultTypeInternal _CDOTAUserMsg_UpdateLinearProjectileCPData_default_instance_;
 PROTOBUF_CONSTEXPR CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability::CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
@@ -381,6 +397,21 @@ struct CDOTAUserMsg_RadarAlertDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CDOTAUserMsg_RadarAlertDefaultTypeInternal _CDOTAUserMsg_RadarAlert_default_instance_;
+PROTOBUF_CONSTEXPR CDOTAUserMsg_RoshanTimer::CDOTAUserMsg_RoshanTimer(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.negative_)*/false
+  , /*decltype(_impl_.player_id_)*/-1} {}
+struct CDOTAUserMsg_RoshanTimerDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CDOTAUserMsg_RoshanTimerDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CDOTAUserMsg_RoshanTimerDefaultTypeInternal() {}
+  union {
+    CDOTAUserMsg_RoshanTimer _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CDOTAUserMsg_RoshanTimerDefaultTypeInternal _CDOTAUserMsg_RoshanTimer_default_instance_;
 PROTOBUF_CONSTEXPR CDOTAUserMsg_WillPurchaseAlert::CDOTAUserMsg_WillPurchaseAlert(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
@@ -750,41 +781,6 @@ struct CDOTAUserMsg_HalloweenDropsDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CDOTAUserMsg_HalloweenDropsDefaultTypeInternal _CDOTAUserMsg_HalloweenDrops_default_instance_;
-PROTOBUF_CONSTEXPR CDOTAUserMsg_PredictionResult_Prediction::CDOTAUserMsg_PredictionResult_Prediction(
-    ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_._has_bits_)*/{}
-  , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.granted_item_defs_)*/{}
-  , /*decltype(_impl_.item_def_)*/0u
-  , /*decltype(_impl_.num_correct_)*/0u
-  , /*decltype(_impl_.num_fails_)*/0u
-  , /*decltype(_impl_.result_)*/1} {}
-struct CDOTAUserMsg_PredictionResult_PredictionDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR CDOTAUserMsg_PredictionResult_PredictionDefaultTypeInternal()
-      : _instance(::_pbi::ConstantInitialized{}) {}
-  ~CDOTAUserMsg_PredictionResult_PredictionDefaultTypeInternal() {}
-  union {
-    CDOTAUserMsg_PredictionResult_Prediction _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CDOTAUserMsg_PredictionResult_PredictionDefaultTypeInternal _CDOTAUserMsg_PredictionResult_Prediction_default_instance_;
-PROTOBUF_CONSTEXPR CDOTAUserMsg_PredictionResult::CDOTAUserMsg_PredictionResult(
-    ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_._has_bits_)*/{}
-  , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.predictions_)*/{}
-  , /*decltype(_impl_.match_id_)*/uint64_t{0u}
-  , /*decltype(_impl_.account_id_)*/0u
-  , /*decltype(_impl_.correct_)*/false} {}
-struct CDOTAUserMsg_PredictionResultDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR CDOTAUserMsg_PredictionResultDefaultTypeInternal()
-      : _instance(::_pbi::ConstantInitialized{}) {}
-  ~CDOTAUserMsg_PredictionResultDefaultTypeInternal() {}
-  union {
-    CDOTAUserMsg_PredictionResult _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CDOTAUserMsg_PredictionResultDefaultTypeInternal _CDOTAUserMsg_PredictionResult_default_instance_;
 PROTOBUF_CONSTEXPR CDOTAResponseQuerySerialized_Fact::CDOTAResponseQuerySerialized_Fact(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
@@ -1111,7 +1107,7 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_ChatWheel::CDOTAUserMsg_ChatWheel(
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.account_id_)*/0u
-  , /*decltype(_impl_.param_hero_id_)*/0u
+  , /*decltype(_impl_.param_hero_id_)*/0
   , /*decltype(_impl_.emoticon_id_)*/0u
   , /*decltype(_impl_.chat_message_id_)*/4294967295u
   , /*decltype(_impl_.player_id_)*/-1} {}
@@ -1148,7 +1144,7 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_ShowSurvey::CDOTAUserMsg_ShowSurvey(
   , /*decltype(_impl_.teammate_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.match_id_)*/uint64_t{0u}
   , /*decltype(_impl_.survey_id_)*/0
-  , /*decltype(_impl_.teammate_hero_id_)*/0u
+  , /*decltype(_impl_.teammate_hero_id_)*/0
   , /*decltype(_impl_.teammate_account_id_)*/0u} {}
 struct CDOTAUserMsg_ShowSurveyDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_ShowSurveyDefaultTypeInternal()
@@ -1464,9 +1460,10 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_AbilityPing::CDOTAUserMsg_AbilityPing(
   , /*decltype(_impl_.ctrl_held_)*/false
   , /*decltype(_impl_.secondary_charges_)*/0
   , /*decltype(_impl_.reclaim_time_)*/0
-  , /*decltype(_impl_.type_)*/1
   , /*decltype(_impl_.player_id_)*/-1
-  , /*decltype(_impl_.ability_id_)*/-1} {}
+  , /*decltype(_impl_.ability_id_)*/-1
+  , /*decltype(_impl_.type_)*/1
+  , /*decltype(_impl_.owner_entity_)*/-1} {}
 struct CDOTAUserMsg_AbilityPingDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_AbilityPingDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -1605,20 +1602,6 @@ struct CDOTAUserMsg_BoosterStateDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CDOTAUserMsg_BoosterStateDefaultTypeInternal _CDOTAUserMsg_BoosterState_default_instance_;
-PROTOBUF_CONSTEXPR CDOTAUserMsg_PlayerMMR::CDOTAUserMsg_PlayerMMR(
-    ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.mmr_)*/{}
-  , /*decltype(_impl_._mmr_cached_byte_size_)*/{0}
-  , /*decltype(_impl_._cached_size_)*/{}} {}
-struct CDOTAUserMsg_PlayerMMRDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR CDOTAUserMsg_PlayerMMRDefaultTypeInternal()
-      : _instance(::_pbi::ConstantInitialized{}) {}
-  ~CDOTAUserMsg_PlayerMMRDefaultTypeInternal() {}
-  union {
-    CDOTAUserMsg_PlayerMMR _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CDOTAUserMsg_PlayerMMRDefaultTypeInternal _CDOTAUserMsg_PlayerMMR_default_instance_;
 PROTOBUF_CONSTEXPR CDOTAUserMsg_AbilitySteal::CDOTAUserMsg_AbilitySteal(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
@@ -2126,8 +2109,9 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_SuggestHeroPick::CDOTAUserMsg_SuggestHeroPick(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.hero_id_)*/0u
+  , /*decltype(_impl_.hero_id_)*/0
   , /*decltype(_impl_.ban_)*/false
+  , /*decltype(_impl_.facet_id_)*/0u
   , /*decltype(_impl_.player_id_)*/-1} {}
 struct CDOTAUserMsg_SuggestHeroPickDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_SuggestHeroPickDefaultTypeInternal()
@@ -2303,8 +2287,8 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_DamageReport::CDOTAUserMsg_DamageReport(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.target_hero_id_)*/0u
-  , /*decltype(_impl_.source_hero_id_)*/0u
+  , /*decltype(_impl_.target_hero_id_)*/0
+  , /*decltype(_impl_.source_hero_id_)*/0
   , /*decltype(_impl_.damage_amount_)*/0
   , /*decltype(_impl_.broadcast_)*/false
   , /*decltype(_impl_.player_id_)*/-1} {}
@@ -2336,6 +2320,22 @@ struct CDOTAUserMsg_SalutePlayerDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CDOTAUserMsg_SalutePlayerDefaultTypeInternal _CDOTAUserMsg_SalutePlayer_default_instance_;
+PROTOBUF_CONSTEXPR CDOTAUserMsg_GiftPlayer::CDOTAUserMsg_GiftPlayer(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.gift_item_def_index_)*/0u
+  , /*decltype(_impl_.source_player_id_)*/-1
+  , /*decltype(_impl_.target_player_id_)*/-1} {}
+struct CDOTAUserMsg_GiftPlayerDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CDOTAUserMsg_GiftPlayerDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CDOTAUserMsg_GiftPlayerDefaultTypeInternal() {}
+  union {
+    CDOTAUserMsg_GiftPlayer _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CDOTAUserMsg_GiftPlayerDefaultTypeInternal _CDOTAUserMsg_GiftPlayer_default_instance_;
 PROTOBUF_CONSTEXPR CDOTAUserMsg_TipAlert::CDOTAUserMsg_TipAlert(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
@@ -2689,7 +2689,7 @@ PROTOBUF_CONSTEXPR CDOTAUserMsg_WK_Arcana_Progress::CDOTAUserMsg_WK_Arcana_Progr
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.arcana_level_)*/0u
-  , /*decltype(_impl_.hero_id_)*/0u
+  , /*decltype(_impl_.hero_id_)*/0
   , /*decltype(_impl_.ehandle_)*/16777215u} {}
 struct CDOTAUserMsg_WK_Arcana_ProgressDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CDOTAUserMsg_WK_Arcana_ProgressDefaultTypeInternal()
@@ -2995,8 +2995,41 @@ struct CDOTAUserMsg_PlayerDraftPickDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CDOTAUserMsg_PlayerDraftPickDefaultTypeInternal _CDOTAUserMsg_PlayerDraftPick_default_instance_;
-static ::_pb::Metadata file_level_metadata_dota_5fusermessages_2eproto[180];
-static const ::_pb::EnumDescriptor* file_level_enum_descriptors_dota_5fusermessages_2eproto[17];
+PROTOBUF_CONSTEXPR CDOTAUserMsg_FacetPing::CDOTAUserMsg_FacetPing(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.facet_strhash_)*/0u
+  , /*decltype(_impl_.entity_id_)*/0u
+  , /*decltype(_impl_.all_chat_)*/false
+  , /*decltype(_impl_.player_id_)*/-1} {}
+struct CDOTAUserMsg_FacetPingDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CDOTAUserMsg_FacetPingDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CDOTAUserMsg_FacetPingDefaultTypeInternal() {}
+  union {
+    CDOTAUserMsg_FacetPing _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CDOTAUserMsg_FacetPingDefaultTypeInternal _CDOTAUserMsg_FacetPing_default_instance_;
+PROTOBUF_CONSTEXPR CDOTAUserMsg_InnatePing::CDOTAUserMsg_InnatePing(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.entity_id_)*/0u
+  , /*decltype(_impl_.all_chat_)*/false
+  , /*decltype(_impl_.player_id_)*/-1} {}
+struct CDOTAUserMsg_InnatePingDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CDOTAUserMsg_InnatePingDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CDOTAUserMsg_InnatePingDefaultTypeInternal() {}
+  union {
+    CDOTAUserMsg_InnatePing _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CDOTAUserMsg_InnatePingDefaultTypeInternal _CDOTAUserMsg_InnatePing_default_instance_;
+static ::_pb::Metadata file_level_metadata_dota_5fusermessages_2eproto[182];
+static const ::_pb::EnumDescriptor* file_level_enum_descriptors_dota_5fusermessages_2eproto[16];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_dota_5fusermessages_2eproto = nullptr;
 
 const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -3105,6 +3138,18 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_ProjectileParticleCPData, _impl_.control_point_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_ProjectileParticleCPData, _impl_.vector_),
   1,
+  0,
+  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_UpdateLinearProjectileCPData, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_UpdateLinearProjectileCPData, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_UpdateLinearProjectileCPData, _impl_.handle_),
+  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_UpdateLinearProjectileCPData, _impl_.control_point_),
+  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_UpdateLinearProjectileCPData, _impl_.vector_),
+  1,
+  2,
   0,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability, _internal_metadata_),
@@ -3281,6 +3326,16 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_RadarAlert, _impl_.player_id_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_RadarAlert, _impl_.negative_),
+  1,
+  0,
+  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_RoshanTimer, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_RoshanTimer, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_RoshanTimer, _impl_.player_id_),
+  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_RoshanTimer, _impl_.negative_),
   1,
   0,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_WillPurchaseAlert, _impl_._has_bits_),
@@ -3581,36 +3636,6 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   ~0u,
   ~0u,
   0,
-  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_PredictionResult_Prediction, _impl_._has_bits_),
-  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_PredictionResult_Prediction, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_PredictionResult_Prediction, _impl_.item_def_),
-  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_PredictionResult_Prediction, _impl_.num_correct_),
-  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_PredictionResult_Prediction, _impl_.num_fails_),
-  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_PredictionResult_Prediction, _impl_.result_),
-  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_PredictionResult_Prediction, _impl_.granted_item_defs_),
-  0,
-  1,
-  2,
-  3,
-  ~0u,
-  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_PredictionResult, _impl_._has_bits_),
-  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_PredictionResult, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_PredictionResult, _impl_.account_id_),
-  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_PredictionResult, _impl_.match_id_),
-  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_PredictionResult, _impl_.correct_),
-  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_PredictionResult, _impl_.predictions_),
-  1,
-  0,
-  2,
-  ~0u,
   PROTOBUF_FIELD_OFFSET(::CDOTAResponseQuerySerialized_Fact, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAResponseQuerySerialized_Fact, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -4154,9 +4179,10 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_AbilityPing, _impl_.secondary_charges_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_AbilityPing, _impl_.ctrl_held_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_AbilityPing, _impl_.reclaim_time_),
+  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_AbilityPing, _impl_.owner_entity_),
+  9,
   10,
   11,
-  9,
   0,
   1,
   5,
@@ -4166,6 +4192,7 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   7,
   6,
   8,
+  12,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_TE_UnitAnimation, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_TE_UnitAnimation, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -4266,13 +4293,6 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_BoosterState, _impl_.boosted_players_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_PlayerMMR, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_PlayerMMR, _impl_.mmr_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_AbilitySteal, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_AbilitySteal, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -4689,9 +4709,11 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_SuggestHeroPick, _impl_.player_id_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_SuggestHeroPick, _impl_.hero_id_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_SuggestHeroPick, _impl_.ban_),
-  2,
+  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_SuggestHeroPick, _impl_.facet_id_),
+  3,
   0,
   1,
+  2,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_SuggestHeroRole, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_SuggestHeroRole, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -4848,6 +4870,18 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   2,
   0,
   3,
+  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_GiftPlayer, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_GiftPlayer, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_GiftPlayer, _impl_.source_player_id_),
+  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_GiftPlayer, _impl_.target_player_id_),
+  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_GiftPlayer, _impl_.gift_item_def_index_),
+  1,
+  2,
+  0,
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_TipAlert, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_TipAlert, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -5368,6 +5402,32 @@ const uint32_t TableStruct_dota_5fusermessages_2eproto::offsets[] PROTOBUF_SECTI
   1,
   2,
   0,
+  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_FacetPing, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_FacetPing, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_FacetPing, _impl_.player_id_),
+  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_FacetPing, _impl_.facet_strhash_),
+  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_FacetPing, _impl_.entity_id_),
+  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_FacetPing, _impl_.all_chat_),
+  3,
+  0,
+  1,
+  2,
+  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_InnatePing, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_InnatePing, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_InnatePing, _impl_.player_id_),
+  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_InnatePing, _impl_.entity_id_),
+  PROTOBUF_FIELD_OFFSET(::CDOTAUserMsg_InnatePing, _impl_.all_chat_),
+  2,
+  0,
+  1,
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 7, -1, sizeof(::CDOTAUserMsg_AIDebugLine)},
@@ -5378,178 +5438,180 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 66, 76, -1, sizeof(::CDOTAUserMsg_CombatHeroPositions)},
   { 80, 91, -1, sizeof(::CDOTAUserMsg_CombatLogBulkData)},
   { 96, 104, -1, sizeof(::CDOTAUserMsg_ProjectileParticleCPData)},
-  { 106, 114, -1, sizeof(::CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability)},
-  { 116, 126, -1, sizeof(::CDOTAUserMsg_MiniKillCamInfo_Attacker)},
-  { 130, -1, -1, sizeof(::CDOTAUserMsg_MiniKillCamInfo)},
-  { 137, 145, -1, sizeof(::CDOTAUserMsg_GlobalLightColor)},
-  { 147, 155, -1, sizeof(::CDOTAUserMsg_GlobalLightDirection)},
-  { 157, 165, -1, sizeof(::CDOTAUserMsg_LocationPing)},
-  { 167, 177, -1, sizeof(::CDOTAUserMsg_PingConfirmation)},
-  { 181, 189, -1, sizeof(::CDOTAUserMsg_ItemAlert)},
-  { 191, 205, -1, sizeof(::CDOTAUserMsg_EnemyItemAlert)},
-  { 213, 225, -1, sizeof(::CDOTAUserMsg_ModifierAlert)},
-  { 231, 240, -1, sizeof(::CDOTAUserMsg_HPManaAlert)},
-  { 243, 256, -1, sizeof(::CDOTAUserMsg_NeutralCampAlert)},
-  { 263, 271, -1, sizeof(::CDOTAUserMsg_GlyphAlert)},
-  { 273, 281, -1, sizeof(::CDOTAUserMsg_RadarAlert)},
-  { 283, 293, -1, sizeof(::CDOTAUserMsg_WillPurchaseAlert)},
-  { 297, 306, -1, sizeof(::CDOTAUserMsg_EmptyTeleportAlert)},
-  { 309, 318, -1, sizeof(::CDOTAUserMsg_MarsArenaOfBloodAttack)},
-  { 321, 329, -1, sizeof(::CDOTAEntityMsg_InvokerSpellCast)},
-  { 331, 338, -1, sizeof(::CDOTAUserMsg_BuyBackStateAlert)},
-  { 339, 350, -1, sizeof(::CDOTAUserMsg_QuickBuyAlert)},
-  { 355, 363, -1, sizeof(::CDOTAUserMsg_CourierKilledAlert_LostItem)},
-  { 365, 378, -1, sizeof(::CDOTAUserMsg_CourierKilledAlert)},
-  { 385, 397, -1, sizeof(::CDOTAUserMsg_MinimapEvent)},
-  { 403, 411, -1, sizeof(::CDOTAUserMsg_MapLine)},
-  { 413, 424, -1, sizeof(::CDOTAUserMsg_MinimapDebugPoint)},
-  { 429, 447, -1, sizeof(::CDOTAUserMsg_CreateLinearProjectile)},
-  { 459, 466, -1, sizeof(::CDOTAUserMsg_DestroyLinearProjectile)},
-  { 467, 475, -1, sizeof(::CDOTAUserMsg_DodgeTrackingProjectiles)},
-  { 477, 486, -1, sizeof(::CDOTAUserMsg_SpectatorPlayerClick)},
-  { 489, 504, -1, sizeof(::CDOTAUserMsg_SpectatorPlayerUnitOrders)},
-  { 513, 523, -1, sizeof(::CDOTAUserMsg_NevermoreRequiem)},
-  { 527, 535, -1, sizeof(::CDOTAUserMsg_InvalidCommand)},
-  { 537, 545, -1, sizeof(::CDOTAUserMsg_HudError)},
-  { 547, 557, -1, sizeof(::CDOTAUserMsg_SharedCooldown)},
-  { 561, 568, -1, sizeof(::CDOTAUserMsg_SetNextAutobuyItem)},
-  { 569, 578, -1, sizeof(::CDOTAUserMsg_HalloweenDrops)},
-  { 581, 592, -1, sizeof(::CDOTAUserMsg_PredictionResult_Prediction)},
-  { 597, 607, -1, sizeof(::CDOTAUserMsg_PredictionResult)},
-  { 611, 623, -1, sizeof(::CDOTAResponseQuerySerialized_Fact)},
-  { 629, -1, -1, sizeof(::CDOTAResponseQuerySerialized)},
-  { 636, 646, -1, sizeof(::CDOTASpeechMatchOnClient)},
-  { 650, 658, -1, sizeof(::CDOTAUserMsg_UnitEvent_Interval)},
-  { 660, 672, -1, sizeof(::CDOTAUserMsg_UnitEvent_Speech)},
-  { 678, 685, -1, sizeof(::CDOTAUserMsg_UnitEvent_SpeechMute)},
-  { 686, 698, -1, sizeof(::CDOTAUserMsg_UnitEvent_AddGesture)},
-  { 704, 711, -1, sizeof(::CDOTAUserMsg_UnitEvent_RemoveGesture)},
-  { 712, 721, -1, sizeof(::CDOTAUserMsg_UnitEvent_BloodImpact)},
-  { 724, 731, -1, sizeof(::CDOTAUserMsg_UnitEvent_FadeGesture)},
-  { 732, 747, -1, sizeof(::CDOTAUserMsg_UnitEvent)},
-  { 756, 763, -1, sizeof(::CDOTAUserMsg_ItemPurchased)},
-  { 764, 771, -1, sizeof(::CDOTAUserMsg_ItemSold)},
-  { 772, 783, -1, sizeof(::CDOTAUserMsg_ItemFound)},
-  { 788, 799, -1, sizeof(::CDOTAUserMsg_OverheadEvent)},
-  { 804, 812, -1, sizeof(::CDOTAUserMsg_TutorialTipInfo)},
-  { 814, 824, -1, sizeof(::CDOTAUserMsg_TutorialFinish)},
-  { 828, -1, -1, sizeof(::CDOTAUserMsg_TutorialMinimapPosition)},
-  { 834, 844, -1, sizeof(::CDOTAUserMsg_SendGenericToolTip)},
-  { 848, 856, -1, sizeof(::CDOTAUserMsg_WorldLine)},
-  { 858, 869, -1, sizeof(::CDOTAUserMsg_ChatWheel)},
-  { 874, 883, -1, sizeof(::CDOTAUserMsg_ReceivedXmasGift)},
-  { 886, 898, -1, sizeof(::CDOTAUserMsg_ShowSurvey)},
-  { 904, 911, -1, sizeof(::CDOTAUserMsg_UpdateSharedContent)},
-  { 912, -1, -1, sizeof(::CDOTAUserMsg_TutorialRequestExp)},
-  { 918, 925, -1, sizeof(::CDOTAUserMsg_TutorialFade)},
-  { 926, 937, -1, sizeof(::CDOTAUserMsg_TutorialPingMinimap)},
-  { 942, 949, -1, sizeof(::CDOTAUserMsg_GamerulesStateChanged)},
-  { 950, 958, -1, sizeof(::CDOTAUserMsg_AddQuestLogEntry)},
-  { 960, 968, -1, sizeof(::CDOTAUserMsg_SendStatPopup)},
-  { 970, 977, -1, sizeof(::CDOTAUserMsg_DismissAllStatPopups)},
-  { 978, 987, -1, sizeof(::CDOTAUserMsg_SendRoshanSpectatorPhase)},
-  { 990, 998, -1, sizeof(::CDOTAUserMsg_SendRoshanPopup)},
-  { 1000, -1, -1, sizeof(::CDOTAUserMsg_SendFinalGold)},
-  { 1008, 1017, -1, sizeof(::CDOTAUserMsg_CustomMsg)},
-  { 1020, 1028, -1, sizeof(::CDOTAUserMsg_CoachHUDPing)},
-  { 1030, -1, -1, sizeof(::CDOTAUserMsg_ClientLoadGridNav)},
-  { 1036, 1059, -1, sizeof(::CDOTAUserMsg_TE_Projectile)},
-  { 1076, 1098, -1, sizeof(::CDOTAUserMsg_TE_ProjectileLoc)},
-  { 1114, 1121, -1, sizeof(::CDOTAUserMsg_TE_DestroyProjectile)},
-  { 1122, 1132, -1, sizeof(::CDOTAUserMsg_TE_DotaBloodImpact)},
-  { 1136, 1154, -1, sizeof(::CDOTAUserMsg_AbilityPing)},
-  { 1166, 1179, -1, sizeof(::CDOTAUserMsg_TE_UnitAnimation)},
-  { 1186, 1194, -1, sizeof(::CDOTAUserMsg_TE_UnitAnimationEnd)},
-  { 1196, 1208, -1, sizeof(::CDOTAUserMsg_ShowGenericPopup)},
-  { 1214, 1224, -1, sizeof(::CDOTAUserMsg_VoteStart)},
-  { 1228, -1, -1, sizeof(::CDOTAUserMsg_VoteUpdate)},
-  { 1235, 1242, -1, sizeof(::CDOTAUserMsg_VoteEnd)},
-  { 1243, 1254, -1, sizeof(::CDOTAUserMsg_BoosterStatePlayer)},
-  { 1259, -1, -1, sizeof(::CDOTAUserMsg_BoosterState)},
-  { 1266, -1, -1, sizeof(::CDOTAUserMsg_PlayerMMR)},
-  { 1273, 1282, -1, sizeof(::CDOTAUserMsg_AbilitySteal)},
-  { 1285, 1295, -1, sizeof(::CDOTAUserMsg_StatsHeroLookup)},
-  { 1299, 1307, -1, sizeof(::CDOTAUserMsg_StatsHeroPositionInfo_PositionPair)},
-  { 1309, 1317, -1, sizeof(::CDOTAUserMsg_StatsHeroPositionInfo)},
-  { 1319, 1340, -1, sizeof(::CDOTAUserMsg_StatsHeroMinuteDetails)},
-  { 1355, 1364, -1, sizeof(::CDOTAUserMsg_StatsTeamMinuteDetails_LocationPerformance)},
-  { 1367, 1383, -1, sizeof(::CDOTAUserMsg_StatsTeamMinuteDetails)},
-  { 1393, 1405, -1, sizeof(::CDOTAUserMsg_StatsPlayerKillShare)},
-  { 1411, 1423, -1, sizeof(::CDOTAUserMsg_StatsKillDetails)},
-  { 1429, 1439, -1, sizeof(::CDOTAUserMsg_StatsMatchDetails_CDOTAUserMsg_StatsFightTeamDetails)},
-  { 1443, 1453, -1, sizeof(::CDOTAUserMsg_StatsMatchDetails_CDOTAUserMsg_StatsFightDetails)},
-  { 1457, -1, -1, sizeof(::CDOTAUserMsg_StatsMatchDetails)},
-  { 1469, 1476, -1, sizeof(::CDOTAUserMsg_MiniTaunt)},
-  { 1477, 1484, -1, sizeof(::CDOTAUserMsg_SpeechBubble)},
-  { 1485, 1495, -1, sizeof(::CDOTAUserMsg_CustomHeaderMessage)},
-  { 1499, 1508, -1, sizeof(::CMsgHeroAbilityStat)},
-  { 1511, 1519, -1, sizeof(::CMsgCombatAnalyzerPlayerStat)},
-  { 1521, 1529, -1, sizeof(::CMsgCombatAnalyzerStats)},
-  { 1531, 1541, -1, sizeof(::CDOTAUserMsg_BeastChat)},
-  { 1545, 1554, -1, sizeof(::CDOTAUserMsg_CustomHudElement_Create)},
-  { 1557, 1566, -1, sizeof(::CDOTAUserMsg_CustomHudElement_Modify)},
-  { 1569, 1576, -1, sizeof(::CDOTAUserMsg_CustomHudElement_Destroy)},
-  { 1577, 1585, -1, sizeof(::CDOTAUserMsg_CompendiumStatePlayer)},
-  { 1587, -1, -1, sizeof(::CDOTAUserMsg_CompendiumState)},
-  { 1594, 1608, -1, sizeof(::CDOTAUserMsg_ProjectionAbility)},
-  { 1616, 1624, -1, sizeof(::CDOTAUserMsg_ProjectionEvent)},
-  { 1626, 1634, -1, sizeof(::CDOTAUserMsg_XPAlert)},
-  { 1636, 1647, -1, sizeof(::CDOTAUserMsg_TalentTreeAlert)},
-  { 1652, -1, -1, sizeof(::CDOTAUserMsg_UpdateQuestProgress)},
-  { 1658, 1672, -1, sizeof(::CDOTAUserMsg_QuestStatus)},
-  { 1680, 1689, -1, sizeof(::CDOTAUserMsg_SuggestHeroPick)},
-  { 1692, 1700, -1, sizeof(::CDOTAUserMsg_SuggestHeroRole)},
-  { 1702, 1714, -1, sizeof(::CDOTAUserMsg_KillcamDamageTaken)},
-  { 1720, 1728, -1, sizeof(::CDOTAUserMsg_SelectPenaltyGold)},
-  { 1730, 1741, -1, sizeof(::CDOTAUserMsg_RollDiceResult)},
-  { 1746, 1755, -1, sizeof(::CDOTAUserMsg_FlipCoinResult)},
-  { 1758, 1765, -1, sizeof(::CDOTAUserMessage_RequestItemSuggestions)},
-  { 1766, 1774, -1, sizeof(::CDOTAUserMessage_TeamCaptainChanged)},
-  { 1776, 1784, -1, sizeof(::CDOTAUserMsg_ChatWheelCooldown)},
-  { 1786, 1797, -1, sizeof(::CDOTAUserMsg_HeroRelicProgress)},
-  { 1802, 1811, -1, sizeof(::CDOTAUserMsg_AbilityDraftRequestAbility)},
-  { 1814, 1825, -1, sizeof(::CDOTAUserMsg_DamageReport)},
-  { 1830, 1842, -1, sizeof(::CDOTAUserMsg_SalutePlayer)},
-  { 1848, 1856, -1, sizeof(::CDOTAUserMsg_TipAlert)},
-  { 1858, 1867, -1, sizeof(::CDOTAUserMsg_ReplaceQueryUnit)},
-  { 1870, 1879, -1, sizeof(::CDOTAUserMsg_ESArcanaCombo)},
-  { 1882, 1891, -1, sizeof(::CDOTAUserMsg_ESArcanaComboSummary)},
-  { 1894, 1904, -1, sizeof(::CDOTAUserMsg_OMArcanaCombo)},
-  { 1908, 1918, -1, sizeof(::CDOTAUserMsg_HighFiveCompleted)},
-  { 1922, 1929, -1, sizeof(::CDOTAUserMsg_HighFiveLeftHanging)},
-  { 1930, 1940, -1, sizeof(::CDOTAUserMsg_ShovelUnearth)},
-  { 1944, 1952, -1, sizeof(::CDOTAUserMsg_AllStarEvent_PlayerScore)},
-  { 1954, 1965, -1, sizeof(::CDOTAUserMsg_AllStarEvent)},
-  { 1970, -1, -1, sizeof(::CDOTAUserMsg_QueuedOrderRemoved)},
-  { 1977, 1990, -1, sizeof(::CDOTAUserMsg_DebugChallenge)},
-  { 1997, 2007, -1, sizeof(::CDOTAUserMsg_FoundNeutralItem)},
-  { 2011, 2019, -1, sizeof(::CDOTAUserMsg_OutpostCaptured)},
-  { 2021, 2029, -1, sizeof(::CDOTAUserMsg_OutpostGrantedXP)},
-  { 2031, 2038, -1, sizeof(::CDOTAUserMsg_MoveCameraToUnit)},
-  { 2039, 2048, -1, sizeof(::CDOTAUserMsg_PauseMinigameData_DataBit)},
-  { 2051, -1, -1, sizeof(::CDOTAUserMsg_PauseMinigameData)},
-  { 2058, 2069, -1, sizeof(::CDOTAUserMsg_VersusScene_PlayerBehavior)},
-  { 2074, 2084, -1, sizeof(::CDOTAUserMsg_QoP_ArcanaSummary)},
-  { 2088, 2096, -1, sizeof(::CDOTAUserMsg_HotPotato_Created)},
-  { 2098, 2105, -1, sizeof(::CDOTAUserMsg_HotPotato_Exploded)},
-  { 2106, 2115, -1, sizeof(::CDOTAUserMsg_WK_Arcana_Progress)},
-  { 2118, 2126, -1, sizeof(::CDOTAUserMsg_GuildChallenge_Progress_PlayerProgress)},
-  { 2128, 2141, -1, sizeof(::CDOTAUserMsg_GuildChallenge_Progress)},
-  { 2148, 2161, -1, sizeof(::CDOTAUserMsg_WRArcanaProgress)},
-  { 2168, 2182, -1, sizeof(::CDOTAUserMsg_WRArcanaSummary)},
-  { 2190, 2200, -1, sizeof(::CDOTAUserMsg_EmptyItemSlotAlert)},
-  { 2204, 2216, -1, sizeof(::CDOTAUserMsg_AghsStatusAlert)},
-  { 2222, -1, -1, sizeof(::CDOTAUserMsg_MutedPlayers)},
-  { 2230, 2251, -1, sizeof(::CDOTAUserMsg_ContextualTip)},
-  { 2266, 2275, -1, sizeof(::CDOTAUserMsg_ChatMessage)},
-  { 2278, 2286, -1, sizeof(::CDOTAUserMsg_RockPaperScissorsStarted)},
-  { 2288, 2298, -1, sizeof(::CDOTAUserMsg_RockPaperScissorsFinished)},
-  { 2302, 2310, -1, sizeof(::CDOTAUserMsg_DuelOpponentKilled)},
-  { 2312, 2320, -1, sizeof(::CDOTAUserMsg_DuelAccepted)},
-  { 2322, 2329, -1, sizeof(::CDOTAUserMsg_DuelRequested)},
-  { 2330, 2341, -1, sizeof(::CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled)},
-  { 2346, 2354, -1, sizeof(::CDOTAUserMsg_PlayerDraftSuggestPick)},
-  { 2356, 2365, -1, sizeof(::CDOTAUserMsg_PlayerDraftPick)},
+  { 106, 115, -1, sizeof(::CDOTAUserMsg_UpdateLinearProjectileCPData)},
+  { 118, 126, -1, sizeof(::CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability)},
+  { 128, 138, -1, sizeof(::CDOTAUserMsg_MiniKillCamInfo_Attacker)},
+  { 142, -1, -1, sizeof(::CDOTAUserMsg_MiniKillCamInfo)},
+  { 149, 157, -1, sizeof(::CDOTAUserMsg_GlobalLightColor)},
+  { 159, 167, -1, sizeof(::CDOTAUserMsg_GlobalLightDirection)},
+  { 169, 177, -1, sizeof(::CDOTAUserMsg_LocationPing)},
+  { 179, 189, -1, sizeof(::CDOTAUserMsg_PingConfirmation)},
+  { 193, 201, -1, sizeof(::CDOTAUserMsg_ItemAlert)},
+  { 203, 217, -1, sizeof(::CDOTAUserMsg_EnemyItemAlert)},
+  { 225, 237, -1, sizeof(::CDOTAUserMsg_ModifierAlert)},
+  { 243, 252, -1, sizeof(::CDOTAUserMsg_HPManaAlert)},
+  { 255, 268, -1, sizeof(::CDOTAUserMsg_NeutralCampAlert)},
+  { 275, 283, -1, sizeof(::CDOTAUserMsg_GlyphAlert)},
+  { 285, 293, -1, sizeof(::CDOTAUserMsg_RadarAlert)},
+  { 295, 303, -1, sizeof(::CDOTAUserMsg_RoshanTimer)},
+  { 305, 315, -1, sizeof(::CDOTAUserMsg_WillPurchaseAlert)},
+  { 319, 328, -1, sizeof(::CDOTAUserMsg_EmptyTeleportAlert)},
+  { 331, 340, -1, sizeof(::CDOTAUserMsg_MarsArenaOfBloodAttack)},
+  { 343, 351, -1, sizeof(::CDOTAEntityMsg_InvokerSpellCast)},
+  { 353, 360, -1, sizeof(::CDOTAUserMsg_BuyBackStateAlert)},
+  { 361, 372, -1, sizeof(::CDOTAUserMsg_QuickBuyAlert)},
+  { 377, 385, -1, sizeof(::CDOTAUserMsg_CourierKilledAlert_LostItem)},
+  { 387, 400, -1, sizeof(::CDOTAUserMsg_CourierKilledAlert)},
+  { 407, 419, -1, sizeof(::CDOTAUserMsg_MinimapEvent)},
+  { 425, 433, -1, sizeof(::CDOTAUserMsg_MapLine)},
+  { 435, 446, -1, sizeof(::CDOTAUserMsg_MinimapDebugPoint)},
+  { 451, 469, -1, sizeof(::CDOTAUserMsg_CreateLinearProjectile)},
+  { 481, 488, -1, sizeof(::CDOTAUserMsg_DestroyLinearProjectile)},
+  { 489, 497, -1, sizeof(::CDOTAUserMsg_DodgeTrackingProjectiles)},
+  { 499, 508, -1, sizeof(::CDOTAUserMsg_SpectatorPlayerClick)},
+  { 511, 526, -1, sizeof(::CDOTAUserMsg_SpectatorPlayerUnitOrders)},
+  { 535, 545, -1, sizeof(::CDOTAUserMsg_NevermoreRequiem)},
+  { 549, 557, -1, sizeof(::CDOTAUserMsg_InvalidCommand)},
+  { 559, 567, -1, sizeof(::CDOTAUserMsg_HudError)},
+  { 569, 579, -1, sizeof(::CDOTAUserMsg_SharedCooldown)},
+  { 583, 590, -1, sizeof(::CDOTAUserMsg_SetNextAutobuyItem)},
+  { 591, 600, -1, sizeof(::CDOTAUserMsg_HalloweenDrops)},
+  { 603, 615, -1, sizeof(::CDOTAResponseQuerySerialized_Fact)},
+  { 621, -1, -1, sizeof(::CDOTAResponseQuerySerialized)},
+  { 628, 638, -1, sizeof(::CDOTASpeechMatchOnClient)},
+  { 642, 650, -1, sizeof(::CDOTAUserMsg_UnitEvent_Interval)},
+  { 652, 664, -1, sizeof(::CDOTAUserMsg_UnitEvent_Speech)},
+  { 670, 677, -1, sizeof(::CDOTAUserMsg_UnitEvent_SpeechMute)},
+  { 678, 690, -1, sizeof(::CDOTAUserMsg_UnitEvent_AddGesture)},
+  { 696, 703, -1, sizeof(::CDOTAUserMsg_UnitEvent_RemoveGesture)},
+  { 704, 713, -1, sizeof(::CDOTAUserMsg_UnitEvent_BloodImpact)},
+  { 716, 723, -1, sizeof(::CDOTAUserMsg_UnitEvent_FadeGesture)},
+  { 724, 739, -1, sizeof(::CDOTAUserMsg_UnitEvent)},
+  { 748, 755, -1, sizeof(::CDOTAUserMsg_ItemPurchased)},
+  { 756, 763, -1, sizeof(::CDOTAUserMsg_ItemSold)},
+  { 764, 775, -1, sizeof(::CDOTAUserMsg_ItemFound)},
+  { 780, 791, -1, sizeof(::CDOTAUserMsg_OverheadEvent)},
+  { 796, 804, -1, sizeof(::CDOTAUserMsg_TutorialTipInfo)},
+  { 806, 816, -1, sizeof(::CDOTAUserMsg_TutorialFinish)},
+  { 820, -1, -1, sizeof(::CDOTAUserMsg_TutorialMinimapPosition)},
+  { 826, 836, -1, sizeof(::CDOTAUserMsg_SendGenericToolTip)},
+  { 840, 848, -1, sizeof(::CDOTAUserMsg_WorldLine)},
+  { 850, 861, -1, sizeof(::CDOTAUserMsg_ChatWheel)},
+  { 866, 875, -1, sizeof(::CDOTAUserMsg_ReceivedXmasGift)},
+  { 878, 890, -1, sizeof(::CDOTAUserMsg_ShowSurvey)},
+  { 896, 903, -1, sizeof(::CDOTAUserMsg_UpdateSharedContent)},
+  { 904, -1, -1, sizeof(::CDOTAUserMsg_TutorialRequestExp)},
+  { 910, 917, -1, sizeof(::CDOTAUserMsg_TutorialFade)},
+  { 918, 929, -1, sizeof(::CDOTAUserMsg_TutorialPingMinimap)},
+  { 934, 941, -1, sizeof(::CDOTAUserMsg_GamerulesStateChanged)},
+  { 942, 950, -1, sizeof(::CDOTAUserMsg_AddQuestLogEntry)},
+  { 952, 960, -1, sizeof(::CDOTAUserMsg_SendStatPopup)},
+  { 962, 969, -1, sizeof(::CDOTAUserMsg_DismissAllStatPopups)},
+  { 970, 979, -1, sizeof(::CDOTAUserMsg_SendRoshanSpectatorPhase)},
+  { 982, 990, -1, sizeof(::CDOTAUserMsg_SendRoshanPopup)},
+  { 992, -1, -1, sizeof(::CDOTAUserMsg_SendFinalGold)},
+  { 1000, 1009, -1, sizeof(::CDOTAUserMsg_CustomMsg)},
+  { 1012, 1020, -1, sizeof(::CDOTAUserMsg_CoachHUDPing)},
+  { 1022, -1, -1, sizeof(::CDOTAUserMsg_ClientLoadGridNav)},
+  { 1028, 1051, -1, sizeof(::CDOTAUserMsg_TE_Projectile)},
+  { 1068, 1090, -1, sizeof(::CDOTAUserMsg_TE_ProjectileLoc)},
+  { 1106, 1113, -1, sizeof(::CDOTAUserMsg_TE_DestroyProjectile)},
+  { 1114, 1124, -1, sizeof(::CDOTAUserMsg_TE_DotaBloodImpact)},
+  { 1128, 1147, -1, sizeof(::CDOTAUserMsg_AbilityPing)},
+  { 1160, 1173, -1, sizeof(::CDOTAUserMsg_TE_UnitAnimation)},
+  { 1180, 1188, -1, sizeof(::CDOTAUserMsg_TE_UnitAnimationEnd)},
+  { 1190, 1202, -1, sizeof(::CDOTAUserMsg_ShowGenericPopup)},
+  { 1208, 1218, -1, sizeof(::CDOTAUserMsg_VoteStart)},
+  { 1222, -1, -1, sizeof(::CDOTAUserMsg_VoteUpdate)},
+  { 1229, 1236, -1, sizeof(::CDOTAUserMsg_VoteEnd)},
+  { 1237, 1248, -1, sizeof(::CDOTAUserMsg_BoosterStatePlayer)},
+  { 1253, -1, -1, sizeof(::CDOTAUserMsg_BoosterState)},
+  { 1260, 1269, -1, sizeof(::CDOTAUserMsg_AbilitySteal)},
+  { 1272, 1282, -1, sizeof(::CDOTAUserMsg_StatsHeroLookup)},
+  { 1286, 1294, -1, sizeof(::CDOTAUserMsg_StatsHeroPositionInfo_PositionPair)},
+  { 1296, 1304, -1, sizeof(::CDOTAUserMsg_StatsHeroPositionInfo)},
+  { 1306, 1327, -1, sizeof(::CDOTAUserMsg_StatsHeroMinuteDetails)},
+  { 1342, 1351, -1, sizeof(::CDOTAUserMsg_StatsTeamMinuteDetails_LocationPerformance)},
+  { 1354, 1370, -1, sizeof(::CDOTAUserMsg_StatsTeamMinuteDetails)},
+  { 1380, 1392, -1, sizeof(::CDOTAUserMsg_StatsPlayerKillShare)},
+  { 1398, 1410, -1, sizeof(::CDOTAUserMsg_StatsKillDetails)},
+  { 1416, 1426, -1, sizeof(::CDOTAUserMsg_StatsMatchDetails_CDOTAUserMsg_StatsFightTeamDetails)},
+  { 1430, 1440, -1, sizeof(::CDOTAUserMsg_StatsMatchDetails_CDOTAUserMsg_StatsFightDetails)},
+  { 1444, -1, -1, sizeof(::CDOTAUserMsg_StatsMatchDetails)},
+  { 1456, 1463, -1, sizeof(::CDOTAUserMsg_MiniTaunt)},
+  { 1464, 1471, -1, sizeof(::CDOTAUserMsg_SpeechBubble)},
+  { 1472, 1482, -1, sizeof(::CDOTAUserMsg_CustomHeaderMessage)},
+  { 1486, 1495, -1, sizeof(::CMsgHeroAbilityStat)},
+  { 1498, 1506, -1, sizeof(::CMsgCombatAnalyzerPlayerStat)},
+  { 1508, 1516, -1, sizeof(::CMsgCombatAnalyzerStats)},
+  { 1518, 1528, -1, sizeof(::CDOTAUserMsg_BeastChat)},
+  { 1532, 1541, -1, sizeof(::CDOTAUserMsg_CustomHudElement_Create)},
+  { 1544, 1553, -1, sizeof(::CDOTAUserMsg_CustomHudElement_Modify)},
+  { 1556, 1563, -1, sizeof(::CDOTAUserMsg_CustomHudElement_Destroy)},
+  { 1564, 1572, -1, sizeof(::CDOTAUserMsg_CompendiumStatePlayer)},
+  { 1574, -1, -1, sizeof(::CDOTAUserMsg_CompendiumState)},
+  { 1581, 1595, -1, sizeof(::CDOTAUserMsg_ProjectionAbility)},
+  { 1603, 1611, -1, sizeof(::CDOTAUserMsg_ProjectionEvent)},
+  { 1613, 1621, -1, sizeof(::CDOTAUserMsg_XPAlert)},
+  { 1623, 1634, -1, sizeof(::CDOTAUserMsg_TalentTreeAlert)},
+  { 1639, -1, -1, sizeof(::CDOTAUserMsg_UpdateQuestProgress)},
+  { 1645, 1659, -1, sizeof(::CDOTAUserMsg_QuestStatus)},
+  { 1667, 1677, -1, sizeof(::CDOTAUserMsg_SuggestHeroPick)},
+  { 1681, 1689, -1, sizeof(::CDOTAUserMsg_SuggestHeroRole)},
+  { 1691, 1703, -1, sizeof(::CDOTAUserMsg_KillcamDamageTaken)},
+  { 1709, 1717, -1, sizeof(::CDOTAUserMsg_SelectPenaltyGold)},
+  { 1719, 1730, -1, sizeof(::CDOTAUserMsg_RollDiceResult)},
+  { 1735, 1744, -1, sizeof(::CDOTAUserMsg_FlipCoinResult)},
+  { 1747, 1754, -1, sizeof(::CDOTAUserMessage_RequestItemSuggestions)},
+  { 1755, 1763, -1, sizeof(::CDOTAUserMessage_TeamCaptainChanged)},
+  { 1765, 1773, -1, sizeof(::CDOTAUserMsg_ChatWheelCooldown)},
+  { 1775, 1786, -1, sizeof(::CDOTAUserMsg_HeroRelicProgress)},
+  { 1791, 1800, -1, sizeof(::CDOTAUserMsg_AbilityDraftRequestAbility)},
+  { 1803, 1814, -1, sizeof(::CDOTAUserMsg_DamageReport)},
+  { 1819, 1831, -1, sizeof(::CDOTAUserMsg_SalutePlayer)},
+  { 1837, 1846, -1, sizeof(::CDOTAUserMsg_GiftPlayer)},
+  { 1849, 1857, -1, sizeof(::CDOTAUserMsg_TipAlert)},
+  { 1859, 1868, -1, sizeof(::CDOTAUserMsg_ReplaceQueryUnit)},
+  { 1871, 1880, -1, sizeof(::CDOTAUserMsg_ESArcanaCombo)},
+  { 1883, 1892, -1, sizeof(::CDOTAUserMsg_ESArcanaComboSummary)},
+  { 1895, 1905, -1, sizeof(::CDOTAUserMsg_OMArcanaCombo)},
+  { 1909, 1919, -1, sizeof(::CDOTAUserMsg_HighFiveCompleted)},
+  { 1923, 1930, -1, sizeof(::CDOTAUserMsg_HighFiveLeftHanging)},
+  { 1931, 1941, -1, sizeof(::CDOTAUserMsg_ShovelUnearth)},
+  { 1945, 1953, -1, sizeof(::CDOTAUserMsg_AllStarEvent_PlayerScore)},
+  { 1955, 1966, -1, sizeof(::CDOTAUserMsg_AllStarEvent)},
+  { 1971, -1, -1, sizeof(::CDOTAUserMsg_QueuedOrderRemoved)},
+  { 1978, 1991, -1, sizeof(::CDOTAUserMsg_DebugChallenge)},
+  { 1998, 2008, -1, sizeof(::CDOTAUserMsg_FoundNeutralItem)},
+  { 2012, 2020, -1, sizeof(::CDOTAUserMsg_OutpostCaptured)},
+  { 2022, 2030, -1, sizeof(::CDOTAUserMsg_OutpostGrantedXP)},
+  { 2032, 2039, -1, sizeof(::CDOTAUserMsg_MoveCameraToUnit)},
+  { 2040, 2049, -1, sizeof(::CDOTAUserMsg_PauseMinigameData_DataBit)},
+  { 2052, -1, -1, sizeof(::CDOTAUserMsg_PauseMinigameData)},
+  { 2059, 2070, -1, sizeof(::CDOTAUserMsg_VersusScene_PlayerBehavior)},
+  { 2075, 2085, -1, sizeof(::CDOTAUserMsg_QoP_ArcanaSummary)},
+  { 2089, 2097, -1, sizeof(::CDOTAUserMsg_HotPotato_Created)},
+  { 2099, 2106, -1, sizeof(::CDOTAUserMsg_HotPotato_Exploded)},
+  { 2107, 2116, -1, sizeof(::CDOTAUserMsg_WK_Arcana_Progress)},
+  { 2119, 2127, -1, sizeof(::CDOTAUserMsg_GuildChallenge_Progress_PlayerProgress)},
+  { 2129, 2142, -1, sizeof(::CDOTAUserMsg_GuildChallenge_Progress)},
+  { 2149, 2162, -1, sizeof(::CDOTAUserMsg_WRArcanaProgress)},
+  { 2169, 2183, -1, sizeof(::CDOTAUserMsg_WRArcanaSummary)},
+  { 2191, 2201, -1, sizeof(::CDOTAUserMsg_EmptyItemSlotAlert)},
+  { 2205, 2217, -1, sizeof(::CDOTAUserMsg_AghsStatusAlert)},
+  { 2223, -1, -1, sizeof(::CDOTAUserMsg_MutedPlayers)},
+  { 2231, 2252, -1, sizeof(::CDOTAUserMsg_ContextualTip)},
+  { 2267, 2276, -1, sizeof(::CDOTAUserMsg_ChatMessage)},
+  { 2279, 2287, -1, sizeof(::CDOTAUserMsg_RockPaperScissorsStarted)},
+  { 2289, 2299, -1, sizeof(::CDOTAUserMsg_RockPaperScissorsFinished)},
+  { 2303, 2311, -1, sizeof(::CDOTAUserMsg_DuelOpponentKilled)},
+  { 2313, 2321, -1, sizeof(::CDOTAUserMsg_DuelAccepted)},
+  { 2323, 2330, -1, sizeof(::CDOTAUserMsg_DuelRequested)},
+  { 2331, 2342, -1, sizeof(::CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled)},
+  { 2347, 2355, -1, sizeof(::CDOTAUserMsg_PlayerDraftSuggestPick)},
+  { 2357, 2366, -1, sizeof(::CDOTAUserMsg_PlayerDraftPick)},
+  { 2369, 2379, -1, sizeof(::CDOTAUserMsg_FacetPing)},
+  { 2383, 2392, -1, sizeof(::CDOTAUserMsg_InnatePing)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -5561,6 +5623,7 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::_CDOTAUserMsg_CombatHeroPositions_default_instance_._instance,
   &::_CDOTAUserMsg_CombatLogBulkData_default_instance_._instance,
   &::_CDOTAUserMsg_ProjectileParticleCPData_default_instance_._instance,
+  &::_CDOTAUserMsg_UpdateLinearProjectileCPData_default_instance_._instance,
   &::_CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability_default_instance_._instance,
   &::_CDOTAUserMsg_MiniKillCamInfo_Attacker_default_instance_._instance,
   &::_CDOTAUserMsg_MiniKillCamInfo_default_instance_._instance,
@@ -5575,6 +5638,7 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::_CDOTAUserMsg_NeutralCampAlert_default_instance_._instance,
   &::_CDOTAUserMsg_GlyphAlert_default_instance_._instance,
   &::_CDOTAUserMsg_RadarAlert_default_instance_._instance,
+  &::_CDOTAUserMsg_RoshanTimer_default_instance_._instance,
   &::_CDOTAUserMsg_WillPurchaseAlert_default_instance_._instance,
   &::_CDOTAUserMsg_EmptyTeleportAlert_default_instance_._instance,
   &::_CDOTAUserMsg_MarsArenaOfBloodAttack_default_instance_._instance,
@@ -5597,8 +5661,6 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::_CDOTAUserMsg_SharedCooldown_default_instance_._instance,
   &::_CDOTAUserMsg_SetNextAutobuyItem_default_instance_._instance,
   &::_CDOTAUserMsg_HalloweenDrops_default_instance_._instance,
-  &::_CDOTAUserMsg_PredictionResult_Prediction_default_instance_._instance,
-  &::_CDOTAUserMsg_PredictionResult_default_instance_._instance,
   &::_CDOTAResponseQuerySerialized_Fact_default_instance_._instance,
   &::_CDOTAResponseQuerySerialized_default_instance_._instance,
   &::_CDOTASpeechMatchOnClient_default_instance_._instance,
@@ -5649,7 +5711,6 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::_CDOTAUserMsg_VoteEnd_default_instance_._instance,
   &::_CDOTAUserMsg_BoosterStatePlayer_default_instance_._instance,
   &::_CDOTAUserMsg_BoosterState_default_instance_._instance,
-  &::_CDOTAUserMsg_PlayerMMR_default_instance_._instance,
   &::_CDOTAUserMsg_AbilitySteal_default_instance_._instance,
   &::_CDOTAUserMsg_StatsHeroLookup_default_instance_._instance,
   &::_CDOTAUserMsg_StatsHeroPositionInfo_PositionPair_default_instance_._instance,
@@ -5693,6 +5754,7 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::_CDOTAUserMsg_AbilityDraftRequestAbility_default_instance_._instance,
   &::_CDOTAUserMsg_DamageReport_default_instance_._instance,
   &::_CDOTAUserMsg_SalutePlayer_default_instance_._instance,
+  &::_CDOTAUserMsg_GiftPlayer_default_instance_._instance,
   &::_CDOTAUserMsg_TipAlert_default_instance_._instance,
   &::_CDOTAUserMsg_ReplaceQueryUnit_default_instance_._instance,
   &::_CDOTAUserMsg_ESArcanaCombo_default_instance_._instance,
@@ -5733,6 +5795,8 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::_CDOTAUserMsg_MuertaReleaseEvent_AssignedTargetKilled_default_instance_._instance,
   &::_CDOTAUserMsg_PlayerDraftSuggestPick_default_instance_._instance,
   &::_CDOTAUserMsg_PlayerDraftPick_default_instance_._instance,
+  &::_CDOTAUserMsg_FacetPing_default_instance_._instance,
+  &::_CDOTAUserMsg_InnatePing_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_dota_5fusermessages_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -5760,896 +5824,902 @@ const char descriptor_table_protodef_dota_5fusermessages_2eproto[] PROTOBUF_SECT
   "duration\030\003 \001(\002\022\025\n\tplayer_id\030\004 \001(\005:\002-1\022\024\n"
   "\014request_time\030\005 \001(\002\"[\n%CDOTAUserMsg_Proj"
   "ectileParticleCPData\022\025\n\rcontrol_point\030\001 "
-  "\001(\005\022\033\n\006vector\030\002 \001(\0132\013.CMsgVector\"\245\002\n\034CDO"
-  "TAUserMsg_MiniKillCamInfo\0229\n\tattackers\030\001"
-  " \003(\0132&.CDOTAUserMsg_MiniKillCamInfo.Atta"
-  "cker\032\311\001\n\010Attacker\022\032\n\010attacker\030\001 \001(\r:\010167"
-  "77215\022\024\n\014total_damage\030\002 \001(\005\022A\n\tabilities"
-  "\030\003 \003(\0132..CDOTAUserMsg_MiniKillCamInfo.At"
-  "tacker.Ability\022\025\n\rattacker_name\030\004 \001(\t\0321\n"
-  "\007Ability\022\026\n\nability_id\030\001 \001(\005:\002-1\022\016\n\006dama"
-  "ge\030\002 \001(\005\"@\n\035CDOTAUserMsg_GlobalLightColo"
-  "r\022\r\n\005color\030\001 \001(\r\022\020\n\010duration\030\002 \001(\002\"U\n!CD"
-  "OTAUserMsg_GlobalLightDirection\022\036\n\tdirec"
-  "tion\030\001 \001(\0132\013.CMsgVector\022\020\n\010duration\030\002 \001("
-  "\002\"a\n\031CDOTAUserMsg_LocationPing\022\025\n\tplayer"
-  "_id\030\001 \001(\005:\002-1\022-\n\rlocation_ping\030\002 \001(\0132\026.C"
-  "DOTAMsg_LocationPing\"\221\001\n\035CDOTAUserMsg_Pi"
-  "ngConfirmation\022(\n\034player_id_of_original_"
-  "pinger\030\001 \001(\005:\002-1\022\024\n\014entity_index\030\002 \001(\r\022\021"
-  "\n\ticon_type\030\003 \001(\r\022\035\n\010location\030\004 \001(\0132\013.CM"
-  "sgVector\"X\n\026CDOTAUserMsg_ItemAlert\022\025\n\tpl"
-  "ayer_id\030\001 \001(\005:\002-1\022\'\n\nitem_alert\030\002 \001(\0132\023."
-  "CDOTAMsg_ItemAlert\"\355\001\n\033CDOTAUserMsg_Enem"
-  "yItemAlert\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022\034\n\020tar"
-  "get_player_id\030\002 \001(\005:\002-1\022\033\n\017item_ability_"
-  "id\030\003 \001(\005:\002-1\022\025\n\trune_type\030\004 \001(\005:\002-1\022\021\n\te"
-  "ntity_id\030\005 \001(\005\022\026\n\nitem_level\030\006 \001(\005:\002-1\022\033"
-  "\n\017primary_charges\030\007 \001(\005:\002-1\022\035\n\021secondary"
-  "_charges\030\010 \001(\005:\002-1\"\247\001\n\032CDOTAUserMsg_Modi"
-  "fierAlert\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022\022\n\nclas"
-  "s_name\030\002 \001(\t\022\023\n\013stack_count\030\003 \001(\r\022\021\n\tis_"
-  "debuff\030\004 \001(\010\022\033\n\017target_entindex\030\005 \001(\005:\002-"
-  "1\022\031\n\021seconds_remaining\030\006 \001(\002\"g\n\030CDOTAUse"
-  "rMsg_HPManaAlert\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022"
-  "\033\n\017target_entindex\030\002 \001(\005:\002-1\022\027\n\017show_raw"
-  "_values\030\003 \001(\010\"\307\001\n\035CDOTAUserMsg_NeutralCa"
-  "mpAlert\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022\034\n\020spawne"
-  "r_entindex\030\002 \001(\005:\002-1\022\031\n\runit_entindex\030\003 "
-  "\001(\005:\002-1\022\023\n\013stack_count\030\004 \001(\005\022\021\n\tcamp_typ"
-  "e\030\005 \001(\005\022\025\n\rstack_request\030\006 \001(\010\022\027\n\017stack_"
-  "intention\030\007 \001(\010\"B\n\027CDOTAUserMsg_GlyphAle"
-  "rt\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022\020\n\010negative\030\002 "
-  "\001(\010\"B\n\027CDOTAUserMsg_RadarAlert\022\025\n\tplayer"
-  "_id\030\001 \001(\005:\002-1\022\020\n\010negative\030\002 \001(\010\"\216\001\n\036CDOT"
-  "AUserMsg_WillPurchaseAlert\022\033\n\017item_abili"
-  "ty_id\030\001 \001(\005:\002-1\022\025\n\tplayer_id\030\002 \001(\005:\002-1\022\026"
-  "\n\016gold_remaining\030\003 \001(\r\022 \n\024suggestion_pla"
-  "yer_id\030\004 \001(\005:\002-1\"w\n\037CDOTAUserMsg_EmptyTe"
-  "leportAlert\022\034\n\020source_player_id\030\001 \001(\005:\002-"
-  "1\022\034\n\020target_player_id\030\002 \001(\005:\002-1\022\030\n\020coold"
-  "own_seconds\030\003 \001(\005\"\200\001\n#CDOTAUserMsg_MarsA"
-  "renaOfBloodAttack\022 \n\016source_ehandle\030\001 \001("
-  "\r:\01016777215\022 \n\016target_ehandle\030\002 \001(\r:\010167"
-  "77215\022\025\n\rwarrior_index\030\003 \001(\005\"Y\n\037CDOTAEnt"
-  "ityMsg_InvokerSpellCast\022\037\n\nentity_msg\030\001 "
-  "\001(\0132\013.CEntityMsg\022\025\n\rcast_activity\030\002 \001(\005\""
-  "7\n\036CDOTAUserMsg_BuyBackStateAlert\022\025\n\tpla"
-  "yer_id\030\001 \001(\005:\002-1\"\230\001\n\032CDOTAUserMsg_QuickB"
-  "uyAlert\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022\033\n\017item_a"
-  "bility_id\030\002 \001(\005:\002-1\022\021\n\tgold_cost\030\003 \001(\005\022\035"
-  "\n\025item_cooldown_seconds\030\004 \001(\005\022\024\n\014show_bu"
-  "yback\030\005 \001(\010\"\255\002\n\037CDOTAUserMsg_CourierKill"
-  "edAlert\022\014\n\004team\030\001 \001(\r\022\022\n\ngold_value\030\002 \001("
-  "\r\022\037\n\rentity_handle\030\003 \001(\r:\01016777215\022\021\n\tti"
-  "mestamp\030\004 \001(\005\022=\n\nlost_items\030\005 \003(\0132).CDOT"
-  "AUserMsg_CourierKilledAlert.LostItem\022\034\n\020"
-  "killer_player_id\030\006 \001(\005:\002-1\022\034\n\020owning_pla"
-  "yer_id\030\007 \001(\005:\002-1\0329\n\010LostItem\022\033\n\017item_abi"
-  "lity_id\030\001 \001(\005:\002-1\022\020\n\010quantity\030\002 \001(\r\"\240\001\n\031"
-  "CDOTAUserMsg_MinimapEvent\022\022\n\nevent_type\030"
-  "\001 \001(\005\022\037\n\rentity_handle\030\002 \001(\r:\01016777215\022\t"
-  "\n\001x\030\003 \001(\005\022\t\n\001y\030\004 \001(\005\022\020\n\010duration\030\005 \001(\005\022&"
-  "\n\024target_entity_handle\030\006 \001(\r:\01016777215\"Q"
-  "\n\024CDOTAUserMsg_MapLine\022\025\n\tplayer_id\030\001 \001("
-  "\005:\002-1\022\"\n\007mapline\030\002 \001(\0132\021.CDOTAMsg_MapLin"
-  "e\"}\n\036CDOTAUserMsg_MinimapDebugPoint\022\035\n\010l"
-  "ocation\030\001 \001(\0132\013.CMsgVector\022\r\n\005color\030\002 \001("
-  "\r\022\014\n\004size\030\003 \001(\005\022\020\n\010duration\030\004 \001(\002\022\r\n\005ind"
-  "ex\030\005 \001(\005\"\363\002\n#CDOTAUserMsg_CreateLinearPr"
-  "ojectile\022\033\n\006origin\030\001 \001(\0132\013.CMsgVector\022\037\n"
-  "\010velocity\030\002 \001(\0132\r.CMsgVector2D\022\024\n\010entind"
-  "ex\030\004 \001(\005:\002-1\022\026\n\016particle_index\030\005 \001(\004\022\016\n\006"
-  "handle\030\006 \001(\005\022#\n\014acceleration\030\007 \001(\0132\r.CMs"
-  "gVector2D\022\021\n\tmax_speed\030\010 \001(\002\022\022\n\nfow_radi"
-  "us\030\t \001(\002\022\031\n\021sticky_fow_reveal\030\n \001(\010\022\020\n\010d"
-  "istance\030\013 \001(\002\022\025\n\rcolorgemcolor\030\014 \001(\007\022@\n\020"
-  "particle_cp_data\030\r \003(\0132&.CDOTAUserMsg_Pr"
-  "ojectileParticleCPData\"6\n$CDOTAUserMsg_D"
-  "estroyLinearProjectile\022\016\n\006handle\030\001 \001(\005\"S"
-  "\n%CDOTAUserMsg_DodgeTrackingProjectiles\022"
-  "\024\n\010entindex\030\001 \002(\005:\002-1\022\024\n\014attacks_only\030\002 "
-  "\001(\010\"f\n!CDOTAUserMsg_SpectatorPlayerClick"
-  "\022\024\n\010entindex\030\001 \002(\005:\002-1\022\022\n\norder_type\030\002 \001"
-  "(\005\022\027\n\014target_index\030\003 \001(\005:\0010\"\350\001\n&CDOTAUse"
-  "rMsg_SpectatorPlayerUnitOrders\022\024\n\010entind"
-  "ex\030\001 \001(\005:\002-1\022\022\n\norder_type\030\002 \001(\005\022\r\n\005unit"
-  "s\030\003 \003(\005\022\027\n\014target_index\030\004 \001(\005:\0010\022\026\n\nabil"
-  "ity_id\030\005 \001(\005:\002-1\022\035\n\010position\030\006 \001(\0132\013.CMs"
-  "gVector\022\r\n\005queue\030\007 \001(\010\022\027\n\017sequence_numbe"
-  "r\030\010 \001(\005\022\r\n\005flags\030\t \001(\r\"}\n\035CDOTAUserMsg_N"
-  "evermoreRequiem\022\037\n\rentity_handle\030\001 \001(\r:\010"
-  "16777215\022\r\n\005lines\030\002 \001(\005\022\033\n\006origin\030\003 \001(\0132"
-  "\013.CMsgVector\022\017\n\007reverse\030\004 \001(\010\"G\n\033CDOTAUs"
-  "erMsg_InvalidCommand\022\017\n\007message\030\001 \001(\t\022\027\n"
-  "\017sequence_number\030\002 \001(\005\"B\n\025CDOTAUserMsg_H"
-  "udError\022\020\n\010order_id\030\001 \001(\005\022\027\n\017sequence_nu"
-  "mber\030\002 \001(\005\"g\n\033CDOTAUserMsg_SharedCooldow"
-  "n\022\024\n\010entindex\030\001 \001(\005:\002-1\022\014\n\004name\030\002 \001(\t\022\020\n"
-  "\010cooldown\030\003 \001(\002\022\022\n\nname_index\030\004 \001(\005\"/\n\037C"
-  "DOTAUserMsg_SetNextAutobuyItem\022\014\n\004name\030\001"
-  " \001(\t\"X\n\033CDOTAUserMsg_HalloweenDrops\022\021\n\ti"
-  "tem_defs\030\001 \003(\r\022\022\n\nplayer_ids\030\002 \003(\005\022\022\n\npr"
-  "ize_list\030\003 \001(\r\"\223\003\n\035CDOTAUserMsg_Predicti"
-  "onResult\022\022\n\naccount_id\030\001 \001(\r\022\020\n\010match_id"
-  "\030\002 \001(\004\022\017\n\007correct\030\003 \001(\010\022>\n\013predictions\030\004"
-  " \003(\0132).CDOTAUserMsg_PredictionResult.Pre"
-  "diction\032\372\001\n\nPrediction\022\020\n\010item_def\030\001 \001(\r"
-  "\022\023\n\013num_correct\030\002 \001(\r\022\021\n\tnum_fails\030\003 \001(\r"
-  "\022X\n\006result\030\004 \001(\01621.CDOTAUserMsg_Predicti"
-  "onResult.Prediction.EResult:\025k_eResult_I"
-  "temGranted\022\031\n\021granted_item_defs\030\006 \003(\r\"=\n"
-  "\007EResult\022\031\n\025k_eResult_ItemGranted\020\001\022\027\n\023k"
-  "_eResult_Destroyed\020\002\"\336\002\n\034CDOTAResponseQu"
-  "erySerialized\0221\n\005facts\030\001 \003(\0132\".CDOTAResp"
-  "onseQuerySerialized.Fact\032\212\002\n\004Fact\022\013\n\003key"
-  "\030\001 \002(\005\022F\n\007valtype\030\002 \002(\0162,.CDOTAResponseQ"
-  "uerySerialized.Fact.ValueType:\007NUMERIC\022\023"
-  "\n\013val_numeric\030\003 \001(\002\022\022\n\nval_string\030\004 \001(\t\022"
-  "\035\n\025val_stringtable_index\030\005 \001(\005\022\027\n\017val_in"
-  "t_numeric\030\006 \001(\021\"L\n\tValueType\022\013\n\007NUMERIC\020"
-  "\001\022\n\n\006STRING\020\002\022\025\n\021STRINGTABLE_INDEX\020\003\022\017\n\013"
-  "INT_NUMERIC\020\004\"\227\001\n\030CDOTASpeechMatchOnClie"
-  "nt\022\026\n\016speech_concept\030\001 \001(\005\022\026\n\016recipient_"
-  "type\030\002 \001(\005\0224\n\rresponsequery\030\003 \001(\0132\035.CDOT"
-  "AResponseQuerySerialized\022\025\n\nrandomseed\030\004"
-  " \001(\017:\0010\"\203\010\n\026CDOTAUserMsg_UnitEvent\0228\n\010ms"
-  "g_type\030\001 \002(\0162\024.EDotaEntityMessages:\020DOTA"
-  "_UNIT_SPEECH\022\024\n\014entity_index\030\002 \002(\005\022.\n\006sp"
-  "eech\030\003 \001(\0132\036.CDOTAUserMsg_UnitEvent.Spee"
-  "ch\0227\n\013speech_mute\030\004 \001(\0132\".CDOTAUserMsg_U"
-  "nitEvent.SpeechMute\0227\n\013add_gesture\030\005 \001(\013"
-  "2\".CDOTAUserMsg_UnitEvent.AddGesture\022=\n\016"
-  "remove_gesture\030\006 \001(\0132%.CDOTAUserMsg_Unit"
-  "Event.RemoveGesture\0229\n\014blood_impact\030\007 \001("
-  "\0132#.CDOTAUserMsg_UnitEvent.BloodImpact\0229"
-  "\n\014fade_gesture\030\010 \001(\0132#.CDOTAUserMsg_Unit"
-  "Event.FadeGesture\0229\n\026speech_match_on_cli"
-  "ent\030\t \001(\0132\031.CDOTASpeechMatchOnClient\032(\n\010"
-  "Interval\022\r\n\005start\030\001 \001(\002\022\r\n\005range\030\002 \001(\002\032\246"
-  "\001\n\006Speech\022\026\n\016speech_concept\030\001 \001(\005\022\020\n\010res"
-  "ponse\030\002 \001(\t\022\026\n\016recipient_type\030\003 \001(\005\022\027\n\010m"
-  "uteable\030\005 \001(\010:\005false\0222\n\010predelay\030\006 \001(\0132 "
-  ".CDOTAUserMsg_UnitEvent.Interval\022\r\n\005flag"
-  "s\030\007 \001(\r\032 \n\nSpeechMute\022\022\n\005delay\030\001 \001(\002:\0030."
-  "5\032\213\001\n\nAddGesture\022\020\n\010activity\030\001 \001(\005\022\014\n\004sl"
-  "ot\030\002 \001(\005\022\022\n\007fade_in\030\003 \001(\002:\0010\022\025\n\010fade_out"
-  "\030\004 \001(\002:\0030.1\022\030\n\rplayback_rate\030\005 \001(\002:\0011\022\030\n"
-  "\020sequence_variant\030\006 \001(\005\032!\n\rRemoveGesture"
-  "\022\020\n\010activity\030\001 \001(\005\032@\n\013BloodImpact\022\r\n\005sca"
-  "le\030\001 \001(\005\022\020\n\010x_normal\030\002 \001(\005\022\020\n\010y_normal\030\003"
-  " \001(\005\032\037\n\013FadeGesture\022\020\n\010activity\030\001 \001(\005\"9\n"
-  "\032CDOTAUserMsg_ItemPurchased\022\033\n\017item_abil"
-  "ity_id\030\001 \001(\005:\002-1\"4\n\025CDOTAUserMsg_ItemSol"
-  "d\022\033\n\017item_ability_id\030\001 \001(\005:\002-1\"n\n\026CDOTAU"
-  "serMsg_ItemFound\022\022\n\006player\030\001 \001(\005:\002-1\022\017\n\007"
-  "quality\030\002 \001(\005\022\016\n\006rarity\030\003 \001(\005\022\016\n\006method\030"
-  "\004 \001(\005\022\017\n\007itemdef\030\005 \001(\r\"\321\001\n\032CDOTAUserMsg_"
-  "OverheadEvent\022\?\n\014message_type\030\001 \002(\0162\024.DO"
-  "TA_OVERHEAD_ALERT:\023OVERHEAD_ALERT_GOLD\022\r"
-  "\n\005value\030\002 \001(\005\022\"\n\026target_player_entindex\030"
-  "\003 \001(\005:\002-1\022\033\n\017target_entindex\030\004 \001(\005:\002-1\022\""
-  "\n\026source_player_entindex\030\005 \001(\005:\002-1\">\n\034CD"
-  "OTAUserMsg_TutorialTipInfo\022\014\n\004name\030\001 \001(\t"
-  "\022\020\n\010progress\030\002 \001(\005\"]\n\033CDOTAUserMsg_Tutor"
-  "ialFinish\022\017\n\007heading\030\001 \001(\t\022\016\n\006emblem\030\002 \001"
-  "(\t\022\014\n\004body\030\003 \001(\t\022\017\n\007success\030\004 \001(\010\"&\n$CDO"
-  "TAUserMsg_TutorialMinimapPosition\"_\n\037CDO"
-  "TAUserMsg_SendGenericToolTip\022\r\n\005title\030\001 "
-  "\001(\t\022\014\n\004text\030\002 \001(\t\022\020\n\010entindex\030\003 \001(\005\022\r\n\005c"
-  "lose\030\004 \001(\010\"W\n\026CDOTAUserMsg_WorldLine\022\025\n\t"
-  "player_id\030\001 \001(\005:\002-1\022&\n\tworldline\030\002 \001(\0132\023"
-  ".CDOTAMsg_WorldLine\"\224\001\n\026CDOTAUserMsg_Cha"
-  "tWheel\022#\n\017chat_message_id\030\001 \001(\r:\n4294967"
-  "295\022\025\n\tplayer_id\030\002 \001(\005:\002-1\022\022\n\naccount_id"
-  "\030\003 \001(\r\022\025\n\rparam_hero_id\030\004 \001(\r\022\023\n\013emotico"
-  "n_id\030\005 \001(\r\"a\n\035CDOTAUserMsg_ReceivedXmasG"
-  "ift\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022\021\n\titem_name\030"
-  "\002 \001(\t\022\026\n\016inventory_slot\030\003 \001(\005\"\244\001\n\027CDOTAU"
-  "serMsg_ShowSurvey\022\021\n\tsurvey_id\030\001 \001(\005\022\020\n\010"
-  "match_id\030\002 \001(\004\022\026\n\016response_style\030\003 \001(\t\022\030"
-  "\n\020teammate_hero_id\030\004 \001(\r\022\025\n\rteammate_nam"
-  "e\030\005 \001(\t\022\033\n\023teammate_account_id\030\006 \001(\r\"5\n "
-  "CDOTAUserMsg_UpdateSharedContent\022\021\n\tslot"
-  "_type\030\001 \001(\005\"!\n\037CDOTAUserMsg_TutorialRequ"
-  "estExp\".\n\031CDOTAUserMsg_TutorialFade\022\021\n\tt"
-  "gt_alpha\030\001 \001(\005\"|\n CDOTAUserMsg_TutorialP"
-  "ingMinimap\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022\r\n\005pos"
-  "_x\030\002 \001(\002\022\r\n\005pos_y\030\003 \001(\002\022\r\n\005pos_z\030\004 \001(\002\022\024"
-  "\n\014entity_index\030\005 \001(\005\"3\n\"CDOTAUserMsg_Gam"
-  "erulesStateChanged\022\r\n\005state\030\001 \001(\r\"E\n\035CDO"
-  "TAUserMsg_AddQuestLogEntry\022\020\n\010npc_name\030\001"
-  " \001(\t\022\022\n\nnpc_dialog\030\002 \001(\t\"_\n\032CDOTAUserMsg"
-  "_SendStatPopup\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022*\n"
-  "\tstatpopup\030\002 \001(\0132\027.CDOTAMsg_SendStatPopu"
-  "p\"Z\n!CDOTAUserMsg_DismissAllStatPopups\0225"
-  "\n\rdismissallmsg\030\001 \001(\0132\036.CDOTAMsg_Dismiss"
-  "AllStatPopups\"\217\001\n%CDOTAUserMsg_SendRosha"
-  "nSpectatorPhase\0226\n\005phase\030\001 \001(\0162\022.DOTA_RO"
-  "SHAN_PHASE:\023k_SRSP_ROSHAN_ALIVE\022\030\n\020phase"
-  "_start_time\030\002 \001(\005\022\024\n\014phase_length\030\003 \001(\005\""
-  "C\n\034CDOTAUserMsg_SendRoshanPopup\022\021\n\trecla"
-  "imed\030\001 \001(\010\022\020\n\010gametime\030\002 \001(\005\"L\n\032CDOTAUse"
-  "rMsg_SendFinalGold\022\025\n\rreliable_gold\030\001 \003("
-  "\r\022\027\n\017unreliable_gold\030\002 \003(\r\"O\n\026CDOTAUserM"
-  "sg_CustomMsg\022\017\n\007message\030\001 \001(\t\022\025\n\tplayer_"
-  "id\030\002 \001(\005:\002-1\022\r\n\005value\030\003 \001(\005\"\\\n\031CDOTAUser"
-  "Msg_CoachHUDPing\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022"
-  "(\n\010hud_ping\030\002 \001(\0132\026.CDOTAMsg_CoachHUDPin"
-  "g\" \n\036CDOTAUserMsg_ClientLoadGridNav\"\363\003\n\032"
-  "CDOTAUserMsg_TE_Projectile\022\030\n\006source\030\001 \001"
-  "(\r:\01016777215\022\030\n\006target\030\002 \001(\r:\01016777215\022\022"
-  "\n\nmove_speed\030\003 \001(\005\022\031\n\021source_attachment\030"
-  "\004 \001(\005\022\036\n\026particle_system_handle\030\005 \001(\003\022\021\n"
-  "\tdodgeable\030\006 \001(\010\022\021\n\tis_attack\030\007 \001(\010\022\023\n\013e"
-  "xpire_time\030\t \001(\002\022\025\n\rmaximpacttime\030\n \001(\002\022"
-  "\025\n\rcolorgemcolor\030\013 \001(\007\022\023\n\013launch_tick\030\014 "
-  "\001(\005\022\016\n\006handle\030\r \001(\005\022\037\n\ntarget_loc\030\016 \001(\0132"
-  "\013.CMsgVector\022@\n\020particle_cp_data\030\017 \003(\0132&"
-  ".CDOTAUserMsg_ProjectileParticleCPData\022)"
-  "\n!additional_particle_system_handle\030\020 \001("
-  "\003\022\033\n\023original_move_speed\030\021 \001(\005\022\031\n\007abilit"
-  "y\030\022 \001(\r:\01016777215\"\345\003\n\035CDOTAUserMsg_TE_Pr"
-  "ojectileLoc\022\037\n\nsource_loc\030\001 \001(\0132\013.CMsgVe"
-  "ctor\022\030\n\006target\030\002 \001(\r:\01016777215\022\022\n\nmove_s"
-  "peed\030\003 \001(\005\022\036\n\026particle_system_handle\030\004 \001"
-  "(\003\022\021\n\tdodgeable\030\005 \001(\010\022\021\n\tis_attack\030\006 \001(\010"
-  "\022\023\n\013expire_time\030\t \001(\002\022\037\n\ntarget_loc\030\n \001("
-  "\0132\013.CMsgVector\022\025\n\rcolorgemcolor\030\013 \001(\007\022\023\n"
-  "\013launch_tick\030\014 \001(\005\022\016\n\006handle\030\r \001(\005\022\030\n\006so"
-  "urce\030\016 \001(\r:\01016777215\022\031\n\021source_attachmen"
-  "t\030\017 \001(\005\022@\n\020particle_cp_data\030\020 \003(\0132&.CDOT"
-  "AUserMsg_ProjectileParticleCPData\022)\n!add"
-  "itional_particle_system_handle\030\021 \001(\003\022\033\n\023"
-  "original_move_speed\030\022 \001(\005\"3\n!CDOTAUserMs"
-  "g_TE_DestroyProjectile\022\016\n\006handle\030\001 \001(\005\"l"
-  "\n\037CDOTAUserMsg_TE_DotaBloodImpact\022\030\n\006ent"
-  "ity\030\001 \001(\r:\01016777215\022\r\n\005scale\030\002 \001(\002\022\017\n\007xn"
-  "ormal\030\003 \001(\002\022\017\n\007ynormal\030\004 \001(\002\"\303\002\n\030CDOTAUs"
-  "erMsg_AbilityPing\022\025\n\tplayer_id\030\001 \001(\005:\002-1"
-  "\022\026\n\nability_id\030\002 \001(\005:\002-1\0229\n\004type\030\003 \001(\0162\027"
-  ".DOTA_ABILITY_PING_TYPE:\022ABILITY_PING_RE"
-  "ADY\022\030\n\020cooldown_seconds\030\004 \001(\r\022\r\n\005level\030\005"
-  " \001(\r\022\017\n\007passive\030\006 \001(\010\022\023\n\013mana_needed\030\007 \001"
-  "(\r\022\021\n\tentity_id\030\010 \001(\r\022\027\n\017primary_charges"
-  "\030\t \001(\005\022\031\n\021secondary_charges\030\n \001(\005\022\021\n\tctr"
-  "l_held\030\014 \001(\010\022\024\n\014reclaim_time\030\r \001(\002\"\273\001\n\035C"
-  "DOTAUserMsg_TE_UnitAnimation\022\030\n\006entity\030\001"
-  " \001(\r:\01016777215\022\030\n\020sequence_variant\030\002 \001(\005"
-  "\022\024\n\014playbackrate\030\003 \001(\002\022\021\n\tcastpoint\030\004 \001("
-  "\002\022\014\n\004type\030\005 \001(\005\022\020\n\010activity\030\006 \001(\005\022\035\n\025lag"
-  "_compensation_time\030\007 \001(\002\"J\n CDOTAUserMsg"
-  "_TE_UnitAnimationEnd\022\030\n\006entity\030\001 \001(\r:\01016"
-  "777215\022\014\n\004snap\030\002 \001(\010\"\221\001\n\035CDOTAUserMsg_Sh"
-  "owGenericPopup\022\016\n\006header\030\001 \002(\t\022\014\n\004body\030\002"
-  " \002(\t\022\016\n\006param1\030\003 \001(\t\022\016\n\006param2\030\004 \001(\t\022\023\n\013"
-  "tint_screen\030\005 \001(\010\022\035\n\025show_no_other_dialo"
-  "gs\030\006 \001(\010\"`\n\026CDOTAUserMsg_VoteStart\022\r\n\005ti"
-  "tle\030\001 \001(\t\022\020\n\010duration\030\002 \001(\002\022\024\n\014choice_co"
-  "unt\030\003 \001(\005\022\017\n\007choices\030\004 \003(\t\"0\n\027CDOTAUserM"
-  "sg_VoteUpdate\022\025\n\rchoice_counts\030\001 \003(\005\"/\n\024"
-  "CDOTAUserMsg_VoteEnd\022\027\n\017selected_choice\030"
-  "\001 \001(\005\"\220\001\n\037CDOTAUserMsg_BoosterStatePlaye"
-  "r\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022\r\n\005bonus\030\002 \001(\002\022"
-  "\023\n\013event_bonus\030\003 \001(\002\022\025\n\rbonus_item_id\030\004 "
-  "\001(\r\022\033\n\023event_bonus_item_id\030\005 \001(\r\"V\n\031CDOT"
-  "AUserMsg_BoosterState\0229\n\017boosted_players"
-  "\030\001 \003(\0132 .CDOTAUserMsg_BoosterStatePlayer"
-  "\")\n\026CDOTAUserMsg_PlayerMMR\022\017\n\003mmr\030\001 \003(\021B"
-  "\002\020\001\"a\n\031CDOTAUserMsg_AbilitySteal\022\025\n\tplay"
-  "er_id\030\001 \001(\005:\002-1\022\026\n\nability_id\030\002 \001(\005:\002-1\022"
-  "\025\n\rability_level\030\003 \001(\r\"j\n\034CDOTAUserMsg_S"
-  "tatsHeroLookup\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022\017\n"
-  "\007hero_id\030\002 \001(\005\022\021\n\thero_name\030\003 \001(\t\022\017\n\007per"
-  "sona\030\004 \001(\t\"\372\001\n\"CDOTAUserMsg_StatsHeroPos"
-  "itionInfo\022\030\n\020average_position\030\001 \001(\002\022J\n\020p"
-  "osition_details\030\002 \003(\01320.CDOTAUserMsg_Sta"
-  "tsHeroPositionInfo.PositionPair\032n\n\014Posit"
-  "ionPair\022F\n\021position_category\030\001 \001(\0162\027.DOT"
-  "A_POSITION_CATEGORY:\022DOTA_POSITION_NONE\022"
-  "\026\n\016position_count\030\002 \001(\r\"\217\003\n#CDOTAUserMsg"
-  "_StatsHeroMinuteDetails\022\021\n\tlast_hits\030\001 \001"
-  "(\r\022\022\n\nhero_kills\030\002 \001(\r\022\023\n\013hero_damage\030\003 "
-  "\001(\r\022\024\n\014tower_damage\030\004 \001(\r\022:\n\rposition_in"
-  "fo\030\005 \001(\0132#.CDOTAUserMsg_StatsHeroPositio"
-  "nInfo\022\020\n\010total_xp\030\006 \001(\r\022\021\n\tnet_worth\030\007 \001"
-  "(\r\022\034\n\024harvested_creep_gold\030\010 \001(\r\022\024\n\014clai"
-  "med_farm\030\t \001(\r\022\024\n\014wards_placed\030\n \001(\r\022\027\n\017"
-  "runes_collected\030\013 \001(\r\022\020\n\010tps_used\030\014 \001(\r\022"
-  "\022\n\nmana_spent\030\r \003(\r\022\027\n\017damage_absorbed\030\016"
-  " \003(\r\022\023\n\013damage_done\030\017 \003(\r\"\347\003\n#CDOTAUserM"
-  "sg_StatsTeamMinuteDetails\022:\n\014player_stat"
-  "s\030\001 \003(\0132$.CDOTAUserMsg_StatsHeroMinuteDe"
-  "tails\022\023\n\013tower_kills\030\002 \001(\r\022\025\n\rbarrack_ki"
-  "lls\030\003 \001(\r\022!\n\031available_lane_creep_gold\030\004"
-  " \001(\r\022\032\n\022balance_kill_value\030\005 \001(\r\022\033\n\023bala"
-  "nce_tower_value\030\006 \001(\r\022\036\n\026balance_barrack"
-  "s_value\030\007 \001(\r\022\032\n\022balance_gold_value\030\010 \001("
-  "\r\022\030\n\020balance_xp_value\030\t \001(\r\022R\n\020lane_perf"
-  "ormance\030\n \003(\01328.CDOTAUserMsg_StatsTeamMi"
-  "nuteDetails.LocationPerformance\032R\n\023Locat"
-  "ionPerformance\022\031\n\021location_category\030\001 \001("
-  "\r\022\021\n\tstat_type\030\002 \001(\r\022\r\n\005value\030\003 \001(\r\"\260\001\n!"
-  "CDOTAUserMsg_StatsPlayerKillShare\022\025\n\tpla"
-  "yer_id\030\001 \001(\005:\002-1\022\032\n\022kill_share_percent\030\002"
-  " \001(\002\022\024\n\014player_loc_x\030\003 \001(\002\022\024\n\014player_loc"
-  "_y\030\004 \001(\002\022\026\n\016health_percent\030\005 \001(\002\022\024\n\014mana"
-  "_percent\030\006 \001(\002\"\314\001\n\035CDOTAUserMsg_StatsKil"
-  "lDetails\022\025\n\tvictim_id\030\001 \001(\005:\002-1\0227\n\013kill_"
-  "shares\030\002 \003(\0132\".CDOTAUserMsg_StatsPlayerK"
-  "illShare\022\026\n\016damage_to_kill\030\003 \001(\r\022\030\n\020effe"
-  "ctive_health\030\004 \001(\r\022\022\n\ndeath_time\030\005 \001(\002\022\025"
-  "\n\tkiller_id\030\006 \001(\005:\002-1\"\213\006\n\036CDOTAUserMsg_S"
-  "tatsMatchDetails\0222\n\013hero_lookup\030\001 \003(\0132\035."
-  "CDOTAUserMsg_StatsHeroLookup\022;\n\rradiant_"
-  "stats\030\002 \003(\0132$.CDOTAUserMsg_StatsTeamMinu"
-  "teDetails\0228\n\ndire_stats\030\003 \003(\0132$.CDOTAUse"
-  "rMsg_StatsTeamMinuteDetails\0225\n\rradiant_k"
-  "ills\030\004 \003(\0132\036.CDOTAUserMsg_StatsKillDetai"
-  "ls\0222\n\ndire_kills\030\005 \003(\0132\036.CDOTAUserMsg_St"
-  "atsKillDetails\022U\n\rfight_details\030\006 \003(\0132>."
-  "CDOTAUserMsg_StatsMatchDetails.CDOTAUser"
-  "Msg_StatsFightDetails\032p\n\"CDOTAUserMsg_St"
-  "atsFightTeamDetails\022\024\n\014participants\030\001 \003("
-  "\005\022\016\n\006deaths\030\002 \003(\005\022\022\n\ngold_delta\030\003 \001(\r\022\020\n"
-  "\010xp_delta\030\004 \001(\r\032\211\002\n\036CDOTAUserMsg_StatsFi"
-  "ghtDetails\022\022\n\nstart_time\030\001 \001(\002\022\020\n\010end_ti"
-  "me\030\002 \001(\002\022a\n\025radiant_fight_details\030\003 \001(\0132"
-  "B.CDOTAUserMsg_StatsMatchDetails.CDOTAUs"
-  "erMsg_StatsFightTeamDetails\022^\n\022dire_figh"
-  "t_details\030\004 \001(\0132B.CDOTAUserMsg_StatsMatc"
-  "hDetails.CDOTAUserMsg_StatsFightTeamDeta"
-  "ils\"8\n\026CDOTAUserMsg_MiniTaunt\022\036\n\022tauntin"
-  "g_player_id\030\001 \001(\005:\002-1\"0\n\031CDOTAUserMsg_Sp"
-  "eechBubble\022\023\n\013destroy_all\030\001 \001(\010\"k\n CDOTA"
-  "UserMsg_CustomHeaderMessage\022\025\n\tplayer_id"
-  "\030\001 \001(\005:\002-1\022\020\n\010duration\030\002 \001(\002\022\017\n\007message\030"
-  "\003 \001(\t\022\r\n\005value\030\004 \001(\005\"v\n\023CMsgHeroAbilityS"
-  "tat\0227\n\tstat_type\030\001 \001(\0162\016.EHeroStatType:\024"
-  "k_EHeroStatType_None\022\021\n\tint_value\030\002 \001(\005\022"
-  "\023\n\013float_value\030\003 \001(\002\"d\n\034CMsgCombatAnalyz"
-  "erPlayerStat\022\022\n\naccount_id\030\001 \001(\r\0220\n\022hero"
-  "_ability_stats\030\002 \003(\0132\024.CMsgHeroAbilitySt"
-  "at\"`\n\027CMsgCombatAnalyzerStats\022\020\n\010match_i"
-  "d\030\001 \001(\004\0223\n\014player_stats\030\002 \003(\0132\035.CMsgComb"
-  "atAnalyzerPlayerStat\"W\n\026CDOTAUserMsg_Bea"
-  "stChat\022\014\n\004team\030\001 \001(\r\022\016\n\006format\030\002 \001(\t\022\017\n\007"
-  "message\030\003 \001(\t\022\016\n\006target\030\004 \001(\t\"a\n$CDOTAUs"
-  "erMsg_CustomHudElement_Create\022\022\n\nelement"
-  "_id\030\001 \001(\t\022\027\n\017layout_filename\030\002 \001(\t\022\014\n\004da"
-  "ta\030\003 \001(\014\"`\n$CDOTAUserMsg_CustomHudElemen"
-  "t_Modify\022\022\n\nelement_id\030\001 \001(\t\022\026\n\016modify_v"
-  "isible\030\002 \001(\010\022\014\n\004data\030\003 \001(\014\";\n%CDOTAUserM"
-  "sg_CustomHudElement_Destroy\022\022\n\nelement_i"
-  "d\030\001 \001(\t\"J\n\"CDOTAUserMsg_CompendiumStateP"
-  "layer\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022\r\n\005level\030\002 "
-  "\001(\r\"_\n\034CDOTAUserMsg_CompendiumState\022\?\n\022c"
-  "ompendium_players\030\001 \003(\0132#.CDOTAUserMsg_C"
-  "ompendiumStatePlayer\"\350\001\n\036CDOTAUserMsg_Pr"
-  "ojectionAbility\022\026\n\nability_id\030\001 \001(\005:\002-1\022"
-  "\034\n\020caster_ent_index\030\002 \001(\005:\002-1\022\023\n\013caster_"
-  "team\030\003 \001(\005\022\023\n\013channel_end\030\004 \001(\010\022\033\n\006origi"
-  "n\030\005 \001(\0132\013.CMsgVector\022\031\n\021track_caster_onl"
-  "y\030\006 \001(\010\022\020\n\010end_time\030\007 \001(\002\022\034\n\020victim_ent_"
-  "index\030\010 \001(\005:\002-1\"a\n\034CDOTAUserMsg_Projecti"
-  "onEvent\0223\n\010event_id\030\001 \001(\0162\021.EProjectionE"
-  "vent:\016ePE_FirstBlood\022\014\n\004team\030\002 \001(\r\"J\n\024CD"
-  "OTAUserMsg_XPAlert\022\025\n\tplayer_id\030\001 \001(\005:\002-"
-  "1\022\033\n\017target_entindex\030\002 \001(\005:\002-1\"\211\001\n\034CDOTA"
-  "UserMsg_TalentTreeAlert\022\025\n\tplayer_id\030\001 \001"
-  "(\005:\002-1\022\033\n\017target_entindex\030\002 \001(\005:\002-1\022\026\n\na"
-  "bility_id\030\003 \001(\005:\002-1\022\014\n\004slot\030\004 \001(\005\022\017\n\007lea"
-  "rned\030\005 \001(\010\"\"\n CDOTAUserMsg_UpdateQuestPr"
-  "ogress\"\274\001\n\030CDOTAUserMsg_QuestStatus\022\025\n\tp"
-  "layer_id\030\001 \002(\005:\002-1\022\020\n\010quest_id\030\002 \001(\r\022\024\n\014"
-  "challenge_id\030\003 \001(\r\022\020\n\010progress\030\004 \001(\r\022\014\n\004"
-  "goal\030\005 \001(\r\022\r\n\005query\030\006 \001(\r\022\025\n\rfail_gameti"
-  "me\030\007 \001(\002\022\033\n\017item_ability_id\030\010 \001(\005:\002-1\"S\n"
-  "\034CDOTAUserMsg_SuggestHeroPick\022\025\n\tplayer_"
-  "id\030\001 \002(\005:\002-1\022\017\n\007hero_id\030\002 \001(\r\022\013\n\003ban\030\003 \001"
-  "(\010\"H\n\034CDOTAUserMsg_SuggestHeroRole\022\025\n\tpl"
-  "ayer_id\030\001 \002(\005:\002-1\022\021\n\thero_role\030\002 \001(\t\"\247\001\n"
-  "\037CDOTAUserMsg_KillcamDamageTaken\022\025\n\tplay"
-  "er_id\030\001 \002(\005:\002-1\022\024\n\014damage_taken\030\002 \001(\r\022\021\n"
-  "\titem_type\030\003 \001(\r\022\033\n\017item_ability_id\030\004 \001("
-  "\005:\002-1\022\021\n\thero_name\030\005 \001(\t\022\024\n\014damage_color"
-  "\030\006 \001(\t\"E\n\036CDOTAUserMsg_SelectPenaltyGold"
-  "\022\025\n\tplayer_id\030\001 \002(\005:\002-1\022\014\n\004cost\030\002 \001(\021\"~\n"
-  "\033CDOTAUserMsg_RollDiceResult\022\025\n\tplayer_i"
-  "d\030\001 \001(\005:\002-1\022\024\n\014channel_type\030\002 \001(\r\022\020\n\010rol"
-  "l_min\030\003 \001(\r\022\020\n\010roll_max\030\004 \001(\r\022\016\n\006result\030"
-  "\005 \001(\r\"Z\n\033CDOTAUserMsg_FlipCoinResult\022\025\n\t"
-  "player_id\030\001 \001(\005:\002-1\022\024\n\014channel_type\030\002 \001("
-  "\r\022\016\n\006result\030\003 \001(\010\"@\n\'CDOTAUserMessage_Re"
-  "questItemSuggestions\022\025\n\tplayer_id\030\001 \001(\005:"
-  "\002-1\"R\n#CDOTAUserMessage_TeamCaptainChang"
-  "ed\022\014\n\004team\030\001 \001(\r\022\035\n\021captain_player_id\030\002 "
-  "\001(\005:\002-1\"\\\n\036CDOTAUserMsg_ChatWheelCooldow"
-  "n\022\036\n\nmessage_id\030\001 \001(\r:\n4294967295\022\032\n\022coo"
-  "ldown_remaining\030\002 \001(\002\"\214\001\n\036CDOTAUserMsg_H"
-  "eroRelicProgress\022\027\n\017hero_relic_type\030\001 \001("
-  "\r\022\r\n\005value\030\002 \001(\r\022\031\n\007ehandle\030\003 \001(\r:\01016777"
-  "215\022\020\n\010event_id\030\004 \001(\r\022\025\n\rvalue_display\030\005"
-  " \001(\002\"x\n\'CDOTAUserMsg_AbilityDraftRequest"
-  "Ability\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022 \n\024reques"
-  "ted_ability_id\030\002 \001(\005:\002-1\022\024\n\014ctrl_is_down"
-  "\030\003 \001(\010\"\214\001\n\031CDOTAUserMsg_DamageReport\022\025\n\t"
-  "player_id\030\001 \001(\005:\002-1\022\026\n\016target_hero_id\030\002 "
-  "\001(\r\022\026\n\016source_hero_id\030\003 \001(\r\022\025\n\rdamage_am"
-  "ount\030\004 \001(\005\022\021\n\tbroadcast\030\005 \001(\010\"\260\001\n\031CDOTAU"
-  "serMsg_SalutePlayer\022\034\n\020source_player_id\030"
-  "\001 \001(\005:\002-1\022\034\n\020target_player_id\030\002 \001(\005:\002-1\022"
-  "\022\n\ntip_amount\030\003 \001(\r\022\020\n\010event_id\030\004 \001(\r\022\030\n"
-  "\020custom_tip_style\030\005 \001(\t\022\027\n\017num_recent_ti"
-  "ps\030\006 \001(\r\"@\n\025CDOTAUserMsg_TipAlert\022\025\n\tpla"
-  "yer_id\030\001 \001(\005:\002-1\022\020\n\010tip_text\030\002 \001(\t\"p\n\035CD"
-  "OTAUserMsg_ReplaceQueryUnit\022\025\n\tplayer_id"
-  "\030\001 \002(\005:\002-1\022\033\n\017source_entindex\030\002 \001(\005:\002-1\022"
-  "\033\n\017target_entindex\030\003 \001(\005:\002-1\"b\n\032CDOTAUse"
-  "rMsg_ESArcanaCombo\022\031\n\007ehandle\030\001 \001(\r:\010167"
-  "77215\022\023\n\013combo_count\030\002 \001(\r\022\024\n\014arcana_lev"
-  "el\030\003 \001(\r\"j\n!CDOTAUserMsg_ESArcanaComboSu"
-  "mmary\022\031\n\007ehandle\030\001 \001(\r:\01016777215\022\023\n\013comb"
-  "o_count\030\002 \001(\r\022\025\n\rdamage_amount\030\003 \001(\r\"\201\001\n"
-  "\032CDOTAUserMsg_OMArcanaCombo\022\031\n\007ehandle\030\001"
-  " \001(\r:\01016777215\022\030\n\020multicast_amount\030\002 \001(\r"
-  "\022\024\n\014arcana_level\030\003 \001(\r\022\030\n\020multicast_chan"
-  "ce\030\004 \001(\r\"\213\001\n\036CDOTAUserMsg_HighFiveComple"
-  "ted\022\027\n\013player_id_1\030\001 \001(\005:\002-1\022\027\n\013player_i"
-  "d_2\030\002 \001(\005:\002-1\022\031\n\021special_high_five\030\003 \001(\010"
-  "\022\034\n\020special_entindex\030\004 \001(\005:\002-1\"9\n CDOTAU"
-  "serMsg_HighFiveLeftHanging\022\025\n\tplayer_id\030"
-  "\001 \001(\005:\002-1\"j\n\032CDOTAUserMsg_ShovelUnearth\022"
-  "\025\n\tplayer_id\030\001 \001(\005:\002-1\022\020\n\010all_chat\030\002 \001(\010"
-  "\022\021\n\tlocstring\030\003 \001(\t\022\020\n\010quantity\030\004 \001(\r\"\374\001"
-  "\n\031CDOTAUserMsg_AllStarEvent\022\034\n\020source_pl"
-  "ayer_id\030\001 \001(\005:\002-1\022\034\n\020target_player_id\030\002 "
-  "\001(\005:\002-1\022\024\n\014point_amount\030\003 \001(\r\022\020\n\010event_i"
-  "d\030\004 \001(\r\022=\n\rplayer_scores\030\005 \003(\0132&.CDOTAUs"
-  "erMsg_AllStarEvent.PlayerScore\032<\n\013Player"
-  "Score\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022\026\n\016score_sa"
-  "ns_kda\030\002 \001(\r\">\n\037CDOTAUserMsg_QueuedOrder"
-  "Removed\022\033\n\023unit_order_sequence\030\001 \003(\r\"\306\001\n"
-  "\033CDOTAUserMsg_DebugChallenge\022\026\n\016challeng"
-  "e_type\030\001 \002(\r\022\032\n\022challenge_query_id\030\002 \002(\r"
-  "\022\020\n\010event_id\030\003 \002(\r\022\023\n\013instance_id\030\004 \001(\r\022"
-  "\027\n\017challenge_var_0\030\005 \001(\r\022\027\n\017challenge_va"
-  "r_1\030\006 \001(\r\022\032\n\022challenge_max_rank\030\007 \001(\r\"\177\n"
-  "\035CDOTAUserMsg_FoundNeutralItem\022\025\n\tplayer"
-  "_id\030\001 \001(\005:\002-1\022\033\n\017item_ability_id\030\002 \001(\005:\002"
-  "-1\022\021\n\titem_tier\030\003 \001(\r\022\027\n\017tier_item_count"
-  "\030\004 \001(\r\"M\n\034CDOTAUserMsg_OutpostCaptured\022\034"
-  "\n\020outpost_entindex\030\001 \001(\005:\002-1\022\017\n\007team_id\030"
-  "\002 \001(\r\"C\n\035CDOTAUserMsg_OutpostGrantedXP\022\017"
-  "\n\007team_id\030\001 \001(\r\022\021\n\txp_amount\030\002 \001(\r\"\?\n\035CD"
-  "OTAUserMsg_MoveCameraToUnit\022\036\n\014unit_ehan"
-  "dle\030\001 \001(\r:\01016777215\"\230\001\n\036CDOTAUserMsg_Pau"
-  "seMinigameData\022:\n\tdata_bits\030\001 \003(\0132\'.CDOT"
-  "AUserMsg_PauseMinigameData.DataBit\032:\n\007Da"
-  "taBit\022\r\n\005index\030\001 \001(\r\022\014\n\004data\030\002 \001(\005\022\022\n\nda"
-  "ta_extra\030\003 \001(\003\"\245\002\n\'CDOTAUserMsg_VersusSc"
-  "ene_PlayerBehavior\022\025\n\tplayer_id\030\001 \001(\005:\002-"
-  "1\022S\n\010behavior\030\002 \001(\0162\037.EDOTAVersusScenePl"
-  "ayerBehavior: VS_PLAYER_BEHAVIOR_PLAY_AC"
-  "TIVITY\0220\n\rplay_activity\030\003 \001(\0132\031.VersusSc"
-  "ene_PlayActivity\022*\n\nchat_wheel\030\004 \001(\0132\026.V"
-  "ersusScene_ChatWheel\0220\n\rplayback_rate\030\005 "
-  "\001(\0132\031.VersusScene_PlaybackRate\"~\n\036CDOTAU"
-  "serMsg_QoP_ArcanaSummary\022\031\n\007ehandle\030\001 \001("
-  "\r:\01016777215\022\024\n\014arcana_level\030\002 \001(\r\022\023\n\013pla"
-  "yers_hit\030\003 \001(\r\022\026\n\016players_killed\030\004 \001(\r\"R"
-  "\n\036CDOTAUserMsg_HotPotato_Created\022\027\n\013play"
-  "er_id_1\030\001 \001(\005:\002-1\022\027\n\013player_id_2\030\002 \001(\005:\002"
-  "-1\"8\n\037CDOTAUserMsg_HotPotato_Exploded\022\025\n"
-  "\tplayer_id\030\001 \001(\005:\002-1\"c\n\037CDOTAUserMsg_WK_"
-  "Arcana_Progress\022\031\n\007ehandle\030\001 \001(\r:\010167772"
-  "15\022\024\n\014arcana_level\030\002 \001(\r\022\017\n\007hero_id\030\003 \001("
-  "\r\"\216\004\n$CDOTAUserMsg_GuildChallenge_Progre"
-  "ss\022M\n\017player_progress\030\001 \003(\01324.CDOTAUserM"
-  "sg_GuildChallenge_Progress.PlayerProgres"
-  "s\022\020\n\010guild_id\030\002 \001(\r\022\035\n\025challenge_instanc"
-  "e_id\030\003 \001(\r\022\033\n\023challenge_parameter\030\004 \001(\r\022"
-  "f\n\016challenge_type\030\005 \001(\01624.CDOTAUserMsg_G"
-  "uildChallenge_Progress.EChallengeType:\030k"
-  "_EChallengeType_Invalid\022#\n\033challenge_pro"
-  "gress_at_start\030\007 \001(\r\022\020\n\010complete\030\010 \001(\010\0329"
-  "\n\016PlayerProgress\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022"
-  "\020\n\010progress\030\006 \001(\r\"o\n\016EChallengeType\022\034\n\030k"
-  "_EChallengeType_Invalid\020\000\022 \n\034k_EChalleng"
-  "eType_Cooperative\020\001\022\035\n\031k_EChallengeType_"
-  "Contract\020\002\"\311\001\n\035CDOTAUserMsg_WRArcanaProg"
-  "ress\022\031\n\007ehandle\030\001 \001(\r:\01016777215\022 \n\016targe"
-  "t_ehandle\030\002 \001(\r:\01016777215\022\025\n\rarrows_land"
-  "ed\030\003 \001(\r\022\024\n\014damage_dealt\030\004 \001(\r\022\021\n\ttarget"
-  "_hp\030\005 \001(\r\022\025\n\rtarget_max_hp\030\006 \001(\r\022\024\n\014arca"
-  "na_level\030\007 \001(\r\"\331\001\n\034CDOTAUserMsg_WRArcana"
-  "Summary\022\031\n\007ehandle\030\001 \001(\r:\01016777215\022 \n\016ta"
-  "rget_ehandle\030\002 \001(\r:\01016777215\022\025\n\rarrows_l"
-  "anded\030\003 \001(\r\022\024\n\014damage_dealt\030\004 \001(\r\022\021\n\ttar"
-  "get_hp\030\005 \001(\r\022\025\n\rtarget_max_hp\030\006 \001(\r\022\024\n\014a"
-  "rcana_level\030\007 \001(\r\022\017\n\007success\030\010 \001(\010\"\213\001\n\037C"
-  "DOTAUserMsg_EmptyItemSlotAlert\022\034\n\020source"
-  "_player_id\030\001 \001(\005:\002-1\022\034\n\020target_player_id"
-  "\030\002 \001(\005:\002-1\022\022\n\nslot_index\030\003 \001(\005\022\030\n\020cooldo"
-  "wn_seconds\030\004 \001(\005\"\263\001\n\034CDOTAUserMsg_AghsSt"
-  "atusAlert\022\034\n\020source_player_id\030\001 \001(\005:\002-1\022"
-  "\034\n\020target_player_id\030\002 \001(\005:\002-1\022\033\n\017target_"
-  "entindex\030\003 \001(\005:\002-1\022\022\n\nalert_type\030\004 \001(\r\022\023"
-  "\n\013has_scepter\030\005 \001(\010\022\021\n\thas_shard\030\006 \001(\010\"Z"
-  "\n\031CDOTAUserMsg_MutedPlayers\022\035\n\025text_mute"
-  "d_player_ids\030\001 \003(\005\022\036\n\026voice_muted_player"
-  "_ids\030\002 \003(\005\"\376\002\n\032CDOTAUserMsg_ContextualTi"
-  "p\022\016\n\006tip_id\030\001 \001(\005\022\034\n\024referenced_abilitie"
-  "s\030\002 \003(\t\022\030\n\020referenced_units\030\003 \003(\t\022\030\n\020pan"
-  "orama_classes\030\004 \003(\t\022\030\n\020force_annotation\030"
-  "\005 \001(\010\022\017\n\007variant\030\006 \001(\005\022\021\n\tint_param\030\007 \001("
-  "\005\022\022\n\nint_param2\030\010 \001(\005\022\023\n\013float_param\030\t \001"
-  "(\002\022\024\n\014float_param2\030\n \001(\002\022\024\n\014string_param"
-  "\030\013 \001(\t\022\025\n\rstring_param2\030\014 \001(\t\022\031\n\021tip_tex"
-  "t_override\030\r \001(\t\022\037\n\027tip_annotation_overr"
-  "ide\030\016 \001(\t\022\030\n\020panorama_snippet\030\017 \001(\t\"d\n\030C"
-  "DOTAUserMsg_ChatMessage\022\034\n\020source_player"
-  "_id\030\001 \001(\005:\002-1\022\024\n\014channel_type\030\002 \001(\r\022\024\n\014m"
-  "essage_text\030\003 \001(\t\"c\n%CDOTAUserMsg_RockPa"
-  "perScissorsStarted\022\034\n\020player_id_source\030\001"
-  " \001(\005:\002-1\022\034\n\020player_id_target\030\002 \001(\005:\002-1\"\214"
-  "\001\n&CDOTAUserMsg_RockPaperScissorsFinishe"
-  "d\022\027\n\013player_id_1\030\001 \001(\005:\002-1\022\027\n\013player_id_"
-  "2\030\002 \001(\005:\002-1\022\027\n\017player_1_choice\030\003 \001(\005\022\027\n\017"
-  "player_2_choice\030\004 \001(\005\"T\n\037CDOTAUserMsg_Du"
-  "elOpponentKilled\022\030\n\020player_id_winner\030\001 \001"
-  "(\005\022\027\n\017player_id_loser\030\002 \001(\005\"E\n\031CDOTAUser"
-  "Msg_DuelAccepted\022\023\n\013player_id_1\030\001 \001(\005\022\023\n"
-  "\013player_id_2\030\002 \001(\005\"=\n\032CDOTAUserMsg_DuelR"
-  "equested\022\037\n\023player_id_requestor\030\001 \001(\005:\002-"
-  "1\"\252\001\n4CDOTAUserMsg_MuertaReleaseEvent_As"
-  "signedTargetKilled\022\034\n\020player_id_killer\030\001"
-  " \002(\005:\002-1\022\034\n\020player_id_target\030\002 \002(\005:\002-1\022\016"
-  "\n\006points\030\003 \002(\005\022\024\n\014points_total\030\004 \002(\005\022\020\n\010"
-  "last_hit\030\005 \002(\010\"^\n#CDOTAUserMsg_PlayerDra"
-  "ftSuggestPick\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022 \n\024"
-  "suggestion_player_id\030\002 \001(\005:\002-1\"i\n\034CDOTAU"
-  "serMsg_PlayerDraftPick\022\035\n\021player_id_capt"
-  "ain\030\001 \001(\005:\002-1\022\034\n\020player_id_target\030\002 \001(\005:"
-  "\002-1\022\014\n\004team\030\003 \001(\005*\244%\n\021EDotaUserMessages\022"
-  "\037\n\032DOTA_UM_AddUnitToSelection\020\320\003\022\030\n\023DOTA"
-  "_UM_AIDebugLine\020\321\003\022\026\n\021DOTA_UM_ChatEvent\020"
-  "\322\003\022 \n\033DOTA_UM_CombatHeroPositions\020\323\003\022\032\n\025"
-  "DOTA_UM_CombatLogData\020\324\003\022\036\n\031DOTA_UM_Comb"
-  "atLogBulkData\020\326\003\022#\n\036DOTA_UM_CreateLinear"
-  "Projectile\020\327\003\022$\n\037DOTA_UM_DestroyLinearPr"
-  "ojectile\020\330\003\022%\n DOTA_UM_DodgeTrackingProj"
-  "ectiles\020\331\003\022\035\n\030DOTA_UM_GlobalLightColor\020\332"
-  "\003\022!\n\034DOTA_UM_GlobalLightDirection\020\333\003\022\033\n\026"
-  "DOTA_UM_InvalidCommand\020\334\003\022\031\n\024DOTA_UM_Loc"
-  "ationPing\020\335\003\022\024\n\017DOTA_UM_MapLine\020\336\003\022\034\n\027DO"
-  "TA_UM_MiniKillCamInfo\020\337\003\022\036\n\031DOTA_UM_Mini"
-  "mapDebugPoint\020\340\003\022\031\n\024DOTA_UM_MinimapEvent"
-  "\020\341\003\022\035\n\030DOTA_UM_NevermoreRequiem\020\342\003\022\032\n\025DO"
-  "TA_UM_OverheadEvent\020\343\003\022\037\n\032DOTA_UM_SetNex"
-  "tAutobuyItem\020\344\003\022\033\n\026DOTA_UM_SharedCooldow"
-  "n\020\345\003\022!\n\034DOTA_UM_SpectatorPlayerClick\020\346\003\022"
-  "\034\n\027DOTA_UM_TutorialTipInfo\020\347\003\022\026\n\021DOTA_UM"
-  "_UnitEvent\020\350\003\022\034\n\027DOTA_UM_ParticleManager"
-  "\020\351\003\022\024\n\017DOTA_UM_BotChat\020\352\003\022\025\n\020DOTA_UM_Hud"
-  "Error\020\353\003\022\032\n\025DOTA_UM_ItemPurchased\020\354\003\022\021\n\014"
-  "DOTA_UM_Ping\020\355\003\022\026\n\021DOTA_UM_ItemFound\020\356\003\022"
-  "\"\n\035DOTA_UM_CharacterSpeakConcept\020\357\003\022\027\n\022D"
-  "OTA_UM_SwapVerify\020\360\003\022\026\n\021DOTA_UM_WorldLin"
-  "e\020\361\003\022\033\n\026DOTA_UM_TournamentDrop\020\362\003\022\026\n\021DOT"
-  "A_UM_ItemAlert\020\363\003\022\033\n\026DOTA_UM_HalloweenDr"
-  "ops\020\364\003\022\026\n\021DOTA_UM_ChatWheel\020\365\003\022\035\n\030DOTA_U"
-  "M_ReceivedXmasGift\020\366\003\022 \n\033DOTA_UM_UpdateS"
-  "haredContent\020\367\003\022\037\n\032DOTA_UM_TutorialReque"
-  "stExp\020\370\003\022 \n\033DOTA_UM_TutorialPingMinimap\020"
-  "\371\003\022\"\n\035DOTA_UM_GamerulesStateChanged\020\372\003\022\027"
-  "\n\022DOTA_UM_ShowSurvey\020\373\003\022\031\n\024DOTA_UM_Tutor"
-  "ialFade\020\374\003\022\035\n\030DOTA_UM_AddQuestLogEntry\020\375"
-  "\003\022\032\n\025DOTA_UM_SendStatPopup\020\376\003\022\033\n\026DOTA_UM"
-  "_TutorialFinish\020\377\003\022\034\n\027DOTA_UM_SendRoshan"
-  "Popup\020\200\004\022\037\n\032DOTA_UM_SendGenericToolTip\020\201"
-  "\004\022\032\n\025DOTA_UM_SendFinalGold\020\202\004\022\026\n\021DOTA_UM"
-  "_CustomMsg\020\203\004\022\031\n\024DOTA_UM_CoachHUDPing\020\204\004"
-  "\022\036\n\031DOTA_UM_ClientLoadGridNav\020\205\004\022\032\n\025DOTA"
-  "_UM_TE_Projectile\020\206\004\022\035\n\030DOTA_UM_TE_Proje"
-  "ctileLoc\020\207\004\022\037\n\032DOTA_UM_TE_DotaBloodImpac"
-  "t\020\210\004\022\035\n\030DOTA_UM_TE_UnitAnimation\020\211\004\022 \n\033D"
-  "OTA_UM_TE_UnitAnimationEnd\020\212\004\022\030\n\023DOTA_UM"
-  "_AbilityPing\020\213\004\022\035\n\030DOTA_UM_ShowGenericPo"
-  "pup\020\214\004\022\026\n\021DOTA_UM_VoteStart\020\215\004\022\027\n\022DOTA_U"
-  "M_VoteUpdate\020\216\004\022\024\n\017DOTA_UM_VoteEnd\020\217\004\022\031\n"
-  "\024DOTA_UM_BoosterState\020\220\004\022\036\n\031DOTA_UM_Will"
-  "PurchaseAlert\020\221\004\022$\n\037DOTA_UM_TutorialMini"
-  "mapPosition\020\222\004\022\026\n\021DOTA_UM_PlayerMMR\020\223\004\022\031"
-  "\n\024DOTA_UM_AbilitySteal\020\224\004\022\037\n\032DOTA_UM_Cou"
-  "rierKilledAlert\020\225\004\022\033\n\026DOTA_UM_EnemyItemA"
-  "lert\020\226\004\022\036\n\031DOTA_UM_StatsMatchDetails\020\227\004\022"
-  "\026\n\021DOTA_UM_MiniTaunt\020\230\004\022\036\n\031DOTA_UM_BuyBa"
-  "ckStateAlert\020\231\004\022\031\n\024DOTA_UM_SpeechBubble\020"
-  "\232\004\022 \n\033DOTA_UM_CustomHeaderMessage\020\233\004\022\032\n\025"
-  "DOTA_UM_QuickBuyAlert\020\234\004\022\035\n\030DOTA_UM_Stat"
-  "sHeroDetails\020\235\004\022\035\n\030DOTA_UM_PredictionRes"
-  "ult\020\236\004\022\032\n\025DOTA_UM_ModifierAlert\020\237\004\022\030\n\023DO"
-  "TA_UM_HPManaAlert\020\240\004\022\027\n\022DOTA_UM_GlyphAle"
-  "rt\020\241\004\022\026\n\021DOTA_UM_BeastChat\020\242\004\022&\n!DOTA_UM"
-  "_SpectatorPlayerUnitOrders\020\243\004\022$\n\037DOTA_UM"
-  "_CustomHudElement_Create\020\244\004\022$\n\037DOTA_UM_C"
-  "ustomHudElement_Modify\020\245\004\022%\n DOTA_UM_Cus"
-  "tomHudElement_Destroy\020\246\004\022\034\n\027DOTA_UM_Comp"
-  "endiumState\020\247\004\022\036\n\031DOTA_UM_ProjectionAbil"
-  "ity\020\250\004\022\034\n\027DOTA_UM_ProjectionEvent\020\251\004\022\036\n\031"
-  "DOTA_UM_CombatLogDataHLTV\020\252\004\022\024\n\017DOTA_UM_"
-  "XPAlert\020\253\004\022 \n\033DOTA_UM_UpdateQuestProgres"
-  "s\020\254\004\022\032\n\025DOTA_UM_MatchMetadata\020\255\004\022\031\n\024DOTA"
-  "_UM_MatchDetails\020\256\004\022\030\n\023DOTA_UM_QuestStat"
-  "us\020\257\004\022\034\n\027DOTA_UM_SuggestHeroPick\020\260\004\022\034\n\027D"
-  "OTA_UM_SuggestHeroRole\020\261\004\022\037\n\032DOTA_UM_Kil"
-  "lcamDamageTaken\020\262\004\022\036\n\031DOTA_UM_SelectPena"
-  "ltyGold\020\263\004\022\033\n\026DOTA_UM_RollDiceResult\020\264\004\022"
-  "\033\n\026DOTA_UM_FlipCoinResult\020\265\004\022#\n\036DOTA_UM_"
-  "RequestItemSuggestions\020\266\004\022\037\n\032DOTA_UM_Tea"
-  "mCaptainChanged\020\267\004\022%\n DOTA_UM_SendRoshan"
-  "SpectatorPhase\020\270\004\022\036\n\031DOTA_UM_ChatWheelCo"
-  "oldown\020\271\004\022!\n\034DOTA_UM_DismissAllStatPopup"
-  "s\020\272\004\022!\n\034DOTA_UM_TE_DestroyProjectile\020\273\004\022"
-  "\036\n\031DOTA_UM_HeroRelicProgress\020\274\004\022\'\n\"DOTA_"
-  "UM_AbilityDraftRequestAbility\020\275\004\022\025\n\020DOTA"
-  "_UM_ItemSold\020\276\004\022\031\n\024DOTA_UM_DamageReport\020"
-  "\277\004\022\031\n\024DOTA_UM_SalutePlayer\020\300\004\022\025\n\020DOTA_UM"
-  "_TipAlert\020\301\004\022\035\n\030DOTA_UM_ReplaceQueryUnit"
-  "\020\302\004\022\037\n\032DOTA_UM_EmptyTeleportAlert\020\303\004\022#\n\036"
-  "DOTA_UM_MarsArenaOfBloodAttack\020\304\004\022\032\n\025DOT"
-  "A_UM_ESArcanaCombo\020\305\004\022!\n\034DOTA_UM_ESArcan"
-  "aComboSummary\020\306\004\022 \n\033DOTA_UM_HighFiveLeft"
-  "Hanging\020\307\004\022\036\n\031DOTA_UM_HighFiveCompleted\020"
-  "\310\004\022\032\n\025DOTA_UM_ShovelUnearth\020\311\004\022\035\n\030DOTA_E"
-  "M_InvokerSpellCast\020\312\004\022\027\n\022DOTA_UM_RadarAl"
-  "ert\020\313\004\022\031\n\024DOTA_UM_AllStarEvent\020\314\004\022\034\n\027DOT"
-  "A_UM_TalentTreeAlert\020\315\004\022\037\n\032DOTA_UM_Queue"
-  "dOrderRemoved\020\316\004\022\033\n\026DOTA_UM_DebugChallen"
-  "ge\020\317\004\022\032\n\025DOTA_UM_OMArcanaCombo\020\320\004\022\035\n\030DOT"
-  "A_UM_FoundNeutralItem\020\321\004\022\034\n\027DOTA_UM_Outp"
-  "ostCaptured\020\322\004\022\035\n\030DOTA_UM_OutpostGranted"
-  "XP\020\323\004\022\035\n\030DOTA_UM_MoveCameraToUnit\020\324\004\022\036\n\031"
-  "DOTA_UM_PauseMinigameData\020\325\004\022\'\n\"DOTA_UM_"
-  "VersusScene_PlayerBehavior\020\326\004\022\036\n\031DOTA_UM"
-  "_QoP_ArcanaSummary\020\330\004\022\036\n\031DOTA_UM_HotPota"
-  "to_Created\020\331\004\022\037\n\032DOTA_UM_HotPotato_Explo"
-  "ded\020\332\004\022\037\n\032DOTA_UM_WK_Arcana_Progress\020\333\004\022"
-  "$\n\037DOTA_UM_GuildChallenge_Progress\020\334\004\022\035\n"
-  "\030DOTA_UM_WRArcanaProgress\020\335\004\022\034\n\027DOTA_UM_"
-  "WRArcanaSummary\020\336\004\022\037\n\032DOTA_UM_EmptyItemS"
-  "lotAlert\020\337\004\022\034\n\027DOTA_UM_AghsStatusAlert\020\340"
-  "\004\022\035\n\030DOTA_UM_PingConfirmation\020\341\004\022\031\n\024DOTA"
-  "_UM_MutedPlayers\020\342\004\022\032\n\025DOTA_UM_Contextua"
-  "lTip\020\343\004\022\030\n\023DOTA_UM_ChatMessage\020\344\004\022\035\n\030DOT"
-  "A_UM_NeutralCampAlert\020\345\004\022%\n DOTA_UM_Rock"
-  "PaperScissorsStarted\020\346\004\022&\n!DOTA_UM_RockP"
-  "aperScissorsFinished\020\347\004\022\037\n\032DOTA_UM_DuelO"
-  "pponentKilled\020\350\004\022\031\n\024DOTA_UM_DuelAccepted"
-  "\020\351\004\022\032\n\025DOTA_UM_DuelRequested\020\352\004\0224\n/DOTA_"
-  "UM_MuertaReleaseEvent_AssignedTargetKill"
-  "ed\020\353\004\022#\n\036DOTA_UM_PlayerDraftSuggestPick\020"
-  "\354\004\022\034\n\027DOTA_UM_PlayerDraftPick\020\355\004*\244\037\n\021DOT"
-  "A_CHAT_MESSAGE\022!\n\024CHAT_MESSAGE_INVALID\020\377"
-  "\377\377\377\377\377\377\377\377\001\022\032\n\026CHAT_MESSAGE_HERO_KILL\020\000\022\032\n"
-  "\026CHAT_MESSAGE_HERO_DENY\020\001\022\036\n\032CHAT_MESSAG"
-  "E_BARRACKS_KILL\020\002\022\033\n\027CHAT_MESSAGE_TOWER_"
-  "KILL\020\003\022\033\n\027CHAT_MESSAGE_TOWER_DENY\020\004\022\033\n\027C"
-  "HAT_MESSAGE_FIRSTBLOOD\020\005\022\034\n\030CHAT_MESSAGE"
-  "_STREAK_KILL\020\006\022\030\n\024CHAT_MESSAGE_BUYBACK\020\007"
-  "\022\026\n\022CHAT_MESSAGE_AEGIS\020\010\022\034\n\030CHAT_MESSAGE"
-  "_ROSHAN_KILL\020\t\022\035\n\031CHAT_MESSAGE_COURIER_L"
-  "OST\020\n\022\"\n\036CHAT_MESSAGE_COURIER_RESPAWNED\020"
-  "\013\022\033\n\027CHAT_MESSAGE_GLYPH_USED\020\014\022\036\n\032CHAT_M"
-  "ESSAGE_ITEM_PURCHASE\020\r\022\030\n\024CHAT_MESSAGE_C"
-  "ONNECT\020\016\022\033\n\027CHAT_MESSAGE_DISCONNECT\020\017\022.\n"
-  "*CHAT_MESSAGE_DISCONNECT_WAIT_FOR_RECONN"
-  "ECT\020\020\022*\n&CHAT_MESSAGE_DISCONNECT_TIME_RE"
-  "MAINING\020\021\0221\n-CHAT_MESSAGE_DISCONNECT_TIM"
-  "E_REMAINING_PLURAL\020\022\022\032\n\026CHAT_MESSAGE_REC"
-  "ONNECT\020\023\022\034\n\030CHAT_MESSAGE_PLAYER_LEFT\020\024\022\036"
-  "\n\032CHAT_MESSAGE_SAFE_TO_LEAVE\020\025\022\034\n\030CHAT_M"
-  "ESSAGE_RUNE_PICKUP\020\026\022\034\n\030CHAT_MESSAGE_RUN"
-  "E_BOTTLE\020\027\022\032\n\026CHAT_MESSAGE_RUNE_DENY\020r\022\031"
-  "\n\025CHAT_MESSAGE_INTHEBAG\020\030\022\033\n\027CHAT_MESSAG"
-  "E_SECRETSHOP\020\031\022#\n\037CHAT_MESSAGE_ITEM_AUTO"
-  "PURCHASED\020\032\022\037\n\033CHAT_MESSAGE_ITEMS_COMBIN"
-  "ED\020\033\022\035\n\031CHAT_MESSAGE_SUPER_CREEPS\020\034\022%\n!C"
-  "HAT_MESSAGE_CANT_USE_ACTION_ITEM\020\035\022\032\n\026CH"
-  "AT_MESSAGE_CANTPAUSE\020\037\022\035\n\031CHAT_MESSAGE_N"
-  "OPAUSESLEFT\020 \022\035\n\031CHAT_MESSAGE_CANTPAUSEY"
-  "ET\020!\022\027\n\023CHAT_MESSAGE_PAUSED\020\"\022\"\n\036CHAT_ME"
-  "SSAGE_UNPAUSE_COUNTDOWN\020#\022\031\n\025CHAT_MESSAG"
-  "E_UNPAUSED\020$\022\036\n\032CHAT_MESSAGE_AUTO_UNPAUS"
-  "ED\020%\022\032\n\026CHAT_MESSAGE_YOUPAUSED\020&\022 \n\034CHAT"
-  "_MESSAGE_CANTUNPAUSETEAM\020\'\022\"\n\036CHAT_MESSA"
-  "GE_VOICE_TEXT_BANNED\020)\022.\n*CHAT_MESSAGE_S"
-  "PECTATORS_WATCHING_THIS_GAME\020*\022 \n\034CHAT_M"
-  "ESSAGE_REPORT_REMINDER\020+\022\032\n\026CHAT_MESSAGE"
-  "_ECON_ITEM\020,\022\026\n\022CHAT_MESSAGE_TAUNT\020-\022\027\n\023"
-  "CHAT_MESSAGE_RANDOM\020.\022\030\n\024CHAT_MESSAGE_RD"
-  "_TURN\020/\022 \n\034CHAT_MESSAGE_DROP_RATE_BONUS\020"
-  "1\022!\n\035CHAT_MESSAGE_NO_BATTLE_POINTS\0202\022\035\n\031"
-  "CHAT_MESSAGE_DENIED_AEGIS\0203\022\036\n\032CHAT_MESS"
-  "AGE_INFORMATIONAL\0204\022\035\n\031CHAT_MESSAGE_AEGI"
-  "S_STOLEN\0205\022\035\n\031CHAT_MESSAGE_ROSHAN_CANDY\020"
-  "6\022\034\n\030CHAT_MESSAGE_ITEM_GIFTED\0207\022\'\n#CHAT_"
-  "MESSAGE_HERO_KILL_WITH_GREEVIL\0208\022(\n$CHAT"
-  "_MESSAGE_HOLDOUT_TOWER_DESTROYED\0209\022\'\n#CH"
-  "AT_MESSAGE_HOLDOUT_WALL_DESTROYED\020:\022&\n\"C"
-  "HAT_MESSAGE_HOLDOUT_WALL_FINISHED\020;\022)\n%C"
-  "HAT_MESSAGE_PLAYER_LEFT_LIMITED_HERO\020>\0221"
-  "\n-CHAT_MESSAGE_ABANDON_LIMITED_HERO_EXPL"
-  "ANATION\020\?\022(\n$CHAT_MESSAGE_DISCONNECT_LIM"
-  "ITED_HERO\020@\0223\n/CHAT_MESSAGE_LOW_PRIORITY"
-  "_COMPLETED_EXPLANATION\020A\022,\n(CHAT_MESSAGE"
-  "_RECRUITMENT_DROP_RATE_BONUS\020B\0221\n-CHAT_M"
-  "ESSAGE_FROSTIVUS_SHINING_BOOSTER_ACTIVE\020"
-  "C\022 \n\034CHAT_MESSAGE_PLAYER_LEFT_AFK\020I\0222\n.C"
-  "HAT_MESSAGE_PLAYER_LEFT_DISCONNECTED_TOO"
-  "_LONG\020J\022!\n\035CHAT_MESSAGE_PLAYER_ABANDONED"
-  "\020K\022%\n!CHAT_MESSAGE_PLAYER_ABANDONED_AFK\020"
-  "L\0227\n3CHAT_MESSAGE_PLAYER_ABANDONED_DISCO"
-  "NNECTED_TOO_LONG\020M\022#\n\037CHAT_MESSAGE_WILL_"
-  "NOT_BE_SCORED\020N\022*\n&CHAT_MESSAGE_WILL_NOT"
-  "_BE_SCORED_RANKED\020O\022+\n\'CHAT_MESSAGE_WILL"
-  "_NOT_BE_SCORED_NETWORK\020P\0222\n.CHAT_MESSAGE"
-  "_WILL_NOT_BE_SCORED_NETWORK_RANKED\020Q\022)\n%"
-  "CHAT_MESSAGE_CAN_QUIT_WITHOUT_ABANDON\020R\022"
-  ":\n6CHAT_MESSAGE_RANKED_GAME_STILL_SCORED"
-  "_LEAVERS_GET_LOSS\020S\0228\n4CHAT_MESSAGE_ABAN"
-  "DON_RANKED_BEFORE_FIRST_BLOOD_PARTY\020T\022!\n"
-  "\035CHAT_MESSAGE_COMPENDIUM_LEVEL\020U\022*\n&CHAT"
-  "_MESSAGE_VICTORY_PREDICTION_STREAK\020V\022\"\n\036"
-  "CHAT_MESSAGE_ASSASSIN_ANNOUNCE\020W\022!\n\035CHAT"
-  "_MESSAGE_ASSASSIN_SUCCESS\020X\022 \n\034CHAT_MESS"
-  "AGE_ASSASSIN_DENIED\020Y\0227\n3CHAT_MESSAGE_VI"
-  "CTORY_PREDICTION_SINGLE_USER_CONFIRM\020Z\022\034"
-  "\n\030CHAT_MESSAGE_EFFIGY_KILL\020[\022+\n\'CHAT_MES"
-  "SAGE_VOICE_TEXT_BANNED_OVERFLOW\020\\\022\"\n\036CHA"
-  "T_MESSAGE_YEAR_BEAST_KILLED\020]\022 \n\034CHAT_ME"
-  "SSAGE_PAUSE_COUNTDOWN\020^\022\036\n\032CHAT_MESSAGE_"
-  "COINS_WAGERED\020_\022#\n\037CHAT_MESSAGE_HERO_NOM"
-  "INATED_BAN\020`\022\034\n\030CHAT_MESSAGE_HERO_BANNED"
-  "\020a\022\037\n\033CHAT_MESSAGE_HERO_BAN_COUNT\020b\022\036\n\032C"
-  "HAT_MESSAGE_RIVER_PAINTED\020c\022\032\n\026CHAT_MESS"
-  "AGE_SCAN_USED\020d\022\036\n\032CHAT_MESSAGE_SHRINE_K"
-  "ILLED\020e\022\"\n\036CHAT_MESSAGE_WAGER_TOKEN_SPEN"
-  "T\020f\022\033\n\027CHAT_MESSAGE_RANK_WAGER\020g\022$\n CHAT"
-  "_MESSAGE_NEW_PLAYER_REMINDER\020h\022%\n!CHAT_M"
-  "ESSAGE_OBSERVER_WARD_KILLED\020i\022#\n\037CHAT_ME"
-  "SSAGE_SENTRY_WARD_KILLED\020j\022-\n)CHAT_MESSA"
-  "GE_ITEM_PLACED_IN_NEUTRAL_STASH\020k\022$\n CHA"
-  "T_MESSAGE_HERO_CHOICE_INVALID\020l\022\027\n\023CHAT_"
-  "MESSAGE_BOUNTY\020m\022$\n CHAT_MESSAGE_ABILITY"
-  "_DRAFT_START\020n\022!\n\035CHAT_MESSAGE_HERO_FOUN"
-  "D_CANDY\020o\022\'\n#CHAT_MESSAGE_ABILITY_DRAFT_"
-  "RANDOMED\020p\022(\n$CHAT_MESSAGE_PRIVATE_COACH"
-  "_CONNECTED\020q\022%\n!CHAT_MESSAGE_CANT_PAUSE_"
-  "TOO_EARLY\020s\022\'\n#CHAT_MESSAGE_HERO_KILL_WI"
-  "TH_PENGUIN\020t\022\036\n\032CHAT_MESSAGE_MINIBOSS_KI"
-  "LL\020u\022(\n$CHAT_MESSAGE_PLAYER_IN_GAME_BAN_"
-  "TEXT\020v\022\037\n\033CHAT_MESSAGE_BANNER_PLANTED\020w*"
-  "\262\001\n\035DOTA_NO_BATTLE_POINTS_REASONS\022%\n!NO_"
-  "BATTLE_POINTS_WRONG_LOBBY_TYPE\020\001\022\"\n\036NO_B"
-  "ATTLE_POINTS_PRACTICE_BOTS\020\002\022#\n\037NO_BATTL"
-  "E_POINTS_CHEATS_ENABLED\020\003\022!\n\035NO_BATTLE_P"
-  "OINTS_LOW_PRIORITY\020\004*\317\001\n\027DOTA_CHAT_INFOR"
-  "MATIONAL\022!\n\035INFO_COOP_BATTLE_POINTS_RULE"
-  "S\020\001\022#\n\037INFO_FROSTIVUS_ABANDON_REMINDER\020\002"
-  "\022\030\n\024INFO_RANKED_REMINDER\020\003\022+\n\'INFO_COOP_"
-  "LOW_PRIORITY_PASSIVE_REMINDER\020\004\022%\n!INFO_"
-  "CUSTOM_GAME_PENALTY_REMINDER\020\005*\340\003\n\026DOTA_"
-  "ABILITY_PING_TYPE\022\026\n\022ABILITY_PING_READY\020"
-  "\001\022\025\n\021ABILITY_PING_MANA\020\002\022\031\n\025ABILITY_PING"
-  "_COOLDOWN\020\003\022\026\n\022ABILITY_PING_ENEMY\020\004\022\032\n\026A"
-  "BILITY_PING_UNLEARNED\020\005\022\033\n\027ABILITY_PING_"
-  "INBACKPACK\020\006\022\030\n\024ABILITY_PING_INSTASH\020\007\022\032"
-  "\n\026ABILITY_PING_ONCOURIER\020\010\022\025\n\021ABILITY_PI"
-  "NG_ALLY\020\t\022\034\n\030ABILITY_PING_LEARN_READY\020\n\022"
-  "\033\n\027ABILITY_PING_WILL_LEARN\020\013\022\035\n\031ABILITY_"
-  "PING_FUTURE_LEARN\020\014\022\036\n\032ABILITY_PING_NEUT"
-  "RAL_OFFER\020\r\022 \n\034ABILITY_PING_NEUTRAL_REQU"
-  "EST\020\016\022\036\n\032ABILITY_PING_NEUTRAL_EQUIP\020\017\022\"\n"
-  "\036ABILITY_PING_INCOURIERBACKPACK\020\020*\214\002\n\027DO"
-  "TA_REPLAY_STATE_EVENT\022&\n\"DOTA_REPLAY_STA"
-  "TE_EVENT_GAME_START\020\001\022)\n%DOTA_REPLAY_STA"
-  "TE_EVENT_STARTING_HORN\020\002\022\'\n#DOTA_REPLAY_"
-  "STATE_EVENT_FIRST_BLOOD\020\003\022$\n DOTA_REPLAY"
-  "_STATE_EVENT_SHOWCASE\020\004\022%\n!DOTA_REPLAY_S"
-  "TATE_EVENT_POST_GAME\020\005\022(\n$DOTA_REPLAY_ST"
-  "ATE_EVENT_WAIT_FOR_MAP\020\006*\345\001\n\023EDotaEntity"
-  "Messages\022\024\n\020DOTA_UNIT_SPEECH\020\000\022\031\n\025DOTA_U"
-  "NIT_SPEECH_MUTE\020\001\022\031\n\025DOTA_UNIT_ADD_GESTU"
-  "RE\020\002\022\034\n\030DOTA_UNIT_REMOVE_GESTURE\020\003\022!\n\035DO"
-  "TA_UNIT_REMOVE_ALL_GESTURES\020\004\022\032\n\026DOTA_UN"
-  "IT_FADE_GESTURE\020\006\022%\n!DOTA_UNIT_SPEECH_CL"
-  "IENTSIDE_RULES\020\007*\215\006\n\023DOTA_OVERHEAD_ALERT"
-  "\022\027\n\023OVERHEAD_ALERT_GOLD\020\000\022\027\n\023OVERHEAD_AL"
-  "ERT_DENY\020\001\022\033\n\027OVERHEAD_ALERT_CRITICAL\020\002\022"
-  "\025\n\021OVERHEAD_ALERT_XP\020\003\022%\n!OVERHEAD_ALERT"
-  "_BONUS_SPELL_DAMAGE\020\004\022\027\n\023OVERHEAD_ALERT_"
-  "MISS\020\005\022\031\n\025OVERHEAD_ALERT_DAMAGE\020\006\022\030\n\024OVE"
-  "RHEAD_ALERT_EVADE\020\007\022\030\n\024OVERHEAD_ALERT_BL"
-  "OCK\020\010\022&\n\"OVERHEAD_ALERT_BONUS_POISON_DAM"
-  "AGE\020\t\022\027\n\023OVERHEAD_ALERT_HEAL\020\n\022\033\n\027OVERHE"
-  "AD_ALERT_MANA_ADD\020\013\022\034\n\030OVERHEAD_ALERT_MA"
-  "NA_LOSS\020\014\022!\n\035OVERHEAD_ALERT_LAST_HIT_EAR"
-  "LY\020\r\022!\n\035OVERHEAD_ALERT_LAST_HIT_CLOSE\020\016\022"
-  " \n\034OVERHEAD_ALERT_LAST_HIT_MISS\020\017\022 \n\034OVE"
-  "RHEAD_ALERT_MAGICAL_BLOCK\020\020\022\"\n\036OVERHEAD_"
-  "ALERT_INCOMING_DAMAGE\020\021\022\"\n\036OVERHEAD_ALER"
-  "T_OUTGOING_DAMAGE\020\022\022!\n\035OVERHEAD_ALERT_DI"
-  "SABLE_RESIST\020\023\022\030\n\024OVERHEAD_ALERT_DEATH\020\024"
-  "\022\032\n\026OVERHEAD_ALERT_BLOCKED\020\025\022 \n\034OVERHEAD"
-  "_ALERT_ITEM_RECEIVED\020\026\022\030\n\024OVERHEAD_ALERT"
-  "_SHARD\020\027\022\036\n\032OVERHEAD_ALERT_DEADLY_BLOW\020\030"
-  "*k\n\021DOTA_ROSHAN_PHASE\022\027\n\023k_SRSP_ROSHAN_A"
-  "LIVE\020\000\022\034\n\030k_SRSP_ROSHAN_BASE_TIMER\020\001\022\037\n\033"
-  "k_SRSP_ROSHAN_VISIBLE_TIMER\020\002*\201\004\n\026DOTA_P"
-  "OSITION_CATEGORY\022\026\n\022DOTA_POSITION_NONE\020\000"
-  "\022\035\n\031DOTA_POSITION_BOTTOM_LANE\020\001\022\032\n\026DOTA_"
-  "POSITION_MID_LANE\020\002\022\032\n\026DOTA_POSITION_TOP"
-  "_LANE\020\003\022 \n\034DOTA_POSITION_RADIANT_JUNGLE\020"
-  "\004\022\035\n\031DOTA_POSITION_DIRE_JUNGLE\020\005\022\"\n\036DOTA"
-  "_POSITION_RADIANT_ANCIENTS\020\006\022\037\n\033DOTA_POS"
-  "ITION_DIRE_ANCIENTS\020\007\022%\n!DOTA_POSITION_R"
-  "ADIANT_SECRET_SHOP\020\010\022\"\n\036DOTA_POSITION_DI"
-  "RE_SECRET_SHOP\020\t\022\027\n\023DOTA_POSITION_RIVER\020"
-  "\n\022\034\n\030DOTA_POSITION_ROSHAN_PIT\020\013\022\036\n\032DOTA_"
-  "POSITION_RADIANT_BASE\020\014\022\033\n\027DOTA_POSITION"
-  "_DIRE_BASE\020\r\022\032\n\026DOTA_POSITION_FOUNTAIN\020\016"
-  "\022\027\n\023DOTA_POSITION_OTHER\020\017*\346\001\n\030DOTA_ABILI"
-  "TY_TARGET_TYPE\022\034\n\030DOTA_ABILITY_TARGET_NO"
-  "NE\020\000\022\034\n\030DOTA_ABILITY_TARGET_SELF\020\001\022!\n\035DO"
-  "TA_ABILITY_TARGET_ALLY_HERO\020\002\022\"\n\036DOTA_AB"
-  "ILITY_TARGET_ALLY_CREEP\020\003\022\"\n\036DOTA_ABILIT"
-  "Y_TARGET_ENEMY_HERO\020\004\022#\n\037DOTA_ABILITY_TA"
-  "RGET_ENEMY_CREEP\020\005*\230\010\n\rEHeroStatType\022\030\n\024"
-  "k_EHeroStatType_None\020\000\022#\n\036k_EHeroStatTyp"
-  "e_AxeTotalDamage\020\320\017\022\'\n\"k_EHeroStatType_B"
-  "attleHungerDamage\020\321\017\022\'\n\"k_EHeroStatType_"
-  "CounterHelixDamage\020\322\017\022\'\n\"k_EHeroStatType"
-  "_CullingBladeDamage\020\323\017\022,\n\'k_EHeroStatTyp"
-  "e_BerserkersCallCastCount\020\324\017\0223\n.k_EHeroS"
-  "tatType_BerserkersCallHeroesHitAverage\020\325"
-  "\017\0220\n+k_EHeroStatType_BerserkersCallOther"
-  "UnitsHit\020\326\017\0223\n.k_EHeroStatType_Berserker"
-  "sCallHeroAttacksTaken\020\327\017\0224\n/k_EHeroStatT"
-  "ype_BerserkersCallOtherAttacksTaken\020\330\017\022*"
-  "\n%k_EHeroStatType_BattleHungerCastCount\020"
-  "\331\017\0222\n-k_EHeroStatType_BattleHungerPotent"
-  "ialDuration\020\332\017\0220\n+k_EHeroStatType_Battle"
-  "HungerAverageDuration\020\333\017\022*\n%k_EHeroStatT"
-  "ype_CounterHelixProcCount\020\334\017\022.\n)k_EHeroS"
-  "tatType_CounterHelixHeroProcCount\020\335\017\0221\n,"
-  "k_EHeroStatType_CounterHelixHeroesHitAve"
-  "rage\020\336\017\0223\n.k_EHeroStatType_CounterHelixO"
-  "therUnitsHitCount\020\337\017\022*\n%k_EHeroStatType_"
-  "CullingBladeCastCount\020\340\017\022*\n%k_EHeroStatT"
-  "ype_CullingBladeKillCount\020\341\017\0224\n/k_EHeroS"
-  "tatType_CullingBladeAverageHealthCulled\020"
-  "\342\017\0227\n2k_EHeroStatType_CullingBladeAverag"
-  "eDamageAvailable\020\343\017\0220\n+k_EHeroStatType_C"
-  "ullingBladeHeroBuffAverage\020\344\017*\344\004\n\027EPlaye"
-  "rVoiceListenState\022\016\n\nkPVLS_None\020\000\022\032\n\026kPV"
-  "LS_DeniedChatBanned\020\001\022\027\n\023kPVLS_DeniedPar"
-  "tner\020\002\022&\n\"kPVLS_DeniedHLTVTalkerNotSpect"
-  "ator\020\003\022$\n kPVLS_DeniedHLTVNoTalkerPlayer"
-  "ID\020\004\022(\n$kPVLS_DeniedHLTVTalkerNotBroadca"
-  "ster\020\005\022\035\n\031kPVLS_DeniedTeamSpectator\020\006\022\027\n"
-  "\023kPVLS_DeniedStudent\020\010\022\034\n\030kPVLS_DeniedPr"
-  "ivateCoach\020\t\022\020\n\014kPVLS_Denied\020@\022&\n\"kPVLS_"
-  "AllowHLTVTalkerIsBroadcaster\020A\022\034\n\030kPVLS_"
-  "AllowCoBroadcaster\020B\022\026\n\022kPVLS_AllowAllCh"
-  "at\020C\022\035\n\031kPVLS_AllowStudentToCoach\020D\022\034\n\030k"
-  "PVLS_AllowFellowStudent\020E\022\034\n\030kPVLS_Allow"
-  "TalkerIsCoach\020F\022\034\n\030kPVLS_AllowCoachHearT"
-  "eam\020G\022\027\n\023kPVLS_AllowSameTeam\020H\022\027\n\023kPVLS_"
-  "AllowShowcase\020I\022\033\n\027kPVLS_AllowPrivateCoa"
-  "ch\020J*B\n\020EProjectionEvent\022\022\n\016ePE_FirstBlo"
-  "od\020\000\022\032\n\026ePE_Killstreak_godlike\020\001"
+  "\001(\005\022\033\n\006vector\030\002 \001(\0132\013.CMsgVector\"o\n)CDOT"
+  "AUserMsg_UpdateLinearProjectileCPData\022\016\n"
+  "\006handle\030\001 \001(\005\022\025\n\rcontrol_point\030\002 \001(\005\022\033\n\006"
+  "vector\030\003 \001(\0132\013.CMsgVector\"\245\002\n\034CDOTAUserM"
+  "sg_MiniKillCamInfo\0229\n\tattackers\030\001 \003(\0132&."
+  "CDOTAUserMsg_MiniKillCamInfo.Attacker\032\311\001"
+  "\n\010Attacker\022\032\n\010attacker\030\001 \001(\r:\01016777215\022\024"
+  "\n\014total_damage\030\002 \001(\005\022A\n\tabilities\030\003 \003(\0132"
+  "..CDOTAUserMsg_MiniKillCamInfo.Attacker."
+  "Ability\022\025\n\rattacker_name\030\004 \001(\t\0321\n\007Abilit"
+  "y\022\026\n\nability_id\030\001 \001(\005:\002-1\022\016\n\006damage\030\002 \001("
+  "\005\"@\n\035CDOTAUserMsg_GlobalLightColor\022\r\n\005co"
+  "lor\030\001 \001(\r\022\020\n\010duration\030\002 \001(\002\"U\n!CDOTAUser"
+  "Msg_GlobalLightDirection\022\036\n\tdirection\030\001 "
+  "\001(\0132\013.CMsgVector\022\020\n\010duration\030\002 \001(\002\"a\n\031CD"
+  "OTAUserMsg_LocationPing\022\025\n\tplayer_id\030\001 \001"
+  "(\005:\002-1\022-\n\rlocation_ping\030\002 \001(\0132\026.CDOTAMsg"
+  "_LocationPing\"\221\001\n\035CDOTAUserMsg_PingConfi"
+  "rmation\022(\n\034player_id_of_original_pinger\030"
+  "\001 \001(\005:\002-1\022\024\n\014entity_index\030\002 \001(\r\022\021\n\ticon_"
+  "type\030\003 \001(\r\022\035\n\010location\030\004 \001(\0132\013.CMsgVecto"
+  "r\"X\n\026CDOTAUserMsg_ItemAlert\022\025\n\tplayer_id"
+  "\030\001 \001(\005:\002-1\022\'\n\nitem_alert\030\002 \001(\0132\023.CDOTAMs"
+  "g_ItemAlert\"\355\001\n\033CDOTAUserMsg_EnemyItemAl"
+  "ert\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022\034\n\020target_pla"
+  "yer_id\030\002 \001(\005:\002-1\022\033\n\017item_ability_id\030\003 \001("
+  "\005:\002-1\022\025\n\trune_type\030\004 \001(\005:\002-1\022\021\n\tentity_i"
+  "d\030\005 \001(\005\022\026\n\nitem_level\030\006 \001(\005:\002-1\022\033\n\017prima"
+  "ry_charges\030\007 \001(\005:\002-1\022\035\n\021secondary_charge"
+  "s\030\010 \001(\005:\002-1\"\247\001\n\032CDOTAUserMsg_ModifierAle"
+  "rt\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022\022\n\nclass_name\030"
+  "\002 \001(\t\022\023\n\013stack_count\030\003 \001(\r\022\021\n\tis_debuff\030"
+  "\004 \001(\010\022\033\n\017target_entindex\030\005 \001(\005:\002-1\022\031\n\021se"
+  "conds_remaining\030\006 \001(\002\"g\n\030CDOTAUserMsg_HP"
+  "ManaAlert\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022\033\n\017targ"
+  "et_entindex\030\002 \001(\005:\002-1\022\027\n\017show_raw_values"
+  "\030\003 \001(\010\"\307\001\n\035CDOTAUserMsg_NeutralCampAlert"
+  "\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022\034\n\020spawner_entin"
+  "dex\030\002 \001(\005:\002-1\022\031\n\runit_entindex\030\003 \001(\005:\002-1"
+  "\022\023\n\013stack_count\030\004 \001(\005\022\021\n\tcamp_type\030\005 \001(\005"
+  "\022\025\n\rstack_request\030\006 \001(\010\022\027\n\017stack_intenti"
+  "on\030\007 \001(\010\"B\n\027CDOTAUserMsg_GlyphAlert\022\025\n\tp"
+  "layer_id\030\001 \001(\005:\002-1\022\020\n\010negative\030\002 \001(\010\"B\n\027"
+  "CDOTAUserMsg_RadarAlert\022\025\n\tplayer_id\030\001 \001"
+  "(\005:\002-1\022\020\n\010negative\030\002 \001(\010\"C\n\030CDOTAUserMsg"
+  "_RoshanTimer\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022\020\n\010n"
+  "egative\030\002 \001(\010\"\216\001\n\036CDOTAUserMsg_WillPurch"
+  "aseAlert\022\033\n\017item_ability_id\030\001 \001(\005:\002-1\022\025\n"
+  "\tplayer_id\030\002 \001(\005:\002-1\022\026\n\016gold_remaining\030\003"
+  " \001(\r\022 \n\024suggestion_player_id\030\004 \001(\005:\002-1\"w"
+  "\n\037CDOTAUserMsg_EmptyTeleportAlert\022\034\n\020sou"
+  "rce_player_id\030\001 \001(\005:\002-1\022\034\n\020target_player"
+  "_id\030\002 \001(\005:\002-1\022\030\n\020cooldown_seconds\030\003 \001(\005\""
+  "\200\001\n#CDOTAUserMsg_MarsArenaOfBloodAttack\022"
+  " \n\016source_ehandle\030\001 \001(\r:\01016777215\022 \n\016tar"
+  "get_ehandle\030\002 \001(\r:\01016777215\022\025\n\rwarrior_i"
+  "ndex\030\003 \001(\005\"Y\n\037CDOTAEntityMsg_InvokerSpel"
+  "lCast\022\037\n\nentity_msg\030\001 \001(\0132\013.CEntityMsg\022\025"
+  "\n\rcast_activity\030\002 \001(\005\"7\n\036CDOTAUserMsg_Bu"
+  "yBackStateAlert\022\025\n\tplayer_id\030\001 \001(\005:\002-1\"\230"
+  "\001\n\032CDOTAUserMsg_QuickBuyAlert\022\025\n\tplayer_"
+  "id\030\001 \001(\005:\002-1\022\033\n\017item_ability_id\030\002 \001(\005:\002-"
+  "1\022\021\n\tgold_cost\030\003 \001(\005\022\035\n\025item_cooldown_se"
+  "conds\030\004 \001(\005\022\024\n\014show_buyback\030\005 \001(\010\"\255\002\n\037CD"
+  "OTAUserMsg_CourierKilledAlert\022\014\n\004team\030\001 "
+  "\001(\r\022\022\n\ngold_value\030\002 \001(\r\022\037\n\rentity_handle"
+  "\030\003 \001(\r:\01016777215\022\021\n\ttimestamp\030\004 \001(\005\022=\n\nl"
+  "ost_items\030\005 \003(\0132).CDOTAUserMsg_CourierKi"
+  "lledAlert.LostItem\022\034\n\020killer_player_id\030\006"
+  " \001(\005:\002-1\022\034\n\020owning_player_id\030\007 \001(\005:\002-1\0329"
+  "\n\010LostItem\022\033\n\017item_ability_id\030\001 \001(\005:\002-1\022"
+  "\020\n\010quantity\030\002 \001(\r\"\240\001\n\031CDOTAUserMsg_Minim"
+  "apEvent\022\022\n\nevent_type\030\001 \001(\005\022\037\n\rentity_ha"
+  "ndle\030\002 \001(\r:\01016777215\022\t\n\001x\030\003 \001(\005\022\t\n\001y\030\004 \001"
+  "(\005\022\020\n\010duration\030\005 \001(\005\022&\n\024target_entity_ha"
+  "ndle\030\006 \001(\r:\01016777215\"Q\n\024CDOTAUserMsg_Map"
+  "Line\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022\"\n\007mapline\030\002"
+  " \001(\0132\021.CDOTAMsg_MapLine\"}\n\036CDOTAUserMsg_"
+  "MinimapDebugPoint\022\035\n\010location\030\001 \001(\0132\013.CM"
+  "sgVector\022\r\n\005color\030\002 \001(\r\022\014\n\004size\030\003 \001(\005\022\020\n"
+  "\010duration\030\004 \001(\002\022\r\n\005index\030\005 \001(\005\"\363\002\n#CDOTA"
+  "UserMsg_CreateLinearProjectile\022\033\n\006origin"
+  "\030\001 \001(\0132\013.CMsgVector\022\037\n\010velocity\030\002 \001(\0132\r."
+  "CMsgVector2D\022\024\n\010entindex\030\004 \001(\005:\002-1\022\026\n\016pa"
+  "rticle_index\030\005 \001(\004\022\016\n\006handle\030\006 \001(\005\022#\n\014ac"
+  "celeration\030\007 \001(\0132\r.CMsgVector2D\022\021\n\tmax_s"
+  "peed\030\010 \001(\002\022\022\n\nfow_radius\030\t \001(\002\022\031\n\021sticky"
+  "_fow_reveal\030\n \001(\010\022\020\n\010distance\030\013 \001(\002\022\025\n\rc"
+  "olorgemcolor\030\014 \001(\007\022@\n\020particle_cp_data\030\r"
+  " \003(\0132&.CDOTAUserMsg_ProjectileParticleCP"
+  "Data\"6\n$CDOTAUserMsg_DestroyLinearProjec"
+  "tile\022\016\n\006handle\030\001 \001(\005\"S\n%CDOTAUserMsg_Dod"
+  "geTrackingProjectiles\022\024\n\010entindex\030\001 \002(\005:"
+  "\002-1\022\024\n\014attacks_only\030\002 \001(\010\"f\n!CDOTAUserMs"
+  "g_SpectatorPlayerClick\022\024\n\010entindex\030\001 \002(\005"
+  ":\002-1\022\022\n\norder_type\030\002 \001(\005\022\027\n\014target_index"
+  "\030\003 \001(\005:\0010\"\350\001\n&CDOTAUserMsg_SpectatorPlay"
+  "erUnitOrders\022\024\n\010entindex\030\001 \001(\005:\002-1\022\022\n\nor"
+  "der_type\030\002 \001(\005\022\r\n\005units\030\003 \003(\005\022\027\n\014target_"
+  "index\030\004 \001(\005:\0010\022\026\n\nability_id\030\005 \001(\005:\002-1\022\035"
+  "\n\010position\030\006 \001(\0132\013.CMsgVector\022\r\n\005queue\030\007"
+  " \001(\010\022\027\n\017sequence_number\030\010 \001(\005\022\r\n\005flags\030\t"
+  " \001(\r\"}\n\035CDOTAUserMsg_NevermoreRequiem\022\037\n"
+  "\rentity_handle\030\001 \001(\r:\01016777215\022\r\n\005lines\030"
+  "\002 \001(\005\022\033\n\006origin\030\003 \001(\0132\013.CMsgVector\022\017\n\007re"
+  "verse\030\004 \001(\010\"G\n\033CDOTAUserMsg_InvalidComma"
+  "nd\022\017\n\007message\030\001 \001(\t\022\027\n\017sequence_number\030\002"
+  " \001(\005\"B\n\025CDOTAUserMsg_HudError\022\020\n\010order_i"
+  "d\030\001 \001(\005\022\027\n\017sequence_number\030\002 \001(\005\"g\n\033CDOT"
+  "AUserMsg_SharedCooldown\022\024\n\010entindex\030\001 \001("
+  "\005:\002-1\022\014\n\004name\030\002 \001(\t\022\020\n\010cooldown\030\003 \001(\002\022\022\n"
+  "\nname_index\030\004 \001(\005\"/\n\037CDOTAUserMsg_SetNex"
+  "tAutobuyItem\022\014\n\004name\030\001 \001(\t\"X\n\033CDOTAUserM"
+  "sg_HalloweenDrops\022\021\n\titem_defs\030\001 \003(\r\022\022\n\n"
+  "player_ids\030\002 \003(\005\022\022\n\nprize_list\030\003 \001(\r\"\336\002\n"
+  "\034CDOTAResponseQuerySerialized\0221\n\005facts\030\001"
+  " \003(\0132\".CDOTAResponseQuerySerialized.Fact"
+  "\032\212\002\n\004Fact\022\013\n\003key\030\001 \002(\005\022F\n\007valtype\030\002 \002(\0162"
+  ",.CDOTAResponseQuerySerialized.Fact.Valu"
+  "eType:\007NUMERIC\022\023\n\013val_numeric\030\003 \001(\002\022\022\n\nv"
+  "al_string\030\004 \001(\t\022\035\n\025val_stringtable_index"
+  "\030\005 \001(\005\022\027\n\017val_int_numeric\030\006 \001(\021\"L\n\tValue"
+  "Type\022\013\n\007NUMERIC\020\001\022\n\n\006STRING\020\002\022\025\n\021STRINGT"
+  "ABLE_INDEX\020\003\022\017\n\013INT_NUMERIC\020\004\"\227\001\n\030CDOTAS"
+  "peechMatchOnClient\022\026\n\016speech_concept\030\001 \001"
+  "(\005\022\026\n\016recipient_type\030\002 \001(\005\0224\n\rresponsequ"
+  "ery\030\003 \001(\0132\035.CDOTAResponseQuerySerialized"
+  "\022\025\n\nrandomseed\030\004 \001(\017:\0010\"\203\010\n\026CDOTAUserMsg"
+  "_UnitEvent\0228\n\010msg_type\030\001 \002(\0162\024.EDotaEnti"
+  "tyMessages:\020DOTA_UNIT_SPEECH\022\024\n\014entity_i"
+  "ndex\030\002 \002(\005\022.\n\006speech\030\003 \001(\0132\036.CDOTAUserMs"
+  "g_UnitEvent.Speech\0227\n\013speech_mute\030\004 \001(\0132"
+  "\".CDOTAUserMsg_UnitEvent.SpeechMute\0227\n\013a"
+  "dd_gesture\030\005 \001(\0132\".CDOTAUserMsg_UnitEven"
+  "t.AddGesture\022=\n\016remove_gesture\030\006 \001(\0132%.C"
+  "DOTAUserMsg_UnitEvent.RemoveGesture\0229\n\014b"
+  "lood_impact\030\007 \001(\0132#.CDOTAUserMsg_UnitEve"
+  "nt.BloodImpact\0229\n\014fade_gesture\030\010 \001(\0132#.C"
+  "DOTAUserMsg_UnitEvent.FadeGesture\0229\n\026spe"
+  "ech_match_on_client\030\t \001(\0132\031.CDOTASpeechM"
+  "atchOnClient\032(\n\010Interval\022\r\n\005start\030\001 \001(\002\022"
+  "\r\n\005range\030\002 \001(\002\032\246\001\n\006Speech\022\026\n\016speech_conc"
+  "ept\030\001 \001(\005\022\020\n\010response\030\002 \001(\t\022\026\n\016recipient"
+  "_type\030\003 \001(\005\022\027\n\010muteable\030\005 \001(\010:\005false\0222\n\010"
+  "predelay\030\006 \001(\0132 .CDOTAUserMsg_UnitEvent."
+  "Interval\022\r\n\005flags\030\007 \001(\r\032 \n\nSpeechMute\022\022\n"
+  "\005delay\030\001 \001(\002:\0030.5\032\213\001\n\nAddGesture\022\020\n\010acti"
+  "vity\030\001 \001(\005\022\014\n\004slot\030\002 \001(\005\022\022\n\007fade_in\030\003 \001("
+  "\002:\0010\022\025\n\010fade_out\030\004 \001(\002:\0030.1\022\030\n\rplayback_"
+  "rate\030\005 \001(\002:\0011\022\030\n\020sequence_variant\030\006 \001(\005\032"
+  "!\n\rRemoveGesture\022\020\n\010activity\030\001 \001(\005\032@\n\013Bl"
+  "oodImpact\022\r\n\005scale\030\001 \001(\005\022\020\n\010x_normal\030\002 \001"
+  "(\005\022\020\n\010y_normal\030\003 \001(\005\032\037\n\013FadeGesture\022\020\n\010a"
+  "ctivity\030\001 \001(\005\"9\n\032CDOTAUserMsg_ItemPurcha"
+  "sed\022\033\n\017item_ability_id\030\001 \001(\005:\002-1\"4\n\025CDOT"
+  "AUserMsg_ItemSold\022\033\n\017item_ability_id\030\001 \001"
+  "(\005:\002-1\"n\n\026CDOTAUserMsg_ItemFound\022\022\n\006play"
+  "er\030\001 \001(\005:\002-1\022\017\n\007quality\030\002 \001(\005\022\016\n\006rarity\030"
+  "\003 \001(\005\022\016\n\006method\030\004 \001(\005\022\017\n\007itemdef\030\005 \001(\r\"\321"
+  "\001\n\032CDOTAUserMsg_OverheadEvent\022\?\n\014message"
+  "_type\030\001 \002(\0162\024.DOTA_OVERHEAD_ALERT:\023OVERH"
+  "EAD_ALERT_GOLD\022\r\n\005value\030\002 \001(\005\022\"\n\026target_"
+  "player_entindex\030\003 \001(\005:\002-1\022\033\n\017target_enti"
+  "ndex\030\004 \001(\005:\002-1\022\"\n\026source_player_entindex"
+  "\030\005 \001(\005:\002-1\">\n\034CDOTAUserMsg_TutorialTipIn"
+  "fo\022\014\n\004name\030\001 \001(\t\022\020\n\010progress\030\002 \001(\005\"]\n\033CD"
+  "OTAUserMsg_TutorialFinish\022\017\n\007heading\030\001 \001"
+  "(\t\022\016\n\006emblem\030\002 \001(\t\022\014\n\004body\030\003 \001(\t\022\017\n\007succ"
+  "ess\030\004 \001(\010\"&\n$CDOTAUserMsg_TutorialMinima"
+  "pPosition\"_\n\037CDOTAUserMsg_SendGenericToo"
+  "lTip\022\r\n\005title\030\001 \001(\t\022\014\n\004text\030\002 \001(\t\022\020\n\010ent"
+  "index\030\003 \001(\005\022\r\n\005close\030\004 \001(\010\"W\n\026CDOTAUserM"
+  "sg_WorldLine\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022&\n\tw"
+  "orldline\030\002 \001(\0132\023.CDOTAMsg_WorldLine\"\224\001\n\026"
+  "CDOTAUserMsg_ChatWheel\022#\n\017chat_message_i"
+  "d\030\001 \001(\r:\n4294967295\022\025\n\tplayer_id\030\002 \001(\005:\002"
+  "-1\022\022\n\naccount_id\030\003 \001(\r\022\025\n\rparam_hero_id\030"
+  "\004 \001(\005\022\023\n\013emoticon_id\030\005 \001(\r\"a\n\035CDOTAUserM"
+  "sg_ReceivedXmasGift\022\025\n\tplayer_id\030\001 \001(\005:\002"
+  "-1\022\021\n\titem_name\030\002 \001(\t\022\026\n\016inventory_slot\030"
+  "\003 \001(\005\"\244\001\n\027CDOTAUserMsg_ShowSurvey\022\021\n\tsur"
+  "vey_id\030\001 \001(\005\022\020\n\010match_id\030\002 \001(\004\022\026\n\016respon"
+  "se_style\030\003 \001(\t\022\030\n\020teammate_hero_id\030\004 \001(\005"
+  "\022\025\n\rteammate_name\030\005 \001(\t\022\033\n\023teammate_acco"
+  "unt_id\030\006 \001(\r\"5\n CDOTAUserMsg_UpdateShare"
+  "dContent\022\021\n\tslot_type\030\001 \001(\005\"!\n\037CDOTAUser"
+  "Msg_TutorialRequestExp\".\n\031CDOTAUserMsg_T"
+  "utorialFade\022\021\n\ttgt_alpha\030\001 \001(\005\"|\n CDOTAU"
+  "serMsg_TutorialPingMinimap\022\025\n\tplayer_id\030"
+  "\001 \001(\005:\002-1\022\r\n\005pos_x\030\002 \001(\002\022\r\n\005pos_y\030\003 \001(\002\022"
+  "\r\n\005pos_z\030\004 \001(\002\022\024\n\014entity_index\030\005 \001(\005\"3\n\""
+  "CDOTAUserMsg_GamerulesStateChanged\022\r\n\005st"
+  "ate\030\001 \001(\r\"E\n\035CDOTAUserMsg_AddQuestLogEnt"
+  "ry\022\020\n\010npc_name\030\001 \001(\t\022\022\n\nnpc_dialog\030\002 \001(\t"
+  "\"_\n\032CDOTAUserMsg_SendStatPopup\022\025\n\tplayer"
+  "_id\030\001 \001(\005:\002-1\022*\n\tstatpopup\030\002 \001(\0132\027.CDOTA"
+  "Msg_SendStatPopup\"Z\n!CDOTAUserMsg_Dismis"
+  "sAllStatPopups\0225\n\rdismissallmsg\030\001 \001(\0132\036."
+  "CDOTAMsg_DismissAllStatPopups\"\217\001\n%CDOTAU"
+  "serMsg_SendRoshanSpectatorPhase\0226\n\005phase"
+  "\030\001 \001(\0162\022.DOTA_ROSHAN_PHASE:\023k_SRSP_ROSHA"
+  "N_ALIVE\022\030\n\020phase_start_time\030\002 \001(\005\022\024\n\014pha"
+  "se_length\030\003 \001(\005\"C\n\034CDOTAUserMsg_SendRosh"
+  "anPopup\022\021\n\treclaimed\030\001 \001(\010\022\020\n\010gametime\030\002"
+  " \001(\005\"L\n\032CDOTAUserMsg_SendFinalGold\022\025\n\rre"
+  "liable_gold\030\001 \003(\r\022\027\n\017unreliable_gold\030\002 \003"
+  "(\r\"O\n\026CDOTAUserMsg_CustomMsg\022\017\n\007message\030"
+  "\001 \001(\t\022\025\n\tplayer_id\030\002 \001(\005:\002-1\022\r\n\005value\030\003 "
+  "\001(\005\"\\\n\031CDOTAUserMsg_CoachHUDPing\022\025\n\tplay"
+  "er_id\030\001 \001(\005:\002-1\022(\n\010hud_ping\030\002 \001(\0132\026.CDOT"
+  "AMsg_CoachHUDPing\" \n\036CDOTAUserMsg_Client"
+  "LoadGridNav\"\363\003\n\032CDOTAUserMsg_TE_Projecti"
+  "le\022\030\n\006source\030\001 \001(\r:\01016777215\022\030\n\006target\030\002"
+  " \001(\r:\01016777215\022\022\n\nmove_speed\030\003 \001(\005\022\031\n\021so"
+  "urce_attachment\030\004 \001(\005\022\036\n\026particle_system"
+  "_handle\030\005 \001(\003\022\021\n\tdodgeable\030\006 \001(\010\022\021\n\tis_a"
+  "ttack\030\007 \001(\010\022\023\n\013expire_time\030\t \001(\002\022\025\n\rmaxi"
+  "mpacttime\030\n \001(\002\022\025\n\rcolorgemcolor\030\013 \001(\007\022\023"
+  "\n\013launch_tick\030\014 \001(\005\022\016\n\006handle\030\r \001(\005\022\037\n\nt"
+  "arget_loc\030\016 \001(\0132\013.CMsgVector\022@\n\020particle"
+  "_cp_data\030\017 \003(\0132&.CDOTAUserMsg_Projectile"
+  "ParticleCPData\022)\n!additional_particle_sy"
+  "stem_handle\030\020 \001(\003\022\033\n\023original_move_speed"
+  "\030\021 \001(\005\022\031\n\007ability\030\022 \001(\r:\01016777215\"\345\003\n\035CD"
+  "OTAUserMsg_TE_ProjectileLoc\022\037\n\nsource_lo"
+  "c\030\001 \001(\0132\013.CMsgVector\022\030\n\006target\030\002 \001(\r:\01016"
+  "777215\022\022\n\nmove_speed\030\003 \001(\005\022\036\n\026particle_s"
+  "ystem_handle\030\004 \001(\003\022\021\n\tdodgeable\030\005 \001(\010\022\021\n"
+  "\tis_attack\030\006 \001(\010\022\023\n\013expire_time\030\t \001(\002\022\037\n"
+  "\ntarget_loc\030\n \001(\0132\013.CMsgVector\022\025\n\rcolorg"
+  "emcolor\030\013 \001(\007\022\023\n\013launch_tick\030\014 \001(\005\022\016\n\006ha"
+  "ndle\030\r \001(\005\022\030\n\006source\030\016 \001(\r:\01016777215\022\031\n\021"
+  "source_attachment\030\017 \001(\005\022@\n\020particle_cp_d"
+  "ata\030\020 \003(\0132&.CDOTAUserMsg_ProjectileParti"
+  "cleCPData\022)\n!additional_particle_system_"
+  "handle\030\021 \001(\003\022\033\n\023original_move_speed\030\022 \001("
+  "\005\"3\n!CDOTAUserMsg_TE_DestroyProjectile\022\016"
+  "\n\006handle\030\001 \001(\005\"l\n\037CDOTAUserMsg_TE_DotaBl"
+  "oodImpact\022\030\n\006entity\030\001 \001(\r:\01016777215\022\r\n\005s"
+  "cale\030\002 \001(\002\022\017\n\007xnormal\030\003 \001(\002\022\017\n\007ynormal\030\004"
+  " \001(\002\"\335\002\n\030CDOTAUserMsg_AbilityPing\022\025\n\tpla"
+  "yer_id\030\001 \001(\005:\002-1\022\026\n\nability_id\030\002 \001(\005:\002-1"
+  "\0229\n\004type\030\003 \001(\0162\027.DOTA_ABILITY_PING_TYPE:"
+  "\022ABILITY_PING_READY\022\030\n\020cooldown_seconds\030"
+  "\004 \001(\r\022\r\n\005level\030\005 \001(\r\022\017\n\007passive\030\006 \001(\010\022\023\n"
+  "\013mana_needed\030\007 \001(\r\022\021\n\tentity_id\030\010 \001(\r\022\027\n"
+  "\017primary_charges\030\t \001(\005\022\031\n\021secondary_char"
+  "ges\030\n \001(\005\022\021\n\tctrl_held\030\014 \001(\010\022\024\n\014reclaim_"
+  "time\030\r \001(\002\022\030\n\014owner_entity\030\016 \001(\005:\002-1\"\273\001\n"
+  "\035CDOTAUserMsg_TE_UnitAnimation\022\030\n\006entity"
+  "\030\001 \001(\r:\01016777215\022\030\n\020sequence_variant\030\002 \001"
+  "(\005\022\024\n\014playbackrate\030\003 \001(\002\022\021\n\tcastpoint\030\004 "
+  "\001(\002\022\014\n\004type\030\005 \001(\005\022\020\n\010activity\030\006 \001(\005\022\035\n\025l"
+  "ag_compensation_time\030\007 \001(\002\"J\n CDOTAUserM"
+  "sg_TE_UnitAnimationEnd\022\030\n\006entity\030\001 \001(\r:\010"
+  "16777215\022\014\n\004snap\030\002 \001(\010\"\221\001\n\035CDOTAUserMsg_"
+  "ShowGenericPopup\022\016\n\006header\030\001 \002(\t\022\014\n\004body"
+  "\030\002 \002(\t\022\016\n\006param1\030\003 \001(\t\022\016\n\006param2\030\004 \001(\t\022\023"
+  "\n\013tint_screen\030\005 \001(\010\022\035\n\025show_no_other_dia"
+  "logs\030\006 \001(\010\"`\n\026CDOTAUserMsg_VoteStart\022\r\n\005"
+  "title\030\001 \001(\t\022\020\n\010duration\030\002 \001(\002\022\024\n\014choice_"
+  "count\030\003 \001(\005\022\017\n\007choices\030\004 \003(\t\"0\n\027CDOTAUse"
+  "rMsg_VoteUpdate\022\025\n\rchoice_counts\030\001 \003(\005\"/"
+  "\n\024CDOTAUserMsg_VoteEnd\022\027\n\017selected_choic"
+  "e\030\001 \001(\005\"\220\001\n\037CDOTAUserMsg_BoosterStatePla"
+  "yer\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022\r\n\005bonus\030\002 \001("
+  "\002\022\023\n\013event_bonus\030\003 \001(\002\022\025\n\rbonus_item_id\030"
+  "\004 \001(\r\022\033\n\023event_bonus_item_id\030\005 \001(\r\"V\n\031CD"
+  "OTAUserMsg_BoosterState\0229\n\017boosted_playe"
+  "rs\030\001 \003(\0132 .CDOTAUserMsg_BoosterStatePlay"
+  "er\"a\n\031CDOTAUserMsg_AbilitySteal\022\025\n\tplaye"
+  "r_id\030\001 \001(\005:\002-1\022\026\n\nability_id\030\002 \001(\005:\002-1\022\025"
+  "\n\rability_level\030\003 \001(\r\"j\n\034CDOTAUserMsg_St"
+  "atsHeroLookup\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022\017\n\007"
+  "hero_id\030\002 \001(\005\022\021\n\thero_name\030\003 \001(\t\022\017\n\007pers"
+  "ona\030\004 \001(\t\"\372\001\n\"CDOTAUserMsg_StatsHeroPosi"
+  "tionInfo\022\030\n\020average_position\030\001 \001(\002\022J\n\020po"
+  "sition_details\030\002 \003(\01320.CDOTAUserMsg_Stat"
+  "sHeroPositionInfo.PositionPair\032n\n\014Positi"
+  "onPair\022F\n\021position_category\030\001 \001(\0162\027.DOTA"
+  "_POSITION_CATEGORY:\022DOTA_POSITION_NONE\022\026"
+  "\n\016position_count\030\002 \001(\r\"\217\003\n#CDOTAUserMsg_"
+  "StatsHeroMinuteDetails\022\021\n\tlast_hits\030\001 \001("
+  "\r\022\022\n\nhero_kills\030\002 \001(\r\022\023\n\013hero_damage\030\003 \001"
+  "(\r\022\024\n\014tower_damage\030\004 \001(\r\022:\n\rposition_inf"
+  "o\030\005 \001(\0132#.CDOTAUserMsg_StatsHeroPosition"
+  "Info\022\020\n\010total_xp\030\006 \001(\r\022\021\n\tnet_worth\030\007 \001("
+  "\r\022\034\n\024harvested_creep_gold\030\010 \001(\r\022\024\n\014claim"
+  "ed_farm\030\t \001(\r\022\024\n\014wards_placed\030\n \001(\r\022\027\n\017r"
+  "unes_collected\030\013 \001(\r\022\020\n\010tps_used\030\014 \001(\r\022\022"
+  "\n\nmana_spent\030\r \003(\r\022\027\n\017damage_absorbed\030\016 "
+  "\003(\r\022\023\n\013damage_done\030\017 \003(\r\"\347\003\n#CDOTAUserMs"
+  "g_StatsTeamMinuteDetails\022:\n\014player_stats"
+  "\030\001 \003(\0132$.CDOTAUserMsg_StatsHeroMinuteDet"
+  "ails\022\023\n\013tower_kills\030\002 \001(\r\022\025\n\rbarrack_kil"
+  "ls\030\003 \001(\r\022!\n\031available_lane_creep_gold\030\004 "
+  "\001(\r\022\032\n\022balance_kill_value\030\005 \001(\r\022\033\n\023balan"
+  "ce_tower_value\030\006 \001(\r\022\036\n\026balance_barracks"
+  "_value\030\007 \001(\r\022\032\n\022balance_gold_value\030\010 \001(\r"
+  "\022\030\n\020balance_xp_value\030\t \001(\r\022R\n\020lane_perfo"
+  "rmance\030\n \003(\01328.CDOTAUserMsg_StatsTeamMin"
+  "uteDetails.LocationPerformance\032R\n\023Locati"
+  "onPerformance\022\031\n\021location_category\030\001 \001(\r"
+  "\022\021\n\tstat_type\030\002 \001(\r\022\r\n\005value\030\003 \001(\r\"\260\001\n!C"
+  "DOTAUserMsg_StatsPlayerKillShare\022\025\n\tplay"
+  "er_id\030\001 \001(\005:\002-1\022\032\n\022kill_share_percent\030\002 "
+  "\001(\002\022\024\n\014player_loc_x\030\003 \001(\002\022\024\n\014player_loc_"
+  "y\030\004 \001(\002\022\026\n\016health_percent\030\005 \001(\002\022\024\n\014mana_"
+  "percent\030\006 \001(\002\"\314\001\n\035CDOTAUserMsg_StatsKill"
+  "Details\022\025\n\tvictim_id\030\001 \001(\005:\002-1\0227\n\013kill_s"
+  "hares\030\002 \003(\0132\".CDOTAUserMsg_StatsPlayerKi"
+  "llShare\022\026\n\016damage_to_kill\030\003 \001(\r\022\030\n\020effec"
+  "tive_health\030\004 \001(\r\022\022\n\ndeath_time\030\005 \001(\002\022\025\n"
+  "\tkiller_id\030\006 \001(\005:\002-1\"\213\006\n\036CDOTAUserMsg_St"
+  "atsMatchDetails\0222\n\013hero_lookup\030\001 \003(\0132\035.C"
+  "DOTAUserMsg_StatsHeroLookup\022;\n\rradiant_s"
+  "tats\030\002 \003(\0132$.CDOTAUserMsg_StatsTeamMinut"
+  "eDetails\0228\n\ndire_stats\030\003 \003(\0132$.CDOTAUser"
+  "Msg_StatsTeamMinuteDetails\0225\n\rradiant_ki"
+  "lls\030\004 \003(\0132\036.CDOTAUserMsg_StatsKillDetail"
+  "s\0222\n\ndire_kills\030\005 \003(\0132\036.CDOTAUserMsg_Sta"
+  "tsKillDetails\022U\n\rfight_details\030\006 \003(\0132>.C"
+  "DOTAUserMsg_StatsMatchDetails.CDOTAUserM"
+  "sg_StatsFightDetails\032p\n\"CDOTAUserMsg_Sta"
+  "tsFightTeamDetails\022\024\n\014participants\030\001 \003(\005"
+  "\022\016\n\006deaths\030\002 \003(\005\022\022\n\ngold_delta\030\003 \001(\r\022\020\n\010"
+  "xp_delta\030\004 \001(\r\032\211\002\n\036CDOTAUserMsg_StatsFig"
+  "htDetails\022\022\n\nstart_time\030\001 \001(\002\022\020\n\010end_tim"
+  "e\030\002 \001(\002\022a\n\025radiant_fight_details\030\003 \001(\0132B"
+  ".CDOTAUserMsg_StatsMatchDetails.CDOTAUse"
+  "rMsg_StatsFightTeamDetails\022^\n\022dire_fight"
+  "_details\030\004 \001(\0132B.CDOTAUserMsg_StatsMatch"
+  "Details.CDOTAUserMsg_StatsFightTeamDetai"
+  "ls\"8\n\026CDOTAUserMsg_MiniTaunt\022\036\n\022taunting"
+  "_player_id\030\001 \001(\005:\002-1\"0\n\031CDOTAUserMsg_Spe"
+  "echBubble\022\023\n\013destroy_all\030\001 \001(\010\"k\n CDOTAU"
+  "serMsg_CustomHeaderMessage\022\025\n\tplayer_id\030"
+  "\001 \001(\005:\002-1\022\020\n\010duration\030\002 \001(\002\022\017\n\007message\030\003"
+  " \001(\t\022\r\n\005value\030\004 \001(\005\"v\n\023CMsgHeroAbilitySt"
+  "at\0227\n\tstat_type\030\001 \001(\0162\016.EHeroStatType:\024k"
+  "_EHeroStatType_None\022\021\n\tint_value\030\002 \001(\005\022\023"
+  "\n\013float_value\030\003 \001(\002\"d\n\034CMsgCombatAnalyze"
+  "rPlayerStat\022\022\n\naccount_id\030\001 \001(\r\0220\n\022hero_"
+  "ability_stats\030\002 \003(\0132\024.CMsgHeroAbilitySta"
+  "t\"`\n\027CMsgCombatAnalyzerStats\022\020\n\010match_id"
+  "\030\001 \001(\004\0223\n\014player_stats\030\002 \003(\0132\035.CMsgComba"
+  "tAnalyzerPlayerStat\"W\n\026CDOTAUserMsg_Beas"
+  "tChat\022\014\n\004team\030\001 \001(\r\022\016\n\006format\030\002 \001(\t\022\017\n\007m"
+  "essage\030\003 \001(\t\022\016\n\006target\030\004 \001(\t\"a\n$CDOTAUse"
+  "rMsg_CustomHudElement_Create\022\022\n\nelement_"
+  "id\030\001 \001(\t\022\027\n\017layout_filename\030\002 \001(\t\022\014\n\004dat"
+  "a\030\003 \001(\014\"`\n$CDOTAUserMsg_CustomHudElement"
+  "_Modify\022\022\n\nelement_id\030\001 \001(\t\022\026\n\016modify_vi"
+  "sible\030\002 \001(\010\022\014\n\004data\030\003 \001(\014\";\n%CDOTAUserMs"
+  "g_CustomHudElement_Destroy\022\022\n\nelement_id"
+  "\030\001 \001(\t\"J\n\"CDOTAUserMsg_CompendiumStatePl"
+  "ayer\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022\r\n\005level\030\002 \001"
+  "(\r\"_\n\034CDOTAUserMsg_CompendiumState\022\?\n\022co"
+  "mpendium_players\030\001 \003(\0132#.CDOTAUserMsg_Co"
+  "mpendiumStatePlayer\"\350\001\n\036CDOTAUserMsg_Pro"
+  "jectionAbility\022\026\n\nability_id\030\001 \001(\005:\002-1\022\034"
+  "\n\020caster_ent_index\030\002 \001(\005:\002-1\022\023\n\013caster_t"
+  "eam\030\003 \001(\005\022\023\n\013channel_end\030\004 \001(\010\022\033\n\006origin"
+  "\030\005 \001(\0132\013.CMsgVector\022\031\n\021track_caster_only"
+  "\030\006 \001(\010\022\020\n\010end_time\030\007 \001(\002\022\034\n\020victim_ent_i"
+  "ndex\030\010 \001(\005:\002-1\"a\n\034CDOTAUserMsg_Projectio"
+  "nEvent\0223\n\010event_id\030\001 \001(\0162\021.EProjectionEv"
+  "ent:\016ePE_FirstBlood\022\014\n\004team\030\002 \001(\r\"J\n\024CDO"
+  "TAUserMsg_XPAlert\022\025\n\tplayer_id\030\001 \001(\005:\002-1"
+  "\022\033\n\017target_entindex\030\002 \001(\005:\002-1\"\211\001\n\034CDOTAU"
+  "serMsg_TalentTreeAlert\022\025\n\tplayer_id\030\001 \001("
+  "\005:\002-1\022\033\n\017target_entindex\030\002 \001(\005:\002-1\022\026\n\nab"
+  "ility_id\030\003 \001(\005:\002-1\022\014\n\004slot\030\004 \001(\005\022\017\n\007lear"
+  "ned\030\005 \001(\010\"\"\n CDOTAUserMsg_UpdateQuestPro"
+  "gress\"\274\001\n\030CDOTAUserMsg_QuestStatus\022\025\n\tpl"
+  "ayer_id\030\001 \002(\005:\002-1\022\020\n\010quest_id\030\002 \001(\r\022\024\n\014c"
+  "hallenge_id\030\003 \001(\r\022\020\n\010progress\030\004 \001(\r\022\014\n\004g"
+  "oal\030\005 \001(\r\022\r\n\005query\030\006 \001(\r\022\025\n\rfail_gametim"
+  "e\030\007 \001(\002\022\033\n\017item_ability_id\030\010 \001(\005:\002-1\"e\n\034"
+  "CDOTAUserMsg_SuggestHeroPick\022\025\n\tplayer_i"
+  "d\030\001 \002(\005:\002-1\022\017\n\007hero_id\030\002 \001(\005\022\013\n\003ban\030\003 \001("
+  "\010\022\020\n\010facet_id\030\004 \001(\r\"H\n\034CDOTAUserMsg_Sugg"
+  "estHeroRole\022\025\n\tplayer_id\030\001 \002(\005:\002-1\022\021\n\the"
+  "ro_role\030\002 \001(\t\"\247\001\n\037CDOTAUserMsg_KillcamDa"
+  "mageTaken\022\025\n\tplayer_id\030\001 \002(\005:\002-1\022\024\n\014dama"
+  "ge_taken\030\002 \001(\r\022\021\n\titem_type\030\003 \001(\r\022\033\n\017ite"
+  "m_ability_id\030\004 \001(\005:\002-1\022\021\n\thero_name\030\005 \001("
+  "\t\022\024\n\014damage_color\030\006 \001(\t\"E\n\036CDOTAUserMsg_"
+  "SelectPenaltyGold\022\025\n\tplayer_id\030\001 \002(\005:\002-1"
+  "\022\014\n\004cost\030\002 \001(\021\"~\n\033CDOTAUserMsg_RollDiceR"
+  "esult\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022\024\n\014channel_"
+  "type\030\002 \001(\r\022\020\n\010roll_min\030\003 \001(\r\022\020\n\010roll_max"
+  "\030\004 \001(\r\022\016\n\006result\030\005 \001(\r\"Z\n\033CDOTAUserMsg_F"
+  "lipCoinResult\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022\024\n\014"
+  "channel_type\030\002 \001(\r\022\016\n\006result\030\003 \001(\010\"@\n\'CD"
+  "OTAUserMessage_RequestItemSuggestions\022\025\n"
+  "\tplayer_id\030\001 \001(\005:\002-1\"R\n#CDOTAUserMessage"
+  "_TeamCaptainChanged\022\014\n\004team\030\001 \001(\r\022\035\n\021cap"
+  "tain_player_id\030\002 \001(\005:\002-1\"\\\n\036CDOTAUserMsg"
+  "_ChatWheelCooldown\022\036\n\nmessage_id\030\001 \001(\r:\n"
+  "4294967295\022\032\n\022cooldown_remaining\030\002 \001(\002\"\214"
+  "\001\n\036CDOTAUserMsg_HeroRelicProgress\022\027\n\017her"
+  "o_relic_type\030\001 \001(\r\022\r\n\005value\030\002 \001(\r\022\031\n\007eha"
+  "ndle\030\003 \001(\r:\01016777215\022\020\n\010event_id\030\004 \001(\r\022\025"
+  "\n\rvalue_display\030\005 \001(\002\"x\n\'CDOTAUserMsg_Ab"
+  "ilityDraftRequestAbility\022\025\n\tplayer_id\030\001 "
+  "\001(\005:\002-1\022 \n\024requested_ability_id\030\002 \001(\005:\002-"
+  "1\022\024\n\014ctrl_is_down\030\003 \001(\010\"\214\001\n\031CDOTAUserMsg"
+  "_DamageReport\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022\026\n\016"
+  "target_hero_id\030\002 \001(\005\022\026\n\016source_hero_id\030\003"
+  " \001(\005\022\025\n\rdamage_amount\030\004 \001(\005\022\021\n\tbroadcast"
+  "\030\005 \001(\010\"\260\001\n\031CDOTAUserMsg_SalutePlayer\022\034\n\020"
+  "source_player_id\030\001 \001(\005:\002-1\022\034\n\020target_pla"
+  "yer_id\030\002 \001(\005:\002-1\022\022\n\ntip_amount\030\003 \001(\r\022\020\n\010"
+  "event_id\030\004 \001(\r\022\030\n\020custom_tip_style\030\005 \001(\t"
+  "\022\027\n\017num_recent_tips\030\006 \001(\r\"r\n\027CDOTAUserMs"
+  "g_GiftPlayer\022\034\n\020source_player_id\030\001 \001(\005:\002"
+  "-1\022\034\n\020target_player_id\030\002 \001(\005:\002-1\022\033\n\023gift"
+  "_item_def_index\030\003 \001(\r\"@\n\025CDOTAUserMsg_Ti"
+  "pAlert\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022\020\n\010tip_tex"
+  "t\030\002 \001(\t\"p\n\035CDOTAUserMsg_ReplaceQueryUnit"
+  "\022\025\n\tplayer_id\030\001 \002(\005:\002-1\022\033\n\017source_entind"
+  "ex\030\002 \001(\005:\002-1\022\033\n\017target_entindex\030\003 \001(\005:\002-"
+  "1\"b\n\032CDOTAUserMsg_ESArcanaCombo\022\031\n\007ehand"
+  "le\030\001 \001(\r:\01016777215\022\023\n\013combo_count\030\002 \001(\r\022"
+  "\024\n\014arcana_level\030\003 \001(\r\"j\n!CDOTAUserMsg_ES"
+  "ArcanaComboSummary\022\031\n\007ehandle\030\001 \001(\r:\010167"
+  "77215\022\023\n\013combo_count\030\002 \001(\r\022\025\n\rdamage_amo"
+  "unt\030\003 \001(\r\"\201\001\n\032CDOTAUserMsg_OMArcanaCombo"
+  "\022\031\n\007ehandle\030\001 \001(\r:\01016777215\022\030\n\020multicast"
+  "_amount\030\002 \001(\r\022\024\n\014arcana_level\030\003 \001(\r\022\030\n\020m"
+  "ulticast_chance\030\004 \001(\r\"\213\001\n\036CDOTAUserMsg_H"
+  "ighFiveCompleted\022\027\n\013player_id_1\030\001 \001(\005:\002-"
+  "1\022\027\n\013player_id_2\030\002 \001(\005:\002-1\022\031\n\021special_hi"
+  "gh_five\030\003 \001(\010\022\034\n\020special_entindex\030\004 \001(\005:"
+  "\002-1\"9\n CDOTAUserMsg_HighFiveLeftHanging\022"
+  "\025\n\tplayer_id\030\001 \001(\005:\002-1\"j\n\032CDOTAUserMsg_S"
+  "hovelUnearth\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022\020\n\010a"
+  "ll_chat\030\002 \001(\010\022\021\n\tlocstring\030\003 \001(\t\022\020\n\010quan"
+  "tity\030\004 \001(\r\"\374\001\n\031CDOTAUserMsg_AllStarEvent"
+  "\022\034\n\020source_player_id\030\001 \001(\005:\002-1\022\034\n\020target"
+  "_player_id\030\002 \001(\005:\002-1\022\024\n\014point_amount\030\003 \001"
+  "(\r\022\020\n\010event_id\030\004 \001(\r\022=\n\rplayer_scores\030\005 "
+  "\003(\0132&.CDOTAUserMsg_AllStarEvent.PlayerSc"
+  "ore\032<\n\013PlayerScore\022\025\n\tplayer_id\030\001 \001(\005:\002-"
+  "1\022\026\n\016score_sans_kda\030\002 \001(\r\">\n\037CDOTAUserMs"
+  "g_QueuedOrderRemoved\022\033\n\023unit_order_seque"
+  "nce\030\001 \003(\r\"\306\001\n\033CDOTAUserMsg_DebugChalleng"
+  "e\022\026\n\016challenge_type\030\001 \002(\r\022\032\n\022challenge_q"
+  "uery_id\030\002 \002(\r\022\020\n\010event_id\030\003 \002(\r\022\023\n\013insta"
+  "nce_id\030\004 \001(\r\022\027\n\017challenge_var_0\030\005 \001(\r\022\027\n"
+  "\017challenge_var_1\030\006 \001(\r\022\032\n\022challenge_max_"
+  "rank\030\007 \001(\r\"\177\n\035CDOTAUserMsg_FoundNeutralI"
+  "tem\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022\033\n\017item_abili"
+  "ty_id\030\002 \001(\005:\002-1\022\021\n\titem_tier\030\003 \001(\r\022\027\n\017ti"
+  "er_item_count\030\004 \001(\r\"M\n\034CDOTAUserMsg_Outp"
+  "ostCaptured\022\034\n\020outpost_entindex\030\001 \001(\005:\002-"
+  "1\022\017\n\007team_id\030\002 \001(\r\"C\n\035CDOTAUserMsg_Outpo"
+  "stGrantedXP\022\017\n\007team_id\030\001 \001(\r\022\021\n\txp_amoun"
+  "t\030\002 \001(\r\"\?\n\035CDOTAUserMsg_MoveCameraToUnit"
+  "\022\036\n\014unit_ehandle\030\001 \001(\r:\01016777215\"\230\001\n\036CDO"
+  "TAUserMsg_PauseMinigameData\022:\n\tdata_bits"
+  "\030\001 \003(\0132\'.CDOTAUserMsg_PauseMinigameData."
+  "DataBit\032:\n\007DataBit\022\r\n\005index\030\001 \001(\r\022\014\n\004dat"
+  "a\030\002 \001(\005\022\022\n\ndata_extra\030\003 \001(\003\"\245\002\n\'CDOTAUse"
+  "rMsg_VersusScene_PlayerBehavior\022\025\n\tplaye"
+  "r_id\030\001 \001(\005:\002-1\022S\n\010behavior\030\002 \001(\0162\037.EDOTA"
+  "VersusScenePlayerBehavior: VS_PLAYER_BEH"
+  "AVIOR_PLAY_ACTIVITY\0220\n\rplay_activity\030\003 \001"
+  "(\0132\031.VersusScene_PlayActivity\022*\n\nchat_wh"
+  "eel\030\004 \001(\0132\026.VersusScene_ChatWheel\0220\n\rpla"
+  "yback_rate\030\005 \001(\0132\031.VersusScene_PlaybackR"
+  "ate\"~\n\036CDOTAUserMsg_QoP_ArcanaSummary\022\031\n"
+  "\007ehandle\030\001 \001(\r:\01016777215\022\024\n\014arcana_level"
+  "\030\002 \001(\r\022\023\n\013players_hit\030\003 \001(\r\022\026\n\016players_k"
+  "illed\030\004 \001(\r\"R\n\036CDOTAUserMsg_HotPotato_Cr"
+  "eated\022\027\n\013player_id_1\030\001 \001(\005:\002-1\022\027\n\013player"
+  "_id_2\030\002 \001(\005:\002-1\"8\n\037CDOTAUserMsg_HotPotat"
+  "o_Exploded\022\025\n\tplayer_id\030\001 \001(\005:\002-1\"c\n\037CDO"
+  "TAUserMsg_WK_Arcana_Progress\022\031\n\007ehandle\030"
+  "\001 \001(\r:\01016777215\022\024\n\014arcana_level\030\002 \001(\r\022\017\n"
+  "\007hero_id\030\003 \001(\005\"\216\004\n$CDOTAUserMsg_GuildCha"
+  "llenge_Progress\022M\n\017player_progress\030\001 \003(\013"
+  "24.CDOTAUserMsg_GuildChallenge_Progress."
+  "PlayerProgress\022\020\n\010guild_id\030\002 \001(\r\022\035\n\025chal"
+  "lenge_instance_id\030\003 \001(\r\022\033\n\023challenge_par"
+  "ameter\030\004 \001(\r\022f\n\016challenge_type\030\005 \001(\01624.C"
+  "DOTAUserMsg_GuildChallenge_Progress.ECha"
+  "llengeType:\030k_EChallengeType_Invalid\022#\n\033"
+  "challenge_progress_at_start\030\007 \001(\r\022\020\n\010com"
+  "plete\030\010 \001(\010\0329\n\016PlayerProgress\022\025\n\tplayer_"
+  "id\030\001 \001(\005:\002-1\022\020\n\010progress\030\006 \001(\r\"o\n\016EChall"
+  "engeType\022\034\n\030k_EChallengeType_Invalid\020\000\022 "
+  "\n\034k_EChallengeType_Cooperative\020\001\022\035\n\031k_EC"
+  "hallengeType_Contract\020\002\"\311\001\n\035CDOTAUserMsg"
+  "_WRArcanaProgress\022\031\n\007ehandle\030\001 \001(\r:\0101677"
+  "7215\022 \n\016target_ehandle\030\002 \001(\r:\01016777215\022\025"
+  "\n\rarrows_landed\030\003 \001(\r\022\024\n\014damage_dealt\030\004 "
+  "\001(\r\022\021\n\ttarget_hp\030\005 \001(\r\022\025\n\rtarget_max_hp\030"
+  "\006 \001(\r\022\024\n\014arcana_level\030\007 \001(\r\"\331\001\n\034CDOTAUse"
+  "rMsg_WRArcanaSummary\022\031\n\007ehandle\030\001 \001(\r:\0101"
+  "6777215\022 \n\016target_ehandle\030\002 \001(\r:\0101677721"
+  "5\022\025\n\rarrows_landed\030\003 \001(\r\022\024\n\014damage_dealt"
+  "\030\004 \001(\r\022\021\n\ttarget_hp\030\005 \001(\r\022\025\n\rtarget_max_"
+  "hp\030\006 \001(\r\022\024\n\014arcana_level\030\007 \001(\r\022\017\n\007succes"
+  "s\030\010 \001(\010\"\213\001\n\037CDOTAUserMsg_EmptyItemSlotAl"
+  "ert\022\034\n\020source_player_id\030\001 \001(\005:\002-1\022\034\n\020tar"
+  "get_player_id\030\002 \001(\005:\002-1\022\022\n\nslot_index\030\003 "
+  "\001(\005\022\030\n\020cooldown_seconds\030\004 \001(\005\"\263\001\n\034CDOTAU"
+  "serMsg_AghsStatusAlert\022\034\n\020source_player_"
+  "id\030\001 \001(\005:\002-1\022\034\n\020target_player_id\030\002 \001(\005:\002"
+  "-1\022\033\n\017target_entindex\030\003 \001(\005:\002-1\022\022\n\nalert"
+  "_type\030\004 \001(\r\022\023\n\013has_scepter\030\005 \001(\010\022\021\n\thas_"
+  "shard\030\006 \001(\010\"Z\n\031CDOTAUserMsg_MutedPlayers"
+  "\022\035\n\025text_muted_player_ids\030\001 \003(\005\022\036\n\026voice"
+  "_muted_player_ids\030\002 \003(\005\"\376\002\n\032CDOTAUserMsg"
+  "_ContextualTip\022\016\n\006tip_id\030\001 \001(\005\022\034\n\024refere"
+  "nced_abilities\030\002 \003(\t\022\030\n\020referenced_units"
+  "\030\003 \003(\t\022\030\n\020panorama_classes\030\004 \003(\t\022\030\n\020forc"
+  "e_annotation\030\005 \001(\010\022\017\n\007variant\030\006 \001(\005\022\021\n\ti"
+  "nt_param\030\007 \001(\005\022\022\n\nint_param2\030\010 \001(\005\022\023\n\013fl"
+  "oat_param\030\t \001(\002\022\024\n\014float_param2\030\n \001(\002\022\024\n"
+  "\014string_param\030\013 \001(\t\022\025\n\rstring_param2\030\014 \001"
+  "(\t\022\031\n\021tip_text_override\030\r \001(\t\022\037\n\027tip_ann"
+  "otation_override\030\016 \001(\t\022\030\n\020panorama_snipp"
+  "et\030\017 \001(\t\"d\n\030CDOTAUserMsg_ChatMessage\022\034\n\020"
+  "source_player_id\030\001 \001(\005:\002-1\022\024\n\014channel_ty"
+  "pe\030\002 \001(\r\022\024\n\014message_text\030\003 \001(\t\"c\n%CDOTAU"
+  "serMsg_RockPaperScissorsStarted\022\034\n\020playe"
+  "r_id_source\030\001 \001(\005:\002-1\022\034\n\020player_id_targe"
+  "t\030\002 \001(\005:\002-1\"\214\001\n&CDOTAUserMsg_RockPaperSc"
+  "issorsFinished\022\027\n\013player_id_1\030\001 \001(\005:\002-1\022"
+  "\027\n\013player_id_2\030\002 \001(\005:\002-1\022\027\n\017player_1_cho"
+  "ice\030\003 \001(\005\022\027\n\017player_2_choice\030\004 \001(\005\"T\n\037CD"
+  "OTAUserMsg_DuelOpponentKilled\022\030\n\020player_"
+  "id_winner\030\001 \001(\005\022\027\n\017player_id_loser\030\002 \001(\005"
+  "\"E\n\031CDOTAUserMsg_DuelAccepted\022\023\n\013player_"
+  "id_1\030\001 \001(\005\022\023\n\013player_id_2\030\002 \001(\005\"=\n\032CDOTA"
+  "UserMsg_DuelRequested\022\037\n\023player_id_reque"
+  "stor\030\001 \001(\005:\002-1\"\252\001\n4CDOTAUserMsg_MuertaRe"
+  "leaseEvent_AssignedTargetKilled\022\034\n\020playe"
+  "r_id_killer\030\001 \002(\005:\002-1\022\034\n\020player_id_targe"
+  "t\030\002 \002(\005:\002-1\022\016\n\006points\030\003 \002(\005\022\024\n\014points_to"
+  "tal\030\004 \002(\005\022\020\n\010last_hit\030\005 \002(\010\"^\n#CDOTAUser"
+  "Msg_PlayerDraftSuggestPick\022\025\n\tplayer_id\030"
+  "\001 \001(\005:\002-1\022 \n\024suggestion_player_id\030\002 \001(\005:"
+  "\002-1\"i\n\034CDOTAUserMsg_PlayerDraftPick\022\035\n\021p"
+  "layer_id_captain\030\001 \001(\005:\002-1\022\034\n\020player_id_"
+  "target\030\002 \001(\005:\002-1\022\014\n\004team\030\003 \001(\005\"k\n\026CDOTAU"
+  "serMsg_FacetPing\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022"
+  "\025\n\rfacet_strhash\030\002 \001(\r\022\021\n\tentity_id\030\003 \001("
+  "\r\022\020\n\010all_chat\030\004 \001(\010\"U\n\027CDOTAUserMsg_Inna"
+  "tePing\022\025\n\tplayer_id\030\001 \001(\005:\002-1\022\021\n\tentity_"
+  "id\030\002 \001(\r\022\020\n\010all_chat\030\003 \001(\010*\233&\n\021EDotaUser"
+  "Messages\022\037\n\032DOTA_UM_AddUnitToSelection\020\320"
+  "\003\022\030\n\023DOTA_UM_AIDebugLine\020\321\003\022\026\n\021DOTA_UM_C"
+  "hatEvent\020\322\003\022 \n\033DOTA_UM_CombatHeroPositio"
+  "ns\020\323\003\022\032\n\025DOTA_UM_CombatLogData\020\324\003\022\036\n\031DOT"
+  "A_UM_CombatLogBulkData\020\326\003\022#\n\036DOTA_UM_Cre"
+  "ateLinearProjectile\020\327\003\022$\n\037DOTA_UM_Destro"
+  "yLinearProjectile\020\330\003\022%\n DOTA_UM_DodgeTra"
+  "ckingProjectiles\020\331\003\022\035\n\030DOTA_UM_GlobalLig"
+  "htColor\020\332\003\022!\n\034DOTA_UM_GlobalLightDirecti"
+  "on\020\333\003\022\033\n\026DOTA_UM_InvalidCommand\020\334\003\022\031\n\024DO"
+  "TA_UM_LocationPing\020\335\003\022\024\n\017DOTA_UM_MapLine"
+  "\020\336\003\022\034\n\027DOTA_UM_MiniKillCamInfo\020\337\003\022\036\n\031DOT"
+  "A_UM_MinimapDebugPoint\020\340\003\022\031\n\024DOTA_UM_Min"
+  "imapEvent\020\341\003\022\035\n\030DOTA_UM_NevermoreRequiem"
+  "\020\342\003\022\032\n\025DOTA_UM_OverheadEvent\020\343\003\022\037\n\032DOTA_"
+  "UM_SetNextAutobuyItem\020\344\003\022\033\n\026DOTA_UM_Shar"
+  "edCooldown\020\345\003\022!\n\034DOTA_UM_SpectatorPlayer"
+  "Click\020\346\003\022\034\n\027DOTA_UM_TutorialTipInfo\020\347\003\022\026"
+  "\n\021DOTA_UM_UnitEvent\020\350\003\022\034\n\027DOTA_UM_Partic"
+  "leManager\020\351\003\022\024\n\017DOTA_UM_BotChat\020\352\003\022\025\n\020DO"
+  "TA_UM_HudError\020\353\003\022\032\n\025DOTA_UM_ItemPurchas"
+  "ed\020\354\003\022\021\n\014DOTA_UM_Ping\020\355\003\022\026\n\021DOTA_UM_Item"
+  "Found\020\356\003\022\"\n\035DOTA_UM_CharacterSpeakConcep"
+  "t\020\357\003\022\027\n\022DOTA_UM_SwapVerify\020\360\003\022\026\n\021DOTA_UM"
+  "_WorldLine\020\361\003\022\033\n\026DOTA_UM_TournamentDrop\020"
+  "\362\003\022\026\n\021DOTA_UM_ItemAlert\020\363\003\022\033\n\026DOTA_UM_Ha"
+  "lloweenDrops\020\364\003\022\026\n\021DOTA_UM_ChatWheel\020\365\003\022"
+  "\035\n\030DOTA_UM_ReceivedXmasGift\020\366\003\022 \n\033DOTA_U"
+  "M_UpdateSharedContent\020\367\003\022\037\n\032DOTA_UM_Tuto"
+  "rialRequestExp\020\370\003\022 \n\033DOTA_UM_TutorialPin"
+  "gMinimap\020\371\003\022\"\n\035DOTA_UM_GamerulesStateCha"
+  "nged\020\372\003\022\027\n\022DOTA_UM_ShowSurvey\020\373\003\022\031\n\024DOTA"
+  "_UM_TutorialFade\020\374\003\022\035\n\030DOTA_UM_AddQuestL"
+  "ogEntry\020\375\003\022\032\n\025DOTA_UM_SendStatPopup\020\376\003\022\033"
+  "\n\026DOTA_UM_TutorialFinish\020\377\003\022\034\n\027DOTA_UM_S"
+  "endRoshanPopup\020\200\004\022\037\n\032DOTA_UM_SendGeneric"
+  "ToolTip\020\201\004\022\032\n\025DOTA_UM_SendFinalGold\020\202\004\022\026"
+  "\n\021DOTA_UM_CustomMsg\020\203\004\022\031\n\024DOTA_UM_CoachH"
+  "UDPing\020\204\004\022\036\n\031DOTA_UM_ClientLoadGridNav\020\205"
+  "\004\022\032\n\025DOTA_UM_TE_Projectile\020\206\004\022\035\n\030DOTA_UM"
+  "_TE_ProjectileLoc\020\207\004\022\037\n\032DOTA_UM_TE_DotaB"
+  "loodImpact\020\210\004\022\035\n\030DOTA_UM_TE_UnitAnimatio"
+  "n\020\211\004\022 \n\033DOTA_UM_TE_UnitAnimationEnd\020\212\004\022\030"
+  "\n\023DOTA_UM_AbilityPing\020\213\004\022\035\n\030DOTA_UM_Show"
+  "GenericPopup\020\214\004\022\026\n\021DOTA_UM_VoteStart\020\215\004\022"
+  "\027\n\022DOTA_UM_VoteUpdate\020\216\004\022\024\n\017DOTA_UM_Vote"
+  "End\020\217\004\022\031\n\024DOTA_UM_BoosterState\020\220\004\022\036\n\031DOT"
+  "A_UM_WillPurchaseAlert\020\221\004\022$\n\037DOTA_UM_Tut"
+  "orialMinimapPosition\020\222\004\022\031\n\024DOTA_UM_Abili"
+  "tySteal\020\224\004\022\037\n\032DOTA_UM_CourierKilledAlert"
+  "\020\225\004\022\033\n\026DOTA_UM_EnemyItemAlert\020\226\004\022\036\n\031DOTA"
+  "_UM_StatsMatchDetails\020\227\004\022\026\n\021DOTA_UM_Mini"
+  "Taunt\020\230\004\022\036\n\031DOTA_UM_BuyBackStateAlert\020\231\004"
+  "\022\031\n\024DOTA_UM_SpeechBubble\020\232\004\022 \n\033DOTA_UM_C"
+  "ustomHeaderMessage\020\233\004\022\032\n\025DOTA_UM_QuickBu"
+  "yAlert\020\234\004\022\035\n\030DOTA_UM_StatsHeroDetails\020\235\004"
+  "\022\035\n\030DOTA_UM_PredictionResult\020\236\004\022\032\n\025DOTA_"
+  "UM_ModifierAlert\020\237\004\022\030\n\023DOTA_UM_HPManaAle"
+  "rt\020\240\004\022\027\n\022DOTA_UM_GlyphAlert\020\241\004\022\026\n\021DOTA_U"
+  "M_BeastChat\020\242\004\022&\n!DOTA_UM_SpectatorPlaye"
+  "rUnitOrders\020\243\004\022$\n\037DOTA_UM_CustomHudEleme"
+  "nt_Create\020\244\004\022$\n\037DOTA_UM_CustomHudElement"
+  "_Modify\020\245\004\022%\n DOTA_UM_CustomHudElement_D"
+  "estroy\020\246\004\022\034\n\027DOTA_UM_CompendiumState\020\247\004\022"
+  "\036\n\031DOTA_UM_ProjectionAbility\020\250\004\022\034\n\027DOTA_"
+  "UM_ProjectionEvent\020\251\004\022\036\n\031DOTA_UM_CombatL"
+  "ogDataHLTV\020\252\004\022\024\n\017DOTA_UM_XPAlert\020\253\004\022 \n\033D"
+  "OTA_UM_UpdateQuestProgress\020\254\004\022\032\n\025DOTA_UM"
+  "_MatchMetadata\020\255\004\022\031\n\024DOTA_UM_MatchDetail"
+  "s\020\256\004\022\030\n\023DOTA_UM_QuestStatus\020\257\004\022\034\n\027DOTA_U"
+  "M_SuggestHeroPick\020\260\004\022\034\n\027DOTA_UM_SuggestH"
+  "eroRole\020\261\004\022\037\n\032DOTA_UM_KillcamDamageTaken"
+  "\020\262\004\022\036\n\031DOTA_UM_SelectPenaltyGold\020\263\004\022\033\n\026D"
+  "OTA_UM_RollDiceResult\020\264\004\022\033\n\026DOTA_UM_Flip"
+  "CoinResult\020\265\004\022#\n\036DOTA_UM_RequestItemSugg"
+  "estions\020\266\004\022\037\n\032DOTA_UM_TeamCaptainChanged"
+  "\020\267\004\022%\n DOTA_UM_SendRoshanSpectatorPhase\020"
+  "\270\004\022\036\n\031DOTA_UM_ChatWheelCooldown\020\271\004\022!\n\034DO"
+  "TA_UM_DismissAllStatPopups\020\272\004\022!\n\034DOTA_UM"
+  "_TE_DestroyProjectile\020\273\004\022\036\n\031DOTA_UM_Hero"
+  "RelicProgress\020\274\004\022\'\n\"DOTA_UM_AbilityDraft"
+  "RequestAbility\020\275\004\022\025\n\020DOTA_UM_ItemSold\020\276\004"
+  "\022\031\n\024DOTA_UM_DamageReport\020\277\004\022\031\n\024DOTA_UM_S"
+  "alutePlayer\020\300\004\022\025\n\020DOTA_UM_TipAlert\020\301\004\022\035\n"
+  "\030DOTA_UM_ReplaceQueryUnit\020\302\004\022\037\n\032DOTA_UM_"
+  "EmptyTeleportAlert\020\303\004\022#\n\036DOTA_UM_MarsAre"
+  "naOfBloodAttack\020\304\004\022\032\n\025DOTA_UM_ESArcanaCo"
+  "mbo\020\305\004\022!\n\034DOTA_UM_ESArcanaComboSummary\020\306"
+  "\004\022 \n\033DOTA_UM_HighFiveLeftHanging\020\307\004\022\036\n\031D"
+  "OTA_UM_HighFiveCompleted\020\310\004\022\032\n\025DOTA_UM_S"
+  "hovelUnearth\020\311\004\022\035\n\030DOTA_EM_InvokerSpellC"
+  "ast\020\312\004\022\027\n\022DOTA_UM_RadarAlert\020\313\004\022\031\n\024DOTA_"
+  "UM_AllStarEvent\020\314\004\022\034\n\027DOTA_UM_TalentTree"
+  "Alert\020\315\004\022\037\n\032DOTA_UM_QueuedOrderRemoved\020\316"
+  "\004\022\033\n\026DOTA_UM_DebugChallenge\020\317\004\022\032\n\025DOTA_U"
+  "M_OMArcanaCombo\020\320\004\022\035\n\030DOTA_UM_FoundNeutr"
+  "alItem\020\321\004\022\034\n\027DOTA_UM_OutpostCaptured\020\322\004\022"
+  "\035\n\030DOTA_UM_OutpostGrantedXP\020\323\004\022\035\n\030DOTA_U"
+  "M_MoveCameraToUnit\020\324\004\022\036\n\031DOTA_UM_PauseMi"
+  "nigameData\020\325\004\022\'\n\"DOTA_UM_VersusScene_Pla"
+  "yerBehavior\020\326\004\022\036\n\031DOTA_UM_QoP_ArcanaSumm"
+  "ary\020\330\004\022\036\n\031DOTA_UM_HotPotato_Created\020\331\004\022\037"
+  "\n\032DOTA_UM_HotPotato_Exploded\020\332\004\022\037\n\032DOTA_"
+  "UM_WK_Arcana_Progress\020\333\004\022$\n\037DOTA_UM_Guil"
+  "dChallenge_Progress\020\334\004\022\035\n\030DOTA_UM_WRArca"
+  "naProgress\020\335\004\022\034\n\027DOTA_UM_WRArcanaSummary"
+  "\020\336\004\022\037\n\032DOTA_UM_EmptyItemSlotAlert\020\337\004\022\034\n\027"
+  "DOTA_UM_AghsStatusAlert\020\340\004\022\035\n\030DOTA_UM_Pi"
+  "ngConfirmation\020\341\004\022\031\n\024DOTA_UM_MutedPlayer"
+  "s\020\342\004\022\032\n\025DOTA_UM_ContextualTip\020\343\004\022\030\n\023DOTA"
+  "_UM_ChatMessage\020\344\004\022\035\n\030DOTA_UM_NeutralCam"
+  "pAlert\020\345\004\022%\n DOTA_UM_RockPaperScissorsSt"
+  "arted\020\346\004\022&\n!DOTA_UM_RockPaperScissorsFin"
+  "ished\020\347\004\022\037\n\032DOTA_UM_DuelOpponentKilled\020\350"
+  "\004\022\031\n\024DOTA_UM_DuelAccepted\020\351\004\022\032\n\025DOTA_UM_"
+  "DuelRequested\020\352\004\0224\n/DOTA_UM_MuertaReleas"
+  "eEvent_AssignedTargetKilled\020\353\004\022#\n\036DOTA_U"
+  "M_PlayerDraftSuggestPick\020\354\004\022\034\n\027DOTA_UM_P"
+  "layerDraftPick\020\355\004\022)\n$DOTA_UM_UpdateLinea"
+  "rProjectileCPData\020\356\004\022\027\n\022DOTA_UM_GiftPlay"
+  "er\020\357\004\022\026\n\021DOTA_UM_FacetPing\020\360\004\022\027\n\022DOTA_UM"
+  "_InnatePing\020\361\004\022\030\n\023DOTA_UM_RoshanTimer\020\362\004"
+  "*\244\037\n\021DOTA_CHAT_MESSAGE\022!\n\024CHAT_MESSAGE_I"
+  "NVALID\020\377\377\377\377\377\377\377\377\377\001\022\032\n\026CHAT_MESSAGE_HERO_K"
+  "ILL\020\000\022\032\n\026CHAT_MESSAGE_HERO_DENY\020\001\022\036\n\032CHA"
+  "T_MESSAGE_BARRACKS_KILL\020\002\022\033\n\027CHAT_MESSAG"
+  "E_TOWER_KILL\020\003\022\033\n\027CHAT_MESSAGE_TOWER_DEN"
+  "Y\020\004\022\033\n\027CHAT_MESSAGE_FIRSTBLOOD\020\005\022\034\n\030CHAT"
+  "_MESSAGE_STREAK_KILL\020\006\022\030\n\024CHAT_MESSAGE_B"
+  "UYBACK\020\007\022\026\n\022CHAT_MESSAGE_AEGIS\020\010\022\034\n\030CHAT"
+  "_MESSAGE_ROSHAN_KILL\020\t\022\035\n\031CHAT_MESSAGE_C"
+  "OURIER_LOST\020\n\022\"\n\036CHAT_MESSAGE_COURIER_RE"
+  "SPAWNED\020\013\022\033\n\027CHAT_MESSAGE_GLYPH_USED\020\014\022\036"
+  "\n\032CHAT_MESSAGE_ITEM_PURCHASE\020\r\022\030\n\024CHAT_M"
+  "ESSAGE_CONNECT\020\016\022\033\n\027CHAT_MESSAGE_DISCONN"
+  "ECT\020\017\022.\n*CHAT_MESSAGE_DISCONNECT_WAIT_FO"
+  "R_RECONNECT\020\020\022*\n&CHAT_MESSAGE_DISCONNECT"
+  "_TIME_REMAINING\020\021\0221\n-CHAT_MESSAGE_DISCON"
+  "NECT_TIME_REMAINING_PLURAL\020\022\022\032\n\026CHAT_MES"
+  "SAGE_RECONNECT\020\023\022\034\n\030CHAT_MESSAGE_PLAYER_"
+  "LEFT\020\024\022\036\n\032CHAT_MESSAGE_SAFE_TO_LEAVE\020\025\022\034"
+  "\n\030CHAT_MESSAGE_RUNE_PICKUP\020\026\022\034\n\030CHAT_MES"
+  "SAGE_RUNE_BOTTLE\020\027\022\032\n\026CHAT_MESSAGE_RUNE_"
+  "DENY\020r\022\031\n\025CHAT_MESSAGE_INTHEBAG\020\030\022\033\n\027CHA"
+  "T_MESSAGE_SECRETSHOP\020\031\022#\n\037CHAT_MESSAGE_I"
+  "TEM_AUTOPURCHASED\020\032\022\037\n\033CHAT_MESSAGE_ITEM"
+  "S_COMBINED\020\033\022\035\n\031CHAT_MESSAGE_SUPER_CREEP"
+  "S\020\034\022%\n!CHAT_MESSAGE_CANT_USE_ACTION_ITEM"
+  "\020\035\022\032\n\026CHAT_MESSAGE_CANTPAUSE\020\037\022\035\n\031CHAT_M"
+  "ESSAGE_NOPAUSESLEFT\020 \022\035\n\031CHAT_MESSAGE_CA"
+  "NTPAUSEYET\020!\022\027\n\023CHAT_MESSAGE_PAUSED\020\"\022\"\n"
+  "\036CHAT_MESSAGE_UNPAUSE_COUNTDOWN\020#\022\031\n\025CHA"
+  "T_MESSAGE_UNPAUSED\020$\022\036\n\032CHAT_MESSAGE_AUT"
+  "O_UNPAUSED\020%\022\032\n\026CHAT_MESSAGE_YOUPAUSED\020&"
+  "\022 \n\034CHAT_MESSAGE_CANTUNPAUSETEAM\020\'\022\"\n\036CH"
+  "AT_MESSAGE_VOICE_TEXT_BANNED\020)\022.\n*CHAT_M"
+  "ESSAGE_SPECTATORS_WATCHING_THIS_GAME\020*\022 "
+  "\n\034CHAT_MESSAGE_REPORT_REMINDER\020+\022\032\n\026CHAT"
+  "_MESSAGE_ECON_ITEM\020,\022\026\n\022CHAT_MESSAGE_TAU"
+  "NT\020-\022\027\n\023CHAT_MESSAGE_RANDOM\020.\022\030\n\024CHAT_ME"
+  "SSAGE_RD_TURN\020/\022 \n\034CHAT_MESSAGE_DROP_RAT"
+  "E_BONUS\0201\022!\n\035CHAT_MESSAGE_NO_BATTLE_POIN"
+  "TS\0202\022\035\n\031CHAT_MESSAGE_DENIED_AEGIS\0203\022\036\n\032C"
+  "HAT_MESSAGE_INFORMATIONAL\0204\022\035\n\031CHAT_MESS"
+  "AGE_AEGIS_STOLEN\0205\022\035\n\031CHAT_MESSAGE_ROSHA"
+  "N_CANDY\0206\022\034\n\030CHAT_MESSAGE_ITEM_GIFTED\0207\022"
+  "\'\n#CHAT_MESSAGE_HERO_KILL_WITH_GREEVIL\0208"
+  "\022(\n$CHAT_MESSAGE_HOLDOUT_TOWER_DESTROYED"
+  "\0209\022\'\n#CHAT_MESSAGE_HOLDOUT_WALL_DESTROYE"
+  "D\020:\022&\n\"CHAT_MESSAGE_HOLDOUT_WALL_FINISHE"
+  "D\020;\022)\n%CHAT_MESSAGE_PLAYER_LEFT_LIMITED_"
+  "HERO\020>\0221\n-CHAT_MESSAGE_ABANDON_LIMITED_H"
+  "ERO_EXPLANATION\020\?\022(\n$CHAT_MESSAGE_DISCON"
+  "NECT_LIMITED_HERO\020@\0223\n/CHAT_MESSAGE_LOW_"
+  "PRIORITY_COMPLETED_EXPLANATION\020A\022,\n(CHAT"
+  "_MESSAGE_RECRUITMENT_DROP_RATE_BONUS\020B\0221"
+  "\n-CHAT_MESSAGE_FROSTIVUS_SHINING_BOOSTER"
+  "_ACTIVE\020C\022 \n\034CHAT_MESSAGE_PLAYER_LEFT_AF"
+  "K\020I\0222\n.CHAT_MESSAGE_PLAYER_LEFT_DISCONNE"
+  "CTED_TOO_LONG\020J\022!\n\035CHAT_MESSAGE_PLAYER_A"
+  "BANDONED\020K\022%\n!CHAT_MESSAGE_PLAYER_ABANDO"
+  "NED_AFK\020L\0227\n3CHAT_MESSAGE_PLAYER_ABANDON"
+  "ED_DISCONNECTED_TOO_LONG\020M\022#\n\037CHAT_MESSA"
+  "GE_WILL_NOT_BE_SCORED\020N\022*\n&CHAT_MESSAGE_"
+  "WILL_NOT_BE_SCORED_RANKED\020O\022+\n\'CHAT_MESS"
+  "AGE_WILL_NOT_BE_SCORED_NETWORK\020P\0222\n.CHAT"
+  "_MESSAGE_WILL_NOT_BE_SCORED_NETWORK_RANK"
+  "ED\020Q\022)\n%CHAT_MESSAGE_CAN_QUIT_WITHOUT_AB"
+  "ANDON\020R\022:\n6CHAT_MESSAGE_RANKED_GAME_STIL"
+  "L_SCORED_LEAVERS_GET_LOSS\020S\0228\n4CHAT_MESS"
+  "AGE_ABANDON_RANKED_BEFORE_FIRST_BLOOD_PA"
+  "RTY\020T\022!\n\035CHAT_MESSAGE_COMPENDIUM_LEVEL\020U"
+  "\022*\n&CHAT_MESSAGE_VICTORY_PREDICTION_STRE"
+  "AK\020V\022\"\n\036CHAT_MESSAGE_ASSASSIN_ANNOUNCE\020W"
+  "\022!\n\035CHAT_MESSAGE_ASSASSIN_SUCCESS\020X\022 \n\034C"
+  "HAT_MESSAGE_ASSASSIN_DENIED\020Y\0227\n3CHAT_ME"
+  "SSAGE_VICTORY_PREDICTION_SINGLE_USER_CON"
+  "FIRM\020Z\022\034\n\030CHAT_MESSAGE_EFFIGY_KILL\020[\022+\n\'"
+  "CHAT_MESSAGE_VOICE_TEXT_BANNED_OVERFLOW\020"
+  "\\\022\"\n\036CHAT_MESSAGE_YEAR_BEAST_KILLED\020]\022 \n"
+  "\034CHAT_MESSAGE_PAUSE_COUNTDOWN\020^\022\036\n\032CHAT_"
+  "MESSAGE_COINS_WAGERED\020_\022#\n\037CHAT_MESSAGE_"
+  "HERO_NOMINATED_BAN\020`\022\034\n\030CHAT_MESSAGE_HER"
+  "O_BANNED\020a\022\037\n\033CHAT_MESSAGE_HERO_BAN_COUN"
+  "T\020b\022\036\n\032CHAT_MESSAGE_RIVER_PAINTED\020c\022\032\n\026C"
+  "HAT_MESSAGE_SCAN_USED\020d\022\036\n\032CHAT_MESSAGE_"
+  "SHRINE_KILLED\020e\022\"\n\036CHAT_MESSAGE_WAGER_TO"
+  "KEN_SPENT\020f\022\033\n\027CHAT_MESSAGE_RANK_WAGER\020g"
+  "\022$\n CHAT_MESSAGE_NEW_PLAYER_REMINDER\020h\022%"
+  "\n!CHAT_MESSAGE_OBSERVER_WARD_KILLED\020i\022#\n"
+  "\037CHAT_MESSAGE_SENTRY_WARD_KILLED\020j\022-\n)CH"
+  "AT_MESSAGE_ITEM_PLACED_IN_NEUTRAL_STASH\020"
+  "k\022$\n CHAT_MESSAGE_HERO_CHOICE_INVALID\020l\022"
+  "\027\n\023CHAT_MESSAGE_BOUNTY\020m\022$\n CHAT_MESSAGE"
+  "_ABILITY_DRAFT_START\020n\022!\n\035CHAT_MESSAGE_H"
+  "ERO_FOUND_CANDY\020o\022\'\n#CHAT_MESSAGE_ABILIT"
+  "Y_DRAFT_RANDOMED\020p\022(\n$CHAT_MESSAGE_PRIVA"
+  "TE_COACH_CONNECTED\020q\022%\n!CHAT_MESSAGE_CAN"
+  "T_PAUSE_TOO_EARLY\020s\022\'\n#CHAT_MESSAGE_HERO"
+  "_KILL_WITH_PENGUIN\020t\022\036\n\032CHAT_MESSAGE_MIN"
+  "IBOSS_KILL\020u\022(\n$CHAT_MESSAGE_PLAYER_IN_G"
+  "AME_BAN_TEXT\020v\022\037\n\033CHAT_MESSAGE_BANNER_PL"
+  "ANTED\020w*\262\001\n\035DOTA_NO_BATTLE_POINTS_REASON"
+  "S\022%\n!NO_BATTLE_POINTS_WRONG_LOBBY_TYPE\020\001"
+  "\022\"\n\036NO_BATTLE_POINTS_PRACTICE_BOTS\020\002\022#\n\037"
+  "NO_BATTLE_POINTS_CHEATS_ENABLED\020\003\022!\n\035NO_"
+  "BATTLE_POINTS_LOW_PRIORITY\020\004*\317\001\n\027DOTA_CH"
+  "AT_INFORMATIONAL\022!\n\035INFO_COOP_BATTLE_POI"
+  "NTS_RULES\020\001\022#\n\037INFO_FROSTIVUS_ABANDON_RE"
+  "MINDER\020\002\022\030\n\024INFO_RANKED_REMINDER\020\003\022+\n\'IN"
+  "FO_COOP_LOW_PRIORITY_PASSIVE_REMINDER\020\004\022"
+  "%\n!INFO_CUSTOM_GAME_PENALTY_REMINDER\020\005*\340"
+  "\003\n\026DOTA_ABILITY_PING_TYPE\022\026\n\022ABILITY_PIN"
+  "G_READY\020\001\022\025\n\021ABILITY_PING_MANA\020\002\022\031\n\025ABIL"
+  "ITY_PING_COOLDOWN\020\003\022\026\n\022ABILITY_PING_ENEM"
+  "Y\020\004\022\032\n\026ABILITY_PING_UNLEARNED\020\005\022\033\n\027ABILI"
+  "TY_PING_INBACKPACK\020\006\022\030\n\024ABILITY_PING_INS"
+  "TASH\020\007\022\032\n\026ABILITY_PING_ONCOURIER\020\010\022\025\n\021AB"
+  "ILITY_PING_ALLY\020\t\022\034\n\030ABILITY_PING_LEARN_"
+  "READY\020\n\022\033\n\027ABILITY_PING_WILL_LEARN\020\013\022\035\n\031"
+  "ABILITY_PING_FUTURE_LEARN\020\014\022\036\n\032ABILITY_P"
+  "ING_NEUTRAL_OFFER\020\r\022 \n\034ABILITY_PING_NEUT"
+  "RAL_REQUEST\020\016\022\036\n\032ABILITY_PING_NEUTRAL_EQ"
+  "UIP\020\017\022\"\n\036ABILITY_PING_INCOURIERBACKPACK\020"
+  "\020*\214\002\n\027DOTA_REPLAY_STATE_EVENT\022&\n\"DOTA_RE"
+  "PLAY_STATE_EVENT_GAME_START\020\001\022)\n%DOTA_RE"
+  "PLAY_STATE_EVENT_STARTING_HORN\020\002\022\'\n#DOTA"
+  "_REPLAY_STATE_EVENT_FIRST_BLOOD\020\003\022$\n DOT"
+  "A_REPLAY_STATE_EVENT_SHOWCASE\020\004\022%\n!DOTA_"
+  "REPLAY_STATE_EVENT_POST_GAME\020\005\022(\n$DOTA_R"
+  "EPLAY_STATE_EVENT_WAIT_FOR_MAP\020\006*\345\001\n\023EDo"
+  "taEntityMessages\022\024\n\020DOTA_UNIT_SPEECH\020\000\022\031"
+  "\n\025DOTA_UNIT_SPEECH_MUTE\020\001\022\031\n\025DOTA_UNIT_A"
+  "DD_GESTURE\020\002\022\034\n\030DOTA_UNIT_REMOVE_GESTURE"
+  "\020\003\022!\n\035DOTA_UNIT_REMOVE_ALL_GESTURES\020\004\022\032\n"
+  "\026DOTA_UNIT_FADE_GESTURE\020\006\022%\n!DOTA_UNIT_S"
+  "PEECH_CLIENTSIDE_RULES\020\007*\254\006\n\023DOTA_OVERHE"
+  "AD_ALERT\022\027\n\023OVERHEAD_ALERT_GOLD\020\000\022\027\n\023OVE"
+  "RHEAD_ALERT_DENY\020\001\022\033\n\027OVERHEAD_ALERT_CRI"
+  "TICAL\020\002\022\025\n\021OVERHEAD_ALERT_XP\020\003\022%\n!OVERHE"
+  "AD_ALERT_BONUS_SPELL_DAMAGE\020\004\022\027\n\023OVERHEA"
+  "D_ALERT_MISS\020\005\022\031\n\025OVERHEAD_ALERT_DAMAGE\020"
+  "\006\022\030\n\024OVERHEAD_ALERT_EVADE\020\007\022\030\n\024OVERHEAD_"
+  "ALERT_BLOCK\020\010\022&\n\"OVERHEAD_ALERT_BONUS_PO"
+  "ISON_DAMAGE\020\t\022\027\n\023OVERHEAD_ALERT_HEAL\020\n\022\033"
+  "\n\027OVERHEAD_ALERT_MANA_ADD\020\013\022\034\n\030OVERHEAD_"
+  "ALERT_MANA_LOSS\020\014\022!\n\035OVERHEAD_ALERT_LAST"
+  "_HIT_EARLY\020\r\022!\n\035OVERHEAD_ALERT_LAST_HIT_"
+  "CLOSE\020\016\022 \n\034OVERHEAD_ALERT_LAST_HIT_MISS\020"
+  "\017\022 \n\034OVERHEAD_ALERT_MAGICAL_BLOCK\020\020\022\"\n\036O"
+  "VERHEAD_ALERT_INCOMING_DAMAGE\020\021\022\"\n\036OVERH"
+  "EAD_ALERT_OUTGOING_DAMAGE\020\022\022!\n\035OVERHEAD_"
+  "ALERT_DISABLE_RESIST\020\023\022\030\n\024OVERHEAD_ALERT"
+  "_DEATH\020\024\022\032\n\026OVERHEAD_ALERT_BLOCKED\020\025\022 \n\034"
+  "OVERHEAD_ALERT_ITEM_RECEIVED\020\026\022\030\n\024OVERHE"
+  "AD_ALERT_SHARD\020\027\022\036\n\032OVERHEAD_ALERT_DEADL"
+  "Y_BLOW\020\030\022\035\n\031OVERHEAD_ALERT_FORCE_MISS\020\031*"
+  "k\n\021DOTA_ROSHAN_PHASE\022\027\n\023k_SRSP_ROSHAN_AL"
+  "IVE\020\000\022\034\n\030k_SRSP_ROSHAN_BASE_TIMER\020\001\022\037\n\033k"
+  "_SRSP_ROSHAN_VISIBLE_TIMER\020\002*\201\004\n\026DOTA_PO"
+  "SITION_CATEGORY\022\026\n\022DOTA_POSITION_NONE\020\000\022"
+  "\035\n\031DOTA_POSITION_BOTTOM_LANE\020\001\022\032\n\026DOTA_P"
+  "OSITION_MID_LANE\020\002\022\032\n\026DOTA_POSITION_TOP_"
+  "LANE\020\003\022 \n\034DOTA_POSITION_RADIANT_JUNGLE\020\004"
+  "\022\035\n\031DOTA_POSITION_DIRE_JUNGLE\020\005\022\"\n\036DOTA_"
+  "POSITION_RADIANT_ANCIENTS\020\006\022\037\n\033DOTA_POSI"
+  "TION_DIRE_ANCIENTS\020\007\022%\n!DOTA_POSITION_RA"
+  "DIANT_SECRET_SHOP\020\010\022\"\n\036DOTA_POSITION_DIR"
+  "E_SECRET_SHOP\020\t\022\027\n\023DOTA_POSITION_RIVER\020\n"
+  "\022\034\n\030DOTA_POSITION_ROSHAN_PIT\020\013\022\036\n\032DOTA_P"
+  "OSITION_RADIANT_BASE\020\014\022\033\n\027DOTA_POSITION_"
+  "DIRE_BASE\020\r\022\032\n\026DOTA_POSITION_FOUNTAIN\020\016\022"
+  "\027\n\023DOTA_POSITION_OTHER\020\017*\346\001\n\030DOTA_ABILIT"
+  "Y_TARGET_TYPE\022\034\n\030DOTA_ABILITY_TARGET_NON"
+  "E\020\000\022\034\n\030DOTA_ABILITY_TARGET_SELF\020\001\022!\n\035DOT"
+  "A_ABILITY_TARGET_ALLY_HERO\020\002\022\"\n\036DOTA_ABI"
+  "LITY_TARGET_ALLY_CREEP\020\003\022\"\n\036DOTA_ABILITY"
+  "_TARGET_ENEMY_HERO\020\004\022#\n\037DOTA_ABILITY_TAR"
+  "GET_ENEMY_CREEP\020\005*\230\010\n\rEHeroStatType\022\030\n\024k"
+  "_EHeroStatType_None\020\000\022#\n\036k_EHeroStatType"
+  "_AxeTotalDamage\020\320\017\022\'\n\"k_EHeroStatType_Ba"
+  "ttleHungerDamage\020\321\017\022\'\n\"k_EHeroStatType_C"
+  "ounterHelixDamage\020\322\017\022\'\n\"k_EHeroStatType_"
+  "CullingBladeDamage\020\323\017\022,\n\'k_EHeroStatType"
+  "_BerserkersCallCastCount\020\324\017\0223\n.k_EHeroSt"
+  "atType_BerserkersCallHeroesHitAverage\020\325\017"
+  "\0220\n+k_EHeroStatType_BerserkersCallOtherU"
+  "nitsHit\020\326\017\0223\n.k_EHeroStatType_Berserkers"
+  "CallHeroAttacksTaken\020\327\017\0224\n/k_EHeroStatTy"
+  "pe_BerserkersCallOtherAttacksTaken\020\330\017\022*\n"
+  "%k_EHeroStatType_BattleHungerCastCount\020\331"
+  "\017\0222\n-k_EHeroStatType_BattleHungerPotenti"
+  "alDuration\020\332\017\0220\n+k_EHeroStatType_BattleH"
+  "ungerAverageDuration\020\333\017\022*\n%k_EHeroStatTy"
+  "pe_CounterHelixProcCount\020\334\017\022.\n)k_EHeroSt"
+  "atType_CounterHelixHeroProcCount\020\335\017\0221\n,k"
+  "_EHeroStatType_CounterHelixHeroesHitAver"
+  "age\020\336\017\0223\n.k_EHeroStatType_CounterHelixOt"
+  "herUnitsHitCount\020\337\017\022*\n%k_EHeroStatType_C"
+  "ullingBladeCastCount\020\340\017\022*\n%k_EHeroStatTy"
+  "pe_CullingBladeKillCount\020\341\017\0224\n/k_EHeroSt"
+  "atType_CullingBladeAverageHealthCulled\020\342"
+  "\017\0227\n2k_EHeroStatType_CullingBladeAverage"
+  "DamageAvailable\020\343\017\0220\n+k_EHeroStatType_Cu"
+  "llingBladeHeroBuffAverage\020\344\017*\344\004\n\027EPlayer"
+  "VoiceListenState\022\016\n\nkPVLS_None\020\000\022\032\n\026kPVL"
+  "S_DeniedChatBanned\020\001\022\027\n\023kPVLS_DeniedPart"
+  "ner\020\002\022&\n\"kPVLS_DeniedHLTVTalkerNotSpecta"
+  "tor\020\003\022$\n kPVLS_DeniedHLTVNoTalkerPlayerI"
+  "D\020\004\022(\n$kPVLS_DeniedHLTVTalkerNotBroadcas"
+  "ter\020\005\022\035\n\031kPVLS_DeniedTeamSpectator\020\006\022\027\n\023"
+  "kPVLS_DeniedStudent\020\010\022\034\n\030kPVLS_DeniedPri"
+  "vateCoach\020\t\022\020\n\014kPVLS_Denied\020@\022&\n\"kPVLS_A"
+  "llowHLTVTalkerIsBroadcaster\020A\022\034\n\030kPVLS_A"
+  "llowCoBroadcaster\020B\022\026\n\022kPVLS_AllowAllCha"
+  "t\020C\022\035\n\031kPVLS_AllowStudentToCoach\020D\022\034\n\030kP"
+  "VLS_AllowFellowStudent\020E\022\034\n\030kPVLS_AllowT"
+  "alkerIsCoach\020F\022\034\n\030kPVLS_AllowCoachHearTe"
+  "am\020G\022\027\n\023kPVLS_AllowSameTeam\020H\022\027\n\023kPVLS_A"
+  "llowShowcase\020I\022\033\n\027kPVLS_AllowPrivateCoac"
+  "h\020J*B\n\020EProjectionEvent\022\022\n\016ePE_FirstBloo"
+  "d\020\000\022\032\n\026ePE_Killstreak_godlike\020\001"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_dota_5fusermessages_2eproto_deps[3] = {
   &::descriptor_table_dota_5fcommonmessages_2eproto,
@@ -6658,9 +6728,9 @@ static const ::_pbi::DescriptorTable* const descriptor_table_dota_5fusermessages
 };
 static ::_pbi::once_flag descriptor_table_dota_5fusermessages_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_dota_5fusermessages_2eproto = {
-    false, false, 36552, descriptor_table_protodef_dota_5fusermessages_2eproto,
+    false, false, 36791, descriptor_table_protodef_dota_5fusermessages_2eproto,
     "dota_usermessages.proto",
-    &descriptor_table_dota_5fusermessages_2eproto_once, descriptor_table_dota_5fusermessages_2eproto_deps, 3, 180,
+    &descriptor_table_dota_5fusermessages_2eproto_once, descriptor_table_dota_5fusermessages_2eproto_deps, 3, 182,
     schemas, file_default_instances, TableStruct_dota_5fusermessages_2eproto::offsets,
     file_level_metadata_dota_5fusermessages_2eproto, file_level_enum_descriptors_dota_5fusermessages_2eproto,
     file_level_service_descriptors_dota_5fusermessages_2eproto,
@@ -6671,30 +6741,9 @@ PROTOBUF_ATTRIBUTE_WEAK const ::_pbi::DescriptorTable* descriptor_table_dota_5fu
 
 // Force running AddDescriptors() at dynamic initialization time.
 PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 static ::_pbi::AddDescriptorsRunner dynamic_init_dummy_dota_5fusermessages_2eproto(&descriptor_table_dota_5fusermessages_2eproto);
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CDOTAUserMsg_PredictionResult_Prediction_EResult_descriptor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_dota_5fusermessages_2eproto);
-  return file_level_enum_descriptors_dota_5fusermessages_2eproto[0];
-}
-bool CDOTAUserMsg_PredictionResult_Prediction_EResult_IsValid(int value) {
-  switch (value) {
-    case 1:
-    case 2:
-      return true;
-    default:
-      return false;
-  }
-}
-
-#if (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
-constexpr CDOTAUserMsg_PredictionResult_Prediction_EResult CDOTAUserMsg_PredictionResult_Prediction::k_eResult_ItemGranted;
-constexpr CDOTAUserMsg_PredictionResult_Prediction_EResult CDOTAUserMsg_PredictionResult_Prediction::k_eResult_Destroyed;
-constexpr CDOTAUserMsg_PredictionResult_Prediction_EResult CDOTAUserMsg_PredictionResult_Prediction::EResult_MIN;
-constexpr CDOTAUserMsg_PredictionResult_Prediction_EResult CDOTAUserMsg_PredictionResult_Prediction::EResult_MAX;
-constexpr int CDOTAUserMsg_PredictionResult_Prediction::EResult_ARRAYSIZE;
-#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CDOTAResponseQuerySerialized_Fact_ValueType_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_dota_5fusermessages_2eproto);
-  return file_level_enum_descriptors_dota_5fusermessages_2eproto[1];
+  return file_level_enum_descriptors_dota_5fusermessages_2eproto[0];
 }
 bool CDOTAResponseQuerySerialized_Fact_ValueType_IsValid(int value) {
   switch (value) {
@@ -6719,7 +6768,7 @@ constexpr int CDOTAResponseQuerySerialized_Fact::ValueType_ARRAYSIZE;
 #endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CDOTAUserMsg_GuildChallenge_Progress_EChallengeType_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_dota_5fusermessages_2eproto);
-  return file_level_enum_descriptors_dota_5fusermessages_2eproto[2];
+  return file_level_enum_descriptors_dota_5fusermessages_2eproto[1];
 }
 bool CDOTAUserMsg_GuildChallenge_Progress_EChallengeType_IsValid(int value) {
   switch (value) {
@@ -6742,7 +6791,7 @@ constexpr int CDOTAUserMsg_GuildChallenge_Progress::EChallengeType_ARRAYSIZE;
 #endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EDotaUserMessages_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_dota_5fusermessages_2eproto);
-  return file_level_enum_descriptors_dota_5fusermessages_2eproto[3];
+  return file_level_enum_descriptors_dota_5fusermessages_2eproto[2];
 }
 bool EDotaUserMessages_IsValid(int value) {
   switch (value) {
@@ -6812,7 +6861,6 @@ bool EDotaUserMessages_IsValid(int value) {
     case 528:
     case 529:
     case 530:
-    case 531:
     case 532:
     case 533:
     case 534:
@@ -6902,6 +6950,11 @@ bool EDotaUserMessages_IsValid(int value) {
     case 619:
     case 620:
     case 621:
+    case 622:
+    case 623:
+    case 624:
+    case 625:
+    case 626:
       return true;
     default:
       return false;
@@ -6910,7 +6963,7 @@ bool EDotaUserMessages_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* DOTA_CHAT_MESSAGE_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_dota_5fusermessages_2eproto);
-  return file_level_enum_descriptors_dota_5fusermessages_2eproto[4];
+  return file_level_enum_descriptors_dota_5fusermessages_2eproto[3];
 }
 bool DOTA_CHAT_MESSAGE_IsValid(int value) {
   switch (value) {
@@ -7033,7 +7086,7 @@ bool DOTA_CHAT_MESSAGE_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* DOTA_NO_BATTLE_POINTS_REASONS_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_dota_5fusermessages_2eproto);
-  return file_level_enum_descriptors_dota_5fusermessages_2eproto[5];
+  return file_level_enum_descriptors_dota_5fusermessages_2eproto[4];
 }
 bool DOTA_NO_BATTLE_POINTS_REASONS_IsValid(int value) {
   switch (value) {
@@ -7049,7 +7102,7 @@ bool DOTA_NO_BATTLE_POINTS_REASONS_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* DOTA_CHAT_INFORMATIONAL_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_dota_5fusermessages_2eproto);
-  return file_level_enum_descriptors_dota_5fusermessages_2eproto[6];
+  return file_level_enum_descriptors_dota_5fusermessages_2eproto[5];
 }
 bool DOTA_CHAT_INFORMATIONAL_IsValid(int value) {
   switch (value) {
@@ -7066,7 +7119,7 @@ bool DOTA_CHAT_INFORMATIONAL_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* DOTA_ABILITY_PING_TYPE_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_dota_5fusermessages_2eproto);
-  return file_level_enum_descriptors_dota_5fusermessages_2eproto[7];
+  return file_level_enum_descriptors_dota_5fusermessages_2eproto[6];
 }
 bool DOTA_ABILITY_PING_TYPE_IsValid(int value) {
   switch (value) {
@@ -7094,7 +7147,7 @@ bool DOTA_ABILITY_PING_TYPE_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* DOTA_REPLAY_STATE_EVENT_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_dota_5fusermessages_2eproto);
-  return file_level_enum_descriptors_dota_5fusermessages_2eproto[8];
+  return file_level_enum_descriptors_dota_5fusermessages_2eproto[7];
 }
 bool DOTA_REPLAY_STATE_EVENT_IsValid(int value) {
   switch (value) {
@@ -7112,7 +7165,7 @@ bool DOTA_REPLAY_STATE_EVENT_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EDotaEntityMessages_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_dota_5fusermessages_2eproto);
-  return file_level_enum_descriptors_dota_5fusermessages_2eproto[9];
+  return file_level_enum_descriptors_dota_5fusermessages_2eproto[8];
 }
 bool EDotaEntityMessages_IsValid(int value) {
   switch (value) {
@@ -7131,7 +7184,7 @@ bool EDotaEntityMessages_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* DOTA_OVERHEAD_ALERT_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_dota_5fusermessages_2eproto);
-  return file_level_enum_descriptors_dota_5fusermessages_2eproto[10];
+  return file_level_enum_descriptors_dota_5fusermessages_2eproto[9];
 }
 bool DOTA_OVERHEAD_ALERT_IsValid(int value) {
   switch (value) {
@@ -7160,6 +7213,7 @@ bool DOTA_OVERHEAD_ALERT_IsValid(int value) {
     case 22:
     case 23:
     case 24:
+    case 25:
       return true;
     default:
       return false;
@@ -7168,7 +7222,7 @@ bool DOTA_OVERHEAD_ALERT_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* DOTA_ROSHAN_PHASE_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_dota_5fusermessages_2eproto);
-  return file_level_enum_descriptors_dota_5fusermessages_2eproto[11];
+  return file_level_enum_descriptors_dota_5fusermessages_2eproto[10];
 }
 bool DOTA_ROSHAN_PHASE_IsValid(int value) {
   switch (value) {
@@ -7183,7 +7237,7 @@ bool DOTA_ROSHAN_PHASE_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* DOTA_POSITION_CATEGORY_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_dota_5fusermessages_2eproto);
-  return file_level_enum_descriptors_dota_5fusermessages_2eproto[12];
+  return file_level_enum_descriptors_dota_5fusermessages_2eproto[11];
 }
 bool DOTA_POSITION_CATEGORY_IsValid(int value) {
   switch (value) {
@@ -7211,7 +7265,7 @@ bool DOTA_POSITION_CATEGORY_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* DOTA_ABILITY_TARGET_TYPE_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_dota_5fusermessages_2eproto);
-  return file_level_enum_descriptors_dota_5fusermessages_2eproto[13];
+  return file_level_enum_descriptors_dota_5fusermessages_2eproto[12];
 }
 bool DOTA_ABILITY_TARGET_TYPE_IsValid(int value) {
   switch (value) {
@@ -7229,7 +7283,7 @@ bool DOTA_ABILITY_TARGET_TYPE_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EHeroStatType_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_dota_5fusermessages_2eproto);
-  return file_level_enum_descriptors_dota_5fusermessages_2eproto[14];
+  return file_level_enum_descriptors_dota_5fusermessages_2eproto[13];
 }
 bool EHeroStatType_IsValid(int value) {
   switch (value) {
@@ -7263,7 +7317,7 @@ bool EHeroStatType_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EPlayerVoiceListenState_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_dota_5fusermessages_2eproto);
-  return file_level_enum_descriptors_dota_5fusermessages_2eproto[15];
+  return file_level_enum_descriptors_dota_5fusermessages_2eproto[14];
 }
 bool EPlayerVoiceListenState_IsValid(int value) {
   switch (value) {
@@ -7295,7 +7349,7 @@ bool EPlayerVoiceListenState_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EProjectionEvent_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_dota_5fusermessages_2eproto);
-  return file_level_enum_descriptors_dota_5fusermessages_2eproto[16];
+  return file_level_enum_descriptors_dota_5fusermessages_2eproto[15];
 }
 bool EProjectionEvent_IsValid(int value) {
   switch (value) {
@@ -9697,6 +9751,291 @@ void CDOTAUserMsg_ProjectileParticleCPData::InternalSwap(CDOTAUserMsg_Projectile
 
 // ===================================================================
 
+class CDOTAUserMsg_UpdateLinearProjectileCPData::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CDOTAUserMsg_UpdateLinearProjectileCPData>()._impl_._has_bits_);
+  static void set_has_handle(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_control_point(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+  static const ::CMsgVector& vector(const CDOTAUserMsg_UpdateLinearProjectileCPData* msg);
+  static void set_has_vector(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+};
+
+const ::CMsgVector&
+CDOTAUserMsg_UpdateLinearProjectileCPData::_Internal::vector(const CDOTAUserMsg_UpdateLinearProjectileCPData* msg) {
+  return *msg->_impl_.vector_;
+}
+void CDOTAUserMsg_UpdateLinearProjectileCPData::clear_vector() {
+  if (_impl_.vector_ != nullptr) _impl_.vector_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+CDOTAUserMsg_UpdateLinearProjectileCPData::CDOTAUserMsg_UpdateLinearProjectileCPData(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CDOTAUserMsg_UpdateLinearProjectileCPData)
+}
+CDOTAUserMsg_UpdateLinearProjectileCPData::CDOTAUserMsg_UpdateLinearProjectileCPData(const CDOTAUserMsg_UpdateLinearProjectileCPData& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CDOTAUserMsg_UpdateLinearProjectileCPData* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.vector_){nullptr}
+    , decltype(_impl_.handle_){}
+    , decltype(_impl_.control_point_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_vector()) {
+    _this->_impl_.vector_ = new ::CMsgVector(*from._impl_.vector_);
+  }
+  ::memcpy(&_impl_.handle_, &from._impl_.handle_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.control_point_) -
+    reinterpret_cast<char*>(&_impl_.handle_)) + sizeof(_impl_.control_point_));
+  // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_UpdateLinearProjectileCPData)
+}
+
+inline void CDOTAUserMsg_UpdateLinearProjectileCPData::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.vector_){nullptr}
+    , decltype(_impl_.handle_){0}
+    , decltype(_impl_.control_point_){0}
+  };
+}
+
+CDOTAUserMsg_UpdateLinearProjectileCPData::~CDOTAUserMsg_UpdateLinearProjectileCPData() {
+  // @@protoc_insertion_point(destructor:CDOTAUserMsg_UpdateLinearProjectileCPData)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CDOTAUserMsg_UpdateLinearProjectileCPData::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  if (this != internal_default_instance()) delete _impl_.vector_;
+}
+
+void CDOTAUserMsg_UpdateLinearProjectileCPData::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CDOTAUserMsg_UpdateLinearProjectileCPData::Clear() {
+// @@protoc_insertion_point(message_clear_start:CDOTAUserMsg_UpdateLinearProjectileCPData)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    GOOGLE_DCHECK(_impl_.vector_ != nullptr);
+    _impl_.vector_->Clear();
+  }
+  if (cached_has_bits & 0x00000006u) {
+    ::memset(&_impl_.handle_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.control_point_) -
+        reinterpret_cast<char*>(&_impl_.handle_)) + sizeof(_impl_.control_point_));
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CDOTAUserMsg_UpdateLinearProjectileCPData::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional int32 handle = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _Internal::set_has_handle(&has_bits);
+          _impl_.handle_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional int32 control_point = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _Internal::set_has_control_point(&has_bits);
+          _impl_.control_point_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional .CMsgVector vector = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          ptr = ctx->ParseMessage(_internal_mutable_vector(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CDOTAUserMsg_UpdateLinearProjectileCPData::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CDOTAUserMsg_UpdateLinearProjectileCPData)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional int32 handle = 1;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_handle(), target);
+  }
+
+  // optional int32 control_point = 2;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_control_point(), target);
+  }
+
+  // optional .CMsgVector vector = 3;
+  if (cached_has_bits & 0x00000001u) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(3, _Internal::vector(this),
+        _Internal::vector(this).GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CDOTAUserMsg_UpdateLinearProjectileCPData)
+  return target;
+}
+
+size_t CDOTAUserMsg_UpdateLinearProjectileCPData::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CDOTAUserMsg_UpdateLinearProjectileCPData)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    // optional .CMsgVector vector = 3;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.vector_);
+    }
+
+    // optional int32 handle = 1;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_handle());
+    }
+
+    // optional int32 control_point = 2;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_control_point());
+    }
+
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CDOTAUserMsg_UpdateLinearProjectileCPData::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CDOTAUserMsg_UpdateLinearProjectileCPData::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CDOTAUserMsg_UpdateLinearProjectileCPData::GetClassData() const { return &_class_data_; }
+
+
+void CDOTAUserMsg_UpdateLinearProjectileCPData::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CDOTAUserMsg_UpdateLinearProjectileCPData*>(&to_msg);
+  auto& from = static_cast<const CDOTAUserMsg_UpdateLinearProjectileCPData&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CDOTAUserMsg_UpdateLinearProjectileCPData)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    if (cached_has_bits & 0x00000001u) {
+      _this->_internal_mutable_vector()->::CMsgVector::MergeFrom(
+          from._internal_vector());
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _this->_impl_.handle_ = from._impl_.handle_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _this->_impl_.control_point_ = from._impl_.control_point_;
+    }
+    _this->_impl_._has_bits_[0] |= cached_has_bits;
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CDOTAUserMsg_UpdateLinearProjectileCPData::CopyFrom(const CDOTAUserMsg_UpdateLinearProjectileCPData& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CDOTAUserMsg_UpdateLinearProjectileCPData)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CDOTAUserMsg_UpdateLinearProjectileCPData::IsInitialized() const {
+  return true;
+}
+
+void CDOTAUserMsg_UpdateLinearProjectileCPData::InternalSwap(CDOTAUserMsg_UpdateLinearProjectileCPData* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_UpdateLinearProjectileCPData, _impl_.control_point_)
+      + sizeof(CDOTAUserMsg_UpdateLinearProjectileCPData::_impl_.control_point_)
+      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_UpdateLinearProjectileCPData, _impl_.vector_)>(
+          reinterpret_cast<char*>(&_impl_.vector_),
+          reinterpret_cast<char*>(&other->_impl_.vector_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_UpdateLinearProjectileCPData::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
+      file_level_metadata_dota_5fusermessages_2eproto[8]);
+}
+
+// ===================================================================
+
 class CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability>()._impl_._has_bits_);
@@ -9924,7 +10263,7 @@ void CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability::InternalSwap(CDOTAUserMsg_Mi
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[8]);
+      file_level_metadata_dota_5fusermessages_2eproto[9]);
 }
 
 // ===================================================================
@@ -10249,7 +10588,7 @@ void CDOTAUserMsg_MiniKillCamInfo_Attacker::InternalSwap(CDOTAUserMsg_MiniKillCa
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_MiniKillCamInfo_Attacker::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[9]);
+      file_level_metadata_dota_5fusermessages_2eproto[10]);
 }
 
 // ===================================================================
@@ -10434,7 +10773,7 @@ void CDOTAUserMsg_MiniKillCamInfo::InternalSwap(CDOTAUserMsg_MiniKillCamInfo* ot
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_MiniKillCamInfo::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[10]);
+      file_level_metadata_dota_5fusermessages_2eproto[11]);
 }
 
 // ===================================================================
@@ -10671,7 +11010,7 @@ void CDOTAUserMsg_GlobalLightColor::InternalSwap(CDOTAUserMsg_GlobalLightColor* 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_GlobalLightColor::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[11]);
+      file_level_metadata_dota_5fusermessages_2eproto[12]);
 }
 
 // ===================================================================
@@ -10922,7 +11261,7 @@ void CDOTAUserMsg_GlobalLightDirection::InternalSwap(CDOTAUserMsg_GlobalLightDir
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_GlobalLightDirection::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[12]);
+      file_level_metadata_dota_5fusermessages_2eproto[13]);
 }
 
 // ===================================================================
@@ -11171,7 +11510,7 @@ void CDOTAUserMsg_LocationPing::InternalSwap(CDOTAUserMsg_LocationPing* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_LocationPing::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[13]);
+      file_level_metadata_dota_5fusermessages_2eproto[14]);
 }
 
 // ===================================================================
@@ -11486,7 +11825,7 @@ void CDOTAUserMsg_PingConfirmation::InternalSwap(CDOTAUserMsg_PingConfirmation* 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_PingConfirmation::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[14]);
+      file_level_metadata_dota_5fusermessages_2eproto[15]);
 }
 
 // ===================================================================
@@ -11735,7 +12074,7 @@ void CDOTAUserMsg_ItemAlert::InternalSwap(CDOTAUserMsg_ItemAlert* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_ItemAlert::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[15]);
+      file_level_metadata_dota_5fusermessages_2eproto[16]);
 }
 
 // ===================================================================
@@ -12147,7 +12486,7 @@ void CDOTAUserMsg_EnemyItemAlert::InternalSwap(CDOTAUserMsg_EnemyItemAlert* othe
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_EnemyItemAlert::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[16]);
+      file_level_metadata_dota_5fusermessages_2eproto[17]);
 }
 
 // ===================================================================
@@ -12531,7 +12870,7 @@ void CDOTAUserMsg_ModifierAlert::InternalSwap(CDOTAUserMsg_ModifierAlert* other)
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_ModifierAlert::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[17]);
+      file_level_metadata_dota_5fusermessages_2eproto[18]);
 }
 
 // ===================================================================
@@ -12793,7 +13132,7 @@ void CDOTAUserMsg_HPManaAlert::InternalSwap(CDOTAUserMsg_HPManaAlert* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_HPManaAlert::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[18]);
+      file_level_metadata_dota_5fusermessages_2eproto[19]);
 }
 
 // ===================================================================
@@ -13176,7 +13515,7 @@ void CDOTAUserMsg_NeutralCampAlert::InternalSwap(CDOTAUserMsg_NeutralCampAlert* 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_NeutralCampAlert::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[19]);
+      file_level_metadata_dota_5fusermessages_2eproto[20]);
 }
 
 // ===================================================================
@@ -13408,7 +13747,7 @@ void CDOTAUserMsg_GlyphAlert::InternalSwap(CDOTAUserMsg_GlyphAlert* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_GlyphAlert::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[20]);
+      file_level_metadata_dota_5fusermessages_2eproto[21]);
 }
 
 // ===================================================================
@@ -13640,7 +13979,239 @@ void CDOTAUserMsg_RadarAlert::InternalSwap(CDOTAUserMsg_RadarAlert* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_RadarAlert::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[21]);
+      file_level_metadata_dota_5fusermessages_2eproto[22]);
+}
+
+// ===================================================================
+
+class CDOTAUserMsg_RoshanTimer::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CDOTAUserMsg_RoshanTimer>()._impl_._has_bits_);
+  static void set_has_player_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_negative(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+};
+
+CDOTAUserMsg_RoshanTimer::CDOTAUserMsg_RoshanTimer(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CDOTAUserMsg_RoshanTimer)
+}
+CDOTAUserMsg_RoshanTimer::CDOTAUserMsg_RoshanTimer(const CDOTAUserMsg_RoshanTimer& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CDOTAUserMsg_RoshanTimer* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.negative_){}
+    , decltype(_impl_.player_id_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&_impl_.negative_, &from._impl_.negative_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.player_id_) -
+    reinterpret_cast<char*>(&_impl_.negative_)) + sizeof(_impl_.player_id_));
+  // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_RoshanTimer)
+}
+
+inline void CDOTAUserMsg_RoshanTimer::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.negative_){false}
+    , decltype(_impl_.player_id_){-1}
+  };
+}
+
+CDOTAUserMsg_RoshanTimer::~CDOTAUserMsg_RoshanTimer() {
+  // @@protoc_insertion_point(destructor:CDOTAUserMsg_RoshanTimer)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CDOTAUserMsg_RoshanTimer::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void CDOTAUserMsg_RoshanTimer::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CDOTAUserMsg_RoshanTimer::Clear() {
+// @@protoc_insertion_point(message_clear_start:CDOTAUserMsg_RoshanTimer)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    _impl_.negative_ = false;
+    _impl_.player_id_ = -1;
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CDOTAUserMsg_RoshanTimer::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional int32 player_id = 1 [default = -1];
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _Internal::set_has_player_id(&has_bits);
+          _impl_.player_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional bool negative = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _Internal::set_has_negative(&has_bits);
+          _impl_.negative_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CDOTAUserMsg_RoshanTimer::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CDOTAUserMsg_RoshanTimer)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional int32 player_id = 1 [default = -1];
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
+  }
+
+  // optional bool negative = 2;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(2, this->_internal_negative(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CDOTAUserMsg_RoshanTimer)
+  return target;
+}
+
+size_t CDOTAUserMsg_RoshanTimer::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CDOTAUserMsg_RoshanTimer)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    // optional bool negative = 2;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 + 1;
+    }
+
+    // optional int32 player_id = 1 [default = -1];
+    if (cached_has_bits & 0x00000002u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
+    }
+
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CDOTAUserMsg_RoshanTimer::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CDOTAUserMsg_RoshanTimer::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CDOTAUserMsg_RoshanTimer::GetClassData() const { return &_class_data_; }
+
+
+void CDOTAUserMsg_RoshanTimer::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CDOTAUserMsg_RoshanTimer*>(&to_msg);
+  auto& from = static_cast<const CDOTAUserMsg_RoshanTimer&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CDOTAUserMsg_RoshanTimer)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      _this->_impl_.negative_ = from._impl_.negative_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _this->_impl_.player_id_ = from._impl_.player_id_;
+    }
+    _this->_impl_._has_bits_[0] |= cached_has_bits;
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CDOTAUserMsg_RoshanTimer::CopyFrom(const CDOTAUserMsg_RoshanTimer& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CDOTAUserMsg_RoshanTimer)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CDOTAUserMsg_RoshanTimer::IsInitialized() const {
+  return true;
+}
+
+void CDOTAUserMsg_RoshanTimer::InternalSwap(CDOTAUserMsg_RoshanTimer* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  swap(_impl_.negative_, other->_impl_.negative_);
+  swap(_impl_.player_id_, other->_impl_.player_id_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_RoshanTimer::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
+      file_level_metadata_dota_5fusermessages_2eproto[23]);
 }
 
 // ===================================================================
@@ -13932,7 +14503,7 @@ void CDOTAUserMsg_WillPurchaseAlert::InternalSwap(CDOTAUserMsg_WillPurchaseAlert
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_WillPurchaseAlert::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[22]);
+      file_level_metadata_dota_5fusermessages_2eproto[24]);
 }
 
 // ===================================================================
@@ -14194,7 +14765,7 @@ void CDOTAUserMsg_EmptyTeleportAlert::InternalSwap(CDOTAUserMsg_EmptyTeleportAle
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_EmptyTeleportAlert::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[23]);
+      file_level_metadata_dota_5fusermessages_2eproto[25]);
 }
 
 // ===================================================================
@@ -14456,7 +15027,7 @@ void CDOTAUserMsg_MarsArenaOfBloodAttack::InternalSwap(CDOTAUserMsg_MarsArenaOfB
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_MarsArenaOfBloodAttack::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[24]);
+      file_level_metadata_dota_5fusermessages_2eproto[26]);
 }
 
 // ===================================================================
@@ -14707,7 +15278,7 @@ void CDOTAEntityMsg_InvokerSpellCast::InternalSwap(CDOTAEntityMsg_InvokerSpellCa
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAEntityMsg_InvokerSpellCast::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[25]);
+      file_level_metadata_dota_5fusermessages_2eproto[27]);
 }
 
 // ===================================================================
@@ -14898,7 +15469,7 @@ void CDOTAUserMsg_BuyBackStateAlert::InternalSwap(CDOTAUserMsg_BuyBackStateAlert
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_BuyBackStateAlert::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[26]);
+      file_level_metadata_dota_5fusermessages_2eproto[28]);
 }
 
 // ===================================================================
@@ -15223,7 +15794,7 @@ void CDOTAUserMsg_QuickBuyAlert::InternalSwap(CDOTAUserMsg_QuickBuyAlert* other)
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_QuickBuyAlert::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[27]);
+      file_level_metadata_dota_5fusermessages_2eproto[29]);
 }
 
 // ===================================================================
@@ -15455,7 +16026,7 @@ void CDOTAUserMsg_CourierKilledAlert_LostItem::InternalSwap(CDOTAUserMsg_Courier
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_CourierKilledAlert_LostItem::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[28]);
+      file_level_metadata_dota_5fusermessages_2eproto[30]);
 }
 
 // ===================================================================
@@ -15844,7 +16415,7 @@ void CDOTAUserMsg_CourierKilledAlert::InternalSwap(CDOTAUserMsg_CourierKilledAle
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_CourierKilledAlert::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[29]);
+      file_level_metadata_dota_5fusermessages_2eproto[31]);
 }
 
 // ===================================================================
@@ -16197,7 +16768,7 @@ void CDOTAUserMsg_MinimapEvent::InternalSwap(CDOTAUserMsg_MinimapEvent* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_MinimapEvent::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[30]);
+      file_level_metadata_dota_5fusermessages_2eproto[32]);
 }
 
 // ===================================================================
@@ -16446,7 +17017,7 @@ void CDOTAUserMsg_MapLine::InternalSwap(CDOTAUserMsg_MapLine* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_MapLine::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[31]);
+      file_level_metadata_dota_5fusermessages_2eproto[33]);
 }
 
 // ===================================================================
@@ -16787,7 +17358,7 @@ void CDOTAUserMsg_MinimapDebugPoint::InternalSwap(CDOTAUserMsg_MinimapDebugPoint
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_MinimapDebugPoint::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[32]);
+      file_level_metadata_dota_5fusermessages_2eproto[34]);
 }
 
 // ===================================================================
@@ -17384,7 +17955,7 @@ void CDOTAUserMsg_CreateLinearProjectile::InternalSwap(CDOTAUserMsg_CreateLinear
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_CreateLinearProjectile::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[33]);
+      file_level_metadata_dota_5fusermessages_2eproto[35]);
 }
 
 // ===================================================================
@@ -17575,7 +18146,7 @@ void CDOTAUserMsg_DestroyLinearProjectile::InternalSwap(CDOTAUserMsg_DestroyLine
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_DestroyLinearProjectile::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[34]);
+      file_level_metadata_dota_5fusermessages_2eproto[36]);
 }
 
 // ===================================================================
@@ -17808,7 +18379,7 @@ void CDOTAUserMsg_DodgeTrackingProjectiles::InternalSwap(CDOTAUserMsg_DodgeTrack
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_DodgeTrackingProjectiles::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[35]);
+      file_level_metadata_dota_5fusermessages_2eproto[37]);
 }
 
 // ===================================================================
@@ -18078,7 +18649,7 @@ void CDOTAUserMsg_SpectatorPlayerClick::InternalSwap(CDOTAUserMsg_SpectatorPlaye
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_SpectatorPlayerClick::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[36]);
+      file_level_metadata_dota_5fusermessages_2eproto[38]);
 }
 
 // ===================================================================
@@ -18544,7 +19115,7 @@ void CDOTAUserMsg_SpectatorPlayerUnitOrders::InternalSwap(CDOTAUserMsg_Spectator
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_SpectatorPlayerUnitOrders::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[37]);
+      file_level_metadata_dota_5fusermessages_2eproto[39]);
 }
 
 // ===================================================================
@@ -18859,7 +19430,7 @@ void CDOTAUserMsg_NevermoreRequiem::InternalSwap(CDOTAUserMsg_NevermoreRequiem* 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_NevermoreRequiem::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[38]);
+      file_level_metadata_dota_5fusermessages_2eproto[40]);
 }
 
 // ===================================================================
@@ -19116,7 +19687,7 @@ void CDOTAUserMsg_InvalidCommand::InternalSwap(CDOTAUserMsg_InvalidCommand* othe
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_InvalidCommand::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[39]);
+      file_level_metadata_dota_5fusermessages_2eproto[41]);
 }
 
 // ===================================================================
@@ -19353,7 +19924,7 @@ void CDOTAUserMsg_HudError::InternalSwap(CDOTAUserMsg_HudError* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_HudError::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[40]);
+      file_level_metadata_dota_5fusermessages_2eproto[42]);
 }
 
 // ===================================================================
@@ -19679,7 +20250,7 @@ void CDOTAUserMsg_SharedCooldown::InternalSwap(CDOTAUserMsg_SharedCooldown* othe
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_SharedCooldown::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[41]);
+      file_level_metadata_dota_5fusermessages_2eproto[43]);
 }
 
 // ===================================================================
@@ -19899,7 +20470,7 @@ void CDOTAUserMsg_SetNextAutobuyItem::InternalSwap(CDOTAUserMsg_SetNextAutobuyIt
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_SetNextAutobuyItem::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[42]);
+      file_level_metadata_dota_5fusermessages_2eproto[44]);
 }
 
 // ===================================================================
@@ -20162,643 +20733,6 @@ void CDOTAUserMsg_HalloweenDrops::InternalSwap(CDOTAUserMsg_HalloweenDrops* othe
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_HalloweenDrops::GetMetadata() const {
-  return ::_pbi::AssignDescriptors(
-      &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[43]);
-}
-
-// ===================================================================
-
-class CDOTAUserMsg_PredictionResult_Prediction::_Internal {
- public:
-  using HasBits = decltype(std::declval<CDOTAUserMsg_PredictionResult_Prediction>()._impl_._has_bits_);
-  static void set_has_item_def(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-  static void set_has_num_correct(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
-  }
-  static void set_has_num_fails(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
-  }
-  static void set_has_result(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
-  }
-};
-
-CDOTAUserMsg_PredictionResult_Prediction::CDOTAUserMsg_PredictionResult_Prediction(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                         bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:CDOTAUserMsg_PredictionResult.Prediction)
-}
-CDOTAUserMsg_PredictionResult_Prediction::CDOTAUserMsg_PredictionResult_Prediction(const CDOTAUserMsg_PredictionResult_Prediction& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  CDOTAUserMsg_PredictionResult_Prediction* const _this = this; (void)_this;
-  new (&_impl_) Impl_{
-      decltype(_impl_._has_bits_){from._impl_._has_bits_}
-    , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.granted_item_defs_){from._impl_.granted_item_defs_}
-    , decltype(_impl_.item_def_){}
-    , decltype(_impl_.num_correct_){}
-    , decltype(_impl_.num_fails_){}
-    , decltype(_impl_.result_){}};
-
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.item_def_, &from._impl_.item_def_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.result_) -
-    reinterpret_cast<char*>(&_impl_.item_def_)) + sizeof(_impl_.result_));
-  // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_PredictionResult.Prediction)
-}
-
-inline void CDOTAUserMsg_PredictionResult_Prediction::SharedCtor(
-    ::_pb::Arena* arena, bool is_message_owned) {
-  (void)arena;
-  (void)is_message_owned;
-  new (&_impl_) Impl_{
-      decltype(_impl_._has_bits_){}
-    , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.granted_item_defs_){arena}
-    , decltype(_impl_.item_def_){0u}
-    , decltype(_impl_.num_correct_){0u}
-    , decltype(_impl_.num_fails_){0u}
-    , decltype(_impl_.result_){1}
-  };
-}
-
-CDOTAUserMsg_PredictionResult_Prediction::~CDOTAUserMsg_PredictionResult_Prediction() {
-  // @@protoc_insertion_point(destructor:CDOTAUserMsg_PredictionResult.Prediction)
-  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
-  (void)arena;
-    return;
-  }
-  SharedDtor();
-}
-
-inline void CDOTAUserMsg_PredictionResult_Prediction::SharedDtor() {
-  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  _impl_.granted_item_defs_.~RepeatedField();
-}
-
-void CDOTAUserMsg_PredictionResult_Prediction::SetCachedSize(int size) const {
-  _impl_._cached_size_.Set(size);
-}
-
-void CDOTAUserMsg_PredictionResult_Prediction::Clear() {
-// @@protoc_insertion_point(message_clear_start:CDOTAUserMsg_PredictionResult.Prediction)
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  _impl_.granted_item_defs_.Clear();
-  cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000000fu) {
-    ::memset(&_impl_.item_def_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.num_fails_) -
-        reinterpret_cast<char*>(&_impl_.item_def_)) + sizeof(_impl_.num_fails_));
-    _impl_.result_ = 1;
-  }
-  _impl_._has_bits_.Clear();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* CDOTAUserMsg_PredictionResult_Prediction::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  _Internal::HasBits has_bits{};
-  while (!ctx->Done(&ptr)) {
-    uint32_t tag;
-    ptr = ::_pbi::ReadTag(ptr, &tag);
-    switch (tag >> 3) {
-      // optional uint32 item_def = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          _Internal::set_has_item_def(&has_bits);
-          _impl_.item_def_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // optional uint32 num_correct = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          _Internal::set_has_num_correct(&has_bits);
-          _impl_.num_correct_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // optional uint32 num_fails = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
-          _Internal::set_has_num_fails(&has_bits);
-          _impl_.num_fails_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // optional .CDOTAUserMsg_PredictionResult.Prediction.EResult result = 4 [default = k_eResult_ItemGranted];
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
-          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-          if (PROTOBUF_PREDICT_TRUE(::CDOTAUserMsg_PredictionResult_Prediction_EResult_IsValid(val))) {
-            _internal_set_result(static_cast<::CDOTAUserMsg_PredictionResult_Prediction_EResult>(val));
-          } else {
-            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(4, val, mutable_unknown_fields());
-          }
-        } else
-          goto handle_unusual;
-        continue;
-      // repeated uint32 granted_item_defs = 6;
-      case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            _internal_add_granted_item_defs(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<48>(ptr));
-        } else if (static_cast<uint8_t>(tag) == 50) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt32Parser(_internal_mutable_granted_item_defs(), ptr, ctx);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      default:
-        goto handle_unusual;
-    }  // switch
-  handle_unusual:
-    if ((tag == 0) || ((tag & 7) == 4)) {
-      CHK_(ptr);
-      ctx->SetLastTag(tag);
-      goto message_done;
-    }
-    ptr = UnknownFieldParse(
-        tag,
-        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-        ptr, ctx);
-    CHK_(ptr != nullptr);
-  }  // while
-message_done:
-  _impl_._has_bits_.Or(has_bits);
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto message_done;
-#undef CHK_
-}
-
-uint8_t* CDOTAUserMsg_PredictionResult_Prediction::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:CDOTAUserMsg_PredictionResult.Prediction)
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = _impl_._has_bits_[0];
-  // optional uint32 item_def = 1;
-  if (cached_has_bits & 0x00000001u) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_item_def(), target);
-  }
-
-  // optional uint32 num_correct = 2;
-  if (cached_has_bits & 0x00000002u) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_num_correct(), target);
-  }
-
-  // optional uint32 num_fails = 3;
-  if (cached_has_bits & 0x00000004u) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_num_fails(), target);
-  }
-
-  // optional .CDOTAUserMsg_PredictionResult.Prediction.EResult result = 4 [default = k_eResult_ItemGranted];
-  if (cached_has_bits & 0x00000008u) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteEnumToArray(
-      4, this->_internal_result(), target);
-  }
-
-  // repeated uint32 granted_item_defs = 6;
-  for (int i = 0, n = this->_internal_granted_item_defs_size(); i < n; i++) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(6, this->_internal_granted_item_defs(i), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:CDOTAUserMsg_PredictionResult.Prediction)
-  return target;
-}
-
-size_t CDOTAUserMsg_PredictionResult_Prediction::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:CDOTAUserMsg_PredictionResult.Prediction)
-  size_t total_size = 0;
-
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // repeated uint32 granted_item_defs = 6;
-  {
-    size_t data_size = ::_pbi::WireFormatLite::
-      UInt32Size(this->_impl_.granted_item_defs_);
-    total_size += 1 *
-                  ::_pbi::FromIntSize(this->_internal_granted_item_defs_size());
-    total_size += data_size;
-  }
-
-  cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000000fu) {
-    // optional uint32 item_def = 1;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_item_def());
-    }
-
-    // optional uint32 num_correct = 2;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_num_correct());
-    }
-
-    // optional uint32 num_fails = 3;
-    if (cached_has_bits & 0x00000004u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_num_fails());
-    }
-
-    // optional .CDOTAUserMsg_PredictionResult.Prediction.EResult result = 4 [default = k_eResult_ItemGranted];
-    if (cached_has_bits & 0x00000008u) {
-      total_size += 1 +
-        ::_pbi::WireFormatLite::EnumSize(this->_internal_result());
-    }
-
-  }
-  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
-}
-
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CDOTAUserMsg_PredictionResult_Prediction::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
-    CDOTAUserMsg_PredictionResult_Prediction::MergeImpl
-};
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CDOTAUserMsg_PredictionResult_Prediction::GetClassData() const { return &_class_data_; }
-
-
-void CDOTAUserMsg_PredictionResult_Prediction::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<CDOTAUserMsg_PredictionResult_Prediction*>(&to_msg);
-  auto& from = static_cast<const CDOTAUserMsg_PredictionResult_Prediction&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:CDOTAUserMsg_PredictionResult.Prediction)
-  GOOGLE_DCHECK_NE(&from, _this);
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  _this->_impl_.granted_item_defs_.MergeFrom(from._impl_.granted_item_defs_);
-  cached_has_bits = from._impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000000fu) {
-    if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.item_def_ = from._impl_.item_def_;
-    }
-    if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.num_correct_ = from._impl_.num_correct_;
-    }
-    if (cached_has_bits & 0x00000004u) {
-      _this->_impl_.num_fails_ = from._impl_.num_fails_;
-    }
-    if (cached_has_bits & 0x00000008u) {
-      _this->_impl_.result_ = from._impl_.result_;
-    }
-    _this->_impl_._has_bits_[0] |= cached_has_bits;
-  }
-  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-}
-
-void CDOTAUserMsg_PredictionResult_Prediction::CopyFrom(const CDOTAUserMsg_PredictionResult_Prediction& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:CDOTAUserMsg_PredictionResult.Prediction)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool CDOTAUserMsg_PredictionResult_Prediction::IsInitialized() const {
-  return true;
-}
-
-void CDOTAUserMsg_PredictionResult_Prediction::InternalSwap(CDOTAUserMsg_PredictionResult_Prediction* other) {
-  using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  _impl_.granted_item_defs_.InternalSwap(&other->_impl_.granted_item_defs_);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_PredictionResult_Prediction, _impl_.num_fails_)
-      + sizeof(CDOTAUserMsg_PredictionResult_Prediction::_impl_.num_fails_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_PredictionResult_Prediction, _impl_.item_def_)>(
-          reinterpret_cast<char*>(&_impl_.item_def_),
-          reinterpret_cast<char*>(&other->_impl_.item_def_));
-  swap(_impl_.result_, other->_impl_.result_);
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_PredictionResult_Prediction::GetMetadata() const {
-  return ::_pbi::AssignDescriptors(
-      &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[44]);
-}
-
-// ===================================================================
-
-class CDOTAUserMsg_PredictionResult::_Internal {
- public:
-  using HasBits = decltype(std::declval<CDOTAUserMsg_PredictionResult>()._impl_._has_bits_);
-  static void set_has_account_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
-  }
-  static void set_has_match_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-  static void set_has_correct(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
-  }
-};
-
-CDOTAUserMsg_PredictionResult::CDOTAUserMsg_PredictionResult(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                         bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:CDOTAUserMsg_PredictionResult)
-}
-CDOTAUserMsg_PredictionResult::CDOTAUserMsg_PredictionResult(const CDOTAUserMsg_PredictionResult& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  CDOTAUserMsg_PredictionResult* const _this = this; (void)_this;
-  new (&_impl_) Impl_{
-      decltype(_impl_._has_bits_){from._impl_._has_bits_}
-    , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.predictions_){from._impl_.predictions_}
-    , decltype(_impl_.match_id_){}
-    , decltype(_impl_.account_id_){}
-    , decltype(_impl_.correct_){}};
-
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.match_id_, &from._impl_.match_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.correct_) -
-    reinterpret_cast<char*>(&_impl_.match_id_)) + sizeof(_impl_.correct_));
-  // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_PredictionResult)
-}
-
-inline void CDOTAUserMsg_PredictionResult::SharedCtor(
-    ::_pb::Arena* arena, bool is_message_owned) {
-  (void)arena;
-  (void)is_message_owned;
-  new (&_impl_) Impl_{
-      decltype(_impl_._has_bits_){}
-    , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.predictions_){arena}
-    , decltype(_impl_.match_id_){uint64_t{0u}}
-    , decltype(_impl_.account_id_){0u}
-    , decltype(_impl_.correct_){false}
-  };
-}
-
-CDOTAUserMsg_PredictionResult::~CDOTAUserMsg_PredictionResult() {
-  // @@protoc_insertion_point(destructor:CDOTAUserMsg_PredictionResult)
-  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
-  (void)arena;
-    return;
-  }
-  SharedDtor();
-}
-
-inline void CDOTAUserMsg_PredictionResult::SharedDtor() {
-  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  _impl_.predictions_.~RepeatedPtrField();
-}
-
-void CDOTAUserMsg_PredictionResult::SetCachedSize(int size) const {
-  _impl_._cached_size_.Set(size);
-}
-
-void CDOTAUserMsg_PredictionResult::Clear() {
-// @@protoc_insertion_point(message_clear_start:CDOTAUserMsg_PredictionResult)
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  _impl_.predictions_.Clear();
-  cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000007u) {
-    ::memset(&_impl_.match_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.correct_) -
-        reinterpret_cast<char*>(&_impl_.match_id_)) + sizeof(_impl_.correct_));
-  }
-  _impl_._has_bits_.Clear();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* CDOTAUserMsg_PredictionResult::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  _Internal::HasBits has_bits{};
-  while (!ctx->Done(&ptr)) {
-    uint32_t tag;
-    ptr = ::_pbi::ReadTag(ptr, &tag);
-    switch (tag >> 3) {
-      // optional uint32 account_id = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          _Internal::set_has_account_id(&has_bits);
-          _impl_.account_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // optional uint64 match_id = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          _Internal::set_has_match_id(&has_bits);
-          _impl_.match_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // optional bool correct = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
-          _Internal::set_has_correct(&has_bits);
-          _impl_.correct_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // repeated .CDOTAUserMsg_PredictionResult.Prediction predictions = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_predictions(), ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
-        } else
-          goto handle_unusual;
-        continue;
-      default:
-        goto handle_unusual;
-    }  // switch
-  handle_unusual:
-    if ((tag == 0) || ((tag & 7) == 4)) {
-      CHK_(ptr);
-      ctx->SetLastTag(tag);
-      goto message_done;
-    }
-    ptr = UnknownFieldParse(
-        tag,
-        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-        ptr, ctx);
-    CHK_(ptr != nullptr);
-  }  // while
-message_done:
-  _impl_._has_bits_.Or(has_bits);
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto message_done;
-#undef CHK_
-}
-
-uint8_t* CDOTAUserMsg_PredictionResult::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:CDOTAUserMsg_PredictionResult)
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = _impl_._has_bits_[0];
-  // optional uint32 account_id = 1;
-  if (cached_has_bits & 0x00000002u) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_account_id(), target);
-  }
-
-  // optional uint64 match_id = 2;
-  if (cached_has_bits & 0x00000001u) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(2, this->_internal_match_id(), target);
-  }
-
-  // optional bool correct = 3;
-  if (cached_has_bits & 0x00000004u) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteBoolToArray(3, this->_internal_correct(), target);
-  }
-
-  // repeated .CDOTAUserMsg_PredictionResult.Prediction predictions = 4;
-  for (unsigned i = 0,
-      n = static_cast<unsigned>(this->_internal_predictions_size()); i < n; i++) {
-    const auto& repfield = this->_internal_predictions(i);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-        InternalWriteMessage(4, repfield, repfield.GetCachedSize(), target, stream);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:CDOTAUserMsg_PredictionResult)
-  return target;
-}
-
-size_t CDOTAUserMsg_PredictionResult::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:CDOTAUserMsg_PredictionResult)
-  size_t total_size = 0;
-
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // repeated .CDOTAUserMsg_PredictionResult.Prediction predictions = 4;
-  total_size += 1UL * this->_internal_predictions_size();
-  for (const auto& msg : this->_impl_.predictions_) {
-    total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
-  }
-
-  cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000007u) {
-    // optional uint64 match_id = 2;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_match_id());
-    }
-
-    // optional uint32 account_id = 1;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_account_id());
-    }
-
-    // optional bool correct = 3;
-    if (cached_has_bits & 0x00000004u) {
-      total_size += 1 + 1;
-    }
-
-  }
-  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
-}
-
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CDOTAUserMsg_PredictionResult::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
-    CDOTAUserMsg_PredictionResult::MergeImpl
-};
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CDOTAUserMsg_PredictionResult::GetClassData() const { return &_class_data_; }
-
-
-void CDOTAUserMsg_PredictionResult::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<CDOTAUserMsg_PredictionResult*>(&to_msg);
-  auto& from = static_cast<const CDOTAUserMsg_PredictionResult&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:CDOTAUserMsg_PredictionResult)
-  GOOGLE_DCHECK_NE(&from, _this);
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  _this->_impl_.predictions_.MergeFrom(from._impl_.predictions_);
-  cached_has_bits = from._impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000007u) {
-    if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.match_id_ = from._impl_.match_id_;
-    }
-    if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.account_id_ = from._impl_.account_id_;
-    }
-    if (cached_has_bits & 0x00000004u) {
-      _this->_impl_.correct_ = from._impl_.correct_;
-    }
-    _this->_impl_._has_bits_[0] |= cached_has_bits;
-  }
-  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-}
-
-void CDOTAUserMsg_PredictionResult::CopyFrom(const CDOTAUserMsg_PredictionResult& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:CDOTAUserMsg_PredictionResult)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool CDOTAUserMsg_PredictionResult::IsInitialized() const {
-  return true;
-}
-
-void CDOTAUserMsg_PredictionResult::InternalSwap(CDOTAUserMsg_PredictionResult* other) {
-  using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  _impl_.predictions_.InternalSwap(&other->_impl_.predictions_);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_PredictionResult, _impl_.correct_)
-      + sizeof(CDOTAUserMsg_PredictionResult::_impl_.correct_)
-      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_PredictionResult, _impl_.match_id_)>(
-          reinterpret_cast<char*>(&_impl_.match_id_),
-          reinterpret_cast<char*>(&other->_impl_.match_id_));
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_PredictionResult::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
       file_level_metadata_dota_5fusermessages_2eproto[45]);
@@ -26482,7 +26416,7 @@ inline void CDOTAUserMsg_ChatWheel::SharedCtor(
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.account_id_){0u}
-    , decltype(_impl_.param_hero_id_){0u}
+    , decltype(_impl_.param_hero_id_){0}
     , decltype(_impl_.emoticon_id_){0u}
     , decltype(_impl_.chat_message_id_){4294967295u}
     , decltype(_impl_.player_id_){-1}
@@ -26558,7 +26492,7 @@ const char* CDOTAUserMsg_ChatWheel::_InternalParse(const char* ptr, ::_pbi::Pars
         } else
           goto handle_unusual;
         continue;
-      // optional uint32 param_hero_id = 4;
+      // optional int32 param_hero_id = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
           _Internal::set_has_param_hero_id(&has_bits);
@@ -26625,10 +26559,10 @@ uint8_t* CDOTAUserMsg_ChatWheel::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_account_id(), target);
   }
 
-  // optional uint32 param_hero_id = 4;
+  // optional int32 param_hero_id = 4;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(4, this->_internal_param_hero_id(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(4, this->_internal_param_hero_id(), target);
   }
 
   // optional uint32 emoticon_id = 5;
@@ -26660,9 +26594,9 @@ size_t CDOTAUserMsg_ChatWheel::ByteSizeLong() const {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_account_id());
     }
 
-    // optional uint32 param_hero_id = 4;
+    // optional int32 param_hero_id = 4;
     if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_param_hero_id());
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_param_hero_id());
     }
 
     // optional uint32 emoticon_id = 5;
@@ -27121,7 +27055,7 @@ inline void CDOTAUserMsg_ShowSurvey::SharedCtor(
     , decltype(_impl_.teammate_name_){}
     , decltype(_impl_.match_id_){uint64_t{0u}}
     , decltype(_impl_.survey_id_){0}
-    , decltype(_impl_.teammate_hero_id_){0u}
+    , decltype(_impl_.teammate_hero_id_){0}
     , decltype(_impl_.teammate_account_id_){0u}
   };
   _impl_.response_style_.InitDefault();
@@ -27214,7 +27148,7 @@ const char* CDOTAUserMsg_ShowSurvey::_InternalParse(const char* ptr, ::_pbi::Par
         } else
           goto handle_unusual;
         continue;
-      // optional uint32 teammate_hero_id = 4;
+      // optional int32 teammate_hero_id = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
           _Internal::set_has_teammate_hero_id(&has_bits);
@@ -27297,10 +27231,10 @@ uint8_t* CDOTAUserMsg_ShowSurvey::_InternalSerialize(
         3, this->_internal_response_style(), target);
   }
 
-  // optional uint32 teammate_hero_id = 4;
+  // optional int32 teammate_hero_id = 4;
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(4, this->_internal_teammate_hero_id(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(4, this->_internal_teammate_hero_id(), target);
   }
 
   // optional string teammate_name = 5;
@@ -27361,9 +27295,9 @@ size_t CDOTAUserMsg_ShowSurvey::ByteSizeLong() const {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_survey_id());
     }
 
-    // optional uint32 teammate_hero_id = 4;
+    // optional int32 teammate_hero_id = 4;
     if (cached_has_bits & 0x00000010u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_teammate_hero_id());
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_teammate_hero_id());
     }
 
     // optional uint32 teammate_account_id = 6;
@@ -32338,13 +32272,13 @@ class CDOTAUserMsg_AbilityPing::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_AbilityPing>()._impl_._has_bits_);
   static void set_has_player_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 1024u;
+    (*has_bits)[0] |= 512u;
   }
   static void set_has_ability_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 2048u;
+    (*has_bits)[0] |= 1024u;
   }
   static void set_has_type(HasBits* has_bits) {
-    (*has_bits)[0] |= 512u;
+    (*has_bits)[0] |= 2048u;
   }
   static void set_has_cooldown_seconds(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
@@ -32373,6 +32307,9 @@ class CDOTAUserMsg_AbilityPing::_Internal {
   static void set_has_reclaim_time(HasBits* has_bits) {
     (*has_bits)[0] |= 256u;
   }
+  static void set_has_owner_entity(HasBits* has_bits) {
+    (*has_bits)[0] |= 4096u;
+  }
 };
 
 CDOTAUserMsg_AbilityPing::CDOTAUserMsg_AbilityPing(::PROTOBUF_NAMESPACE_ID::Arena* arena,
@@ -32396,14 +32333,15 @@ CDOTAUserMsg_AbilityPing::CDOTAUserMsg_AbilityPing(const CDOTAUserMsg_AbilityPin
     , decltype(_impl_.ctrl_held_){}
     , decltype(_impl_.secondary_charges_){}
     , decltype(_impl_.reclaim_time_){}
-    , decltype(_impl_.type_){}
     , decltype(_impl_.player_id_){}
-    , decltype(_impl_.ability_id_){}};
+    , decltype(_impl_.ability_id_){}
+    , decltype(_impl_.type_){}
+    , decltype(_impl_.owner_entity_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&_impl_.cooldown_seconds_, &from._impl_.cooldown_seconds_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.ability_id_) -
-    reinterpret_cast<char*>(&_impl_.cooldown_seconds_)) + sizeof(_impl_.ability_id_));
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.owner_entity_) -
+    reinterpret_cast<char*>(&_impl_.cooldown_seconds_)) + sizeof(_impl_.owner_entity_));
   // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_AbilityPing)
 }
 
@@ -32423,9 +32361,10 @@ inline void CDOTAUserMsg_AbilityPing::SharedCtor(
     , decltype(_impl_.ctrl_held_){false}
     , decltype(_impl_.secondary_charges_){0}
     , decltype(_impl_.reclaim_time_){0}
-    , decltype(_impl_.type_){1}
     , decltype(_impl_.player_id_){-1}
     , decltype(_impl_.ability_id_){-1}
+    , decltype(_impl_.type_){1}
+    , decltype(_impl_.owner_entity_){-1}
   };
 }
 
@@ -32458,11 +32397,12 @@ void CDOTAUserMsg_AbilityPing::Clear() {
         reinterpret_cast<char*>(&_impl_.secondary_charges_) -
         reinterpret_cast<char*>(&_impl_.cooldown_seconds_)) + sizeof(_impl_.secondary_charges_));
   }
-  if (cached_has_bits & 0x00000f00u) {
+  if (cached_has_bits & 0x00001f00u) {
     _impl_.reclaim_time_ = 0;
-    _impl_.type_ = 1;
     _impl_.player_id_ = -1;
     _impl_.ability_id_ = -1;
+    _impl_.type_ = 1;
+    _impl_.owner_entity_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -32587,6 +32527,15 @@ const char* CDOTAUserMsg_AbilityPing::_InternalParse(const char* ptr, ::_pbi::Pa
         } else
           goto handle_unusual;
         continue;
+      // optional int32 owner_entity = 14 [default = -1];
+      case 14:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 112)) {
+          _Internal::set_has_owner_entity(&has_bits);
+          _impl_.owner_entity_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
       default:
         goto handle_unusual;
     }  // switch
@@ -32619,19 +32568,19 @@ uint8_t* CDOTAUserMsg_AbilityPing::_InternalSerialize(
 
   cached_has_bits = _impl_._has_bits_[0];
   // optional int32 player_id = 1 [default = -1];
-  if (cached_has_bits & 0x00000400u) {
+  if (cached_has_bits & 0x00000200u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
   }
 
   // optional int32 ability_id = 2 [default = -1];
-  if (cached_has_bits & 0x00000800u) {
+  if (cached_has_bits & 0x00000400u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_ability_id(), target);
   }
 
   // optional .DOTA_ABILITY_PING_TYPE type = 3 [default = ABILITY_PING_READY];
-  if (cached_has_bits & 0x00000200u) {
+  if (cached_has_bits & 0x00000800u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteEnumToArray(
       3, this->_internal_type(), target);
@@ -32689,6 +32638,12 @@ uint8_t* CDOTAUserMsg_AbilityPing::_InternalSerialize(
   if (cached_has_bits & 0x00000100u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteFloatToArray(13, this->_internal_reclaim_time(), target);
+  }
+
+  // optional int32 owner_entity = 14 [default = -1];
+  if (cached_has_bits & 0x00001000u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(14, this->_internal_owner_entity(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -32750,26 +32705,31 @@ size_t CDOTAUserMsg_AbilityPing::ByteSizeLong() const {
     }
 
   }
-  if (cached_has_bits & 0x00000f00u) {
+  if (cached_has_bits & 0x00001f00u) {
     // optional float reclaim_time = 13;
     if (cached_has_bits & 0x00000100u) {
       total_size += 1 + 4;
     }
 
-    // optional .DOTA_ABILITY_PING_TYPE type = 3 [default = ABILITY_PING_READY];
-    if (cached_has_bits & 0x00000200u) {
-      total_size += 1 +
-        ::_pbi::WireFormatLite::EnumSize(this->_internal_type());
-    }
-
     // optional int32 player_id = 1 [default = -1];
-    if (cached_has_bits & 0x00000400u) {
+    if (cached_has_bits & 0x00000200u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
     }
 
     // optional int32 ability_id = 2 [default = -1];
-    if (cached_has_bits & 0x00000800u) {
+    if (cached_has_bits & 0x00000400u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_ability_id());
+    }
+
+    // optional .DOTA_ABILITY_PING_TYPE type = 3 [default = ABILITY_PING_READY];
+    if (cached_has_bits & 0x00000800u) {
+      total_size += 1 +
+        ::_pbi::WireFormatLite::EnumSize(this->_internal_type());
+    }
+
+    // optional int32 owner_entity = 14 [default = -1];
+    if (cached_has_bits & 0x00001000u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_owner_entity());
     }
 
   }
@@ -32819,18 +32779,21 @@ void CDOTAUserMsg_AbilityPing::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_ms
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
-  if (cached_has_bits & 0x00000f00u) {
+  if (cached_has_bits & 0x00001f00u) {
     if (cached_has_bits & 0x00000100u) {
       _this->_impl_.reclaim_time_ = from._impl_.reclaim_time_;
     }
     if (cached_has_bits & 0x00000200u) {
-      _this->_impl_.type_ = from._impl_.type_;
-    }
-    if (cached_has_bits & 0x00000400u) {
       _this->_impl_.player_id_ = from._impl_.player_id_;
     }
-    if (cached_has_bits & 0x00000800u) {
+    if (cached_has_bits & 0x00000400u) {
       _this->_impl_.ability_id_ = from._impl_.ability_id_;
+    }
+    if (cached_has_bits & 0x00000800u) {
+      _this->_impl_.type_ = from._impl_.type_;
+    }
+    if (cached_has_bits & 0x00001000u) {
+      _this->_impl_.owner_entity_ = from._impl_.owner_entity_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -32858,9 +32821,10 @@ void CDOTAUserMsg_AbilityPing::InternalSwap(CDOTAUserMsg_AbilityPing* other) {
       - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_AbilityPing, _impl_.cooldown_seconds_)>(
           reinterpret_cast<char*>(&_impl_.cooldown_seconds_),
           reinterpret_cast<char*>(&other->_impl_.cooldown_seconds_));
-  swap(_impl_.type_, other->_impl_.type_);
   swap(_impl_.player_id_, other->_impl_.player_id_);
   swap(_impl_.ability_id_, other->_impl_.ability_id_);
+  swap(_impl_.type_, other->_impl_.type_);
+  swap(_impl_.owner_entity_, other->_impl_.owner_entity_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_AbilityPing::GetMetadata() const {
@@ -35197,199 +35161,6 @@ void CDOTAUserMsg_BoosterState::InternalSwap(CDOTAUserMsg_BoosterState* other) {
 
 // ===================================================================
 
-class CDOTAUserMsg_PlayerMMR::_Internal {
- public:
-};
-
-CDOTAUserMsg_PlayerMMR::CDOTAUserMsg_PlayerMMR(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                         bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:CDOTAUserMsg_PlayerMMR)
-}
-CDOTAUserMsg_PlayerMMR::CDOTAUserMsg_PlayerMMR(const CDOTAUserMsg_PlayerMMR& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  CDOTAUserMsg_PlayerMMR* const _this = this; (void)_this;
-  new (&_impl_) Impl_{
-      decltype(_impl_.mmr_){from._impl_.mmr_}
-    , /*decltype(_impl_._mmr_cached_byte_size_)*/{0}
-    , /*decltype(_impl_._cached_size_)*/{}};
-
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_PlayerMMR)
-}
-
-inline void CDOTAUserMsg_PlayerMMR::SharedCtor(
-    ::_pb::Arena* arena, bool is_message_owned) {
-  (void)arena;
-  (void)is_message_owned;
-  new (&_impl_) Impl_{
-      decltype(_impl_.mmr_){arena}
-    , /*decltype(_impl_._mmr_cached_byte_size_)*/{0}
-    , /*decltype(_impl_._cached_size_)*/{}
-  };
-}
-
-CDOTAUserMsg_PlayerMMR::~CDOTAUserMsg_PlayerMMR() {
-  // @@protoc_insertion_point(destructor:CDOTAUserMsg_PlayerMMR)
-  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
-  (void)arena;
-    return;
-  }
-  SharedDtor();
-}
-
-inline void CDOTAUserMsg_PlayerMMR::SharedDtor() {
-  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  _impl_.mmr_.~RepeatedField();
-}
-
-void CDOTAUserMsg_PlayerMMR::SetCachedSize(int size) const {
-  _impl_._cached_size_.Set(size);
-}
-
-void CDOTAUserMsg_PlayerMMR::Clear() {
-// @@protoc_insertion_point(message_clear_start:CDOTAUserMsg_PlayerMMR)
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  _impl_.mmr_.Clear();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* CDOTAUserMsg_PlayerMMR::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    uint32_t tag;
-    ptr = ::_pbi::ReadTag(ptr, &tag);
-    switch (tag >> 3) {
-      // repeated sint32 mmr = 1 [packed = true];
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedSInt32Parser(_internal_mutable_mmr(), ptr, ctx);
-          CHK_(ptr);
-        } else if (static_cast<uint8_t>(tag) == 8) {
-          _internal_add_mmr(::PROTOBUF_NAMESPACE_ID::internal::ReadVarintZigZag32(&ptr));
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      default:
-        goto handle_unusual;
-    }  // switch
-  handle_unusual:
-    if ((tag == 0) || ((tag & 7) == 4)) {
-      CHK_(ptr);
-      ctx->SetLastTag(tag);
-      goto message_done;
-    }
-    ptr = UnknownFieldParse(
-        tag,
-        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-        ptr, ctx);
-    CHK_(ptr != nullptr);
-  }  // while
-message_done:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto message_done;
-#undef CHK_
-}
-
-uint8_t* CDOTAUserMsg_PlayerMMR::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:CDOTAUserMsg_PlayerMMR)
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // repeated sint32 mmr = 1 [packed = true];
-  {
-    int byte_size = _impl_._mmr_cached_byte_size_.load(std::memory_order_relaxed);
-    if (byte_size > 0) {
-      target = stream->WriteSInt32Packed(
-          1, _internal_mmr(), byte_size, target);
-    }
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:CDOTAUserMsg_PlayerMMR)
-  return target;
-}
-
-size_t CDOTAUserMsg_PlayerMMR::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:CDOTAUserMsg_PlayerMMR)
-  size_t total_size = 0;
-
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // repeated sint32 mmr = 1 [packed = true];
-  {
-    size_t data_size = ::_pbi::WireFormatLite::
-      SInt32Size(this->_impl_.mmr_);
-    if (data_size > 0) {
-      total_size += 1 +
-        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
-    }
-    int cached_size = ::_pbi::ToCachedSize(data_size);
-    _impl_._mmr_cached_byte_size_.store(cached_size,
-                                    std::memory_order_relaxed);
-    total_size += data_size;
-  }
-
-  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
-}
-
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CDOTAUserMsg_PlayerMMR::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
-    CDOTAUserMsg_PlayerMMR::MergeImpl
-};
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CDOTAUserMsg_PlayerMMR::GetClassData() const { return &_class_data_; }
-
-
-void CDOTAUserMsg_PlayerMMR::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<CDOTAUserMsg_PlayerMMR*>(&to_msg);
-  auto& from = static_cast<const CDOTAUserMsg_PlayerMMR&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:CDOTAUserMsg_PlayerMMR)
-  GOOGLE_DCHECK_NE(&from, _this);
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  _this->_impl_.mmr_.MergeFrom(from._impl_.mmr_);
-  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-}
-
-void CDOTAUserMsg_PlayerMMR::CopyFrom(const CDOTAUserMsg_PlayerMMR& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:CDOTAUserMsg_PlayerMMR)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool CDOTAUserMsg_PlayerMMR::IsInitialized() const {
-  return true;
-}
-
-void CDOTAUserMsg_PlayerMMR::InternalSwap(CDOTAUserMsg_PlayerMMR* other) {
-  using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  _impl_.mmr_.InternalSwap(&other->_impl_.mmr_);
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_PlayerMMR::GetMetadata() const {
-  return ::_pbi::AssignDescriptors(
-      &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[96]);
-}
-
-// ===================================================================
-
 class CDOTAUserMsg_AbilitySteal::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_AbilitySteal>()._impl_._has_bits_);
@@ -35647,7 +35418,7 @@ void CDOTAUserMsg_AbilitySteal::InternalSwap(CDOTAUserMsg_AbilitySteal* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_AbilitySteal::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[97]);
+      file_level_metadata_dota_5fusermessages_2eproto[96]);
 }
 
 // ===================================================================
@@ -35997,7 +35768,7 @@ void CDOTAUserMsg_StatsHeroLookup::InternalSwap(CDOTAUserMsg_StatsHeroLookup* ot
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_StatsHeroLookup::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[98]);
+      file_level_metadata_dota_5fusermessages_2eproto[97]);
 }
 
 // ===================================================================
@@ -36240,7 +36011,7 @@ void CDOTAUserMsg_StatsHeroPositionInfo_PositionPair::InternalSwap(CDOTAUserMsg_
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_StatsHeroPositionInfo_PositionPair::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[99]);
+      file_level_metadata_dota_5fusermessages_2eproto[98]);
 }
 
 // ===================================================================
@@ -36465,7 +36236,7 @@ void CDOTAUserMsg_StatsHeroPositionInfo::InternalSwap(CDOTAUserMsg_StatsHeroPosi
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_StatsHeroPositionInfo::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[100]);
+      file_level_metadata_dota_5fusermessages_2eproto[99]);
 }
 
 // ===================================================================
@@ -37119,7 +36890,7 @@ void CDOTAUserMsg_StatsHeroMinuteDetails::InternalSwap(CDOTAUserMsg_StatsHeroMin
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_StatsHeroMinuteDetails::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[101]);
+      file_level_metadata_dota_5fusermessages_2eproto[100]);
 }
 
 // ===================================================================
@@ -37384,7 +37155,7 @@ void CDOTAUserMsg_StatsTeamMinuteDetails_LocationPerformance::InternalSwap(CDOTA
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_StatsTeamMinuteDetails_LocationPerformance::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[102]);
+      file_level_metadata_dota_5fusermessages_2eproto[101]);
 }
 
 // ===================================================================
@@ -37857,7 +37628,7 @@ void CDOTAUserMsg_StatsTeamMinuteDetails::InternalSwap(CDOTAUserMsg_StatsTeamMin
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_StatsTeamMinuteDetails::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[103]);
+      file_level_metadata_dota_5fusermessages_2eproto[102]);
 }
 
 // ===================================================================
@@ -38208,7 +37979,7 @@ void CDOTAUserMsg_StatsPlayerKillShare::InternalSwap(CDOTAUserMsg_StatsPlayerKil
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_StatsPlayerKillShare::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[104]);
+      file_level_metadata_dota_5fusermessages_2eproto[103]);
 }
 
 // ===================================================================
@@ -38567,7 +38338,7 @@ void CDOTAUserMsg_StatsKillDetails::InternalSwap(CDOTAUserMsg_StatsKillDetails* 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_StatsKillDetails::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[105]);
+      file_level_metadata_dota_5fusermessages_2eproto[104]);
 }
 
 // ===================================================================
@@ -38878,7 +38649,7 @@ void CDOTAUserMsg_StatsMatchDetails_CDOTAUserMsg_StatsFightTeamDetails::Internal
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_StatsMatchDetails_CDOTAUserMsg_StatsFightTeamDetails::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[106]);
+      file_level_metadata_dota_5fusermessages_2eproto[105]);
 }
 
 // ===================================================================
@@ -39205,7 +38976,7 @@ void CDOTAUserMsg_StatsMatchDetails_CDOTAUserMsg_StatsFightDetails::InternalSwap
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_StatsMatchDetails_CDOTAUserMsg_StatsFightDetails::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[107]);
+      file_level_metadata_dota_5fusermessages_2eproto[106]);
 }
 
 // ===================================================================
@@ -39560,7 +39331,7 @@ void CDOTAUserMsg_StatsMatchDetails::InternalSwap(CDOTAUserMsg_StatsMatchDetails
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_StatsMatchDetails::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[108]);
+      file_level_metadata_dota_5fusermessages_2eproto[107]);
 }
 
 // ===================================================================
@@ -39751,7 +39522,7 @@ void CDOTAUserMsg_MiniTaunt::InternalSwap(CDOTAUserMsg_MiniTaunt* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_MiniTaunt::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[109]);
+      file_level_metadata_dota_5fusermessages_2eproto[108]);
 }
 
 // ===================================================================
@@ -39942,7 +39713,7 @@ void CDOTAUserMsg_SpeechBubble::InternalSwap(CDOTAUserMsg_SpeechBubble* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_SpeechBubble::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[110]);
+      file_level_metadata_dota_5fusermessages_2eproto[109]);
 }
 
 // ===================================================================
@@ -40268,7 +40039,7 @@ void CDOTAUserMsg_CustomHeaderMessage::InternalSwap(CDOTAUserMsg_CustomHeaderMes
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_CustomHeaderMessage::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[111]);
+      file_level_metadata_dota_5fusermessages_2eproto[110]);
 }
 
 // ===================================================================
@@ -40539,7 +40310,7 @@ void CMsgHeroAbilityStat::InternalSwap(CMsgHeroAbilityStat* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgHeroAbilityStat::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[112]);
+      file_level_metadata_dota_5fusermessages_2eproto[111]);
 }
 
 // ===================================================================
@@ -40764,7 +40535,7 @@ void CMsgCombatAnalyzerPlayerStat::InternalSwap(CMsgCombatAnalyzerPlayerStat* ot
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgCombatAnalyzerPlayerStat::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[113]);
+      file_level_metadata_dota_5fusermessages_2eproto[112]);
 }
 
 // ===================================================================
@@ -40989,7 +40760,7 @@ void CMsgCombatAnalyzerStats::InternalSwap(CMsgCombatAnalyzerStats* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgCombatAnalyzerStats::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[114]);
+      file_level_metadata_dota_5fusermessages_2eproto[113]);
 }
 
 // ===================================================================
@@ -41362,7 +41133,7 @@ void CDOTAUserMsg_BeastChat::InternalSwap(CDOTAUserMsg_BeastChat* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_BeastChat::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[115]);
+      file_level_metadata_dota_5fusermessages_2eproto[114]);
 }
 
 // ===================================================================
@@ -41696,7 +41467,7 @@ void CDOTAUserMsg_CustomHudElement_Create::InternalSwap(CDOTAUserMsg_CustomHudEl
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_CustomHudElement_Create::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[116]);
+      file_level_metadata_dota_5fusermessages_2eproto[115]);
 }
 
 // ===================================================================
@@ -42005,7 +41776,7 @@ void CDOTAUserMsg_CustomHudElement_Modify::InternalSwap(CDOTAUserMsg_CustomHudEl
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_CustomHudElement_Modify::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[117]);
+      file_level_metadata_dota_5fusermessages_2eproto[116]);
 }
 
 // ===================================================================
@@ -42225,7 +41996,7 @@ void CDOTAUserMsg_CustomHudElement_Destroy::InternalSwap(CDOTAUserMsg_CustomHudE
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_CustomHudElement_Destroy::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[118]);
+      file_level_metadata_dota_5fusermessages_2eproto[117]);
 }
 
 // ===================================================================
@@ -42457,7 +42228,7 @@ void CDOTAUserMsg_CompendiumStatePlayer::InternalSwap(CDOTAUserMsg_CompendiumSta
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_CompendiumStatePlayer::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[119]);
+      file_level_metadata_dota_5fusermessages_2eproto[118]);
 }
 
 // ===================================================================
@@ -42642,7 +42413,7 @@ void CDOTAUserMsg_CompendiumState::InternalSwap(CDOTAUserMsg_CompendiumState* ot
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_CompendiumState::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[120]);
+      file_level_metadata_dota_5fusermessages_2eproto[119]);
 }
 
 // ===================================================================
@@ -43073,7 +42844,7 @@ void CDOTAUserMsg_ProjectionAbility::InternalSwap(CDOTAUserMsg_ProjectionAbility
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_ProjectionAbility::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[121]);
+      file_level_metadata_dota_5fusermessages_2eproto[120]);
 }
 
 // ===================================================================
@@ -43316,7 +43087,7 @@ void CDOTAUserMsg_ProjectionEvent::InternalSwap(CDOTAUserMsg_ProjectionEvent* ot
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_ProjectionEvent::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[122]);
+      file_level_metadata_dota_5fusermessages_2eproto[121]);
 }
 
 // ===================================================================
@@ -43548,7 +43319,7 @@ void CDOTAUserMsg_XPAlert::InternalSwap(CDOTAUserMsg_XPAlert* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_XPAlert::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[123]);
+      file_level_metadata_dota_5fusermessages_2eproto[122]);
 }
 
 // ===================================================================
@@ -43875,7 +43646,7 @@ void CDOTAUserMsg_TalentTreeAlert::InternalSwap(CDOTAUserMsg_TalentTreeAlert* ot
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_TalentTreeAlert::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[124]);
+      file_level_metadata_dota_5fusermessages_2eproto[123]);
 }
 
 // ===================================================================
@@ -43915,7 +43686,7 @@ const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CDOTAUserMsg_UpdateQuestProgre
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_UpdateQuestProgress::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[125]);
+      file_level_metadata_dota_5fusermessages_2eproto[124]);
 }
 
 // ===================================================================
@@ -44327,7 +44098,7 @@ void CDOTAUserMsg_QuestStatus::InternalSwap(CDOTAUserMsg_QuestStatus* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_QuestStatus::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[126]);
+      file_level_metadata_dota_5fusermessages_2eproto[125]);
 }
 
 // ===================================================================
@@ -44336,7 +44107,7 @@ class CDOTAUserMsg_SuggestHeroPick::_Internal {
  public:
   using HasBits = decltype(std::declval<CDOTAUserMsg_SuggestHeroPick>()._impl_._has_bits_);
   static void set_has_player_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 8u;
   }
   static void set_has_hero_id(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
@@ -44344,8 +44115,11 @@ class CDOTAUserMsg_SuggestHeroPick::_Internal {
   static void set_has_ban(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
   }
+  static void set_has_facet_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
   static bool MissingRequiredFields(const HasBits& has_bits) {
-    return ((has_bits[0] & 0x00000004) ^ 0x00000004) != 0;
+    return ((has_bits[0] & 0x00000008) ^ 0x00000008) != 0;
   }
 };
 
@@ -44363,6 +44137,7 @@ CDOTAUserMsg_SuggestHeroPick::CDOTAUserMsg_SuggestHeroPick(const CDOTAUserMsg_Su
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.hero_id_){}
     , decltype(_impl_.ban_){}
+    , decltype(_impl_.facet_id_){}
     , decltype(_impl_.player_id_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -44379,8 +44154,9 @@ inline void CDOTAUserMsg_SuggestHeroPick::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.hero_id_){0u}
+    , decltype(_impl_.hero_id_){0}
     , decltype(_impl_.ban_){false}
+    , decltype(_impl_.facet_id_){0u}
     , decltype(_impl_.player_id_){-1}
   };
 }
@@ -44409,10 +44185,10 @@ void CDOTAUserMsg_SuggestHeroPick::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000007u) {
+  if (cached_has_bits & 0x0000000fu) {
     ::memset(&_impl_.hero_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.ban_) -
-        reinterpret_cast<char*>(&_impl_.hero_id_)) + sizeof(_impl_.ban_));
+        reinterpret_cast<char*>(&_impl_.facet_id_) -
+        reinterpret_cast<char*>(&_impl_.hero_id_)) + sizeof(_impl_.facet_id_));
     _impl_.player_id_ = -1;
   }
   _impl_._has_bits_.Clear();
@@ -44435,7 +44211,7 @@ const char* CDOTAUserMsg_SuggestHeroPick::_InternalParse(const char* ptr, ::_pbi
         } else
           goto handle_unusual;
         continue;
-      // optional uint32 hero_id = 2;
+      // optional int32 hero_id = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _Internal::set_has_hero_id(&has_bits);
@@ -44449,6 +44225,15 @@ const char* CDOTAUserMsg_SuggestHeroPick::_InternalParse(const char* ptr, ::_pbi
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
           _Internal::set_has_ban(&has_bits);
           _impl_.ban_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 facet_id = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
+          _Internal::set_has_facet_id(&has_bits);
+          _impl_.facet_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -44485,21 +44270,27 @@ uint8_t* CDOTAUserMsg_SuggestHeroPick::_InternalSerialize(
 
   cached_has_bits = _impl_._has_bits_[0];
   // required int32 player_id = 1 [default = -1];
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
   }
 
-  // optional uint32 hero_id = 2;
+  // optional int32 hero_id = 2;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_hero_id(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_hero_id(), target);
   }
 
   // optional bool ban = 3;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(3, this->_internal_ban(), target);
+  }
+
+  // optional uint32 facet_id = 4;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(4, this->_internal_facet_id(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -44523,15 +44314,20 @@ size_t CDOTAUserMsg_SuggestHeroPick::ByteSizeLong() const {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
-    // optional uint32 hero_id = 2;
+  if (cached_has_bits & 0x00000007u) {
+    // optional int32 hero_id = 2;
     if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_hero_id());
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_hero_id());
     }
 
     // optional bool ban = 3;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 1;
+    }
+
+    // optional uint32 facet_id = 4;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_facet_id());
     }
 
   }
@@ -44554,7 +44350,7 @@ void CDOTAUserMsg_SuggestHeroPick::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& t
   (void) cached_has_bits;
 
   cached_has_bits = from._impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000007u) {
+  if (cached_has_bits & 0x0000000fu) {
     if (cached_has_bits & 0x00000001u) {
       _this->_impl_.hero_id_ = from._impl_.hero_id_;
     }
@@ -44562,6 +44358,9 @@ void CDOTAUserMsg_SuggestHeroPick::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& t
       _this->_impl_.ban_ = from._impl_.ban_;
     }
     if (cached_has_bits & 0x00000004u) {
+      _this->_impl_.facet_id_ = from._impl_.facet_id_;
+    }
+    if (cached_has_bits & 0x00000008u) {
       _this->_impl_.player_id_ = from._impl_.player_id_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
@@ -44586,8 +44385,8 @@ void CDOTAUserMsg_SuggestHeroPick::InternalSwap(CDOTAUserMsg_SuggestHeroPick* ot
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_SuggestHeroPick, _impl_.ban_)
-      + sizeof(CDOTAUserMsg_SuggestHeroPick::_impl_.ban_)
+      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_SuggestHeroPick, _impl_.facet_id_)
+      + sizeof(CDOTAUserMsg_SuggestHeroPick::_impl_.facet_id_)
       - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_SuggestHeroPick, _impl_.hero_id_)>(
           reinterpret_cast<char*>(&_impl_.hero_id_),
           reinterpret_cast<char*>(&other->_impl_.hero_id_));
@@ -44597,7 +44396,7 @@ void CDOTAUserMsg_SuggestHeroPick::InternalSwap(CDOTAUserMsg_SuggestHeroPick* ot
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_SuggestHeroPick::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[127]);
+      file_level_metadata_dota_5fusermessages_2eproto[126]);
 }
 
 // ===================================================================
@@ -44857,7 +44656,7 @@ void CDOTAUserMsg_SuggestHeroRole::InternalSwap(CDOTAUserMsg_SuggestHeroRole* ot
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_SuggestHeroRole::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[128]);
+      file_level_metadata_dota_5fusermessages_2eproto[127]);
 }
 
 // ===================================================================
@@ -45275,7 +45074,7 @@ void CDOTAUserMsg_KillcamDamageTaken::InternalSwap(CDOTAUserMsg_KillcamDamageTak
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_KillcamDamageTaken::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[129]);
+      file_level_metadata_dota_5fusermessages_2eproto[128]);
 }
 
 // ===================================================================
@@ -45508,7 +45307,7 @@ void CDOTAUserMsg_SelectPenaltyGold::InternalSwap(CDOTAUserMsg_SelectPenaltyGold
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_SelectPenaltyGold::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[130]);
+      file_level_metadata_dota_5fusermessages_2eproto[129]);
 }
 
 // ===================================================================
@@ -45831,7 +45630,7 @@ void CDOTAUserMsg_RollDiceResult::InternalSwap(CDOTAUserMsg_RollDiceResult* othe
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_RollDiceResult::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[131]);
+      file_level_metadata_dota_5fusermessages_2eproto[130]);
 }
 
 // ===================================================================
@@ -46098,7 +45897,7 @@ void CDOTAUserMsg_FlipCoinResult::InternalSwap(CDOTAUserMsg_FlipCoinResult* othe
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_FlipCoinResult::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[132]);
+      file_level_metadata_dota_5fusermessages_2eproto[131]);
 }
 
 // ===================================================================
@@ -46289,7 +46088,7 @@ void CDOTAUserMessage_RequestItemSuggestions::InternalSwap(CDOTAUserMessage_Requ
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMessage_RequestItemSuggestions::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[133]);
+      file_level_metadata_dota_5fusermessages_2eproto[132]);
 }
 
 // ===================================================================
@@ -46521,7 +46320,7 @@ void CDOTAUserMessage_TeamCaptainChanged::InternalSwap(CDOTAUserMessage_TeamCapt
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMessage_TeamCaptainChanged::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[134]);
+      file_level_metadata_dota_5fusermessages_2eproto[133]);
 }
 
 // ===================================================================
@@ -46753,7 +46552,7 @@ void CDOTAUserMsg_ChatWheelCooldown::InternalSwap(CDOTAUserMsg_ChatWheelCooldown
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_ChatWheelCooldown::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[135]);
+      file_level_metadata_dota_5fusermessages_2eproto[134]);
 }
 
 // ===================================================================
@@ -47076,7 +46875,7 @@ void CDOTAUserMsg_HeroRelicProgress::InternalSwap(CDOTAUserMsg_HeroRelicProgress
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_HeroRelicProgress::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[136]);
+      file_level_metadata_dota_5fusermessages_2eproto[135]);
 }
 
 // ===================================================================
@@ -47338,7 +47137,7 @@ void CDOTAUserMsg_AbilityDraftRequestAbility::InternalSwap(CDOTAUserMsg_AbilityD
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_AbilityDraftRequestAbility::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[137]);
+      file_level_metadata_dota_5fusermessages_2eproto[136]);
 }
 
 // ===================================================================
@@ -47395,8 +47194,8 @@ inline void CDOTAUserMsg_DamageReport::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.target_hero_id_){0u}
-    , decltype(_impl_.source_hero_id_){0u}
+    , decltype(_impl_.target_hero_id_){0}
+    , decltype(_impl_.source_hero_id_){0}
     , decltype(_impl_.damage_amount_){0}
     , decltype(_impl_.broadcast_){false}
     , decltype(_impl_.player_id_){-1}
@@ -47453,7 +47252,7 @@ const char* CDOTAUserMsg_DamageReport::_InternalParse(const char* ptr, ::_pbi::P
         } else
           goto handle_unusual;
         continue;
-      // optional uint32 target_hero_id = 2;
+      // optional int32 target_hero_id = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _Internal::set_has_target_hero_id(&has_bits);
@@ -47462,7 +47261,7 @@ const char* CDOTAUserMsg_DamageReport::_InternalParse(const char* ptr, ::_pbi::P
         } else
           goto handle_unusual;
         continue;
-      // optional uint32 source_hero_id = 3;
+      // optional int32 source_hero_id = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
           _Internal::set_has_source_hero_id(&has_bits);
@@ -47526,16 +47325,16 @@ uint8_t* CDOTAUserMsg_DamageReport::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
   }
 
-  // optional uint32 target_hero_id = 2;
+  // optional int32 target_hero_id = 2;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_target_hero_id(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_target_hero_id(), target);
   }
 
-  // optional uint32 source_hero_id = 3;
+  // optional int32 source_hero_id = 3;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_source_hero_id(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(3, this->_internal_source_hero_id(), target);
   }
 
   // optional int32 damage_amount = 4;
@@ -47568,14 +47367,14 @@ size_t CDOTAUserMsg_DamageReport::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000001fu) {
-    // optional uint32 target_hero_id = 2;
+    // optional int32 target_hero_id = 2;
     if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_target_hero_id());
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_target_hero_id());
     }
 
-    // optional uint32 source_hero_id = 3;
+    // optional int32 source_hero_id = 3;
     if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_source_hero_id());
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_source_hero_id());
     }
 
     // optional int32 damage_amount = 4;
@@ -47661,7 +47460,7 @@ void CDOTAUserMsg_DamageReport::InternalSwap(CDOTAUserMsg_DamageReport* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_DamageReport::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
-      file_level_metadata_dota_5fusermessages_2eproto[138]);
+      file_level_metadata_dota_5fusermessages_2eproto[137]);
 }
 
 // ===================================================================
@@ -48043,6 +47842,268 @@ void CDOTAUserMsg_SalutePlayer::InternalSwap(CDOTAUserMsg_SalutePlayer* other) {
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_SalutePlayer::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
+      file_level_metadata_dota_5fusermessages_2eproto[138]);
+}
+
+// ===================================================================
+
+class CDOTAUserMsg_GiftPlayer::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CDOTAUserMsg_GiftPlayer>()._impl_._has_bits_);
+  static void set_has_source_player_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_target_player_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+  static void set_has_gift_item_def_index(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+};
+
+CDOTAUserMsg_GiftPlayer::CDOTAUserMsg_GiftPlayer(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CDOTAUserMsg_GiftPlayer)
+}
+CDOTAUserMsg_GiftPlayer::CDOTAUserMsg_GiftPlayer(const CDOTAUserMsg_GiftPlayer& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CDOTAUserMsg_GiftPlayer* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.gift_item_def_index_){}
+    , decltype(_impl_.source_player_id_){}
+    , decltype(_impl_.target_player_id_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&_impl_.gift_item_def_index_, &from._impl_.gift_item_def_index_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.target_player_id_) -
+    reinterpret_cast<char*>(&_impl_.gift_item_def_index_)) + sizeof(_impl_.target_player_id_));
+  // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_GiftPlayer)
+}
+
+inline void CDOTAUserMsg_GiftPlayer::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.gift_item_def_index_){0u}
+    , decltype(_impl_.source_player_id_){-1}
+    , decltype(_impl_.target_player_id_){-1}
+  };
+}
+
+CDOTAUserMsg_GiftPlayer::~CDOTAUserMsg_GiftPlayer() {
+  // @@protoc_insertion_point(destructor:CDOTAUserMsg_GiftPlayer)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CDOTAUserMsg_GiftPlayer::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void CDOTAUserMsg_GiftPlayer::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CDOTAUserMsg_GiftPlayer::Clear() {
+// @@protoc_insertion_point(message_clear_start:CDOTAUserMsg_GiftPlayer)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    _impl_.gift_item_def_index_ = 0u;
+    _impl_.source_player_id_ = -1;
+    _impl_.target_player_id_ = -1;
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CDOTAUserMsg_GiftPlayer::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional int32 source_player_id = 1 [default = -1];
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _Internal::set_has_source_player_id(&has_bits);
+          _impl_.source_player_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional int32 target_player_id = 2 [default = -1];
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _Internal::set_has_target_player_id(&has_bits);
+          _impl_.target_player_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 gift_item_def_index = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _Internal::set_has_gift_item_def_index(&has_bits);
+          _impl_.gift_item_def_index_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CDOTAUserMsg_GiftPlayer::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CDOTAUserMsg_GiftPlayer)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional int32 source_player_id = 1 [default = -1];
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_source_player_id(), target);
+  }
+
+  // optional int32 target_player_id = 2 [default = -1];
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_target_player_id(), target);
+  }
+
+  // optional uint32 gift_item_def_index = 3;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_gift_item_def_index(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CDOTAUserMsg_GiftPlayer)
+  return target;
+}
+
+size_t CDOTAUserMsg_GiftPlayer::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CDOTAUserMsg_GiftPlayer)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    // optional uint32 gift_item_def_index = 3;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_gift_item_def_index());
+    }
+
+    // optional int32 source_player_id = 1 [default = -1];
+    if (cached_has_bits & 0x00000002u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_source_player_id());
+    }
+
+    // optional int32 target_player_id = 2 [default = -1];
+    if (cached_has_bits & 0x00000004u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_target_player_id());
+    }
+
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CDOTAUserMsg_GiftPlayer::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CDOTAUserMsg_GiftPlayer::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CDOTAUserMsg_GiftPlayer::GetClassData() const { return &_class_data_; }
+
+
+void CDOTAUserMsg_GiftPlayer::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CDOTAUserMsg_GiftPlayer*>(&to_msg);
+  auto& from = static_cast<const CDOTAUserMsg_GiftPlayer&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CDOTAUserMsg_GiftPlayer)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    if (cached_has_bits & 0x00000001u) {
+      _this->_impl_.gift_item_def_index_ = from._impl_.gift_item_def_index_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _this->_impl_.source_player_id_ = from._impl_.source_player_id_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _this->_impl_.target_player_id_ = from._impl_.target_player_id_;
+    }
+    _this->_impl_._has_bits_[0] |= cached_has_bits;
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CDOTAUserMsg_GiftPlayer::CopyFrom(const CDOTAUserMsg_GiftPlayer& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CDOTAUserMsg_GiftPlayer)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CDOTAUserMsg_GiftPlayer::IsInitialized() const {
+  return true;
+}
+
+void CDOTAUserMsg_GiftPlayer::InternalSwap(CDOTAUserMsg_GiftPlayer* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  swap(_impl_.gift_item_def_index_, other->_impl_.gift_item_def_index_);
+  swap(_impl_.source_player_id_, other->_impl_.source_player_id_);
+  swap(_impl_.target_player_id_, other->_impl_.target_player_id_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_GiftPlayer::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
       file_level_metadata_dota_5fusermessages_2eproto[139]);
@@ -53919,7 +53980,7 @@ inline void CDOTAUserMsg_WK_Arcana_Progress::SharedCtor(
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.arcana_level_){0u}
-    , decltype(_impl_.hero_id_){0u}
+    , decltype(_impl_.hero_id_){0}
     , decltype(_impl_.ehandle_){16777215u}
   };
 }
@@ -53983,7 +54044,7 @@ const char* CDOTAUserMsg_WK_Arcana_Progress::_InternalParse(const char* ptr, ::_
         } else
           goto handle_unusual;
         continue;
-      // optional uint32 hero_id = 3;
+      // optional int32 hero_id = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
           _Internal::set_has_hero_id(&has_bits);
@@ -54035,10 +54096,10 @@ uint8_t* CDOTAUserMsg_WK_Arcana_Progress::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_arcana_level(), target);
   }
 
-  // optional uint32 hero_id = 3;
+  // optional int32 hero_id = 3;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_hero_id(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(3, this->_internal_hero_id(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -54064,9 +54125,9 @@ size_t CDOTAUserMsg_WK_Arcana_Progress::ByteSizeLong() const {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_arcana_level());
     }
 
-    // optional uint32 hero_id = 3;
+    // optional int32 hero_id = 3;
     if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_hero_id());
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_hero_id());
     }
 
     // optional uint32 ehandle = 1 [default = 16777215];
@@ -59556,6 +59617,568 @@ void CDOTAUserMsg_PlayerDraftPick::InternalSwap(CDOTAUserMsg_PlayerDraftPick* ot
       file_level_metadata_dota_5fusermessages_2eproto[179]);
 }
 
+// ===================================================================
+
+class CDOTAUserMsg_FacetPing::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CDOTAUserMsg_FacetPing>()._impl_._has_bits_);
+  static void set_has_player_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
+  }
+  static void set_has_facet_strhash(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_entity_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_all_chat(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+};
+
+CDOTAUserMsg_FacetPing::CDOTAUserMsg_FacetPing(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CDOTAUserMsg_FacetPing)
+}
+CDOTAUserMsg_FacetPing::CDOTAUserMsg_FacetPing(const CDOTAUserMsg_FacetPing& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CDOTAUserMsg_FacetPing* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.facet_strhash_){}
+    , decltype(_impl_.entity_id_){}
+    , decltype(_impl_.all_chat_){}
+    , decltype(_impl_.player_id_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&_impl_.facet_strhash_, &from._impl_.facet_strhash_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.player_id_) -
+    reinterpret_cast<char*>(&_impl_.facet_strhash_)) + sizeof(_impl_.player_id_));
+  // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_FacetPing)
+}
+
+inline void CDOTAUserMsg_FacetPing::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.facet_strhash_){0u}
+    , decltype(_impl_.entity_id_){0u}
+    , decltype(_impl_.all_chat_){false}
+    , decltype(_impl_.player_id_){-1}
+  };
+}
+
+CDOTAUserMsg_FacetPing::~CDOTAUserMsg_FacetPing() {
+  // @@protoc_insertion_point(destructor:CDOTAUserMsg_FacetPing)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CDOTAUserMsg_FacetPing::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void CDOTAUserMsg_FacetPing::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CDOTAUserMsg_FacetPing::Clear() {
+// @@protoc_insertion_point(message_clear_start:CDOTAUserMsg_FacetPing)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x0000000fu) {
+    ::memset(&_impl_.facet_strhash_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.all_chat_) -
+        reinterpret_cast<char*>(&_impl_.facet_strhash_)) + sizeof(_impl_.all_chat_));
+    _impl_.player_id_ = -1;
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CDOTAUserMsg_FacetPing::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional int32 player_id = 1 [default = -1];
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _Internal::set_has_player_id(&has_bits);
+          _impl_.player_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 facet_strhash = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _Internal::set_has_facet_strhash(&has_bits);
+          _impl_.facet_strhash_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 entity_id = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _Internal::set_has_entity_id(&has_bits);
+          _impl_.entity_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional bool all_chat = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
+          _Internal::set_has_all_chat(&has_bits);
+          _impl_.all_chat_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CDOTAUserMsg_FacetPing::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CDOTAUserMsg_FacetPing)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional int32 player_id = 1 [default = -1];
+  if (cached_has_bits & 0x00000008u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
+  }
+
+  // optional uint32 facet_strhash = 2;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_facet_strhash(), target);
+  }
+
+  // optional uint32 entity_id = 3;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_entity_id(), target);
+  }
+
+  // optional bool all_chat = 4;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(4, this->_internal_all_chat(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CDOTAUserMsg_FacetPing)
+  return target;
+}
+
+size_t CDOTAUserMsg_FacetPing::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CDOTAUserMsg_FacetPing)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x0000000fu) {
+    // optional uint32 facet_strhash = 2;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_facet_strhash());
+    }
+
+    // optional uint32 entity_id = 3;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_entity_id());
+    }
+
+    // optional bool all_chat = 4;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += 1 + 1;
+    }
+
+    // optional int32 player_id = 1 [default = -1];
+    if (cached_has_bits & 0x00000008u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
+    }
+
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CDOTAUserMsg_FacetPing::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CDOTAUserMsg_FacetPing::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CDOTAUserMsg_FacetPing::GetClassData() const { return &_class_data_; }
+
+
+void CDOTAUserMsg_FacetPing::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CDOTAUserMsg_FacetPing*>(&to_msg);
+  auto& from = static_cast<const CDOTAUserMsg_FacetPing&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CDOTAUserMsg_FacetPing)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x0000000fu) {
+    if (cached_has_bits & 0x00000001u) {
+      _this->_impl_.facet_strhash_ = from._impl_.facet_strhash_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _this->_impl_.entity_id_ = from._impl_.entity_id_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _this->_impl_.all_chat_ = from._impl_.all_chat_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      _this->_impl_.player_id_ = from._impl_.player_id_;
+    }
+    _this->_impl_._has_bits_[0] |= cached_has_bits;
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CDOTAUserMsg_FacetPing::CopyFrom(const CDOTAUserMsg_FacetPing& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CDOTAUserMsg_FacetPing)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CDOTAUserMsg_FacetPing::IsInitialized() const {
+  return true;
+}
+
+void CDOTAUserMsg_FacetPing::InternalSwap(CDOTAUserMsg_FacetPing* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_FacetPing, _impl_.all_chat_)
+      + sizeof(CDOTAUserMsg_FacetPing::_impl_.all_chat_)
+      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_FacetPing, _impl_.facet_strhash_)>(
+          reinterpret_cast<char*>(&_impl_.facet_strhash_),
+          reinterpret_cast<char*>(&other->_impl_.facet_strhash_));
+  swap(_impl_.player_id_, other->_impl_.player_id_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_FacetPing::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
+      file_level_metadata_dota_5fusermessages_2eproto[180]);
+}
+
+// ===================================================================
+
+class CDOTAUserMsg_InnatePing::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CDOTAUserMsg_InnatePing>()._impl_._has_bits_);
+  static void set_has_player_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+  static void set_has_entity_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_all_chat(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+};
+
+CDOTAUserMsg_InnatePing::CDOTAUserMsg_InnatePing(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CDOTAUserMsg_InnatePing)
+}
+CDOTAUserMsg_InnatePing::CDOTAUserMsg_InnatePing(const CDOTAUserMsg_InnatePing& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CDOTAUserMsg_InnatePing* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.entity_id_){}
+    , decltype(_impl_.all_chat_){}
+    , decltype(_impl_.player_id_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&_impl_.entity_id_, &from._impl_.entity_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.player_id_) -
+    reinterpret_cast<char*>(&_impl_.entity_id_)) + sizeof(_impl_.player_id_));
+  // @@protoc_insertion_point(copy_constructor:CDOTAUserMsg_InnatePing)
+}
+
+inline void CDOTAUserMsg_InnatePing::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.entity_id_){0u}
+    , decltype(_impl_.all_chat_){false}
+    , decltype(_impl_.player_id_){-1}
+  };
+}
+
+CDOTAUserMsg_InnatePing::~CDOTAUserMsg_InnatePing() {
+  // @@protoc_insertion_point(destructor:CDOTAUserMsg_InnatePing)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CDOTAUserMsg_InnatePing::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void CDOTAUserMsg_InnatePing::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CDOTAUserMsg_InnatePing::Clear() {
+// @@protoc_insertion_point(message_clear_start:CDOTAUserMsg_InnatePing)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    ::memset(&_impl_.entity_id_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.all_chat_) -
+        reinterpret_cast<char*>(&_impl_.entity_id_)) + sizeof(_impl_.all_chat_));
+    _impl_.player_id_ = -1;
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CDOTAUserMsg_InnatePing::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional int32 player_id = 1 [default = -1];
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _Internal::set_has_player_id(&has_bits);
+          _impl_.player_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 entity_id = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _Internal::set_has_entity_id(&has_bits);
+          _impl_.entity_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional bool all_chat = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _Internal::set_has_all_chat(&has_bits);
+          _impl_.all_chat_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CDOTAUserMsg_InnatePing::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CDOTAUserMsg_InnatePing)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional int32 player_id = 1 [default = -1];
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
+  }
+
+  // optional uint32 entity_id = 2;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_entity_id(), target);
+  }
+
+  // optional bool all_chat = 3;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(3, this->_internal_all_chat(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CDOTAUserMsg_InnatePing)
+  return target;
+}
+
+size_t CDOTAUserMsg_InnatePing::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CDOTAUserMsg_InnatePing)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    // optional uint32 entity_id = 2;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_entity_id());
+    }
+
+    // optional bool all_chat = 3;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 + 1;
+    }
+
+    // optional int32 player_id = 1 [default = -1];
+    if (cached_has_bits & 0x00000004u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_id());
+    }
+
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CDOTAUserMsg_InnatePing::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CDOTAUserMsg_InnatePing::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CDOTAUserMsg_InnatePing::GetClassData() const { return &_class_data_; }
+
+
+void CDOTAUserMsg_InnatePing::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CDOTAUserMsg_InnatePing*>(&to_msg);
+  auto& from = static_cast<const CDOTAUserMsg_InnatePing&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CDOTAUserMsg_InnatePing)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    if (cached_has_bits & 0x00000001u) {
+      _this->_impl_.entity_id_ = from._impl_.entity_id_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _this->_impl_.all_chat_ = from._impl_.all_chat_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _this->_impl_.player_id_ = from._impl_.player_id_;
+    }
+    _this->_impl_._has_bits_[0] |= cached_has_bits;
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CDOTAUserMsg_InnatePing::CopyFrom(const CDOTAUserMsg_InnatePing& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CDOTAUserMsg_InnatePing)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CDOTAUserMsg_InnatePing::IsInitialized() const {
+  return true;
+}
+
+void CDOTAUserMsg_InnatePing::InternalSwap(CDOTAUserMsg_InnatePing* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_InnatePing, _impl_.all_chat_)
+      + sizeof(CDOTAUserMsg_InnatePing::_impl_.all_chat_)
+      - PROTOBUF_FIELD_OFFSET(CDOTAUserMsg_InnatePing, _impl_.entity_id_)>(
+          reinterpret_cast<char*>(&_impl_.entity_id_),
+          reinterpret_cast<char*>(&other->_impl_.entity_id_));
+  swap(_impl_.player_id_, other->_impl_.player_id_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CDOTAUserMsg_InnatePing::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dota_5fusermessages_2eproto_getter, &descriptor_table_dota_5fusermessages_2eproto_once,
+      file_level_metadata_dota_5fusermessages_2eproto[181]);
+}
+
 // @@protoc_insertion_point(namespace_scope)
 PROTOBUF_NAMESPACE_OPEN
 template<> PROTOBUF_NOINLINE ::CDOTAUserMsg_AIDebugLine*
@@ -59589,6 +60212,10 @@ Arena::CreateMaybeMessage< ::CDOTAUserMsg_CombatLogBulkData >(Arena* arena) {
 template<> PROTOBUF_NOINLINE ::CDOTAUserMsg_ProjectileParticleCPData*
 Arena::CreateMaybeMessage< ::CDOTAUserMsg_ProjectileParticleCPData >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CDOTAUserMsg_ProjectileParticleCPData >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CDOTAUserMsg_UpdateLinearProjectileCPData*
+Arena::CreateMaybeMessage< ::CDOTAUserMsg_UpdateLinearProjectileCPData >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CDOTAUserMsg_UpdateLinearProjectileCPData >(arena);
 }
 template<> PROTOBUF_NOINLINE ::CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability*
 Arena::CreateMaybeMessage< ::CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability >(Arena* arena) {
@@ -59645,6 +60272,10 @@ Arena::CreateMaybeMessage< ::CDOTAUserMsg_GlyphAlert >(Arena* arena) {
 template<> PROTOBUF_NOINLINE ::CDOTAUserMsg_RadarAlert*
 Arena::CreateMaybeMessage< ::CDOTAUserMsg_RadarAlert >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CDOTAUserMsg_RadarAlert >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CDOTAUserMsg_RoshanTimer*
+Arena::CreateMaybeMessage< ::CDOTAUserMsg_RoshanTimer >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CDOTAUserMsg_RoshanTimer >(arena);
 }
 template<> PROTOBUF_NOINLINE ::CDOTAUserMsg_WillPurchaseAlert*
 Arena::CreateMaybeMessage< ::CDOTAUserMsg_WillPurchaseAlert >(Arena* arena) {
@@ -59733,14 +60364,6 @@ Arena::CreateMaybeMessage< ::CDOTAUserMsg_SetNextAutobuyItem >(Arena* arena) {
 template<> PROTOBUF_NOINLINE ::CDOTAUserMsg_HalloweenDrops*
 Arena::CreateMaybeMessage< ::CDOTAUserMsg_HalloweenDrops >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CDOTAUserMsg_HalloweenDrops >(arena);
-}
-template<> PROTOBUF_NOINLINE ::CDOTAUserMsg_PredictionResult_Prediction*
-Arena::CreateMaybeMessage< ::CDOTAUserMsg_PredictionResult_Prediction >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::CDOTAUserMsg_PredictionResult_Prediction >(arena);
-}
-template<> PROTOBUF_NOINLINE ::CDOTAUserMsg_PredictionResult*
-Arena::CreateMaybeMessage< ::CDOTAUserMsg_PredictionResult >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::CDOTAUserMsg_PredictionResult >(arena);
 }
 template<> PROTOBUF_NOINLINE ::CDOTAResponseQuerySerialized_Fact*
 Arena::CreateMaybeMessage< ::CDOTAResponseQuerySerialized_Fact >(Arena* arena) {
@@ -59942,10 +60565,6 @@ template<> PROTOBUF_NOINLINE ::CDOTAUserMsg_BoosterState*
 Arena::CreateMaybeMessage< ::CDOTAUserMsg_BoosterState >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CDOTAUserMsg_BoosterState >(arena);
 }
-template<> PROTOBUF_NOINLINE ::CDOTAUserMsg_PlayerMMR*
-Arena::CreateMaybeMessage< ::CDOTAUserMsg_PlayerMMR >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::CDOTAUserMsg_PlayerMMR >(arena);
-}
 template<> PROTOBUF_NOINLINE ::CDOTAUserMsg_AbilitySteal*
 Arena::CreateMaybeMessage< ::CDOTAUserMsg_AbilitySteal >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CDOTAUserMsg_AbilitySteal >(arena);
@@ -60118,6 +60737,10 @@ template<> PROTOBUF_NOINLINE ::CDOTAUserMsg_SalutePlayer*
 Arena::CreateMaybeMessage< ::CDOTAUserMsg_SalutePlayer >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CDOTAUserMsg_SalutePlayer >(arena);
 }
+template<> PROTOBUF_NOINLINE ::CDOTAUserMsg_GiftPlayer*
+Arena::CreateMaybeMessage< ::CDOTAUserMsg_GiftPlayer >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CDOTAUserMsg_GiftPlayer >(arena);
+}
 template<> PROTOBUF_NOINLINE ::CDOTAUserMsg_TipAlert*
 Arena::CreateMaybeMessage< ::CDOTAUserMsg_TipAlert >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CDOTAUserMsg_TipAlert >(arena);
@@ -60277,6 +60900,14 @@ Arena::CreateMaybeMessage< ::CDOTAUserMsg_PlayerDraftSuggestPick >(Arena* arena)
 template<> PROTOBUF_NOINLINE ::CDOTAUserMsg_PlayerDraftPick*
 Arena::CreateMaybeMessage< ::CDOTAUserMsg_PlayerDraftPick >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CDOTAUserMsg_PlayerDraftPick >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CDOTAUserMsg_FacetPing*
+Arena::CreateMaybeMessage< ::CDOTAUserMsg_FacetPing >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CDOTAUserMsg_FacetPing >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CDOTAUserMsg_InnatePing*
+Arena::CreateMaybeMessage< ::CDOTAUserMsg_InnatePing >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CDOTAUserMsg_InnatePing >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

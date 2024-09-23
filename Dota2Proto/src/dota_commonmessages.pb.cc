@@ -453,7 +453,7 @@ const char descriptor_table_protodef_dota_5fcommonmessages_2eproto[] PROTOBUF_SE
   "AStatPopupTypes\022\030\n\024k_EDOTA_SPT_Textline\020"
   "\000\022\025\n\021k_EDOTA_SPT_Basic\020\001\022\024\n\020k_EDOTA_SPT_"
   "Poll\020\002\022\024\n\020k_EDOTA_SPT_Grid\020\003\022\031\n\025k_EDOTA_"
-  "SPT_DualImage\020\004\022\025\n\021k_EDOTA_SPT_Movie\020\005*\267"
+  "SPT_DualImage\020\004\022\025\n\021k_EDOTA_SPT_Movie\020\005*\331"
   "\013\n\017dotaunitorder_t\022\030\n\024DOTA_UNIT_ORDER_NO"
   "NE\020\000\022$\n DOTA_UNIT_ORDER_MOVE_TO_POSITION"
   "\020\001\022\"\n\036DOTA_UNIT_ORDER_MOVE_TO_TARGET\020\002\022\037"
@@ -490,18 +490,19 @@ const char descriptor_table_protodef_dota_5fcommonmessages_2eproto[] PROTOBUF_SE
   "TEM_AT_FOUNTAIN\020%\0225\n1DOTA_UNIT_ORDER_TAK"
   "E_ITEM_FROM_NEUTRAL_ITEM_STASH\020&\022!\n\035DOTA"
   "_UNIT_ORDER_MOVE_RELATIVE\020\'\022#\n\037DOTA_UNIT"
-  "_ORDER_CAST_TOGGLE_ALT\020(*\217\001\n\036EDOTAVersus"
-  "ScenePlayerBehavior\022$\n VS_PLAYER_BEHAVIO"
-  "R_PLAY_ACTIVITY\020\001\022!\n\035VS_PLAYER_BEHAVIOR_"
-  "CHAT_WHEEL\020\002\022$\n VS_PLAYER_BEHAVIOR_PLAYB"
-  "ACK_RATE\020\003"
+  "_ORDER_CAST_TOGGLE_ALT\020(\022 \n\034DOTA_UNIT_OR"
+  "DER_CONSUME_ITEM\020)*\217\001\n\036EDOTAVersusSceneP"
+  "layerBehavior\022$\n VS_PLAYER_BEHAVIOR_PLAY"
+  "_ACTIVITY\020\001\022!\n\035VS_PLAYER_BEHAVIOR_CHAT_W"
+  "HEEL\020\002\022$\n VS_PLAYER_BEHAVIOR_PLAYBACK_RA"
+  "TE\020\003"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_dota_5fcommonmessages_2eproto_deps[1] = {
   &::descriptor_table_networkbasetypes_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_dota_5fcommonmessages_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_dota_5fcommonmessages_2eproto = {
-    false, false, 3210, descriptor_table_protodef_dota_5fcommonmessages_2eproto,
+    false, false, 3244, descriptor_table_protodef_dota_5fcommonmessages_2eproto,
     "dota_commonmessages.proto",
     &descriptor_table_dota_5fcommonmessages_2eproto_once, descriptor_table_dota_5fcommonmessages_2eproto_deps, 1, 12,
     schemas, file_default_instances, TableStruct_dota_5fcommonmessages_2eproto::offsets,
@@ -595,6 +596,7 @@ bool dotaunitorder_t_IsValid(int value) {
     case 38:
     case 39:
     case 40:
+    case 41:
       return true;
     default:
       return false;

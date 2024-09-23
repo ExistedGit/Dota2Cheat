@@ -83,8 +83,7 @@ PROTOBUF_CONSTEXPR CMsgCandyShopRewardData_EventAction::CMsgCandyShopRewardData_
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.event_id_)*/0
-  , /*decltype(_impl_.action_id_)*/0u
-  , /*decltype(_impl_.quantity_)*/0u} {}
+  , /*decltype(_impl_.action_id_)*/0u} {}
 struct CMsgCandyShopRewardData_EventActionDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CMsgCandyShopRewardData_EventActionDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -136,8 +135,11 @@ PROTOBUF_CONSTEXPR CMsgCandyShopUserData::CMsgCandyShopUserData(
   , /*decltype(_impl_.exchange_recipes_)*/{}
   , /*decltype(_impl_.active_rewards_)*/{}
   , /*decltype(_impl_.inventory_)*/nullptr
-  , /*decltype(_impl_.inventory_size_)*/0u
+  , /*decltype(_impl_.inventory_max_)*/0u
+  , /*decltype(_impl_.exchange_recipe_max_)*/0u
   , /*decltype(_impl_.exchange_reset_timestamp_)*/0u
+  , /*decltype(_impl_.active_reward_max_)*/0u
+  , /*decltype(_impl_.reroll_charges_max_)*/0u
   , /*decltype(_impl_.reroll_charges_)*/0u} {}
 struct CMsgCandyShopUserDataDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CMsgCandyShopUserDataDefaultTypeInternal()
@@ -337,6 +339,17 @@ struct CMsgClientToGCCandyShopRerollRewardsResponseDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgClientToGCCandyShopRerollRewardsResponseDefaultTypeInternal _CMsgClientToGCCandyShopRerollRewardsResponse_default_instance_;
+PROTOBUF_CONSTEXPR CCandyShopDev::CCandyShopDev(
+    ::_pbi::ConstantInitialized) {}
+struct CCandyShopDevDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CCandyShopDevDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CCandyShopDevDefaultTypeInternal() {}
+  union {
+    CCandyShopDev _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CCandyShopDevDefaultTypeInternal _CCandyShopDev_default_instance_;
 PROTOBUF_CONSTEXPR CMsgClientToGCCandyShopDevGrantCandy::CMsgClientToGCCandyShopDevGrantCandy(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
@@ -480,8 +493,36 @@ struct CMsgClientToGCCandyShopDevGrantRerollChargesResponseDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgClientToGCCandyShopDevGrantRerollChargesResponseDefaultTypeInternal _CMsgClientToGCCandyShopDevGrantRerollChargesResponse_default_instance_;
-static ::_pb::Metadata file_level_metadata_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto[31];
-static const ::_pb::EnumDescriptor* file_level_enum_descriptors_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto[13];
+PROTOBUF_CONSTEXPR CMsgClientToGCCandyShopDevResetShop::CMsgClientToGCCandyShopDevResetShop(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.candy_shop_id_)*/0u} {}
+struct CMsgClientToGCCandyShopDevResetShopDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CMsgClientToGCCandyShopDevResetShopDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CMsgClientToGCCandyShopDevResetShopDefaultTypeInternal() {}
+  union {
+    CMsgClientToGCCandyShopDevResetShop _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgClientToGCCandyShopDevResetShopDefaultTypeInternal _CMsgClientToGCCandyShopDevResetShop_default_instance_;
+PROTOBUF_CONSTEXPR CMsgClientToGCCandyShopDevResetShopResponse::CMsgClientToGCCandyShopDevResetShopResponse(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.response_)*/0} {}
+struct CMsgClientToGCCandyShopDevResetShopResponseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CMsgClientToGCCandyShopDevResetShopResponseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CMsgClientToGCCandyShopDevResetShopResponseDefaultTypeInternal() {}
+  union {
+    CMsgClientToGCCandyShopDevResetShopResponse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgClientToGCCandyShopDevResetShopResponseDefaultTypeInternal _CMsgClientToGCCandyShopDevResetShopResponse_default_instance_;
+static ::_pb::Metadata file_level_metadata_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto[34];
+static const ::_pb::EnumDescriptor* file_level_enum_descriptors_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto[9];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto = nullptr;
 
 const uint32_t TableStruct_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -530,10 +571,8 @@ const uint32_t TableStruct_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto::of
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::CMsgCandyShopRewardData_EventAction, _impl_.event_id_),
   PROTOBUF_FIELD_OFFSET(::CMsgCandyShopRewardData_EventAction, _impl_.action_id_),
-  PROTOBUF_FIELD_OFFSET(::CMsgCandyShopRewardData_EventAction, _impl_.quantity_),
   0,
   1,
-  2,
   PROTOBUF_FIELD_OFFSET(::CMsgCandyShopRewardData_EventPoints, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgCandyShopRewardData_EventPoints, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -570,18 +609,24 @@ const uint32_t TableStruct_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto::of
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::CMsgCandyShopUserData, _impl_.inventory_size_),
+  PROTOBUF_FIELD_OFFSET(::CMsgCandyShopUserData, _impl_.inventory_max_),
   PROTOBUF_FIELD_OFFSET(::CMsgCandyShopUserData, _impl_.inventory_),
+  PROTOBUF_FIELD_OFFSET(::CMsgCandyShopUserData, _impl_.exchange_recipe_max_),
   PROTOBUF_FIELD_OFFSET(::CMsgCandyShopUserData, _impl_.exchange_reset_timestamp_),
   PROTOBUF_FIELD_OFFSET(::CMsgCandyShopUserData, _impl_.exchange_recipes_),
+  PROTOBUF_FIELD_OFFSET(::CMsgCandyShopUserData, _impl_.active_reward_max_),
   PROTOBUF_FIELD_OFFSET(::CMsgCandyShopUserData, _impl_.active_rewards_),
+  PROTOBUF_FIELD_OFFSET(::CMsgCandyShopUserData, _impl_.reroll_charges_max_),
   PROTOBUF_FIELD_OFFSET(::CMsgCandyShopUserData, _impl_.reroll_charges_),
   1,
   0,
   2,
-  ~0u,
-  ~0u,
   3,
+  ~0u,
+  4,
+  ~0u,
+  5,
+  6,
   PROTOBUF_FIELD_OFFSET(::CMsgClientToGCCandyShopGetUserData, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientToGCCandyShopGetUserData, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -700,6 +745,12 @@ const uint32_t TableStruct_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto::of
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::CMsgClientToGCCandyShopRerollRewardsResponse, _impl_.response_),
   0,
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::CCandyShopDev, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::CMsgClientToGCCandyShopDevGrantCandy, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientToGCCandyShopDevGrantCandy, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -786,39 +837,58 @@ const uint32_t TableStruct_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto::of
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::CMsgClientToGCCandyShopDevGrantRerollChargesResponse, _impl_.response_),
   0,
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCCandyShopDevResetShop, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCCandyShopDevResetShop, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCCandyShopDevResetShop, _impl_.candy_shop_id_),
+  0,
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCCandyShopDevResetShopResponse, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCCandyShopDevResetShopResponse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCCandyShopDevResetShopResponse, _impl_.response_),
+  0,
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 8, -1, sizeof(::CMsgCandyShopCandyCount)},
   { 10, -1, -1, sizeof(::CMsgCandyShopCandyQuantity)},
   { 17, 26, -1, sizeof(::CMsgCandyShopExchangeRecipe)},
   { 29, 36, -1, sizeof(::CMsgCandyShopRewardData_Item)},
-  { 37, 46, -1, sizeof(::CMsgCandyShopRewardData_EventAction)},
-  { 49, 57, -1, sizeof(::CMsgCandyShopRewardData_EventPoints)},
-  { 59, 72, -1, sizeof(::CMsgCandyShopReward)},
-  { 79, 91, -1, sizeof(::CMsgCandyShopUserData)},
-  { 97, 104, -1, sizeof(::CMsgClientToGCCandyShopGetUserData)},
-  { 105, 113, -1, sizeof(::CMsgClientToGCCandyShopGetUserDataResponse)},
-  { 115, 123, -1, sizeof(::CMsgGCToClientCandyShopUserDataUpdated)},
-  { 125, 133, -1, sizeof(::CMsgClientToGCCandyShopPurchaseReward)},
-  { 135, 142, -1, sizeof(::CMsgClientToGCCandyShopPurchaseRewardResponse)},
-  { 143, 151, -1, sizeof(::CMsgClientToGCCandyShopOpenBags)},
-  { 153, 160, -1, sizeof(::CMsgClientToGCCandyShopOpenBagsResponse)},
-  { 161, 169, -1, sizeof(::CMsgClientToGCCandyShopDoExchange)},
-  { 171, 178, -1, sizeof(::CMsgClientToGCCandyShopDoExchangeResponse)},
-  { 179, 188, -1, sizeof(::CMsgClientToGCCandyShopDoVariableExchange)},
-  { 191, 198, -1, sizeof(::CMsgClientToGCCandyShopDoVariableExchangeResponse)},
-  { 199, 206, -1, sizeof(::CMsgClientToGCCandyShopRerollRewards)},
-  { 207, 214, -1, sizeof(::CMsgClientToGCCandyShopRerollRewardsResponse)},
-  { 215, 223, -1, sizeof(::CMsgClientToGCCandyShopDevGrantCandy)},
-  { 225, 232, -1, sizeof(::CMsgClientToGCCandyShopDevGrantCandyResponse)},
-  { 233, 240, -1, sizeof(::CMsgClientToGCCandyShopDevClearInventory)},
-  { 241, 248, -1, sizeof(::CMsgClientToGCCandyShopDevClearInventoryResponse)},
-  { 249, 257, -1, sizeof(::CMsgClientToGCCandyShopDevGrantCandyBags)},
-  { 259, 266, -1, sizeof(::CMsgClientToGCCandyShopDevGrantCandyBagsResponse)},
-  { 267, 274, -1, sizeof(::CMsgClientToGCCandyShopDevShuffleExchange)},
-  { 275, 282, -1, sizeof(::CMsgClientToGCCandyShopDevShuffleExchangeResponse)},
-  { 283, 291, -1, sizeof(::CMsgClientToGCCandyShopDevGrantRerollCharges)},
-  { 293, 300, -1, sizeof(::CMsgClientToGCCandyShopDevGrantRerollChargesResponse)},
+  { 37, 45, -1, sizeof(::CMsgCandyShopRewardData_EventAction)},
+  { 47, 55, -1, sizeof(::CMsgCandyShopRewardData_EventPoints)},
+  { 57, 70, -1, sizeof(::CMsgCandyShopReward)},
+  { 77, 92, -1, sizeof(::CMsgCandyShopUserData)},
+  { 101, 108, -1, sizeof(::CMsgClientToGCCandyShopGetUserData)},
+  { 109, 117, -1, sizeof(::CMsgClientToGCCandyShopGetUserDataResponse)},
+  { 119, 127, -1, sizeof(::CMsgGCToClientCandyShopUserDataUpdated)},
+  { 129, 137, -1, sizeof(::CMsgClientToGCCandyShopPurchaseReward)},
+  { 139, 146, -1, sizeof(::CMsgClientToGCCandyShopPurchaseRewardResponse)},
+  { 147, 155, -1, sizeof(::CMsgClientToGCCandyShopOpenBags)},
+  { 157, 164, -1, sizeof(::CMsgClientToGCCandyShopOpenBagsResponse)},
+  { 165, 173, -1, sizeof(::CMsgClientToGCCandyShopDoExchange)},
+  { 175, 182, -1, sizeof(::CMsgClientToGCCandyShopDoExchangeResponse)},
+  { 183, 192, -1, sizeof(::CMsgClientToGCCandyShopDoVariableExchange)},
+  { 195, 202, -1, sizeof(::CMsgClientToGCCandyShopDoVariableExchangeResponse)},
+  { 203, 210, -1, sizeof(::CMsgClientToGCCandyShopRerollRewards)},
+  { 211, 218, -1, sizeof(::CMsgClientToGCCandyShopRerollRewardsResponse)},
+  { 219, -1, -1, sizeof(::CCandyShopDev)},
+  { 225, 233, -1, sizeof(::CMsgClientToGCCandyShopDevGrantCandy)},
+  { 235, 242, -1, sizeof(::CMsgClientToGCCandyShopDevGrantCandyResponse)},
+  { 243, 250, -1, sizeof(::CMsgClientToGCCandyShopDevClearInventory)},
+  { 251, 258, -1, sizeof(::CMsgClientToGCCandyShopDevClearInventoryResponse)},
+  { 259, 267, -1, sizeof(::CMsgClientToGCCandyShopDevGrantCandyBags)},
+  { 269, 276, -1, sizeof(::CMsgClientToGCCandyShopDevGrantCandyBagsResponse)},
+  { 277, 284, -1, sizeof(::CMsgClientToGCCandyShopDevShuffleExchange)},
+  { 285, 292, -1, sizeof(::CMsgClientToGCCandyShopDevShuffleExchangeResponse)},
+  { 293, 301, -1, sizeof(::CMsgClientToGCCandyShopDevGrantRerollCharges)},
+  { 303, 310, -1, sizeof(::CMsgClientToGCCandyShopDevGrantRerollChargesResponse)},
+  { 311, 318, -1, sizeof(::CMsgClientToGCCandyShopDevResetShop)},
+  { 319, 326, -1, sizeof(::CMsgClientToGCCandyShopDevResetShopResponse)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -843,6 +913,7 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::_CMsgClientToGCCandyShopDoVariableExchangeResponse_default_instance_._instance,
   &::_CMsgClientToGCCandyShopRerollRewards_default_instance_._instance,
   &::_CMsgClientToGCCandyShopRerollRewardsResponse_default_instance_._instance,
+  &::_CCandyShopDev_default_instance_._instance,
   &::_CMsgClientToGCCandyShopDevGrantCandy_default_instance_._instance,
   &::_CMsgClientToGCCandyShopDevGrantCandyResponse_default_instance_._instance,
   &::_CMsgClientToGCCandyShopDevClearInventory_default_instance_._instance,
@@ -853,6 +924,8 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::_CMsgClientToGCCandyShopDevShuffleExchangeResponse_default_instance_._instance,
   &::_CMsgClientToGCCandyShopDevGrantRerollCharges_default_instance_._instance,
   &::_CMsgClientToGCCandyShopDevGrantRerollChargesResponse_default_instance_._instance,
+  &::_CMsgClientToGCCandyShopDevResetShop_default_instance_._instance,
+  &::_CMsgClientToGCCandyShopDevResetShopResponse_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -871,157 +944,150 @@ const char descriptor_table_protodef_dota_5fgcmessages_5fclient_5fcandy_5fshop_2
   "(\0132\033.CMsgCandyShopCandyQuantity\022+\n\006outpu"
   "t\030\003 \001(\0132\033.CMsgCandyShopCandyQuantity\"0\n\034"
   "CMsgCandyShopRewardData_Item\022\020\n\010item_def"
-  "\030\001 \001(\r\"t\n#CMsgCandyShopRewardData_EventA"
+  "\030\001 \001(\r\"b\n#CMsgCandyShopRewardData_EventA"
   "ction\022(\n\010event_id\030\001 \001(\0162\007.EEvent:\rEVENT_"
-  "ID_NONE\022\021\n\taction_id\030\002 \001(\r\022\020\n\010quantity\030\003"
-  " \001(\r\"_\n#CMsgCandyShopRewardData_EventPoi"
-  "nts\022(\n\010event_id\030\001 \001(\0162\007.EEvent:\rEVENT_ID"
-  "_NONE\022\016\n\006points\030\002 \001(\r\"\353\002\n\023CMsgCandyShopR"
-  "eward\022\021\n\treward_id\030\001 \001(\r\022\030\n\020reward_optio"
-  "n_id\030\002 \001(\r\022*\n\005price\030\003 \001(\0132\033.CMsgCandySho"
-  "pCandyQuantity\022G\n\013reward_type\030\004 \001(\0162\025.EC"
-  "andyShopRewardType:\033k_eCandyShopRewardTy"
-  "pe_None\0220\n\titem_data\030\005 \001(\0132\035.CMsgCandySh"
-  "opRewardData_Item\022\?\n\021event_action_data\030\006"
-  " \001(\0132$.CMsgCandyShopRewardData_EventActi"
-  "on\022\?\n\021event_points_data\030\007 \001(\0132$.CMsgCand"
-  "yShopRewardData_EventPoints\"\377\001\n\025CMsgCand"
-  "yShopUserData\022\026\n\016inventory_size\030\001 \001(\r\022.\n"
-  "\tinventory\030\002 \001(\0132\033.CMsgCandyShopCandyQua"
-  "ntity\022 \n\030exchange_reset_timestamp\030\003 \001(\007\022"
-  "6\n\020exchange_recipes\030\004 \003(\0132\034.CMsgCandySho"
-  "pExchangeRecipe\022,\n\016active_rewards\030\005 \003(\0132"
-  "\024.CMsgCandyShopReward\022\026\n\016reroll_charges\030"
-  "\006 \001(\r\";\n\"CMsgClientToGCCandyShopGetUserD"
-  "ata\022\025\n\rcandy_shop_id\030\001 \001(\r\"\277\002\n*CMsgClien"
-  "tToGCCandyShopGetUserDataResponse\022Y\n\010res"
-  "ponse\030\001 \001(\01625.CMsgClientToGCCandyShopGet"
-  "UserDataResponse.EResponse:\020k_eInternalE"
-  "rror\022)\n\tuser_data\030\002 \001(\0132\026.CMsgCandyShopU"
-  "serData\"\212\001\n\tEResponse\022\024\n\020k_eInternalErro"
-  "r\020\000\022\016\n\nk_eSuccess\020\001\022\016\n\nk_eTooBusy\020\002\022\017\n\013k"
-  "_eDisabled\020\003\022\016\n\nk_eTimeout\020\004\022\022\n\016k_eInval"
-  "idShop\020\005\022\022\n\016k_eExpiredShop\020\006\"j\n&CMsgGCTo"
-  "ClientCandyShopUserDataUpdated\022\025\n\rcandy_"
-  "shop_id\030\001 \001(\r\022)\n\tuser_data\030\002 \001(\0132\026.CMsgC"
-  "andyShopUserData\"Q\n%CMsgClientToGCCandyS"
-  "hopPurchaseReward\022\025\n\rcandy_shop_id\030\001 \001(\r"
-  "\022\021\n\treward_id\030\002 \001(\004\"\307\002\n-CMsgClientToGCCa"
-  "ndyShopPurchaseRewardResponse\022\\\n\010respons"
-  "e\030\001 \001(\01628.CMsgClientToGCCandyShopPurchas"
-  "eRewardResponse.EResponse:\020k_eInternalEr"
-  "ror\"\267\001\n\tEResponse\022\024\n\020k_eInternalError\020\000\022"
-  "\016\n\nk_eSuccess\020\001\022\016\n\nk_eTooBusy\020\002\022\017\n\013k_eDi"
-  "sabled\020\003\022\016\n\nk_eTimeout\020\004\022\022\n\016k_eInvalidSh"
-  "op\020\005\022\024\n\020k_eInvalidReward\020\006\022\025\n\021k_eNotEnou"
-  "ghCandy\020\007\022\022\n\016k_eExpiredShop\020\010\"K\n\037CMsgCli"
-  "entToGCCandyShopOpenBags\022\025\n\rcandy_shop_i"
-  "d\030\001 \001(\r\022\021\n\tbag_count\030\002 \001(\r\"\317\002\n\'CMsgClien"
-  "tToGCCandyShopOpenBagsResponse\022V\n\010respon"
-  "se\030\001 \001(\01622.CMsgClientToGCCandyShopOpenBa"
-  "gsResponse.EResponse:\020k_eInternalError\"\313"
-  "\001\n\tEResponse\022\024\n\020k_eInternalError\020\000\022\016\n\nk_"
-  "eSuccess\020\001\022\016\n\nk_eTooBusy\020\002\022\017\n\013k_eDisable"
-  "d\020\003\022\016\n\nk_eTimeout\020\004\022\022\n\016k_eInvalidShop\020\005\022"
-  "\022\n\016k_eInvalidItem\020\006\022\024\n\020k_eNotEnoughBags\020"
-  "\007\022\025\n\021k_eNotEnoughSpace\020\010\022\022\n\016k_eExpiredSh"
-  "op\020\t\"M\n!CMsgClientToGCCandyShopDoExchang"
-  "e\022\025\n\rcandy_shop_id\030\001 \001(\r\022\021\n\trecipe_id\030\002 "
-  "\001(\r\"\326\002\n)CMsgClientToGCCandyShopDoExchang"
-  "eResponse\022X\n\010response\030\001 \001(\01624.CMsgClient"
-  "ToGCCandyShopDoExchangeResponse.ERespons"
-  "e:\020k_eInternalError\"\316\001\n\tEResponse\022\024\n\020k_e"
-  "InternalError\020\000\022\016\n\nk_eSuccess\020\001\022\016\n\nk_eTo"
-  "oBusy\020\002\022\017\n\013k_eDisabled\020\003\022\016\n\nk_eTimeout\020\004"
-  "\022\022\n\016k_eInvalidShop\020\005\022\025\n\021k_eNotEnoughCand"
-  "y\020\006\022\024\n\020k_eInvalidRecipe\020\007\022\025\n\021k_eNotEnoug"
-  "hSpace\020\010\022\022\n\016k_eExpiredShop\020\t\"\233\001\n)CMsgCli"
-  "entToGCCandyShopDoVariableExchange\022\025\n\rca"
-  "ndy_shop_id\030\001 \001(\r\022*\n\005input\030\002 \001(\0132\033.CMsgC"
-  "andyShopCandyQuantity\022+\n\006output\030\003 \001(\0132\033."
-  "CMsgCandyShopCandyQuantity\"\346\002\n1CMsgClien"
-  "tToGCCandyShopDoVariableExchangeResponse"
-  "\022`\n\010response\030\001 \001(\0162<.CMsgClientToGCCandy"
-  "ShopDoVariableExchangeResponse.EResponse"
-  ":\020k_eInternalError\"\316\001\n\tEResponse\022\024\n\020k_eI"
-  "nternalError\020\000\022\016\n\nk_eSuccess\020\001\022\016\n\nk_eToo"
-  "Busy\020\002\022\017\n\013k_eDisabled\020\003\022\016\n\nk_eTimeout\020\004\022"
-  "\022\n\016k_eInvalidShop\020\005\022\025\n\021k_eNotEnoughCandy"
-  "\020\006\022\024\n\020k_eInvalidRecipe\020\007\022\025\n\021k_eNotEnough"
-  "Space\020\010\022\022\n\016k_eExpiredShop\020\t\"=\n$CMsgClien"
-  "tToGCCandyShopRerollRewards\022\025\n\rcandy_sho"
-  "p_id\030\001 \001(\r\"\260\002\n,CMsgClientToGCCandyShopRe"
-  "rollRewardsResponse\022[\n\010response\030\001 \001(\01627."
-  "CMsgClientToGCCandyShopRerollRewardsResp"
-  "onse.EResponse:\020k_eInternalError\"\242\001\n\tERe"
+  "ID_NONE\022\021\n\taction_id\030\002 \001(\r\"_\n#CMsgCandyS"
+  "hopRewardData_EventPoints\022(\n\010event_id\030\001 "
+  "\001(\0162\007.EEvent:\rEVENT_ID_NONE\022\016\n\006points\030\002 "
+  "\001(\r\"\353\002\n\023CMsgCandyShopReward\022\021\n\treward_id"
+  "\030\001 \001(\r\022\030\n\020reward_option_id\030\002 \001(\r\022*\n\005pric"
+  "e\030\003 \001(\0132\033.CMsgCandyShopCandyQuantity\022G\n\013"
+  "reward_type\030\004 \001(\0162\025.ECandyShopRewardType"
+  ":\033k_eCandyShopRewardType_None\0220\n\titem_da"
+  "ta\030\005 \001(\0132\035.CMsgCandyShopRewardData_Item\022"
+  "\?\n\021event_action_data\030\006 \001(\0132$.CMsgCandySh"
+  "opRewardData_EventAction\022\?\n\021event_points"
+  "_data\030\007 \001(\0132$.CMsgCandyShopRewardData_Ev"
+  "entPoints\"\322\002\n\025CMsgCandyShopUserData\022\025\n\ri"
+  "nventory_max\030\001 \001(\r\022.\n\tinventory\030\002 \001(\0132\033."
+  "CMsgCandyShopCandyQuantity\022\033\n\023exchange_r"
+  "ecipe_max\030\003 \001(\r\022 \n\030exchange_reset_timest"
+  "amp\030\004 \001(\007\0226\n\020exchange_recipes\030\005 \003(\0132\034.CM"
+  "sgCandyShopExchangeRecipe\022\031\n\021active_rewa"
+  "rd_max\030\006 \001(\r\022,\n\016active_rewards\030\007 \003(\0132\024.C"
+  "MsgCandyShopReward\022\032\n\022reroll_charges_max"
+  "\030\010 \001(\r\022\026\n\016reroll_charges\030\t \001(\r\";\n\"CMsgCl"
+  "ientToGCCandyShopGetUserData\022\025\n\rcandy_sh"
+  "op_id\030\001 \001(\r\"\277\002\n*CMsgClientToGCCandyShopG"
+  "etUserDataResponse\022Y\n\010response\030\001 \001(\01625.C"
+  "MsgClientToGCCandyShopGetUserDataRespons"
+  "e.EResponse:\020k_eInternalError\022)\n\tuser_da"
+  "ta\030\002 \001(\0132\026.CMsgCandyShopUserData\"\212\001\n\tERe"
   "sponse\022\024\n\020k_eInternalError\020\000\022\016\n\nk_eSucce"
   "ss\020\001\022\016\n\nk_eTooBusy\020\002\022\017\n\013k_eDisabled\020\003\022\016\n"
-  "\nk_eTimeout\020\004\022\022\n\016k_eInvalidShop\020\005\022\026\n\022k_e"
-  "NoRerollCharges\020\006\022\022\n\016k_eExpiredShop\020\007\"r\n"
-  "$CMsgClientToGCCandyShopDevGrantCandy\022\025\n"
-  "\rcandy_shop_id\030\001 \001(\r\0223\n\016candy_quantity\030\002"
-  " \001(\0132\033.CMsgCandyShopCandyQuantity\"\256\002\n,CM"
-  "sgClientToGCCandyShopDevGrantCandyRespon"
-  "se\022[\n\010response\030\001 \001(\01627.CMsgClientToGCCan"
-  "dyShopDevGrantCandyResponse.EResponse:\020k"
-  "_eInternalError\"\240\001\n\tEResponse\022\024\n\020k_eInte"
-  "rnalError\020\000\022\016\n\nk_eSuccess\020\001\022\016\n\nk_eTooBus"
-  "y\020\002\022\017\n\013k_eDisabled\020\003\022\016\n\nk_eTimeout\020\004\022\021\n\r"
-  "k_eNotAllowed\020\005\022\022\n\016k_eInvalidShop\020\006\022\025\n\021k"
-  "_eNotEnoughSpace\020\007\"A\n(CMsgClientToGCCand"
-  "yShopDevClearInventory\022\025\n\rcandy_shop_id\030"
-  "\001 \001(\r\"\237\002\n0CMsgClientToGCCandyShopDevClea"
-  "rInventoryResponse\022_\n\010response\030\001 \001(\0162;.C"
-  "MsgClientToGCCandyShopDevClearInventoryR"
-  "esponse.EResponse:\020k_eInternalError\"\211\001\n\t"
-  "EResponse\022\024\n\020k_eInternalError\020\000\022\016\n\nk_eSu"
-  "ccess\020\001\022\016\n\nk_eTooBusy\020\002\022\017\n\013k_eDisabled\020\003"
-  "\022\016\n\nk_eTimeout\020\004\022\021\n\rk_eNotAllowed\020\005\022\022\n\016k"
-  "_eInvalidShop\020\006\"S\n(CMsgClientToGCCandySh"
-  "opDevGrantCandyBags\022\025\n\rcandy_shop_id\030\001 \001"
-  "(\r\022\020\n\010quantity\030\002 \001(\r\"\237\002\n0CMsgClientToGCC"
-  "andyShopDevGrantCandyBagsResponse\022_\n\010res"
-  "ponse\030\001 \001(\0162;.CMsgClientToGCCandyShopDev"
-  "GrantCandyBagsResponse.EResponse:\020k_eInt"
-  "ernalError\"\211\001\n\tEResponse\022\024\n\020k_eInternalE"
-  "rror\020\000\022\016\n\nk_eSuccess\020\001\022\016\n\nk_eTooBusy\020\002\022\017"
-  "\n\013k_eDisabled\020\003\022\016\n\nk_eTimeout\020\004\022\021\n\rk_eNo"
-  "tAllowed\020\005\022\022\n\016k_eInvalidShop\020\006\"B\n)CMsgCl"
-  "ientToGCCandyShopDevShuffleExchange\022\025\n\rc"
-  "andy_shop_id\030\001 \001(\r\"\241\002\n1CMsgClientToGCCan"
-  "dyShopDevShuffleExchangeResponse\022`\n\010resp"
-  "onse\030\001 \001(\0162<.CMsgClientToGCCandyShopDevS"
-  "huffleExchangeResponse.EResponse:\020k_eInt"
-  "ernalError\"\211\001\n\tEResponse\022\024\n\020k_eInternalE"
-  "rror\020\000\022\016\n\nk_eSuccess\020\001\022\016\n\nk_eTooBusy\020\002\022\017"
-  "\n\013k_eDisabled\020\003\022\016\n\nk_eTimeout\020\004\022\021\n\rk_eNo"
-  "tAllowed\020\005\022\022\n\016k_eInvalidShop\020\006\"]\n,CMsgCl"
-  "ientToGCCandyShopDevGrantRerollCharges\022\025"
-  "\n\rcandy_shop_id\030\001 \001(\r\022\026\n\016reroll_charges\030"
-  "\002 \001(\r\"\247\002\n4CMsgClientToGCCandyShopDevGran"
-  "tRerollChargesResponse\022c\n\010response\030\001 \001(\016"
-  "2\?.CMsgClientToGCCandyShopDevGrantReroll"
-  "ChargesResponse.EResponse:\020k_eInternalEr"
-  "ror\"\211\001\n\tEResponse\022\024\n\020k_eInternalError\020\000\022"
+  "\nk_eTimeout\020\004\022\022\n\016k_eInvalidShop\020\005\022\022\n\016k_e"
+  "ExpiredShop\020\006\"j\n&CMsgGCToClientCandyShop"
+  "UserDataUpdated\022\025\n\rcandy_shop_id\030\001 \001(\r\022)"
+  "\n\tuser_data\030\002 \001(\0132\026.CMsgCandyShopUserDat"
+  "a\"Q\n%CMsgClientToGCCandyShopPurchaseRewa"
+  "rd\022\025\n\rcandy_shop_id\030\001 \001(\r\022\021\n\treward_id\030\002"
+  " \001(\004\"\307\002\n-CMsgClientToGCCandyShopPurchase"
+  "RewardResponse\022\\\n\010response\030\001 \001(\01628.CMsgC"
+  "lientToGCCandyShopPurchaseRewardResponse"
+  ".EResponse:\020k_eInternalError\"\267\001\n\tERespon"
+  "se\022\024\n\020k_eInternalError\020\000\022\016\n\nk_eSuccess\020\001"
+  "\022\016\n\nk_eTooBusy\020\002\022\017\n\013k_eDisabled\020\003\022\016\n\nk_e"
+  "Timeout\020\004\022\022\n\016k_eInvalidShop\020\005\022\024\n\020k_eInva"
+  "lidReward\020\006\022\025\n\021k_eNotEnoughCandy\020\007\022\022\n\016k_"
+  "eExpiredShop\020\010\"K\n\037CMsgClientToGCCandySho"
+  "pOpenBags\022\025\n\rcandy_shop_id\030\001 \001(\r\022\021\n\tbag_"
+  "count\030\002 \001(\r\"\317\002\n\'CMsgClientToGCCandyShopO"
+  "penBagsResponse\022V\n\010response\030\001 \001(\01622.CMsg"
+  "ClientToGCCandyShopOpenBagsResponse.ERes"
+  "ponse:\020k_eInternalError\"\313\001\n\tEResponse\022\024\n"
+  "\020k_eInternalError\020\000\022\016\n\nk_eSuccess\020\001\022\016\n\nk"
+  "_eTooBusy\020\002\022\017\n\013k_eDisabled\020\003\022\016\n\nk_eTimeo"
+  "ut\020\004\022\022\n\016k_eInvalidShop\020\005\022\022\n\016k_eInvalidIt"
+  "em\020\006\022\024\n\020k_eNotEnoughBags\020\007\022\025\n\021k_eNotEnou"
+  "ghSpace\020\010\022\022\n\016k_eExpiredShop\020\t\"M\n!CMsgCli"
+  "entToGCCandyShopDoExchange\022\025\n\rcandy_shop"
+  "_id\030\001 \001(\r\022\021\n\trecipe_id\030\002 \001(\r\"\326\002\n)CMsgCli"
+  "entToGCCandyShopDoExchangeResponse\022X\n\010re"
+  "sponse\030\001 \001(\01624.CMsgClientToGCCandyShopDo"
+  "ExchangeResponse.EResponse:\020k_eInternalE"
+  "rror\"\316\001\n\tEResponse\022\024\n\020k_eInternalError\020\000"
+  "\022\016\n\nk_eSuccess\020\001\022\016\n\nk_eTooBusy\020\002\022\017\n\013k_eD"
+  "isabled\020\003\022\016\n\nk_eTimeout\020\004\022\022\n\016k_eInvalidS"
+  "hop\020\005\022\025\n\021k_eNotEnoughCandy\020\006\022\024\n\020k_eInval"
+  "idRecipe\020\007\022\025\n\021k_eNotEnoughSpace\020\010\022\022\n\016k_e"
+  "ExpiredShop\020\t\"\233\001\n)CMsgClientToGCCandySho"
+  "pDoVariableExchange\022\025\n\rcandy_shop_id\030\001 \001"
+  "(\r\022*\n\005input\030\002 \001(\0132\033.CMsgCandyShopCandyQu"
+  "antity\022+\n\006output\030\003 \001(\0132\033.CMsgCandyShopCa"
+  "ndyQuantity\"\346\002\n1CMsgClientToGCCandyShopD"
+  "oVariableExchangeResponse\022`\n\010response\030\001 "
+  "\001(\0162<.CMsgClientToGCCandyShopDoVariableE"
+  "xchangeResponse.EResponse:\020k_eInternalEr"
+  "ror\"\316\001\n\tEResponse\022\024\n\020k_eInternalError\020\000\022"
   "\016\n\nk_eSuccess\020\001\022\016\n\nk_eTooBusy\020\002\022\017\n\013k_eDi"
-  "sabled\020\003\022\016\n\nk_eTimeout\020\004\022\021\n\rk_eNotAllowe"
-  "d\020\005\022\022\n\016k_eInvalidShop\020\006*\302\003\n\025ECandyShopAu"
-  "ditAction\022#\n\037k_ECandyShopAuditAction_Inv"
-  "alid\020\000\022)\n%k_ECandyShopAuditAction_Suppor"
-  "tModify\020\001\022*\n&k_ECandyShopAuditAction_Pur"
-  "chaseReward\020\002\022$\n k_ECandyShopAuditAction"
-  "_OpenBags\020\003\022)\n%k_ECandyShopAuditAction_R"
-  "erollRewards\020\004\022.\n*k_ECandyShopAuditActio"
-  "n_DoVariableExchange\020\005\022&\n\"k_ECandyShopAu"
-  "ditAction_DoExchange\020\006\022A\n=k_ECandyShopAu"
-  "ditAction_EventActionGrantInventorySizeI"
-  "ncrease\020\007\022A\n=k_ECandyShopAuditAction_Eve"
-  "ntActionGrantRerollChargesIncrease\020\010*\250\001\n"
-  "\024ECandyShopRewardType\022\037\n\033k_eCandyShopRew"
-  "ardType_None\020\000\022\037\n\033k_eCandyShopRewardType"
-  "_Item\020\001\022&\n\"k_eCandyShopRewardType_EventA"
-  "ction\020\002\022&\n\"k_eCandyShopRewardType_EventP"
-  "oints\020\003"
+  "sabled\020\003\022\016\n\nk_eTimeout\020\004\022\022\n\016k_eInvalidSh"
+  "op\020\005\022\025\n\021k_eNotEnoughCandy\020\006\022\024\n\020k_eInvali"
+  "dRecipe\020\007\022\025\n\021k_eNotEnoughSpace\020\010\022\022\n\016k_eE"
+  "xpiredShop\020\t\"=\n$CMsgClientToGCCandyShopR"
+  "erollRewards\022\025\n\rcandy_shop_id\030\001 \001(\r\"\304\002\n,"
+  "CMsgClientToGCCandyShopRerollRewardsResp"
+  "onse\022[\n\010response\030\001 \001(\01627.CMsgClientToGCC"
+  "andyShopRerollRewardsResponse.EResponse:"
+  "\020k_eInternalError\"\266\001\n\tEResponse\022\024\n\020k_eIn"
+  "ternalError\020\000\022\016\n\nk_eSuccess\020\001\022\016\n\nk_eTooB"
+  "usy\020\002\022\017\n\013k_eDisabled\020\003\022\016\n\nk_eTimeout\020\004\022\022"
+  "\n\016k_eInvalidShop\020\005\022\026\n\022k_eNoRerollCharges"
+  "\020\006\022\022\n\016k_eExpiredShop\020\007\022\022\n\016k_eShopNotOpen"
+  "\020\010\"\262\001\n\rCCandyShopDev\"\240\001\n\tEResponse\022\024\n\020k_"
+  "eInternalError\020\000\022\016\n\nk_eSuccess\020\001\022\016\n\nk_eT"
+  "ooBusy\020\002\022\017\n\013k_eDisabled\020\003\022\016\n\nk_eTimeout\020"
+  "\004\022\021\n\rk_eNotAllowed\020\005\022\022\n\016k_eInvalidShop\020\006"
+  "\022\025\n\021k_eNotEnoughSpace\020\007\"r\n$CMsgClientToG"
+  "CCandyShopDevGrantCandy\022\025\n\rcandy_shop_id"
+  "\030\001 \001(\r\0223\n\016candy_quantity\030\002 \001(\0132\033.CMsgCan"
+  "dyShopCandyQuantity\"l\n,CMsgClientToGCCan"
+  "dyShopDevGrantCandyResponse\022<\n\010response\030"
+  "\001 \001(\0162\030.CCandyShopDev.EResponse:\020k_eInte"
+  "rnalError\"A\n(CMsgClientToGCCandyShopDevC"
+  "learInventory\022\025\n\rcandy_shop_id\030\001 \001(\r\"p\n0"
+  "CMsgClientToGCCandyShopDevClearInventory"
+  "Response\022<\n\010response\030\001 \001(\0162\030.CCandyShopD"
+  "ev.EResponse:\020k_eInternalError\"S\n(CMsgCl"
+  "ientToGCCandyShopDevGrantCandyBags\022\025\n\rca"
+  "ndy_shop_id\030\001 \001(\r\022\020\n\010quantity\030\002 \001(\r\"p\n0C"
+  "MsgClientToGCCandyShopDevGrantCandyBagsR"
+  "esponse\022<\n\010response\030\001 \001(\0162\030.CCandyShopDe"
+  "v.EResponse:\020k_eInternalError\"B\n)CMsgCli"
+  "entToGCCandyShopDevShuffleExchange\022\025\n\rca"
+  "ndy_shop_id\030\001 \001(\r\"q\n1CMsgClientToGCCandy"
+  "ShopDevShuffleExchangeResponse\022<\n\010respon"
+  "se\030\001 \001(\0162\030.CCandyShopDev.EResponse:\020k_eI"
+  "nternalError\"]\n,CMsgClientToGCCandyShopD"
+  "evGrantRerollCharges\022\025\n\rcandy_shop_id\030\001 "
+  "\001(\r\022\026\n\016reroll_charges\030\002 \001(\r\"t\n4CMsgClien"
+  "tToGCCandyShopDevGrantRerollChargesRespo"
+  "nse\022<\n\010response\030\001 \001(\0162\030.CCandyShopDev.ER"
+  "esponse:\020k_eInternalError\"<\n#CMsgClientT"
+  "oGCCandyShopDevResetShop\022\025\n\rcandy_shop_i"
+  "d\030\001 \001(\r\"k\n+CMsgClientToGCCandyShopDevRes"
+  "etShopResponse\022<\n\010response\030\001 \001(\0162\030.CCand"
+  "yShopDev.EResponse:\020k_eInternalError*\232\005\n"
+  "\025ECandyShopAuditAction\022#\n\037k_ECandyShopAu"
+  "ditAction_Invalid\020\000\022)\n%k_ECandyShopAudit"
+  "Action_SupportModify\020\001\022*\n&k_ECandyShopAu"
+  "ditAction_PurchaseReward\020\002\022$\n k_ECandySh"
+  "opAuditAction_OpenBags\020\003\022)\n%k_ECandyShop"
+  "AuditAction_RerollRewards\020\004\022.\n*k_ECandyS"
+  "hopAuditAction_DoVariableExchange\020\005\022&\n\"k"
+  "_ECandyShopAuditAction_DoExchange\020\006\022L\nHk"
+  "_ECandyShopAuditAction_DEPRECATED_EventA"
+  "ctionGrantInventorySizeIncrease\020\007\022A\n=k_E"
+  "CandyShopAuditAction_EventActionGrantRer"
+  "ollChargesIncrease\020\010\022A\n=k_ECandyShopAudi"
+  "tAction_EventActionGrantUpgrade_Inventor"
+  "ySize\020d\022\?\n;k_ECandyShopAuditAction_Event"
+  "ActionGrantUpgrade_RewardShelf\020e\022G\nCk_EC"
+  "andyShopAuditAction_EventActionGrantUpgr"
+  "ade_ExtraExchangeRecipe\020f*\250\001\n\024ECandyShop"
+  "RewardType\022\037\n\033k_eCandyShopRewardType_Non"
+  "e\020\000\022\037\n\033k_eCandyShopRewardType_Item\020\001\022&\n\""
+  "k_eCandyShopRewardType_EventAction\020\002\022&\n\""
+  "k_eCandyShopRewardType_EventPoints\020\003"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto_deps[9] = {
   &::descriptor_table_base_5fgcmessages_2eproto,
@@ -1036,9 +1102,9 @@ static const ::_pbi::DescriptorTable* const descriptor_table_dota_5fgcmessages_5
 };
 static ::_pbi::once_flag descriptor_table_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto = {
-    false, false, 6607, descriptor_table_protodef_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto,
+    false, false, 6356, descriptor_table_protodef_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto,
     "dota_gcmessages_client_candy_shop.proto",
-    &descriptor_table_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto_once, descriptor_table_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto_deps, 9, 31,
+    &descriptor_table_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto_once, descriptor_table_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto_deps, 9, 34,
     schemas, file_default_instances, TableStruct_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto::offsets,
     file_level_metadata_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto, file_level_enum_descriptors_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto,
     file_level_service_descriptors_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto,
@@ -1240,6 +1306,7 @@ bool CMsgClientToGCCandyShopRerollRewardsResponse_EResponse_IsValid(int value) {
     case 5:
     case 6:
     case 7:
+    case 8:
       return true;
     default:
       return false;
@@ -1255,15 +1322,16 @@ constexpr CMsgClientToGCCandyShopRerollRewardsResponse_EResponse CMsgClientToGCC
 constexpr CMsgClientToGCCandyShopRerollRewardsResponse_EResponse CMsgClientToGCCandyShopRerollRewardsResponse::k_eInvalidShop;
 constexpr CMsgClientToGCCandyShopRerollRewardsResponse_EResponse CMsgClientToGCCandyShopRerollRewardsResponse::k_eNoRerollCharges;
 constexpr CMsgClientToGCCandyShopRerollRewardsResponse_EResponse CMsgClientToGCCandyShopRerollRewardsResponse::k_eExpiredShop;
+constexpr CMsgClientToGCCandyShopRerollRewardsResponse_EResponse CMsgClientToGCCandyShopRerollRewardsResponse::k_eShopNotOpen;
 constexpr CMsgClientToGCCandyShopRerollRewardsResponse_EResponse CMsgClientToGCCandyShopRerollRewardsResponse::EResponse_MIN;
 constexpr CMsgClientToGCCandyShopRerollRewardsResponse_EResponse CMsgClientToGCCandyShopRerollRewardsResponse::EResponse_MAX;
 constexpr int CMsgClientToGCCandyShopRerollRewardsResponse::EResponse_ARRAYSIZE;
 #endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse_descriptor() {
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CCandyShopDev_EResponse_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto);
   return file_level_enum_descriptors_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto[6];
 }
-bool CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse_IsValid(int value) {
+bool CCandyShopDev_EResponse_IsValid(int value) {
   switch (value) {
     case 0:
     case 1:
@@ -1280,145 +1348,21 @@ bool CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse_IsValid(int value) {
 }
 
 #if (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
-constexpr CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse CMsgClientToGCCandyShopDevGrantCandyResponse::k_eInternalError;
-constexpr CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse CMsgClientToGCCandyShopDevGrantCandyResponse::k_eSuccess;
-constexpr CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse CMsgClientToGCCandyShopDevGrantCandyResponse::k_eTooBusy;
-constexpr CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse CMsgClientToGCCandyShopDevGrantCandyResponse::k_eDisabled;
-constexpr CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse CMsgClientToGCCandyShopDevGrantCandyResponse::k_eTimeout;
-constexpr CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse CMsgClientToGCCandyShopDevGrantCandyResponse::k_eNotAllowed;
-constexpr CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse CMsgClientToGCCandyShopDevGrantCandyResponse::k_eInvalidShop;
-constexpr CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse CMsgClientToGCCandyShopDevGrantCandyResponse::k_eNotEnoughSpace;
-constexpr CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse CMsgClientToGCCandyShopDevGrantCandyResponse::EResponse_MIN;
-constexpr CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse CMsgClientToGCCandyShopDevGrantCandyResponse::EResponse_MAX;
-constexpr int CMsgClientToGCCandyShopDevGrantCandyResponse::EResponse_ARRAYSIZE;
-#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse_descriptor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto);
-  return file_level_enum_descriptors_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto[7];
-}
-bool CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse_IsValid(int value) {
-  switch (value) {
-    case 0:
-    case 1:
-    case 2:
-    case 3:
-    case 4:
-    case 5:
-    case 6:
-      return true;
-    default:
-      return false;
-  }
-}
-
-#if (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
-constexpr CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse CMsgClientToGCCandyShopDevClearInventoryResponse::k_eInternalError;
-constexpr CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse CMsgClientToGCCandyShopDevClearInventoryResponse::k_eSuccess;
-constexpr CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse CMsgClientToGCCandyShopDevClearInventoryResponse::k_eTooBusy;
-constexpr CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse CMsgClientToGCCandyShopDevClearInventoryResponse::k_eDisabled;
-constexpr CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse CMsgClientToGCCandyShopDevClearInventoryResponse::k_eTimeout;
-constexpr CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse CMsgClientToGCCandyShopDevClearInventoryResponse::k_eNotAllowed;
-constexpr CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse CMsgClientToGCCandyShopDevClearInventoryResponse::k_eInvalidShop;
-constexpr CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse CMsgClientToGCCandyShopDevClearInventoryResponse::EResponse_MIN;
-constexpr CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse CMsgClientToGCCandyShopDevClearInventoryResponse::EResponse_MAX;
-constexpr int CMsgClientToGCCandyShopDevClearInventoryResponse::EResponse_ARRAYSIZE;
-#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse_descriptor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto);
-  return file_level_enum_descriptors_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto[8];
-}
-bool CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse_IsValid(int value) {
-  switch (value) {
-    case 0:
-    case 1:
-    case 2:
-    case 3:
-    case 4:
-    case 5:
-    case 6:
-      return true;
-    default:
-      return false;
-  }
-}
-
-#if (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
-constexpr CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse CMsgClientToGCCandyShopDevGrantCandyBagsResponse::k_eInternalError;
-constexpr CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse CMsgClientToGCCandyShopDevGrantCandyBagsResponse::k_eSuccess;
-constexpr CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse CMsgClientToGCCandyShopDevGrantCandyBagsResponse::k_eTooBusy;
-constexpr CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse CMsgClientToGCCandyShopDevGrantCandyBagsResponse::k_eDisabled;
-constexpr CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse CMsgClientToGCCandyShopDevGrantCandyBagsResponse::k_eTimeout;
-constexpr CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse CMsgClientToGCCandyShopDevGrantCandyBagsResponse::k_eNotAllowed;
-constexpr CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse CMsgClientToGCCandyShopDevGrantCandyBagsResponse::k_eInvalidShop;
-constexpr CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse CMsgClientToGCCandyShopDevGrantCandyBagsResponse::EResponse_MIN;
-constexpr CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse CMsgClientToGCCandyShopDevGrantCandyBagsResponse::EResponse_MAX;
-constexpr int CMsgClientToGCCandyShopDevGrantCandyBagsResponse::EResponse_ARRAYSIZE;
-#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse_descriptor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto);
-  return file_level_enum_descriptors_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto[9];
-}
-bool CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse_IsValid(int value) {
-  switch (value) {
-    case 0:
-    case 1:
-    case 2:
-    case 3:
-    case 4:
-    case 5:
-    case 6:
-      return true;
-    default:
-      return false;
-  }
-}
-
-#if (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
-constexpr CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse CMsgClientToGCCandyShopDevShuffleExchangeResponse::k_eInternalError;
-constexpr CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse CMsgClientToGCCandyShopDevShuffleExchangeResponse::k_eSuccess;
-constexpr CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse CMsgClientToGCCandyShopDevShuffleExchangeResponse::k_eTooBusy;
-constexpr CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse CMsgClientToGCCandyShopDevShuffleExchangeResponse::k_eDisabled;
-constexpr CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse CMsgClientToGCCandyShopDevShuffleExchangeResponse::k_eTimeout;
-constexpr CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse CMsgClientToGCCandyShopDevShuffleExchangeResponse::k_eNotAllowed;
-constexpr CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse CMsgClientToGCCandyShopDevShuffleExchangeResponse::k_eInvalidShop;
-constexpr CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse CMsgClientToGCCandyShopDevShuffleExchangeResponse::EResponse_MIN;
-constexpr CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse CMsgClientToGCCandyShopDevShuffleExchangeResponse::EResponse_MAX;
-constexpr int CMsgClientToGCCandyShopDevShuffleExchangeResponse::EResponse_ARRAYSIZE;
-#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse_descriptor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto);
-  return file_level_enum_descriptors_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto[10];
-}
-bool CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse_IsValid(int value) {
-  switch (value) {
-    case 0:
-    case 1:
-    case 2:
-    case 3:
-    case 4:
-    case 5:
-    case 6:
-      return true;
-    default:
-      return false;
-  }
-}
-
-#if (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
-constexpr CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse CMsgClientToGCCandyShopDevGrantRerollChargesResponse::k_eInternalError;
-constexpr CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse CMsgClientToGCCandyShopDevGrantRerollChargesResponse::k_eSuccess;
-constexpr CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse CMsgClientToGCCandyShopDevGrantRerollChargesResponse::k_eTooBusy;
-constexpr CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse CMsgClientToGCCandyShopDevGrantRerollChargesResponse::k_eDisabled;
-constexpr CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse CMsgClientToGCCandyShopDevGrantRerollChargesResponse::k_eTimeout;
-constexpr CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse CMsgClientToGCCandyShopDevGrantRerollChargesResponse::k_eNotAllowed;
-constexpr CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse CMsgClientToGCCandyShopDevGrantRerollChargesResponse::k_eInvalidShop;
-constexpr CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse CMsgClientToGCCandyShopDevGrantRerollChargesResponse::EResponse_MIN;
-constexpr CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse CMsgClientToGCCandyShopDevGrantRerollChargesResponse::EResponse_MAX;
-constexpr int CMsgClientToGCCandyShopDevGrantRerollChargesResponse::EResponse_ARRAYSIZE;
+constexpr CCandyShopDev_EResponse CCandyShopDev::k_eInternalError;
+constexpr CCandyShopDev_EResponse CCandyShopDev::k_eSuccess;
+constexpr CCandyShopDev_EResponse CCandyShopDev::k_eTooBusy;
+constexpr CCandyShopDev_EResponse CCandyShopDev::k_eDisabled;
+constexpr CCandyShopDev_EResponse CCandyShopDev::k_eTimeout;
+constexpr CCandyShopDev_EResponse CCandyShopDev::k_eNotAllowed;
+constexpr CCandyShopDev_EResponse CCandyShopDev::k_eInvalidShop;
+constexpr CCandyShopDev_EResponse CCandyShopDev::k_eNotEnoughSpace;
+constexpr CCandyShopDev_EResponse CCandyShopDev::EResponse_MIN;
+constexpr CCandyShopDev_EResponse CCandyShopDev::EResponse_MAX;
+constexpr int CCandyShopDev::EResponse_ARRAYSIZE;
 #endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ECandyShopAuditAction_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto);
-  return file_level_enum_descriptors_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto[11];
+  return file_level_enum_descriptors_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto[7];
 }
 bool ECandyShopAuditAction_IsValid(int value) {
   switch (value) {
@@ -1431,6 +1375,9 @@ bool ECandyShopAuditAction_IsValid(int value) {
     case 6:
     case 7:
     case 8:
+    case 100:
+    case 101:
+    case 102:
       return true;
     default:
       return false;
@@ -1439,7 +1386,7 @@ bool ECandyShopAuditAction_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ECandyShopRewardType_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto);
-  return file_level_enum_descriptors_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto[12];
+  return file_level_enum_descriptors_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto[8];
 }
 bool ECandyShopRewardType_IsValid(int value) {
   switch (value) {
@@ -2371,9 +2318,6 @@ class CMsgCandyShopRewardData_EventAction::_Internal {
   static void set_has_action_id(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
   }
-  static void set_has_quantity(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
-  }
 };
 
 CMsgCandyShopRewardData_EventAction::CMsgCandyShopRewardData_EventAction(::PROTOBUF_NAMESPACE_ID::Arena* arena,
@@ -2389,13 +2333,12 @@ CMsgCandyShopRewardData_EventAction::CMsgCandyShopRewardData_EventAction(const C
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.event_id_){}
-    , decltype(_impl_.action_id_){}
-    , decltype(_impl_.quantity_){}};
+    , decltype(_impl_.action_id_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&_impl_.event_id_, &from._impl_.event_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.quantity_) -
-    reinterpret_cast<char*>(&_impl_.event_id_)) + sizeof(_impl_.quantity_));
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.action_id_) -
+    reinterpret_cast<char*>(&_impl_.event_id_)) + sizeof(_impl_.action_id_));
   // @@protoc_insertion_point(copy_constructor:CMsgCandyShopRewardData_EventAction)
 }
 
@@ -2408,7 +2351,6 @@ inline void CMsgCandyShopRewardData_EventAction::SharedCtor(
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.event_id_){0}
     , decltype(_impl_.action_id_){0u}
-    , decltype(_impl_.quantity_){0u}
   };
 }
 
@@ -2436,10 +2378,10 @@ void CMsgCandyShopRewardData_EventAction::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000007u) {
+  if (cached_has_bits & 0x00000003u) {
     ::memset(&_impl_.event_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.quantity_) -
-        reinterpret_cast<char*>(&_impl_.event_id_)) + sizeof(_impl_.quantity_));
+        reinterpret_cast<char*>(&_impl_.action_id_) -
+        reinterpret_cast<char*>(&_impl_.event_id_)) + sizeof(_impl_.action_id_));
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -2470,15 +2412,6 @@ const char* CMsgCandyShopRewardData_EventAction::_InternalParse(const char* ptr,
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _Internal::set_has_action_id(&has_bits);
           _impl_.action_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // optional uint32 quantity = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
-          _Internal::set_has_quantity(&has_bits);
-          _impl_.quantity_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -2527,12 +2460,6 @@ uint8_t* CMsgCandyShopRewardData_EventAction::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_action_id(), target);
   }
 
-  // optional uint32 quantity = 3;
-  if (cached_has_bits & 0x00000004u) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_quantity(), target);
-  }
-
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -2550,7 +2477,7 @@ size_t CMsgCandyShopRewardData_EventAction::ByteSizeLong() const {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000007u) {
+  if (cached_has_bits & 0x00000003u) {
     // optional .EEvent event_id = 1 [default = EVENT_ID_NONE];
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
@@ -2560,11 +2487,6 @@ size_t CMsgCandyShopRewardData_EventAction::ByteSizeLong() const {
     // optional uint32 action_id = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_action_id());
-    }
-
-    // optional uint32 quantity = 3;
-    if (cached_has_bits & 0x00000004u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_quantity());
     }
 
   }
@@ -2587,15 +2509,12 @@ void CMsgCandyShopRewardData_EventAction::MergeImpl(::PROTOBUF_NAMESPACE_ID::Mes
   (void) cached_has_bits;
 
   cached_has_bits = from._impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000007u) {
+  if (cached_has_bits & 0x00000003u) {
     if (cached_has_bits & 0x00000001u) {
       _this->_impl_.event_id_ = from._impl_.event_id_;
     }
     if (cached_has_bits & 0x00000002u) {
       _this->_impl_.action_id_ = from._impl_.action_id_;
-    }
-    if (cached_has_bits & 0x00000004u) {
-      _this->_impl_.quantity_ = from._impl_.quantity_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -2618,8 +2537,8 @@ void CMsgCandyShopRewardData_EventAction::InternalSwap(CMsgCandyShopRewardData_E
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CMsgCandyShopRewardData_EventAction, _impl_.quantity_)
-      + sizeof(CMsgCandyShopRewardData_EventAction::_impl_.quantity_)
+      PROTOBUF_FIELD_OFFSET(CMsgCandyShopRewardData_EventAction, _impl_.action_id_)
+      + sizeof(CMsgCandyShopRewardData_EventAction::_impl_.action_id_)
       - PROTOBUF_FIELD_OFFSET(CMsgCandyShopRewardData_EventAction, _impl_.event_id_)>(
           reinterpret_cast<char*>(&_impl_.event_id_),
           reinterpret_cast<char*>(&other->_impl_.event_id_));
@@ -3328,18 +3247,27 @@ void CMsgCandyShopReward::InternalSwap(CMsgCandyShopReward* other) {
 class CMsgCandyShopUserData::_Internal {
  public:
   using HasBits = decltype(std::declval<CMsgCandyShopUserData>()._impl_._has_bits_);
-  static void set_has_inventory_size(HasBits* has_bits) {
+  static void set_has_inventory_max(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
   }
   static const ::CMsgCandyShopCandyQuantity& inventory(const CMsgCandyShopUserData* msg);
   static void set_has_inventory(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
-  static void set_has_exchange_reset_timestamp(HasBits* has_bits) {
+  static void set_has_exchange_recipe_max(HasBits* has_bits) {
     (*has_bits)[0] |= 4u;
   }
-  static void set_has_reroll_charges(HasBits* has_bits) {
+  static void set_has_exchange_reset_timestamp(HasBits* has_bits) {
     (*has_bits)[0] |= 8u;
+  }
+  static void set_has_active_reward_max(HasBits* has_bits) {
+    (*has_bits)[0] |= 16u;
+  }
+  static void set_has_reroll_charges_max(HasBits* has_bits) {
+    (*has_bits)[0] |= 32u;
+  }
+  static void set_has_reroll_charges(HasBits* has_bits) {
+    (*has_bits)[0] |= 64u;
   }
 };
 
@@ -3362,17 +3290,20 @@ CMsgCandyShopUserData::CMsgCandyShopUserData(const CMsgCandyShopUserData& from)
     , decltype(_impl_.exchange_recipes_){from._impl_.exchange_recipes_}
     , decltype(_impl_.active_rewards_){from._impl_.active_rewards_}
     , decltype(_impl_.inventory_){nullptr}
-    , decltype(_impl_.inventory_size_){}
+    , decltype(_impl_.inventory_max_){}
+    , decltype(_impl_.exchange_recipe_max_){}
     , decltype(_impl_.exchange_reset_timestamp_){}
+    , decltype(_impl_.active_reward_max_){}
+    , decltype(_impl_.reroll_charges_max_){}
     , decltype(_impl_.reroll_charges_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_inventory()) {
     _this->_impl_.inventory_ = new ::CMsgCandyShopCandyQuantity(*from._impl_.inventory_);
   }
-  ::memcpy(&_impl_.inventory_size_, &from._impl_.inventory_size_,
+  ::memcpy(&_impl_.inventory_max_, &from._impl_.inventory_max_,
     static_cast<size_t>(reinterpret_cast<char*>(&_impl_.reroll_charges_) -
-    reinterpret_cast<char*>(&_impl_.inventory_size_)) + sizeof(_impl_.reroll_charges_));
+    reinterpret_cast<char*>(&_impl_.inventory_max_)) + sizeof(_impl_.reroll_charges_));
   // @@protoc_insertion_point(copy_constructor:CMsgCandyShopUserData)
 }
 
@@ -3386,8 +3317,11 @@ inline void CMsgCandyShopUserData::SharedCtor(
     , decltype(_impl_.exchange_recipes_){arena}
     , decltype(_impl_.active_rewards_){arena}
     , decltype(_impl_.inventory_){nullptr}
-    , decltype(_impl_.inventory_size_){0u}
+    , decltype(_impl_.inventory_max_){0u}
+    , decltype(_impl_.exchange_recipe_max_){0u}
     , decltype(_impl_.exchange_reset_timestamp_){0u}
+    , decltype(_impl_.active_reward_max_){0u}
+    , decltype(_impl_.reroll_charges_max_){0u}
     , decltype(_impl_.reroll_charges_){0u}
   };
 }
@@ -3425,10 +3359,10 @@ void CMsgCandyShopUserData::Clear() {
     GOOGLE_DCHECK(_impl_.inventory_ != nullptr);
     _impl_.inventory_->Clear();
   }
-  if (cached_has_bits & 0x0000000eu) {
-    ::memset(&_impl_.inventory_size_, 0, static_cast<size_t>(
+  if (cached_has_bits & 0x0000007eu) {
+    ::memset(&_impl_.inventory_max_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.reroll_charges_) -
-        reinterpret_cast<char*>(&_impl_.inventory_size_)) + sizeof(_impl_.reroll_charges_));
+        reinterpret_cast<char*>(&_impl_.inventory_max_)) + sizeof(_impl_.reroll_charges_));
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -3441,11 +3375,11 @@ const char* CMsgCandyShopUserData::_InternalParse(const char* ptr, ::_pbi::Parse
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional uint32 inventory_size = 1;
+      // optional uint32 inventory_max = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          _Internal::set_has_inventory_size(&has_bits);
-          _impl_.inventory_size_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          _Internal::set_has_inventory_max(&has_bits);
+          _impl_.inventory_max_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -3458,44 +3392,71 @@ const char* CMsgCandyShopUserData::_InternalParse(const char* ptr, ::_pbi::Parse
         } else
           goto handle_unusual;
         continue;
-      // optional fixed32 exchange_reset_timestamp = 3;
+      // optional uint32 exchange_recipe_max = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 29)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _Internal::set_has_exchange_recipe_max(&has_bits);
+          _impl_.exchange_recipe_max_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional fixed32 exchange_reset_timestamp = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 37)) {
           _Internal::set_has_exchange_reset_timestamp(&has_bits);
           _impl_.exchange_reset_timestamp_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<uint32_t>(ptr);
           ptr += sizeof(uint32_t);
         } else
           goto handle_unusual;
         continue;
-      // repeated .CMsgCandyShopExchangeRecipe exchange_recipes = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+      // repeated .CMsgCandyShopExchangeRecipe exchange_recipes = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
           ptr -= 1;
           do {
             ptr += 1;
             ptr = ctx->ParseMessage(_internal_add_exchange_recipes(), ptr);
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<42>(ptr));
         } else
           goto handle_unusual;
         continue;
-      // repeated .CMsgCandyShopReward active_rewards = 5;
-      case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
+      // optional uint32 active_reward_max = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
+          _Internal::set_has_active_reward_max(&has_bits);
+          _impl_.active_reward_max_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .CMsgCandyShopReward active_rewards = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 58)) {
           ptr -= 1;
           do {
             ptr += 1;
             ptr = ctx->ParseMessage(_internal_add_active_rewards(), ptr);
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<42>(ptr));
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<58>(ptr));
         } else
           goto handle_unusual;
         continue;
-      // optional uint32 reroll_charges = 6;
-      case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
+      // optional uint32 reroll_charges_max = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 64)) {
+          _Internal::set_has_reroll_charges_max(&has_bits);
+          _impl_.reroll_charges_max_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 reroll_charges = 9;
+      case 9:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 72)) {
           _Internal::set_has_reroll_charges(&has_bits);
           _impl_.reroll_charges_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
@@ -3533,10 +3494,10 @@ uint8_t* CMsgCandyShopUserData::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional uint32 inventory_size = 1;
+  // optional uint32 inventory_max = 1;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_inventory_size(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_inventory_max(), target);
   }
 
   // optional .CMsgCandyShopCandyQuantity inventory = 2;
@@ -3546,32 +3507,50 @@ uint8_t* CMsgCandyShopUserData::_InternalSerialize(
         _Internal::inventory(this).GetCachedSize(), target, stream);
   }
 
-  // optional fixed32 exchange_reset_timestamp = 3;
+  // optional uint32 exchange_recipe_max = 3;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteFixed32ToArray(3, this->_internal_exchange_reset_timestamp(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_exchange_recipe_max(), target);
   }
 
-  // repeated .CMsgCandyShopExchangeRecipe exchange_recipes = 4;
+  // optional fixed32 exchange_reset_timestamp = 4;
+  if (cached_has_bits & 0x00000008u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteFixed32ToArray(4, this->_internal_exchange_reset_timestamp(), target);
+  }
+
+  // repeated .CMsgCandyShopExchangeRecipe exchange_recipes = 5;
   for (unsigned i = 0,
       n = static_cast<unsigned>(this->_internal_exchange_recipes_size()); i < n; i++) {
     const auto& repfield = this->_internal_exchange_recipes(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-        InternalWriteMessage(4, repfield, repfield.GetCachedSize(), target, stream);
+        InternalWriteMessage(5, repfield, repfield.GetCachedSize(), target, stream);
   }
 
-  // repeated .CMsgCandyShopReward active_rewards = 5;
+  // optional uint32 active_reward_max = 6;
+  if (cached_has_bits & 0x00000010u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(6, this->_internal_active_reward_max(), target);
+  }
+
+  // repeated .CMsgCandyShopReward active_rewards = 7;
   for (unsigned i = 0,
       n = static_cast<unsigned>(this->_internal_active_rewards_size()); i < n; i++) {
     const auto& repfield = this->_internal_active_rewards(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-        InternalWriteMessage(5, repfield, repfield.GetCachedSize(), target, stream);
+        InternalWriteMessage(7, repfield, repfield.GetCachedSize(), target, stream);
   }
 
-  // optional uint32 reroll_charges = 6;
-  if (cached_has_bits & 0x00000008u) {
+  // optional uint32 reroll_charges_max = 8;
+  if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(6, this->_internal_reroll_charges(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(8, this->_internal_reroll_charges_max(), target);
+  }
+
+  // optional uint32 reroll_charges = 9;
+  if (cached_has_bits & 0x00000040u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(9, this->_internal_reroll_charges(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -3590,14 +3569,14 @@ size_t CMsgCandyShopUserData::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .CMsgCandyShopExchangeRecipe exchange_recipes = 4;
+  // repeated .CMsgCandyShopExchangeRecipe exchange_recipes = 5;
   total_size += 1UL * this->_internal_exchange_recipes_size();
   for (const auto& msg : this->_impl_.exchange_recipes_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // repeated .CMsgCandyShopReward active_rewards = 5;
+  // repeated .CMsgCandyShopReward active_rewards = 7;
   total_size += 1UL * this->_internal_active_rewards_size();
   for (const auto& msg : this->_impl_.active_rewards_) {
     total_size +=
@@ -3605,7 +3584,7 @@ size_t CMsgCandyShopUserData::ByteSizeLong() const {
   }
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000000fu) {
+  if (cached_has_bits & 0x0000007fu) {
     // optional .CMsgCandyShopCandyQuantity inventory = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
@@ -3613,18 +3592,33 @@ size_t CMsgCandyShopUserData::ByteSizeLong() const {
           *_impl_.inventory_);
     }
 
-    // optional uint32 inventory_size = 1;
+    // optional uint32 inventory_max = 1;
     if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_inventory_size());
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_inventory_max());
     }
 
-    // optional fixed32 exchange_reset_timestamp = 3;
+    // optional uint32 exchange_recipe_max = 3;
     if (cached_has_bits & 0x00000004u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_exchange_recipe_max());
+    }
+
+    // optional fixed32 exchange_reset_timestamp = 4;
+    if (cached_has_bits & 0x00000008u) {
       total_size += 1 + 4;
     }
 
-    // optional uint32 reroll_charges = 6;
-    if (cached_has_bits & 0x00000008u) {
+    // optional uint32 active_reward_max = 6;
+    if (cached_has_bits & 0x00000010u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_active_reward_max());
+    }
+
+    // optional uint32 reroll_charges_max = 8;
+    if (cached_has_bits & 0x00000020u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_reroll_charges_max());
+    }
+
+    // optional uint32 reroll_charges = 9;
+    if (cached_has_bits & 0x00000040u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_reroll_charges());
     }
 
@@ -3650,18 +3644,27 @@ void CMsgCandyShopUserData::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, 
   _this->_impl_.exchange_recipes_.MergeFrom(from._impl_.exchange_recipes_);
   _this->_impl_.active_rewards_.MergeFrom(from._impl_.active_rewards_);
   cached_has_bits = from._impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000000fu) {
+  if (cached_has_bits & 0x0000007fu) {
     if (cached_has_bits & 0x00000001u) {
       _this->_internal_mutable_inventory()->::CMsgCandyShopCandyQuantity::MergeFrom(
           from._internal_inventory());
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.inventory_size_ = from._impl_.inventory_size_;
+      _this->_impl_.inventory_max_ = from._impl_.inventory_max_;
     }
     if (cached_has_bits & 0x00000004u) {
-      _this->_impl_.exchange_reset_timestamp_ = from._impl_.exchange_reset_timestamp_;
+      _this->_impl_.exchange_recipe_max_ = from._impl_.exchange_recipe_max_;
     }
     if (cached_has_bits & 0x00000008u) {
+      _this->_impl_.exchange_reset_timestamp_ = from._impl_.exchange_reset_timestamp_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      _this->_impl_.active_reward_max_ = from._impl_.active_reward_max_;
+    }
+    if (cached_has_bits & 0x00000020u) {
+      _this->_impl_.reroll_charges_max_ = from._impl_.reroll_charges_max_;
+    }
+    if (cached_has_bits & 0x00000040u) {
       _this->_impl_.reroll_charges_ = from._impl_.reroll_charges_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
@@ -6573,6 +6576,46 @@ void CMsgClientToGCCandyShopRerollRewardsResponse::InternalSwap(CMsgClientToGCCa
 
 // ===================================================================
 
+class CCandyShopDev::_Internal {
+ public:
+};
+
+CCandyShopDev::CCandyShopDev(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase(arena, is_message_owned) {
+  // @@protoc_insertion_point(arena_constructor:CCandyShopDev)
+}
+CCandyShopDev::CCandyShopDev(const CCandyShopDev& from)
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase() {
+  CCandyShopDev* const _this = this; (void)_this;
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:CCandyShopDev)
+}
+
+
+
+
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CCandyShopDev::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl,
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl,
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CCandyShopDev::GetClassData() const { return &_class_data_; }
+
+
+
+
+
+
+
+::PROTOBUF_NAMESPACE_ID::Metadata CCandyShopDev::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto_once,
+      file_level_metadata_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto[21]);
+}
+
+// ===================================================================
+
 class CMsgClientToGCCandyShopDevGrantCandy::_Internal {
  public:
   using HasBits = decltype(std::declval<CMsgClientToGCCandyShopDevGrantCandy>()._impl_._has_bits_);
@@ -6815,7 +6858,7 @@ void CMsgClientToGCCandyShopDevGrantCandy::InternalSwap(CMsgClientToGCCandyShopD
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientToGCCandyShopDevGrantCandy::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto[21]);
+      file_level_metadata_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto[22]);
 }
 
 // ===================================================================
@@ -6893,13 +6936,13 @@ const char* CMsgClientToGCCandyShopDevGrantCandyResponse::_InternalParse(const c
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional .CMsgClientToGCCandyShopDevGrantCandyResponse.EResponse response = 1 [default = k_eInternalError];
+      // optional .CCandyShopDev.EResponse response = 1 [default = k_eInternalError];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-          if (PROTOBUF_PREDICT_TRUE(::CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse_IsValid(val))) {
-            _internal_set_response(static_cast<::CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse>(val));
+          if (PROTOBUF_PREDICT_TRUE(::CCandyShopDev_EResponse_IsValid(val))) {
+            _internal_set_response(static_cast<::CCandyShopDev_EResponse>(val));
           } else {
             ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(1, val, mutable_unknown_fields());
           }
@@ -6937,7 +6980,7 @@ uint8_t* CMsgClientToGCCandyShopDevGrantCandyResponse::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional .CMsgClientToGCCandyShopDevGrantCandyResponse.EResponse response = 1 [default = k_eInternalError];
+  // optional .CCandyShopDev.EResponse response = 1 [default = k_eInternalError];
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteEnumToArray(
@@ -6960,7 +7003,7 @@ size_t CMsgClientToGCCandyShopDevGrantCandyResponse::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional .CMsgClientToGCCandyShopDevGrantCandyResponse.EResponse response = 1 [default = k_eInternalError];
+  // optional .CCandyShopDev.EResponse response = 1 [default = k_eInternalError];
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 +
@@ -7012,7 +7055,7 @@ void CMsgClientToGCCandyShopDevGrantCandyResponse::InternalSwap(CMsgClientToGCCa
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientToGCCandyShopDevGrantCandyResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto[22]);
+      file_level_metadata_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto[23]);
 }
 
 // ===================================================================
@@ -7203,7 +7246,7 @@ void CMsgClientToGCCandyShopDevClearInventory::InternalSwap(CMsgClientToGCCandyS
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientToGCCandyShopDevClearInventory::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto[23]);
+      file_level_metadata_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto[24]);
 }
 
 // ===================================================================
@@ -7281,13 +7324,13 @@ const char* CMsgClientToGCCandyShopDevClearInventoryResponse::_InternalParse(con
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional .CMsgClientToGCCandyShopDevClearInventoryResponse.EResponse response = 1 [default = k_eInternalError];
+      // optional .CCandyShopDev.EResponse response = 1 [default = k_eInternalError];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-          if (PROTOBUF_PREDICT_TRUE(::CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse_IsValid(val))) {
-            _internal_set_response(static_cast<::CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse>(val));
+          if (PROTOBUF_PREDICT_TRUE(::CCandyShopDev_EResponse_IsValid(val))) {
+            _internal_set_response(static_cast<::CCandyShopDev_EResponse>(val));
           } else {
             ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(1, val, mutable_unknown_fields());
           }
@@ -7325,7 +7368,7 @@ uint8_t* CMsgClientToGCCandyShopDevClearInventoryResponse::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional .CMsgClientToGCCandyShopDevClearInventoryResponse.EResponse response = 1 [default = k_eInternalError];
+  // optional .CCandyShopDev.EResponse response = 1 [default = k_eInternalError];
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteEnumToArray(
@@ -7348,7 +7391,7 @@ size_t CMsgClientToGCCandyShopDevClearInventoryResponse::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional .CMsgClientToGCCandyShopDevClearInventoryResponse.EResponse response = 1 [default = k_eInternalError];
+  // optional .CCandyShopDev.EResponse response = 1 [default = k_eInternalError];
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 +
@@ -7400,7 +7443,7 @@ void CMsgClientToGCCandyShopDevClearInventoryResponse::InternalSwap(CMsgClientTo
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientToGCCandyShopDevClearInventoryResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto[24]);
+      file_level_metadata_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto[25]);
 }
 
 // ===================================================================
@@ -7637,7 +7680,7 @@ void CMsgClientToGCCandyShopDevGrantCandyBags::InternalSwap(CMsgClientToGCCandyS
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientToGCCandyShopDevGrantCandyBags::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto[25]);
+      file_level_metadata_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto[26]);
 }
 
 // ===================================================================
@@ -7715,13 +7758,13 @@ const char* CMsgClientToGCCandyShopDevGrantCandyBagsResponse::_InternalParse(con
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional .CMsgClientToGCCandyShopDevGrantCandyBagsResponse.EResponse response = 1 [default = k_eInternalError];
+      // optional .CCandyShopDev.EResponse response = 1 [default = k_eInternalError];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-          if (PROTOBUF_PREDICT_TRUE(::CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse_IsValid(val))) {
-            _internal_set_response(static_cast<::CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse>(val));
+          if (PROTOBUF_PREDICT_TRUE(::CCandyShopDev_EResponse_IsValid(val))) {
+            _internal_set_response(static_cast<::CCandyShopDev_EResponse>(val));
           } else {
             ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(1, val, mutable_unknown_fields());
           }
@@ -7759,7 +7802,7 @@ uint8_t* CMsgClientToGCCandyShopDevGrantCandyBagsResponse::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional .CMsgClientToGCCandyShopDevGrantCandyBagsResponse.EResponse response = 1 [default = k_eInternalError];
+  // optional .CCandyShopDev.EResponse response = 1 [default = k_eInternalError];
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteEnumToArray(
@@ -7782,7 +7825,7 @@ size_t CMsgClientToGCCandyShopDevGrantCandyBagsResponse::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional .CMsgClientToGCCandyShopDevGrantCandyBagsResponse.EResponse response = 1 [default = k_eInternalError];
+  // optional .CCandyShopDev.EResponse response = 1 [default = k_eInternalError];
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 +
@@ -7834,7 +7877,7 @@ void CMsgClientToGCCandyShopDevGrantCandyBagsResponse::InternalSwap(CMsgClientTo
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientToGCCandyShopDevGrantCandyBagsResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto[26]);
+      file_level_metadata_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto[27]);
 }
 
 // ===================================================================
@@ -8025,7 +8068,7 @@ void CMsgClientToGCCandyShopDevShuffleExchange::InternalSwap(CMsgClientToGCCandy
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientToGCCandyShopDevShuffleExchange::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto[27]);
+      file_level_metadata_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto[28]);
 }
 
 // ===================================================================
@@ -8103,13 +8146,13 @@ const char* CMsgClientToGCCandyShopDevShuffleExchangeResponse::_InternalParse(co
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional .CMsgClientToGCCandyShopDevShuffleExchangeResponse.EResponse response = 1 [default = k_eInternalError];
+      // optional .CCandyShopDev.EResponse response = 1 [default = k_eInternalError];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-          if (PROTOBUF_PREDICT_TRUE(::CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse_IsValid(val))) {
-            _internal_set_response(static_cast<::CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse>(val));
+          if (PROTOBUF_PREDICT_TRUE(::CCandyShopDev_EResponse_IsValid(val))) {
+            _internal_set_response(static_cast<::CCandyShopDev_EResponse>(val));
           } else {
             ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(1, val, mutable_unknown_fields());
           }
@@ -8147,7 +8190,7 @@ uint8_t* CMsgClientToGCCandyShopDevShuffleExchangeResponse::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional .CMsgClientToGCCandyShopDevShuffleExchangeResponse.EResponse response = 1 [default = k_eInternalError];
+  // optional .CCandyShopDev.EResponse response = 1 [default = k_eInternalError];
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteEnumToArray(
@@ -8170,7 +8213,7 @@ size_t CMsgClientToGCCandyShopDevShuffleExchangeResponse::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional .CMsgClientToGCCandyShopDevShuffleExchangeResponse.EResponse response = 1 [default = k_eInternalError];
+  // optional .CCandyShopDev.EResponse response = 1 [default = k_eInternalError];
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 +
@@ -8222,7 +8265,7 @@ void CMsgClientToGCCandyShopDevShuffleExchangeResponse::InternalSwap(CMsgClientT
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientToGCCandyShopDevShuffleExchangeResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto[28]);
+      file_level_metadata_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto[29]);
 }
 
 // ===================================================================
@@ -8459,7 +8502,7 @@ void CMsgClientToGCCandyShopDevGrantRerollCharges::InternalSwap(CMsgClientToGCCa
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientToGCCandyShopDevGrantRerollCharges::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto[29]);
+      file_level_metadata_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto[30]);
 }
 
 // ===================================================================
@@ -8537,13 +8580,13 @@ const char* CMsgClientToGCCandyShopDevGrantRerollChargesResponse::_InternalParse
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional .CMsgClientToGCCandyShopDevGrantRerollChargesResponse.EResponse response = 1 [default = k_eInternalError];
+      // optional .CCandyShopDev.EResponse response = 1 [default = k_eInternalError];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-          if (PROTOBUF_PREDICT_TRUE(::CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse_IsValid(val))) {
-            _internal_set_response(static_cast<::CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse>(val));
+          if (PROTOBUF_PREDICT_TRUE(::CCandyShopDev_EResponse_IsValid(val))) {
+            _internal_set_response(static_cast<::CCandyShopDev_EResponse>(val));
           } else {
             ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(1, val, mutable_unknown_fields());
           }
@@ -8581,7 +8624,7 @@ uint8_t* CMsgClientToGCCandyShopDevGrantRerollChargesResponse::_InternalSerializ
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional .CMsgClientToGCCandyShopDevGrantRerollChargesResponse.EResponse response = 1 [default = k_eInternalError];
+  // optional .CCandyShopDev.EResponse response = 1 [default = k_eInternalError];
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteEnumToArray(
@@ -8604,7 +8647,7 @@ size_t CMsgClientToGCCandyShopDevGrantRerollChargesResponse::ByteSizeLong() cons
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional .CMsgClientToGCCandyShopDevGrantRerollChargesResponse.EResponse response = 1 [default = k_eInternalError];
+  // optional .CCandyShopDev.EResponse response = 1 [default = k_eInternalError];
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 +
@@ -8656,7 +8699,395 @@ void CMsgClientToGCCandyShopDevGrantRerollChargesResponse::InternalSwap(CMsgClie
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientToGCCandyShopDevGrantRerollChargesResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto[30]);
+      file_level_metadata_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto[31]);
+}
+
+// ===================================================================
+
+class CMsgClientToGCCandyShopDevResetShop::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMsgClientToGCCandyShopDevResetShop>()._impl_._has_bits_);
+  static void set_has_candy_shop_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+};
+
+CMsgClientToGCCandyShopDevResetShop::CMsgClientToGCCandyShopDevResetShop(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CMsgClientToGCCandyShopDevResetShop)
+}
+CMsgClientToGCCandyShopDevResetShop::CMsgClientToGCCandyShopDevResetShop(const CMsgClientToGCCandyShopDevResetShop& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CMsgClientToGCCandyShopDevResetShop* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.candy_shop_id_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_impl_.candy_shop_id_ = from._impl_.candy_shop_id_;
+  // @@protoc_insertion_point(copy_constructor:CMsgClientToGCCandyShopDevResetShop)
+}
+
+inline void CMsgClientToGCCandyShopDevResetShop::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.candy_shop_id_){0u}
+  };
+}
+
+CMsgClientToGCCandyShopDevResetShop::~CMsgClientToGCCandyShopDevResetShop() {
+  // @@protoc_insertion_point(destructor:CMsgClientToGCCandyShopDevResetShop)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CMsgClientToGCCandyShopDevResetShop::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void CMsgClientToGCCandyShopDevResetShop::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CMsgClientToGCCandyShopDevResetShop::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgClientToGCCandyShopDevResetShop)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.candy_shop_id_ = 0u;
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgClientToGCCandyShopDevResetShop::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional uint32 candy_shop_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _Internal::set_has_candy_shop_id(&has_bits);
+          _impl_.candy_shop_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CMsgClientToGCCandyShopDevResetShop::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgClientToGCCandyShopDevResetShop)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional uint32 candy_shop_id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_candy_shop_id(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgClientToGCCandyShopDevResetShop)
+  return target;
+}
+
+size_t CMsgClientToGCCandyShopDevResetShop::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgClientToGCCandyShopDevResetShop)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // optional uint32 candy_shop_id = 1;
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_candy_shop_id());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgClientToGCCandyShopDevResetShop::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CMsgClientToGCCandyShopDevResetShop::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgClientToGCCandyShopDevResetShop::GetClassData() const { return &_class_data_; }
+
+
+void CMsgClientToGCCandyShopDevResetShop::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CMsgClientToGCCandyShopDevResetShop*>(&to_msg);
+  auto& from = static_cast<const CMsgClientToGCCandyShopDevResetShop&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgClientToGCCandyShopDevResetShop)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_has_candy_shop_id()) {
+    _this->_internal_set_candy_shop_id(from._internal_candy_shop_id());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CMsgClientToGCCandyShopDevResetShop::CopyFrom(const CMsgClientToGCCandyShopDevResetShop& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgClientToGCCandyShopDevResetShop)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgClientToGCCandyShopDevResetShop::IsInitialized() const {
+  return true;
+}
+
+void CMsgClientToGCCandyShopDevResetShop::InternalSwap(CMsgClientToGCCandyShopDevResetShop* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  swap(_impl_.candy_shop_id_, other->_impl_.candy_shop_id_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientToGCCandyShopDevResetShop::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto_once,
+      file_level_metadata_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto[32]);
+}
+
+// ===================================================================
+
+class CMsgClientToGCCandyShopDevResetShopResponse::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMsgClientToGCCandyShopDevResetShopResponse>()._impl_._has_bits_);
+  static void set_has_response(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+};
+
+CMsgClientToGCCandyShopDevResetShopResponse::CMsgClientToGCCandyShopDevResetShopResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CMsgClientToGCCandyShopDevResetShopResponse)
+}
+CMsgClientToGCCandyShopDevResetShopResponse::CMsgClientToGCCandyShopDevResetShopResponse(const CMsgClientToGCCandyShopDevResetShopResponse& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CMsgClientToGCCandyShopDevResetShopResponse* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.response_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_impl_.response_ = from._impl_.response_;
+  // @@protoc_insertion_point(copy_constructor:CMsgClientToGCCandyShopDevResetShopResponse)
+}
+
+inline void CMsgClientToGCCandyShopDevResetShopResponse::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.response_){0}
+  };
+}
+
+CMsgClientToGCCandyShopDevResetShopResponse::~CMsgClientToGCCandyShopDevResetShopResponse() {
+  // @@protoc_insertion_point(destructor:CMsgClientToGCCandyShopDevResetShopResponse)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CMsgClientToGCCandyShopDevResetShopResponse::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void CMsgClientToGCCandyShopDevResetShopResponse::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CMsgClientToGCCandyShopDevResetShopResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgClientToGCCandyShopDevResetShopResponse)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.response_ = 0;
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgClientToGCCandyShopDevResetShopResponse::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional .CCandyShopDev.EResponse response = 1 [default = k_eInternalError];
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::CCandyShopDev_EResponse_IsValid(val))) {
+            _internal_set_response(static_cast<::CCandyShopDev_EResponse>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(1, val, mutable_unknown_fields());
+          }
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CMsgClientToGCCandyShopDevResetShopResponse::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgClientToGCCandyShopDevResetShopResponse)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional .CCandyShopDev.EResponse response = 1 [default = k_eInternalError];
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
+      1, this->_internal_response(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgClientToGCCandyShopDevResetShopResponse)
+  return target;
+}
+
+size_t CMsgClientToGCCandyShopDevResetShopResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgClientToGCCandyShopDevResetShopResponse)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // optional .CCandyShopDev.EResponse response = 1 [default = k_eInternalError];
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size += 1 +
+      ::_pbi::WireFormatLite::EnumSize(this->_internal_response());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgClientToGCCandyShopDevResetShopResponse::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CMsgClientToGCCandyShopDevResetShopResponse::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgClientToGCCandyShopDevResetShopResponse::GetClassData() const { return &_class_data_; }
+
+
+void CMsgClientToGCCandyShopDevResetShopResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CMsgClientToGCCandyShopDevResetShopResponse*>(&to_msg);
+  auto& from = static_cast<const CMsgClientToGCCandyShopDevResetShopResponse&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgClientToGCCandyShopDevResetShopResponse)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_has_response()) {
+    _this->_internal_set_response(from._internal_response());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CMsgClientToGCCandyShopDevResetShopResponse::CopyFrom(const CMsgClientToGCCandyShopDevResetShopResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgClientToGCCandyShopDevResetShopResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgClientToGCCandyShopDevResetShopResponse::IsInitialized() const {
+  return true;
+}
+
+void CMsgClientToGCCandyShopDevResetShopResponse::InternalSwap(CMsgClientToGCCandyShopDevResetShopResponse* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  swap(_impl_.response_, other->_impl_.response_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientToGCCandyShopDevResetShopResponse::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto_once,
+      file_level_metadata_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto[33]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -8745,6 +9176,10 @@ template<> PROTOBUF_NOINLINE ::CMsgClientToGCCandyShopRerollRewardsResponse*
 Arena::CreateMaybeMessage< ::CMsgClientToGCCandyShopRerollRewardsResponse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgClientToGCCandyShopRerollRewardsResponse >(arena);
 }
+template<> PROTOBUF_NOINLINE ::CCandyShopDev*
+Arena::CreateMaybeMessage< ::CCandyShopDev >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CCandyShopDev >(arena);
+}
 template<> PROTOBUF_NOINLINE ::CMsgClientToGCCandyShopDevGrantCandy*
 Arena::CreateMaybeMessage< ::CMsgClientToGCCandyShopDevGrantCandy >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgClientToGCCandyShopDevGrantCandy >(arena);
@@ -8784,6 +9219,14 @@ Arena::CreateMaybeMessage< ::CMsgClientToGCCandyShopDevGrantRerollCharges >(Aren
 template<> PROTOBUF_NOINLINE ::CMsgClientToGCCandyShopDevGrantRerollChargesResponse*
 Arena::CreateMaybeMessage< ::CMsgClientToGCCandyShopDevGrantRerollChargesResponse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgClientToGCCandyShopDevGrantRerollChargesResponse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMsgClientToGCCandyShopDevResetShop*
+Arena::CreateMaybeMessage< ::CMsgClientToGCCandyShopDevResetShop >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgClientToGCCandyShopDevResetShop >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMsgClientToGCCandyShopDevResetShopResponse*
+Arena::CreateMaybeMessage< ::CMsgClientToGCCandyShopDevResetShopResponse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgClientToGCCandyShopDevResetShopResponse >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

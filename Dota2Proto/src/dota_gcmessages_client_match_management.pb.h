@@ -147,9 +147,6 @@ extern CMsgPracticeLobbyCloseBroadcastChannelDefaultTypeInternal _CMsgPracticeLo
 class CMsgPracticeLobbyCreate;
 struct CMsgPracticeLobbyCreateDefaultTypeInternal;
 extern CMsgPracticeLobbyCreateDefaultTypeInternal _CMsgPracticeLobbyCreate_default_instance_;
-class CMsgPracticeLobbyCreate_SaveGame;
-struct CMsgPracticeLobbyCreate_SaveGameDefaultTypeInternal;
-extern CMsgPracticeLobbyCreate_SaveGameDefaultTypeInternal _CMsgPracticeLobbyCreate_SaveGame_default_instance_;
 class CMsgPracticeLobbyJoin;
 struct CMsgPracticeLobbyJoinDefaultTypeInternal;
 extern CMsgPracticeLobbyJoinDefaultTypeInternal _CMsgPracticeLobbyJoin_default_instance_;
@@ -273,7 +270,6 @@ template<> ::CMsgLobbyScenarioSave* Arena::CreateMaybeMessage<::CMsgLobbyScenari
 template<> ::CMsgPartyBuilderOptions* Arena::CreateMaybeMessage<::CMsgPartyBuilderOptions>(Arena*);
 template<> ::CMsgPracticeLobbyCloseBroadcastChannel* Arena::CreateMaybeMessage<::CMsgPracticeLobbyCloseBroadcastChannel>(Arena*);
 template<> ::CMsgPracticeLobbyCreate* Arena::CreateMaybeMessage<::CMsgPracticeLobbyCreate>(Arena*);
-template<> ::CMsgPracticeLobbyCreate_SaveGame* Arena::CreateMaybeMessage<::CMsgPracticeLobbyCreate_SaveGame>(Arena*);
 template<> ::CMsgPracticeLobbyJoin* Arena::CreateMaybeMessage<::CMsgPracticeLobbyJoin>(Arena*);
 template<> ::CMsgPracticeLobbyJoinBroadcastChannel* Arena::CreateMaybeMessage<::CMsgPracticeLobbyJoinBroadcastChannel>(Arena*);
 template<> ::CMsgPracticeLobbyJoinResponse* Arena::CreateMaybeMessage<::CMsgPracticeLobbyJoinResponse>(Arena*);
@@ -1787,7 +1783,10 @@ class CMsgReadyUpStatus final :
   enum : int {
     kAcceptedIdsFieldNumber = 2,
     kDeclinedIdsFieldNumber = 3,
+    kAcceptedIndicesFieldNumber = 4,
+    kDeclinedIndicesFieldNumber = 5,
     kLobbyIdFieldNumber = 1,
+    kLocalReadyStateFieldNumber = 6,
   };
   // repeated uint32 accepted_ids = 2;
   int accepted_ids_size() const;
@@ -1833,6 +1832,50 @@ class CMsgReadyUpStatus final :
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
       mutable_declined_ids();
 
+  // repeated uint32 accepted_indices = 4;
+  int accepted_indices_size() const;
+  private:
+  int _internal_accepted_indices_size() const;
+  public:
+  void clear_accepted_indices();
+  private:
+  uint32_t _internal_accepted_indices(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+      _internal_accepted_indices() const;
+  void _internal_add_accepted_indices(uint32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+      _internal_mutable_accepted_indices();
+  public:
+  uint32_t accepted_indices(int index) const;
+  void set_accepted_indices(int index, uint32_t value);
+  void add_accepted_indices(uint32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+      accepted_indices() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+      mutable_accepted_indices();
+
+  // repeated uint32 declined_indices = 5;
+  int declined_indices_size() const;
+  private:
+  int _internal_declined_indices_size() const;
+  public:
+  void clear_declined_indices();
+  private:
+  uint32_t _internal_declined_indices(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+      _internal_declined_indices() const;
+  void _internal_add_declined_indices(uint32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+      _internal_mutable_declined_indices();
+  public:
+  uint32_t declined_indices(int index) const;
+  void set_declined_indices(int index, uint32_t value);
+  void add_declined_indices(uint32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+      declined_indices() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+      mutable_declined_indices();
+
   // optional fixed64 lobby_id = 1;
   bool has_lobby_id() const;
   private:
@@ -1844,6 +1887,19 @@ class CMsgReadyUpStatus final :
   private:
   uint64_t _internal_lobby_id() const;
   void _internal_set_lobby_id(uint64_t value);
+  public:
+
+  // optional .DOTALobbyReadyState local_ready_state = 6 [default = DOTALobbyReadyState_UNDECLARED];
+  bool has_local_ready_state() const;
+  private:
+  bool _internal_has_local_ready_state() const;
+  public:
+  void clear_local_ready_state();
+  ::DOTALobbyReadyState local_ready_state() const;
+  void set_local_ready_state(::DOTALobbyReadyState value);
+  private:
+  ::DOTALobbyReadyState _internal_local_ready_state() const;
+  void _internal_set_local_ready_state(::DOTALobbyReadyState value);
   public:
 
   // @@protoc_insertion_point(class_scope:CMsgReadyUpStatus)
@@ -1858,7 +1914,10 @@ class CMsgReadyUpStatus final :
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > accepted_ids_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > declined_ids_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > accepted_indices_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > declined_indices_;
     uint64_t lobby_id_;
+    int local_ready_state_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fgcmessages_5fclient_5fmatch_5fmanagement_2eproto;
@@ -2476,32 +2535,30 @@ class CMsgPracticeLobbySetDetails final :
     kBotDifficultyRadiantFieldNumber = 9,
     kAllowCheatsFieldNumber = 10,
     kFillWithBotsFieldNumber = 11,
-    kIntroModeFieldNumber = 12,
     kAllowSpectatingFieldNumber = 13,
+    kAllchatFieldNumber = 23,
     kLeagueidFieldNumber = 16,
     kPenaltyLevelRadiantFieldNumber = 17,
     kPenaltyLevelDireFieldNumber = 18,
-    kLoadGameIdFieldNumber = 19,
     kSeriesTypeFieldNumber = 20,
     kRadiantSeriesWinsFieldNumber = 21,
     kDireSeriesWinsFieldNumber = 22,
-    kCustomGameIdFieldNumber = 29,
     kCustomDifficultyFieldNumber = 28,
+    kCustomGameIdFieldNumber = 29,
     kCustomMinPlayersFieldNumber = 30,
     kCustomMaxPlayersFieldNumber = 31,
-    kVisibilityFieldNumber = 33,
     kCustomGameCrcFieldNumber = 34,
+    kVisibilityFieldNumber = 33,
     kCustomGameTimestampFieldNumber = 37,
-    kAllchatFieldNumber = 23,
+    kPreviousMatchOverrideFieldNumber = 38,
     kLanFieldNumber = 25,
     kCustomGamePenaltiesFieldNumber = 47,
     kDoPlayerDraftFieldNumber = 53,
-    kPreviousMatchOverrideFieldNumber = 38,
     kPauseSettingFieldNumber = 42,
-    kBotDifficultyDireFieldNumber = 43,
     kBotRadiantFieldNumber = 44,
-    kBotDireFieldNumber = 45,
+    kBotDifficultyDireFieldNumber = 43,
     kSelectionPriorityRulesFieldNumber = 46,
+    kBotDireFieldNumber = 45,
     kLeagueNodeIdFieldNumber = 49,
     kDotaTvDelayFieldNumber = 24,
   };
@@ -2523,26 +2580,26 @@ class CMsgPracticeLobbySetDetails final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CLobbyTeamDetails >&
       team_details() const;
 
-  // repeated uint32 requested_hero_ids = 50;
+  // repeated int32 requested_hero_ids = 50;
   int requested_hero_ids_size() const;
   private:
   int _internal_requested_hero_ids_size() const;
   public:
   void clear_requested_hero_ids();
   private:
-  uint32_t _internal_requested_hero_ids(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+  int32_t _internal_requested_hero_ids(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
       _internal_requested_hero_ids() const;
-  void _internal_add_requested_hero_ids(uint32_t value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+  void _internal_add_requested_hero_ids(int32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
       _internal_mutable_requested_hero_ids();
   public:
-  uint32_t requested_hero_ids(int index) const;
-  void set_requested_hero_ids(int index, uint32_t value);
-  void add_requested_hero_ids(uint32_t value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+  int32_t requested_hero_ids(int index) const;
+  void set_requested_hero_ids(int index, int32_t value);
+  void add_requested_hero_ids(int32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
       requested_hero_ids() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
       mutable_requested_hero_ids();
 
   // optional string game_name = 2;
@@ -2762,19 +2819,6 @@ class CMsgPracticeLobbySetDetails final :
   void _internal_set_fill_with_bots(bool value);
   public:
 
-  // optional bool intro_mode = 12;
-  bool has_intro_mode() const;
-  private:
-  bool _internal_has_intro_mode() const;
-  public:
-  void clear_intro_mode();
-  bool intro_mode() const;
-  void set_intro_mode(bool value);
-  private:
-  bool _internal_intro_mode() const;
-  void _internal_set_intro_mode(bool value);
-  public:
-
   // optional bool allow_spectating = 13;
   bool has_allow_spectating() const;
   private:
@@ -2786,6 +2830,19 @@ class CMsgPracticeLobbySetDetails final :
   private:
   bool _internal_allow_spectating() const;
   void _internal_set_allow_spectating(bool value);
+  public:
+
+  // optional bool allchat = 23 [default = false];
+  bool has_allchat() const;
+  private:
+  bool _internal_has_allchat() const;
+  public:
+  void clear_allchat();
+  bool allchat() const;
+  void set_allchat(bool value);
+  private:
+  bool _internal_allchat() const;
+  void _internal_set_allchat(bool value);
   public:
 
   // optional uint32 leagueid = 16;
@@ -2827,19 +2884,6 @@ class CMsgPracticeLobbySetDetails final :
   void _internal_set_penalty_level_dire(uint32_t value);
   public:
 
-  // optional uint32 load_game_id = 19;
-  bool has_load_game_id() const;
-  private:
-  bool _internal_has_load_game_id() const;
-  public:
-  void clear_load_game_id();
-  uint32_t load_game_id() const;
-  void set_load_game_id(uint32_t value);
-  private:
-  uint32_t _internal_load_game_id() const;
-  void _internal_set_load_game_id(uint32_t value);
-  public:
-
   // optional uint32 series_type = 20;
   bool has_series_type() const;
   private:
@@ -2879,19 +2923,6 @@ class CMsgPracticeLobbySetDetails final :
   void _internal_set_dire_series_wins(uint32_t value);
   public:
 
-  // optional uint64 custom_game_id = 29;
-  bool has_custom_game_id() const;
-  private:
-  bool _internal_has_custom_game_id() const;
-  public:
-  void clear_custom_game_id();
-  uint64_t custom_game_id() const;
-  void set_custom_game_id(uint64_t value);
-  private:
-  uint64_t _internal_custom_game_id() const;
-  void _internal_set_custom_game_id(uint64_t value);
-  public:
-
   // optional uint32 custom_difficulty = 28;
   bool has_custom_difficulty() const;
   private:
@@ -2903,6 +2934,19 @@ class CMsgPracticeLobbySetDetails final :
   private:
   uint32_t _internal_custom_difficulty() const;
   void _internal_set_custom_difficulty(uint32_t value);
+  public:
+
+  // optional uint64 custom_game_id = 29;
+  bool has_custom_game_id() const;
+  private:
+  bool _internal_has_custom_game_id() const;
+  public:
+  void clear_custom_game_id();
+  uint64_t custom_game_id() const;
+  void set_custom_game_id(uint64_t value);
+  private:
+  uint64_t _internal_custom_game_id() const;
+  void _internal_set_custom_game_id(uint64_t value);
   public:
 
   // optional uint32 custom_min_players = 30;
@@ -2931,19 +2975,6 @@ class CMsgPracticeLobbySetDetails final :
   void _internal_set_custom_max_players(uint32_t value);
   public:
 
-  // optional .DOTALobbyVisibility visibility = 33 [default = DOTALobbyVisibility_Public];
-  bool has_visibility() const;
-  private:
-  bool _internal_has_visibility() const;
-  public:
-  void clear_visibility();
-  ::DOTALobbyVisibility visibility() const;
-  void set_visibility(::DOTALobbyVisibility value);
-  private:
-  ::DOTALobbyVisibility _internal_visibility() const;
-  void _internal_set_visibility(::DOTALobbyVisibility value);
-  public:
-
   // optional fixed64 custom_game_crc = 34;
   bool has_custom_game_crc() const;
   private:
@@ -2955,6 +2986,19 @@ class CMsgPracticeLobbySetDetails final :
   private:
   uint64_t _internal_custom_game_crc() const;
   void _internal_set_custom_game_crc(uint64_t value);
+  public:
+
+  // optional .DOTALobbyVisibility visibility = 33 [default = DOTALobbyVisibility_Public];
+  bool has_visibility() const;
+  private:
+  bool _internal_has_visibility() const;
+  public:
+  void clear_visibility();
+  ::DOTALobbyVisibility visibility() const;
+  void set_visibility(::DOTALobbyVisibility value);
+  private:
+  ::DOTALobbyVisibility _internal_visibility() const;
+  void _internal_set_visibility(::DOTALobbyVisibility value);
   public:
 
   // optional fixed32 custom_game_timestamp = 37;
@@ -2970,17 +3014,17 @@ class CMsgPracticeLobbySetDetails final :
   void _internal_set_custom_game_timestamp(uint32_t value);
   public:
 
-  // optional bool allchat = 23 [default = false];
-  bool has_allchat() const;
+  // optional uint64 previous_match_override = 38;
+  bool has_previous_match_override() const;
   private:
-  bool _internal_has_allchat() const;
+  bool _internal_has_previous_match_override() const;
   public:
-  void clear_allchat();
-  bool allchat() const;
-  void set_allchat(bool value);
+  void clear_previous_match_override();
+  uint64_t previous_match_override() const;
+  void set_previous_match_override(uint64_t value);
   private:
-  bool _internal_allchat() const;
-  void _internal_set_allchat(bool value);
+  uint64_t _internal_previous_match_override() const;
+  void _internal_set_previous_match_override(uint64_t value);
   public:
 
   // optional bool lan = 25;
@@ -3022,19 +3066,6 @@ class CMsgPracticeLobbySetDetails final :
   void _internal_set_do_player_draft(bool value);
   public:
 
-  // optional uint64 previous_match_override = 38;
-  bool has_previous_match_override() const;
-  private:
-  bool _internal_has_previous_match_override() const;
-  public:
-  void clear_previous_match_override();
-  uint64_t previous_match_override() const;
-  void set_previous_match_override(uint64_t value);
-  private:
-  uint64_t _internal_previous_match_override() const;
-  void _internal_set_previous_match_override(uint64_t value);
-  public:
-
   // optional .LobbyDotaPauseSetting pause_setting = 42 [default = LobbyDotaPauseSetting_Unlimited];
   bool has_pause_setting() const;
   private:
@@ -3046,19 +3077,6 @@ class CMsgPracticeLobbySetDetails final :
   private:
   ::LobbyDotaPauseSetting _internal_pause_setting() const;
   void _internal_set_pause_setting(::LobbyDotaPauseSetting value);
-  public:
-
-  // optional .DOTABotDifficulty bot_difficulty_dire = 43 [default = BOT_DIFFICULTY_PASSIVE];
-  bool has_bot_difficulty_dire() const;
-  private:
-  bool _internal_has_bot_difficulty_dire() const;
-  public:
-  void clear_bot_difficulty_dire();
-  ::DOTABotDifficulty bot_difficulty_dire() const;
-  void set_bot_difficulty_dire(::DOTABotDifficulty value);
-  private:
-  ::DOTABotDifficulty _internal_bot_difficulty_dire() const;
-  void _internal_set_bot_difficulty_dire(::DOTABotDifficulty value);
   public:
 
   // optional uint64 bot_radiant = 44;
@@ -3074,17 +3092,17 @@ class CMsgPracticeLobbySetDetails final :
   void _internal_set_bot_radiant(uint64_t value);
   public:
 
-  // optional uint64 bot_dire = 45;
-  bool has_bot_dire() const;
+  // optional .DOTABotDifficulty bot_difficulty_dire = 43 [default = BOT_DIFFICULTY_PASSIVE];
+  bool has_bot_difficulty_dire() const;
   private:
-  bool _internal_has_bot_dire() const;
+  bool _internal_has_bot_difficulty_dire() const;
   public:
-  void clear_bot_dire();
-  uint64_t bot_dire() const;
-  void set_bot_dire(uint64_t value);
+  void clear_bot_difficulty_dire();
+  ::DOTABotDifficulty bot_difficulty_dire() const;
+  void set_bot_difficulty_dire(::DOTABotDifficulty value);
   private:
-  uint64_t _internal_bot_dire() const;
-  void _internal_set_bot_dire(uint64_t value);
+  ::DOTABotDifficulty _internal_bot_difficulty_dire() const;
+  void _internal_set_bot_difficulty_dire(::DOTABotDifficulty value);
   public:
 
   // optional .DOTASelectionPriorityRules selection_priority_rules = 46 [default = k_DOTASelectionPriorityRules_Manual];
@@ -3098,6 +3116,19 @@ class CMsgPracticeLobbySetDetails final :
   private:
   ::DOTASelectionPriorityRules _internal_selection_priority_rules() const;
   void _internal_set_selection_priority_rules(::DOTASelectionPriorityRules value);
+  public:
+
+  // optional uint64 bot_dire = 45;
+  bool has_bot_dire() const;
+  private:
+  bool _internal_has_bot_dire() const;
+  public:
+  void clear_bot_dire();
+  uint64_t bot_dire() const;
+  void set_bot_dire(uint64_t value);
+  private:
+  uint64_t _internal_bot_dire() const;
+  void _internal_set_bot_dire(uint64_t value);
   public:
 
   // optional uint32 league_node_id = 49;
@@ -3137,7 +3168,7 @@ class CMsgPracticeLobbySetDetails final :
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<2> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CLobbyTeamDetails > team_details_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > requested_hero_ids_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > requested_hero_ids_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr game_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr pass_key_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr custom_game_mode_;
@@ -3152,244 +3183,32 @@ class CMsgPracticeLobbySetDetails final :
     int bot_difficulty_radiant_;
     bool allow_cheats_;
     bool fill_with_bots_;
-    bool intro_mode_;
     bool allow_spectating_;
+    bool allchat_;
     uint32_t leagueid_;
     uint32_t penalty_level_radiant_;
     uint32_t penalty_level_dire_;
-    uint32_t load_game_id_;
     uint32_t series_type_;
     uint32_t radiant_series_wins_;
     uint32_t dire_series_wins_;
-    uint64_t custom_game_id_;
     uint32_t custom_difficulty_;
+    uint64_t custom_game_id_;
     uint32_t custom_min_players_;
     uint32_t custom_max_players_;
-    int visibility_;
     uint64_t custom_game_crc_;
+    int visibility_;
     uint32_t custom_game_timestamp_;
-    bool allchat_;
+    uint64_t previous_match_override_;
     bool lan_;
     bool custom_game_penalties_;
     bool do_player_draft_;
-    uint64_t previous_match_override_;
     int pause_setting_;
-    int bot_difficulty_dire_;
     uint64_t bot_radiant_;
-    uint64_t bot_dire_;
+    int bot_difficulty_dire_;
     int selection_priority_rules_;
+    uint64_t bot_dire_;
     uint32_t league_node_id_;
     int dota_tv_delay_;
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_dota_5fgcmessages_5fclient_5fmatch_5fmanagement_2eproto;
-};
-// -------------------------------------------------------------------
-
-class CMsgPracticeLobbyCreate_SaveGame final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgPracticeLobbyCreate.SaveGame) */ {
- public:
-  inline CMsgPracticeLobbyCreate_SaveGame() : CMsgPracticeLobbyCreate_SaveGame(nullptr) {}
-  ~CMsgPracticeLobbyCreate_SaveGame() override;
-  explicit PROTOBUF_CONSTEXPR CMsgPracticeLobbyCreate_SaveGame(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  CMsgPracticeLobbyCreate_SaveGame(const CMsgPracticeLobbyCreate_SaveGame& from);
-  CMsgPracticeLobbyCreate_SaveGame(CMsgPracticeLobbyCreate_SaveGame&& from) noexcept
-    : CMsgPracticeLobbyCreate_SaveGame() {
-    *this = ::std::move(from);
-  }
-
-  inline CMsgPracticeLobbyCreate_SaveGame& operator=(const CMsgPracticeLobbyCreate_SaveGame& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CMsgPracticeLobbyCreate_SaveGame& operator=(CMsgPracticeLobbyCreate_SaveGame&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const CMsgPracticeLobbyCreate_SaveGame& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const CMsgPracticeLobbyCreate_SaveGame* internal_default_instance() {
-    return reinterpret_cast<const CMsgPracticeLobbyCreate_SaveGame*>(
-               &_CMsgPracticeLobbyCreate_SaveGame_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    10;
-
-  friend void swap(CMsgPracticeLobbyCreate_SaveGame& a, CMsgPracticeLobbyCreate_SaveGame& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CMsgPracticeLobbyCreate_SaveGame* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CMsgPracticeLobbyCreate_SaveGame* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  CMsgPracticeLobbyCreate_SaveGame* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<CMsgPracticeLobbyCreate_SaveGame>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const CMsgPracticeLobbyCreate_SaveGame& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const CMsgPracticeLobbyCreate_SaveGame& from) {
-    CMsgPracticeLobbyCreate_SaveGame::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CMsgPracticeLobbyCreate_SaveGame* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CMsgPracticeLobbyCreate.SaveGame";
-  }
-  protected:
-  explicit CMsgPracticeLobbyCreate_SaveGame(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kDataFieldNumber = 1,
-    kSteamIdFieldNumber = 3,
-    kSignatureFieldNumber = 4,
-    kVersionFieldNumber = 2,
-  };
-  // optional bytes data = 1;
-  bool has_data() const;
-  private:
-  bool _internal_has_data() const;
-  public:
-  void clear_data();
-  const std::string& data() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_data(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_data();
-  PROTOBUF_NODISCARD std::string* release_data();
-  void set_allocated_data(std::string* data);
-  private:
-  const std::string& _internal_data() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_data(const std::string& value);
-  std::string* _internal_mutable_data();
-  public:
-
-  // optional fixed64 steam_id = 3;
-  bool has_steam_id() const;
-  private:
-  bool _internal_has_steam_id() const;
-  public:
-  void clear_steam_id();
-  uint64_t steam_id() const;
-  void set_steam_id(uint64_t value);
-  private:
-  uint64_t _internal_steam_id() const;
-  void _internal_set_steam_id(uint64_t value);
-  public:
-
-  // optional fixed64 signature = 4;
-  bool has_signature() const;
-  private:
-  bool _internal_has_signature() const;
-  public:
-  void clear_signature();
-  uint64_t signature() const;
-  void set_signature(uint64_t value);
-  private:
-  uint64_t _internal_signature() const;
-  void _internal_set_signature(uint64_t value);
-  public:
-
-  // optional int32 version = 2;
-  bool has_version() const;
-  private:
-  bool _internal_has_version() const;
-  public:
-  void clear_version();
-  int32_t version() const;
-  void set_version(int32_t value);
-  private:
-  int32_t _internal_version() const;
-  void _internal_set_version(int32_t value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:CMsgPracticeLobbyCreate.SaveGame)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr data_;
-    uint64_t steam_id_;
-    uint64_t signature_;
-    int32_t version_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fgcmessages_5fclient_5fmatch_5fmanagement_2eproto;
@@ -3451,7 +3270,7 @@ class CMsgPracticeLobbyCreate final :
                &_CMsgPracticeLobbyCreate_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    10;
 
   friend void swap(CMsgPracticeLobbyCreate& a, CMsgPracticeLobbyCreate& b) {
     a.Swap(&b);
@@ -3521,15 +3340,12 @@ class CMsgPracticeLobbyCreate final :
 
   // nested types ----------------------------------------------------
 
-  typedef CMsgPracticeLobbyCreate_SaveGame SaveGame;
-
   // accessors -------------------------------------------------------
 
   enum : int {
     kSearchKeyFieldNumber = 1,
     kPassKeyFieldNumber = 5,
     kLobbyDetailsFieldNumber = 7,
-    kSaveGameFieldNumber = 8,
     kClientVersionFieldNumber = 6,
   };
   // optional string search_key = 1;
@@ -3586,24 +3402,6 @@ class CMsgPracticeLobbyCreate final :
       ::CMsgPracticeLobbySetDetails* lobby_details);
   ::CMsgPracticeLobbySetDetails* unsafe_arena_release_lobby_details();
 
-  // optional .CMsgPracticeLobbyCreate.SaveGame save_game = 8;
-  bool has_save_game() const;
-  private:
-  bool _internal_has_save_game() const;
-  public:
-  void clear_save_game();
-  const ::CMsgPracticeLobbyCreate_SaveGame& save_game() const;
-  PROTOBUF_NODISCARD ::CMsgPracticeLobbyCreate_SaveGame* release_save_game();
-  ::CMsgPracticeLobbyCreate_SaveGame* mutable_save_game();
-  void set_allocated_save_game(::CMsgPracticeLobbyCreate_SaveGame* save_game);
-  private:
-  const ::CMsgPracticeLobbyCreate_SaveGame& _internal_save_game() const;
-  ::CMsgPracticeLobbyCreate_SaveGame* _internal_mutable_save_game();
-  public:
-  void unsafe_arena_set_allocated_save_game(
-      ::CMsgPracticeLobbyCreate_SaveGame* save_game);
-  ::CMsgPracticeLobbyCreate_SaveGame* unsafe_arena_release_save_game();
-
   // optional uint32 client_version = 6;
   bool has_client_version() const;
   private:
@@ -3630,7 +3428,6 @@ class CMsgPracticeLobbyCreate final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr search_key_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr pass_key_;
     ::CMsgPracticeLobbySetDetails* lobby_details_;
-    ::CMsgPracticeLobbyCreate_SaveGame* save_game_;
     uint32_t client_version_;
   };
   union { Impl_ _impl_; };
@@ -3693,7 +3490,7 @@ class CMsgPracticeLobbySetTeamSlot final :
                &_CMsgPracticeLobbySetTeamSlot_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    11;
 
   friend void swap(CMsgPracticeLobbySetTeamSlot& a, CMsgPracticeLobbySetTeamSlot& b) {
     a.Swap(&b);
@@ -3883,7 +3680,7 @@ class CMsgPracticeLobbySetCoach final :
                &_CMsgPracticeLobbySetCoach_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    12;
 
   friend void swap(CMsgPracticeLobbySetCoach& a, CMsgPracticeLobbySetCoach& b) {
     a.Swap(&b);
@@ -4043,7 +3840,7 @@ class CMsgPracticeLobbyJoinBroadcastChannel final :
                &_CMsgPracticeLobbyJoinBroadcastChannel_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    13;
 
   friend void swap(CMsgPracticeLobbyJoinBroadcastChannel& a, CMsgPracticeLobbyJoinBroadcastChannel& b) {
     a.Swap(&b);
@@ -4263,7 +4060,7 @@ class CMsgPracticeLobbyCloseBroadcastChannel final :
                &_CMsgPracticeLobbyCloseBroadcastChannel_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    14;
 
   friend void swap(CMsgPracticeLobbyCloseBroadcastChannel& a, CMsgPracticeLobbyCloseBroadcastChannel& b) {
     a.Swap(&b);
@@ -4422,7 +4219,7 @@ class CMsgPracticeLobbyToggleBroadcastChannelCameramanStatus final :
                &_CMsgPracticeLobbyToggleBroadcastChannelCameramanStatus_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    15;
 
   friend void swap(CMsgPracticeLobbyToggleBroadcastChannelCameramanStatus& a, CMsgPracticeLobbyToggleBroadcastChannelCameramanStatus& b) {
     a.Swap(&b);
@@ -4548,7 +4345,7 @@ class CMsgPracticeLobbyKick final :
                &_CMsgPracticeLobbyKick_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    16;
 
   friend void swap(CMsgPracticeLobbyKick& a, CMsgPracticeLobbyKick& b) {
     a.Swap(&b);
@@ -4708,7 +4505,7 @@ class CMsgPracticeLobbyKickFromTeam final :
                &_CMsgPracticeLobbyKickFromTeam_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    17;
 
   friend void swap(CMsgPracticeLobbyKickFromTeam& a, CMsgPracticeLobbyKickFromTeam& b) {
     a.Swap(&b);
@@ -4867,7 +4664,7 @@ class CMsgPracticeLobbyLeave final :
                &_CMsgPracticeLobbyLeave_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    18;
 
   friend void swap(CMsgPracticeLobbyLeave& a, CMsgPracticeLobbyLeave& b) {
     a.Swap(&b);
@@ -4993,7 +4790,7 @@ class CMsgPracticeLobbyLaunch final :
                &_CMsgPracticeLobbyLaunch_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    19;
 
   friend void swap(CMsgPracticeLobbyLaunch& a, CMsgPracticeLobbyLaunch& b) {
     a.Swap(&b);
@@ -5153,7 +4950,7 @@ class CMsgApplyTeamToPracticeLobby final :
                &_CMsgApplyTeamToPracticeLobby_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    20;
 
   friend void swap(CMsgApplyTeamToPracticeLobby& a, CMsgApplyTeamToPracticeLobby& b) {
     a.Swap(&b);
@@ -5313,7 +5110,7 @@ class CMsgPracticeLobbyList final :
                &_CMsgPracticeLobbyList_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    21;
 
   friend void swap(CMsgPracticeLobbyList& a, CMsgPracticeLobbyList& b) {
     a.Swap(&b);
@@ -5508,7 +5305,7 @@ class CMsgPracticeLobbyListResponseEntry_CLobbyMember final :
                &_CMsgPracticeLobbyListResponseEntry_CLobbyMember_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    22;
 
   friend void swap(CMsgPracticeLobbyListResponseEntry_CLobbyMember& a, CMsgPracticeLobbyListResponseEntry_CLobbyMember& b) {
     a.Swap(&b);
@@ -5688,7 +5485,7 @@ class CMsgPracticeLobbyListResponseEntry final :
                &_CMsgPracticeLobbyListResponseEntry_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    23;
 
   friend void swap(CMsgPracticeLobbyListResponseEntry& a, CMsgPracticeLobbyListResponseEntry& b) {
     a.Swap(&b);
@@ -6100,7 +5897,7 @@ class CMsgPracticeLobbyListResponse final :
                &_CMsgPracticeLobbyListResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    24;
 
   friend void swap(CMsgPracticeLobbyListResponse& a, CMsgPracticeLobbyListResponse& b) {
     a.Swap(&b);
@@ -6264,7 +6061,7 @@ class CMsgLobbyList final :
                &_CMsgLobbyList_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    26;
+    25;
 
   friend void swap(CMsgLobbyList& a, CMsgLobbyList& b) {
     a.Swap(&b);
@@ -6439,7 +6236,7 @@ class CMsgLobbyListResponse final :
                &_CMsgLobbyListResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    27;
+    26;
 
   friend void swap(CMsgLobbyListResponse& a, CMsgLobbyListResponse& b) {
     a.Swap(&b);
@@ -6603,7 +6400,7 @@ class CMsgPracticeLobbyJoin final :
                &_CMsgPracticeLobbyJoin_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    28;
+    27;
 
   friend void swap(CMsgPracticeLobbyJoin& a, CMsgPracticeLobbyJoin& b) {
     a.Swap(&b);
@@ -6828,7 +6625,7 @@ class CMsgPracticeLobbyJoinResponse final :
                &_CMsgPracticeLobbyJoinResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    29;
+    28;
 
   friend void swap(CMsgPracticeLobbyJoinResponse& a, CMsgPracticeLobbyJoinResponse& b) {
     a.Swap(&b);
@@ -6988,7 +6785,7 @@ class CMsgFriendPracticeLobbyListRequest final :
                &_CMsgFriendPracticeLobbyListRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    30;
+    29;
 
   friend void swap(CMsgFriendPracticeLobbyListRequest& a, CMsgFriendPracticeLobbyListRequest& b) {
     a.Swap(&b);
@@ -7156,7 +6953,7 @@ class CMsgFriendPracticeLobbyListResponse final :
                &_CMsgFriendPracticeLobbyListResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    31;
+    30;
 
   friend void swap(CMsgFriendPracticeLobbyListResponse& a, CMsgFriendPracticeLobbyListResponse& b) {
     a.Swap(&b);
@@ -7320,7 +7117,7 @@ class CMsgJoinableCustomGameModesRequest final :
                &_CMsgJoinableCustomGameModesRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    32;
+    31;
 
   friend void swap(CMsgJoinableCustomGameModesRequest& a, CMsgJoinableCustomGameModesRequest& b) {
     a.Swap(&b);
@@ -7480,7 +7277,7 @@ class CMsgJoinableCustomGameModesResponseEntry final :
                &_CMsgJoinableCustomGameModesResponseEntry_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    33;
+    32;
 
   friend void swap(CMsgJoinableCustomGameModesResponseEntry& a, CMsgJoinableCustomGameModesResponseEntry& b) {
     a.Swap(&b);
@@ -7670,7 +7467,7 @@ class CMsgJoinableCustomGameModesResponse final :
                &_CMsgJoinableCustomGameModesResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    34;
+    33;
 
   friend void swap(CMsgJoinableCustomGameModesResponse& a, CMsgJoinableCustomGameModesResponse& b) {
     a.Swap(&b);
@@ -7834,7 +7631,7 @@ class CMsgJoinableCustomLobbiesRequest final :
                &_CMsgJoinableCustomLobbiesRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    35;
+    34;
 
   friend void swap(CMsgJoinableCustomLobbiesRequest& a, CMsgJoinableCustomLobbiesRequest& b) {
     a.Swap(&b);
@@ -8009,7 +7806,7 @@ class CMsgJoinableCustomLobbiesResponseEntry final :
                &_CMsgJoinableCustomLobbiesResponseEntry_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    36;
+    35;
 
   friend void swap(CMsgJoinableCustomLobbiesResponseEntry& a, CMsgJoinableCustomLobbiesResponseEntry& b) {
     a.Swap(&b);
@@ -8414,7 +8211,7 @@ class CMsgJoinableCustomLobbiesResponse final :
                &_CMsgJoinableCustomLobbiesResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    37;
+    36;
 
   friend void swap(CMsgJoinableCustomLobbiesResponse& a, CMsgJoinableCustomLobbiesResponse& b) {
     a.Swap(&b);
@@ -8578,7 +8375,7 @@ class CMsgQuickJoinCustomLobby_LegacyRegionPing final :
                &_CMsgQuickJoinCustomLobby_LegacyRegionPing_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    38;
+    37;
 
   friend void swap(CMsgQuickJoinCustomLobby_LegacyRegionPing& a, CMsgQuickJoinCustomLobby_LegacyRegionPing& b) {
     a.Swap(&b);
@@ -8768,7 +8565,7 @@ class CMsgQuickJoinCustomLobby final :
                &_CMsgQuickJoinCustomLobby_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    39;
+    38;
 
   friend void swap(CMsgQuickJoinCustomLobby& a, CMsgQuickJoinCustomLobby& b) {
     a.Swap(&b);
@@ -9035,7 +8832,7 @@ class CMsgQuickJoinCustomLobbyResponse final :
                &_CMsgQuickJoinCustomLobbyResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    40;
+    39;
 
   friend void swap(CMsgQuickJoinCustomLobbyResponse& a, CMsgQuickJoinCustomLobbyResponse& b) {
     a.Swap(&b);
@@ -9195,7 +8992,7 @@ class CMsgBotGameCreate final :
                &_CMsgBotGameCreate_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    41;
+    40;
 
   friend void swap(CMsgBotGameCreate& a, CMsgBotGameCreate& b) {
     a.Swap(&b);
@@ -9435,7 +9232,7 @@ class CMsgDOTAPartyMemberSetCoach final :
                &_CMsgDOTAPartyMemberSetCoach_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    42;
+    41;
 
   friend void swap(CMsgDOTAPartyMemberSetCoach& a, CMsgDOTAPartyMemberSetCoach& b) {
     a.Swap(&b);
@@ -9595,7 +9392,7 @@ class CMsgDOTASetGroupLeader final :
                &_CMsgDOTASetGroupLeader_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    43;
+    42;
 
   friend void swap(CMsgDOTASetGroupLeader& a, CMsgDOTASetGroupLeader& b) {
     a.Swap(&b);
@@ -9755,7 +9552,7 @@ class CMsgDOTACancelGroupInvites final :
                &_CMsgDOTACancelGroupInvites_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    44;
+    43;
 
   friend void swap(CMsgDOTACancelGroupInvites& a, CMsgDOTACancelGroupInvites& b) {
     a.Swap(&b);
@@ -9947,7 +9744,7 @@ class CMsgDOTASetGroupOpenStatus final :
                &_CMsgDOTASetGroupOpenStatus_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    45;
+    44;
 
   friend void swap(CMsgDOTASetGroupOpenStatus& a, CMsgDOTASetGroupOpenStatus& b) {
     a.Swap(&b);
@@ -10107,7 +9904,7 @@ class CMsgDOTAGroupMergeInvite final :
                &_CMsgDOTAGroupMergeInvite_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    46;
+    45;
 
   friend void swap(CMsgDOTAGroupMergeInvite& a, CMsgDOTAGroupMergeInvite& b) {
     a.Swap(&b);
@@ -10267,7 +10064,7 @@ class CMsgDOTAGroupMergeResponse final :
                &_CMsgDOTAGroupMergeResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    47;
+    46;
 
   friend void swap(CMsgDOTAGroupMergeResponse& a, CMsgDOTAGroupMergeResponse& b) {
     a.Swap(&b);
@@ -10442,7 +10239,7 @@ class CMsgDOTAGroupMergeReply final :
                &_CMsgDOTAGroupMergeReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    48;
+    47;
 
   friend void swap(CMsgDOTAGroupMergeReply& a, CMsgDOTAGroupMergeReply& b) {
     a.Swap(&b);
@@ -10602,7 +10399,7 @@ class CMsgSpectatorLobbyGameDetails_Team final :
                &_CMsgSpectatorLobbyGameDetails_Team_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    49;
+    48;
 
   friend void swap(CMsgSpectatorLobbyGameDetails_Team& a, CMsgSpectatorLobbyGameDetails_Team& b) {
     a.Swap(&b);
@@ -10797,7 +10594,7 @@ class CMsgSpectatorLobbyGameDetails final :
                &_CMsgSpectatorLobbyGameDetails_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    50;
+    49;
 
   friend void swap(CMsgSpectatorLobbyGameDetails& a, CMsgSpectatorLobbyGameDetails& b) {
     a.Swap(&b);
@@ -11114,7 +10911,7 @@ class CMsgSetSpectatorLobbyDetails final :
                &_CMsgSetSpectatorLobbyDetails_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    51;
+    50;
 
   friend void swap(CMsgSetSpectatorLobbyDetails& a, CMsgSetSpectatorLobbyDetails& b) {
     a.Swap(&b);
@@ -11334,7 +11131,7 @@ class CMsgCreateSpectatorLobby final :
                &_CMsgCreateSpectatorLobby_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    52;
+    51;
 
   friend void swap(CMsgCreateSpectatorLobby& a, CMsgCreateSpectatorLobby& b) {
     a.Swap(&b);
@@ -11513,7 +11310,7 @@ class CMsgSpectatorLobbyList final :
                &_CMsgSpectatorLobbyList_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    53;
+    52;
 
   friend void swap(CMsgSpectatorLobbyList& a, CMsgSpectatorLobbyList& b) {
     a.Swap(&b);
@@ -11639,7 +11436,7 @@ class CMsgSpectatorLobbyListResponse_SpectatorLobby final :
                &_CMsgSpectatorLobbyListResponse_SpectatorLobby_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    54;
+    53;
 
   friend void swap(CMsgSpectatorLobbyListResponse_SpectatorLobby& a, CMsgSpectatorLobbyListResponse_SpectatorLobby& b) {
     a.Swap(&b);
@@ -11884,7 +11681,7 @@ class CMsgSpectatorLobbyListResponse final :
                &_CMsgSpectatorLobbyListResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    55;
+    54;
 
   friend void swap(CMsgSpectatorLobbyListResponse& a, CMsgSpectatorLobbyListResponse& b) {
     a.Swap(&b);
@@ -12050,7 +11847,7 @@ class CMsgClientToGCRequestSteamDatagramTicket final :
                &_CMsgClientToGCRequestSteamDatagramTicket_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    56;
+    55;
 
   friend void swap(CMsgClientToGCRequestSteamDatagramTicket& a, CMsgClientToGCRequestSteamDatagramTicket& b) {
     a.Swap(&b);
@@ -12210,7 +12007,7 @@ class CMsgClientToGCRequestSteamDatagramTicketResponse final :
                &_CMsgClientToGCRequestSteamDatagramTicketResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    57;
+    56;
 
   friend void swap(CMsgClientToGCRequestSteamDatagramTicketResponse& a, CMsgClientToGCRequestSteamDatagramTicketResponse& b) {
     a.Swap(&b);
@@ -12395,7 +12192,7 @@ class CMsgGCToClientSteamDatagramTicket final :
                &_CMsgGCToClientSteamDatagramTicket_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    58;
+    57;
 
   friend void swap(CMsgGCToClientSteamDatagramTicket& a, CMsgGCToClientSteamDatagramTicket& b) {
     a.Swap(&b);
@@ -12695,7 +12492,7 @@ class CMsgGCToClientRequestLaneSelection final :
                &_CMsgGCToClientRequestLaneSelection_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    59;
+    58;
 
   friend void swap(CMsgGCToClientRequestLaneSelection& a, CMsgGCToClientRequestLaneSelection& b) {
     a.Swap(&b);
@@ -12821,7 +12618,7 @@ class CMsgGCToClientRequestLaneSelectionResponse final :
                &_CMsgGCToClientRequestLaneSelectionResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    60;
+    59;
 
   friend void swap(CMsgGCToClientRequestLaneSelectionResponse& a, CMsgGCToClientRequestLaneSelectionResponse& b) {
     a.Swap(&b);
@@ -12995,7 +12792,7 @@ class CMsgGCToClientRequestMMInfo final :
                &_CMsgGCToClientRequestMMInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    61;
+    60;
 
   friend void swap(CMsgGCToClientRequestMMInfo& a, CMsgGCToClientRequestMMInfo& b) {
     a.Swap(&b);
@@ -13121,7 +12918,7 @@ class CMsgClientToGCMMInfo final :
                &_CMsgClientToGCMMInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    62;
+    61;
 
   friend void swap(CMsgClientToGCMMInfo& a, CMsgClientToGCMMInfo& b) {
     a.Swap(&b);
@@ -14675,6 +14472,129 @@ CMsgReadyUpStatus::mutable_declined_ids() {
   return _internal_mutable_declined_ids();
 }
 
+// repeated uint32 accepted_indices = 4;
+inline int CMsgReadyUpStatus::_internal_accepted_indices_size() const {
+  return _impl_.accepted_indices_.size();
+}
+inline int CMsgReadyUpStatus::accepted_indices_size() const {
+  return _internal_accepted_indices_size();
+}
+inline void CMsgReadyUpStatus::clear_accepted_indices() {
+  _impl_.accepted_indices_.Clear();
+}
+inline uint32_t CMsgReadyUpStatus::_internal_accepted_indices(int index) const {
+  return _impl_.accepted_indices_.Get(index);
+}
+inline uint32_t CMsgReadyUpStatus::accepted_indices(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgReadyUpStatus.accepted_indices)
+  return _internal_accepted_indices(index);
+}
+inline void CMsgReadyUpStatus::set_accepted_indices(int index, uint32_t value) {
+  _impl_.accepted_indices_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CMsgReadyUpStatus.accepted_indices)
+}
+inline void CMsgReadyUpStatus::_internal_add_accepted_indices(uint32_t value) {
+  _impl_.accepted_indices_.Add(value);
+}
+inline void CMsgReadyUpStatus::add_accepted_indices(uint32_t value) {
+  _internal_add_accepted_indices(value);
+  // @@protoc_insertion_point(field_add:CMsgReadyUpStatus.accepted_indices)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+CMsgReadyUpStatus::_internal_accepted_indices() const {
+  return _impl_.accepted_indices_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+CMsgReadyUpStatus::accepted_indices() const {
+  // @@protoc_insertion_point(field_list:CMsgReadyUpStatus.accepted_indices)
+  return _internal_accepted_indices();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+CMsgReadyUpStatus::_internal_mutable_accepted_indices() {
+  return &_impl_.accepted_indices_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+CMsgReadyUpStatus::mutable_accepted_indices() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgReadyUpStatus.accepted_indices)
+  return _internal_mutable_accepted_indices();
+}
+
+// repeated uint32 declined_indices = 5;
+inline int CMsgReadyUpStatus::_internal_declined_indices_size() const {
+  return _impl_.declined_indices_.size();
+}
+inline int CMsgReadyUpStatus::declined_indices_size() const {
+  return _internal_declined_indices_size();
+}
+inline void CMsgReadyUpStatus::clear_declined_indices() {
+  _impl_.declined_indices_.Clear();
+}
+inline uint32_t CMsgReadyUpStatus::_internal_declined_indices(int index) const {
+  return _impl_.declined_indices_.Get(index);
+}
+inline uint32_t CMsgReadyUpStatus::declined_indices(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgReadyUpStatus.declined_indices)
+  return _internal_declined_indices(index);
+}
+inline void CMsgReadyUpStatus::set_declined_indices(int index, uint32_t value) {
+  _impl_.declined_indices_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CMsgReadyUpStatus.declined_indices)
+}
+inline void CMsgReadyUpStatus::_internal_add_declined_indices(uint32_t value) {
+  _impl_.declined_indices_.Add(value);
+}
+inline void CMsgReadyUpStatus::add_declined_indices(uint32_t value) {
+  _internal_add_declined_indices(value);
+  // @@protoc_insertion_point(field_add:CMsgReadyUpStatus.declined_indices)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+CMsgReadyUpStatus::_internal_declined_indices() const {
+  return _impl_.declined_indices_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+CMsgReadyUpStatus::declined_indices() const {
+  // @@protoc_insertion_point(field_list:CMsgReadyUpStatus.declined_indices)
+  return _internal_declined_indices();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+CMsgReadyUpStatus::_internal_mutable_declined_indices() {
+  return &_impl_.declined_indices_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+CMsgReadyUpStatus::mutable_declined_indices() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgReadyUpStatus.declined_indices)
+  return _internal_mutable_declined_indices();
+}
+
+// optional .DOTALobbyReadyState local_ready_state = 6 [default = DOTALobbyReadyState_UNDECLARED];
+inline bool CMsgReadyUpStatus::_internal_has_local_ready_state() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMsgReadyUpStatus::has_local_ready_state() const {
+  return _internal_has_local_ready_state();
+}
+inline void CMsgReadyUpStatus::clear_local_ready_state() {
+  _impl_.local_ready_state_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline ::DOTALobbyReadyState CMsgReadyUpStatus::_internal_local_ready_state() const {
+  return static_cast< ::DOTALobbyReadyState >(_impl_.local_ready_state_);
+}
+inline ::DOTALobbyReadyState CMsgReadyUpStatus::local_ready_state() const {
+  // @@protoc_insertion_point(field_get:CMsgReadyUpStatus.local_ready_state)
+  return _internal_local_ready_state();
+}
+inline void CMsgReadyUpStatus::_internal_set_local_ready_state(::DOTALobbyReadyState value) {
+  assert(::DOTALobbyReadyState_IsValid(value));
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.local_ready_state_ = value;
+}
+inline void CMsgReadyUpStatus::set_local_ready_state(::DOTALobbyReadyState value) {
+  _internal_set_local_ready_state(value);
+  // @@protoc_insertion_point(field_set:CMsgReadyUpStatus.local_ready_state)
+}
+
 // -------------------------------------------------------------------
 
 // CMsgAbandonCurrentGame
@@ -15118,37 +15038,9 @@ inline void CMsgPracticeLobbySetDetails::set_fill_with_bots(bool value) {
   // @@protoc_insertion_point(field_set:CMsgPracticeLobbySetDetails.fill_with_bots)
 }
 
-// optional bool intro_mode = 12;
-inline bool CMsgPracticeLobbySetDetails::_internal_has_intro_mode() const {
-  bool value = (_impl_._has_bits_[0] & 0x00004000u) != 0;
-  return value;
-}
-inline bool CMsgPracticeLobbySetDetails::has_intro_mode() const {
-  return _internal_has_intro_mode();
-}
-inline void CMsgPracticeLobbySetDetails::clear_intro_mode() {
-  _impl_.intro_mode_ = false;
-  _impl_._has_bits_[0] &= ~0x00004000u;
-}
-inline bool CMsgPracticeLobbySetDetails::_internal_intro_mode() const {
-  return _impl_.intro_mode_;
-}
-inline bool CMsgPracticeLobbySetDetails::intro_mode() const {
-  // @@protoc_insertion_point(field_get:CMsgPracticeLobbySetDetails.intro_mode)
-  return _internal_intro_mode();
-}
-inline void CMsgPracticeLobbySetDetails::_internal_set_intro_mode(bool value) {
-  _impl_._has_bits_[0] |= 0x00004000u;
-  _impl_.intro_mode_ = value;
-}
-inline void CMsgPracticeLobbySetDetails::set_intro_mode(bool value) {
-  _internal_set_intro_mode(value);
-  // @@protoc_insertion_point(field_set:CMsgPracticeLobbySetDetails.intro_mode)
-}
-
 // optional bool allow_spectating = 13;
 inline bool CMsgPracticeLobbySetDetails::_internal_has_allow_spectating() const {
-  bool value = (_impl_._has_bits_[0] & 0x00008000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00004000u) != 0;
   return value;
 }
 inline bool CMsgPracticeLobbySetDetails::has_allow_spectating() const {
@@ -15156,7 +15048,7 @@ inline bool CMsgPracticeLobbySetDetails::has_allow_spectating() const {
 }
 inline void CMsgPracticeLobbySetDetails::clear_allow_spectating() {
   _impl_.allow_spectating_ = false;
-  _impl_._has_bits_[0] &= ~0x00008000u;
+  _impl_._has_bits_[0] &= ~0x00004000u;
 }
 inline bool CMsgPracticeLobbySetDetails::_internal_allow_spectating() const {
   return _impl_.allow_spectating_;
@@ -15166,7 +15058,7 @@ inline bool CMsgPracticeLobbySetDetails::allow_spectating() const {
   return _internal_allow_spectating();
 }
 inline void CMsgPracticeLobbySetDetails::_internal_set_allow_spectating(bool value) {
-  _impl_._has_bits_[0] |= 0x00008000u;
+  _impl_._has_bits_[0] |= 0x00004000u;
   _impl_.allow_spectating_ = value;
 }
 inline void CMsgPracticeLobbySetDetails::set_allow_spectating(bool value) {
@@ -15326,37 +15218,9 @@ inline void CMsgPracticeLobbySetDetails::set_penalty_level_dire(uint32_t value) 
   // @@protoc_insertion_point(field_set:CMsgPracticeLobbySetDetails.penalty_level_dire)
 }
 
-// optional uint32 load_game_id = 19;
-inline bool CMsgPracticeLobbySetDetails::_internal_has_load_game_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00080000u) != 0;
-  return value;
-}
-inline bool CMsgPracticeLobbySetDetails::has_load_game_id() const {
-  return _internal_has_load_game_id();
-}
-inline void CMsgPracticeLobbySetDetails::clear_load_game_id() {
-  _impl_.load_game_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00080000u;
-}
-inline uint32_t CMsgPracticeLobbySetDetails::_internal_load_game_id() const {
-  return _impl_.load_game_id_;
-}
-inline uint32_t CMsgPracticeLobbySetDetails::load_game_id() const {
-  // @@protoc_insertion_point(field_get:CMsgPracticeLobbySetDetails.load_game_id)
-  return _internal_load_game_id();
-}
-inline void CMsgPracticeLobbySetDetails::_internal_set_load_game_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00080000u;
-  _impl_.load_game_id_ = value;
-}
-inline void CMsgPracticeLobbySetDetails::set_load_game_id(uint32_t value) {
-  _internal_set_load_game_id(value);
-  // @@protoc_insertion_point(field_set:CMsgPracticeLobbySetDetails.load_game_id)
-}
-
 // optional uint32 series_type = 20;
 inline bool CMsgPracticeLobbySetDetails::_internal_has_series_type() const {
-  bool value = (_impl_._has_bits_[0] & 0x00100000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00080000u) != 0;
   return value;
 }
 inline bool CMsgPracticeLobbySetDetails::has_series_type() const {
@@ -15364,7 +15228,7 @@ inline bool CMsgPracticeLobbySetDetails::has_series_type() const {
 }
 inline void CMsgPracticeLobbySetDetails::clear_series_type() {
   _impl_.series_type_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00100000u;
+  _impl_._has_bits_[0] &= ~0x00080000u;
 }
 inline uint32_t CMsgPracticeLobbySetDetails::_internal_series_type() const {
   return _impl_.series_type_;
@@ -15374,7 +15238,7 @@ inline uint32_t CMsgPracticeLobbySetDetails::series_type() const {
   return _internal_series_type();
 }
 inline void CMsgPracticeLobbySetDetails::_internal_set_series_type(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00100000u;
+  _impl_._has_bits_[0] |= 0x00080000u;
   _impl_.series_type_ = value;
 }
 inline void CMsgPracticeLobbySetDetails::set_series_type(uint32_t value) {
@@ -15384,7 +15248,7 @@ inline void CMsgPracticeLobbySetDetails::set_series_type(uint32_t value) {
 
 // optional uint32 radiant_series_wins = 21;
 inline bool CMsgPracticeLobbySetDetails::_internal_has_radiant_series_wins() const {
-  bool value = (_impl_._has_bits_[0] & 0x00200000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00100000u) != 0;
   return value;
 }
 inline bool CMsgPracticeLobbySetDetails::has_radiant_series_wins() const {
@@ -15392,7 +15256,7 @@ inline bool CMsgPracticeLobbySetDetails::has_radiant_series_wins() const {
 }
 inline void CMsgPracticeLobbySetDetails::clear_radiant_series_wins() {
   _impl_.radiant_series_wins_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00200000u;
+  _impl_._has_bits_[0] &= ~0x00100000u;
 }
 inline uint32_t CMsgPracticeLobbySetDetails::_internal_radiant_series_wins() const {
   return _impl_.radiant_series_wins_;
@@ -15402,7 +15266,7 @@ inline uint32_t CMsgPracticeLobbySetDetails::radiant_series_wins() const {
   return _internal_radiant_series_wins();
 }
 inline void CMsgPracticeLobbySetDetails::_internal_set_radiant_series_wins(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00200000u;
+  _impl_._has_bits_[0] |= 0x00100000u;
   _impl_.radiant_series_wins_ = value;
 }
 inline void CMsgPracticeLobbySetDetails::set_radiant_series_wins(uint32_t value) {
@@ -15412,7 +15276,7 @@ inline void CMsgPracticeLobbySetDetails::set_radiant_series_wins(uint32_t value)
 
 // optional uint32 dire_series_wins = 22;
 inline bool CMsgPracticeLobbySetDetails::_internal_has_dire_series_wins() const {
-  bool value = (_impl_._has_bits_[0] & 0x00400000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00200000u) != 0;
   return value;
 }
 inline bool CMsgPracticeLobbySetDetails::has_dire_series_wins() const {
@@ -15420,7 +15284,7 @@ inline bool CMsgPracticeLobbySetDetails::has_dire_series_wins() const {
 }
 inline void CMsgPracticeLobbySetDetails::clear_dire_series_wins() {
   _impl_.dire_series_wins_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00400000u;
+  _impl_._has_bits_[0] &= ~0x00200000u;
 }
 inline uint32_t CMsgPracticeLobbySetDetails::_internal_dire_series_wins() const {
   return _impl_.dire_series_wins_;
@@ -15430,7 +15294,7 @@ inline uint32_t CMsgPracticeLobbySetDetails::dire_series_wins() const {
   return _internal_dire_series_wins();
 }
 inline void CMsgPracticeLobbySetDetails::_internal_set_dire_series_wins(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00400000u;
+  _impl_._has_bits_[0] |= 0x00200000u;
   _impl_.dire_series_wins_ = value;
 }
 inline void CMsgPracticeLobbySetDetails::set_dire_series_wins(uint32_t value) {
@@ -15440,7 +15304,7 @@ inline void CMsgPracticeLobbySetDetails::set_dire_series_wins(uint32_t value) {
 
 // optional bool allchat = 23 [default = false];
 inline bool CMsgPracticeLobbySetDetails::_internal_has_allchat() const {
-  bool value = (_impl_._has_bits_[0] & 0x40000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00008000u) != 0;
   return value;
 }
 inline bool CMsgPracticeLobbySetDetails::has_allchat() const {
@@ -15448,7 +15312,7 @@ inline bool CMsgPracticeLobbySetDetails::has_allchat() const {
 }
 inline void CMsgPracticeLobbySetDetails::clear_allchat() {
   _impl_.allchat_ = false;
-  _impl_._has_bits_[0] &= ~0x40000000u;
+  _impl_._has_bits_[0] &= ~0x00008000u;
 }
 inline bool CMsgPracticeLobbySetDetails::_internal_allchat() const {
   return _impl_.allchat_;
@@ -15458,7 +15322,7 @@ inline bool CMsgPracticeLobbySetDetails::allchat() const {
   return _internal_allchat();
 }
 inline void CMsgPracticeLobbySetDetails::_internal_set_allchat(bool value) {
-  _impl_._has_bits_[0] |= 0x40000000u;
+  _impl_._has_bits_[0] |= 0x00008000u;
   _impl_.allchat_ = value;
 }
 inline void CMsgPracticeLobbySetDetails::set_allchat(bool value) {
@@ -15468,7 +15332,7 @@ inline void CMsgPracticeLobbySetDetails::set_allchat(bool value) {
 
 // optional .LobbyDotaTVDelay dota_tv_delay = 24 [default = LobbyDotaTV_120];
 inline bool CMsgPracticeLobbySetDetails::_internal_has_dota_tv_delay() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000200u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000080u) != 0;
   return value;
 }
 inline bool CMsgPracticeLobbySetDetails::has_dota_tv_delay() const {
@@ -15476,7 +15340,7 @@ inline bool CMsgPracticeLobbySetDetails::has_dota_tv_delay() const {
 }
 inline void CMsgPracticeLobbySetDetails::clear_dota_tv_delay() {
   _impl_.dota_tv_delay_ = 1;
-  _impl_._has_bits_[1] &= ~0x00000200u;
+  _impl_._has_bits_[1] &= ~0x00000080u;
 }
 inline ::LobbyDotaTVDelay CMsgPracticeLobbySetDetails::_internal_dota_tv_delay() const {
   return static_cast< ::LobbyDotaTVDelay >(_impl_.dota_tv_delay_);
@@ -15487,7 +15351,7 @@ inline ::LobbyDotaTVDelay CMsgPracticeLobbySetDetails::dota_tv_delay() const {
 }
 inline void CMsgPracticeLobbySetDetails::_internal_set_dota_tv_delay(::LobbyDotaTVDelay value) {
   assert(::LobbyDotaTVDelay_IsValid(value));
-  _impl_._has_bits_[1] |= 0x00000200u;
+  _impl_._has_bits_[1] |= 0x00000080u;
   _impl_.dota_tv_delay_ = value;
 }
 inline void CMsgPracticeLobbySetDetails::set_dota_tv_delay(::LobbyDotaTVDelay value) {
@@ -15497,7 +15361,7 @@ inline void CMsgPracticeLobbySetDetails::set_dota_tv_delay(::LobbyDotaTVDelay va
 
 // optional bool lan = 25;
 inline bool CMsgPracticeLobbySetDetails::_internal_has_lan() const {
-  bool value = (_impl_._has_bits_[0] & 0x80000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x40000000u) != 0;
   return value;
 }
 inline bool CMsgPracticeLobbySetDetails::has_lan() const {
@@ -15505,7 +15369,7 @@ inline bool CMsgPracticeLobbySetDetails::has_lan() const {
 }
 inline void CMsgPracticeLobbySetDetails::clear_lan() {
   _impl_.lan_ = false;
-  _impl_._has_bits_[0] &= ~0x80000000u;
+  _impl_._has_bits_[0] &= ~0x40000000u;
 }
 inline bool CMsgPracticeLobbySetDetails::_internal_lan() const {
   return _impl_.lan_;
@@ -15515,7 +15379,7 @@ inline bool CMsgPracticeLobbySetDetails::lan() const {
   return _internal_lan();
 }
 inline void CMsgPracticeLobbySetDetails::_internal_set_lan(bool value) {
-  _impl_._has_bits_[0] |= 0x80000000u;
+  _impl_._has_bits_[0] |= 0x40000000u;
   _impl_.lan_ = value;
 }
 inline void CMsgPracticeLobbySetDetails::set_lan(bool value) {
@@ -15661,7 +15525,7 @@ inline void CMsgPracticeLobbySetDetails::set_allocated_custom_map_name(std::stri
 
 // optional uint32 custom_difficulty = 28;
 inline bool CMsgPracticeLobbySetDetails::_internal_has_custom_difficulty() const {
-  bool value = (_impl_._has_bits_[0] & 0x01000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00400000u) != 0;
   return value;
 }
 inline bool CMsgPracticeLobbySetDetails::has_custom_difficulty() const {
@@ -15669,7 +15533,7 @@ inline bool CMsgPracticeLobbySetDetails::has_custom_difficulty() const {
 }
 inline void CMsgPracticeLobbySetDetails::clear_custom_difficulty() {
   _impl_.custom_difficulty_ = 0u;
-  _impl_._has_bits_[0] &= ~0x01000000u;
+  _impl_._has_bits_[0] &= ~0x00400000u;
 }
 inline uint32_t CMsgPracticeLobbySetDetails::_internal_custom_difficulty() const {
   return _impl_.custom_difficulty_;
@@ -15679,7 +15543,7 @@ inline uint32_t CMsgPracticeLobbySetDetails::custom_difficulty() const {
   return _internal_custom_difficulty();
 }
 inline void CMsgPracticeLobbySetDetails::_internal_set_custom_difficulty(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x01000000u;
+  _impl_._has_bits_[0] |= 0x00400000u;
   _impl_.custom_difficulty_ = value;
 }
 inline void CMsgPracticeLobbySetDetails::set_custom_difficulty(uint32_t value) {
@@ -15717,7 +15581,7 @@ inline void CMsgPracticeLobbySetDetails::set_custom_game_id(uint64_t value) {
 
 // optional uint32 custom_min_players = 30;
 inline bool CMsgPracticeLobbySetDetails::_internal_has_custom_min_players() const {
-  bool value = (_impl_._has_bits_[0] & 0x02000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x01000000u) != 0;
   return value;
 }
 inline bool CMsgPracticeLobbySetDetails::has_custom_min_players() const {
@@ -15725,7 +15589,7 @@ inline bool CMsgPracticeLobbySetDetails::has_custom_min_players() const {
 }
 inline void CMsgPracticeLobbySetDetails::clear_custom_min_players() {
   _impl_.custom_min_players_ = 0u;
-  _impl_._has_bits_[0] &= ~0x02000000u;
+  _impl_._has_bits_[0] &= ~0x01000000u;
 }
 inline uint32_t CMsgPracticeLobbySetDetails::_internal_custom_min_players() const {
   return _impl_.custom_min_players_;
@@ -15735,7 +15599,7 @@ inline uint32_t CMsgPracticeLobbySetDetails::custom_min_players() const {
   return _internal_custom_min_players();
 }
 inline void CMsgPracticeLobbySetDetails::_internal_set_custom_min_players(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x02000000u;
+  _impl_._has_bits_[0] |= 0x01000000u;
   _impl_.custom_min_players_ = value;
 }
 inline void CMsgPracticeLobbySetDetails::set_custom_min_players(uint32_t value) {
@@ -15745,7 +15609,7 @@ inline void CMsgPracticeLobbySetDetails::set_custom_min_players(uint32_t value) 
 
 // optional uint32 custom_max_players = 31;
 inline bool CMsgPracticeLobbySetDetails::_internal_has_custom_max_players() const {
-  bool value = (_impl_._has_bits_[0] & 0x04000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x02000000u) != 0;
   return value;
 }
 inline bool CMsgPracticeLobbySetDetails::has_custom_max_players() const {
@@ -15753,7 +15617,7 @@ inline bool CMsgPracticeLobbySetDetails::has_custom_max_players() const {
 }
 inline void CMsgPracticeLobbySetDetails::clear_custom_max_players() {
   _impl_.custom_max_players_ = 0u;
-  _impl_._has_bits_[0] &= ~0x04000000u;
+  _impl_._has_bits_[0] &= ~0x02000000u;
 }
 inline uint32_t CMsgPracticeLobbySetDetails::_internal_custom_max_players() const {
   return _impl_.custom_max_players_;
@@ -15763,7 +15627,7 @@ inline uint32_t CMsgPracticeLobbySetDetails::custom_max_players() const {
   return _internal_custom_max_players();
 }
 inline void CMsgPracticeLobbySetDetails::_internal_set_custom_max_players(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x04000000u;
+  _impl_._has_bits_[0] |= 0x02000000u;
   _impl_.custom_max_players_ = value;
 }
 inline void CMsgPracticeLobbySetDetails::set_custom_max_players(uint32_t value) {
@@ -15802,7 +15666,7 @@ inline void CMsgPracticeLobbySetDetails::set_visibility(::DOTALobbyVisibility va
 
 // optional fixed64 custom_game_crc = 34;
 inline bool CMsgPracticeLobbySetDetails::_internal_has_custom_game_crc() const {
-  bool value = (_impl_._has_bits_[0] & 0x10000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x04000000u) != 0;
   return value;
 }
 inline bool CMsgPracticeLobbySetDetails::has_custom_game_crc() const {
@@ -15810,7 +15674,7 @@ inline bool CMsgPracticeLobbySetDetails::has_custom_game_crc() const {
 }
 inline void CMsgPracticeLobbySetDetails::clear_custom_game_crc() {
   _impl_.custom_game_crc_ = uint64_t{0u};
-  _impl_._has_bits_[0] &= ~0x10000000u;
+  _impl_._has_bits_[0] &= ~0x04000000u;
 }
 inline uint64_t CMsgPracticeLobbySetDetails::_internal_custom_game_crc() const {
   return _impl_.custom_game_crc_;
@@ -15820,7 +15684,7 @@ inline uint64_t CMsgPracticeLobbySetDetails::custom_game_crc() const {
   return _internal_custom_game_crc();
 }
 inline void CMsgPracticeLobbySetDetails::_internal_set_custom_game_crc(uint64_t value) {
-  _impl_._has_bits_[0] |= 0x10000000u;
+  _impl_._has_bits_[0] |= 0x04000000u;
   _impl_.custom_game_crc_ = value;
 }
 inline void CMsgPracticeLobbySetDetails::set_custom_game_crc(uint64_t value) {
@@ -15830,7 +15694,7 @@ inline void CMsgPracticeLobbySetDetails::set_custom_game_crc(uint64_t value) {
 
 // optional fixed32 custom_game_timestamp = 37;
 inline bool CMsgPracticeLobbySetDetails::_internal_has_custom_game_timestamp() const {
-  bool value = (_impl_._has_bits_[0] & 0x20000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x10000000u) != 0;
   return value;
 }
 inline bool CMsgPracticeLobbySetDetails::has_custom_game_timestamp() const {
@@ -15838,7 +15702,7 @@ inline bool CMsgPracticeLobbySetDetails::has_custom_game_timestamp() const {
 }
 inline void CMsgPracticeLobbySetDetails::clear_custom_game_timestamp() {
   _impl_.custom_game_timestamp_ = 0u;
-  _impl_._has_bits_[0] &= ~0x20000000u;
+  _impl_._has_bits_[0] &= ~0x10000000u;
 }
 inline uint32_t CMsgPracticeLobbySetDetails::_internal_custom_game_timestamp() const {
   return _impl_.custom_game_timestamp_;
@@ -15848,7 +15712,7 @@ inline uint32_t CMsgPracticeLobbySetDetails::custom_game_timestamp() const {
   return _internal_custom_game_timestamp();
 }
 inline void CMsgPracticeLobbySetDetails::_internal_set_custom_game_timestamp(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x20000000u;
+  _impl_._has_bits_[0] |= 0x10000000u;
   _impl_.custom_game_timestamp_ = value;
 }
 inline void CMsgPracticeLobbySetDetails::set_custom_game_timestamp(uint32_t value) {
@@ -15858,7 +15722,7 @@ inline void CMsgPracticeLobbySetDetails::set_custom_game_timestamp(uint32_t valu
 
 // optional uint64 previous_match_override = 38;
 inline bool CMsgPracticeLobbySetDetails::_internal_has_previous_match_override() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x20000000u) != 0;
   return value;
 }
 inline bool CMsgPracticeLobbySetDetails::has_previous_match_override() const {
@@ -15866,7 +15730,7 @@ inline bool CMsgPracticeLobbySetDetails::has_previous_match_override() const {
 }
 inline void CMsgPracticeLobbySetDetails::clear_previous_match_override() {
   _impl_.previous_match_override_ = uint64_t{0u};
-  _impl_._has_bits_[1] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x20000000u;
 }
 inline uint64_t CMsgPracticeLobbySetDetails::_internal_previous_match_override() const {
   return _impl_.previous_match_override_;
@@ -15876,7 +15740,7 @@ inline uint64_t CMsgPracticeLobbySetDetails::previous_match_override() const {
   return _internal_previous_match_override();
 }
 inline void CMsgPracticeLobbySetDetails::_internal_set_previous_match_override(uint64_t value) {
-  _impl_._has_bits_[1] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x20000000u;
   _impl_.previous_match_override_ = value;
 }
 inline void CMsgPracticeLobbySetDetails::set_previous_match_override(uint64_t value) {
@@ -15886,7 +15750,7 @@ inline void CMsgPracticeLobbySetDetails::set_previous_match_override(uint64_t va
 
 // optional .LobbyDotaPauseSetting pause_setting = 42 [default = LobbyDotaPauseSetting_Unlimited];
 inline bool CMsgPracticeLobbySetDetails::_internal_has_pause_setting() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000002u) != 0;
   return value;
 }
 inline bool CMsgPracticeLobbySetDetails::has_pause_setting() const {
@@ -15894,7 +15758,7 @@ inline bool CMsgPracticeLobbySetDetails::has_pause_setting() const {
 }
 inline void CMsgPracticeLobbySetDetails::clear_pause_setting() {
   _impl_.pause_setting_ = 0;
-  _impl_._has_bits_[1] &= ~0x00000008u;
+  _impl_._has_bits_[1] &= ~0x00000002u;
 }
 inline ::LobbyDotaPauseSetting CMsgPracticeLobbySetDetails::_internal_pause_setting() const {
   return static_cast< ::LobbyDotaPauseSetting >(_impl_.pause_setting_);
@@ -15905,7 +15769,7 @@ inline ::LobbyDotaPauseSetting CMsgPracticeLobbySetDetails::pause_setting() cons
 }
 inline void CMsgPracticeLobbySetDetails::_internal_set_pause_setting(::LobbyDotaPauseSetting value) {
   assert(::LobbyDotaPauseSetting_IsValid(value));
-  _impl_._has_bits_[1] |= 0x00000008u;
+  _impl_._has_bits_[1] |= 0x00000002u;
   _impl_.pause_setting_ = value;
 }
 inline void CMsgPracticeLobbySetDetails::set_pause_setting(::LobbyDotaPauseSetting value) {
@@ -15915,7 +15779,7 @@ inline void CMsgPracticeLobbySetDetails::set_pause_setting(::LobbyDotaPauseSetti
 
 // optional .DOTABotDifficulty bot_difficulty_dire = 43 [default = BOT_DIFFICULTY_PASSIVE];
 inline bool CMsgPracticeLobbySetDetails::_internal_has_bot_difficulty_dire() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000008u) != 0;
   return value;
 }
 inline bool CMsgPracticeLobbySetDetails::has_bot_difficulty_dire() const {
@@ -15923,7 +15787,7 @@ inline bool CMsgPracticeLobbySetDetails::has_bot_difficulty_dire() const {
 }
 inline void CMsgPracticeLobbySetDetails::clear_bot_difficulty_dire() {
   _impl_.bot_difficulty_dire_ = 0;
-  _impl_._has_bits_[1] &= ~0x00000010u;
+  _impl_._has_bits_[1] &= ~0x00000008u;
 }
 inline ::DOTABotDifficulty CMsgPracticeLobbySetDetails::_internal_bot_difficulty_dire() const {
   return static_cast< ::DOTABotDifficulty >(_impl_.bot_difficulty_dire_);
@@ -15934,7 +15798,7 @@ inline ::DOTABotDifficulty CMsgPracticeLobbySetDetails::bot_difficulty_dire() co
 }
 inline void CMsgPracticeLobbySetDetails::_internal_set_bot_difficulty_dire(::DOTABotDifficulty value) {
   assert(::DOTABotDifficulty_IsValid(value));
-  _impl_._has_bits_[1] |= 0x00000010u;
+  _impl_._has_bits_[1] |= 0x00000008u;
   _impl_.bot_difficulty_dire_ = value;
 }
 inline void CMsgPracticeLobbySetDetails::set_bot_difficulty_dire(::DOTABotDifficulty value) {
@@ -15944,7 +15808,7 @@ inline void CMsgPracticeLobbySetDetails::set_bot_difficulty_dire(::DOTABotDiffic
 
 // optional uint64 bot_radiant = 44;
 inline bool CMsgPracticeLobbySetDetails::_internal_has_bot_radiant() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000020u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000004u) != 0;
   return value;
 }
 inline bool CMsgPracticeLobbySetDetails::has_bot_radiant() const {
@@ -15952,7 +15816,7 @@ inline bool CMsgPracticeLobbySetDetails::has_bot_radiant() const {
 }
 inline void CMsgPracticeLobbySetDetails::clear_bot_radiant() {
   _impl_.bot_radiant_ = uint64_t{0u};
-  _impl_._has_bits_[1] &= ~0x00000020u;
+  _impl_._has_bits_[1] &= ~0x00000004u;
 }
 inline uint64_t CMsgPracticeLobbySetDetails::_internal_bot_radiant() const {
   return _impl_.bot_radiant_;
@@ -15962,7 +15826,7 @@ inline uint64_t CMsgPracticeLobbySetDetails::bot_radiant() const {
   return _internal_bot_radiant();
 }
 inline void CMsgPracticeLobbySetDetails::_internal_set_bot_radiant(uint64_t value) {
-  _impl_._has_bits_[1] |= 0x00000020u;
+  _impl_._has_bits_[1] |= 0x00000004u;
   _impl_.bot_radiant_ = value;
 }
 inline void CMsgPracticeLobbySetDetails::set_bot_radiant(uint64_t value) {
@@ -15972,7 +15836,7 @@ inline void CMsgPracticeLobbySetDetails::set_bot_radiant(uint64_t value) {
 
 // optional uint64 bot_dire = 45;
 inline bool CMsgPracticeLobbySetDetails::_internal_has_bot_dire() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000040u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000020u) != 0;
   return value;
 }
 inline bool CMsgPracticeLobbySetDetails::has_bot_dire() const {
@@ -15980,7 +15844,7 @@ inline bool CMsgPracticeLobbySetDetails::has_bot_dire() const {
 }
 inline void CMsgPracticeLobbySetDetails::clear_bot_dire() {
   _impl_.bot_dire_ = uint64_t{0u};
-  _impl_._has_bits_[1] &= ~0x00000040u;
+  _impl_._has_bits_[1] &= ~0x00000020u;
 }
 inline uint64_t CMsgPracticeLobbySetDetails::_internal_bot_dire() const {
   return _impl_.bot_dire_;
@@ -15990,7 +15854,7 @@ inline uint64_t CMsgPracticeLobbySetDetails::bot_dire() const {
   return _internal_bot_dire();
 }
 inline void CMsgPracticeLobbySetDetails::_internal_set_bot_dire(uint64_t value) {
-  _impl_._has_bits_[1] |= 0x00000040u;
+  _impl_._has_bits_[1] |= 0x00000020u;
   _impl_.bot_dire_ = value;
 }
 inline void CMsgPracticeLobbySetDetails::set_bot_dire(uint64_t value) {
@@ -16000,7 +15864,7 @@ inline void CMsgPracticeLobbySetDetails::set_bot_dire(uint64_t value) {
 
 // optional .DOTASelectionPriorityRules selection_priority_rules = 46 [default = k_DOTASelectionPriorityRules_Manual];
 inline bool CMsgPracticeLobbySetDetails::_internal_has_selection_priority_rules() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000080u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000010u) != 0;
   return value;
 }
 inline bool CMsgPracticeLobbySetDetails::has_selection_priority_rules() const {
@@ -16008,7 +15872,7 @@ inline bool CMsgPracticeLobbySetDetails::has_selection_priority_rules() const {
 }
 inline void CMsgPracticeLobbySetDetails::clear_selection_priority_rules() {
   _impl_.selection_priority_rules_ = 0;
-  _impl_._has_bits_[1] &= ~0x00000080u;
+  _impl_._has_bits_[1] &= ~0x00000010u;
 }
 inline ::DOTASelectionPriorityRules CMsgPracticeLobbySetDetails::_internal_selection_priority_rules() const {
   return static_cast< ::DOTASelectionPriorityRules >(_impl_.selection_priority_rules_);
@@ -16019,7 +15883,7 @@ inline ::DOTASelectionPriorityRules CMsgPracticeLobbySetDetails::selection_prior
 }
 inline void CMsgPracticeLobbySetDetails::_internal_set_selection_priority_rules(::DOTASelectionPriorityRules value) {
   assert(::DOTASelectionPriorityRules_IsValid(value));
-  _impl_._has_bits_[1] |= 0x00000080u;
+  _impl_._has_bits_[1] |= 0x00000010u;
   _impl_.selection_priority_rules_ = value;
 }
 inline void CMsgPracticeLobbySetDetails::set_selection_priority_rules(::DOTASelectionPriorityRules value) {
@@ -16029,7 +15893,7 @@ inline void CMsgPracticeLobbySetDetails::set_selection_priority_rules(::DOTASele
 
 // optional bool custom_game_penalties = 47;
 inline bool CMsgPracticeLobbySetDetails::_internal_has_custom_game_penalties() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x80000000u) != 0;
   return value;
 }
 inline bool CMsgPracticeLobbySetDetails::has_custom_game_penalties() const {
@@ -16037,7 +15901,7 @@ inline bool CMsgPracticeLobbySetDetails::has_custom_game_penalties() const {
 }
 inline void CMsgPracticeLobbySetDetails::clear_custom_game_penalties() {
   _impl_.custom_game_penalties_ = false;
-  _impl_._has_bits_[1] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x80000000u;
 }
 inline bool CMsgPracticeLobbySetDetails::_internal_custom_game_penalties() const {
   return _impl_.custom_game_penalties_;
@@ -16047,7 +15911,7 @@ inline bool CMsgPracticeLobbySetDetails::custom_game_penalties() const {
   return _internal_custom_game_penalties();
 }
 inline void CMsgPracticeLobbySetDetails::_internal_set_custom_game_penalties(bool value) {
-  _impl_._has_bits_[1] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x80000000u;
   _impl_.custom_game_penalties_ = value;
 }
 inline void CMsgPracticeLobbySetDetails::set_custom_game_penalties(bool value) {
@@ -16125,7 +15989,7 @@ inline void CMsgPracticeLobbySetDetails::set_allocated_lan_host_ping_location(st
 
 // optional uint32 league_node_id = 49;
 inline bool CMsgPracticeLobbySetDetails::_internal_has_league_node_id() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000100u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000040u) != 0;
   return value;
 }
 inline bool CMsgPracticeLobbySetDetails::has_league_node_id() const {
@@ -16133,7 +15997,7 @@ inline bool CMsgPracticeLobbySetDetails::has_league_node_id() const {
 }
 inline void CMsgPracticeLobbySetDetails::clear_league_node_id() {
   _impl_.league_node_id_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000100u;
+  _impl_._has_bits_[1] &= ~0x00000040u;
 }
 inline uint32_t CMsgPracticeLobbySetDetails::_internal_league_node_id() const {
   return _impl_.league_node_id_;
@@ -16143,7 +16007,7 @@ inline uint32_t CMsgPracticeLobbySetDetails::league_node_id() const {
   return _internal_league_node_id();
 }
 inline void CMsgPracticeLobbySetDetails::_internal_set_league_node_id(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000100u;
+  _impl_._has_bits_[1] |= 0x00000040u;
   _impl_.league_node_id_ = value;
 }
 inline void CMsgPracticeLobbySetDetails::set_league_node_id(uint32_t value) {
@@ -16151,7 +16015,7 @@ inline void CMsgPracticeLobbySetDetails::set_league_node_id(uint32_t value) {
   // @@protoc_insertion_point(field_set:CMsgPracticeLobbySetDetails.league_node_id)
 }
 
-// repeated uint32 requested_hero_ids = 50;
+// repeated int32 requested_hero_ids = 50;
 inline int CMsgPracticeLobbySetDetails::_internal_requested_hero_ids_size() const {
   return _impl_.requested_hero_ids_.size();
 }
@@ -16161,38 +16025,38 @@ inline int CMsgPracticeLobbySetDetails::requested_hero_ids_size() const {
 inline void CMsgPracticeLobbySetDetails::clear_requested_hero_ids() {
   _impl_.requested_hero_ids_.Clear();
 }
-inline uint32_t CMsgPracticeLobbySetDetails::_internal_requested_hero_ids(int index) const {
+inline int32_t CMsgPracticeLobbySetDetails::_internal_requested_hero_ids(int index) const {
   return _impl_.requested_hero_ids_.Get(index);
 }
-inline uint32_t CMsgPracticeLobbySetDetails::requested_hero_ids(int index) const {
+inline int32_t CMsgPracticeLobbySetDetails::requested_hero_ids(int index) const {
   // @@protoc_insertion_point(field_get:CMsgPracticeLobbySetDetails.requested_hero_ids)
   return _internal_requested_hero_ids(index);
 }
-inline void CMsgPracticeLobbySetDetails::set_requested_hero_ids(int index, uint32_t value) {
+inline void CMsgPracticeLobbySetDetails::set_requested_hero_ids(int index, int32_t value) {
   _impl_.requested_hero_ids_.Set(index, value);
   // @@protoc_insertion_point(field_set:CMsgPracticeLobbySetDetails.requested_hero_ids)
 }
-inline void CMsgPracticeLobbySetDetails::_internal_add_requested_hero_ids(uint32_t value) {
+inline void CMsgPracticeLobbySetDetails::_internal_add_requested_hero_ids(int32_t value) {
   _impl_.requested_hero_ids_.Add(value);
 }
-inline void CMsgPracticeLobbySetDetails::add_requested_hero_ids(uint32_t value) {
+inline void CMsgPracticeLobbySetDetails::add_requested_hero_ids(int32_t value) {
   _internal_add_requested_hero_ids(value);
   // @@protoc_insertion_point(field_add:CMsgPracticeLobbySetDetails.requested_hero_ids)
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
 CMsgPracticeLobbySetDetails::_internal_requested_hero_ids() const {
   return _impl_.requested_hero_ids_;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
 CMsgPracticeLobbySetDetails::requested_hero_ids() const {
   // @@protoc_insertion_point(field_list:CMsgPracticeLobbySetDetails.requested_hero_ids)
   return _internal_requested_hero_ids();
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
 CMsgPracticeLobbySetDetails::_internal_mutable_requested_hero_ids() {
   return &_impl_.requested_hero_ids_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
 CMsgPracticeLobbySetDetails::mutable_requested_hero_ids() {
   // @@protoc_insertion_point(field_mutable_list:CMsgPracticeLobbySetDetails.requested_hero_ids)
   return _internal_mutable_requested_hero_ids();
@@ -16380,7 +16244,7 @@ inline void CMsgPracticeLobbySetDetails::set_allocated_ability_draft_specific_de
 
 // optional bool do_player_draft = 53;
 inline bool CMsgPracticeLobbySetDetails::_internal_has_do_player_draft() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000001u) != 0;
   return value;
 }
 inline bool CMsgPracticeLobbySetDetails::has_do_player_draft() const {
@@ -16388,7 +16252,7 @@ inline bool CMsgPracticeLobbySetDetails::has_do_player_draft() const {
 }
 inline void CMsgPracticeLobbySetDetails::clear_do_player_draft() {
   _impl_.do_player_draft_ = false;
-  _impl_._has_bits_[1] &= ~0x00000002u;
+  _impl_._has_bits_[1] &= ~0x00000001u;
 }
 inline bool CMsgPracticeLobbySetDetails::_internal_do_player_draft() const {
   return _impl_.do_player_draft_;
@@ -16398,168 +16262,12 @@ inline bool CMsgPracticeLobbySetDetails::do_player_draft() const {
   return _internal_do_player_draft();
 }
 inline void CMsgPracticeLobbySetDetails::_internal_set_do_player_draft(bool value) {
-  _impl_._has_bits_[1] |= 0x00000002u;
+  _impl_._has_bits_[1] |= 0x00000001u;
   _impl_.do_player_draft_ = value;
 }
 inline void CMsgPracticeLobbySetDetails::set_do_player_draft(bool value) {
   _internal_set_do_player_draft(value);
   // @@protoc_insertion_point(field_set:CMsgPracticeLobbySetDetails.do_player_draft)
-}
-
-// -------------------------------------------------------------------
-
-// CMsgPracticeLobbyCreate_SaveGame
-
-// optional bytes data = 1;
-inline bool CMsgPracticeLobbyCreate_SaveGame::_internal_has_data() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool CMsgPracticeLobbyCreate_SaveGame::has_data() const {
-  return _internal_has_data();
-}
-inline void CMsgPracticeLobbyCreate_SaveGame::clear_data() {
-  _impl_.data_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000001u;
-}
-inline const std::string& CMsgPracticeLobbyCreate_SaveGame::data() const {
-  // @@protoc_insertion_point(field_get:CMsgPracticeLobbyCreate.SaveGame.data)
-  return _internal_data();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void CMsgPracticeLobbyCreate_SaveGame::set_data(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000001u;
- _impl_.data_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:CMsgPracticeLobbyCreate.SaveGame.data)
-}
-inline std::string* CMsgPracticeLobbyCreate_SaveGame::mutable_data() {
-  std::string* _s = _internal_mutable_data();
-  // @@protoc_insertion_point(field_mutable:CMsgPracticeLobbyCreate.SaveGame.data)
-  return _s;
-}
-inline const std::string& CMsgPracticeLobbyCreate_SaveGame::_internal_data() const {
-  return _impl_.data_.Get();
-}
-inline void CMsgPracticeLobbyCreate_SaveGame::_internal_set_data(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  _impl_.data_.Set(value, GetArenaForAllocation());
-}
-inline std::string* CMsgPracticeLobbyCreate_SaveGame::_internal_mutable_data() {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  return _impl_.data_.Mutable(GetArenaForAllocation());
-}
-inline std::string* CMsgPracticeLobbyCreate_SaveGame::release_data() {
-  // @@protoc_insertion_point(field_release:CMsgPracticeLobbyCreate.SaveGame.data)
-  if (!_internal_has_data()) {
-    return nullptr;
-  }
-  _impl_._has_bits_[0] &= ~0x00000001u;
-  auto* p = _impl_.data_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.data_.IsDefault()) {
-    _impl_.data_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
-}
-inline void CMsgPracticeLobbyCreate_SaveGame::set_allocated_data(std::string* data) {
-  if (data != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000001u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
-  }
-  _impl_.data_.SetAllocated(data, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.data_.IsDefault()) {
-    _impl_.data_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:CMsgPracticeLobbyCreate.SaveGame.data)
-}
-
-// optional int32 version = 2;
-inline bool CMsgPracticeLobbyCreate_SaveGame::_internal_has_version() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
-  return value;
-}
-inline bool CMsgPracticeLobbyCreate_SaveGame::has_version() const {
-  return _internal_has_version();
-}
-inline void CMsgPracticeLobbyCreate_SaveGame::clear_version() {
-  _impl_.version_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000008u;
-}
-inline int32_t CMsgPracticeLobbyCreate_SaveGame::_internal_version() const {
-  return _impl_.version_;
-}
-inline int32_t CMsgPracticeLobbyCreate_SaveGame::version() const {
-  // @@protoc_insertion_point(field_get:CMsgPracticeLobbyCreate.SaveGame.version)
-  return _internal_version();
-}
-inline void CMsgPracticeLobbyCreate_SaveGame::_internal_set_version(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
-  _impl_.version_ = value;
-}
-inline void CMsgPracticeLobbyCreate_SaveGame::set_version(int32_t value) {
-  _internal_set_version(value);
-  // @@protoc_insertion_point(field_set:CMsgPracticeLobbyCreate.SaveGame.version)
-}
-
-// optional fixed64 steam_id = 3;
-inline bool CMsgPracticeLobbyCreate_SaveGame::_internal_has_steam_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
-  return value;
-}
-inline bool CMsgPracticeLobbyCreate_SaveGame::has_steam_id() const {
-  return _internal_has_steam_id();
-}
-inline void CMsgPracticeLobbyCreate_SaveGame::clear_steam_id() {
-  _impl_.steam_id_ = uint64_t{0u};
-  _impl_._has_bits_[0] &= ~0x00000002u;
-}
-inline uint64_t CMsgPracticeLobbyCreate_SaveGame::_internal_steam_id() const {
-  return _impl_.steam_id_;
-}
-inline uint64_t CMsgPracticeLobbyCreate_SaveGame::steam_id() const {
-  // @@protoc_insertion_point(field_get:CMsgPracticeLobbyCreate.SaveGame.steam_id)
-  return _internal_steam_id();
-}
-inline void CMsgPracticeLobbyCreate_SaveGame::_internal_set_steam_id(uint64_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  _impl_.steam_id_ = value;
-}
-inline void CMsgPracticeLobbyCreate_SaveGame::set_steam_id(uint64_t value) {
-  _internal_set_steam_id(value);
-  // @@protoc_insertion_point(field_set:CMsgPracticeLobbyCreate.SaveGame.steam_id)
-}
-
-// optional fixed64 signature = 4;
-inline bool CMsgPracticeLobbyCreate_SaveGame::_internal_has_signature() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
-  return value;
-}
-inline bool CMsgPracticeLobbyCreate_SaveGame::has_signature() const {
-  return _internal_has_signature();
-}
-inline void CMsgPracticeLobbyCreate_SaveGame::clear_signature() {
-  _impl_.signature_ = uint64_t{0u};
-  _impl_._has_bits_[0] &= ~0x00000004u;
-}
-inline uint64_t CMsgPracticeLobbyCreate_SaveGame::_internal_signature() const {
-  return _impl_.signature_;
-}
-inline uint64_t CMsgPracticeLobbyCreate_SaveGame::signature() const {
-  // @@protoc_insertion_point(field_get:CMsgPracticeLobbyCreate.SaveGame.signature)
-  return _internal_signature();
-}
-inline void CMsgPracticeLobbyCreate_SaveGame::_internal_set_signature(uint64_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
-  _impl_.signature_ = value;
-}
-inline void CMsgPracticeLobbyCreate_SaveGame::set_signature(uint64_t value) {
-  _internal_set_signature(value);
-  // @@protoc_insertion_point(field_set:CMsgPracticeLobbyCreate.SaveGame.signature)
 }
 
 // -------------------------------------------------------------------
@@ -16704,7 +16412,7 @@ inline void CMsgPracticeLobbyCreate::set_allocated_pass_key(std::string* pass_ke
 
 // optional uint32 client_version = 6;
 inline bool CMsgPracticeLobbyCreate::_internal_has_client_version() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CMsgPracticeLobbyCreate::has_client_version() const {
@@ -16712,7 +16420,7 @@ inline bool CMsgPracticeLobbyCreate::has_client_version() const {
 }
 inline void CMsgPracticeLobbyCreate::clear_client_version() {
   _impl_.client_version_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline uint32_t CMsgPracticeLobbyCreate::_internal_client_version() const {
   return _impl_.client_version_;
@@ -16722,7 +16430,7 @@ inline uint32_t CMsgPracticeLobbyCreate::client_version() const {
   return _internal_client_version();
 }
 inline void CMsgPracticeLobbyCreate::_internal_set_client_version(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.client_version_ = value;
 }
 inline void CMsgPracticeLobbyCreate::set_client_version(uint32_t value) {
@@ -16818,96 +16526,6 @@ inline void CMsgPracticeLobbyCreate::set_allocated_lobby_details(::CMsgPracticeL
   }
   _impl_.lobby_details_ = lobby_details;
   // @@protoc_insertion_point(field_set_allocated:CMsgPracticeLobbyCreate.lobby_details)
-}
-
-// optional .CMsgPracticeLobbyCreate.SaveGame save_game = 8;
-inline bool CMsgPracticeLobbyCreate::_internal_has_save_game() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
-  PROTOBUF_ASSUME(!value || _impl_.save_game_ != nullptr);
-  return value;
-}
-inline bool CMsgPracticeLobbyCreate::has_save_game() const {
-  return _internal_has_save_game();
-}
-inline void CMsgPracticeLobbyCreate::clear_save_game() {
-  if (_impl_.save_game_ != nullptr) _impl_.save_game_->Clear();
-  _impl_._has_bits_[0] &= ~0x00000008u;
-}
-inline const ::CMsgPracticeLobbyCreate_SaveGame& CMsgPracticeLobbyCreate::_internal_save_game() const {
-  const ::CMsgPracticeLobbyCreate_SaveGame* p = _impl_.save_game_;
-  return p != nullptr ? *p : reinterpret_cast<const ::CMsgPracticeLobbyCreate_SaveGame&>(
-      ::_CMsgPracticeLobbyCreate_SaveGame_default_instance_);
-}
-inline const ::CMsgPracticeLobbyCreate_SaveGame& CMsgPracticeLobbyCreate::save_game() const {
-  // @@protoc_insertion_point(field_get:CMsgPracticeLobbyCreate.save_game)
-  return _internal_save_game();
-}
-inline void CMsgPracticeLobbyCreate::unsafe_arena_set_allocated_save_game(
-    ::CMsgPracticeLobbyCreate_SaveGame* save_game) {
-  if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.save_game_);
-  }
-  _impl_.save_game_ = save_game;
-  if (save_game) {
-    _impl_._has_bits_[0] |= 0x00000008u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000008u;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CMsgPracticeLobbyCreate.save_game)
-}
-inline ::CMsgPracticeLobbyCreate_SaveGame* CMsgPracticeLobbyCreate::release_save_game() {
-  _impl_._has_bits_[0] &= ~0x00000008u;
-  ::CMsgPracticeLobbyCreate_SaveGame* temp = _impl_.save_game_;
-  _impl_.save_game_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
-  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
-#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArenaForAllocation() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return temp;
-}
-inline ::CMsgPracticeLobbyCreate_SaveGame* CMsgPracticeLobbyCreate::unsafe_arena_release_save_game() {
-  // @@protoc_insertion_point(field_release:CMsgPracticeLobbyCreate.save_game)
-  _impl_._has_bits_[0] &= ~0x00000008u;
-  ::CMsgPracticeLobbyCreate_SaveGame* temp = _impl_.save_game_;
-  _impl_.save_game_ = nullptr;
-  return temp;
-}
-inline ::CMsgPracticeLobbyCreate_SaveGame* CMsgPracticeLobbyCreate::_internal_mutable_save_game() {
-  _impl_._has_bits_[0] |= 0x00000008u;
-  if (_impl_.save_game_ == nullptr) {
-    auto* p = CreateMaybeMessage<::CMsgPracticeLobbyCreate_SaveGame>(GetArenaForAllocation());
-    _impl_.save_game_ = p;
-  }
-  return _impl_.save_game_;
-}
-inline ::CMsgPracticeLobbyCreate_SaveGame* CMsgPracticeLobbyCreate::mutable_save_game() {
-  ::CMsgPracticeLobbyCreate_SaveGame* _msg = _internal_mutable_save_game();
-  // @@protoc_insertion_point(field_mutable:CMsgPracticeLobbyCreate.save_game)
-  return _msg;
-}
-inline void CMsgPracticeLobbyCreate::set_allocated_save_game(::CMsgPracticeLobbyCreate_SaveGame* save_game) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  if (message_arena == nullptr) {
-    delete _impl_.save_game_;
-  }
-  if (save_game) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(save_game);
-    if (message_arena != submessage_arena) {
-      save_game = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, save_game, submessage_arena);
-    }
-    _impl_._has_bits_[0] |= 0x00000008u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000008u;
-  }
-  _impl_.save_game_ = save_game;
-  // @@protoc_insertion_point(field_set_allocated:CMsgPracticeLobbyCreate.save_game)
 }
 
 // -------------------------------------------------------------------
@@ -22624,8 +22242,6 @@ inline void CMsgClientToGCMMInfo::set_high_priority_disabled(bool value) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
-// -------------------------------------------------------------------
-
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

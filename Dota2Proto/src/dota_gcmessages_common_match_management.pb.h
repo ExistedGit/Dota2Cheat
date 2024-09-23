@@ -408,11 +408,14 @@ enum CMvpData_MvpDatum_MvpAccolade_MvpAccoladeType : int {
   CMvpData_MvpDatum_MvpAccolade_MvpAccoladeType_kKillEaterEventType_Muerta_DeadShotKills = 275,
   CMvpData_MvpDatum_MvpAccolade_MvpAccoladeType_kKillEaterEventType_Muerta_PierceTheVeilKills = 276,
   CMvpData_MvpDatum_MvpAccolade_MvpAccoladeType_kKillEaterEventType_Muerta_MultiHeroDeadShot = 277,
-  CMvpData_MvpDatum_MvpAccolade_MvpAccoladeType_kKillEaterEventType_Muerta_DeadShotsIntoTheCalling = 278
+  CMvpData_MvpDatum_MvpAccolade_MvpAccoladeType_kKillEaterEventType_Muerta_DeadShotsIntoTheCalling = 278,
+  CMvpData_MvpDatum_MvpAccolade_MvpAccoladeType_kKillEaterEventType_Ringmaster_LongRangeDaggerHits = 279,
+  CMvpData_MvpDatum_MvpAccolade_MvpAccoladeType_kKillEaterEventType_Ringmaster_MultiHeroWhips = 280,
+  CMvpData_MvpDatum_MvpAccolade_MvpAccoladeType_kKillEaterEventType_Ringmaster_MultiHeroMesmerizes = 281
 };
 bool CMvpData_MvpDatum_MvpAccolade_MvpAccoladeType_IsValid(int value);
 constexpr CMvpData_MvpDatum_MvpAccolade_MvpAccoladeType CMvpData_MvpDatum_MvpAccolade_MvpAccoladeType_MvpAccoladeType_MIN = CMvpData_MvpDatum_MvpAccolade_MvpAccoladeType_kills;
-constexpr CMvpData_MvpDatum_MvpAccolade_MvpAccoladeType CMvpData_MvpDatum_MvpAccolade_MvpAccoladeType_MvpAccoladeType_MAX = CMvpData_MvpDatum_MvpAccolade_MvpAccoladeType_kKillEaterEventType_Muerta_DeadShotsIntoTheCalling;
+constexpr CMvpData_MvpDatum_MvpAccolade_MvpAccoladeType CMvpData_MvpDatum_MvpAccolade_MvpAccoladeType_MvpAccoladeType_MAX = CMvpData_MvpDatum_MvpAccolade_MvpAccoladeType_kKillEaterEventType_Ringmaster_MultiHeroMesmerizes;
 constexpr int CMvpData_MvpDatum_MvpAccolade_MvpAccoladeType_MvpAccoladeType_ARRAYSIZE = CMvpData_MvpDatum_MvpAccolade_MvpAccoladeType_MvpAccoladeType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMvpData_MvpDatum_MvpAccolade_MvpAccoladeType_descriptor();
@@ -745,6 +748,7 @@ class CSODOTAPartyMember final :
   enum : int {
     kRegionPingCodesFieldNumber = 4,
     kRegionPingTimesFieldNumber = 5,
+    kBannedHeroIdsFieldNumber = 17,
     kRegionPingFailedBitmaskFieldNumber = 6,
     kTourneySkillLevelFieldNumber = 7,
     kTourneyBuyinFieldNumber = 8,
@@ -801,6 +805,28 @@ class CSODOTAPartyMember final :
       region_ping_times() const;
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
       mutable_region_ping_times();
+
+  // repeated int32 banned_hero_ids = 17;
+  int banned_hero_ids_size() const;
+  private:
+  int _internal_banned_hero_ids_size() const;
+  public:
+  void clear_banned_hero_ids();
+  private:
+  int32_t _internal_banned_hero_ids(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+      _internal_banned_hero_ids() const;
+  void _internal_add_banned_hero_ids(int32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+      _internal_mutable_banned_hero_ids();
+  public:
+  int32_t banned_hero_ids(int index) const;
+  void set_banned_hero_ids(int index, int32_t value);
+  void add_banned_hero_ids(int32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+      banned_hero_ids() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+      mutable_banned_hero_ids();
 
   // optional uint32 region_ping_failed_bitmask = 6;
   bool has_region_ping_failed_bitmask() const;
@@ -972,6 +998,7 @@ class CSODOTAPartyMember final :
     mutable std::atomic<int> _region_ping_codes_cached_byte_size_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > region_ping_times_;
     mutable std::atomic<int> _region_ping_times_cached_byte_size_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > banned_hero_ids_;
     uint32_t region_ping_failed_bitmask_;
     uint32_t tourney_skill_level_;
     uint32_t tourney_buyin_;
@@ -1203,6 +1230,8 @@ class CSODOTAParty final :
     kBotDifficultyMaskFieldNumber = 72,
     kBotScriptIndexMaskFieldNumber = 73,
     kRestrictedFromRankedAccountIdFieldNumber = 75,
+    kRankSpreadLikertScaleFieldNumber = 76,
+    kBehaviorScoreLikertScaleFieldNumber = 77,
   };
   // repeated fixed64 member_ids = 3;
   int member_ids_size() const;
@@ -1927,6 +1956,32 @@ class CSODOTAParty final :
   void _internal_set_restricted_from_ranked_account_id(uint32_t value);
   public:
 
+  // optional uint32 rank_spread_likert_scale = 76;
+  bool has_rank_spread_likert_scale() const;
+  private:
+  bool _internal_has_rank_spread_likert_scale() const;
+  public:
+  void clear_rank_spread_likert_scale();
+  uint32_t rank_spread_likert_scale() const;
+  void set_rank_spread_likert_scale(uint32_t value);
+  private:
+  uint32_t _internal_rank_spread_likert_scale() const;
+  void _internal_set_rank_spread_likert_scale(uint32_t value);
+  public:
+
+  // optional uint32 behavior_score_likert_scale = 77;
+  bool has_behavior_score_likert_scale() const;
+  private:
+  bool _internal_has_behavior_score_likert_scale() const;
+  public:
+  void clear_behavior_score_likert_scale();
+  uint32_t behavior_score_likert_scale() const;
+  void set_behavior_score_likert_scale(uint32_t value);
+  private:
+  uint32_t _internal_behavior_score_likert_scale() const;
+  void _internal_set_behavior_score_likert_scale(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CSODOTAParty)
  private:
   class _Internal;
@@ -1990,6 +2045,8 @@ class CSODOTAParty final :
     uint32_t bot_difficulty_mask_;
     uint32_t bot_script_index_mask_;
     uint32_t restricted_from_ranked_account_id_;
+    uint32_t rank_spread_likert_scale_;
+    uint32_t behavior_score_likert_scale_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fgcmessages_5fcommon_5fmatch_5fmanagement_2eproto;
@@ -4560,6 +4617,12 @@ class CMvpData_MvpDatum_MvpAccolade final :
     CMvpData_MvpDatum_MvpAccolade_MvpAccoladeType_kKillEaterEventType_Muerta_MultiHeroDeadShot;
   static constexpr MvpAccoladeType kKillEaterEventType_Muerta_DeadShotsIntoTheCalling =
     CMvpData_MvpDatum_MvpAccolade_MvpAccoladeType_kKillEaterEventType_Muerta_DeadShotsIntoTheCalling;
+  static constexpr MvpAccoladeType kKillEaterEventType_Ringmaster_LongRangeDaggerHits =
+    CMvpData_MvpDatum_MvpAccolade_MvpAccoladeType_kKillEaterEventType_Ringmaster_LongRangeDaggerHits;
+  static constexpr MvpAccoladeType kKillEaterEventType_Ringmaster_MultiHeroWhips =
+    CMvpData_MvpDatum_MvpAccolade_MvpAccoladeType_kKillEaterEventType_Ringmaster_MultiHeroWhips;
+  static constexpr MvpAccoladeType kKillEaterEventType_Ringmaster_MultiHeroMesmerizes =
+    CMvpData_MvpDatum_MvpAccolade_MvpAccoladeType_kKillEaterEventType_Ringmaster_MultiHeroMesmerizes;
   static inline bool MvpAccoladeType_IsValid(int value) {
     return CMvpData_MvpDatum_MvpAccolade_MvpAccoladeType_IsValid(value);
   }
@@ -5420,6 +5483,53 @@ inline void CSODOTAPartyMember::_internal_set_is_steam_china(bool value) {
 inline void CSODOTAPartyMember::set_is_steam_china(bool value) {
   _internal_set_is_steam_china(value);
   // @@protoc_insertion_point(field_set:CSODOTAPartyMember.is_steam_china)
+}
+
+// repeated int32 banned_hero_ids = 17;
+inline int CSODOTAPartyMember::_internal_banned_hero_ids_size() const {
+  return _impl_.banned_hero_ids_.size();
+}
+inline int CSODOTAPartyMember::banned_hero_ids_size() const {
+  return _internal_banned_hero_ids_size();
+}
+inline void CSODOTAPartyMember::clear_banned_hero_ids() {
+  _impl_.banned_hero_ids_.Clear();
+}
+inline int32_t CSODOTAPartyMember::_internal_banned_hero_ids(int index) const {
+  return _impl_.banned_hero_ids_.Get(index);
+}
+inline int32_t CSODOTAPartyMember::banned_hero_ids(int index) const {
+  // @@protoc_insertion_point(field_get:CSODOTAPartyMember.banned_hero_ids)
+  return _internal_banned_hero_ids(index);
+}
+inline void CSODOTAPartyMember::set_banned_hero_ids(int index, int32_t value) {
+  _impl_.banned_hero_ids_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CSODOTAPartyMember.banned_hero_ids)
+}
+inline void CSODOTAPartyMember::_internal_add_banned_hero_ids(int32_t value) {
+  _impl_.banned_hero_ids_.Add(value);
+}
+inline void CSODOTAPartyMember::add_banned_hero_ids(int32_t value) {
+  _internal_add_banned_hero_ids(value);
+  // @@protoc_insertion_point(field_add:CSODOTAPartyMember.banned_hero_ids)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+CSODOTAPartyMember::_internal_banned_hero_ids() const {
+  return _impl_.banned_hero_ids_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+CSODOTAPartyMember::banned_hero_ids() const {
+  // @@protoc_insertion_point(field_list:CSODOTAPartyMember.banned_hero_ids)
+  return _internal_banned_hero_ids();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+CSODOTAPartyMember::_internal_mutable_banned_hero_ids() {
+  return &_impl_.banned_hero_ids_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+CSODOTAPartyMember::mutable_banned_hero_ids() {
+  // @@protoc_insertion_point(field_mutable_list:CSODOTAPartyMember.banned_hero_ids)
+  return _internal_mutable_banned_hero_ids();
 }
 
 // -------------------------------------------------------------------
@@ -7069,6 +7179,62 @@ inline void CSODOTAParty::_internal_set_restricted_from_ranked_account_id(uint32
 inline void CSODOTAParty::set_restricted_from_ranked_account_id(uint32_t value) {
   _internal_set_restricted_from_ranked_account_id(value);
   // @@protoc_insertion_point(field_set:CSODOTAParty.restricted_from_ranked_account_id)
+}
+
+// optional uint32 rank_spread_likert_scale = 76;
+inline bool CSODOTAParty::_internal_has_rank_spread_likert_scale() const {
+  bool value = (_impl_._has_bits_[1] & 0x00020000u) != 0;
+  return value;
+}
+inline bool CSODOTAParty::has_rank_spread_likert_scale() const {
+  return _internal_has_rank_spread_likert_scale();
+}
+inline void CSODOTAParty::clear_rank_spread_likert_scale() {
+  _impl_.rank_spread_likert_scale_ = 0u;
+  _impl_._has_bits_[1] &= ~0x00020000u;
+}
+inline uint32_t CSODOTAParty::_internal_rank_spread_likert_scale() const {
+  return _impl_.rank_spread_likert_scale_;
+}
+inline uint32_t CSODOTAParty::rank_spread_likert_scale() const {
+  // @@protoc_insertion_point(field_get:CSODOTAParty.rank_spread_likert_scale)
+  return _internal_rank_spread_likert_scale();
+}
+inline void CSODOTAParty::_internal_set_rank_spread_likert_scale(uint32_t value) {
+  _impl_._has_bits_[1] |= 0x00020000u;
+  _impl_.rank_spread_likert_scale_ = value;
+}
+inline void CSODOTAParty::set_rank_spread_likert_scale(uint32_t value) {
+  _internal_set_rank_spread_likert_scale(value);
+  // @@protoc_insertion_point(field_set:CSODOTAParty.rank_spread_likert_scale)
+}
+
+// optional uint32 behavior_score_likert_scale = 77;
+inline bool CSODOTAParty::_internal_has_behavior_score_likert_scale() const {
+  bool value = (_impl_._has_bits_[1] & 0x00040000u) != 0;
+  return value;
+}
+inline bool CSODOTAParty::has_behavior_score_likert_scale() const {
+  return _internal_has_behavior_score_likert_scale();
+}
+inline void CSODOTAParty::clear_behavior_score_likert_scale() {
+  _impl_.behavior_score_likert_scale_ = 0u;
+  _impl_._has_bits_[1] &= ~0x00040000u;
+}
+inline uint32_t CSODOTAParty::_internal_behavior_score_likert_scale() const {
+  return _impl_.behavior_score_likert_scale_;
+}
+inline uint32_t CSODOTAParty::behavior_score_likert_scale() const {
+  // @@protoc_insertion_point(field_get:CSODOTAParty.behavior_score_likert_scale)
+  return _internal_behavior_score_likert_scale();
+}
+inline void CSODOTAParty::_internal_set_behavior_score_likert_scale(uint32_t value) {
+  _impl_._has_bits_[1] |= 0x00040000u;
+  _impl_.behavior_score_likert_scale_ = value;
+}
+inline void CSODOTAParty::set_behavior_score_likert_scale(uint32_t value) {
+  _internal_set_behavior_score_likert_scale(value);
+  // @@protoc_insertion_point(field_set:CSODOTAParty.behavior_score_likert_scale)
 }
 
 // -------------------------------------------------------------------

@@ -33,6 +33,7 @@
 #include "base_gcmessages.pb.h"
 #include "dota_gcmessages_common_match_management.pb.h"
 #include "dota_gcmessages_common_lobby.pb.h"
+#include "dota_gcmessages_common_overworld.pb.h"
 #include "dota_gcmessages_common.pb.h"
 #include "dota_shared_enums.pb.h"
 #include "gcsdk_gcmessages.pb.h"
@@ -104,6 +105,9 @@ extern CDOTAMatchMetadata_Team_PlayerKillDefaultTypeInternal _CDOTAMatchMetadata
 class CDOTAMatchMetadata_Team_Player_ContractProgress;
 struct CDOTAMatchMetadata_Team_Player_ContractProgressDefaultTypeInternal;
 extern CDOTAMatchMetadata_Team_Player_ContractProgressDefaultTypeInternal _CDOTAMatchMetadata_Team_Player_ContractProgress_default_instance_;
+class CDOTAMatchMetadata_Team_Player_OverworldRewards;
+struct CDOTAMatchMetadata_Team_Player_OverworldRewardsDefaultTypeInternal;
+extern CDOTAMatchMetadata_Team_Player_OverworldRewardsDefaultTypeInternal _CDOTAMatchMetadata_Team_Player_OverworldRewards_default_instance_;
 class CDOTAMatchMetadata_Team_StrangeGemProgress;
 struct CDOTAMatchMetadata_Team_StrangeGemProgressDefaultTypeInternal;
 extern CDOTAMatchMetadata_Team_StrangeGemProgressDefaultTypeInternal _CDOTAMatchMetadata_Team_StrangeGemProgress_default_instance_;
@@ -177,6 +181,7 @@ template<> ::CDOTAMatchMetadata_Team_PeriodicResourceData* Arena::CreateMaybeMes
 template<> ::CDOTAMatchMetadata_Team_Player* Arena::CreateMaybeMessage<::CDOTAMatchMetadata_Team_Player>(Arena*);
 template<> ::CDOTAMatchMetadata_Team_PlayerKill* Arena::CreateMaybeMessage<::CDOTAMatchMetadata_Team_PlayerKill>(Arena*);
 template<> ::CDOTAMatchMetadata_Team_Player_ContractProgress* Arena::CreateMaybeMessage<::CDOTAMatchMetadata_Team_Player_ContractProgress>(Arena*);
+template<> ::CDOTAMatchMetadata_Team_Player_OverworldRewards* Arena::CreateMaybeMessage<::CDOTAMatchMetadata_Team_Player_OverworldRewards>(Arena*);
 template<> ::CDOTAMatchMetadata_Team_StrangeGemProgress* Arena::CreateMaybeMessage<::CDOTAMatchMetadata_Team_StrangeGemProgress>(Arena*);
 template<> ::CDOTAMatchMetadata_Team_SubChallenge* Arena::CreateMaybeMessage<::CDOTAMatchMetadata_Team_SubChallenge>(Arena*);
 template<> ::CDOTAMatchMetadata_Team_VictoryPrediction* Arena::CreateMaybeMessage<::CDOTAMatchMetadata_Team_VictoryPrediction>(Arena*);
@@ -1617,17 +1622,17 @@ class CDOTAMatchMetadata_Team_StrangeGemProgress final :
   void _internal_set_gem_item_def_index(uint32_t value);
   public:
 
-  // optional uint32 required_hero_id = 3;
+  // optional int32 required_hero_id = 3;
   bool has_required_hero_id() const;
   private:
   bool _internal_has_required_hero_id() const;
   public:
   void clear_required_hero_id();
-  uint32_t required_hero_id() const;
-  void set_required_hero_id(uint32_t value);
+  int32_t required_hero_id() const;
+  void set_required_hero_id(int32_t value);
   private:
-  uint32_t _internal_required_hero_id() const;
-  void _internal_set_required_hero_id(uint32_t value);
+  int32_t _internal_required_hero_id() const;
+  void _internal_set_required_hero_id(int32_t value);
   public:
 
   // optional uint32 starting_value = 4;
@@ -1694,7 +1699,7 @@ class CDOTAMatchMetadata_Team_StrangeGemProgress final :
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t kill_eater_type_;
     uint32_t gem_item_def_index_;
-    uint32_t required_hero_id_;
+    int32_t required_hero_id_;
     uint32_t starting_value_;
     uint32_t ending_value_;
     uint32_t owner_item_def_index_;
@@ -2420,9 +2425,8 @@ class CDOTAMatchMetadata_Team_ActionGrant final :
   enum : int {
     kActionIdFieldNumber = 1,
     kQuantityFieldNumber = 2,
-    kAuditFieldNumber = 3,
-    kRequiresWinFieldNumber = 4,
     kAuditDataFieldNumber = 5,
+    kAuditFieldNumber = 3,
   };
   // optional uint32 action_id = 1;
   bool has_action_id() const;
@@ -2450,32 +2454,6 @@ class CDOTAMatchMetadata_Team_ActionGrant final :
   void _internal_set_quantity(uint32_t value);
   public:
 
-  // optional uint32 audit = 3;
-  bool has_audit() const;
-  private:
-  bool _internal_has_audit() const;
-  public:
-  void clear_audit();
-  uint32_t audit() const;
-  void set_audit(uint32_t value);
-  private:
-  uint32_t _internal_audit() const;
-  void _internal_set_audit(uint32_t value);
-  public:
-
-  // optional bool requires_win = 4;
-  bool has_requires_win() const;
-  private:
-  bool _internal_has_requires_win() const;
-  public:
-  void clear_requires_win();
-  bool requires_win() const;
-  void set_requires_win(bool value);
-  private:
-  bool _internal_requires_win() const;
-  void _internal_set_requires_win(bool value);
-  public:
-
   // optional uint64 audit_data = 5;
   bool has_audit_data() const;
   private:
@@ -2487,6 +2465,19 @@ class CDOTAMatchMetadata_Team_ActionGrant final :
   private:
   uint64_t _internal_audit_data() const;
   void _internal_set_audit_data(uint64_t value);
+  public:
+
+  // optional uint32 audit = 3;
+  bool has_audit() const;
+  private:
+  bool _internal_has_audit() const;
+  public:
+  void clear_audit();
+  uint32_t audit() const;
+  void set_audit(uint32_t value);
+  private:
+  uint32_t _internal_audit() const;
+  void _internal_set_audit(uint32_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:CDOTAMatchMetadata.Team.ActionGrant)
@@ -2501,9 +2492,8 @@ class CDOTAMatchMetadata_Team_ActionGrant final :
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t action_id_;
     uint32_t quantity_;
-    uint32_t audit_;
-    bool requires_win_;
     uint64_t audit_data_;
+    uint32_t audit_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fmatch_5fmetadata_2eproto;
@@ -3880,6 +3870,186 @@ class CDOTAMatchMetadata_Team_Player_ContractProgress final :
 };
 // -------------------------------------------------------------------
 
+class CDOTAMatchMetadata_Team_Player_OverworldRewards final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CDOTAMatchMetadata.Team.Player.OverworldRewards) */ {
+ public:
+  inline CDOTAMatchMetadata_Team_Player_OverworldRewards() : CDOTAMatchMetadata_Team_Player_OverworldRewards(nullptr) {}
+  ~CDOTAMatchMetadata_Team_Player_OverworldRewards() override;
+  explicit PROTOBUF_CONSTEXPR CDOTAMatchMetadata_Team_Player_OverworldRewards(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CDOTAMatchMetadata_Team_Player_OverworldRewards(const CDOTAMatchMetadata_Team_Player_OverworldRewards& from);
+  CDOTAMatchMetadata_Team_Player_OverworldRewards(CDOTAMatchMetadata_Team_Player_OverworldRewards&& from) noexcept
+    : CDOTAMatchMetadata_Team_Player_OverworldRewards() {
+    *this = ::std::move(from);
+  }
+
+  inline CDOTAMatchMetadata_Team_Player_OverworldRewards& operator=(const CDOTAMatchMetadata_Team_Player_OverworldRewards& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CDOTAMatchMetadata_Team_Player_OverworldRewards& operator=(CDOTAMatchMetadata_Team_Player_OverworldRewards&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CDOTAMatchMetadata_Team_Player_OverworldRewards& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CDOTAMatchMetadata_Team_Player_OverworldRewards* internal_default_instance() {
+    return reinterpret_cast<const CDOTAMatchMetadata_Team_Player_OverworldRewards*>(
+               &_CDOTAMatchMetadata_Team_Player_OverworldRewards_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    16;
+
+  friend void swap(CDOTAMatchMetadata_Team_Player_OverworldRewards& a, CDOTAMatchMetadata_Team_Player_OverworldRewards& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CDOTAMatchMetadata_Team_Player_OverworldRewards* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CDOTAMatchMetadata_Team_Player_OverworldRewards* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CDOTAMatchMetadata_Team_Player_OverworldRewards* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CDOTAMatchMetadata_Team_Player_OverworldRewards>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CDOTAMatchMetadata_Team_Player_OverworldRewards& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CDOTAMatchMetadata_Team_Player_OverworldRewards& from) {
+    CDOTAMatchMetadata_Team_Player_OverworldRewards::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CDOTAMatchMetadata_Team_Player_OverworldRewards* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CDOTAMatchMetadata.Team.Player.OverworldRewards";
+  }
+  protected:
+  explicit CDOTAMatchMetadata_Team_Player_OverworldRewards(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTokensFieldNumber = 2,
+    kOverworldIdFieldNumber = 1,
+  };
+  // optional .CMsgOverworldTokenQuantity tokens = 2;
+  bool has_tokens() const;
+  private:
+  bool _internal_has_tokens() const;
+  public:
+  void clear_tokens();
+  const ::CMsgOverworldTokenQuantity& tokens() const;
+  PROTOBUF_NODISCARD ::CMsgOverworldTokenQuantity* release_tokens();
+  ::CMsgOverworldTokenQuantity* mutable_tokens();
+  void set_allocated_tokens(::CMsgOverworldTokenQuantity* tokens);
+  private:
+  const ::CMsgOverworldTokenQuantity& _internal_tokens() const;
+  ::CMsgOverworldTokenQuantity* _internal_mutable_tokens();
+  public:
+  void unsafe_arena_set_allocated_tokens(
+      ::CMsgOverworldTokenQuantity* tokens);
+  ::CMsgOverworldTokenQuantity* unsafe_arena_release_tokens();
+
+  // optional uint32 overworld_id = 1;
+  bool has_overworld_id() const;
+  private:
+  bool _internal_has_overworld_id() const;
+  public:
+  void clear_overworld_id();
+  uint32_t overworld_id() const;
+  void set_overworld_id(uint32_t value);
+  private:
+  uint32_t _internal_overworld_id() const;
+  void _internal_set_overworld_id(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CDOTAMatchMetadata.Team.Player.OverworldRewards)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::CMsgOverworldTokenQuantity* tokens_;
+    uint32_t overworld_id_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_dota_5fmatch_5fmetadata_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CDOTAMatchMetadata_Team_Player final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CDOTAMatchMetadata.Team.Player) */ {
  public:
@@ -3935,7 +4105,7 @@ class CDOTAMatchMetadata_Team_Player final :
                &_CDOTAMatchMetadata_Team_Player_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    17;
 
   friend void swap(CDOTAMatchMetadata_Team_Player& a, CDOTAMatchMetadata_Team_Player& b) {
     a.Swap(&b);
@@ -4006,6 +4176,7 @@ class CDOTAMatchMetadata_Team_Player final :
   // nested types ----------------------------------------------------
 
   typedef CDOTAMatchMetadata_Team_Player_ContractProgress ContractProgress;
+  typedef CDOTAMatchMetadata_Team_Player_OverworldRewards OverworldRewards;
 
   // accessors -------------------------------------------------------
 
@@ -4026,6 +4197,7 @@ class CDOTAMatchMetadata_Team_Player final :
     kEquippedEconItemsFieldNumber = 56,
     kPlayerTrackedStatsFieldNumber = 58,
     kFeaturedGamemodeProgressFieldNumber = 53,
+    kOverworldRewardsFieldNumber = 59,
     kPlayerSlotFieldNumber = 3,
     kAvgKillsX16FieldNumber = 7,
     kAvgDeathsX16FieldNumber = 8,
@@ -4371,6 +4543,24 @@ class CDOTAMatchMetadata_Team_Player final :
   void unsafe_arena_set_allocated_featured_gamemode_progress(
       ::CDOTAMatchMetadata_Team_FeaturedGamemodeProgress* featured_gamemode_progress);
   ::CDOTAMatchMetadata_Team_FeaturedGamemodeProgress* unsafe_arena_release_featured_gamemode_progress();
+
+  // optional .CDOTAMatchMetadata.Team.Player.OverworldRewards overworld_rewards = 59;
+  bool has_overworld_rewards() const;
+  private:
+  bool _internal_has_overworld_rewards() const;
+  public:
+  void clear_overworld_rewards();
+  const ::CDOTAMatchMetadata_Team_Player_OverworldRewards& overworld_rewards() const;
+  PROTOBUF_NODISCARD ::CDOTAMatchMetadata_Team_Player_OverworldRewards* release_overworld_rewards();
+  ::CDOTAMatchMetadata_Team_Player_OverworldRewards* mutable_overworld_rewards();
+  void set_allocated_overworld_rewards(::CDOTAMatchMetadata_Team_Player_OverworldRewards* overworld_rewards);
+  private:
+  const ::CDOTAMatchMetadata_Team_Player_OverworldRewards& _internal_overworld_rewards() const;
+  ::CDOTAMatchMetadata_Team_Player_OverworldRewards* _internal_mutable_overworld_rewards();
+  public:
+  void unsafe_arena_set_allocated_overworld_rewards(
+      ::CDOTAMatchMetadata_Team_Player_OverworldRewards* overworld_rewards);
+  ::CDOTAMatchMetadata_Team_Player_OverworldRewards* unsafe_arena_release_overworld_rewards();
 
   // optional uint32 player_slot = 3;
   bool has_player_slot() const;
@@ -4879,6 +5069,7 @@ class CDOTAMatchMetadata_Team_Player final :
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CDOTAMatchMetadata_EconItem > equipped_econ_items_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgTrackedStat > player_tracked_stats_;
     ::CDOTAMatchMetadata_Team_FeaturedGamemodeProgress* featured_gamemode_progress_;
+    ::CDOTAMatchMetadata_Team_Player_OverworldRewards* overworld_rewards_;
     uint32_t player_slot_;
     uint32_t avg_kills_x16_;
     uint32_t avg_deaths_x16_;
@@ -4977,7 +5168,7 @@ class CDOTAMatchMetadata_Team final :
                &_CDOTAMatchMetadata_Team_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    18;
 
   friend void swap(CDOTAMatchMetadata_Team& a, CDOTAMatchMetadata_Team& b) {
     a.Swap(&b);
@@ -5309,7 +5500,7 @@ class CDOTAMatchMetadata_GuildChallengeProgress_IndividualProgress final :
                &_CDOTAMatchMetadata_GuildChallengeProgress_IndividualProgress_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    19;
 
   friend void swap(CDOTAMatchMetadata_GuildChallengeProgress_IndividualProgress& a, CDOTAMatchMetadata_GuildChallengeProgress_IndividualProgress& b) {
     a.Swap(&b);
@@ -5484,7 +5675,7 @@ class CDOTAMatchMetadata_GuildChallengeProgress final :
                &_CDOTAMatchMetadata_GuildChallengeProgress_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    20;
 
   friend void swap(CDOTAMatchMetadata_GuildChallengeProgress& a, CDOTAMatchMetadata_GuildChallengeProgress& b) {
     a.Swap(&b);
@@ -5756,7 +5947,7 @@ class CDOTAMatchMetadata_Tip final :
                &_CDOTAMatchMetadata_Tip_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    21;
 
   friend void swap(CDOTAMatchMetadata_Tip& a, CDOTAMatchMetadata_Tip& b) {
     a.Swap(&b);
@@ -5961,7 +6152,7 @@ class CDOTAMatchMetadata final :
                &_CDOTAMatchMetadata_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    22;
 
   friend void swap(CDOTAMatchMetadata& a, CDOTAMatchMetadata& b) {
     a.Swap(&b);
@@ -6316,7 +6507,7 @@ class CDOTAMatchPrivateMetadata_StringName final :
                &_CDOTAMatchPrivateMetadata_StringName_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    23;
 
   friend void swap(CDOTAMatchPrivateMetadata_StringName& a, CDOTAMatchPrivateMetadata_StringName& b) {
     a.Swap(&b);
@@ -6496,7 +6687,7 @@ class CDOTAMatchPrivateMetadata_Team_Player_CombatSegment_DamageByAbility_ByHero
                &_CDOTAMatchPrivateMetadata_Team_Player_CombatSegment_DamageByAbility_ByHeroTarget_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    24;
 
   friend void swap(CDOTAMatchPrivateMetadata_Team_Player_CombatSegment_DamageByAbility_ByHeroTarget& a, CDOTAMatchPrivateMetadata_Team_Player_CombatSegment_DamageByAbility_ByHeroTarget& b) {
     a.Swap(&b);
@@ -6572,17 +6763,17 @@ class CDOTAMatchPrivateMetadata_Team_Player_CombatSegment_DamageByAbility_ByHero
     kHeroIdFieldNumber = 1,
     kDamageFieldNumber = 2,
   };
-  // optional uint32 hero_id = 1;
+  // optional int32 hero_id = 1;
   bool has_hero_id() const;
   private:
   bool _internal_has_hero_id() const;
   public:
   void clear_hero_id();
-  uint32_t hero_id() const;
-  void set_hero_id(uint32_t value);
+  int32_t hero_id() const;
+  void set_hero_id(int32_t value);
   private:
-  uint32_t _internal_hero_id() const;
-  void _internal_set_hero_id(uint32_t value);
+  int32_t _internal_hero_id() const;
+  void _internal_set_hero_id(int32_t value);
   public:
 
   // optional uint32 damage = 2;
@@ -6608,7 +6799,7 @@ class CDOTAMatchPrivateMetadata_Team_Player_CombatSegment_DamageByAbility_ByHero
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    uint32_t hero_id_;
+    int32_t hero_id_;
     uint32_t damage_;
   };
   union { Impl_ _impl_; };
@@ -6671,7 +6862,7 @@ class CDOTAMatchPrivateMetadata_Team_Player_CombatSegment_DamageByAbility final 
                &_CDOTAMatchPrivateMetadata_Team_Player_CombatSegment_DamageByAbility_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    25;
 
   friend void swap(CDOTAMatchPrivateMetadata_Team_Player_CombatSegment_DamageByAbility& a, CDOTAMatchPrivateMetadata_Team_Player_CombatSegment_DamageByAbility& b) {
     a.Swap(&b);
@@ -6868,7 +7059,7 @@ class CDOTAMatchPrivateMetadata_Team_Player_CombatSegment_HealingByAbility_ByHer
                &_CDOTAMatchPrivateMetadata_Team_Player_CombatSegment_HealingByAbility_ByHeroTarget_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    26;
 
   friend void swap(CDOTAMatchPrivateMetadata_Team_Player_CombatSegment_HealingByAbility_ByHeroTarget& a, CDOTAMatchPrivateMetadata_Team_Player_CombatSegment_HealingByAbility_ByHeroTarget& b) {
     a.Swap(&b);
@@ -6944,17 +7135,17 @@ class CDOTAMatchPrivateMetadata_Team_Player_CombatSegment_HealingByAbility_ByHer
     kHeroIdFieldNumber = 1,
     kHealingFieldNumber = 2,
   };
-  // optional uint32 hero_id = 1;
+  // optional int32 hero_id = 1;
   bool has_hero_id() const;
   private:
   bool _internal_has_hero_id() const;
   public:
   void clear_hero_id();
-  uint32_t hero_id() const;
-  void set_hero_id(uint32_t value);
+  int32_t hero_id() const;
+  void set_hero_id(int32_t value);
   private:
-  uint32_t _internal_hero_id() const;
-  void _internal_set_hero_id(uint32_t value);
+  int32_t _internal_hero_id() const;
+  void _internal_set_hero_id(int32_t value);
   public:
 
   // optional uint32 healing = 2;
@@ -6980,7 +7171,7 @@ class CDOTAMatchPrivateMetadata_Team_Player_CombatSegment_HealingByAbility_ByHer
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    uint32_t hero_id_;
+    int32_t hero_id_;
     uint32_t healing_;
   };
   union { Impl_ _impl_; };
@@ -7043,7 +7234,7 @@ class CDOTAMatchPrivateMetadata_Team_Player_CombatSegment_HealingByAbility final
                &_CDOTAMatchPrivateMetadata_Team_Player_CombatSegment_HealingByAbility_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    26;
+    27;
 
   friend void swap(CDOTAMatchPrivateMetadata_Team_Player_CombatSegment_HealingByAbility& a, CDOTAMatchPrivateMetadata_Team_Player_CombatSegment_HealingByAbility& b) {
     a.Swap(&b);
@@ -7240,7 +7431,7 @@ class CDOTAMatchPrivateMetadata_Team_Player_CombatSegment final :
                &_CDOTAMatchPrivateMetadata_Team_Player_CombatSegment_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    27;
+    28;
 
   friend void swap(CDOTAMatchPrivateMetadata_Team_Player_CombatSegment& a, CDOTAMatchPrivateMetadata_Team_Player_CombatSegment& b) {
     a.Swap(&b);
@@ -7443,7 +7634,7 @@ class CDOTAMatchPrivateMetadata_Team_Player_BuffRecord_ByHeroTarget final :
                &_CDOTAMatchPrivateMetadata_Team_Player_BuffRecord_ByHeroTarget_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    28;
+    29;
 
   friend void swap(CDOTAMatchPrivateMetadata_Team_Player_BuffRecord_ByHeroTarget& a, CDOTAMatchPrivateMetadata_Team_Player_BuffRecord_ByHeroTarget& b) {
     a.Swap(&b);
@@ -7520,17 +7711,17 @@ class CDOTAMatchPrivateMetadata_Team_Player_BuffRecord_ByHeroTarget final :
     kElapsedDurationFieldNumber = 2,
     kIsHiddenFieldNumber = 3,
   };
-  // optional uint32 hero_id = 1;
+  // optional int32 hero_id = 1;
   bool has_hero_id() const;
   private:
   bool _internal_has_hero_id() const;
   public:
   void clear_hero_id();
-  uint32_t hero_id() const;
-  void set_hero_id(uint32_t value);
+  int32_t hero_id() const;
+  void set_hero_id(int32_t value);
   private:
-  uint32_t _internal_hero_id() const;
-  void _internal_set_hero_id(uint32_t value);
+  int32_t _internal_hero_id() const;
+  void _internal_set_hero_id(int32_t value);
   public:
 
   // optional float elapsed_duration = 2;
@@ -7569,7 +7760,7 @@ class CDOTAMatchPrivateMetadata_Team_Player_BuffRecord_ByHeroTarget final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    uint32_t hero_id_;
+    int32_t hero_id_;
     float elapsed_duration_;
     bool is_hidden_;
   };
@@ -7633,7 +7824,7 @@ class CDOTAMatchPrivateMetadata_Team_Player_BuffRecord final :
                &_CDOTAMatchPrivateMetadata_Team_Player_BuffRecord_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    29;
+    30;
 
   friend void swap(CDOTAMatchPrivateMetadata_Team_Player_BuffRecord& a, CDOTAMatchPrivateMetadata_Team_Player_BuffRecord& b) {
     a.Swap(&b);
@@ -7835,7 +8026,7 @@ class CDOTAMatchPrivateMetadata_Team_Player_GoldReceived final :
                &_CDOTAMatchPrivateMetadata_Team_Player_GoldReceived_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    30;
+    31;
 
   friend void swap(CDOTAMatchPrivateMetadata_Team_Player_GoldReceived& a, CDOTAMatchPrivateMetadata_Team_Player_GoldReceived& b) {
     a.Swap(&b);
@@ -8100,7 +8291,7 @@ class CDOTAMatchPrivateMetadata_Team_Player_XPReceived final :
                &_CDOTAMatchPrivateMetadata_Team_Player_XPReceived_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    31;
+    32;
 
   friend void swap(CDOTAMatchPrivateMetadata_Team_Player_XPReceived& a, CDOTAMatchPrivateMetadata_Team_Player_XPReceived& b) {
     a.Swap(&b);
@@ -8179,6 +8370,7 @@ class CDOTAMatchPrivateMetadata_Team_Player_XPReceived final :
     kTomeOfKnowledgeFieldNumber = 4,
     kOutpostFieldNumber = 5,
     kOtherFieldNumber = 6,
+    kAbilitiesFieldNumber = 7,
   };
   // optional uint32 creep = 1;
   bool has_creep() const;
@@ -8258,6 +8450,19 @@ class CDOTAMatchPrivateMetadata_Team_Player_XPReceived final :
   void _internal_set_other(uint32_t value);
   public:
 
+  // optional uint32 abilities = 7;
+  bool has_abilities() const;
+  private:
+  bool _internal_has_abilities() const;
+  public:
+  void clear_abilities();
+  uint32_t abilities() const;
+  void set_abilities(uint32_t value);
+  private:
+  uint32_t _internal_abilities() const;
+  void _internal_set_abilities(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAMatchPrivateMetadata.Team.Player.XPReceived)
  private:
   class _Internal;
@@ -8274,6 +8479,7 @@ class CDOTAMatchPrivateMetadata_Team_Player_XPReceived final :
     uint32_t tome_of_knowledge_;
     uint32_t outpost_;
     uint32_t other_;
+    uint32_t abilities_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fmatch_5fmetadata_2eproto;
@@ -8335,7 +8541,7 @@ class CDOTAMatchPrivateMetadata_Team_Player final :
                &_CDOTAMatchPrivateMetadata_Team_Player_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    32;
+    33;
 
   friend void swap(CDOTAMatchPrivateMetadata_Team_Player& a, CDOTAMatchPrivateMetadata_Team_Player& b) {
     a.Swap(&b);
@@ -8776,7 +8982,7 @@ class CDOTAMatchPrivateMetadata_Team_Building final :
                &_CDOTAMatchPrivateMetadata_Team_Building_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    33;
+    34;
 
   friend void swap(CDOTAMatchPrivateMetadata_Team_Building& a, CDOTAMatchPrivateMetadata_Team_Building& b) {
     a.Swap(&b);
@@ -8986,7 +9192,7 @@ class CDOTAMatchPrivateMetadata_Team final :
                &_CDOTAMatchPrivateMetadata_Team_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    34;
+    35;
 
   friend void swap(CDOTAMatchPrivateMetadata_Team& a, CDOTAMatchPrivateMetadata_Team& b) {
     a.Swap(&b);
@@ -9189,7 +9395,7 @@ class CDOTAMatchPrivateMetadata final :
                &_CDOTAMatchPrivateMetadata_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    35;
+    36;
 
   friend void swap(CDOTAMatchPrivateMetadata& a, CDOTAMatchPrivateMetadata& b) {
     a.Swap(&b);
@@ -10236,7 +10442,7 @@ inline void CDOTAMatchMetadata_Team_StrangeGemProgress::set_gem_item_def_index(u
   // @@protoc_insertion_point(field_set:CDOTAMatchMetadata.Team.StrangeGemProgress.gem_item_def_index)
 }
 
-// optional uint32 required_hero_id = 3;
+// optional int32 required_hero_id = 3;
 inline bool CDOTAMatchMetadata_Team_StrangeGemProgress::_internal_has_required_hero_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -10245,21 +10451,21 @@ inline bool CDOTAMatchMetadata_Team_StrangeGemProgress::has_required_hero_id() c
   return _internal_has_required_hero_id();
 }
 inline void CDOTAMatchMetadata_Team_StrangeGemProgress::clear_required_hero_id() {
-  _impl_.required_hero_id_ = 0u;
+  _impl_.required_hero_id_ = 0;
   _impl_._has_bits_[0] &= ~0x00000004u;
 }
-inline uint32_t CDOTAMatchMetadata_Team_StrangeGemProgress::_internal_required_hero_id() const {
+inline int32_t CDOTAMatchMetadata_Team_StrangeGemProgress::_internal_required_hero_id() const {
   return _impl_.required_hero_id_;
 }
-inline uint32_t CDOTAMatchMetadata_Team_StrangeGemProgress::required_hero_id() const {
+inline int32_t CDOTAMatchMetadata_Team_StrangeGemProgress::required_hero_id() const {
   // @@protoc_insertion_point(field_get:CDOTAMatchMetadata.Team.StrangeGemProgress.required_hero_id)
   return _internal_required_hero_id();
 }
-inline void CDOTAMatchMetadata_Team_StrangeGemProgress::_internal_set_required_hero_id(uint32_t value) {
+inline void CDOTAMatchMetadata_Team_StrangeGemProgress::_internal_set_required_hero_id(int32_t value) {
   _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.required_hero_id_ = value;
 }
-inline void CDOTAMatchMetadata_Team_StrangeGemProgress::set_required_hero_id(uint32_t value) {
+inline void CDOTAMatchMetadata_Team_StrangeGemProgress::set_required_hero_id(int32_t value) {
   _internal_set_required_hero_id(value);
   // @@protoc_insertion_point(field_set:CDOTAMatchMetadata.Team.StrangeGemProgress.required_hero_id)
 }
@@ -10730,7 +10936,7 @@ inline void CDOTAMatchMetadata_Team_ActionGrant::set_quantity(uint32_t value) {
 
 // optional uint32 audit = 3;
 inline bool CDOTAMatchMetadata_Team_ActionGrant::_internal_has_audit() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CDOTAMatchMetadata_Team_ActionGrant::has_audit() const {
@@ -10738,7 +10944,7 @@ inline bool CDOTAMatchMetadata_Team_ActionGrant::has_audit() const {
 }
 inline void CDOTAMatchMetadata_Team_ActionGrant::clear_audit() {
   _impl_.audit_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline uint32_t CDOTAMatchMetadata_Team_ActionGrant::_internal_audit() const {
   return _impl_.audit_;
@@ -10748,7 +10954,7 @@ inline uint32_t CDOTAMatchMetadata_Team_ActionGrant::audit() const {
   return _internal_audit();
 }
 inline void CDOTAMatchMetadata_Team_ActionGrant::_internal_set_audit(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.audit_ = value;
 }
 inline void CDOTAMatchMetadata_Team_ActionGrant::set_audit(uint32_t value) {
@@ -10756,37 +10962,9 @@ inline void CDOTAMatchMetadata_Team_ActionGrant::set_audit(uint32_t value) {
   // @@protoc_insertion_point(field_set:CDOTAMatchMetadata.Team.ActionGrant.audit)
 }
 
-// optional bool requires_win = 4;
-inline bool CDOTAMatchMetadata_Team_ActionGrant::_internal_has_requires_win() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
-  return value;
-}
-inline bool CDOTAMatchMetadata_Team_ActionGrant::has_requires_win() const {
-  return _internal_has_requires_win();
-}
-inline void CDOTAMatchMetadata_Team_ActionGrant::clear_requires_win() {
-  _impl_.requires_win_ = false;
-  _impl_._has_bits_[0] &= ~0x00000008u;
-}
-inline bool CDOTAMatchMetadata_Team_ActionGrant::_internal_requires_win() const {
-  return _impl_.requires_win_;
-}
-inline bool CDOTAMatchMetadata_Team_ActionGrant::requires_win() const {
-  // @@protoc_insertion_point(field_get:CDOTAMatchMetadata.Team.ActionGrant.requires_win)
-  return _internal_requires_win();
-}
-inline void CDOTAMatchMetadata_Team_ActionGrant::_internal_set_requires_win(bool value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
-  _impl_.requires_win_ = value;
-}
-inline void CDOTAMatchMetadata_Team_ActionGrant::set_requires_win(bool value) {
-  _internal_set_requires_win(value);
-  // @@protoc_insertion_point(field_set:CDOTAMatchMetadata.Team.ActionGrant.requires_win)
-}
-
 // optional uint64 audit_data = 5;
 inline bool CDOTAMatchMetadata_Team_ActionGrant::_internal_has_audit_data() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAMatchMetadata_Team_ActionGrant::has_audit_data() const {
@@ -10794,7 +10972,7 @@ inline bool CDOTAMatchMetadata_Team_ActionGrant::has_audit_data() const {
 }
 inline void CDOTAMatchMetadata_Team_ActionGrant::clear_audit_data() {
   _impl_.audit_data_ = uint64_t{0u};
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline uint64_t CDOTAMatchMetadata_Team_ActionGrant::_internal_audit_data() const {
   return _impl_.audit_data_;
@@ -10804,7 +10982,7 @@ inline uint64_t CDOTAMatchMetadata_Team_ActionGrant::audit_data() const {
   return _internal_audit_data();
 }
 inline void CDOTAMatchMetadata_Team_ActionGrant::_internal_set_audit_data(uint64_t value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.audit_data_ = value;
 }
 inline void CDOTAMatchMetadata_Team_ActionGrant::set_audit_data(uint64_t value) {
@@ -12051,6 +12229,125 @@ inline void CDOTAMatchMetadata_Team_Player_ContractProgress::set_completed(bool 
 
 // -------------------------------------------------------------------
 
+// CDOTAMatchMetadata_Team_Player_OverworldRewards
+
+// optional uint32 overworld_id = 1;
+inline bool CDOTAMatchMetadata_Team_Player_OverworldRewards::_internal_has_overworld_id() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CDOTAMatchMetadata_Team_Player_OverworldRewards::has_overworld_id() const {
+  return _internal_has_overworld_id();
+}
+inline void CDOTAMatchMetadata_Team_Player_OverworldRewards::clear_overworld_id() {
+  _impl_.overworld_id_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline uint32_t CDOTAMatchMetadata_Team_Player_OverworldRewards::_internal_overworld_id() const {
+  return _impl_.overworld_id_;
+}
+inline uint32_t CDOTAMatchMetadata_Team_Player_OverworldRewards::overworld_id() const {
+  // @@protoc_insertion_point(field_get:CDOTAMatchMetadata.Team.Player.OverworldRewards.overworld_id)
+  return _internal_overworld_id();
+}
+inline void CDOTAMatchMetadata_Team_Player_OverworldRewards::_internal_set_overworld_id(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.overworld_id_ = value;
+}
+inline void CDOTAMatchMetadata_Team_Player_OverworldRewards::set_overworld_id(uint32_t value) {
+  _internal_set_overworld_id(value);
+  // @@protoc_insertion_point(field_set:CDOTAMatchMetadata.Team.Player.OverworldRewards.overworld_id)
+}
+
+// optional .CMsgOverworldTokenQuantity tokens = 2;
+inline bool CDOTAMatchMetadata_Team_Player_OverworldRewards::_internal_has_tokens() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.tokens_ != nullptr);
+  return value;
+}
+inline bool CDOTAMatchMetadata_Team_Player_OverworldRewards::has_tokens() const {
+  return _internal_has_tokens();
+}
+inline const ::CMsgOverworldTokenQuantity& CDOTAMatchMetadata_Team_Player_OverworldRewards::_internal_tokens() const {
+  const ::CMsgOverworldTokenQuantity* p = _impl_.tokens_;
+  return p != nullptr ? *p : reinterpret_cast<const ::CMsgOverworldTokenQuantity&>(
+      ::_CMsgOverworldTokenQuantity_default_instance_);
+}
+inline const ::CMsgOverworldTokenQuantity& CDOTAMatchMetadata_Team_Player_OverworldRewards::tokens() const {
+  // @@protoc_insertion_point(field_get:CDOTAMatchMetadata.Team.Player.OverworldRewards.tokens)
+  return _internal_tokens();
+}
+inline void CDOTAMatchMetadata_Team_Player_OverworldRewards::unsafe_arena_set_allocated_tokens(
+    ::CMsgOverworldTokenQuantity* tokens) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.tokens_);
+  }
+  _impl_.tokens_ = tokens;
+  if (tokens) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CDOTAMatchMetadata.Team.Player.OverworldRewards.tokens)
+}
+inline ::CMsgOverworldTokenQuantity* CDOTAMatchMetadata_Team_Player_OverworldRewards::release_tokens() {
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::CMsgOverworldTokenQuantity* temp = _impl_.tokens_;
+  _impl_.tokens_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::CMsgOverworldTokenQuantity* CDOTAMatchMetadata_Team_Player_OverworldRewards::unsafe_arena_release_tokens() {
+  // @@protoc_insertion_point(field_release:CDOTAMatchMetadata.Team.Player.OverworldRewards.tokens)
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::CMsgOverworldTokenQuantity* temp = _impl_.tokens_;
+  _impl_.tokens_ = nullptr;
+  return temp;
+}
+inline ::CMsgOverworldTokenQuantity* CDOTAMatchMetadata_Team_Player_OverworldRewards::_internal_mutable_tokens() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  if (_impl_.tokens_ == nullptr) {
+    auto* p = CreateMaybeMessage<::CMsgOverworldTokenQuantity>(GetArenaForAllocation());
+    _impl_.tokens_ = p;
+  }
+  return _impl_.tokens_;
+}
+inline ::CMsgOverworldTokenQuantity* CDOTAMatchMetadata_Team_Player_OverworldRewards::mutable_tokens() {
+  ::CMsgOverworldTokenQuantity* _msg = _internal_mutable_tokens();
+  // @@protoc_insertion_point(field_mutable:CDOTAMatchMetadata.Team.Player.OverworldRewards.tokens)
+  return _msg;
+}
+inline void CDOTAMatchMetadata_Team_Player_OverworldRewards::set_allocated_tokens(::CMsgOverworldTokenQuantity* tokens) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.tokens_);
+  }
+  if (tokens) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(tokens));
+    if (message_arena != submessage_arena) {
+      tokens = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, tokens, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.tokens_ = tokens;
+  // @@protoc_insertion_point(field_set_allocated:CDOTAMatchMetadata.Team.Player.OverworldRewards.tokens)
+}
+
+// -------------------------------------------------------------------
+
 // CDOTAMatchMetadata_Team_Player
 
 // repeated int32 ability_upgrades = 2;
@@ -12102,7 +12399,7 @@ CDOTAMatchMetadata_Team_Player::mutable_ability_upgrades() {
 
 // optional uint32 player_slot = 3;
 inline bool CDOTAMatchMetadata_Team_Player::_internal_has_player_slot() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAMatchMetadata_Team_Player::has_player_slot() const {
@@ -12110,7 +12407,7 @@ inline bool CDOTAMatchMetadata_Team_Player::has_player_slot() const {
 }
 inline void CDOTAMatchMetadata_Team_Player::clear_player_slot() {
   _impl_.player_slot_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline uint32_t CDOTAMatchMetadata_Team_Player::_internal_player_slot() const {
   return _impl_.player_slot_;
@@ -12120,7 +12417,7 @@ inline uint32_t CDOTAMatchMetadata_Team_Player::player_slot() const {
   return _internal_player_slot();
 }
 inline void CDOTAMatchMetadata_Team_Player::_internal_set_player_slot(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.player_slot_ = value;
 }
 inline void CDOTAMatchMetadata_Team_Player::set_player_slot(uint32_t value) {
@@ -12210,7 +12507,7 @@ CDOTAMatchMetadata_Team_Player::items() const {
 
 // optional uint32 avg_kills_x16 = 7;
 inline bool CDOTAMatchMetadata_Team_Player::_internal_has_avg_kills_x16() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CDOTAMatchMetadata_Team_Player::has_avg_kills_x16() const {
@@ -12218,7 +12515,7 @@ inline bool CDOTAMatchMetadata_Team_Player::has_avg_kills_x16() const {
 }
 inline void CDOTAMatchMetadata_Team_Player::clear_avg_kills_x16() {
   _impl_.avg_kills_x16_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline uint32_t CDOTAMatchMetadata_Team_Player::_internal_avg_kills_x16() const {
   return _impl_.avg_kills_x16_;
@@ -12228,7 +12525,7 @@ inline uint32_t CDOTAMatchMetadata_Team_Player::avg_kills_x16() const {
   return _internal_avg_kills_x16();
 }
 inline void CDOTAMatchMetadata_Team_Player::_internal_set_avg_kills_x16(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.avg_kills_x16_ = value;
 }
 inline void CDOTAMatchMetadata_Team_Player::set_avg_kills_x16(uint32_t value) {
@@ -12238,7 +12535,7 @@ inline void CDOTAMatchMetadata_Team_Player::set_avg_kills_x16(uint32_t value) {
 
 // optional uint32 avg_deaths_x16 = 8;
 inline bool CDOTAMatchMetadata_Team_Player::_internal_has_avg_deaths_x16() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CDOTAMatchMetadata_Team_Player::has_avg_deaths_x16() const {
@@ -12246,7 +12543,7 @@ inline bool CDOTAMatchMetadata_Team_Player::has_avg_deaths_x16() const {
 }
 inline void CDOTAMatchMetadata_Team_Player::clear_avg_deaths_x16() {
   _impl_.avg_deaths_x16_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline uint32_t CDOTAMatchMetadata_Team_Player::_internal_avg_deaths_x16() const {
   return _impl_.avg_deaths_x16_;
@@ -12256,7 +12553,7 @@ inline uint32_t CDOTAMatchMetadata_Team_Player::avg_deaths_x16() const {
   return _internal_avg_deaths_x16();
 }
 inline void CDOTAMatchMetadata_Team_Player::_internal_set_avg_deaths_x16(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.avg_deaths_x16_ = value;
 }
 inline void CDOTAMatchMetadata_Team_Player::set_avg_deaths_x16(uint32_t value) {
@@ -12266,7 +12563,7 @@ inline void CDOTAMatchMetadata_Team_Player::set_avg_deaths_x16(uint32_t value) {
 
 // optional uint32 avg_assists_x16 = 9;
 inline bool CDOTAMatchMetadata_Team_Player::_internal_has_avg_assists_x16() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool CDOTAMatchMetadata_Team_Player::has_avg_assists_x16() const {
@@ -12274,7 +12571,7 @@ inline bool CDOTAMatchMetadata_Team_Player::has_avg_assists_x16() const {
 }
 inline void CDOTAMatchMetadata_Team_Player::clear_avg_assists_x16() {
   _impl_.avg_assists_x16_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000020u;
 }
 inline uint32_t CDOTAMatchMetadata_Team_Player::_internal_avg_assists_x16() const {
   return _impl_.avg_assists_x16_;
@@ -12284,7 +12581,7 @@ inline uint32_t CDOTAMatchMetadata_Team_Player::avg_assists_x16() const {
   return _internal_avg_assists_x16();
 }
 inline void CDOTAMatchMetadata_Team_Player::_internal_set_avg_assists_x16(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000020u;
   _impl_.avg_assists_x16_ = value;
 }
 inline void CDOTAMatchMetadata_Team_Player::set_avg_assists_x16(uint32_t value) {
@@ -12294,7 +12591,7 @@ inline void CDOTAMatchMetadata_Team_Player::set_avg_assists_x16(uint32_t value) 
 
 // optional uint32 avg_gpm_x16 = 10;
 inline bool CDOTAMatchMetadata_Team_Player::_internal_has_avg_gpm_x16() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
   return value;
 }
 inline bool CDOTAMatchMetadata_Team_Player::has_avg_gpm_x16() const {
@@ -12302,7 +12599,7 @@ inline bool CDOTAMatchMetadata_Team_Player::has_avg_gpm_x16() const {
 }
 inline void CDOTAMatchMetadata_Team_Player::clear_avg_gpm_x16() {
   _impl_.avg_gpm_x16_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000020u;
+  _impl_._has_bits_[0] &= ~0x00000040u;
 }
 inline uint32_t CDOTAMatchMetadata_Team_Player::_internal_avg_gpm_x16() const {
   return _impl_.avg_gpm_x16_;
@@ -12312,7 +12609,7 @@ inline uint32_t CDOTAMatchMetadata_Team_Player::avg_gpm_x16() const {
   return _internal_avg_gpm_x16();
 }
 inline void CDOTAMatchMetadata_Team_Player::_internal_set_avg_gpm_x16(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_._has_bits_[0] |= 0x00000040u;
   _impl_.avg_gpm_x16_ = value;
 }
 inline void CDOTAMatchMetadata_Team_Player::set_avg_gpm_x16(uint32_t value) {
@@ -12322,7 +12619,7 @@ inline void CDOTAMatchMetadata_Team_Player::set_avg_gpm_x16(uint32_t value) {
 
 // optional uint32 avg_xpm_x16 = 11;
 inline bool CDOTAMatchMetadata_Team_Player::_internal_has_avg_xpm_x16() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
   return value;
 }
 inline bool CDOTAMatchMetadata_Team_Player::has_avg_xpm_x16() const {
@@ -12330,7 +12627,7 @@ inline bool CDOTAMatchMetadata_Team_Player::has_avg_xpm_x16() const {
 }
 inline void CDOTAMatchMetadata_Team_Player::clear_avg_xpm_x16() {
   _impl_.avg_xpm_x16_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000040u;
+  _impl_._has_bits_[0] &= ~0x00000080u;
 }
 inline uint32_t CDOTAMatchMetadata_Team_Player::_internal_avg_xpm_x16() const {
   return _impl_.avg_xpm_x16_;
@@ -12340,7 +12637,7 @@ inline uint32_t CDOTAMatchMetadata_Team_Player::avg_xpm_x16() const {
   return _internal_avg_xpm_x16();
 }
 inline void CDOTAMatchMetadata_Team_Player::_internal_set_avg_xpm_x16(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000040u;
+  _impl_._has_bits_[0] |= 0x00000080u;
   _impl_.avg_xpm_x16_ = value;
 }
 inline void CDOTAMatchMetadata_Team_Player::set_avg_xpm_x16(uint32_t value) {
@@ -12350,7 +12647,7 @@ inline void CDOTAMatchMetadata_Team_Player::set_avg_xpm_x16(uint32_t value) {
 
 // optional uint32 best_kills_x16 = 12;
 inline bool CDOTAMatchMetadata_Team_Player::_internal_has_best_kills_x16() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000100u) != 0;
   return value;
 }
 inline bool CDOTAMatchMetadata_Team_Player::has_best_kills_x16() const {
@@ -12358,7 +12655,7 @@ inline bool CDOTAMatchMetadata_Team_Player::has_best_kills_x16() const {
 }
 inline void CDOTAMatchMetadata_Team_Player::clear_best_kills_x16() {
   _impl_.best_kills_x16_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000080u;
+  _impl_._has_bits_[0] &= ~0x00000100u;
 }
 inline uint32_t CDOTAMatchMetadata_Team_Player::_internal_best_kills_x16() const {
   return _impl_.best_kills_x16_;
@@ -12368,7 +12665,7 @@ inline uint32_t CDOTAMatchMetadata_Team_Player::best_kills_x16() const {
   return _internal_best_kills_x16();
 }
 inline void CDOTAMatchMetadata_Team_Player::_internal_set_best_kills_x16(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000080u;
+  _impl_._has_bits_[0] |= 0x00000100u;
   _impl_.best_kills_x16_ = value;
 }
 inline void CDOTAMatchMetadata_Team_Player::set_best_kills_x16(uint32_t value) {
@@ -12378,7 +12675,7 @@ inline void CDOTAMatchMetadata_Team_Player::set_best_kills_x16(uint32_t value) {
 
 // optional uint32 best_assists_x16 = 13;
 inline bool CDOTAMatchMetadata_Team_Player::_internal_has_best_assists_x16() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000100u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000200u) != 0;
   return value;
 }
 inline bool CDOTAMatchMetadata_Team_Player::has_best_assists_x16() const {
@@ -12386,7 +12683,7 @@ inline bool CDOTAMatchMetadata_Team_Player::has_best_assists_x16() const {
 }
 inline void CDOTAMatchMetadata_Team_Player::clear_best_assists_x16() {
   _impl_.best_assists_x16_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000100u;
+  _impl_._has_bits_[0] &= ~0x00000200u;
 }
 inline uint32_t CDOTAMatchMetadata_Team_Player::_internal_best_assists_x16() const {
   return _impl_.best_assists_x16_;
@@ -12396,7 +12693,7 @@ inline uint32_t CDOTAMatchMetadata_Team_Player::best_assists_x16() const {
   return _internal_best_assists_x16();
 }
 inline void CDOTAMatchMetadata_Team_Player::_internal_set_best_assists_x16(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000100u;
+  _impl_._has_bits_[0] |= 0x00000200u;
   _impl_.best_assists_x16_ = value;
 }
 inline void CDOTAMatchMetadata_Team_Player::set_best_assists_x16(uint32_t value) {
@@ -12406,7 +12703,7 @@ inline void CDOTAMatchMetadata_Team_Player::set_best_assists_x16(uint32_t value)
 
 // optional uint32 best_gpm_x16 = 14;
 inline bool CDOTAMatchMetadata_Team_Player::_internal_has_best_gpm_x16() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000200u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000400u) != 0;
   return value;
 }
 inline bool CDOTAMatchMetadata_Team_Player::has_best_gpm_x16() const {
@@ -12414,7 +12711,7 @@ inline bool CDOTAMatchMetadata_Team_Player::has_best_gpm_x16() const {
 }
 inline void CDOTAMatchMetadata_Team_Player::clear_best_gpm_x16() {
   _impl_.best_gpm_x16_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000200u;
+  _impl_._has_bits_[0] &= ~0x00000400u;
 }
 inline uint32_t CDOTAMatchMetadata_Team_Player::_internal_best_gpm_x16() const {
   return _impl_.best_gpm_x16_;
@@ -12424,7 +12721,7 @@ inline uint32_t CDOTAMatchMetadata_Team_Player::best_gpm_x16() const {
   return _internal_best_gpm_x16();
 }
 inline void CDOTAMatchMetadata_Team_Player::_internal_set_best_gpm_x16(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000200u;
+  _impl_._has_bits_[0] |= 0x00000400u;
   _impl_.best_gpm_x16_ = value;
 }
 inline void CDOTAMatchMetadata_Team_Player::set_best_gpm_x16(uint32_t value) {
@@ -12434,7 +12731,7 @@ inline void CDOTAMatchMetadata_Team_Player::set_best_gpm_x16(uint32_t value) {
 
 // optional uint32 best_xpm_x16 = 15;
 inline bool CDOTAMatchMetadata_Team_Player::_internal_has_best_xpm_x16() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000400u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000800u) != 0;
   return value;
 }
 inline bool CDOTAMatchMetadata_Team_Player::has_best_xpm_x16() const {
@@ -12442,7 +12739,7 @@ inline bool CDOTAMatchMetadata_Team_Player::has_best_xpm_x16() const {
 }
 inline void CDOTAMatchMetadata_Team_Player::clear_best_xpm_x16() {
   _impl_.best_xpm_x16_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000400u;
+  _impl_._has_bits_[0] &= ~0x00000800u;
 }
 inline uint32_t CDOTAMatchMetadata_Team_Player::_internal_best_xpm_x16() const {
   return _impl_.best_xpm_x16_;
@@ -12452,7 +12749,7 @@ inline uint32_t CDOTAMatchMetadata_Team_Player::best_xpm_x16() const {
   return _internal_best_xpm_x16();
 }
 inline void CDOTAMatchMetadata_Team_Player::_internal_set_best_xpm_x16(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000400u;
+  _impl_._has_bits_[0] |= 0x00000800u;
   _impl_.best_xpm_x16_ = value;
 }
 inline void CDOTAMatchMetadata_Team_Player::set_best_xpm_x16(uint32_t value) {
@@ -12462,7 +12759,7 @@ inline void CDOTAMatchMetadata_Team_Player::set_best_xpm_x16(uint32_t value) {
 
 // optional uint32 win_streak = 16;
 inline bool CDOTAMatchMetadata_Team_Player::_internal_has_win_streak() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000800u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00001000u) != 0;
   return value;
 }
 inline bool CDOTAMatchMetadata_Team_Player::has_win_streak() const {
@@ -12470,7 +12767,7 @@ inline bool CDOTAMatchMetadata_Team_Player::has_win_streak() const {
 }
 inline void CDOTAMatchMetadata_Team_Player::clear_win_streak() {
   _impl_.win_streak_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000800u;
+  _impl_._has_bits_[0] &= ~0x00001000u;
 }
 inline uint32_t CDOTAMatchMetadata_Team_Player::_internal_win_streak() const {
   return _impl_.win_streak_;
@@ -12480,7 +12777,7 @@ inline uint32_t CDOTAMatchMetadata_Team_Player::win_streak() const {
   return _internal_win_streak();
 }
 inline void CDOTAMatchMetadata_Team_Player::_internal_set_win_streak(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000800u;
+  _impl_._has_bits_[0] |= 0x00001000u;
   _impl_.win_streak_ = value;
 }
 inline void CDOTAMatchMetadata_Team_Player::set_win_streak(uint32_t value) {
@@ -12490,7 +12787,7 @@ inline void CDOTAMatchMetadata_Team_Player::set_win_streak(uint32_t value) {
 
 // optional uint32 best_win_streak = 17;
 inline bool CDOTAMatchMetadata_Team_Player::_internal_has_best_win_streak() const {
-  bool value = (_impl_._has_bits_[0] & 0x00001000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00002000u) != 0;
   return value;
 }
 inline bool CDOTAMatchMetadata_Team_Player::has_best_win_streak() const {
@@ -12498,7 +12795,7 @@ inline bool CDOTAMatchMetadata_Team_Player::has_best_win_streak() const {
 }
 inline void CDOTAMatchMetadata_Team_Player::clear_best_win_streak() {
   _impl_.best_win_streak_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00001000u;
+  _impl_._has_bits_[0] &= ~0x00002000u;
 }
 inline uint32_t CDOTAMatchMetadata_Team_Player::_internal_best_win_streak() const {
   return _impl_.best_win_streak_;
@@ -12508,7 +12805,7 @@ inline uint32_t CDOTAMatchMetadata_Team_Player::best_win_streak() const {
   return _internal_best_win_streak();
 }
 inline void CDOTAMatchMetadata_Team_Player::_internal_set_best_win_streak(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00001000u;
+  _impl_._has_bits_[0] |= 0x00002000u;
   _impl_.best_win_streak_ = value;
 }
 inline void CDOTAMatchMetadata_Team_Player::set_best_win_streak(uint32_t value) {
@@ -12518,7 +12815,7 @@ inline void CDOTAMatchMetadata_Team_Player::set_best_win_streak(uint32_t value) 
 
 // optional float fight_score = 18;
 inline bool CDOTAMatchMetadata_Team_Player::_internal_has_fight_score() const {
-  bool value = (_impl_._has_bits_[0] & 0x00002000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00004000u) != 0;
   return value;
 }
 inline bool CDOTAMatchMetadata_Team_Player::has_fight_score() const {
@@ -12526,7 +12823,7 @@ inline bool CDOTAMatchMetadata_Team_Player::has_fight_score() const {
 }
 inline void CDOTAMatchMetadata_Team_Player::clear_fight_score() {
   _impl_.fight_score_ = 0;
-  _impl_._has_bits_[0] &= ~0x00002000u;
+  _impl_._has_bits_[0] &= ~0x00004000u;
 }
 inline float CDOTAMatchMetadata_Team_Player::_internal_fight_score() const {
   return _impl_.fight_score_;
@@ -12536,7 +12833,7 @@ inline float CDOTAMatchMetadata_Team_Player::fight_score() const {
   return _internal_fight_score();
 }
 inline void CDOTAMatchMetadata_Team_Player::_internal_set_fight_score(float value) {
-  _impl_._has_bits_[0] |= 0x00002000u;
+  _impl_._has_bits_[0] |= 0x00004000u;
   _impl_.fight_score_ = value;
 }
 inline void CDOTAMatchMetadata_Team_Player::set_fight_score(float value) {
@@ -12546,7 +12843,7 @@ inline void CDOTAMatchMetadata_Team_Player::set_fight_score(float value) {
 
 // optional float farm_score = 19;
 inline bool CDOTAMatchMetadata_Team_Player::_internal_has_farm_score() const {
-  bool value = (_impl_._has_bits_[0] & 0x00004000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00008000u) != 0;
   return value;
 }
 inline bool CDOTAMatchMetadata_Team_Player::has_farm_score() const {
@@ -12554,7 +12851,7 @@ inline bool CDOTAMatchMetadata_Team_Player::has_farm_score() const {
 }
 inline void CDOTAMatchMetadata_Team_Player::clear_farm_score() {
   _impl_.farm_score_ = 0;
-  _impl_._has_bits_[0] &= ~0x00004000u;
+  _impl_._has_bits_[0] &= ~0x00008000u;
 }
 inline float CDOTAMatchMetadata_Team_Player::_internal_farm_score() const {
   return _impl_.farm_score_;
@@ -12564,7 +12861,7 @@ inline float CDOTAMatchMetadata_Team_Player::farm_score() const {
   return _internal_farm_score();
 }
 inline void CDOTAMatchMetadata_Team_Player::_internal_set_farm_score(float value) {
-  _impl_._has_bits_[0] |= 0x00004000u;
+  _impl_._has_bits_[0] |= 0x00008000u;
   _impl_.farm_score_ = value;
 }
 inline void CDOTAMatchMetadata_Team_Player::set_farm_score(float value) {
@@ -12574,7 +12871,7 @@ inline void CDOTAMatchMetadata_Team_Player::set_farm_score(float value) {
 
 // optional float support_score = 20;
 inline bool CDOTAMatchMetadata_Team_Player::_internal_has_support_score() const {
-  bool value = (_impl_._has_bits_[0] & 0x00008000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00010000u) != 0;
   return value;
 }
 inline bool CDOTAMatchMetadata_Team_Player::has_support_score() const {
@@ -12582,7 +12879,7 @@ inline bool CDOTAMatchMetadata_Team_Player::has_support_score() const {
 }
 inline void CDOTAMatchMetadata_Team_Player::clear_support_score() {
   _impl_.support_score_ = 0;
-  _impl_._has_bits_[0] &= ~0x00008000u;
+  _impl_._has_bits_[0] &= ~0x00010000u;
 }
 inline float CDOTAMatchMetadata_Team_Player::_internal_support_score() const {
   return _impl_.support_score_;
@@ -12592,7 +12889,7 @@ inline float CDOTAMatchMetadata_Team_Player::support_score() const {
   return _internal_support_score();
 }
 inline void CDOTAMatchMetadata_Team_Player::_internal_set_support_score(float value) {
-  _impl_._has_bits_[0] |= 0x00008000u;
+  _impl_._has_bits_[0] |= 0x00010000u;
   _impl_.support_score_ = value;
 }
 inline void CDOTAMatchMetadata_Team_Player::set_support_score(float value) {
@@ -12602,7 +12899,7 @@ inline void CDOTAMatchMetadata_Team_Player::set_support_score(float value) {
 
 // optional float push_score = 21;
 inline bool CDOTAMatchMetadata_Team_Player::_internal_has_push_score() const {
-  bool value = (_impl_._has_bits_[0] & 0x00010000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00020000u) != 0;
   return value;
 }
 inline bool CDOTAMatchMetadata_Team_Player::has_push_score() const {
@@ -12610,7 +12907,7 @@ inline bool CDOTAMatchMetadata_Team_Player::has_push_score() const {
 }
 inline void CDOTAMatchMetadata_Team_Player::clear_push_score() {
   _impl_.push_score_ = 0;
-  _impl_._has_bits_[0] &= ~0x00010000u;
+  _impl_._has_bits_[0] &= ~0x00020000u;
 }
 inline float CDOTAMatchMetadata_Team_Player::_internal_push_score() const {
   return _impl_.push_score_;
@@ -12620,7 +12917,7 @@ inline float CDOTAMatchMetadata_Team_Player::push_score() const {
   return _internal_push_score();
 }
 inline void CDOTAMatchMetadata_Team_Player::_internal_set_push_score(float value) {
-  _impl_._has_bits_[0] |= 0x00010000u;
+  _impl_._has_bits_[0] |= 0x00020000u;
   _impl_.push_score_ = value;
 }
 inline void CDOTAMatchMetadata_Team_Player::set_push_score(float value) {
@@ -12764,7 +13061,7 @@ CDOTAMatchMetadata_Team_Player::inventory_snapshot() const {
 
 // optional bool avg_stats_calibrated = 25;
 inline bool CDOTAMatchMetadata_Team_Player::_internal_has_avg_stats_calibrated() const {
-  bool value = (_impl_._has_bits_[0] & 0x00020000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00040000u) != 0;
   return value;
 }
 inline bool CDOTAMatchMetadata_Team_Player::has_avg_stats_calibrated() const {
@@ -12772,7 +13069,7 @@ inline bool CDOTAMatchMetadata_Team_Player::has_avg_stats_calibrated() const {
 }
 inline void CDOTAMatchMetadata_Team_Player::clear_avg_stats_calibrated() {
   _impl_.avg_stats_calibrated_ = false;
-  _impl_._has_bits_[0] &= ~0x00020000u;
+  _impl_._has_bits_[0] &= ~0x00040000u;
 }
 inline bool CDOTAMatchMetadata_Team_Player::_internal_avg_stats_calibrated() const {
   return _impl_.avg_stats_calibrated_;
@@ -12782,7 +13079,7 @@ inline bool CDOTAMatchMetadata_Team_Player::avg_stats_calibrated() const {
   return _internal_avg_stats_calibrated();
 }
 inline void CDOTAMatchMetadata_Team_Player::_internal_set_avg_stats_calibrated(bool value) {
-  _impl_._has_bits_[0] |= 0x00020000u;
+  _impl_._has_bits_[0] |= 0x00040000u;
   _impl_.avg_stats_calibrated_ = value;
 }
 inline void CDOTAMatchMetadata_Team_Player::set_avg_stats_calibrated(bool value) {
@@ -12912,7 +13209,7 @@ CDOTAMatchMetadata_Team_Player::strange_gem_progress() const {
 
 // optional uint32 hero_xp = 31;
 inline bool CDOTAMatchMetadata_Team_Player::_internal_has_hero_xp() const {
-  bool value = (_impl_._has_bits_[0] & 0x00040000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00080000u) != 0;
   return value;
 }
 inline bool CDOTAMatchMetadata_Team_Player::has_hero_xp() const {
@@ -12920,7 +13217,7 @@ inline bool CDOTAMatchMetadata_Team_Player::has_hero_xp() const {
 }
 inline void CDOTAMatchMetadata_Team_Player::clear_hero_xp() {
   _impl_.hero_xp_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00040000u;
+  _impl_._has_bits_[0] &= ~0x00080000u;
 }
 inline uint32_t CDOTAMatchMetadata_Team_Player::_internal_hero_xp() const {
   return _impl_.hero_xp_;
@@ -12930,7 +13227,7 @@ inline uint32_t CDOTAMatchMetadata_Team_Player::hero_xp() const {
   return _internal_hero_xp();
 }
 inline void CDOTAMatchMetadata_Team_Player::_internal_set_hero_xp(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00040000u;
+  _impl_._has_bits_[0] |= 0x00080000u;
   _impl_.hero_xp_ = value;
 }
 inline void CDOTAMatchMetadata_Team_Player::set_hero_xp(uint32_t value) {
@@ -12940,7 +13237,7 @@ inline void CDOTAMatchMetadata_Team_Player::set_hero_xp(uint32_t value) {
 
 // optional uint32 camps_stacked = 32;
 inline bool CDOTAMatchMetadata_Team_Player::_internal_has_camps_stacked() const {
-  bool value = (_impl_._has_bits_[0] & 0x00080000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00100000u) != 0;
   return value;
 }
 inline bool CDOTAMatchMetadata_Team_Player::has_camps_stacked() const {
@@ -12948,7 +13245,7 @@ inline bool CDOTAMatchMetadata_Team_Player::has_camps_stacked() const {
 }
 inline void CDOTAMatchMetadata_Team_Player::clear_camps_stacked() {
   _impl_.camps_stacked_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00080000u;
+  _impl_._has_bits_[0] &= ~0x00100000u;
 }
 inline uint32_t CDOTAMatchMetadata_Team_Player::_internal_camps_stacked() const {
   return _impl_.camps_stacked_;
@@ -12958,7 +13255,7 @@ inline uint32_t CDOTAMatchMetadata_Team_Player::camps_stacked() const {
   return _internal_camps_stacked();
 }
 inline void CDOTAMatchMetadata_Team_Player::_internal_set_camps_stacked(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00080000u;
+  _impl_._has_bits_[0] |= 0x00100000u;
   _impl_.camps_stacked_ = value;
 }
 inline void CDOTAMatchMetadata_Team_Player::set_camps_stacked(uint32_t value) {
@@ -13008,7 +13305,7 @@ CDOTAMatchMetadata_Team_Player::victory_prediction() const {
 
 // optional uint32 lane_selection_flags = 34;
 inline bool CDOTAMatchMetadata_Team_Player::_internal_has_lane_selection_flags() const {
-  bool value = (_impl_._has_bits_[0] & 0x00100000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00200000u) != 0;
   return value;
 }
 inline bool CDOTAMatchMetadata_Team_Player::has_lane_selection_flags() const {
@@ -13016,7 +13313,7 @@ inline bool CDOTAMatchMetadata_Team_Player::has_lane_selection_flags() const {
 }
 inline void CDOTAMatchMetadata_Team_Player::clear_lane_selection_flags() {
   _impl_.lane_selection_flags_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00100000u;
+  _impl_._has_bits_[0] &= ~0x00200000u;
 }
 inline uint32_t CDOTAMatchMetadata_Team_Player::_internal_lane_selection_flags() const {
   return _impl_.lane_selection_flags_;
@@ -13026,7 +13323,7 @@ inline uint32_t CDOTAMatchMetadata_Team_Player::lane_selection_flags() const {
   return _internal_lane_selection_flags();
 }
 inline void CDOTAMatchMetadata_Team_Player::_internal_set_lane_selection_flags(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00100000u;
+  _impl_._has_bits_[0] |= 0x00200000u;
   _impl_.lane_selection_flags_ = value;
 }
 inline void CDOTAMatchMetadata_Team_Player::set_lane_selection_flags(uint32_t value) {
@@ -13036,7 +13333,7 @@ inline void CDOTAMatchMetadata_Team_Player::set_lane_selection_flags(uint32_t va
 
 // optional uint32 rampages = 35;
 inline bool CDOTAMatchMetadata_Team_Player::_internal_has_rampages() const {
-  bool value = (_impl_._has_bits_[0] & 0x00200000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00400000u) != 0;
   return value;
 }
 inline bool CDOTAMatchMetadata_Team_Player::has_rampages() const {
@@ -13044,7 +13341,7 @@ inline bool CDOTAMatchMetadata_Team_Player::has_rampages() const {
 }
 inline void CDOTAMatchMetadata_Team_Player::clear_rampages() {
   _impl_.rampages_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00200000u;
+  _impl_._has_bits_[0] &= ~0x00400000u;
 }
 inline uint32_t CDOTAMatchMetadata_Team_Player::_internal_rampages() const {
   return _impl_.rampages_;
@@ -13054,7 +13351,7 @@ inline uint32_t CDOTAMatchMetadata_Team_Player::rampages() const {
   return _internal_rampages();
 }
 inline void CDOTAMatchMetadata_Team_Player::_internal_set_rampages(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00200000u;
+  _impl_._has_bits_[0] |= 0x00400000u;
   _impl_.rampages_ = value;
 }
 inline void CDOTAMatchMetadata_Team_Player::set_rampages(uint32_t value) {
@@ -13064,7 +13361,7 @@ inline void CDOTAMatchMetadata_Team_Player::set_rampages(uint32_t value) {
 
 // optional uint32 triple_kills = 36;
 inline bool CDOTAMatchMetadata_Team_Player::_internal_has_triple_kills() const {
-  bool value = (_impl_._has_bits_[0] & 0x00400000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00800000u) != 0;
   return value;
 }
 inline bool CDOTAMatchMetadata_Team_Player::has_triple_kills() const {
@@ -13072,7 +13369,7 @@ inline bool CDOTAMatchMetadata_Team_Player::has_triple_kills() const {
 }
 inline void CDOTAMatchMetadata_Team_Player::clear_triple_kills() {
   _impl_.triple_kills_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00400000u;
+  _impl_._has_bits_[0] &= ~0x00800000u;
 }
 inline uint32_t CDOTAMatchMetadata_Team_Player::_internal_triple_kills() const {
   return _impl_.triple_kills_;
@@ -13082,7 +13379,7 @@ inline uint32_t CDOTAMatchMetadata_Team_Player::triple_kills() const {
   return _internal_triple_kills();
 }
 inline void CDOTAMatchMetadata_Team_Player::_internal_set_triple_kills(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00400000u;
+  _impl_._has_bits_[0] |= 0x00800000u;
   _impl_.triple_kills_ = value;
 }
 inline void CDOTAMatchMetadata_Team_Player::set_triple_kills(uint32_t value) {
@@ -13092,7 +13389,7 @@ inline void CDOTAMatchMetadata_Team_Player::set_triple_kills(uint32_t value) {
 
 // optional uint32 aegis_snatched = 37;
 inline bool CDOTAMatchMetadata_Team_Player::_internal_has_aegis_snatched() const {
-  bool value = (_impl_._has_bits_[0] & 0x00800000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x01000000u) != 0;
   return value;
 }
 inline bool CDOTAMatchMetadata_Team_Player::has_aegis_snatched() const {
@@ -13100,7 +13397,7 @@ inline bool CDOTAMatchMetadata_Team_Player::has_aegis_snatched() const {
 }
 inline void CDOTAMatchMetadata_Team_Player::clear_aegis_snatched() {
   _impl_.aegis_snatched_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00800000u;
+  _impl_._has_bits_[0] &= ~0x01000000u;
 }
 inline uint32_t CDOTAMatchMetadata_Team_Player::_internal_aegis_snatched() const {
   return _impl_.aegis_snatched_;
@@ -13110,7 +13407,7 @@ inline uint32_t CDOTAMatchMetadata_Team_Player::aegis_snatched() const {
   return _internal_aegis_snatched();
 }
 inline void CDOTAMatchMetadata_Team_Player::_internal_set_aegis_snatched(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00800000u;
+  _impl_._has_bits_[0] |= 0x01000000u;
   _impl_.aegis_snatched_ = value;
 }
 inline void CDOTAMatchMetadata_Team_Player::set_aegis_snatched(uint32_t value) {
@@ -13120,7 +13417,7 @@ inline void CDOTAMatchMetadata_Team_Player::set_aegis_snatched(uint32_t value) {
 
 // optional uint32 rapiers_purchased = 38;
 inline bool CDOTAMatchMetadata_Team_Player::_internal_has_rapiers_purchased() const {
-  bool value = (_impl_._has_bits_[0] & 0x01000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x02000000u) != 0;
   return value;
 }
 inline bool CDOTAMatchMetadata_Team_Player::has_rapiers_purchased() const {
@@ -13128,7 +13425,7 @@ inline bool CDOTAMatchMetadata_Team_Player::has_rapiers_purchased() const {
 }
 inline void CDOTAMatchMetadata_Team_Player::clear_rapiers_purchased() {
   _impl_.rapiers_purchased_ = 0u;
-  _impl_._has_bits_[0] &= ~0x01000000u;
+  _impl_._has_bits_[0] &= ~0x02000000u;
 }
 inline uint32_t CDOTAMatchMetadata_Team_Player::_internal_rapiers_purchased() const {
   return _impl_.rapiers_purchased_;
@@ -13138,7 +13435,7 @@ inline uint32_t CDOTAMatchMetadata_Team_Player::rapiers_purchased() const {
   return _internal_rapiers_purchased();
 }
 inline void CDOTAMatchMetadata_Team_Player::_internal_set_rapiers_purchased(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x01000000u;
+  _impl_._has_bits_[0] |= 0x02000000u;
   _impl_.rapiers_purchased_ = value;
 }
 inline void CDOTAMatchMetadata_Team_Player::set_rapiers_purchased(uint32_t value) {
@@ -13148,7 +13445,7 @@ inline void CDOTAMatchMetadata_Team_Player::set_rapiers_purchased(uint32_t value
 
 // optional uint32 couriers_killed = 39;
 inline bool CDOTAMatchMetadata_Team_Player::_internal_has_couriers_killed() const {
-  bool value = (_impl_._has_bits_[0] & 0x02000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x04000000u) != 0;
   return value;
 }
 inline bool CDOTAMatchMetadata_Team_Player::has_couriers_killed() const {
@@ -13156,7 +13453,7 @@ inline bool CDOTAMatchMetadata_Team_Player::has_couriers_killed() const {
 }
 inline void CDOTAMatchMetadata_Team_Player::clear_couriers_killed() {
   _impl_.couriers_killed_ = 0u;
-  _impl_._has_bits_[0] &= ~0x02000000u;
+  _impl_._has_bits_[0] &= ~0x04000000u;
 }
 inline uint32_t CDOTAMatchMetadata_Team_Player::_internal_couriers_killed() const {
   return _impl_.couriers_killed_;
@@ -13166,7 +13463,7 @@ inline uint32_t CDOTAMatchMetadata_Team_Player::couriers_killed() const {
   return _internal_couriers_killed();
 }
 inline void CDOTAMatchMetadata_Team_Player::_internal_set_couriers_killed(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x02000000u;
+  _impl_._has_bits_[0] |= 0x04000000u;
   _impl_.couriers_killed_ = value;
 }
 inline void CDOTAMatchMetadata_Team_Player::set_couriers_killed(uint32_t value) {
@@ -13176,7 +13473,7 @@ inline void CDOTAMatchMetadata_Team_Player::set_couriers_killed(uint32_t value) 
 
 // optional uint32 net_worth_rank = 40;
 inline bool CDOTAMatchMetadata_Team_Player::_internal_has_net_worth_rank() const {
-  bool value = (_impl_._has_bits_[0] & 0x04000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x08000000u) != 0;
   return value;
 }
 inline bool CDOTAMatchMetadata_Team_Player::has_net_worth_rank() const {
@@ -13184,7 +13481,7 @@ inline bool CDOTAMatchMetadata_Team_Player::has_net_worth_rank() const {
 }
 inline void CDOTAMatchMetadata_Team_Player::clear_net_worth_rank() {
   _impl_.net_worth_rank_ = 0u;
-  _impl_._has_bits_[0] &= ~0x04000000u;
+  _impl_._has_bits_[0] &= ~0x08000000u;
 }
 inline uint32_t CDOTAMatchMetadata_Team_Player::_internal_net_worth_rank() const {
   return _impl_.net_worth_rank_;
@@ -13194,7 +13491,7 @@ inline uint32_t CDOTAMatchMetadata_Team_Player::net_worth_rank() const {
   return _internal_net_worth_rank();
 }
 inline void CDOTAMatchMetadata_Team_Player::_internal_set_net_worth_rank(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x04000000u;
+  _impl_._has_bits_[0] |= 0x08000000u;
   _impl_.net_worth_rank_ = value;
 }
 inline void CDOTAMatchMetadata_Team_Player::set_net_worth_rank(uint32_t value) {
@@ -13204,7 +13501,7 @@ inline void CDOTAMatchMetadata_Team_Player::set_net_worth_rank(uint32_t value) {
 
 // optional uint32 support_gold_spent = 41;
 inline bool CDOTAMatchMetadata_Team_Player::_internal_has_support_gold_spent() const {
-  bool value = (_impl_._has_bits_[0] & 0x08000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x10000000u) != 0;
   return value;
 }
 inline bool CDOTAMatchMetadata_Team_Player::has_support_gold_spent() const {
@@ -13212,7 +13509,7 @@ inline bool CDOTAMatchMetadata_Team_Player::has_support_gold_spent() const {
 }
 inline void CDOTAMatchMetadata_Team_Player::clear_support_gold_spent() {
   _impl_.support_gold_spent_ = 0u;
-  _impl_._has_bits_[0] &= ~0x08000000u;
+  _impl_._has_bits_[0] &= ~0x10000000u;
 }
 inline uint32_t CDOTAMatchMetadata_Team_Player::_internal_support_gold_spent() const {
   return _impl_.support_gold_spent_;
@@ -13222,7 +13519,7 @@ inline uint32_t CDOTAMatchMetadata_Team_Player::support_gold_spent() const {
   return _internal_support_gold_spent();
 }
 inline void CDOTAMatchMetadata_Team_Player::_internal_set_support_gold_spent(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x08000000u;
+  _impl_._has_bits_[0] |= 0x10000000u;
   _impl_.support_gold_spent_ = value;
 }
 inline void CDOTAMatchMetadata_Team_Player::set_support_gold_spent(uint32_t value) {
@@ -13232,7 +13529,7 @@ inline void CDOTAMatchMetadata_Team_Player::set_support_gold_spent(uint32_t valu
 
 // optional uint32 observer_wards_placed = 42;
 inline bool CDOTAMatchMetadata_Team_Player::_internal_has_observer_wards_placed() const {
-  bool value = (_impl_._has_bits_[0] & 0x10000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x20000000u) != 0;
   return value;
 }
 inline bool CDOTAMatchMetadata_Team_Player::has_observer_wards_placed() const {
@@ -13240,7 +13537,7 @@ inline bool CDOTAMatchMetadata_Team_Player::has_observer_wards_placed() const {
 }
 inline void CDOTAMatchMetadata_Team_Player::clear_observer_wards_placed() {
   _impl_.observer_wards_placed_ = 0u;
-  _impl_._has_bits_[0] &= ~0x10000000u;
+  _impl_._has_bits_[0] &= ~0x20000000u;
 }
 inline uint32_t CDOTAMatchMetadata_Team_Player::_internal_observer_wards_placed() const {
   return _impl_.observer_wards_placed_;
@@ -13250,7 +13547,7 @@ inline uint32_t CDOTAMatchMetadata_Team_Player::observer_wards_placed() const {
   return _internal_observer_wards_placed();
 }
 inline void CDOTAMatchMetadata_Team_Player::_internal_set_observer_wards_placed(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x10000000u;
+  _impl_._has_bits_[0] |= 0x20000000u;
   _impl_.observer_wards_placed_ = value;
 }
 inline void CDOTAMatchMetadata_Team_Player::set_observer_wards_placed(uint32_t value) {
@@ -13260,7 +13557,7 @@ inline void CDOTAMatchMetadata_Team_Player::set_observer_wards_placed(uint32_t v
 
 // optional uint32 sentry_wards_placed = 43;
 inline bool CDOTAMatchMetadata_Team_Player::_internal_has_sentry_wards_placed() const {
-  bool value = (_impl_._has_bits_[0] & 0x20000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x40000000u) != 0;
   return value;
 }
 inline bool CDOTAMatchMetadata_Team_Player::has_sentry_wards_placed() const {
@@ -13268,7 +13565,7 @@ inline bool CDOTAMatchMetadata_Team_Player::has_sentry_wards_placed() const {
 }
 inline void CDOTAMatchMetadata_Team_Player::clear_sentry_wards_placed() {
   _impl_.sentry_wards_placed_ = 0u;
-  _impl_._has_bits_[0] &= ~0x20000000u;
+  _impl_._has_bits_[0] &= ~0x40000000u;
 }
 inline uint32_t CDOTAMatchMetadata_Team_Player::_internal_sentry_wards_placed() const {
   return _impl_.sentry_wards_placed_;
@@ -13278,7 +13575,7 @@ inline uint32_t CDOTAMatchMetadata_Team_Player::sentry_wards_placed() const {
   return _internal_sentry_wards_placed();
 }
 inline void CDOTAMatchMetadata_Team_Player::_internal_set_sentry_wards_placed(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x20000000u;
+  _impl_._has_bits_[0] |= 0x40000000u;
   _impl_.sentry_wards_placed_ = value;
 }
 inline void CDOTAMatchMetadata_Team_Player::set_sentry_wards_placed(uint32_t value) {
@@ -13288,7 +13585,7 @@ inline void CDOTAMatchMetadata_Team_Player::set_sentry_wards_placed(uint32_t val
 
 // optional uint32 wards_dewarded = 44;
 inline bool CDOTAMatchMetadata_Team_Player::_internal_has_wards_dewarded() const {
-  bool value = (_impl_._has_bits_[0] & 0x40000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x80000000u) != 0;
   return value;
 }
 inline bool CDOTAMatchMetadata_Team_Player::has_wards_dewarded() const {
@@ -13296,7 +13593,7 @@ inline bool CDOTAMatchMetadata_Team_Player::has_wards_dewarded() const {
 }
 inline void CDOTAMatchMetadata_Team_Player::clear_wards_dewarded() {
   _impl_.wards_dewarded_ = 0u;
-  _impl_._has_bits_[0] &= ~0x40000000u;
+  _impl_._has_bits_[0] &= ~0x80000000u;
 }
 inline uint32_t CDOTAMatchMetadata_Team_Player::_internal_wards_dewarded() const {
   return _impl_.wards_dewarded_;
@@ -13306,7 +13603,7 @@ inline uint32_t CDOTAMatchMetadata_Team_Player::wards_dewarded() const {
   return _internal_wards_dewarded();
 }
 inline void CDOTAMatchMetadata_Team_Player::_internal_set_wards_dewarded(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x40000000u;
+  _impl_._has_bits_[0] |= 0x80000000u;
   _impl_.wards_dewarded_ = value;
 }
 inline void CDOTAMatchMetadata_Team_Player::set_wards_dewarded(uint32_t value) {
@@ -13316,7 +13613,7 @@ inline void CDOTAMatchMetadata_Team_Player::set_wards_dewarded(uint32_t value) {
 
 // optional float stun_duration = 45;
 inline bool CDOTAMatchMetadata_Team_Player::_internal_has_stun_duration() const {
-  bool value = (_impl_._has_bits_[0] & 0x80000000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000001u) != 0;
   return value;
 }
 inline bool CDOTAMatchMetadata_Team_Player::has_stun_duration() const {
@@ -13324,7 +13621,7 @@ inline bool CDOTAMatchMetadata_Team_Player::has_stun_duration() const {
 }
 inline void CDOTAMatchMetadata_Team_Player::clear_stun_duration() {
   _impl_.stun_duration_ = 0;
-  _impl_._has_bits_[0] &= ~0x80000000u;
+  _impl_._has_bits_[1] &= ~0x00000001u;
 }
 inline float CDOTAMatchMetadata_Team_Player::_internal_stun_duration() const {
   return _impl_.stun_duration_;
@@ -13334,7 +13631,7 @@ inline float CDOTAMatchMetadata_Team_Player::stun_duration() const {
   return _internal_stun_duration();
 }
 inline void CDOTAMatchMetadata_Team_Player::_internal_set_stun_duration(float value) {
-  _impl_._has_bits_[0] |= 0x80000000u;
+  _impl_._has_bits_[1] |= 0x00000001u;
   _impl_.stun_duration_ = value;
 }
 inline void CDOTAMatchMetadata_Team_Player::set_stun_duration(float value) {
@@ -13344,7 +13641,7 @@ inline void CDOTAMatchMetadata_Team_Player::set_stun_duration(float value) {
 
 // optional .EDOTAMMRBoostType rank_mmr_boost_type = 46 [default = k_EDOTAMMRBoostType_None];
 inline bool CDOTAMatchMetadata_Team_Player::_internal_has_rank_mmr_boost_type() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000002u) != 0;
   return value;
 }
 inline bool CDOTAMatchMetadata_Team_Player::has_rank_mmr_boost_type() const {
@@ -13352,7 +13649,7 @@ inline bool CDOTAMatchMetadata_Team_Player::has_rank_mmr_boost_type() const {
 }
 inline void CDOTAMatchMetadata_Team_Player::clear_rank_mmr_boost_type() {
   _impl_.rank_mmr_boost_type_ = 0;
-  _impl_._has_bits_[1] &= ~0x00000001u;
+  _impl_._has_bits_[1] &= ~0x00000002u;
 }
 inline ::EDOTAMMRBoostType CDOTAMatchMetadata_Team_Player::_internal_rank_mmr_boost_type() const {
   return static_cast< ::EDOTAMMRBoostType >(_impl_.rank_mmr_boost_type_);
@@ -13363,7 +13660,7 @@ inline ::EDOTAMMRBoostType CDOTAMatchMetadata_Team_Player::rank_mmr_boost_type()
 }
 inline void CDOTAMatchMetadata_Team_Player::_internal_set_rank_mmr_boost_type(::EDOTAMMRBoostType value) {
   assert(::EDOTAMMRBoostType_IsValid(value));
-  _impl_._has_bits_[1] |= 0x00000001u;
+  _impl_._has_bits_[1] |= 0x00000002u;
   _impl_.rank_mmr_boost_type_ = value;
 }
 inline void CDOTAMatchMetadata_Team_Player::set_rank_mmr_boost_type(::EDOTAMMRBoostType value) {
@@ -13507,7 +13804,7 @@ CDOTAMatchMetadata_Team_Player::mutable_graph_hero_damage() {
 
 // optional .DOTA_GC_TEAM team_number = 51 [default = DOTA_GC_TEAM_GOOD_GUYS];
 inline bool CDOTAMatchMetadata_Team_Player::_internal_has_team_number() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000004u) != 0;
   return value;
 }
 inline bool CDOTAMatchMetadata_Team_Player::has_team_number() const {
@@ -13515,7 +13812,7 @@ inline bool CDOTAMatchMetadata_Team_Player::has_team_number() const {
 }
 inline void CDOTAMatchMetadata_Team_Player::clear_team_number() {
   _impl_.team_number_ = 0;
-  _impl_._has_bits_[1] &= ~0x00000002u;
+  _impl_._has_bits_[1] &= ~0x00000004u;
 }
 inline ::DOTA_GC_TEAM CDOTAMatchMetadata_Team_Player::_internal_team_number() const {
   return static_cast< ::DOTA_GC_TEAM >(_impl_.team_number_);
@@ -13526,7 +13823,7 @@ inline ::DOTA_GC_TEAM CDOTAMatchMetadata_Team_Player::team_number() const {
 }
 inline void CDOTAMatchMetadata_Team_Player::_internal_set_team_number(::DOTA_GC_TEAM value) {
   assert(::DOTA_GC_TEAM_IsValid(value));
-  _impl_._has_bits_[1] |= 0x00000002u;
+  _impl_._has_bits_[1] |= 0x00000004u;
   _impl_.team_number_ = value;
 }
 inline void CDOTAMatchMetadata_Team_Player::set_team_number(::DOTA_GC_TEAM value) {
@@ -13536,7 +13833,7 @@ inline void CDOTAMatchMetadata_Team_Player::set_team_number(::DOTA_GC_TEAM value
 
 // optional uint32 team_slot = 52;
 inline bool CDOTAMatchMetadata_Team_Player::_internal_has_team_slot() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000008u) != 0;
   return value;
 }
 inline bool CDOTAMatchMetadata_Team_Player::has_team_slot() const {
@@ -13544,7 +13841,7 @@ inline bool CDOTAMatchMetadata_Team_Player::has_team_slot() const {
 }
 inline void CDOTAMatchMetadata_Team_Player::clear_team_slot() {
   _impl_.team_slot_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000004u;
+  _impl_._has_bits_[1] &= ~0x00000008u;
 }
 inline uint32_t CDOTAMatchMetadata_Team_Player::_internal_team_slot() const {
   return _impl_.team_slot_;
@@ -13554,7 +13851,7 @@ inline uint32_t CDOTAMatchMetadata_Team_Player::team_slot() const {
   return _internal_team_slot();
 }
 inline void CDOTAMatchMetadata_Team_Player::_internal_set_team_slot(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000004u;
+  _impl_._has_bits_[1] |= 0x00000008u;
   _impl_.team_slot_ = value;
 }
 inline void CDOTAMatchMetadata_Team_Player::set_team_slot(uint32_t value) {
@@ -13654,7 +13951,7 @@ inline void CDOTAMatchMetadata_Team_Player::set_allocated_featured_gamemode_prog
 
 // optional uint32 featured_hero_sticker_index = 54;
 inline bool CDOTAMatchMetadata_Team_Player::_internal_has_featured_hero_sticker_index() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000010u) != 0;
   return value;
 }
 inline bool CDOTAMatchMetadata_Team_Player::has_featured_hero_sticker_index() const {
@@ -13662,7 +13959,7 @@ inline bool CDOTAMatchMetadata_Team_Player::has_featured_hero_sticker_index() co
 }
 inline void CDOTAMatchMetadata_Team_Player::clear_featured_hero_sticker_index() {
   _impl_.featured_hero_sticker_index_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000008u;
+  _impl_._has_bits_[1] &= ~0x00000010u;
 }
 inline uint32_t CDOTAMatchMetadata_Team_Player::_internal_featured_hero_sticker_index() const {
   return _impl_.featured_hero_sticker_index_;
@@ -13672,7 +13969,7 @@ inline uint32_t CDOTAMatchMetadata_Team_Player::featured_hero_sticker_index() co
   return _internal_featured_hero_sticker_index();
 }
 inline void CDOTAMatchMetadata_Team_Player::_internal_set_featured_hero_sticker_index(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000008u;
+  _impl_._has_bits_[1] |= 0x00000010u;
   _impl_.featured_hero_sticker_index_ = value;
 }
 inline void CDOTAMatchMetadata_Team_Player::set_featured_hero_sticker_index(uint32_t value) {
@@ -13682,7 +13979,7 @@ inline void CDOTAMatchMetadata_Team_Player::set_featured_hero_sticker_index(uint
 
 // optional uint32 featured_hero_sticker_quality = 55;
 inline bool CDOTAMatchMetadata_Team_Player::_internal_has_featured_hero_sticker_quality() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000020u) != 0;
   return value;
 }
 inline bool CDOTAMatchMetadata_Team_Player::has_featured_hero_sticker_quality() const {
@@ -13690,7 +13987,7 @@ inline bool CDOTAMatchMetadata_Team_Player::has_featured_hero_sticker_quality() 
 }
 inline void CDOTAMatchMetadata_Team_Player::clear_featured_hero_sticker_quality() {
   _impl_.featured_hero_sticker_quality_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000010u;
+  _impl_._has_bits_[1] &= ~0x00000020u;
 }
 inline uint32_t CDOTAMatchMetadata_Team_Player::_internal_featured_hero_sticker_quality() const {
   return _impl_.featured_hero_sticker_quality_;
@@ -13700,7 +13997,7 @@ inline uint32_t CDOTAMatchMetadata_Team_Player::featured_hero_sticker_quality() 
   return _internal_featured_hero_sticker_quality();
 }
 inline void CDOTAMatchMetadata_Team_Player::_internal_set_featured_hero_sticker_quality(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000010u;
+  _impl_._has_bits_[1] |= 0x00000020u;
   _impl_.featured_hero_sticker_quality_ = value;
 }
 inline void CDOTAMatchMetadata_Team_Player::set_featured_hero_sticker_quality(uint32_t value) {
@@ -13750,7 +14047,7 @@ CDOTAMatchMetadata_Team_Player::equipped_econ_items() const {
 
 // optional int32 game_player_id = 57 [default = -1];
 inline bool CDOTAMatchMetadata_Team_Player::_internal_has_game_player_id() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000020u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000040u) != 0;
   return value;
 }
 inline bool CDOTAMatchMetadata_Team_Player::has_game_player_id() const {
@@ -13758,7 +14055,7 @@ inline bool CDOTAMatchMetadata_Team_Player::has_game_player_id() const {
 }
 inline void CDOTAMatchMetadata_Team_Player::clear_game_player_id() {
   _impl_.game_player_id_ = -1;
-  _impl_._has_bits_[1] &= ~0x00000020u;
+  _impl_._has_bits_[1] &= ~0x00000040u;
 }
 inline int32_t CDOTAMatchMetadata_Team_Player::_internal_game_player_id() const {
   return _impl_.game_player_id_;
@@ -13768,7 +14065,7 @@ inline int32_t CDOTAMatchMetadata_Team_Player::game_player_id() const {
   return _internal_game_player_id();
 }
 inline void CDOTAMatchMetadata_Team_Player::_internal_set_game_player_id(int32_t value) {
-  _impl_._has_bits_[1] |= 0x00000020u;
+  _impl_._has_bits_[1] |= 0x00000040u;
   _impl_.game_player_id_ = value;
 }
 inline void CDOTAMatchMetadata_Team_Player::set_game_player_id(int32_t value) {
@@ -13811,6 +14108,96 @@ inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgTrackedStat >&
 CDOTAMatchMetadata_Team_Player::player_tracked_stats() const {
   // @@protoc_insertion_point(field_list:CDOTAMatchMetadata.Team.Player.player_tracked_stats)
   return _impl_.player_tracked_stats_;
+}
+
+// optional .CDOTAMatchMetadata.Team.Player.OverworldRewards overworld_rewards = 59;
+inline bool CDOTAMatchMetadata_Team_Player::_internal_has_overworld_rewards() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.overworld_rewards_ != nullptr);
+  return value;
+}
+inline bool CDOTAMatchMetadata_Team_Player::has_overworld_rewards() const {
+  return _internal_has_overworld_rewards();
+}
+inline void CDOTAMatchMetadata_Team_Player::clear_overworld_rewards() {
+  if (_impl_.overworld_rewards_ != nullptr) _impl_.overworld_rewards_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline const ::CDOTAMatchMetadata_Team_Player_OverworldRewards& CDOTAMatchMetadata_Team_Player::_internal_overworld_rewards() const {
+  const ::CDOTAMatchMetadata_Team_Player_OverworldRewards* p = _impl_.overworld_rewards_;
+  return p != nullptr ? *p : reinterpret_cast<const ::CDOTAMatchMetadata_Team_Player_OverworldRewards&>(
+      ::_CDOTAMatchMetadata_Team_Player_OverworldRewards_default_instance_);
+}
+inline const ::CDOTAMatchMetadata_Team_Player_OverworldRewards& CDOTAMatchMetadata_Team_Player::overworld_rewards() const {
+  // @@protoc_insertion_point(field_get:CDOTAMatchMetadata.Team.Player.overworld_rewards)
+  return _internal_overworld_rewards();
+}
+inline void CDOTAMatchMetadata_Team_Player::unsafe_arena_set_allocated_overworld_rewards(
+    ::CDOTAMatchMetadata_Team_Player_OverworldRewards* overworld_rewards) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.overworld_rewards_);
+  }
+  _impl_.overworld_rewards_ = overworld_rewards;
+  if (overworld_rewards) {
+    _impl_._has_bits_[0] |= 0x00000002u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000002u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CDOTAMatchMetadata.Team.Player.overworld_rewards)
+}
+inline ::CDOTAMatchMetadata_Team_Player_OverworldRewards* CDOTAMatchMetadata_Team_Player::release_overworld_rewards() {
+  _impl_._has_bits_[0] &= ~0x00000002u;
+  ::CDOTAMatchMetadata_Team_Player_OverworldRewards* temp = _impl_.overworld_rewards_;
+  _impl_.overworld_rewards_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::CDOTAMatchMetadata_Team_Player_OverworldRewards* CDOTAMatchMetadata_Team_Player::unsafe_arena_release_overworld_rewards() {
+  // @@protoc_insertion_point(field_release:CDOTAMatchMetadata.Team.Player.overworld_rewards)
+  _impl_._has_bits_[0] &= ~0x00000002u;
+  ::CDOTAMatchMetadata_Team_Player_OverworldRewards* temp = _impl_.overworld_rewards_;
+  _impl_.overworld_rewards_ = nullptr;
+  return temp;
+}
+inline ::CDOTAMatchMetadata_Team_Player_OverworldRewards* CDOTAMatchMetadata_Team_Player::_internal_mutable_overworld_rewards() {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  if (_impl_.overworld_rewards_ == nullptr) {
+    auto* p = CreateMaybeMessage<::CDOTAMatchMetadata_Team_Player_OverworldRewards>(GetArenaForAllocation());
+    _impl_.overworld_rewards_ = p;
+  }
+  return _impl_.overworld_rewards_;
+}
+inline ::CDOTAMatchMetadata_Team_Player_OverworldRewards* CDOTAMatchMetadata_Team_Player::mutable_overworld_rewards() {
+  ::CDOTAMatchMetadata_Team_Player_OverworldRewards* _msg = _internal_mutable_overworld_rewards();
+  // @@protoc_insertion_point(field_mutable:CDOTAMatchMetadata.Team.Player.overworld_rewards)
+  return _msg;
+}
+inline void CDOTAMatchMetadata_Team_Player::set_allocated_overworld_rewards(::CDOTAMatchMetadata_Team_Player_OverworldRewards* overworld_rewards) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.overworld_rewards_;
+  }
+  if (overworld_rewards) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(overworld_rewards);
+    if (message_arena != submessage_arena) {
+      overworld_rewards = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, overworld_rewards, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000002u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000002u;
+  }
+  _impl_.overworld_rewards_ = overworld_rewards;
+  // @@protoc_insertion_point(field_set_allocated:CDOTAMatchMetadata.Team.Player.overworld_rewards)
 }
 
 // -------------------------------------------------------------------
@@ -15224,7 +15611,7 @@ inline void CDOTAMatchPrivateMetadata_StringName::set_allocated_name(std::string
 
 // CDOTAMatchPrivateMetadata_Team_Player_CombatSegment_DamageByAbility_ByHeroTarget
 
-// optional uint32 hero_id = 1;
+// optional int32 hero_id = 1;
 inline bool CDOTAMatchPrivateMetadata_Team_Player_CombatSegment_DamageByAbility_ByHeroTarget::_internal_has_hero_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -15233,21 +15620,21 @@ inline bool CDOTAMatchPrivateMetadata_Team_Player_CombatSegment_DamageByAbility_
   return _internal_has_hero_id();
 }
 inline void CDOTAMatchPrivateMetadata_Team_Player_CombatSegment_DamageByAbility_ByHeroTarget::clear_hero_id() {
-  _impl_.hero_id_ = 0u;
+  _impl_.hero_id_ = 0;
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint32_t CDOTAMatchPrivateMetadata_Team_Player_CombatSegment_DamageByAbility_ByHeroTarget::_internal_hero_id() const {
+inline int32_t CDOTAMatchPrivateMetadata_Team_Player_CombatSegment_DamageByAbility_ByHeroTarget::_internal_hero_id() const {
   return _impl_.hero_id_;
 }
-inline uint32_t CDOTAMatchPrivateMetadata_Team_Player_CombatSegment_DamageByAbility_ByHeroTarget::hero_id() const {
+inline int32_t CDOTAMatchPrivateMetadata_Team_Player_CombatSegment_DamageByAbility_ByHeroTarget::hero_id() const {
   // @@protoc_insertion_point(field_get:CDOTAMatchPrivateMetadata.Team.Player.CombatSegment.DamageByAbility.ByHeroTarget.hero_id)
   return _internal_hero_id();
 }
-inline void CDOTAMatchPrivateMetadata_Team_Player_CombatSegment_DamageByAbility_ByHeroTarget::_internal_set_hero_id(uint32_t value) {
+inline void CDOTAMatchPrivateMetadata_Team_Player_CombatSegment_DamageByAbility_ByHeroTarget::_internal_set_hero_id(int32_t value) {
   _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.hero_id_ = value;
 }
-inline void CDOTAMatchPrivateMetadata_Team_Player_CombatSegment_DamageByAbility_ByHeroTarget::set_hero_id(uint32_t value) {
+inline void CDOTAMatchPrivateMetadata_Team_Player_CombatSegment_DamageByAbility_ByHeroTarget::set_hero_id(int32_t value) {
   _internal_set_hero_id(value);
   // @@protoc_insertion_point(field_set:CDOTAMatchPrivateMetadata.Team.Player.CombatSegment.DamageByAbility.ByHeroTarget.hero_id)
 }
@@ -15384,7 +15771,7 @@ CDOTAMatchPrivateMetadata_Team_Player_CombatSegment_DamageByAbility::by_hero_tar
 
 // CDOTAMatchPrivateMetadata_Team_Player_CombatSegment_HealingByAbility_ByHeroTarget
 
-// optional uint32 hero_id = 1;
+// optional int32 hero_id = 1;
 inline bool CDOTAMatchPrivateMetadata_Team_Player_CombatSegment_HealingByAbility_ByHeroTarget::_internal_has_hero_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -15393,21 +15780,21 @@ inline bool CDOTAMatchPrivateMetadata_Team_Player_CombatSegment_HealingByAbility
   return _internal_has_hero_id();
 }
 inline void CDOTAMatchPrivateMetadata_Team_Player_CombatSegment_HealingByAbility_ByHeroTarget::clear_hero_id() {
-  _impl_.hero_id_ = 0u;
+  _impl_.hero_id_ = 0;
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint32_t CDOTAMatchPrivateMetadata_Team_Player_CombatSegment_HealingByAbility_ByHeroTarget::_internal_hero_id() const {
+inline int32_t CDOTAMatchPrivateMetadata_Team_Player_CombatSegment_HealingByAbility_ByHeroTarget::_internal_hero_id() const {
   return _impl_.hero_id_;
 }
-inline uint32_t CDOTAMatchPrivateMetadata_Team_Player_CombatSegment_HealingByAbility_ByHeroTarget::hero_id() const {
+inline int32_t CDOTAMatchPrivateMetadata_Team_Player_CombatSegment_HealingByAbility_ByHeroTarget::hero_id() const {
   // @@protoc_insertion_point(field_get:CDOTAMatchPrivateMetadata.Team.Player.CombatSegment.HealingByAbility.ByHeroTarget.hero_id)
   return _internal_hero_id();
 }
-inline void CDOTAMatchPrivateMetadata_Team_Player_CombatSegment_HealingByAbility_ByHeroTarget::_internal_set_hero_id(uint32_t value) {
+inline void CDOTAMatchPrivateMetadata_Team_Player_CombatSegment_HealingByAbility_ByHeroTarget::_internal_set_hero_id(int32_t value) {
   _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.hero_id_ = value;
 }
-inline void CDOTAMatchPrivateMetadata_Team_Player_CombatSegment_HealingByAbility_ByHeroTarget::set_hero_id(uint32_t value) {
+inline void CDOTAMatchPrivateMetadata_Team_Player_CombatSegment_HealingByAbility_ByHeroTarget::set_hero_id(int32_t value) {
   _internal_set_hero_id(value);
   // @@protoc_insertion_point(field_set:CDOTAMatchPrivateMetadata.Team.Player.CombatSegment.HealingByAbility.ByHeroTarget.hero_id)
 }
@@ -15656,7 +16043,7 @@ CDOTAMatchPrivateMetadata_Team_Player_CombatSegment::healing_by_ability() const 
 
 // CDOTAMatchPrivateMetadata_Team_Player_BuffRecord_ByHeroTarget
 
-// optional uint32 hero_id = 1;
+// optional int32 hero_id = 1;
 inline bool CDOTAMatchPrivateMetadata_Team_Player_BuffRecord_ByHeroTarget::_internal_has_hero_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -15665,21 +16052,21 @@ inline bool CDOTAMatchPrivateMetadata_Team_Player_BuffRecord_ByHeroTarget::has_h
   return _internal_has_hero_id();
 }
 inline void CDOTAMatchPrivateMetadata_Team_Player_BuffRecord_ByHeroTarget::clear_hero_id() {
-  _impl_.hero_id_ = 0u;
+  _impl_.hero_id_ = 0;
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint32_t CDOTAMatchPrivateMetadata_Team_Player_BuffRecord_ByHeroTarget::_internal_hero_id() const {
+inline int32_t CDOTAMatchPrivateMetadata_Team_Player_BuffRecord_ByHeroTarget::_internal_hero_id() const {
   return _impl_.hero_id_;
 }
-inline uint32_t CDOTAMatchPrivateMetadata_Team_Player_BuffRecord_ByHeroTarget::hero_id() const {
+inline int32_t CDOTAMatchPrivateMetadata_Team_Player_BuffRecord_ByHeroTarget::hero_id() const {
   // @@protoc_insertion_point(field_get:CDOTAMatchPrivateMetadata.Team.Player.BuffRecord.ByHeroTarget.hero_id)
   return _internal_hero_id();
 }
-inline void CDOTAMatchPrivateMetadata_Team_Player_BuffRecord_ByHeroTarget::_internal_set_hero_id(uint32_t value) {
+inline void CDOTAMatchPrivateMetadata_Team_Player_BuffRecord_ByHeroTarget::_internal_set_hero_id(int32_t value) {
   _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.hero_id_ = value;
 }
-inline void CDOTAMatchPrivateMetadata_Team_Player_BuffRecord_ByHeroTarget::set_hero_id(uint32_t value) {
+inline void CDOTAMatchPrivateMetadata_Team_Player_BuffRecord_ByHeroTarget::set_hero_id(int32_t value) {
   _internal_set_hero_id(value);
   // @@protoc_insertion_point(field_set:CDOTAMatchPrivateMetadata.Team.Player.BuffRecord.ByHeroTarget.hero_id)
 }
@@ -16278,6 +16665,34 @@ inline void CDOTAMatchPrivateMetadata_Team_Player_XPReceived::_internal_set_othe
 inline void CDOTAMatchPrivateMetadata_Team_Player_XPReceived::set_other(uint32_t value) {
   _internal_set_other(value);
   // @@protoc_insertion_point(field_set:CDOTAMatchPrivateMetadata.Team.Player.XPReceived.other)
+}
+
+// optional uint32 abilities = 7;
+inline bool CDOTAMatchPrivateMetadata_Team_Player_XPReceived::_internal_has_abilities() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
+  return value;
+}
+inline bool CDOTAMatchPrivateMetadata_Team_Player_XPReceived::has_abilities() const {
+  return _internal_has_abilities();
+}
+inline void CDOTAMatchPrivateMetadata_Team_Player_XPReceived::clear_abilities() {
+  _impl_.abilities_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000040u;
+}
+inline uint32_t CDOTAMatchPrivateMetadata_Team_Player_XPReceived::_internal_abilities() const {
+  return _impl_.abilities_;
+}
+inline uint32_t CDOTAMatchPrivateMetadata_Team_Player_XPReceived::abilities() const {
+  // @@protoc_insertion_point(field_get:CDOTAMatchPrivateMetadata.Team.Player.XPReceived.abilities)
+  return _internal_abilities();
+}
+inline void CDOTAMatchPrivateMetadata_Team_Player_XPReceived::_internal_set_abilities(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000040u;
+  _impl_.abilities_ = value;
+}
+inline void CDOTAMatchPrivateMetadata_Team_Player_XPReceived::set_abilities(uint32_t value) {
+  _internal_set_abilities(value);
+  // @@protoc_insertion_point(field_set:CDOTAMatchPrivateMetadata.Team.Player.XPReceived.abilities)
 }
 
 // -------------------------------------------------------------------
@@ -17409,6 +17824,8 @@ CDOTAMatchPrivateMetadata::string_names() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

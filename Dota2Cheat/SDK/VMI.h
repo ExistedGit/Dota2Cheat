@@ -59,7 +59,16 @@ namespace VMI {
 	
 	// client.dll
 	namespace CDOTA_Buff {
+		// right above "dota_portrait_unit_modifiers_changed"
 		Index OnAddModifier{};
+	}
+
+	// networksystem.dll
+	namespace CNetChan {
+		// calls a function with xref "CTSQueue corruption"
+		Index PostReceivedNetMessage{};
+		// xref: "CNetChan::SendNetMessage"
+		Index SendNetMessage{};
 	}
 	
 	// panorama.dll
@@ -100,7 +109,7 @@ namespace VMI {
 		Index GetScreenSize{};
 	}
 
-#define TABLE_ENTRY(x) { #x, &x },
+#define TABLE_ENTRY(x) { #x, const_cast<uint32_t*>(&x) },
 	inline std::map<std::string, uint32_t*> vmTables = {
 		TABLE_ENTRY(CBaseEntity::GetSchemaBinding)
 
@@ -126,7 +135,7 @@ namespace VMI {
 
 		TABLE_ENTRY(CDOTAParticleManager::CreateParticle)
 
-		TABLE_ENTRY(CEngineClient::IsInGame)
+		//TABLE_ENTRY(CEngineClient::IsInGame)
 
 		TABLE_ENTRY(CParticleCollection::SetControlPoint)
 		TABLE_ENTRY(CParticleCollection::SetRenderingEnabled)
@@ -134,6 +143,10 @@ namespace VMI {
 		TABLE_ENTRY(CRenderGameSystem::WorldToProjectionMatrix)
 		
 		TABLE_ENTRY(CEngineServiceMgr::GetScreenSize)
+
+		// Unstable.
+		//TABLE_ENTRY(CNetChan::PostReceivedNetMessage)
+		//TABLE_ENTRY(CNetChan::SendNetMessage)
 	};
 
 #undef TABLE_ENTRY

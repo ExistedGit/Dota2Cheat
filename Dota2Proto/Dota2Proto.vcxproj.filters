@@ -231,6 +231,15 @@
     <ClCompile Include="src\valveextensions.pb.cc">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="src\dota_fighting_game_p2p_messages.pb.cc">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dota_gcmessages_common_fighting_game.pb.cc">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dota_gcmessages_common_overworld.pb.cc">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\base_gcmessages.pb.h">
@@ -447,6 +456,15 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="src\valveextensions.pb.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dota_fighting_game_p2p_messages.pb.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dota_gcmessages_common_fighting_game.pb.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dota_gcmessages_common_overworld.pb.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

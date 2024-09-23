@@ -25,8 +25,8 @@ PROTOBUF_CONSTEXPR CMsgArcanaVotes_Match::CMsgArcanaVotes_Match(
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.match_id_)*/0u
-  , /*decltype(_impl_.hero_id_0_)*/0u
-  , /*decltype(_impl_.hero_id_1_)*/0u
+  , /*decltype(_impl_.hero_id_0_)*/0
+  , /*decltype(_impl_.hero_id_1_)*/0
   , /*decltype(_impl_.hero_seeding_0_)*/0u
   , /*decltype(_impl_.hero_seeding_1_)*/0u
   , /*decltype(_impl_.vote_count_0_)*/0u
@@ -122,7 +122,7 @@ PROTOBUF_CONSTEXPR CMsgDraftTrivia_DraftTriviaHeroInfo::CMsgDraftTrivia_DraftTri
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.hero_id_)*/0u
+  , /*decltype(_impl_.hero_id_)*/0
   , /*decltype(_impl_.role_)*/0u} {}
 struct CMsgDraftTrivia_DraftTriviaHeroInfoDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CMsgDraftTrivia_DraftTriviaHeroInfoDefaultTypeInternal()
@@ -309,6 +309,70 @@ struct CMsgTeamFanContentAutographStatusDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgTeamFanContentAutographStatusDefaultTypeInternal _CMsgTeamFanContentAutographStatus_default_instance_;
+PROTOBUF_CONSTEXPR CMsgTalentContentAssetStatus::CMsgTalentContentAssetStatus(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.asset_index_)*/0u
+  , /*decltype(_impl_.asset_status_)*/0
+  , /*decltype(_impl_.asset_type_)*/1} {}
+struct CMsgTalentContentAssetStatusDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CMsgTalentContentAssetStatusDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CMsgTalentContentAssetStatusDefaultTypeInternal() {}
+  union {
+    CMsgTalentContentAssetStatus _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgTalentContentAssetStatusDefaultTypeInternal _CMsgTalentContentAssetStatus_default_instance_;
+PROTOBUF_CONSTEXPR CMsgTalentContentStatus_TalentDetails::CMsgTalentContentStatus_TalentDetails(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.asset_status_)*/{}
+  , /*decltype(_impl_.full_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.nickname_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.zip_file_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.account_id_)*/0u
+  , /*decltype(_impl_.workshop_item_id_)*/0u
+  , /*decltype(_impl_.status_)*/0
+  , /*decltype(_impl_.broadcast_language_)*/0u} {}
+struct CMsgTalentContentStatus_TalentDetailsDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CMsgTalentContentStatus_TalentDetailsDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CMsgTalentContentStatus_TalentDetailsDefaultTypeInternal() {}
+  union {
+    CMsgTalentContentStatus_TalentDetails _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgTalentContentStatus_TalentDetailsDefaultTypeInternal _CMsgTalentContentStatus_TalentDetails_default_instance_;
+PROTOBUF_CONSTEXPR CMsgTalentContentStatus::CMsgTalentContentStatus(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.talent_status_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct CMsgTalentContentStatusDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CMsgTalentContentStatusDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CMsgTalentContentStatusDefaultTypeInternal() {}
+  union {
+    CMsgTalentContentStatus _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgTalentContentStatusDefaultTypeInternal _CMsgTalentContentStatus_default_instance_;
+PROTOBUF_CONSTEXPR CMsgSetTalentContentResponse::CMsgSetTalentContentResponse(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.result_)*/0} {}
+struct CMsgSetTalentContentResponseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CMsgSetTalentContentResponseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CMsgSetTalentContentResponseDefaultTypeInternal() {}
+  union {
+    CMsgSetTalentContentResponse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgSetTalentContentResponseDefaultTypeInternal _CMsgSetTalentContentResponse_default_instance_;
 PROTOBUF_CONSTEXPR CMsgDPCEvent_PhaseInfo::CMsgDPCEvent_PhaseInfo(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
@@ -615,8 +679,8 @@ struct CMsgDOTADPCMatchDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgDOTADPCMatchDefaultTypeInternal _CMsgDOTADPCMatch_default_instance_;
-static ::_pb::Metadata file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[34];
-static const ::_pb::EnumDescriptor* file_level_enum_descriptors_dota_5fgcmessages_5fwebapi_2eproto[10];
+static ::_pb::Metadata file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[38];
+static const ::_pb::EnumDescriptor* file_level_enum_descriptors_dota_5fgcmessages_5fwebapi_2eproto[14];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_dota_5fgcmessages_5fwebapi_2eproto = nullptr;
 
 const uint32_t TableStruct_dota_5fgcmessages_5fwebapi_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -881,6 +945,55 @@ const uint32_t TableStruct_dota_5fgcmessages_5fwebapi_2eproto::offsets[] PROTOBU
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::CMsgTeamFanContentAutographStatus, _impl_.team_autographs_),
+  PROTOBUF_FIELD_OFFSET(::CMsgTalentContentAssetStatus, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgTalentContentAssetStatus, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CMsgTalentContentAssetStatus, _impl_.asset_type_),
+  PROTOBUF_FIELD_OFFSET(::CMsgTalentContentAssetStatus, _impl_.asset_index_),
+  PROTOBUF_FIELD_OFFSET(::CMsgTalentContentAssetStatus, _impl_.asset_status_),
+  2,
+  0,
+  1,
+  PROTOBUF_FIELD_OFFSET(::CMsgTalentContentStatus_TalentDetails, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgTalentContentStatus_TalentDetails, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CMsgTalentContentStatus_TalentDetails, _impl_.account_id_),
+  PROTOBUF_FIELD_OFFSET(::CMsgTalentContentStatus_TalentDetails, _impl_.full_name_),
+  PROTOBUF_FIELD_OFFSET(::CMsgTalentContentStatus_TalentDetails, _impl_.nickname_),
+  PROTOBUF_FIELD_OFFSET(::CMsgTalentContentStatus_TalentDetails, _impl_.workshop_item_id_),
+  PROTOBUF_FIELD_OFFSET(::CMsgTalentContentStatus_TalentDetails, _impl_.zip_file_),
+  PROTOBUF_FIELD_OFFSET(::CMsgTalentContentStatus_TalentDetails, _impl_.status_),
+  PROTOBUF_FIELD_OFFSET(::CMsgTalentContentStatus_TalentDetails, _impl_.asset_status_),
+  PROTOBUF_FIELD_OFFSET(::CMsgTalentContentStatus_TalentDetails, _impl_.broadcast_language_),
+  3,
+  0,
+  1,
+  4,
+  2,
+  5,
+  ~0u,
+  6,
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::CMsgTalentContentStatus, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CMsgTalentContentStatus, _impl_.talent_status_),
+  PROTOBUF_FIELD_OFFSET(::CMsgSetTalentContentResponse, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgSetTalentContentResponse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CMsgSetTalentContentResponse, _impl_.result_),
+  0,
   PROTOBUF_FIELD_OFFSET(::CMsgDPCEvent_PhaseInfo, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgDPCEvent_PhaseInfo, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1155,24 +1268,28 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 226, 236, -1, sizeof(::CMsgTeamFanContentAutographStatus_AutographStatus)},
   { 240, 250, -1, sizeof(::CMsgTeamFanContentAutographStatus_TeamStatus)},
   { 254, -1, -1, sizeof(::CMsgTeamFanContentAutographStatus)},
-  { 261, 269, -1, sizeof(::CMsgDPCEvent_PhaseInfo)},
-  { 271, 281, -1, sizeof(::CMsgDPCEvent_League)},
-  { 285, 306, -1, sizeof(::CMsgDPCEvent)},
-  { 321, -1, -1, sizeof(::CMsgDPCEventList)},
-  { 328, 336, -1, sizeof(::CMsgDOTAFantasyCardLineup_CardBonus)},
-  { 338, 353, -1, sizeof(::CMsgDOTAFantasyCardLineup_Card)},
-  { 362, 371, -1, sizeof(::CMsgDOTAFantasyCardLineup_League)},
-  { 374, 384, -1, sizeof(::CMsgDOTAFantasyCardLineup_Period)},
-  { 388, -1, -1, sizeof(::CMsgDOTAFantasyCardLineup)},
-  { 395, 403, -1, sizeof(::CMsgDOTAFantasyCardList_CardBonus)},
-  { 405, 418, -1, sizeof(::CMsgDOTAFantasyCardList_Card)},
-  { 425, -1, -1, sizeof(::CMsgDOTAFantasyCardList)},
-  { 432, 444, -1, sizeof(::CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow)},
-  { 450, -1, -1, sizeof(::CMsgChatToxicityToxicPlayerMatchesReport)},
-  { 457, 469, -1, sizeof(::CMsgChatToxicityReport)},
-  { 475, 487, -1, sizeof(::CMsgGetTeamAuditInformation_Action)},
-  { 493, 503, -1, sizeof(::CMsgGetTeamAuditInformation)},
-  { 507, 515, -1, sizeof(::CMsgDOTADPCMatch)},
+  { 261, 270, -1, sizeof(::CMsgTalentContentAssetStatus)},
+  { 273, 287, -1, sizeof(::CMsgTalentContentStatus_TalentDetails)},
+  { 295, -1, -1, sizeof(::CMsgTalentContentStatus)},
+  { 302, 309, -1, sizeof(::CMsgSetTalentContentResponse)},
+  { 310, 318, -1, sizeof(::CMsgDPCEvent_PhaseInfo)},
+  { 320, 330, -1, sizeof(::CMsgDPCEvent_League)},
+  { 334, 355, -1, sizeof(::CMsgDPCEvent)},
+  { 370, -1, -1, sizeof(::CMsgDPCEventList)},
+  { 377, 385, -1, sizeof(::CMsgDOTAFantasyCardLineup_CardBonus)},
+  { 387, 402, -1, sizeof(::CMsgDOTAFantasyCardLineup_Card)},
+  { 411, 420, -1, sizeof(::CMsgDOTAFantasyCardLineup_League)},
+  { 423, 433, -1, sizeof(::CMsgDOTAFantasyCardLineup_Period)},
+  { 437, -1, -1, sizeof(::CMsgDOTAFantasyCardLineup)},
+  { 444, 452, -1, sizeof(::CMsgDOTAFantasyCardList_CardBonus)},
+  { 454, 467, -1, sizeof(::CMsgDOTAFantasyCardList_Card)},
+  { 474, -1, -1, sizeof(::CMsgDOTAFantasyCardList)},
+  { 481, 493, -1, sizeof(::CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow)},
+  { 499, -1, -1, sizeof(::CMsgChatToxicityToxicPlayerMatchesReport)},
+  { 506, 518, -1, sizeof(::CMsgChatToxicityReport)},
+  { 524, 536, -1, sizeof(::CMsgGetTeamAuditInformation_Action)},
+  { 542, 552, -1, sizeof(::CMsgGetTeamAuditInformation)},
+  { 556, 564, -1, sizeof(::CMsgDOTADPCMatch)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -1192,6 +1309,10 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::_CMsgTeamFanContentAutographStatus_AutographStatus_default_instance_._instance,
   &::_CMsgTeamFanContentAutographStatus_TeamStatus_default_instance_._instance,
   &::_CMsgTeamFanContentAutographStatus_default_instance_._instance,
+  &::_CMsgTalentContentAssetStatus_default_instance_._instance,
+  &::_CMsgTalentContentStatus_TalentDetails_default_instance_._instance,
+  &::_CMsgTalentContentStatus_default_instance_._instance,
+  &::_CMsgSetTalentContentResponse_default_instance_._instance,
   &::_CMsgDPCEvent_PhaseInfo_default_instance_._instance,
   &::_CMsgDPCEvent_League_default_instance_._instance,
   &::_CMsgDPCEvent_default_instance_._instance,
@@ -1224,7 +1345,7 @@ const char descriptor_table_protodef_dota_5fgcmessages_5fwebapi_2eproto[] PROTOB
   "ting\030\005 \001(\010\022\037\n\027closest_active_match_id\030\006 "
   "\001(\r\022\020\n\010event_id\030\007 \001(\r\022\031\n\021voting_start_ti"
   "me\030\010 \001(\r\032\204\002\n\005Match\022\020\n\010match_id\030\001 \001(\r\022\021\n\t"
-  "hero_id_0\030\002 \001(\r\022\021\n\thero_id_1\030\003 \001(\r\022\026\n\016he"
+  "hero_id_0\030\002 \001(\005\022\021\n\thero_id_1\030\003 \001(\005\022\026\n\016he"
   "ro_seeding_0\030\004 \001(\r\022\026\n\016hero_seeding_1\030\005 \001"
   "(\r\022\024\n\014vote_count_0\030\006 \001(\r\022\024\n\014vote_count_1"
   "\030\007 \001(\r\022\024\n\014voting_state\030\010 \001(\r\022\024\n\014round_nu"
@@ -1259,7 +1380,7 @@ const char descriptor_table_protodef_dota_5fgcmessages_5fwebapi_2eproto[] PROTOB
   "rrent_match_voted_radiant\030\006 \001(\010\0228\n\017previ"
   "ous_result\030\007 \001(\0132\037.CMsgDraftTrivia.Previ"
   "ousResult\022\026\n\016current_streak\030\010 \001(\r\0324\n\023Dra"
-  "ftTriviaHeroInfo\022\017\n\007hero_id\030\001 \001(\r\022\014\n\004rol"
+  "ftTriviaHeroInfo\022\017\n\007hero_id\030\001 \001(\005\022\014\n\004rol"
   "e\030\002 \001(\r\032\217\001\n\024DraftTriviaMatchInfo\022<\n\016radi"
   "ant_heroes\030\001 \003(\0132$.CMsgDraftTrivia.Draft"
   "TriviaHeroInfo\0229\n\013dire_heroes\030\002 \003(\0132$.CM"
@@ -1301,113 +1422,143 @@ const char descriptor_table_protodef_dota_5fgcmessages_5fwebapi_2eproto[] PROTOB
   "\nTeamStatus\022\014\n\004name\030\001 \001(\t\022\017\n\007team_id\030\002 \001"
   "(\r\022F\n\nautographs\030\003 \003(\01322.CMsgTeamFanCont"
   "entAutographStatus.AutographStatus\022\033\n\023wo"
-  "rkshop_account_id\030\004 \001(\r\"\222\016\n\014CMsgDPCEvent"
-  "\0228\n\005event\030\001 \001(\0162\032.CMsgDPCEvent.ELeagueEv"
-  "ent:\rEVENT_INVALID\022;\n\nevent_type\030\002 \001(\0162\036"
-  ".CMsgDPCEvent.ELeagueEventType:\007UNKNOWN\022"
-  "%\n\007leagues\030\003 \003(\0132\024.CMsgDPCEvent.League\022\033"
-  "\n\023registration_period\030\004 \001(\r\022\031\n\021is_event_"
-  "upcoming\030\005 \001(\010\022\032\n\022is_event_completed\030\006 \001"
-  "(\010\022\022\n\nevent_name\030\007 \001(\t\022\033\n\023multicast_leag"
-  "ue_id\030\010 \001(\r\022\031\n\021multicast_streams\030\t \003(\r\022,"
-  "\n\004tour\030\n \001(\0162\023.CMsgDPCEvent.ETour:\tTOUR_"
-  "NONE\022\033\n\023timestamp_drop_lock\030\014 \001(\r\022\032\n\022tim"
-  "estamp_add_lock\030\r \001(\r\022\"\n\032timestamp_conte"
-  "nt_deadline\030\016 \001(\r\022\032\n\022is_fantasy_enabled\030"
-  "\017 \001(\010\022)\n!timestamp_content_review_deadli"
-  "ne\030\020 \001(\r\032a\n\tPhaseInfo\022=\n\005phase\030\001 \001(\0162\037.C"
-  "MsgDPCEvent.ELeagueEventPhase:\rPHASE_INV"
-  "ALID\022\025\n\rnode_group_id\030\002 \001(\r\032\264\001\n\006League\0223"
-  "\n\006region\030\001 \001(\0162\016.ELeagueRegion:\023LEAGUE_R"
-  "EGION_UNSET\0229\n\010division\030\002 \001(\0162\020.ELeagueD"
-  "ivision:\025LEAGUE_DIVISION_UNSET\022\021\n\tleague"
-  "_id\030\003 \001(\r\022\'\n\006phases\030\004 \003(\0132\027.CMsgDPCEvent"
-  ".PhaseInfo\"\323\004\n\014ELeagueEvent\022\021\n\rEVENT_INV"
-  "ALID\020\000\022\026\n\022SPRING_2021_LEAGUE\020\001\022\025\n\021SPRING"
-  "_2021_MAJOR\020\002\022!\n\035INTERNATIONAL_2021_QUAL"
-  "IFIERS\020\003\022\026\n\022INTERNATIONAL_2021\020\004\022\026\n\022WINT"
-  "ER_2021_LEAGUE\020\005\022\035\n\031WINTER_2021_LEAGUE_F"
-  "INALS\020\006\022\026\n\022SPRING_2022_LEAGUE\020\007\022\025\n\021SPRIN"
-  "G_2022_MAJOR\020\010\022\026\n\022SUMMER_2022_LEAGUE\020\t\022\025"
-  "\n\021SUMMER_2022_MAJOR\020\n\022\026\n\022INTERNATIONAL_2"
-  "022\020\013\022\031\n\025CHINA_REGIONAL_FINALS\020\014\022*\n&INTE"
-  "RNATIONAL_2022_REGIONAL_QUALIFIERS\020\r\022-\n)"
-  "INTERNATIONAL_2022_LAST_CHANCE_QUALIFIER"
-  "S\020\016\022\026\n\022WINTER_2023_LEAGUE\020\017\022\025\n\021WINTER_20"
-  "23_MAJOR\020\020\022\026\n\022SPRING_2023_LEAGUE\020\021\022\025\n\021SP"
-  "RING_2023_MAJOR\020\022\022\026\n\022SUMMER_2023_LEAGUE\020"
-  "\023\022\025\n\021SUMMER_2023_MAJOR\020\024\022\026\n\022INTERNATIONA"
-  "L_2023\020\025\"\311\001\n\021ELeagueEventPhase\022\021\n\rPHASE_"
-  "INVALID\020\000\022\r\n\tWILD_CARD\020\001\022\017\n\013GROUP_STAGE\020"
-  "\002\022\013\n\007GROUP_A\020\003\022\013\n\007GROUP_B\020\004\022\013\n\007OVERALL\020\005"
-  "\022\013\n\007PLAYOFF\020\006\022\013\n\007RESULTS\020\007\022\027\n\023DPC_POINT_"
-  "STANDINGS\020\010\022\013\n\007GROUP_C\020\t\022\013\n\007GROUP_D\020\n\022\r\n"
-  "\tPLACEMENT\020\013\"z\n\020ELeagueEventType\022\013\n\007UNKN"
-  "OWN\020\000\022\n\n\006LEAGUE\020\001\022\t\n\005MAJOR\020\002\022\034\n\030INTERNAT"
-  "IONAL_QUALIFIERS\020\003\022\021\n\rINTERNATIONAL\020\004\022\021\n"
-  "\rLEAGUE_FINALS\020\005\":\n\005ETour\022\r\n\tTOUR_NONE\020\000"
-  "\022\n\n\006TOUR_1\020\001\022\n\n\006TOUR_2\020\002\022\n\n\006TOUR_3\020\003\"1\n\020"
-  "CMsgDPCEventList\022\035\n\006events\030\001 \003(\0132\r.CMsgD"
-  "PCEvent\"\311\004\n\031CMsgDOTAFantasyCardLineup\0222\n"
-  "\007periods\030\001 \003(\0132!.CMsgDOTAFantasyCardLine"
-  "up.Period\0324\n\tCardBonus\022\022\n\nbonus_stat\030\001 \001"
-  "(\r\022\023\n\013bonus_value\030\002 \001(\r\032\322\001\n\004Card\022\031\n\021play"
-  "er_account_id\030\001 \001(\r\022\023\n\013player_name\030\002 \001(\t"
-  "\022\017\n\007team_id\030\003 \001(\r\022\021\n\tteam_name\030\004 \001(\t\022\014\n\004"
-  "role\030\005 \001(\r\0225\n\007bonuses\030\006 \003(\0132$.CMsgDOTAFa"
-  "ntasyCardLineup.CardBonus\022\r\n\005score\030\007 \001(\002"
-  "\022\021\n\tfinalized\030\010 \001(\010\022\017\n\007item_id\030\t \001(\004\032Z\n\006"
-  "League\022\021\n\tleague_id\030\001 \001(\r\022.\n\005cards\030\002 \003(\013"
-  "2\037.CMsgDOTAFantasyCardLineup.Card\022\r\n\005sco"
-  "re\030\003 \001(\002\032\220\001\n\006Period\022\"\n\016fantasy_period\030\001 "
-  "\001(\r:\n4294967295\022\027\n\017timestamp_start\030\002 \001(\r"
-  "\022\025\n\rtimestamp_end\030\003 \001(\r\0222\n\007leagues\030\004 \003(\013"
-  "2!.CMsgDOTAFantasyCardLineup.League\"\256\002\n\027"
-  "CMsgDOTAFantasyCardList\022,\n\005cards\030\001 \003(\0132\035"
-  ".CMsgDOTAFantasyCardList.Card\0324\n\tCardBon"
-  "us\022\022\n\nbonus_stat\030\001 \001(\r\022\023\n\013bonus_value\030\002 "
-  "\001(\r\032\256\001\n\004Card\022\031\n\021player_account_id\030\001 \001(\r\022"
-  "\023\n\013player_name\030\002 \001(\t\022\017\n\007team_id\030\003 \001(\r\022\021\n"
-  "\tteam_name\030\004 \001(\t\022\014\n\004role\030\005 \001(\r\0223\n\007bonuse"
-  "s\030\006 \003(\0132\".CMsgDOTAFantasyCardList.CardBo"
-  "nus\022\017\n\007item_id\030\010 \001(\004\"\235\002\n(CMsgChatToxicit"
-  "yToxicPlayerMatchesReport\022E\n\004rows\030\001 \003(\0132"
-  "7.CMsgChatToxicityToxicPlayerMatchesRepo"
-  "rt.IndividualRow\032\251\001\n\rIndividualRow\022\031\n\021pl"
-  "ayer_account_id\030\001 \001(\r\022\030\n\020num_matches_see"
-  "n\030\002 \001(\r\022\024\n\014num_messages\030\003 \001(\r\022\032\n\022num_mes"
-  "sages_toxic\030\004 \001(\r\022\030\n\020first_match_seen\030\005 "
-  "\001(\004\022\027\n\017last_match_seen\030\006 \001(\004\"\237\001\n\026CMsgCha"
-  "tToxicityReport\022\030\n\020num_matches_seen\030\001 \001("
-  "\r\022\024\n\014num_messages\030\002 \001(\r\022$\n\034num_messages_"
-  "ml_thinks_toxic\030\004 \001(\r\022\016\n\006status\030\005 \001(\t\022\016\n"
-  "\006result\030\006 \001(\r\022\017\n\007message\030\007 \001(\t\"\233\002\n\033CMsgG"
-  "etTeamAuditInformation\022\017\n\007team_id\030\001 \001(\r\022"
-  "\021\n\tteam_name\030\002 \001(\t\0224\n\007actions\030\003 \003(\0132#.CM"
-  "sgGetTeamAuditInformation.Action\022\024\n\014last"
-  "_updated\030\004 \001(\r\032\213\001\n\006Action\022\033\n\023registratio"
-  "n_period\030\001 \001(\r\022\022\n\naccount_id\030\002 \001(\r\022\016\n\006ac"
-  "tion\030\003 \001(\r\022\021\n\ttimestamp\030\004 \001(\r\022\023\n\013player_"
-  "name\030\005 \001(\t\022\030\n\020player_real_name\030\006 \001(\t\"X\n\020"
-  "CMsgDOTADPCMatch\022\035\n\005match\030\001 \001(\0132\016.CMsgDO"
-  "TAMatch\022%\n\010metadata\030\002 \001(\0132\023.CDOTAMatchMe"
-  "tadata*\210\001\n\025ETeamFanContentStatus\022#\n\037TEAM"
-  "_FAN_CONTENT_STATUS_INVALID\020\000\022#\n\037TEAM_FA"
-  "N_CONTENT_STATUS_PENDING\020\001\022%\n!TEAM_FAN_C"
-  "ONTENT_STATUS_EVALUATED\020\002*\351\002\n\030ETeamFanCo"
-  "ntentAssetType\022\"\n\036k_eFanContentAssetType"
-  "_LogoPNG\020\001\022\"\n\036k_eFanContentAssetType_Log"
-  "oSVG\020\002\022!\n\035k_eFanContentAssetType_Logo3D\020"
-  "\003\022\"\n\036k_eFanContentAssetType_Players\020\004\022!\n"
-  "\035k_eFanContentAssetType_Sprays\020\005\022%\n!k_eF"
-  "anContentAssetType_Wallpapers\020\006\022$\n k_eFa"
-  "nContentAssetType_Emoticons\020\007\022%\n!k_eFanC"
-  "ontentAssetType_VoiceLines\020\010\022\'\n#k_eFanCo"
-  "ntentAssetType_Localization\020\t*\215\001\n\032ETeamF"
-  "anContentAssetStatus\022!\n\035k_eFanContentAss"
-  "etStatus_None\020\000\022%\n!k_eFanContentAssetSta"
-  "tus_Approved\020\001\022%\n!k_eFanContentAssetStat"
-  "us_Rejected\020\002"
+  "rkshop_account_id\030\004 \001(\r\"\326\001\n\034CMsgTalentCo"
+  "ntentAssetStatus\022M\n\nasset_type\030\001 \001(\0162\030.E"
+  "TalentContentAssetType:\037k_eTalentContent"
+  "AssetType_Photo\022\023\n\013asset_index\030\002 \001(\r\022R\n\014"
+  "asset_status\030\003 \001(\0162\032.ETalentContentAsset"
+  "Status: k_eTalentContentAssetStatus_None"
+  "\"\346\002\n\027CMsgTalentContentStatus\022=\n\rtalent_s"
+  "tatus\030\001 \003(\0132&.CMsgTalentContentStatus.Ta"
+  "lentDetails\032\213\002\n\rTalentDetails\022\022\n\naccount"
+  "_id\030\001 \001(\r\022\021\n\tfull_name\030\002 \001(\t\022\020\n\010nickname"
+  "\030\003 \001(\t\022\030\n\020workshop_item_id\030\004 \001(\r\022\020\n\010zip_"
+  "file\030\005 \001(\t\022D\n\006status\030\006 \001(\0162\025.ETalentCont"
+  "entStatus:\035TALENT_CONTENT_STATUS_INVALID"
+  "\0223\n\014asset_status\030\007 \003(\0132\035.CMsgTalentConte"
+  "ntAssetStatus\022\032\n\022broadcast_language\030\010 \001("
+  "\r\"\222\001\n\034CMsgSetTalentContentResponse\022A\n\006re"
+  "sult\030\001 \001(\0162%.CMsgSetTalentContentRespons"
+  "e.EResult:\nk_eSuccess\"/\n\007EResult\022\016\n\nk_eS"
+  "uccess\020\000\022\024\n\020k_eInternalError\020\001\"\271\016\n\014CMsgD"
+  "PCEvent\0228\n\005event\030\001 \001(\0162\032.CMsgDPCEvent.EL"
+  "eagueEvent:\rEVENT_INVALID\022;\n\nevent_type\030"
+  "\002 \001(\0162\036.CMsgDPCEvent.ELeagueEventType:\007U"
+  "NKNOWN\022%\n\007leagues\030\003 \003(\0132\024.CMsgDPCEvent.L"
+  "eague\022\033\n\023registration_period\030\004 \001(\r\022\031\n\021is"
+  "_event_upcoming\030\005 \001(\010\022\032\n\022is_event_comple"
+  "ted\030\006 \001(\010\022\022\n\nevent_name\030\007 \001(\t\022\033\n\023multica"
+  "st_league_id\030\010 \001(\r\022\031\n\021multicast_streams\030"
+  "\t \003(\r\022,\n\004tour\030\n \001(\0162\023.CMsgDPCEvent.ETour"
+  ":\tTOUR_NONE\022\033\n\023timestamp_drop_lock\030\014 \001(\r"
+  "\022\032\n\022timestamp_add_lock\030\r \001(\r\022\"\n\032timestam"
+  "p_content_deadline\030\016 \001(\r\022\032\n\022is_fantasy_e"
+  "nabled\030\017 \001(\010\022)\n!timestamp_content_review"
+  "_deadline\030\020 \001(\r\032a\n\tPhaseInfo\022=\n\005phase\030\001 "
+  "\001(\0162\037.CMsgDPCEvent.ELeagueEventPhase:\rPH"
+  "ASE_INVALID\022\025\n\rnode_group_id\030\002 \001(\r\032\264\001\n\006L"
+  "eague\0223\n\006region\030\001 \001(\0162\016.ELeagueRegion:\023L"
+  "EAGUE_REGION_UNSET\0229\n\010division\030\002 \001(\0162\020.E"
+  "LeagueDivision:\025LEAGUE_DIVISION_UNSET\022\021\n"
+  "\tleague_id\030\003 \001(\r\022\'\n\006phases\030\004 \003(\0132\027.CMsgD"
+  "PCEvent.PhaseInfo\"\353\004\n\014ELeagueEvent\022\021\n\rEV"
+  "ENT_INVALID\020\000\022\026\n\022SPRING_2021_LEAGUE\020\001\022\025\n"
+  "\021SPRING_2021_MAJOR\020\002\022!\n\035INTERNATIONAL_20"
+  "21_QUALIFIERS\020\003\022\026\n\022INTERNATIONAL_2021\020\004\022"
+  "\026\n\022WINTER_2021_LEAGUE\020\005\022\035\n\031WINTER_2021_L"
+  "EAGUE_FINALS\020\006\022\026\n\022SPRING_2022_LEAGUE\020\007\022\025"
+  "\n\021SPRING_2022_MAJOR\020\010\022\026\n\022SUMMER_2022_LEA"
+  "GUE\020\t\022\025\n\021SUMMER_2022_MAJOR\020\n\022\026\n\022INTERNAT"
+  "IONAL_2022\020\013\022\031\n\025CHINA_REGIONAL_FINALS\020\014\022"
+  "*\n&INTERNATIONAL_2022_REGIONAL_QUALIFIER"
+  "S\020\r\022-\n)INTERNATIONAL_2022_LAST_CHANCE_QU"
+  "ALIFIERS\020\016\022\026\n\022WINTER_2023_LEAGUE\020\017\022\025\n\021WI"
+  "NTER_2023_MAJOR\020\020\022\026\n\022SPRING_2023_LEAGUE\020"
+  "\021\022\025\n\021SPRING_2023_MAJOR\020\022\022\026\n\022SUMMER_2023_"
+  "LEAGUE\020\023\022\025\n\021SUMMER_2023_MAJOR\020\024\022\026\n\022INTER"
+  "NATIONAL_2023\020\025\022\026\n\022INTERNATIONAL_2024\020\027\""
+  "\311\001\n\021ELeagueEventPhase\022\021\n\rPHASE_INVALID\020\000"
+  "\022\r\n\tWILD_CARD\020\001\022\017\n\013GROUP_STAGE\020\002\022\013\n\007GROU"
+  "P_A\020\003\022\013\n\007GROUP_B\020\004\022\013\n\007OVERALL\020\005\022\013\n\007PLAYO"
+  "FF\020\006\022\013\n\007RESULTS\020\007\022\027\n\023DPC_POINT_STANDINGS"
+  "\020\010\022\013\n\007GROUP_C\020\t\022\013\n\007GROUP_D\020\n\022\r\n\tPLACEMEN"
+  "T\020\013\"\210\001\n\020ELeagueEventType\022\013\n\007UNKNOWN\020\000\022\n\n"
+  "\006LEAGUE\020\001\022\t\n\005MAJOR\020\002\022\034\n\030INTERNATIONAL_QU"
+  "ALIFIERS\020\003\022\021\n\rINTERNATIONAL\020\004\022\021\n\rLEAGUE_"
+  "FINALS\020\005\022\014\n\010EXTERNAL\020\006\":\n\005ETour\022\r\n\tTOUR_"
+  "NONE\020\000\022\n\n\006TOUR_1\020\001\022\n\n\006TOUR_2\020\002\022\n\n\006TOUR_3"
+  "\020\003\"1\n\020CMsgDPCEventList\022\035\n\006events\030\001 \003(\0132\r"
+  ".CMsgDPCEvent\"\311\004\n\031CMsgDOTAFantasyCardLin"
+  "eup\0222\n\007periods\030\001 \003(\0132!.CMsgDOTAFantasyCa"
+  "rdLineup.Period\0324\n\tCardBonus\022\022\n\nbonus_st"
+  "at\030\001 \001(\r\022\023\n\013bonus_value\030\002 \001(\r\032\322\001\n\004Card\022\031"
+  "\n\021player_account_id\030\001 \001(\r\022\023\n\013player_name"
+  "\030\002 \001(\t\022\017\n\007team_id\030\003 \001(\r\022\021\n\tteam_name\030\004 \001"
+  "(\t\022\014\n\004role\030\005 \001(\r\0225\n\007bonuses\030\006 \003(\0132$.CMsg"
+  "DOTAFantasyCardLineup.CardBonus\022\r\n\005score"
+  "\030\007 \001(\002\022\021\n\tfinalized\030\010 \001(\010\022\017\n\007item_id\030\t \001"
+  "(\004\032Z\n\006League\022\021\n\tleague_id\030\001 \001(\r\022.\n\005cards"
+  "\030\002 \003(\0132\037.CMsgDOTAFantasyCardLineup.Card\022"
+  "\r\n\005score\030\003 \001(\002\032\220\001\n\006Period\022\"\n\016fantasy_per"
+  "iod\030\001 \001(\r:\n4294967295\022\027\n\017timestamp_start"
+  "\030\002 \001(\r\022\025\n\rtimestamp_end\030\003 \001(\r\0222\n\007leagues"
+  "\030\004 \003(\0132!.CMsgDOTAFantasyCardLineup.Leagu"
+  "e\"\256\002\n\027CMsgDOTAFantasyCardList\022,\n\005cards\030\001"
+  " \003(\0132\035.CMsgDOTAFantasyCardList.Card\0324\n\tC"
+  "ardBonus\022\022\n\nbonus_stat\030\001 \001(\r\022\023\n\013bonus_va"
+  "lue\030\002 \001(\r\032\256\001\n\004Card\022\031\n\021player_account_id\030"
+  "\001 \001(\r\022\023\n\013player_name\030\002 \001(\t\022\017\n\007team_id\030\003 "
+  "\001(\r\022\021\n\tteam_name\030\004 \001(\t\022\014\n\004role\030\005 \001(\r\0223\n\007"
+  "bonuses\030\006 \003(\0132\".CMsgDOTAFantasyCardList."
+  "CardBonus\022\017\n\007item_id\030\010 \001(\004\"\235\002\n(CMsgChatT"
+  "oxicityToxicPlayerMatchesReport\022E\n\004rows\030"
+  "\001 \003(\01327.CMsgChatToxicityToxicPlayerMatch"
+  "esReport.IndividualRow\032\251\001\n\rIndividualRow"
+  "\022\031\n\021player_account_id\030\001 \001(\r\022\030\n\020num_match"
+  "es_seen\030\002 \001(\r\022\024\n\014num_messages\030\003 \001(\r\022\032\n\022n"
+  "um_messages_toxic\030\004 \001(\r\022\030\n\020first_match_s"
+  "een\030\005 \001(\004\022\027\n\017last_match_seen\030\006 \001(\004\"\237\001\n\026C"
+  "MsgChatToxicityReport\022\030\n\020num_matches_see"
+  "n\030\001 \001(\r\022\024\n\014num_messages\030\002 \001(\r\022$\n\034num_mes"
+  "sages_ml_thinks_toxic\030\004 \001(\r\022\016\n\006status\030\005 "
+  "\001(\t\022\016\n\006result\030\006 \001(\r\022\017\n\007message\030\007 \001(\t\"\233\002\n"
+  "\033CMsgGetTeamAuditInformation\022\017\n\007team_id\030"
+  "\001 \001(\r\022\021\n\tteam_name\030\002 \001(\t\0224\n\007actions\030\003 \003("
+  "\0132#.CMsgGetTeamAuditInformation.Action\022\024"
+  "\n\014last_updated\030\004 \001(\r\032\213\001\n\006Action\022\033\n\023regis"
+  "tration_period\030\001 \001(\r\022\022\n\naccount_id\030\002 \001(\r"
+  "\022\016\n\006action\030\003 \001(\r\022\021\n\ttimestamp\030\004 \001(\r\022\023\n\013p"
+  "layer_name\030\005 \001(\t\022\030\n\020player_real_name\030\006 \001"
+  "(\t\"X\n\020CMsgDOTADPCMatch\022\035\n\005match\030\001 \001(\0132\016."
+  "CMsgDOTAMatch\022%\n\010metadata\030\002 \001(\0132\023.CDOTAM"
+  "atchMetadata*\210\001\n\025ETeamFanContentStatus\022#"
+  "\n\037TEAM_FAN_CONTENT_STATUS_INVALID\020\000\022#\n\037T"
+  "EAM_FAN_CONTENT_STATUS_PENDING\020\001\022%\n!TEAM"
+  "_FAN_CONTENT_STATUS_EVALUATED\020\002*\351\002\n\030ETea"
+  "mFanContentAssetType\022\"\n\036k_eFanContentAss"
+  "etType_LogoPNG\020\001\022\"\n\036k_eFanContentAssetTy"
+  "pe_LogoSVG\020\002\022!\n\035k_eFanContentAssetType_L"
+  "ogo3D\020\003\022\"\n\036k_eFanContentAssetType_Player"
+  "s\020\004\022!\n\035k_eFanContentAssetType_Sprays\020\005\022%"
+  "\n!k_eFanContentAssetType_Wallpapers\020\006\022$\n"
+  " k_eFanContentAssetType_Emoticons\020\007\022%\n!k"
+  "_eFanContentAssetType_VoiceLines\020\010\022\'\n#k_"
+  "eFanContentAssetType_Localization\020\t*\215\001\n\032"
+  "ETeamFanContentAssetStatus\022!\n\035k_eFanCont"
+  "entAssetStatus_None\020\000\022%\n!k_eFanContentAs"
+  "setStatus_Approved\020\001\022%\n!k_eFanContentAss"
+  "etStatus_Rejected\020\002*\201\001\n\024ETalentContentSt"
+  "atus\022!\n\035TALENT_CONTENT_STATUS_INVALID\020\000\022"
+  "!\n\035TALENT_CONTENT_STATUS_PENDING\020\001\022#\n\037TA"
+  "LENT_CONTENT_STATUS_EVALUATED\020\002*\221\001\n\027ETal"
+  "entContentAssetType\022#\n\037k_eTalentContentA"
+  "ssetType_Photo\020\001\022\'\n#k_eTalentContentAsse"
+  "tType_Autograph\020\002\022(\n$k_eTalentContentAss"
+  "etType_Voicelines\020\003*\225\001\n\031ETalentContentAs"
+  "setStatus\022$\n k_eTalentContentAssetStatus"
+  "_None\020\000\022(\n$k_eTalentContentAssetStatus_A"
+  "pproved\020\001\022(\n$k_eTalentContentAssetStatus"
+  "_Rejected\020\002"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_deps[5] = {
   &::descriptor_table_dota_5fgcmessages_5fcommon_2eproto,
@@ -1418,9 +1569,9 @@ static const ::_pbi::DescriptorTable* const descriptor_table_dota_5fgcmessages_5
 };
 static ::_pbi::once_flag descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_dota_5fgcmessages_5fwebapi_2eproto = {
-    false, false, 7773, descriptor_table_protodef_dota_5fgcmessages_5fwebapi_2eproto,
+    false, false, 8971, descriptor_table_protodef_dota_5fgcmessages_5fwebapi_2eproto,
     "dota_gcmessages_webapi.proto",
-    &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_once, descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_deps, 5, 34,
+    &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_once, descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_deps, 5, 38,
     schemas, file_default_instances, TableStruct_dota_5fgcmessages_5fwebapi_2eproto::offsets,
     file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto, file_level_enum_descriptors_dota_5fgcmessages_5fwebapi_2eproto,
     file_level_service_descriptors_dota_5fgcmessages_5fwebapi_2eproto,
@@ -1520,9 +1671,30 @@ constexpr CMsgTeamFanContentAssetStatusResponse_EResult CMsgTeamFanContentAssetS
 constexpr CMsgTeamFanContentAssetStatusResponse_EResult CMsgTeamFanContentAssetStatusResponse::EResult_MAX;
 constexpr int CMsgTeamFanContentAssetStatusResponse::EResult_ARRAYSIZE;
 #endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgDPCEvent_ELeagueEvent_descriptor() {
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgSetTalentContentResponse_EResult_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_dota_5fgcmessages_5fwebapi_2eproto);
   return file_level_enum_descriptors_dota_5fgcmessages_5fwebapi_2eproto[3];
+}
+bool CMsgSetTalentContentResponse_EResult_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
+constexpr CMsgSetTalentContentResponse_EResult CMsgSetTalentContentResponse::k_eSuccess;
+constexpr CMsgSetTalentContentResponse_EResult CMsgSetTalentContentResponse::k_eInternalError;
+constexpr CMsgSetTalentContentResponse_EResult CMsgSetTalentContentResponse::EResult_MIN;
+constexpr CMsgSetTalentContentResponse_EResult CMsgSetTalentContentResponse::EResult_MAX;
+constexpr int CMsgSetTalentContentResponse::EResult_ARRAYSIZE;
+#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgDPCEvent_ELeagueEvent_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_dota_5fgcmessages_5fwebapi_2eproto);
+  return file_level_enum_descriptors_dota_5fgcmessages_5fwebapi_2eproto[4];
 }
 bool CMsgDPCEvent_ELeagueEvent_IsValid(int value) {
   switch (value) {
@@ -1548,6 +1720,7 @@ bool CMsgDPCEvent_ELeagueEvent_IsValid(int value) {
     case 19:
     case 20:
     case 21:
+    case 23:
       return true;
     default:
       return false;
@@ -1577,13 +1750,14 @@ constexpr CMsgDPCEvent_ELeagueEvent CMsgDPCEvent::SPRING_2023_MAJOR;
 constexpr CMsgDPCEvent_ELeagueEvent CMsgDPCEvent::SUMMER_2023_LEAGUE;
 constexpr CMsgDPCEvent_ELeagueEvent CMsgDPCEvent::SUMMER_2023_MAJOR;
 constexpr CMsgDPCEvent_ELeagueEvent CMsgDPCEvent::INTERNATIONAL_2023;
+constexpr CMsgDPCEvent_ELeagueEvent CMsgDPCEvent::INTERNATIONAL_2024;
 constexpr CMsgDPCEvent_ELeagueEvent CMsgDPCEvent::ELeagueEvent_MIN;
 constexpr CMsgDPCEvent_ELeagueEvent CMsgDPCEvent::ELeagueEvent_MAX;
 constexpr int CMsgDPCEvent::ELeagueEvent_ARRAYSIZE;
 #endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgDPCEvent_ELeagueEventPhase_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_dota_5fgcmessages_5fwebapi_2eproto);
-  return file_level_enum_descriptors_dota_5fgcmessages_5fwebapi_2eproto[4];
+  return file_level_enum_descriptors_dota_5fgcmessages_5fwebapi_2eproto[5];
 }
 bool CMsgDPCEvent_ELeagueEventPhase_IsValid(int value) {
   switch (value) {
@@ -1624,7 +1798,7 @@ constexpr int CMsgDPCEvent::ELeagueEventPhase_ARRAYSIZE;
 #endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgDPCEvent_ELeagueEventType_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_dota_5fgcmessages_5fwebapi_2eproto);
-  return file_level_enum_descriptors_dota_5fgcmessages_5fwebapi_2eproto[5];
+  return file_level_enum_descriptors_dota_5fgcmessages_5fwebapi_2eproto[6];
 }
 bool CMsgDPCEvent_ELeagueEventType_IsValid(int value) {
   switch (value) {
@@ -1634,6 +1808,7 @@ bool CMsgDPCEvent_ELeagueEventType_IsValid(int value) {
     case 3:
     case 4:
     case 5:
+    case 6:
       return true;
     default:
       return false;
@@ -1647,13 +1822,14 @@ constexpr CMsgDPCEvent_ELeagueEventType CMsgDPCEvent::MAJOR;
 constexpr CMsgDPCEvent_ELeagueEventType CMsgDPCEvent::INTERNATIONAL_QUALIFIERS;
 constexpr CMsgDPCEvent_ELeagueEventType CMsgDPCEvent::INTERNATIONAL;
 constexpr CMsgDPCEvent_ELeagueEventType CMsgDPCEvent::LEAGUE_FINALS;
+constexpr CMsgDPCEvent_ELeagueEventType CMsgDPCEvent::EXTERNAL;
 constexpr CMsgDPCEvent_ELeagueEventType CMsgDPCEvent::ELeagueEventType_MIN;
 constexpr CMsgDPCEvent_ELeagueEventType CMsgDPCEvent::ELeagueEventType_MAX;
 constexpr int CMsgDPCEvent::ELeagueEventType_ARRAYSIZE;
 #endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgDPCEvent_ETour_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_dota_5fgcmessages_5fwebapi_2eproto);
-  return file_level_enum_descriptors_dota_5fgcmessages_5fwebapi_2eproto[6];
+  return file_level_enum_descriptors_dota_5fgcmessages_5fwebapi_2eproto[7];
 }
 bool CMsgDPCEvent_ETour_IsValid(int value) {
   switch (value) {
@@ -1678,7 +1854,7 @@ constexpr int CMsgDPCEvent::ETour_ARRAYSIZE;
 #endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ETeamFanContentStatus_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_dota_5fgcmessages_5fwebapi_2eproto);
-  return file_level_enum_descriptors_dota_5fgcmessages_5fwebapi_2eproto[7];
+  return file_level_enum_descriptors_dota_5fgcmessages_5fwebapi_2eproto[8];
 }
 bool ETeamFanContentStatus_IsValid(int value) {
   switch (value) {
@@ -1693,7 +1869,7 @@ bool ETeamFanContentStatus_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ETeamFanContentAssetType_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_dota_5fgcmessages_5fwebapi_2eproto);
-  return file_level_enum_descriptors_dota_5fgcmessages_5fwebapi_2eproto[8];
+  return file_level_enum_descriptors_dota_5fgcmessages_5fwebapi_2eproto[9];
 }
 bool ETeamFanContentAssetType_IsValid(int value) {
   switch (value) {
@@ -1714,9 +1890,54 @@ bool ETeamFanContentAssetType_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ETeamFanContentAssetStatus_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_dota_5fgcmessages_5fwebapi_2eproto);
-  return file_level_enum_descriptors_dota_5fgcmessages_5fwebapi_2eproto[9];
+  return file_level_enum_descriptors_dota_5fgcmessages_5fwebapi_2eproto[10];
 }
 bool ETeamFanContentAssetStatus_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ETalentContentStatus_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_dota_5fgcmessages_5fwebapi_2eproto);
+  return file_level_enum_descriptors_dota_5fgcmessages_5fwebapi_2eproto[11];
+}
+bool ETalentContentStatus_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ETalentContentAssetType_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_dota_5fgcmessages_5fwebapi_2eproto);
+  return file_level_enum_descriptors_dota_5fgcmessages_5fwebapi_2eproto[12];
+}
+bool ETalentContentAssetType_IsValid(int value) {
+  switch (value) {
+    case 1:
+    case 2:
+    case 3:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ETalentContentAssetStatus_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_dota_5fgcmessages_5fwebapi_2eproto);
+  return file_level_enum_descriptors_dota_5fgcmessages_5fwebapi_2eproto[13];
+}
+bool ETalentContentAssetStatus_IsValid(int value) {
   switch (value) {
     case 0:
     case 1:
@@ -1807,8 +2028,8 @@ inline void CMsgArcanaVotes_Match::SharedCtor(
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.match_id_){0u}
-    , decltype(_impl_.hero_id_0_){0u}
-    , decltype(_impl_.hero_id_1_){0u}
+    , decltype(_impl_.hero_id_0_){0}
+    , decltype(_impl_.hero_id_1_){0}
     , decltype(_impl_.hero_seeding_0_){0u}
     , decltype(_impl_.hero_seeding_1_){0u}
     , decltype(_impl_.vote_count_0_){0u}
@@ -1874,7 +2095,7 @@ const char* CMsgArcanaVotes_Match::_InternalParse(const char* ptr, ::_pbi::Parse
         } else
           goto handle_unusual;
         continue;
-      // optional uint32 hero_id_0 = 2;
+      // optional int32 hero_id_0 = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _Internal::set_has_hero_id_0(&has_bits);
@@ -1883,7 +2104,7 @@ const char* CMsgArcanaVotes_Match::_InternalParse(const char* ptr, ::_pbi::Parse
         } else
           goto handle_unusual;
         continue;
-      // optional uint32 hero_id_1 = 3;
+      // optional int32 hero_id_1 = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
           _Internal::set_has_hero_id_1(&has_bits);
@@ -2001,16 +2222,16 @@ uint8_t* CMsgArcanaVotes_Match::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_match_id(), target);
   }
 
-  // optional uint32 hero_id_0 = 2;
+  // optional int32 hero_id_0 = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_hero_id_0(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_hero_id_0(), target);
   }
 
-  // optional uint32 hero_id_1 = 3;
+  // optional int32 hero_id_1 = 3;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_hero_id_1(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(3, this->_internal_hero_id_1(), target);
   }
 
   // optional uint32 hero_seeding_0 = 4;
@@ -2084,14 +2305,14 @@ size_t CMsgArcanaVotes_Match::ByteSizeLong() const {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_match_id());
     }
 
-    // optional uint32 hero_id_0 = 2;
+    // optional int32 hero_id_0 = 2;
     if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_hero_id_0());
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_hero_id_0());
     }
 
-    // optional uint32 hero_id_1 = 3;
+    // optional int32 hero_id_1 = 3;
     if (cached_has_bits & 0x00000004u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_hero_id_1());
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_hero_id_1());
     }
 
     // optional uint32 hero_seeding_0 = 4;
@@ -3619,7 +3840,7 @@ inline void CMsgDraftTrivia_DraftTriviaHeroInfo::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.hero_id_){0u}
+    , decltype(_impl_.hero_id_){0}
     , decltype(_impl_.role_){0u}
   };
 }
@@ -3664,7 +3885,7 @@ const char* CMsgDraftTrivia_DraftTriviaHeroInfo::_InternalParse(const char* ptr,
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional uint32 hero_id = 1;
+      // optional int32 hero_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_hero_id(&has_bits);
@@ -3713,10 +3934,10 @@ uint8_t* CMsgDraftTrivia_DraftTriviaHeroInfo::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional uint32 hero_id = 1;
+  // optional int32 hero_id = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_hero_id(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_hero_id(), target);
   }
 
   // optional uint32 role = 2;
@@ -3743,9 +3964,9 @@ size_t CMsgDraftTrivia_DraftTriviaHeroInfo::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional uint32 hero_id = 1;
+    // optional int32 hero_id = 1;
     if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_hero_id());
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_hero_id());
     }
 
     // optional uint32 role = 2;
@@ -7259,6 +7480,1175 @@ void CMsgTeamFanContentAutographStatus::InternalSwap(CMsgTeamFanContentAutograph
 
 // ===================================================================
 
+class CMsgTalentContentAssetStatus::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMsgTalentContentAssetStatus>()._impl_._has_bits_);
+  static void set_has_asset_type(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+  static void set_has_asset_index(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_asset_status(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+};
+
+CMsgTalentContentAssetStatus::CMsgTalentContentAssetStatus(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CMsgTalentContentAssetStatus)
+}
+CMsgTalentContentAssetStatus::CMsgTalentContentAssetStatus(const CMsgTalentContentAssetStatus& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CMsgTalentContentAssetStatus* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.asset_index_){}
+    , decltype(_impl_.asset_status_){}
+    , decltype(_impl_.asset_type_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&_impl_.asset_index_, &from._impl_.asset_index_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.asset_type_) -
+    reinterpret_cast<char*>(&_impl_.asset_index_)) + sizeof(_impl_.asset_type_));
+  // @@protoc_insertion_point(copy_constructor:CMsgTalentContentAssetStatus)
+}
+
+inline void CMsgTalentContentAssetStatus::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.asset_index_){0u}
+    , decltype(_impl_.asset_status_){0}
+    , decltype(_impl_.asset_type_){1}
+  };
+}
+
+CMsgTalentContentAssetStatus::~CMsgTalentContentAssetStatus() {
+  // @@protoc_insertion_point(destructor:CMsgTalentContentAssetStatus)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CMsgTalentContentAssetStatus::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void CMsgTalentContentAssetStatus::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CMsgTalentContentAssetStatus::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgTalentContentAssetStatus)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    ::memset(&_impl_.asset_index_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.asset_status_) -
+        reinterpret_cast<char*>(&_impl_.asset_index_)) + sizeof(_impl_.asset_status_));
+    _impl_.asset_type_ = 1;
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgTalentContentAssetStatus::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional .ETalentContentAssetType asset_type = 1 [default = k_eTalentContentAssetType_Photo];
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::ETalentContentAssetType_IsValid(val))) {
+            _internal_set_asset_type(static_cast<::ETalentContentAssetType>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(1, val, mutable_unknown_fields());
+          }
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 asset_index = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _Internal::set_has_asset_index(&has_bits);
+          _impl_.asset_index_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional .ETalentContentAssetStatus asset_status = 3 [default = k_eTalentContentAssetStatus_None];
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::ETalentContentAssetStatus_IsValid(val))) {
+            _internal_set_asset_status(static_cast<::ETalentContentAssetStatus>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(3, val, mutable_unknown_fields());
+          }
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CMsgTalentContentAssetStatus::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgTalentContentAssetStatus)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional .ETalentContentAssetType asset_type = 1 [default = k_eTalentContentAssetType_Photo];
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
+      1, this->_internal_asset_type(), target);
+  }
+
+  // optional uint32 asset_index = 2;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_asset_index(), target);
+  }
+
+  // optional .ETalentContentAssetStatus asset_status = 3 [default = k_eTalentContentAssetStatus_None];
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
+      3, this->_internal_asset_status(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgTalentContentAssetStatus)
+  return target;
+}
+
+size_t CMsgTalentContentAssetStatus::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgTalentContentAssetStatus)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    // optional uint32 asset_index = 2;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_asset_index());
+    }
+
+    // optional .ETalentContentAssetStatus asset_status = 3 [default = k_eTalentContentAssetStatus_None];
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 +
+        ::_pbi::WireFormatLite::EnumSize(this->_internal_asset_status());
+    }
+
+    // optional .ETalentContentAssetType asset_type = 1 [default = k_eTalentContentAssetType_Photo];
+    if (cached_has_bits & 0x00000004u) {
+      total_size += 1 +
+        ::_pbi::WireFormatLite::EnumSize(this->_internal_asset_type());
+    }
+
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgTalentContentAssetStatus::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CMsgTalentContentAssetStatus::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgTalentContentAssetStatus::GetClassData() const { return &_class_data_; }
+
+
+void CMsgTalentContentAssetStatus::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CMsgTalentContentAssetStatus*>(&to_msg);
+  auto& from = static_cast<const CMsgTalentContentAssetStatus&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgTalentContentAssetStatus)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    if (cached_has_bits & 0x00000001u) {
+      _this->_impl_.asset_index_ = from._impl_.asset_index_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _this->_impl_.asset_status_ = from._impl_.asset_status_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _this->_impl_.asset_type_ = from._impl_.asset_type_;
+    }
+    _this->_impl_._has_bits_[0] |= cached_has_bits;
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CMsgTalentContentAssetStatus::CopyFrom(const CMsgTalentContentAssetStatus& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgTalentContentAssetStatus)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgTalentContentAssetStatus::IsInitialized() const {
+  return true;
+}
+
+void CMsgTalentContentAssetStatus::InternalSwap(CMsgTalentContentAssetStatus* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CMsgTalentContentAssetStatus, _impl_.asset_status_)
+      + sizeof(CMsgTalentContentAssetStatus::_impl_.asset_status_)
+      - PROTOBUF_FIELD_OFFSET(CMsgTalentContentAssetStatus, _impl_.asset_index_)>(
+          reinterpret_cast<char*>(&_impl_.asset_index_),
+          reinterpret_cast<char*>(&other->_impl_.asset_index_));
+  swap(_impl_.asset_type_, other->_impl_.asset_type_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgTalentContentAssetStatus::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_once,
+      file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[16]);
+}
+
+// ===================================================================
+
+class CMsgTalentContentStatus_TalentDetails::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMsgTalentContentStatus_TalentDetails>()._impl_._has_bits_);
+  static void set_has_account_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
+  }
+  static void set_has_full_name(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_nickname(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_workshop_item_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 16u;
+  }
+  static void set_has_zip_file(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+  static void set_has_status(HasBits* has_bits) {
+    (*has_bits)[0] |= 32u;
+  }
+  static void set_has_broadcast_language(HasBits* has_bits) {
+    (*has_bits)[0] |= 64u;
+  }
+};
+
+CMsgTalentContentStatus_TalentDetails::CMsgTalentContentStatus_TalentDetails(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CMsgTalentContentStatus.TalentDetails)
+}
+CMsgTalentContentStatus_TalentDetails::CMsgTalentContentStatus_TalentDetails(const CMsgTalentContentStatus_TalentDetails& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CMsgTalentContentStatus_TalentDetails* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.asset_status_){from._impl_.asset_status_}
+    , decltype(_impl_.full_name_){}
+    , decltype(_impl_.nickname_){}
+    , decltype(_impl_.zip_file_){}
+    , decltype(_impl_.account_id_){}
+    , decltype(_impl_.workshop_item_id_){}
+    , decltype(_impl_.status_){}
+    , decltype(_impl_.broadcast_language_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.full_name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.full_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (from._internal_has_full_name()) {
+    _this->_impl_.full_name_.Set(from._internal_full_name(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.nickname_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.nickname_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (from._internal_has_nickname()) {
+    _this->_impl_.nickname_.Set(from._internal_nickname(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.zip_file_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.zip_file_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (from._internal_has_zip_file()) {
+    _this->_impl_.zip_file_.Set(from._internal_zip_file(), 
+      _this->GetArenaForAllocation());
+  }
+  ::memcpy(&_impl_.account_id_, &from._impl_.account_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.broadcast_language_) -
+    reinterpret_cast<char*>(&_impl_.account_id_)) + sizeof(_impl_.broadcast_language_));
+  // @@protoc_insertion_point(copy_constructor:CMsgTalentContentStatus.TalentDetails)
+}
+
+inline void CMsgTalentContentStatus_TalentDetails::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.asset_status_){arena}
+    , decltype(_impl_.full_name_){}
+    , decltype(_impl_.nickname_){}
+    , decltype(_impl_.zip_file_){}
+    , decltype(_impl_.account_id_){0u}
+    , decltype(_impl_.workshop_item_id_){0u}
+    , decltype(_impl_.status_){0}
+    , decltype(_impl_.broadcast_language_){0u}
+  };
+  _impl_.full_name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.full_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.nickname_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.nickname_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.zip_file_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.zip_file_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+CMsgTalentContentStatus_TalentDetails::~CMsgTalentContentStatus_TalentDetails() {
+  // @@protoc_insertion_point(destructor:CMsgTalentContentStatus.TalentDetails)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CMsgTalentContentStatus_TalentDetails::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.asset_status_.~RepeatedPtrField();
+  _impl_.full_name_.Destroy();
+  _impl_.nickname_.Destroy();
+  _impl_.zip_file_.Destroy();
+}
+
+void CMsgTalentContentStatus_TalentDetails::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CMsgTalentContentStatus_TalentDetails::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgTalentContentStatus.TalentDetails)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.asset_status_.Clear();
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    if (cached_has_bits & 0x00000001u) {
+      _impl_.full_name_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _impl_.nickname_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _impl_.zip_file_.ClearNonDefaultToEmpty();
+    }
+  }
+  if (cached_has_bits & 0x00000078u) {
+    ::memset(&_impl_.account_id_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.broadcast_language_) -
+        reinterpret_cast<char*>(&_impl_.account_id_)) + sizeof(_impl_.broadcast_language_));
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgTalentContentStatus_TalentDetails::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional uint32 account_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _Internal::set_has_account_id(&has_bits);
+          _impl_.account_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional string full_name = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_full_name();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          #ifndef NDEBUG
+          ::_pbi::VerifyUTF8(str, "CMsgTalentContentStatus.TalentDetails.full_name");
+          #endif  // !NDEBUG
+        } else
+          goto handle_unusual;
+        continue;
+      // optional string nickname = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          auto str = _internal_mutable_nickname();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          #ifndef NDEBUG
+          ::_pbi::VerifyUTF8(str, "CMsgTalentContentStatus.TalentDetails.nickname");
+          #endif  // !NDEBUG
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 workshop_item_id = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
+          _Internal::set_has_workshop_item_id(&has_bits);
+          _impl_.workshop_item_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional string zip_file = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
+          auto str = _internal_mutable_zip_file();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          #ifndef NDEBUG
+          ::_pbi::VerifyUTF8(str, "CMsgTalentContentStatus.TalentDetails.zip_file");
+          #endif  // !NDEBUG
+        } else
+          goto handle_unusual;
+        continue;
+      // optional .ETalentContentStatus status = 6 [default = TALENT_CONTENT_STATUS_INVALID];
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::ETalentContentStatus_IsValid(val))) {
+            _internal_set_status(static_cast<::ETalentContentStatus>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(6, val, mutable_unknown_fields());
+          }
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .CMsgTalentContentAssetStatus asset_status = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 58)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_asset_status(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<58>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 broadcast_language = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 64)) {
+          _Internal::set_has_broadcast_language(&has_bits);
+          _impl_.broadcast_language_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CMsgTalentContentStatus_TalentDetails::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgTalentContentStatus.TalentDetails)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional uint32 account_id = 1;
+  if (cached_has_bits & 0x00000008u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_account_id(), target);
+  }
+
+  // optional string full_name = 2;
+  if (cached_has_bits & 0x00000001u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_full_name().data(), static_cast<int>(this->_internal_full_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CMsgTalentContentStatus.TalentDetails.full_name");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_full_name(), target);
+  }
+
+  // optional string nickname = 3;
+  if (cached_has_bits & 0x00000002u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_nickname().data(), static_cast<int>(this->_internal_nickname().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CMsgTalentContentStatus.TalentDetails.nickname");
+    target = stream->WriteStringMaybeAliased(
+        3, this->_internal_nickname(), target);
+  }
+
+  // optional uint32 workshop_item_id = 4;
+  if (cached_has_bits & 0x00000010u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(4, this->_internal_workshop_item_id(), target);
+  }
+
+  // optional string zip_file = 5;
+  if (cached_has_bits & 0x00000004u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_zip_file().data(), static_cast<int>(this->_internal_zip_file().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CMsgTalentContentStatus.TalentDetails.zip_file");
+    target = stream->WriteStringMaybeAliased(
+        5, this->_internal_zip_file(), target);
+  }
+
+  // optional .ETalentContentStatus status = 6 [default = TALENT_CONTENT_STATUS_INVALID];
+  if (cached_has_bits & 0x00000020u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
+      6, this->_internal_status(), target);
+  }
+
+  // repeated .CMsgTalentContentAssetStatus asset_status = 7;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_asset_status_size()); i < n; i++) {
+    const auto& repfield = this->_internal_asset_status(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(7, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  // optional uint32 broadcast_language = 8;
+  if (cached_has_bits & 0x00000040u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(8, this->_internal_broadcast_language(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgTalentContentStatus.TalentDetails)
+  return target;
+}
+
+size_t CMsgTalentContentStatus_TalentDetails::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgTalentContentStatus.TalentDetails)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .CMsgTalentContentAssetStatus asset_status = 7;
+  total_size += 1UL * this->_internal_asset_status_size();
+  for (const auto& msg : this->_impl_.asset_status_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x0000007fu) {
+    // optional string full_name = 2;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_full_name());
+    }
+
+    // optional string nickname = 3;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_nickname());
+    }
+
+    // optional string zip_file = 5;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_zip_file());
+    }
+
+    // optional uint32 account_id = 1;
+    if (cached_has_bits & 0x00000008u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_account_id());
+    }
+
+    // optional uint32 workshop_item_id = 4;
+    if (cached_has_bits & 0x00000010u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_workshop_item_id());
+    }
+
+    // optional .ETalentContentStatus status = 6 [default = TALENT_CONTENT_STATUS_INVALID];
+    if (cached_has_bits & 0x00000020u) {
+      total_size += 1 +
+        ::_pbi::WireFormatLite::EnumSize(this->_internal_status());
+    }
+
+    // optional uint32 broadcast_language = 8;
+    if (cached_has_bits & 0x00000040u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_broadcast_language());
+    }
+
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgTalentContentStatus_TalentDetails::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CMsgTalentContentStatus_TalentDetails::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgTalentContentStatus_TalentDetails::GetClassData() const { return &_class_data_; }
+
+
+void CMsgTalentContentStatus_TalentDetails::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CMsgTalentContentStatus_TalentDetails*>(&to_msg);
+  auto& from = static_cast<const CMsgTalentContentStatus_TalentDetails&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgTalentContentStatus.TalentDetails)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_impl_.asset_status_.MergeFrom(from._impl_.asset_status_);
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x0000007fu) {
+    if (cached_has_bits & 0x00000001u) {
+      _this->_internal_set_full_name(from._internal_full_name());
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _this->_internal_set_nickname(from._internal_nickname());
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _this->_internal_set_zip_file(from._internal_zip_file());
+    }
+    if (cached_has_bits & 0x00000008u) {
+      _this->_impl_.account_id_ = from._impl_.account_id_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      _this->_impl_.workshop_item_id_ = from._impl_.workshop_item_id_;
+    }
+    if (cached_has_bits & 0x00000020u) {
+      _this->_impl_.status_ = from._impl_.status_;
+    }
+    if (cached_has_bits & 0x00000040u) {
+      _this->_impl_.broadcast_language_ = from._impl_.broadcast_language_;
+    }
+    _this->_impl_._has_bits_[0] |= cached_has_bits;
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CMsgTalentContentStatus_TalentDetails::CopyFrom(const CMsgTalentContentStatus_TalentDetails& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgTalentContentStatus.TalentDetails)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgTalentContentStatus_TalentDetails::IsInitialized() const {
+  return true;
+}
+
+void CMsgTalentContentStatus_TalentDetails::InternalSwap(CMsgTalentContentStatus_TalentDetails* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  _impl_.asset_status_.InternalSwap(&other->_impl_.asset_status_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.full_name_, lhs_arena,
+      &other->_impl_.full_name_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.nickname_, lhs_arena,
+      &other->_impl_.nickname_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.zip_file_, lhs_arena,
+      &other->_impl_.zip_file_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CMsgTalentContentStatus_TalentDetails, _impl_.broadcast_language_)
+      + sizeof(CMsgTalentContentStatus_TalentDetails::_impl_.broadcast_language_)
+      - PROTOBUF_FIELD_OFFSET(CMsgTalentContentStatus_TalentDetails, _impl_.account_id_)>(
+          reinterpret_cast<char*>(&_impl_.account_id_),
+          reinterpret_cast<char*>(&other->_impl_.account_id_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgTalentContentStatus_TalentDetails::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_once,
+      file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[17]);
+}
+
+// ===================================================================
+
+class CMsgTalentContentStatus::_Internal {
+ public:
+};
+
+CMsgTalentContentStatus::CMsgTalentContentStatus(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CMsgTalentContentStatus)
+}
+CMsgTalentContentStatus::CMsgTalentContentStatus(const CMsgTalentContentStatus& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CMsgTalentContentStatus* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.talent_status_){from._impl_.talent_status_}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:CMsgTalentContentStatus)
+}
+
+inline void CMsgTalentContentStatus::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.talent_status_){arena}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+}
+
+CMsgTalentContentStatus::~CMsgTalentContentStatus() {
+  // @@protoc_insertion_point(destructor:CMsgTalentContentStatus)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CMsgTalentContentStatus::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.talent_status_.~RepeatedPtrField();
+}
+
+void CMsgTalentContentStatus::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CMsgTalentContentStatus::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgTalentContentStatus)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.talent_status_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgTalentContentStatus::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // repeated .CMsgTalentContentStatus.TalentDetails talent_status = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_talent_status(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CMsgTalentContentStatus::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgTalentContentStatus)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .CMsgTalentContentStatus.TalentDetails talent_status = 1;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_talent_status_size()); i < n; i++) {
+    const auto& repfield = this->_internal_talent_status(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgTalentContentStatus)
+  return target;
+}
+
+size_t CMsgTalentContentStatus::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgTalentContentStatus)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .CMsgTalentContentStatus.TalentDetails talent_status = 1;
+  total_size += 1UL * this->_internal_talent_status_size();
+  for (const auto& msg : this->_impl_.talent_status_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgTalentContentStatus::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CMsgTalentContentStatus::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgTalentContentStatus::GetClassData() const { return &_class_data_; }
+
+
+void CMsgTalentContentStatus::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CMsgTalentContentStatus*>(&to_msg);
+  auto& from = static_cast<const CMsgTalentContentStatus&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgTalentContentStatus)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_impl_.talent_status_.MergeFrom(from._impl_.talent_status_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CMsgTalentContentStatus::CopyFrom(const CMsgTalentContentStatus& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgTalentContentStatus)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgTalentContentStatus::IsInitialized() const {
+  return true;
+}
+
+void CMsgTalentContentStatus::InternalSwap(CMsgTalentContentStatus* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.talent_status_.InternalSwap(&other->_impl_.talent_status_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgTalentContentStatus::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_once,
+      file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[18]);
+}
+
+// ===================================================================
+
+class CMsgSetTalentContentResponse::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMsgSetTalentContentResponse>()._impl_._has_bits_);
+  static void set_has_result(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+};
+
+CMsgSetTalentContentResponse::CMsgSetTalentContentResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CMsgSetTalentContentResponse)
+}
+CMsgSetTalentContentResponse::CMsgSetTalentContentResponse(const CMsgSetTalentContentResponse& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CMsgSetTalentContentResponse* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.result_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_impl_.result_ = from._impl_.result_;
+  // @@protoc_insertion_point(copy_constructor:CMsgSetTalentContentResponse)
+}
+
+inline void CMsgSetTalentContentResponse::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.result_){0}
+  };
+}
+
+CMsgSetTalentContentResponse::~CMsgSetTalentContentResponse() {
+  // @@protoc_insertion_point(destructor:CMsgSetTalentContentResponse)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CMsgSetTalentContentResponse::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void CMsgSetTalentContentResponse::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CMsgSetTalentContentResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgSetTalentContentResponse)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.result_ = 0;
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgSetTalentContentResponse::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional .CMsgSetTalentContentResponse.EResult result = 1 [default = k_eSuccess];
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::CMsgSetTalentContentResponse_EResult_IsValid(val))) {
+            _internal_set_result(static_cast<::CMsgSetTalentContentResponse_EResult>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(1, val, mutable_unknown_fields());
+          }
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CMsgSetTalentContentResponse::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgSetTalentContentResponse)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional .CMsgSetTalentContentResponse.EResult result = 1 [default = k_eSuccess];
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
+      1, this->_internal_result(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgSetTalentContentResponse)
+  return target;
+}
+
+size_t CMsgSetTalentContentResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgSetTalentContentResponse)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // optional .CMsgSetTalentContentResponse.EResult result = 1 [default = k_eSuccess];
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size += 1 +
+      ::_pbi::WireFormatLite::EnumSize(this->_internal_result());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgSetTalentContentResponse::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CMsgSetTalentContentResponse::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgSetTalentContentResponse::GetClassData() const { return &_class_data_; }
+
+
+void CMsgSetTalentContentResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CMsgSetTalentContentResponse*>(&to_msg);
+  auto& from = static_cast<const CMsgSetTalentContentResponse&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgSetTalentContentResponse)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_has_result()) {
+    _this->_internal_set_result(from._internal_result());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CMsgSetTalentContentResponse::CopyFrom(const CMsgSetTalentContentResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgSetTalentContentResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgSetTalentContentResponse::IsInitialized() const {
+  return true;
+}
+
+void CMsgSetTalentContentResponse::InternalSwap(CMsgSetTalentContentResponse* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  swap(_impl_.result_, other->_impl_.result_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgSetTalentContentResponse::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_once,
+      file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[19]);
+}
+
+// ===================================================================
+
 class CMsgDPCEvent_PhaseInfo::_Internal {
  public:
   using HasBits = decltype(std::declval<CMsgDPCEvent_PhaseInfo>()._impl_._has_bits_);
@@ -7497,7 +8887,7 @@ void CMsgDPCEvent_PhaseInfo::InternalSwap(CMsgDPCEvent_PhaseInfo* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgDPCEvent_PhaseInfo::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[16]);
+      file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[20]);
 }
 
 // ===================================================================
@@ -7808,7 +9198,7 @@ void CMsgDPCEvent_League::InternalSwap(CMsgDPCEvent_League* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgDPCEvent_League::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[17]);
+      file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[21]);
 }
 
 // ===================================================================
@@ -8485,7 +9875,7 @@ void CMsgDPCEvent::InternalSwap(CMsgDPCEvent* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgDPCEvent::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[18]);
+      file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[22]);
 }
 
 // ===================================================================
@@ -8670,7 +10060,7 @@ void CMsgDPCEventList::InternalSwap(CMsgDPCEventList* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgDPCEventList::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[19]);
+      file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[23]);
 }
 
 // ===================================================================
@@ -8907,7 +10297,7 @@ void CMsgDOTAFantasyCardLineup_CardBonus::InternalSwap(CMsgDOTAFantasyCardLineup
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgDOTAFantasyCardLineup_CardBonus::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[20]);
+      file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[24]);
 }
 
 // ===================================================================
@@ -9408,7 +10798,7 @@ void CMsgDOTAFantasyCardLineup_Card::InternalSwap(CMsgDOTAFantasyCardLineup_Card
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgDOTAFantasyCardLineup_Card::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[21]);
+      file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[25]);
 }
 
 // ===================================================================
@@ -9679,7 +11069,7 @@ void CMsgDOTAFantasyCardLineup_League::InternalSwap(CMsgDOTAFantasyCardLineup_Le
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgDOTAFantasyCardLineup_League::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[22]);
+      file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[26]);
 }
 
 // ===================================================================
@@ -9980,7 +11370,7 @@ void CMsgDOTAFantasyCardLineup_Period::InternalSwap(CMsgDOTAFantasyCardLineup_Pe
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgDOTAFantasyCardLineup_Period::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[23]);
+      file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[27]);
 }
 
 // ===================================================================
@@ -10165,7 +11555,7 @@ void CMsgDOTAFantasyCardLineup::InternalSwap(CMsgDOTAFantasyCardLineup* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgDOTAFantasyCardLineup::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[24]);
+      file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[28]);
 }
 
 // ===================================================================
@@ -10402,7 +11792,7 @@ void CMsgDOTAFantasyCardList_CardBonus::InternalSwap(CMsgDOTAFantasyCardList_Car
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgDOTAFantasyCardList_CardBonus::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[25]);
+      file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[29]);
 }
 
 // ===================================================================
@@ -10847,7 +12237,7 @@ void CMsgDOTAFantasyCardList_Card::InternalSwap(CMsgDOTAFantasyCardList_Card* ot
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgDOTAFantasyCardList_Card::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[26]);
+      file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[30]);
 }
 
 // ===================================================================
@@ -11032,7 +12422,7 @@ void CMsgDOTAFantasyCardList::InternalSwap(CMsgDOTAFantasyCardList* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgDOTAFantasyCardList::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[27]);
+      file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[31]);
 }
 
 // ===================================================================
@@ -11381,7 +12771,7 @@ void CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::InternalSwap(CMsgCh
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgChatToxicityToxicPlayerMatchesReport_IndividualRow::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[28]);
+      file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[32]);
 }
 
 // ===================================================================
@@ -11566,7 +12956,7 @@ void CMsgChatToxicityToxicPlayerMatchesReport::InternalSwap(CMsgChatToxicityToxi
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgChatToxicityToxicPlayerMatchesReport::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[29]);
+      file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[33]);
 }
 
 // ===================================================================
@@ -11977,7 +13367,7 @@ void CMsgChatToxicityReport::InternalSwap(CMsgChatToxicityReport* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgChatToxicityReport::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[30]);
+      file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[34]);
 }
 
 // ===================================================================
@@ -12388,7 +13778,7 @@ void CMsgGetTeamAuditInformation_Action::InternalSwap(CMsgGetTeamAuditInformatio
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGetTeamAuditInformation_Action::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[31]);
+      file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[35]);
 }
 
 // ===================================================================
@@ -12718,7 +14108,7 @@ void CMsgGetTeamAuditInformation::InternalSwap(CMsgGetTeamAuditInformation* othe
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGetTeamAuditInformation::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[32]);
+      file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[36]);
 }
 
 // ===================================================================
@@ -12988,7 +14378,7 @@ void CMsgDOTADPCMatch::InternalSwap(CMsgDOTADPCMatch* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgDOTADPCMatch::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_getter, &descriptor_table_dota_5fgcmessages_5fwebapi_2eproto_once,
-      file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[33]);
+      file_level_metadata_dota_5fgcmessages_5fwebapi_2eproto[37]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -13056,6 +14446,22 @@ Arena::CreateMaybeMessage< ::CMsgTeamFanContentAutographStatus_TeamStatus >(Aren
 template<> PROTOBUF_NOINLINE ::CMsgTeamFanContentAutographStatus*
 Arena::CreateMaybeMessage< ::CMsgTeamFanContentAutographStatus >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgTeamFanContentAutographStatus >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMsgTalentContentAssetStatus*
+Arena::CreateMaybeMessage< ::CMsgTalentContentAssetStatus >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgTalentContentAssetStatus >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMsgTalentContentStatus_TalentDetails*
+Arena::CreateMaybeMessage< ::CMsgTalentContentStatus_TalentDetails >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgTalentContentStatus_TalentDetails >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMsgTalentContentStatus*
+Arena::CreateMaybeMessage< ::CMsgTalentContentStatus >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgTalentContentStatus >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMsgSetTalentContentResponse*
+Arena::CreateMaybeMessage< ::CMsgSetTalentContentResponse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgSetTalentContentResponse >(arena);
 }
 template<> PROTOBUF_NOINLINE ::CMsgDPCEvent_PhaseInfo*
 Arena::CreateMaybeMessage< ::CMsgDPCEvent_PhaseInfo >(Arena* arena) {

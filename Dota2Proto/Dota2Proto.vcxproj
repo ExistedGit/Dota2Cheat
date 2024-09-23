@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
-    <ProjectConfiguration Include="Debug|Win32">
-      <Configuration>Debug</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Release|Win32">
-      <Configuration>Release</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
     <ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
       <Platform>x64</Platform>
@@ -28,6 +20,7 @@
     <ClCompile Include="src\dota_clientmessages.pb.cc" />
     <ClCompile Include="src\dota_client_enums.pb.cc" />
     <ClCompile Include="src\dota_commonmessages.pb.cc" />
+    <ClCompile Include="src\dota_fighting_game_p2p_messages.pb.cc" />
     <ClCompile Include="src\dota_gcmessages_client.pb.cc" />
     <ClCompile Include="src\dota_gcmessages_client_battle_report.pb.cc" />
     <ClCompile Include="src\dota_gcmessages_client_bingo.pb.cc" />
@@ -44,9 +37,11 @@
     <ClCompile Include="src\dota_gcmessages_client_watch.pb.cc" />
     <ClCompile Include="src\dota_gcmessages_common.pb.cc" />
     <ClCompile Include="src\dota_gcmessages_common_bot_script.pb.cc" />
+    <ClCompile Include="src\dota_gcmessages_common_fighting_game.pb.cc" />
     <ClCompile Include="src\dota_gcmessages_common_league.pb.cc" />
     <ClCompile Include="src\dota_gcmessages_common_lobby.pb.cc" />
     <ClCompile Include="src\dota_gcmessages_common_match_management.pb.cc" />
+    <ClCompile Include="src\dota_gcmessages_common_overworld.pb.cc" />
     <ClCompile Include="src\dota_gcmessages_msgid.pb.cc" />
     <ClCompile Include="src\dota_gcmessages_server.pb.cc" />
     <ClCompile Include="src\dota_gcmessages_webapi.pb.cc" />
@@ -102,6 +97,7 @@
     <ClInclude Include="src\dota_clientmessages.pb.h" />
     <ClInclude Include="src\dota_client_enums.pb.h" />
     <ClInclude Include="src\dota_commonmessages.pb.h" />
+    <ClInclude Include="src\dota_fighting_game_p2p_messages.pb.h" />
     <ClInclude Include="src\dota_gcmessages_client.pb.h" />
     <ClInclude Include="src\dota_gcmessages_client_battle_report.pb.h" />
     <ClInclude Include="src\dota_gcmessages_client_bingo.pb.h" />
@@ -118,9 +114,11 @@
     <ClInclude Include="src\dota_gcmessages_client_watch.pb.h" />
     <ClInclude Include="src\dota_gcmessages_common.pb.h" />
     <ClInclude Include="src\dota_gcmessages_common_bot_script.pb.h" />
+    <ClInclude Include="src\dota_gcmessages_common_fighting_game.pb.h" />
     <ClInclude Include="src\dota_gcmessages_common_league.pb.h" />
     <ClInclude Include="src\dota_gcmessages_common_lobby.pb.h" />
     <ClInclude Include="src\dota_gcmessages_common_match_management.pb.h" />
+    <ClInclude Include="src\dota_gcmessages_common_overworld.pb.h" />
     <ClInclude Include="src\dota_gcmessages_msgid.pb.h" />
     <ClInclude Include="src\dota_gcmessages_server.pb.h" />
     <ClInclude Include="src\dota_gcmessages_webapi.pb.h" />
@@ -174,19 +172,6 @@
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
-    <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
-    <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>Unicode</CharacterSet>
-  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
@@ -204,12 +189,6 @@
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
   <ImportGroup Label="Shared">
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
@@ -238,40 +217,6 @@
     <VcpkgUseMD>false</VcpkgUseMD>
     <VcpkgInstalledDir>$(SolutionDir)vcpkg_installed</VcpkgInstalledDir>
   </PropertyGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
-      <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-    </ClCompile>
-    <Link>
-      <SubSystem>
-      </SubSystem>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </Link>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-    </ClCompile>
-    <Link>
-      <SubSystem>
-      </SubSystem>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <OptimizeReferences>true</OptimizeReferences>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </Link>
-  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>

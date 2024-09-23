@@ -23,6 +23,7 @@
 #include <google/protobuf/io/coded_stream.h>
 #include <google/protobuf/arena.h>
 #include <google/protobuf/arenastring.h>
+#include <google/protobuf/generated_message_bases.h>
 #include <google/protobuf/generated_message_util.h>
 #include <google/protobuf/metadata_lite.h>
 #include <google/protobuf/generated_message_reflection.h>
@@ -54,6 +55,9 @@ struct TableStruct_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto {
   static const uint32_t offsets[];
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto;
+class CCandyShopDev;
+struct CCandyShopDevDefaultTypeInternal;
+extern CCandyShopDevDefaultTypeInternal _CCandyShopDev_default_instance_;
 class CMsgCandyShopCandyCount;
 struct CMsgCandyShopCandyCountDefaultTypeInternal;
 extern CMsgCandyShopCandyCountDefaultTypeInternal _CMsgCandyShopCandyCount_default_instance_;
@@ -102,6 +106,12 @@ extern CMsgClientToGCCandyShopDevGrantRerollChargesDefaultTypeInternal _CMsgClie
 class CMsgClientToGCCandyShopDevGrantRerollChargesResponse;
 struct CMsgClientToGCCandyShopDevGrantRerollChargesResponseDefaultTypeInternal;
 extern CMsgClientToGCCandyShopDevGrantRerollChargesResponseDefaultTypeInternal _CMsgClientToGCCandyShopDevGrantRerollChargesResponse_default_instance_;
+class CMsgClientToGCCandyShopDevResetShop;
+struct CMsgClientToGCCandyShopDevResetShopDefaultTypeInternal;
+extern CMsgClientToGCCandyShopDevResetShopDefaultTypeInternal _CMsgClientToGCCandyShopDevResetShop_default_instance_;
+class CMsgClientToGCCandyShopDevResetShopResponse;
+struct CMsgClientToGCCandyShopDevResetShopResponseDefaultTypeInternal;
+extern CMsgClientToGCCandyShopDevResetShopResponseDefaultTypeInternal _CMsgClientToGCCandyShopDevResetShopResponse_default_instance_;
 class CMsgClientToGCCandyShopDevShuffleExchange;
 struct CMsgClientToGCCandyShopDevShuffleExchangeDefaultTypeInternal;
 extern CMsgClientToGCCandyShopDevShuffleExchangeDefaultTypeInternal _CMsgClientToGCCandyShopDevShuffleExchange_default_instance_;
@@ -148,6 +158,7 @@ class CMsgGCToClientCandyShopUserDataUpdated;
 struct CMsgGCToClientCandyShopUserDataUpdatedDefaultTypeInternal;
 extern CMsgGCToClientCandyShopUserDataUpdatedDefaultTypeInternal _CMsgGCToClientCandyShopUserDataUpdated_default_instance_;
 PROTOBUF_NAMESPACE_OPEN
+template<> ::CCandyShopDev* Arena::CreateMaybeMessage<::CCandyShopDev>(Arena*);
 template<> ::CMsgCandyShopCandyCount* Arena::CreateMaybeMessage<::CMsgCandyShopCandyCount>(Arena*);
 template<> ::CMsgCandyShopCandyQuantity* Arena::CreateMaybeMessage<::CMsgCandyShopCandyQuantity>(Arena*);
 template<> ::CMsgCandyShopExchangeRecipe* Arena::CreateMaybeMessage<::CMsgCandyShopExchangeRecipe>(Arena*);
@@ -164,6 +175,8 @@ template<> ::CMsgClientToGCCandyShopDevGrantCandyBagsResponse* Arena::CreateMayb
 template<> ::CMsgClientToGCCandyShopDevGrantCandyResponse* Arena::CreateMaybeMessage<::CMsgClientToGCCandyShopDevGrantCandyResponse>(Arena*);
 template<> ::CMsgClientToGCCandyShopDevGrantRerollCharges* Arena::CreateMaybeMessage<::CMsgClientToGCCandyShopDevGrantRerollCharges>(Arena*);
 template<> ::CMsgClientToGCCandyShopDevGrantRerollChargesResponse* Arena::CreateMaybeMessage<::CMsgClientToGCCandyShopDevGrantRerollChargesResponse>(Arena*);
+template<> ::CMsgClientToGCCandyShopDevResetShop* Arena::CreateMaybeMessage<::CMsgClientToGCCandyShopDevResetShop>(Arena*);
+template<> ::CMsgClientToGCCandyShopDevResetShopResponse* Arena::CreateMaybeMessage<::CMsgClientToGCCandyShopDevResetShopResponse>(Arena*);
 template<> ::CMsgClientToGCCandyShopDevShuffleExchange* Arena::CreateMaybeMessage<::CMsgClientToGCCandyShopDevShuffleExchange>(Arena*);
 template<> ::CMsgClientToGCCandyShopDevShuffleExchangeResponse* Arena::CreateMaybeMessage<::CMsgClientToGCCandyShopDevShuffleExchangeResponse>(Arena*);
 template<> ::CMsgClientToGCCandyShopDoExchange* Arena::CreateMaybeMessage<::CMsgClientToGCCandyShopDoExchange>(Arena*);
@@ -340,11 +353,12 @@ enum CMsgClientToGCCandyShopRerollRewardsResponse_EResponse : int {
   CMsgClientToGCCandyShopRerollRewardsResponse_EResponse_k_eTimeout = 4,
   CMsgClientToGCCandyShopRerollRewardsResponse_EResponse_k_eInvalidShop = 5,
   CMsgClientToGCCandyShopRerollRewardsResponse_EResponse_k_eNoRerollCharges = 6,
-  CMsgClientToGCCandyShopRerollRewardsResponse_EResponse_k_eExpiredShop = 7
+  CMsgClientToGCCandyShopRerollRewardsResponse_EResponse_k_eExpiredShop = 7,
+  CMsgClientToGCCandyShopRerollRewardsResponse_EResponse_k_eShopNotOpen = 8
 };
 bool CMsgClientToGCCandyShopRerollRewardsResponse_EResponse_IsValid(int value);
 constexpr CMsgClientToGCCandyShopRerollRewardsResponse_EResponse CMsgClientToGCCandyShopRerollRewardsResponse_EResponse_EResponse_MIN = CMsgClientToGCCandyShopRerollRewardsResponse_EResponse_k_eInternalError;
-constexpr CMsgClientToGCCandyShopRerollRewardsResponse_EResponse CMsgClientToGCCandyShopRerollRewardsResponse_EResponse_EResponse_MAX = CMsgClientToGCCandyShopRerollRewardsResponse_EResponse_k_eExpiredShop;
+constexpr CMsgClientToGCCandyShopRerollRewardsResponse_EResponse CMsgClientToGCCandyShopRerollRewardsResponse_EResponse_EResponse_MAX = CMsgClientToGCCandyShopRerollRewardsResponse_EResponse_k_eShopNotOpen;
 constexpr int CMsgClientToGCCandyShopRerollRewardsResponse_EResponse_EResponse_ARRAYSIZE = CMsgClientToGCCandyShopRerollRewardsResponse_EResponse_EResponse_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgClientToGCCandyShopRerollRewardsResponse_EResponse_descriptor();
@@ -361,146 +375,34 @@ inline bool CMsgClientToGCCandyShopRerollRewardsResponse_EResponse_Parse(
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<CMsgClientToGCCandyShopRerollRewardsResponse_EResponse>(
     CMsgClientToGCCandyShopRerollRewardsResponse_EResponse_descriptor(), name, value);
 }
-enum CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse : int {
-  CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse_k_eInternalError = 0,
-  CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse_k_eSuccess = 1,
-  CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse_k_eTooBusy = 2,
-  CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse_k_eDisabled = 3,
-  CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse_k_eTimeout = 4,
-  CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse_k_eNotAllowed = 5,
-  CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse_k_eInvalidShop = 6,
-  CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse_k_eNotEnoughSpace = 7
+enum CCandyShopDev_EResponse : int {
+  CCandyShopDev_EResponse_k_eInternalError = 0,
+  CCandyShopDev_EResponse_k_eSuccess = 1,
+  CCandyShopDev_EResponse_k_eTooBusy = 2,
+  CCandyShopDev_EResponse_k_eDisabled = 3,
+  CCandyShopDev_EResponse_k_eTimeout = 4,
+  CCandyShopDev_EResponse_k_eNotAllowed = 5,
+  CCandyShopDev_EResponse_k_eInvalidShop = 6,
+  CCandyShopDev_EResponse_k_eNotEnoughSpace = 7
 };
-bool CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse_IsValid(int value);
-constexpr CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse_EResponse_MIN = CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse_k_eInternalError;
-constexpr CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse_EResponse_MAX = CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse_k_eNotEnoughSpace;
-constexpr int CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse_EResponse_ARRAYSIZE = CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse_EResponse_MAX + 1;
+bool CCandyShopDev_EResponse_IsValid(int value);
+constexpr CCandyShopDev_EResponse CCandyShopDev_EResponse_EResponse_MIN = CCandyShopDev_EResponse_k_eInternalError;
+constexpr CCandyShopDev_EResponse CCandyShopDev_EResponse_EResponse_MAX = CCandyShopDev_EResponse_k_eNotEnoughSpace;
+constexpr int CCandyShopDev_EResponse_EResponse_ARRAYSIZE = CCandyShopDev_EResponse_EResponse_MAX + 1;
 
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse_descriptor();
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CCandyShopDev_EResponse_descriptor();
 template<typename T>
-inline const std::string& CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse_Name(T enum_t_value) {
-  static_assert(::std::is_same<T, CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse>::value ||
+inline const std::string& CCandyShopDev_EResponse_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, CCandyShopDev_EResponse>::value ||
     ::std::is_integral<T>::value,
-    "Incorrect type passed to function CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse_Name.");
+    "Incorrect type passed to function CCandyShopDev_EResponse_Name.");
   return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse_descriptor(), enum_t_value);
+    CCandyShopDev_EResponse_descriptor(), enum_t_value);
 }
-inline bool CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse* value) {
-  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse>(
-    CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse_descriptor(), name, value);
-}
-enum CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse : int {
-  CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse_k_eInternalError = 0,
-  CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse_k_eSuccess = 1,
-  CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse_k_eTooBusy = 2,
-  CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse_k_eDisabled = 3,
-  CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse_k_eTimeout = 4,
-  CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse_k_eNotAllowed = 5,
-  CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse_k_eInvalidShop = 6
-};
-bool CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse_IsValid(int value);
-constexpr CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse_EResponse_MIN = CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse_k_eInternalError;
-constexpr CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse_EResponse_MAX = CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse_k_eInvalidShop;
-constexpr int CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse_EResponse_ARRAYSIZE = CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse_EResponse_MAX + 1;
-
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse_descriptor();
-template<typename T>
-inline const std::string& CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse_Name(T enum_t_value) {
-  static_assert(::std::is_same<T, CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse>::value ||
-    ::std::is_integral<T>::value,
-    "Incorrect type passed to function CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse_Name.");
-  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse_descriptor(), enum_t_value);
-}
-inline bool CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse* value) {
-  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse>(
-    CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse_descriptor(), name, value);
-}
-enum CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse : int {
-  CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse_k_eInternalError = 0,
-  CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse_k_eSuccess = 1,
-  CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse_k_eTooBusy = 2,
-  CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse_k_eDisabled = 3,
-  CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse_k_eTimeout = 4,
-  CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse_k_eNotAllowed = 5,
-  CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse_k_eInvalidShop = 6
-};
-bool CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse_IsValid(int value);
-constexpr CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse_EResponse_MIN = CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse_k_eInternalError;
-constexpr CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse_EResponse_MAX = CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse_k_eInvalidShop;
-constexpr int CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse_EResponse_ARRAYSIZE = CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse_EResponse_MAX + 1;
-
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse_descriptor();
-template<typename T>
-inline const std::string& CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse_Name(T enum_t_value) {
-  static_assert(::std::is_same<T, CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse>::value ||
-    ::std::is_integral<T>::value,
-    "Incorrect type passed to function CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse_Name.");
-  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse_descriptor(), enum_t_value);
-}
-inline bool CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse* value) {
-  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse>(
-    CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse_descriptor(), name, value);
-}
-enum CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse : int {
-  CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse_k_eInternalError = 0,
-  CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse_k_eSuccess = 1,
-  CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse_k_eTooBusy = 2,
-  CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse_k_eDisabled = 3,
-  CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse_k_eTimeout = 4,
-  CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse_k_eNotAllowed = 5,
-  CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse_k_eInvalidShop = 6
-};
-bool CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse_IsValid(int value);
-constexpr CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse_EResponse_MIN = CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse_k_eInternalError;
-constexpr CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse_EResponse_MAX = CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse_k_eInvalidShop;
-constexpr int CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse_EResponse_ARRAYSIZE = CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse_EResponse_MAX + 1;
-
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse_descriptor();
-template<typename T>
-inline const std::string& CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse_Name(T enum_t_value) {
-  static_assert(::std::is_same<T, CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse>::value ||
-    ::std::is_integral<T>::value,
-    "Incorrect type passed to function CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse_Name.");
-  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse_descriptor(), enum_t_value);
-}
-inline bool CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse* value) {
-  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse>(
-    CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse_descriptor(), name, value);
-}
-enum CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse : int {
-  CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse_k_eInternalError = 0,
-  CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse_k_eSuccess = 1,
-  CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse_k_eTooBusy = 2,
-  CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse_k_eDisabled = 3,
-  CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse_k_eTimeout = 4,
-  CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse_k_eNotAllowed = 5,
-  CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse_k_eInvalidShop = 6
-};
-bool CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse_IsValid(int value);
-constexpr CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse_EResponse_MIN = CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse_k_eInternalError;
-constexpr CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse_EResponse_MAX = CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse_k_eInvalidShop;
-constexpr int CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse_EResponse_ARRAYSIZE = CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse_EResponse_MAX + 1;
-
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse_descriptor();
-template<typename T>
-inline const std::string& CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse_Name(T enum_t_value) {
-  static_assert(::std::is_same<T, CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse>::value ||
-    ::std::is_integral<T>::value,
-    "Incorrect type passed to function CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse_Name.");
-  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse_descriptor(), enum_t_value);
-}
-inline bool CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse* value) {
-  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse>(
-    CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse_descriptor(), name, value);
+inline bool CCandyShopDev_EResponse_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, CCandyShopDev_EResponse* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<CCandyShopDev_EResponse>(
+    CCandyShopDev_EResponse_descriptor(), name, value);
 }
 enum ECandyShopAuditAction : int {
   k_ECandyShopAuditAction_Invalid = 0,
@@ -510,12 +412,15 @@ enum ECandyShopAuditAction : int {
   k_ECandyShopAuditAction_RerollRewards = 4,
   k_ECandyShopAuditAction_DoVariableExchange = 5,
   k_ECandyShopAuditAction_DoExchange = 6,
-  k_ECandyShopAuditAction_EventActionGrantInventorySizeIncrease = 7,
-  k_ECandyShopAuditAction_EventActionGrantRerollChargesIncrease = 8
+  k_ECandyShopAuditAction_DEPRECATED_EventActionGrantInventorySizeIncrease = 7,
+  k_ECandyShopAuditAction_EventActionGrantRerollChargesIncrease = 8,
+  k_ECandyShopAuditAction_EventActionGrantUpgrade_InventorySize = 100,
+  k_ECandyShopAuditAction_EventActionGrantUpgrade_RewardShelf = 101,
+  k_ECandyShopAuditAction_EventActionGrantUpgrade_ExtraExchangeRecipe = 102
 };
 bool ECandyShopAuditAction_IsValid(int value);
 constexpr ECandyShopAuditAction ECandyShopAuditAction_MIN = k_ECandyShopAuditAction_Invalid;
-constexpr ECandyShopAuditAction ECandyShopAuditAction_MAX = k_ECandyShopAuditAction_EventActionGrantRerollChargesIncrease;
+constexpr ECandyShopAuditAction ECandyShopAuditAction_MAX = k_ECandyShopAuditAction_EventActionGrantUpgrade_ExtraExchangeRecipe;
 constexpr int ECandyShopAuditAction_ARRAYSIZE = ECandyShopAuditAction_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ECandyShopAuditAction_descriptor();
@@ -1388,7 +1293,6 @@ class CMsgCandyShopRewardData_EventAction final :
   enum : int {
     kEventIdFieldNumber = 1,
     kActionIdFieldNumber = 2,
-    kQuantityFieldNumber = 3,
   };
   // optional .EEvent event_id = 1 [default = EVENT_ID_NONE];
   bool has_event_id() const;
@@ -1416,19 +1320,6 @@ class CMsgCandyShopRewardData_EventAction final :
   void _internal_set_action_id(uint32_t value);
   public:
 
-  // optional uint32 quantity = 3;
-  bool has_quantity() const;
-  private:
-  bool _internal_has_quantity() const;
-  public:
-  void clear_quantity();
-  uint32_t quantity() const;
-  void set_quantity(uint32_t value);
-  private:
-  uint32_t _internal_quantity() const;
-  void _internal_set_quantity(uint32_t value);
-  public:
-
   // @@protoc_insertion_point(class_scope:CMsgCandyShopRewardData_EventAction)
  private:
   class _Internal;
@@ -1441,7 +1332,6 @@ class CMsgCandyShopRewardData_EventAction final :
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     int event_id_;
     uint32_t action_id_;
-    uint32_t quantity_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto;
@@ -2021,14 +1911,17 @@ class CMsgCandyShopUserData final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kExchangeRecipesFieldNumber = 4,
-    kActiveRewardsFieldNumber = 5,
+    kExchangeRecipesFieldNumber = 5,
+    kActiveRewardsFieldNumber = 7,
     kInventoryFieldNumber = 2,
-    kInventorySizeFieldNumber = 1,
-    kExchangeResetTimestampFieldNumber = 3,
-    kRerollChargesFieldNumber = 6,
+    kInventoryMaxFieldNumber = 1,
+    kExchangeRecipeMaxFieldNumber = 3,
+    kExchangeResetTimestampFieldNumber = 4,
+    kActiveRewardMaxFieldNumber = 6,
+    kRerollChargesMaxFieldNumber = 8,
+    kRerollChargesFieldNumber = 9,
   };
-  // repeated .CMsgCandyShopExchangeRecipe exchange_recipes = 4;
+  // repeated .CMsgCandyShopExchangeRecipe exchange_recipes = 5;
   int exchange_recipes_size() const;
   private:
   int _internal_exchange_recipes_size() const;
@@ -2046,7 +1939,7 @@ class CMsgCandyShopUserData final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgCandyShopExchangeRecipe >&
       exchange_recipes() const;
 
-  // repeated .CMsgCandyShopReward active_rewards = 5;
+  // repeated .CMsgCandyShopReward active_rewards = 7;
   int active_rewards_size() const;
   private:
   int _internal_active_rewards_size() const;
@@ -2082,20 +1975,33 @@ class CMsgCandyShopUserData final :
       ::CMsgCandyShopCandyQuantity* inventory);
   ::CMsgCandyShopCandyQuantity* unsafe_arena_release_inventory();
 
-  // optional uint32 inventory_size = 1;
-  bool has_inventory_size() const;
+  // optional uint32 inventory_max = 1;
+  bool has_inventory_max() const;
   private:
-  bool _internal_has_inventory_size() const;
+  bool _internal_has_inventory_max() const;
   public:
-  void clear_inventory_size();
-  uint32_t inventory_size() const;
-  void set_inventory_size(uint32_t value);
+  void clear_inventory_max();
+  uint32_t inventory_max() const;
+  void set_inventory_max(uint32_t value);
   private:
-  uint32_t _internal_inventory_size() const;
-  void _internal_set_inventory_size(uint32_t value);
+  uint32_t _internal_inventory_max() const;
+  void _internal_set_inventory_max(uint32_t value);
   public:
 
-  // optional fixed32 exchange_reset_timestamp = 3;
+  // optional uint32 exchange_recipe_max = 3;
+  bool has_exchange_recipe_max() const;
+  private:
+  bool _internal_has_exchange_recipe_max() const;
+  public:
+  void clear_exchange_recipe_max();
+  uint32_t exchange_recipe_max() const;
+  void set_exchange_recipe_max(uint32_t value);
+  private:
+  uint32_t _internal_exchange_recipe_max() const;
+  void _internal_set_exchange_recipe_max(uint32_t value);
+  public:
+
+  // optional fixed32 exchange_reset_timestamp = 4;
   bool has_exchange_reset_timestamp() const;
   private:
   bool _internal_has_exchange_reset_timestamp() const;
@@ -2108,7 +2014,33 @@ class CMsgCandyShopUserData final :
   void _internal_set_exchange_reset_timestamp(uint32_t value);
   public:
 
-  // optional uint32 reroll_charges = 6;
+  // optional uint32 active_reward_max = 6;
+  bool has_active_reward_max() const;
+  private:
+  bool _internal_has_active_reward_max() const;
+  public:
+  void clear_active_reward_max();
+  uint32_t active_reward_max() const;
+  void set_active_reward_max(uint32_t value);
+  private:
+  uint32_t _internal_active_reward_max() const;
+  void _internal_set_active_reward_max(uint32_t value);
+  public:
+
+  // optional uint32 reroll_charges_max = 8;
+  bool has_reroll_charges_max() const;
+  private:
+  bool _internal_has_reroll_charges_max() const;
+  public:
+  void clear_reroll_charges_max();
+  uint32_t reroll_charges_max() const;
+  void set_reroll_charges_max(uint32_t value);
+  private:
+  uint32_t _internal_reroll_charges_max() const;
+  void _internal_set_reroll_charges_max(uint32_t value);
+  public:
+
+  // optional uint32 reroll_charges = 9;
   bool has_reroll_charges() const;
   private:
   bool _internal_has_reroll_charges() const;
@@ -2134,8 +2066,11 @@ class CMsgCandyShopUserData final :
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgCandyShopExchangeRecipe > exchange_recipes_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgCandyShopReward > active_rewards_;
     ::CMsgCandyShopCandyQuantity* inventory_;
-    uint32_t inventory_size_;
+    uint32_t inventory_max_;
+    uint32_t exchange_recipe_max_;
     uint32_t exchange_reset_timestamp_;
+    uint32_t active_reward_max_;
+    uint32_t reroll_charges_max_;
     uint32_t reroll_charges_;
   };
   union { Impl_ _impl_; };
@@ -4552,6 +4487,8 @@ class CMsgClientToGCCandyShopRerollRewardsResponse final :
     CMsgClientToGCCandyShopRerollRewardsResponse_EResponse_k_eNoRerollCharges;
   static constexpr EResponse k_eExpiredShop =
     CMsgClientToGCCandyShopRerollRewardsResponse_EResponse_k_eExpiredShop;
+  static constexpr EResponse k_eShopNotOpen =
+    CMsgClientToGCCandyShopRerollRewardsResponse_EResponse_k_eShopNotOpen;
   static inline bool EResponse_IsValid(int value) {
     return CMsgClientToGCCandyShopRerollRewardsResponse_EResponse_IsValid(value);
   }
@@ -4612,6 +4549,173 @@ class CMsgClientToGCCandyShopRerollRewardsResponse final :
 };
 // -------------------------------------------------------------------
 
+class CCandyShopDev final :
+    public ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase /* @@protoc_insertion_point(class_definition:CCandyShopDev) */ {
+ public:
+  inline CCandyShopDev() : CCandyShopDev(nullptr) {}
+  explicit PROTOBUF_CONSTEXPR CCandyShopDev(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CCandyShopDev(const CCandyShopDev& from);
+  CCandyShopDev(CCandyShopDev&& from) noexcept
+    : CCandyShopDev() {
+    *this = ::std::move(from);
+  }
+
+  inline CCandyShopDev& operator=(const CCandyShopDev& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CCandyShopDev& operator=(CCandyShopDev&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CCandyShopDev& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CCandyShopDev* internal_default_instance() {
+    return reinterpret_cast<const CCandyShopDev*>(
+               &_CCandyShopDev_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    21;
+
+  friend void swap(CCandyShopDev& a, CCandyShopDev& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CCandyShopDev* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CCandyShopDev* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CCandyShopDev* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CCandyShopDev>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyFrom;
+  inline void CopyFrom(const CCandyShopDev& from) {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl(*this, from);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeFrom;
+  void MergeFrom(const CCandyShopDev& from) {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl(*this, from);
+  }
+  public:
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CCandyShopDev";
+  }
+  protected:
+  explicit CCandyShopDev(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  typedef CCandyShopDev_EResponse EResponse;
+  static constexpr EResponse k_eInternalError =
+    CCandyShopDev_EResponse_k_eInternalError;
+  static constexpr EResponse k_eSuccess =
+    CCandyShopDev_EResponse_k_eSuccess;
+  static constexpr EResponse k_eTooBusy =
+    CCandyShopDev_EResponse_k_eTooBusy;
+  static constexpr EResponse k_eDisabled =
+    CCandyShopDev_EResponse_k_eDisabled;
+  static constexpr EResponse k_eTimeout =
+    CCandyShopDev_EResponse_k_eTimeout;
+  static constexpr EResponse k_eNotAllowed =
+    CCandyShopDev_EResponse_k_eNotAllowed;
+  static constexpr EResponse k_eInvalidShop =
+    CCandyShopDev_EResponse_k_eInvalidShop;
+  static constexpr EResponse k_eNotEnoughSpace =
+    CCandyShopDev_EResponse_k_eNotEnoughSpace;
+  static inline bool EResponse_IsValid(int value) {
+    return CCandyShopDev_EResponse_IsValid(value);
+  }
+  static constexpr EResponse EResponse_MIN =
+    CCandyShopDev_EResponse_EResponse_MIN;
+  static constexpr EResponse EResponse_MAX =
+    CCandyShopDev_EResponse_EResponse_MAX;
+  static constexpr int EResponse_ARRAYSIZE =
+    CCandyShopDev_EResponse_EResponse_ARRAYSIZE;
+  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
+  EResponse_descriptor() {
+    return CCandyShopDev_EResponse_descriptor();
+  }
+  template<typename T>
+  static inline const std::string& EResponse_Name(T enum_t_value) {
+    static_assert(::std::is_same<T, EResponse>::value ||
+      ::std::is_integral<T>::value,
+      "Incorrect type passed to function EResponse_Name.");
+    return CCandyShopDev_EResponse_Name(enum_t_value);
+  }
+  static inline bool EResponse_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
+      EResponse* value) {
+    return CCandyShopDev_EResponse_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:CCandyShopDev)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+  };
+  friend struct ::TableStruct_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CMsgClientToGCCandyShopDevGrantCandy final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgClientToGCCandyShopDevGrantCandy) */ {
  public:
@@ -4667,7 +4771,7 @@ class CMsgClientToGCCandyShopDevGrantCandy final :
                &_CMsgClientToGCCandyShopDevGrantCandy_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    22;
 
   friend void swap(CMsgClientToGCCandyShopDevGrantCandy& a, CMsgClientToGCCandyShopDevGrantCandy& b) {
     a.Swap(&b);
@@ -4847,7 +4951,7 @@ class CMsgClientToGCCandyShopDevGrantCandyResponse final :
                &_CMsgClientToGCCandyShopDevGrantCandyResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    23;
 
   friend void swap(CMsgClientToGCCandyShopDevGrantCandyResponse& a, CMsgClientToGCCandyShopDevGrantCandyResponse& b) {
     a.Swap(&b);
@@ -4917,64 +5021,22 @@ class CMsgClientToGCCandyShopDevGrantCandyResponse final :
 
   // nested types ----------------------------------------------------
 
-  typedef CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse EResponse;
-  static constexpr EResponse k_eInternalError =
-    CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse_k_eInternalError;
-  static constexpr EResponse k_eSuccess =
-    CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse_k_eSuccess;
-  static constexpr EResponse k_eTooBusy =
-    CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse_k_eTooBusy;
-  static constexpr EResponse k_eDisabled =
-    CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse_k_eDisabled;
-  static constexpr EResponse k_eTimeout =
-    CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse_k_eTimeout;
-  static constexpr EResponse k_eNotAllowed =
-    CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse_k_eNotAllowed;
-  static constexpr EResponse k_eInvalidShop =
-    CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse_k_eInvalidShop;
-  static constexpr EResponse k_eNotEnoughSpace =
-    CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse_k_eNotEnoughSpace;
-  static inline bool EResponse_IsValid(int value) {
-    return CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse_IsValid(value);
-  }
-  static constexpr EResponse EResponse_MIN =
-    CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse_EResponse_MIN;
-  static constexpr EResponse EResponse_MAX =
-    CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse_EResponse_MAX;
-  static constexpr int EResponse_ARRAYSIZE =
-    CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse_EResponse_ARRAYSIZE;
-  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
-  EResponse_descriptor() {
-    return CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse_descriptor();
-  }
-  template<typename T>
-  static inline const std::string& EResponse_Name(T enum_t_value) {
-    static_assert(::std::is_same<T, EResponse>::value ||
-      ::std::is_integral<T>::value,
-      "Incorrect type passed to function EResponse_Name.");
-    return CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse_Name(enum_t_value);
-  }
-  static inline bool EResponse_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
-      EResponse* value) {
-    return CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse_Parse(name, value);
-  }
-
   // accessors -------------------------------------------------------
 
   enum : int {
     kResponseFieldNumber = 1,
   };
-  // optional .CMsgClientToGCCandyShopDevGrantCandyResponse.EResponse response = 1 [default = k_eInternalError];
+  // optional .CCandyShopDev.EResponse response = 1 [default = k_eInternalError];
   bool has_response() const;
   private:
   bool _internal_has_response() const;
   public:
   void clear_response();
-  ::CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse response() const;
-  void set_response(::CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse value);
+  ::CCandyShopDev_EResponse response() const;
+  void set_response(::CCandyShopDev_EResponse value);
   private:
-  ::CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse _internal_response() const;
-  void _internal_set_response(::CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse value);
+  ::CCandyShopDev_EResponse _internal_response() const;
+  void _internal_set_response(::CCandyShopDev_EResponse value);
   public:
 
   // @@protoc_insertion_point(class_scope:CMsgClientToGCCandyShopDevGrantCandyResponse)
@@ -5049,7 +5111,7 @@ class CMsgClientToGCCandyShopDevClearInventory final :
                &_CMsgClientToGCCandyShopDevClearInventory_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    24;
 
   friend void swap(CMsgClientToGCCandyShopDevClearInventory& a, CMsgClientToGCCandyShopDevClearInventory& b) {
     a.Swap(&b);
@@ -5209,7 +5271,7 @@ class CMsgClientToGCCandyShopDevClearInventoryResponse final :
                &_CMsgClientToGCCandyShopDevClearInventoryResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    25;
 
   friend void swap(CMsgClientToGCCandyShopDevClearInventoryResponse& a, CMsgClientToGCCandyShopDevClearInventoryResponse& b) {
     a.Swap(&b);
@@ -5279,62 +5341,22 @@ class CMsgClientToGCCandyShopDevClearInventoryResponse final :
 
   // nested types ----------------------------------------------------
 
-  typedef CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse EResponse;
-  static constexpr EResponse k_eInternalError =
-    CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse_k_eInternalError;
-  static constexpr EResponse k_eSuccess =
-    CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse_k_eSuccess;
-  static constexpr EResponse k_eTooBusy =
-    CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse_k_eTooBusy;
-  static constexpr EResponse k_eDisabled =
-    CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse_k_eDisabled;
-  static constexpr EResponse k_eTimeout =
-    CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse_k_eTimeout;
-  static constexpr EResponse k_eNotAllowed =
-    CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse_k_eNotAllowed;
-  static constexpr EResponse k_eInvalidShop =
-    CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse_k_eInvalidShop;
-  static inline bool EResponse_IsValid(int value) {
-    return CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse_IsValid(value);
-  }
-  static constexpr EResponse EResponse_MIN =
-    CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse_EResponse_MIN;
-  static constexpr EResponse EResponse_MAX =
-    CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse_EResponse_MAX;
-  static constexpr int EResponse_ARRAYSIZE =
-    CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse_EResponse_ARRAYSIZE;
-  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
-  EResponse_descriptor() {
-    return CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse_descriptor();
-  }
-  template<typename T>
-  static inline const std::string& EResponse_Name(T enum_t_value) {
-    static_assert(::std::is_same<T, EResponse>::value ||
-      ::std::is_integral<T>::value,
-      "Incorrect type passed to function EResponse_Name.");
-    return CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse_Name(enum_t_value);
-  }
-  static inline bool EResponse_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
-      EResponse* value) {
-    return CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse_Parse(name, value);
-  }
-
   // accessors -------------------------------------------------------
 
   enum : int {
     kResponseFieldNumber = 1,
   };
-  // optional .CMsgClientToGCCandyShopDevClearInventoryResponse.EResponse response = 1 [default = k_eInternalError];
+  // optional .CCandyShopDev.EResponse response = 1 [default = k_eInternalError];
   bool has_response() const;
   private:
   bool _internal_has_response() const;
   public:
   void clear_response();
-  ::CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse response() const;
-  void set_response(::CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse value);
+  ::CCandyShopDev_EResponse response() const;
+  void set_response(::CCandyShopDev_EResponse value);
   private:
-  ::CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse _internal_response() const;
-  void _internal_set_response(::CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse value);
+  ::CCandyShopDev_EResponse _internal_response() const;
+  void _internal_set_response(::CCandyShopDev_EResponse value);
   public:
 
   // @@protoc_insertion_point(class_scope:CMsgClientToGCCandyShopDevClearInventoryResponse)
@@ -5409,7 +5431,7 @@ class CMsgClientToGCCandyShopDevGrantCandyBags final :
                &_CMsgClientToGCCandyShopDevGrantCandyBags_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    26;
 
   friend void swap(CMsgClientToGCCandyShopDevGrantCandyBags& a, CMsgClientToGCCandyShopDevGrantCandyBags& b) {
     a.Swap(&b);
@@ -5584,7 +5606,7 @@ class CMsgClientToGCCandyShopDevGrantCandyBagsResponse final :
                &_CMsgClientToGCCandyShopDevGrantCandyBagsResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    26;
+    27;
 
   friend void swap(CMsgClientToGCCandyShopDevGrantCandyBagsResponse& a, CMsgClientToGCCandyShopDevGrantCandyBagsResponse& b) {
     a.Swap(&b);
@@ -5654,62 +5676,22 @@ class CMsgClientToGCCandyShopDevGrantCandyBagsResponse final :
 
   // nested types ----------------------------------------------------
 
-  typedef CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse EResponse;
-  static constexpr EResponse k_eInternalError =
-    CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse_k_eInternalError;
-  static constexpr EResponse k_eSuccess =
-    CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse_k_eSuccess;
-  static constexpr EResponse k_eTooBusy =
-    CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse_k_eTooBusy;
-  static constexpr EResponse k_eDisabled =
-    CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse_k_eDisabled;
-  static constexpr EResponse k_eTimeout =
-    CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse_k_eTimeout;
-  static constexpr EResponse k_eNotAllowed =
-    CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse_k_eNotAllowed;
-  static constexpr EResponse k_eInvalidShop =
-    CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse_k_eInvalidShop;
-  static inline bool EResponse_IsValid(int value) {
-    return CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse_IsValid(value);
-  }
-  static constexpr EResponse EResponse_MIN =
-    CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse_EResponse_MIN;
-  static constexpr EResponse EResponse_MAX =
-    CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse_EResponse_MAX;
-  static constexpr int EResponse_ARRAYSIZE =
-    CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse_EResponse_ARRAYSIZE;
-  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
-  EResponse_descriptor() {
-    return CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse_descriptor();
-  }
-  template<typename T>
-  static inline const std::string& EResponse_Name(T enum_t_value) {
-    static_assert(::std::is_same<T, EResponse>::value ||
-      ::std::is_integral<T>::value,
-      "Incorrect type passed to function EResponse_Name.");
-    return CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse_Name(enum_t_value);
-  }
-  static inline bool EResponse_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
-      EResponse* value) {
-    return CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse_Parse(name, value);
-  }
-
   // accessors -------------------------------------------------------
 
   enum : int {
     kResponseFieldNumber = 1,
   };
-  // optional .CMsgClientToGCCandyShopDevGrantCandyBagsResponse.EResponse response = 1 [default = k_eInternalError];
+  // optional .CCandyShopDev.EResponse response = 1 [default = k_eInternalError];
   bool has_response() const;
   private:
   bool _internal_has_response() const;
   public:
   void clear_response();
-  ::CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse response() const;
-  void set_response(::CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse value);
+  ::CCandyShopDev_EResponse response() const;
+  void set_response(::CCandyShopDev_EResponse value);
   private:
-  ::CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse _internal_response() const;
-  void _internal_set_response(::CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse value);
+  ::CCandyShopDev_EResponse _internal_response() const;
+  void _internal_set_response(::CCandyShopDev_EResponse value);
   public:
 
   // @@protoc_insertion_point(class_scope:CMsgClientToGCCandyShopDevGrantCandyBagsResponse)
@@ -5784,7 +5766,7 @@ class CMsgClientToGCCandyShopDevShuffleExchange final :
                &_CMsgClientToGCCandyShopDevShuffleExchange_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    27;
+    28;
 
   friend void swap(CMsgClientToGCCandyShopDevShuffleExchange& a, CMsgClientToGCCandyShopDevShuffleExchange& b) {
     a.Swap(&b);
@@ -5944,7 +5926,7 @@ class CMsgClientToGCCandyShopDevShuffleExchangeResponse final :
                &_CMsgClientToGCCandyShopDevShuffleExchangeResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    28;
+    29;
 
   friend void swap(CMsgClientToGCCandyShopDevShuffleExchangeResponse& a, CMsgClientToGCCandyShopDevShuffleExchangeResponse& b) {
     a.Swap(&b);
@@ -6014,62 +5996,22 @@ class CMsgClientToGCCandyShopDevShuffleExchangeResponse final :
 
   // nested types ----------------------------------------------------
 
-  typedef CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse EResponse;
-  static constexpr EResponse k_eInternalError =
-    CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse_k_eInternalError;
-  static constexpr EResponse k_eSuccess =
-    CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse_k_eSuccess;
-  static constexpr EResponse k_eTooBusy =
-    CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse_k_eTooBusy;
-  static constexpr EResponse k_eDisabled =
-    CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse_k_eDisabled;
-  static constexpr EResponse k_eTimeout =
-    CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse_k_eTimeout;
-  static constexpr EResponse k_eNotAllowed =
-    CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse_k_eNotAllowed;
-  static constexpr EResponse k_eInvalidShop =
-    CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse_k_eInvalidShop;
-  static inline bool EResponse_IsValid(int value) {
-    return CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse_IsValid(value);
-  }
-  static constexpr EResponse EResponse_MIN =
-    CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse_EResponse_MIN;
-  static constexpr EResponse EResponse_MAX =
-    CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse_EResponse_MAX;
-  static constexpr int EResponse_ARRAYSIZE =
-    CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse_EResponse_ARRAYSIZE;
-  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
-  EResponse_descriptor() {
-    return CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse_descriptor();
-  }
-  template<typename T>
-  static inline const std::string& EResponse_Name(T enum_t_value) {
-    static_assert(::std::is_same<T, EResponse>::value ||
-      ::std::is_integral<T>::value,
-      "Incorrect type passed to function EResponse_Name.");
-    return CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse_Name(enum_t_value);
-  }
-  static inline bool EResponse_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
-      EResponse* value) {
-    return CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse_Parse(name, value);
-  }
-
   // accessors -------------------------------------------------------
 
   enum : int {
     kResponseFieldNumber = 1,
   };
-  // optional .CMsgClientToGCCandyShopDevShuffleExchangeResponse.EResponse response = 1 [default = k_eInternalError];
+  // optional .CCandyShopDev.EResponse response = 1 [default = k_eInternalError];
   bool has_response() const;
   private:
   bool _internal_has_response() const;
   public:
   void clear_response();
-  ::CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse response() const;
-  void set_response(::CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse value);
+  ::CCandyShopDev_EResponse response() const;
+  void set_response(::CCandyShopDev_EResponse value);
   private:
-  ::CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse _internal_response() const;
-  void _internal_set_response(::CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse value);
+  ::CCandyShopDev_EResponse _internal_response() const;
+  void _internal_set_response(::CCandyShopDev_EResponse value);
   public:
 
   // @@protoc_insertion_point(class_scope:CMsgClientToGCCandyShopDevShuffleExchangeResponse)
@@ -6144,7 +6086,7 @@ class CMsgClientToGCCandyShopDevGrantRerollCharges final :
                &_CMsgClientToGCCandyShopDevGrantRerollCharges_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    29;
+    30;
 
   friend void swap(CMsgClientToGCCandyShopDevGrantRerollCharges& a, CMsgClientToGCCandyShopDevGrantRerollCharges& b) {
     a.Swap(&b);
@@ -6319,7 +6261,7 @@ class CMsgClientToGCCandyShopDevGrantRerollChargesResponse final :
                &_CMsgClientToGCCandyShopDevGrantRerollChargesResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    30;
+    31;
 
   friend void swap(CMsgClientToGCCandyShopDevGrantRerollChargesResponse& a, CMsgClientToGCCandyShopDevGrantRerollChargesResponse& b) {
     a.Swap(&b);
@@ -6389,65 +6331,345 @@ class CMsgClientToGCCandyShopDevGrantRerollChargesResponse final :
 
   // nested types ----------------------------------------------------
 
-  typedef CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse EResponse;
-  static constexpr EResponse k_eInternalError =
-    CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse_k_eInternalError;
-  static constexpr EResponse k_eSuccess =
-    CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse_k_eSuccess;
-  static constexpr EResponse k_eTooBusy =
-    CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse_k_eTooBusy;
-  static constexpr EResponse k_eDisabled =
-    CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse_k_eDisabled;
-  static constexpr EResponse k_eTimeout =
-    CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse_k_eTimeout;
-  static constexpr EResponse k_eNotAllowed =
-    CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse_k_eNotAllowed;
-  static constexpr EResponse k_eInvalidShop =
-    CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse_k_eInvalidShop;
-  static inline bool EResponse_IsValid(int value) {
-    return CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse_IsValid(value);
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kResponseFieldNumber = 1,
+  };
+  // optional .CCandyShopDev.EResponse response = 1 [default = k_eInternalError];
+  bool has_response() const;
+  private:
+  bool _internal_has_response() const;
+  public:
+  void clear_response();
+  ::CCandyShopDev_EResponse response() const;
+  void set_response(::CCandyShopDev_EResponse value);
+  private:
+  ::CCandyShopDev_EResponse _internal_response() const;
+  void _internal_set_response(::CCandyShopDev_EResponse value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgClientToGCCandyShopDevGrantRerollChargesResponse)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    int response_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgClientToGCCandyShopDevResetShop final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgClientToGCCandyShopDevResetShop) */ {
+ public:
+  inline CMsgClientToGCCandyShopDevResetShop() : CMsgClientToGCCandyShopDevResetShop(nullptr) {}
+  ~CMsgClientToGCCandyShopDevResetShop() override;
+  explicit PROTOBUF_CONSTEXPR CMsgClientToGCCandyShopDevResetShop(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgClientToGCCandyShopDevResetShop(const CMsgClientToGCCandyShopDevResetShop& from);
+  CMsgClientToGCCandyShopDevResetShop(CMsgClientToGCCandyShopDevResetShop&& from) noexcept
+    : CMsgClientToGCCandyShopDevResetShop() {
+    *this = ::std::move(from);
   }
-  static constexpr EResponse EResponse_MIN =
-    CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse_EResponse_MIN;
-  static constexpr EResponse EResponse_MAX =
-    CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse_EResponse_MAX;
-  static constexpr int EResponse_ARRAYSIZE =
-    CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse_EResponse_ARRAYSIZE;
-  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
-  EResponse_descriptor() {
-    return CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse_descriptor();
+
+  inline CMsgClientToGCCandyShopDevResetShop& operator=(const CMsgClientToGCCandyShopDevResetShop& from) {
+    CopyFrom(from);
+    return *this;
   }
-  template<typename T>
-  static inline const std::string& EResponse_Name(T enum_t_value) {
-    static_assert(::std::is_same<T, EResponse>::value ||
-      ::std::is_integral<T>::value,
-      "Incorrect type passed to function EResponse_Name.");
-    return CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse_Name(enum_t_value);
+  inline CMsgClientToGCCandyShopDevResetShop& operator=(CMsgClientToGCCandyShopDevResetShop&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
   }
-  static inline bool EResponse_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
-      EResponse* value) {
-    return CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse_Parse(name, value);
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
   }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgClientToGCCandyShopDevResetShop& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgClientToGCCandyShopDevResetShop* internal_default_instance() {
+    return reinterpret_cast<const CMsgClientToGCCandyShopDevResetShop*>(
+               &_CMsgClientToGCCandyShopDevResetShop_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    32;
+
+  friend void swap(CMsgClientToGCCandyShopDevResetShop& a, CMsgClientToGCCandyShopDevResetShop& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgClientToGCCandyShopDevResetShop* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgClientToGCCandyShopDevResetShop* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgClientToGCCandyShopDevResetShop* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgClientToGCCandyShopDevResetShop>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgClientToGCCandyShopDevResetShop& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgClientToGCCandyShopDevResetShop& from) {
+    CMsgClientToGCCandyShopDevResetShop::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgClientToGCCandyShopDevResetShop* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgClientToGCCandyShopDevResetShop";
+  }
+  protected:
+  explicit CMsgClientToGCCandyShopDevResetShop(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kCandyShopIdFieldNumber = 1,
+  };
+  // optional uint32 candy_shop_id = 1;
+  bool has_candy_shop_id() const;
+  private:
+  bool _internal_has_candy_shop_id() const;
+  public:
+  void clear_candy_shop_id();
+  uint32_t candy_shop_id() const;
+  void set_candy_shop_id(uint32_t value);
+  private:
+  uint32_t _internal_candy_shop_id() const;
+  void _internal_set_candy_shop_id(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgClientToGCCandyShopDevResetShop)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    uint32_t candy_shop_id_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_dota_5fgcmessages_5fclient_5fcandy_5fshop_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgClientToGCCandyShopDevResetShopResponse final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgClientToGCCandyShopDevResetShopResponse) */ {
+ public:
+  inline CMsgClientToGCCandyShopDevResetShopResponse() : CMsgClientToGCCandyShopDevResetShopResponse(nullptr) {}
+  ~CMsgClientToGCCandyShopDevResetShopResponse() override;
+  explicit PROTOBUF_CONSTEXPR CMsgClientToGCCandyShopDevResetShopResponse(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgClientToGCCandyShopDevResetShopResponse(const CMsgClientToGCCandyShopDevResetShopResponse& from);
+  CMsgClientToGCCandyShopDevResetShopResponse(CMsgClientToGCCandyShopDevResetShopResponse&& from) noexcept
+    : CMsgClientToGCCandyShopDevResetShopResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgClientToGCCandyShopDevResetShopResponse& operator=(const CMsgClientToGCCandyShopDevResetShopResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgClientToGCCandyShopDevResetShopResponse& operator=(CMsgClientToGCCandyShopDevResetShopResponse&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgClientToGCCandyShopDevResetShopResponse& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgClientToGCCandyShopDevResetShopResponse* internal_default_instance() {
+    return reinterpret_cast<const CMsgClientToGCCandyShopDevResetShopResponse*>(
+               &_CMsgClientToGCCandyShopDevResetShopResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    33;
+
+  friend void swap(CMsgClientToGCCandyShopDevResetShopResponse& a, CMsgClientToGCCandyShopDevResetShopResponse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgClientToGCCandyShopDevResetShopResponse* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgClientToGCCandyShopDevResetShopResponse* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgClientToGCCandyShopDevResetShopResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgClientToGCCandyShopDevResetShopResponse>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgClientToGCCandyShopDevResetShopResponse& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgClientToGCCandyShopDevResetShopResponse& from) {
+    CMsgClientToGCCandyShopDevResetShopResponse::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgClientToGCCandyShopDevResetShopResponse* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgClientToGCCandyShopDevResetShopResponse";
+  }
+  protected:
+  explicit CMsgClientToGCCandyShopDevResetShopResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
 
   // accessors -------------------------------------------------------
 
   enum : int {
     kResponseFieldNumber = 1,
   };
-  // optional .CMsgClientToGCCandyShopDevGrantRerollChargesResponse.EResponse response = 1 [default = k_eInternalError];
+  // optional .CCandyShopDev.EResponse response = 1 [default = k_eInternalError];
   bool has_response() const;
   private:
   bool _internal_has_response() const;
   public:
   void clear_response();
-  ::CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse response() const;
-  void set_response(::CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse value);
+  ::CCandyShopDev_EResponse response() const;
+  void set_response(::CCandyShopDev_EResponse value);
   private:
-  ::CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse _internal_response() const;
-  void _internal_set_response(::CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse value);
+  ::CCandyShopDev_EResponse _internal_response() const;
+  void _internal_set_response(::CCandyShopDev_EResponse value);
   public:
 
-  // @@protoc_insertion_point(class_scope:CMsgClientToGCCandyShopDevGrantRerollChargesResponse)
+  // @@protoc_insertion_point(class_scope:CMsgClientToGCCandyShopDevResetShopResponse)
  private:
   class _Internal;
 
@@ -6876,34 +7098,6 @@ inline void CMsgCandyShopRewardData_EventAction::_internal_set_action_id(uint32_
 inline void CMsgCandyShopRewardData_EventAction::set_action_id(uint32_t value) {
   _internal_set_action_id(value);
   // @@protoc_insertion_point(field_set:CMsgCandyShopRewardData_EventAction.action_id)
-}
-
-// optional uint32 quantity = 3;
-inline bool CMsgCandyShopRewardData_EventAction::_internal_has_quantity() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
-  return value;
-}
-inline bool CMsgCandyShopRewardData_EventAction::has_quantity() const {
-  return _internal_has_quantity();
-}
-inline void CMsgCandyShopRewardData_EventAction::clear_quantity() {
-  _impl_.quantity_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000004u;
-}
-inline uint32_t CMsgCandyShopRewardData_EventAction::_internal_quantity() const {
-  return _impl_.quantity_;
-}
-inline uint32_t CMsgCandyShopRewardData_EventAction::quantity() const {
-  // @@protoc_insertion_point(field_get:CMsgCandyShopRewardData_EventAction.quantity)
-  return _internal_quantity();
-}
-inline void CMsgCandyShopRewardData_EventAction::_internal_set_quantity(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
-  _impl_.quantity_ = value;
-}
-inline void CMsgCandyShopRewardData_EventAction::set_quantity(uint32_t value) {
-  _internal_set_quantity(value);
-  // @@protoc_insertion_point(field_set:CMsgCandyShopRewardData_EventAction.quantity)
 }
 
 // -------------------------------------------------------------------
@@ -7420,32 +7614,32 @@ inline void CMsgCandyShopReward::set_allocated_event_points_data(::CMsgCandyShop
 
 // CMsgCandyShopUserData
 
-// optional uint32 inventory_size = 1;
-inline bool CMsgCandyShopUserData::_internal_has_inventory_size() const {
+// optional uint32 inventory_max = 1;
+inline bool CMsgCandyShopUserData::_internal_has_inventory_max() const {
   bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
-inline bool CMsgCandyShopUserData::has_inventory_size() const {
-  return _internal_has_inventory_size();
+inline bool CMsgCandyShopUserData::has_inventory_max() const {
+  return _internal_has_inventory_max();
 }
-inline void CMsgCandyShopUserData::clear_inventory_size() {
-  _impl_.inventory_size_ = 0u;
+inline void CMsgCandyShopUserData::clear_inventory_max() {
+  _impl_.inventory_max_ = 0u;
   _impl_._has_bits_[0] &= ~0x00000002u;
 }
-inline uint32_t CMsgCandyShopUserData::_internal_inventory_size() const {
-  return _impl_.inventory_size_;
+inline uint32_t CMsgCandyShopUserData::_internal_inventory_max() const {
+  return _impl_.inventory_max_;
 }
-inline uint32_t CMsgCandyShopUserData::inventory_size() const {
-  // @@protoc_insertion_point(field_get:CMsgCandyShopUserData.inventory_size)
-  return _internal_inventory_size();
+inline uint32_t CMsgCandyShopUserData::inventory_max() const {
+  // @@protoc_insertion_point(field_get:CMsgCandyShopUserData.inventory_max)
+  return _internal_inventory_max();
 }
-inline void CMsgCandyShopUserData::_internal_set_inventory_size(uint32_t value) {
+inline void CMsgCandyShopUserData::_internal_set_inventory_max(uint32_t value) {
   _impl_._has_bits_[0] |= 0x00000002u;
-  _impl_.inventory_size_ = value;
+  _impl_.inventory_max_ = value;
 }
-inline void CMsgCandyShopUserData::set_inventory_size(uint32_t value) {
-  _internal_set_inventory_size(value);
-  // @@protoc_insertion_point(field_set:CMsgCandyShopUserData.inventory_size)
+inline void CMsgCandyShopUserData::set_inventory_max(uint32_t value) {
+  _internal_set_inventory_max(value);
+  // @@protoc_insertion_point(field_set:CMsgCandyShopUserData.inventory_max)
 }
 
 // optional .CMsgCandyShopCandyQuantity inventory = 2;
@@ -7538,9 +7732,37 @@ inline void CMsgCandyShopUserData::set_allocated_inventory(::CMsgCandyShopCandyQ
   // @@protoc_insertion_point(field_set_allocated:CMsgCandyShopUserData.inventory)
 }
 
-// optional fixed32 exchange_reset_timestamp = 3;
-inline bool CMsgCandyShopUserData::_internal_has_exchange_reset_timestamp() const {
+// optional uint32 exchange_recipe_max = 3;
+inline bool CMsgCandyShopUserData::_internal_has_exchange_recipe_max() const {
   bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CMsgCandyShopUserData::has_exchange_recipe_max() const {
+  return _internal_has_exchange_recipe_max();
+}
+inline void CMsgCandyShopUserData::clear_exchange_recipe_max() {
+  _impl_.exchange_recipe_max_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline uint32_t CMsgCandyShopUserData::_internal_exchange_recipe_max() const {
+  return _impl_.exchange_recipe_max_;
+}
+inline uint32_t CMsgCandyShopUserData::exchange_recipe_max() const {
+  // @@protoc_insertion_point(field_get:CMsgCandyShopUserData.exchange_recipe_max)
+  return _internal_exchange_recipe_max();
+}
+inline void CMsgCandyShopUserData::_internal_set_exchange_recipe_max(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.exchange_recipe_max_ = value;
+}
+inline void CMsgCandyShopUserData::set_exchange_recipe_max(uint32_t value) {
+  _internal_set_exchange_recipe_max(value);
+  // @@protoc_insertion_point(field_set:CMsgCandyShopUserData.exchange_recipe_max)
+}
+
+// optional fixed32 exchange_reset_timestamp = 4;
+inline bool CMsgCandyShopUserData::_internal_has_exchange_reset_timestamp() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CMsgCandyShopUserData::has_exchange_reset_timestamp() const {
@@ -7548,7 +7770,7 @@ inline bool CMsgCandyShopUserData::has_exchange_reset_timestamp() const {
 }
 inline void CMsgCandyShopUserData::clear_exchange_reset_timestamp() {
   _impl_.exchange_reset_timestamp_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline uint32_t CMsgCandyShopUserData::_internal_exchange_reset_timestamp() const {
   return _impl_.exchange_reset_timestamp_;
@@ -7558,7 +7780,7 @@ inline uint32_t CMsgCandyShopUserData::exchange_reset_timestamp() const {
   return _internal_exchange_reset_timestamp();
 }
 inline void CMsgCandyShopUserData::_internal_set_exchange_reset_timestamp(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.exchange_reset_timestamp_ = value;
 }
 inline void CMsgCandyShopUserData::set_exchange_reset_timestamp(uint32_t value) {
@@ -7566,7 +7788,7 @@ inline void CMsgCandyShopUserData::set_exchange_reset_timestamp(uint32_t value) 
   // @@protoc_insertion_point(field_set:CMsgCandyShopUserData.exchange_reset_timestamp)
 }
 
-// repeated .CMsgCandyShopExchangeRecipe exchange_recipes = 4;
+// repeated .CMsgCandyShopExchangeRecipe exchange_recipes = 5;
 inline int CMsgCandyShopUserData::_internal_exchange_recipes_size() const {
   return _impl_.exchange_recipes_.size();
 }
@@ -7606,7 +7828,35 @@ CMsgCandyShopUserData::exchange_recipes() const {
   return _impl_.exchange_recipes_;
 }
 
-// repeated .CMsgCandyShopReward active_rewards = 5;
+// optional uint32 active_reward_max = 6;
+inline bool CMsgCandyShopUserData::_internal_has_active_reward_max() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  return value;
+}
+inline bool CMsgCandyShopUserData::has_active_reward_max() const {
+  return _internal_has_active_reward_max();
+}
+inline void CMsgCandyShopUserData::clear_active_reward_max() {
+  _impl_.active_reward_max_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000010u;
+}
+inline uint32_t CMsgCandyShopUserData::_internal_active_reward_max() const {
+  return _impl_.active_reward_max_;
+}
+inline uint32_t CMsgCandyShopUserData::active_reward_max() const {
+  // @@protoc_insertion_point(field_get:CMsgCandyShopUserData.active_reward_max)
+  return _internal_active_reward_max();
+}
+inline void CMsgCandyShopUserData::_internal_set_active_reward_max(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_.active_reward_max_ = value;
+}
+inline void CMsgCandyShopUserData::set_active_reward_max(uint32_t value) {
+  _internal_set_active_reward_max(value);
+  // @@protoc_insertion_point(field_set:CMsgCandyShopUserData.active_reward_max)
+}
+
+// repeated .CMsgCandyShopReward active_rewards = 7;
 inline int CMsgCandyShopUserData::_internal_active_rewards_size() const {
   return _impl_.active_rewards_.size();
 }
@@ -7646,9 +7896,37 @@ CMsgCandyShopUserData::active_rewards() const {
   return _impl_.active_rewards_;
 }
 
-// optional uint32 reroll_charges = 6;
+// optional uint32 reroll_charges_max = 8;
+inline bool CMsgCandyShopUserData::_internal_has_reroll_charges_max() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  return value;
+}
+inline bool CMsgCandyShopUserData::has_reroll_charges_max() const {
+  return _internal_has_reroll_charges_max();
+}
+inline void CMsgCandyShopUserData::clear_reroll_charges_max() {
+  _impl_.reroll_charges_max_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000020u;
+}
+inline uint32_t CMsgCandyShopUserData::_internal_reroll_charges_max() const {
+  return _impl_.reroll_charges_max_;
+}
+inline uint32_t CMsgCandyShopUserData::reroll_charges_max() const {
+  // @@protoc_insertion_point(field_get:CMsgCandyShopUserData.reroll_charges_max)
+  return _internal_reroll_charges_max();
+}
+inline void CMsgCandyShopUserData::_internal_set_reroll_charges_max(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_.reroll_charges_max_ = value;
+}
+inline void CMsgCandyShopUserData::set_reroll_charges_max(uint32_t value) {
+  _internal_set_reroll_charges_max(value);
+  // @@protoc_insertion_point(field_set:CMsgCandyShopUserData.reroll_charges_max)
+}
+
+// optional uint32 reroll_charges = 9;
 inline bool CMsgCandyShopUserData::_internal_has_reroll_charges() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
   return value;
 }
 inline bool CMsgCandyShopUserData::has_reroll_charges() const {
@@ -7656,7 +7934,7 @@ inline bool CMsgCandyShopUserData::has_reroll_charges() const {
 }
 inline void CMsgCandyShopUserData::clear_reroll_charges() {
   _impl_.reroll_charges_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000040u;
 }
 inline uint32_t CMsgCandyShopUserData::_internal_reroll_charges() const {
   return _impl_.reroll_charges_;
@@ -7666,7 +7944,7 @@ inline uint32_t CMsgCandyShopUserData::reroll_charges() const {
   return _internal_reroll_charges();
 }
 inline void CMsgCandyShopUserData::_internal_set_reroll_charges(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000040u;
   _impl_.reroll_charges_ = value;
 }
 inline void CMsgCandyShopUserData::set_reroll_charges(uint32_t value) {
@@ -8542,6 +8820,10 @@ inline void CMsgClientToGCCandyShopRerollRewardsResponse::set_response(::CMsgCli
 
 // -------------------------------------------------------------------
 
+// CCandyShopDev
+
+// -------------------------------------------------------------------
+
 // CMsgClientToGCCandyShopDevGrantCandy
 
 // optional uint32 candy_shop_id = 1;
@@ -8666,7 +8948,7 @@ inline void CMsgClientToGCCandyShopDevGrantCandy::set_allocated_candy_quantity(:
 
 // CMsgClientToGCCandyShopDevGrantCandyResponse
 
-// optional .CMsgClientToGCCandyShopDevGrantCandyResponse.EResponse response = 1 [default = k_eInternalError];
+// optional .CCandyShopDev.EResponse response = 1 [default = k_eInternalError];
 inline bool CMsgClientToGCCandyShopDevGrantCandyResponse::_internal_has_response() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -8678,19 +8960,19 @@ inline void CMsgClientToGCCandyShopDevGrantCandyResponse::clear_response() {
   _impl_.response_ = 0;
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline ::CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse CMsgClientToGCCandyShopDevGrantCandyResponse::_internal_response() const {
-  return static_cast< ::CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse >(_impl_.response_);
+inline ::CCandyShopDev_EResponse CMsgClientToGCCandyShopDevGrantCandyResponse::_internal_response() const {
+  return static_cast< ::CCandyShopDev_EResponse >(_impl_.response_);
 }
-inline ::CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse CMsgClientToGCCandyShopDevGrantCandyResponse::response() const {
+inline ::CCandyShopDev_EResponse CMsgClientToGCCandyShopDevGrantCandyResponse::response() const {
   // @@protoc_insertion_point(field_get:CMsgClientToGCCandyShopDevGrantCandyResponse.response)
   return _internal_response();
 }
-inline void CMsgClientToGCCandyShopDevGrantCandyResponse::_internal_set_response(::CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse value) {
-  assert(::CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse_IsValid(value));
+inline void CMsgClientToGCCandyShopDevGrantCandyResponse::_internal_set_response(::CCandyShopDev_EResponse value) {
+  assert(::CCandyShopDev_EResponse_IsValid(value));
   _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.response_ = value;
 }
-inline void CMsgClientToGCCandyShopDevGrantCandyResponse::set_response(::CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse value) {
+inline void CMsgClientToGCCandyShopDevGrantCandyResponse::set_response(::CCandyShopDev_EResponse value) {
   _internal_set_response(value);
   // @@protoc_insertion_point(field_set:CMsgClientToGCCandyShopDevGrantCandyResponse.response)
 }
@@ -8731,7 +9013,7 @@ inline void CMsgClientToGCCandyShopDevClearInventory::set_candy_shop_id(uint32_t
 
 // CMsgClientToGCCandyShopDevClearInventoryResponse
 
-// optional .CMsgClientToGCCandyShopDevClearInventoryResponse.EResponse response = 1 [default = k_eInternalError];
+// optional .CCandyShopDev.EResponse response = 1 [default = k_eInternalError];
 inline bool CMsgClientToGCCandyShopDevClearInventoryResponse::_internal_has_response() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -8743,19 +9025,19 @@ inline void CMsgClientToGCCandyShopDevClearInventoryResponse::clear_response() {
   _impl_.response_ = 0;
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline ::CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse CMsgClientToGCCandyShopDevClearInventoryResponse::_internal_response() const {
-  return static_cast< ::CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse >(_impl_.response_);
+inline ::CCandyShopDev_EResponse CMsgClientToGCCandyShopDevClearInventoryResponse::_internal_response() const {
+  return static_cast< ::CCandyShopDev_EResponse >(_impl_.response_);
 }
-inline ::CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse CMsgClientToGCCandyShopDevClearInventoryResponse::response() const {
+inline ::CCandyShopDev_EResponse CMsgClientToGCCandyShopDevClearInventoryResponse::response() const {
   // @@protoc_insertion_point(field_get:CMsgClientToGCCandyShopDevClearInventoryResponse.response)
   return _internal_response();
 }
-inline void CMsgClientToGCCandyShopDevClearInventoryResponse::_internal_set_response(::CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse value) {
-  assert(::CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse_IsValid(value));
+inline void CMsgClientToGCCandyShopDevClearInventoryResponse::_internal_set_response(::CCandyShopDev_EResponse value) {
+  assert(::CCandyShopDev_EResponse_IsValid(value));
   _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.response_ = value;
 }
-inline void CMsgClientToGCCandyShopDevClearInventoryResponse::set_response(::CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse value) {
+inline void CMsgClientToGCCandyShopDevClearInventoryResponse::set_response(::CCandyShopDev_EResponse value) {
   _internal_set_response(value);
   // @@protoc_insertion_point(field_set:CMsgClientToGCCandyShopDevClearInventoryResponse.response)
 }
@@ -8824,7 +9106,7 @@ inline void CMsgClientToGCCandyShopDevGrantCandyBags::set_quantity(uint32_t valu
 
 // CMsgClientToGCCandyShopDevGrantCandyBagsResponse
 
-// optional .CMsgClientToGCCandyShopDevGrantCandyBagsResponse.EResponse response = 1 [default = k_eInternalError];
+// optional .CCandyShopDev.EResponse response = 1 [default = k_eInternalError];
 inline bool CMsgClientToGCCandyShopDevGrantCandyBagsResponse::_internal_has_response() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -8836,19 +9118,19 @@ inline void CMsgClientToGCCandyShopDevGrantCandyBagsResponse::clear_response() {
   _impl_.response_ = 0;
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline ::CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse CMsgClientToGCCandyShopDevGrantCandyBagsResponse::_internal_response() const {
-  return static_cast< ::CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse >(_impl_.response_);
+inline ::CCandyShopDev_EResponse CMsgClientToGCCandyShopDevGrantCandyBagsResponse::_internal_response() const {
+  return static_cast< ::CCandyShopDev_EResponse >(_impl_.response_);
 }
-inline ::CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse CMsgClientToGCCandyShopDevGrantCandyBagsResponse::response() const {
+inline ::CCandyShopDev_EResponse CMsgClientToGCCandyShopDevGrantCandyBagsResponse::response() const {
   // @@protoc_insertion_point(field_get:CMsgClientToGCCandyShopDevGrantCandyBagsResponse.response)
   return _internal_response();
 }
-inline void CMsgClientToGCCandyShopDevGrantCandyBagsResponse::_internal_set_response(::CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse value) {
-  assert(::CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse_IsValid(value));
+inline void CMsgClientToGCCandyShopDevGrantCandyBagsResponse::_internal_set_response(::CCandyShopDev_EResponse value) {
+  assert(::CCandyShopDev_EResponse_IsValid(value));
   _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.response_ = value;
 }
-inline void CMsgClientToGCCandyShopDevGrantCandyBagsResponse::set_response(::CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse value) {
+inline void CMsgClientToGCCandyShopDevGrantCandyBagsResponse::set_response(::CCandyShopDev_EResponse value) {
   _internal_set_response(value);
   // @@protoc_insertion_point(field_set:CMsgClientToGCCandyShopDevGrantCandyBagsResponse.response)
 }
@@ -8889,7 +9171,7 @@ inline void CMsgClientToGCCandyShopDevShuffleExchange::set_candy_shop_id(uint32_
 
 // CMsgClientToGCCandyShopDevShuffleExchangeResponse
 
-// optional .CMsgClientToGCCandyShopDevShuffleExchangeResponse.EResponse response = 1 [default = k_eInternalError];
+// optional .CCandyShopDev.EResponse response = 1 [default = k_eInternalError];
 inline bool CMsgClientToGCCandyShopDevShuffleExchangeResponse::_internal_has_response() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -8901,19 +9183,19 @@ inline void CMsgClientToGCCandyShopDevShuffleExchangeResponse::clear_response() 
   _impl_.response_ = 0;
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline ::CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse CMsgClientToGCCandyShopDevShuffleExchangeResponse::_internal_response() const {
-  return static_cast< ::CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse >(_impl_.response_);
+inline ::CCandyShopDev_EResponse CMsgClientToGCCandyShopDevShuffleExchangeResponse::_internal_response() const {
+  return static_cast< ::CCandyShopDev_EResponse >(_impl_.response_);
 }
-inline ::CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse CMsgClientToGCCandyShopDevShuffleExchangeResponse::response() const {
+inline ::CCandyShopDev_EResponse CMsgClientToGCCandyShopDevShuffleExchangeResponse::response() const {
   // @@protoc_insertion_point(field_get:CMsgClientToGCCandyShopDevShuffleExchangeResponse.response)
   return _internal_response();
 }
-inline void CMsgClientToGCCandyShopDevShuffleExchangeResponse::_internal_set_response(::CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse value) {
-  assert(::CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse_IsValid(value));
+inline void CMsgClientToGCCandyShopDevShuffleExchangeResponse::_internal_set_response(::CCandyShopDev_EResponse value) {
+  assert(::CCandyShopDev_EResponse_IsValid(value));
   _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.response_ = value;
 }
-inline void CMsgClientToGCCandyShopDevShuffleExchangeResponse::set_response(::CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse value) {
+inline void CMsgClientToGCCandyShopDevShuffleExchangeResponse::set_response(::CCandyShopDev_EResponse value) {
   _internal_set_response(value);
   // @@protoc_insertion_point(field_set:CMsgClientToGCCandyShopDevShuffleExchangeResponse.response)
 }
@@ -8982,7 +9264,7 @@ inline void CMsgClientToGCCandyShopDevGrantRerollCharges::set_reroll_charges(uin
 
 // CMsgClientToGCCandyShopDevGrantRerollChargesResponse
 
-// optional .CMsgClientToGCCandyShopDevGrantRerollChargesResponse.EResponse response = 1 [default = k_eInternalError];
+// optional .CCandyShopDev.EResponse response = 1 [default = k_eInternalError];
 inline bool CMsgClientToGCCandyShopDevGrantRerollChargesResponse::_internal_has_response() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -8994,26 +9276,97 @@ inline void CMsgClientToGCCandyShopDevGrantRerollChargesResponse::clear_response
   _impl_.response_ = 0;
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline ::CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse CMsgClientToGCCandyShopDevGrantRerollChargesResponse::_internal_response() const {
-  return static_cast< ::CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse >(_impl_.response_);
+inline ::CCandyShopDev_EResponse CMsgClientToGCCandyShopDevGrantRerollChargesResponse::_internal_response() const {
+  return static_cast< ::CCandyShopDev_EResponse >(_impl_.response_);
 }
-inline ::CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse CMsgClientToGCCandyShopDevGrantRerollChargesResponse::response() const {
+inline ::CCandyShopDev_EResponse CMsgClientToGCCandyShopDevGrantRerollChargesResponse::response() const {
   // @@protoc_insertion_point(field_get:CMsgClientToGCCandyShopDevGrantRerollChargesResponse.response)
   return _internal_response();
 }
-inline void CMsgClientToGCCandyShopDevGrantRerollChargesResponse::_internal_set_response(::CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse value) {
-  assert(::CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse_IsValid(value));
+inline void CMsgClientToGCCandyShopDevGrantRerollChargesResponse::_internal_set_response(::CCandyShopDev_EResponse value) {
+  assert(::CCandyShopDev_EResponse_IsValid(value));
   _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.response_ = value;
 }
-inline void CMsgClientToGCCandyShopDevGrantRerollChargesResponse::set_response(::CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse value) {
+inline void CMsgClientToGCCandyShopDevGrantRerollChargesResponse::set_response(::CCandyShopDev_EResponse value) {
   _internal_set_response(value);
   // @@protoc_insertion_point(field_set:CMsgClientToGCCandyShopDevGrantRerollChargesResponse.response)
+}
+
+// -------------------------------------------------------------------
+
+// CMsgClientToGCCandyShopDevResetShop
+
+// optional uint32 candy_shop_id = 1;
+inline bool CMsgClientToGCCandyShopDevResetShop::_internal_has_candy_shop_id() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgClientToGCCandyShopDevResetShop::has_candy_shop_id() const {
+  return _internal_has_candy_shop_id();
+}
+inline void CMsgClientToGCCandyShopDevResetShop::clear_candy_shop_id() {
+  _impl_.candy_shop_id_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline uint32_t CMsgClientToGCCandyShopDevResetShop::_internal_candy_shop_id() const {
+  return _impl_.candy_shop_id_;
+}
+inline uint32_t CMsgClientToGCCandyShopDevResetShop::candy_shop_id() const {
+  // @@protoc_insertion_point(field_get:CMsgClientToGCCandyShopDevResetShop.candy_shop_id)
+  return _internal_candy_shop_id();
+}
+inline void CMsgClientToGCCandyShopDevResetShop::_internal_set_candy_shop_id(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.candy_shop_id_ = value;
+}
+inline void CMsgClientToGCCandyShopDevResetShop::set_candy_shop_id(uint32_t value) {
+  _internal_set_candy_shop_id(value);
+  // @@protoc_insertion_point(field_set:CMsgClientToGCCandyShopDevResetShop.candy_shop_id)
+}
+
+// -------------------------------------------------------------------
+
+// CMsgClientToGCCandyShopDevResetShopResponse
+
+// optional .CCandyShopDev.EResponse response = 1 [default = k_eInternalError];
+inline bool CMsgClientToGCCandyShopDevResetShopResponse::_internal_has_response() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgClientToGCCandyShopDevResetShopResponse::has_response() const {
+  return _internal_has_response();
+}
+inline void CMsgClientToGCCandyShopDevResetShopResponse::clear_response() {
+  _impl_.response_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline ::CCandyShopDev_EResponse CMsgClientToGCCandyShopDevResetShopResponse::_internal_response() const {
+  return static_cast< ::CCandyShopDev_EResponse >(_impl_.response_);
+}
+inline ::CCandyShopDev_EResponse CMsgClientToGCCandyShopDevResetShopResponse::response() const {
+  // @@protoc_insertion_point(field_get:CMsgClientToGCCandyShopDevResetShopResponse.response)
+  return _internal_response();
+}
+inline void CMsgClientToGCCandyShopDevResetShopResponse::_internal_set_response(::CCandyShopDev_EResponse value) {
+  assert(::CCandyShopDev_EResponse_IsValid(value));
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.response_ = value;
+}
+inline void CMsgClientToGCCandyShopDevResetShopResponse::set_response(::CCandyShopDev_EResponse value) {
+  _internal_set_response(value);
+  // @@protoc_insertion_point(field_set:CMsgClientToGCCandyShopDevResetShopResponse.response)
 }
 
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
@@ -9110,30 +9463,10 @@ template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::CMsgClientToGCCandyShopRerollRewardsResponse_EResponse>() {
   return ::CMsgClientToGCCandyShopRerollRewardsResponse_EResponse_descriptor();
 }
-template <> struct is_proto_enum< ::CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse> : ::std::true_type {};
+template <> struct is_proto_enum< ::CCandyShopDev_EResponse> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse>() {
-  return ::CMsgClientToGCCandyShopDevGrantCandyResponse_EResponse_descriptor();
-}
-template <> struct is_proto_enum< ::CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse> : ::std::true_type {};
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse>() {
-  return ::CMsgClientToGCCandyShopDevClearInventoryResponse_EResponse_descriptor();
-}
-template <> struct is_proto_enum< ::CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse> : ::std::true_type {};
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse>() {
-  return ::CMsgClientToGCCandyShopDevGrantCandyBagsResponse_EResponse_descriptor();
-}
-template <> struct is_proto_enum< ::CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse> : ::std::true_type {};
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse>() {
-  return ::CMsgClientToGCCandyShopDevShuffleExchangeResponse_EResponse_descriptor();
-}
-template <> struct is_proto_enum< ::CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse> : ::std::true_type {};
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse>() {
-  return ::CMsgClientToGCCandyShopDevGrantRerollChargesResponse_EResponse_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::CCandyShopDev_EResponse>() {
+  return ::CCandyShopDev_EResponse_descriptor();
 }
 template <> struct is_proto_enum< ::ECandyShopAuditAction> : ::std::true_type {};
 template <>

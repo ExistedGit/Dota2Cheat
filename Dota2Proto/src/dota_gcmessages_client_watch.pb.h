@@ -339,6 +339,8 @@ class CSourceTVGameSmall_Player final :
   enum : int {
     kAccountIdFieldNumber = 1,
     kHeroIdFieldNumber = 2,
+    kTeamSlotFieldNumber = 3,
+    kTeamFieldNumber = 4,
   };
   // optional uint32 account_id = 1;
   bool has_account_id() const;
@@ -353,17 +355,43 @@ class CSourceTVGameSmall_Player final :
   void _internal_set_account_id(uint32_t value);
   public:
 
-  // optional uint32 hero_id = 2;
+  // optional int32 hero_id = 2;
   bool has_hero_id() const;
   private:
   bool _internal_has_hero_id() const;
   public:
   void clear_hero_id();
-  uint32_t hero_id() const;
-  void set_hero_id(uint32_t value);
+  int32_t hero_id() const;
+  void set_hero_id(int32_t value);
   private:
-  uint32_t _internal_hero_id() const;
-  void _internal_set_hero_id(uint32_t value);
+  int32_t _internal_hero_id() const;
+  void _internal_set_hero_id(int32_t value);
+  public:
+
+  // optional uint32 team_slot = 3;
+  bool has_team_slot() const;
+  private:
+  bool _internal_has_team_slot() const;
+  public:
+  void clear_team_slot();
+  uint32_t team_slot() const;
+  void set_team_slot(uint32_t value);
+  private:
+  uint32_t _internal_team_slot() const;
+  void _internal_set_team_slot(uint32_t value);
+  public:
+
+  // optional uint32 team = 4;
+  bool has_team() const;
+  private:
+  bool _internal_has_team() const;
+  public:
+  void clear_team();
+  uint32_t team() const;
+  void set_team(uint32_t value);
+  private:
+  uint32_t _internal_team() const;
+  void _internal_set_team(uint32_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:CSourceTVGameSmall.Player)
@@ -377,7 +405,9 @@ class CSourceTVGameSmall_Player final :
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t account_id_;
-    uint32_t hero_id_;
+    int32_t hero_id_;
+    uint32_t team_slot_;
+    uint32_t team_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fgcmessages_5fclient_5fwatch_2eproto;
@@ -1199,17 +1229,17 @@ class CMsgClientToGCFindTopSourceTVGames final :
   void _internal_set_league_id(uint32_t value);
   public:
 
-  // optional uint32 hero_id = 3;
+  // optional int32 hero_id = 3;
   bool has_hero_id() const;
   private:
   bool _internal_has_hero_id() const;
   public:
   void clear_hero_id();
-  uint32_t hero_id() const;
-  void set_hero_id(uint32_t value);
+  int32_t hero_id() const;
+  void set_hero_id(int32_t value);
   private:
-  uint32_t _internal_hero_id() const;
-  void _internal_set_hero_id(uint32_t value);
+  int32_t _internal_hero_id() const;
+  void _internal_set_hero_id(int32_t value);
   public:
 
   // optional uint32 start_game = 4;
@@ -1251,7 +1281,7 @@ class CMsgClientToGCFindTopSourceTVGames final :
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t > lobby_ids_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr search_key_;
     uint32_t league_id_;
-    uint32_t hero_id_;
+    int32_t hero_id_;
     uint32_t start_game_;
     uint32_t game_list_index_;
   };
@@ -1465,17 +1495,17 @@ class CMsgGCToClientFindTopSourceTVGamesResponse final :
   void _internal_set_league_id(uint32_t value);
   public:
 
-  // optional uint32 hero_id = 3;
+  // optional int32 hero_id = 3;
   bool has_hero_id() const;
   private:
   bool _internal_has_hero_id() const;
   public:
   void clear_hero_id();
-  uint32_t hero_id() const;
-  void set_hero_id(uint32_t value);
+  int32_t hero_id() const;
+  void set_hero_id(int32_t value);
   private:
-  uint32_t _internal_hero_id() const;
-  void _internal_set_hero_id(uint32_t value);
+  int32_t _internal_hero_id() const;
+  void _internal_set_hero_id(int32_t value);
   public:
 
   // optional uint32 start_game = 4;
@@ -1544,7 +1574,7 @@ class CMsgGCToClientFindTopSourceTVGamesResponse final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr search_key_;
     ::CSourceTVGameSmall* bot_game_;
     uint32_t league_id_;
-    uint32_t hero_id_;
+    int32_t hero_id_;
     uint32_t start_game_;
     uint32_t num_games_;
     uint32_t game_list_index_;
@@ -5350,7 +5380,7 @@ inline void CSourceTVGameSmall_Player::set_account_id(uint32_t value) {
   // @@protoc_insertion_point(field_set:CSourceTVGameSmall.Player.account_id)
 }
 
-// optional uint32 hero_id = 2;
+// optional int32 hero_id = 2;
 inline bool CSourceTVGameSmall_Player::_internal_has_hero_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -5359,23 +5389,79 @@ inline bool CSourceTVGameSmall_Player::has_hero_id() const {
   return _internal_has_hero_id();
 }
 inline void CSourceTVGameSmall_Player::clear_hero_id() {
-  _impl_.hero_id_ = 0u;
+  _impl_.hero_id_ = 0;
   _impl_._has_bits_[0] &= ~0x00000002u;
 }
-inline uint32_t CSourceTVGameSmall_Player::_internal_hero_id() const {
+inline int32_t CSourceTVGameSmall_Player::_internal_hero_id() const {
   return _impl_.hero_id_;
 }
-inline uint32_t CSourceTVGameSmall_Player::hero_id() const {
+inline int32_t CSourceTVGameSmall_Player::hero_id() const {
   // @@protoc_insertion_point(field_get:CSourceTVGameSmall.Player.hero_id)
   return _internal_hero_id();
 }
-inline void CSourceTVGameSmall_Player::_internal_set_hero_id(uint32_t value) {
+inline void CSourceTVGameSmall_Player::_internal_set_hero_id(int32_t value) {
   _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.hero_id_ = value;
 }
-inline void CSourceTVGameSmall_Player::set_hero_id(uint32_t value) {
+inline void CSourceTVGameSmall_Player::set_hero_id(int32_t value) {
   _internal_set_hero_id(value);
   // @@protoc_insertion_point(field_set:CSourceTVGameSmall.Player.hero_id)
+}
+
+// optional uint32 team_slot = 3;
+inline bool CSourceTVGameSmall_Player::_internal_has_team_slot() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CSourceTVGameSmall_Player::has_team_slot() const {
+  return _internal_has_team_slot();
+}
+inline void CSourceTVGameSmall_Player::clear_team_slot() {
+  _impl_.team_slot_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline uint32_t CSourceTVGameSmall_Player::_internal_team_slot() const {
+  return _impl_.team_slot_;
+}
+inline uint32_t CSourceTVGameSmall_Player::team_slot() const {
+  // @@protoc_insertion_point(field_get:CSourceTVGameSmall.Player.team_slot)
+  return _internal_team_slot();
+}
+inline void CSourceTVGameSmall_Player::_internal_set_team_slot(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.team_slot_ = value;
+}
+inline void CSourceTVGameSmall_Player::set_team_slot(uint32_t value) {
+  _internal_set_team_slot(value);
+  // @@protoc_insertion_point(field_set:CSourceTVGameSmall.Player.team_slot)
+}
+
+// optional uint32 team = 4;
+inline bool CSourceTVGameSmall_Player::_internal_has_team() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool CSourceTVGameSmall_Player::has_team() const {
+  return _internal_has_team();
+}
+inline void CSourceTVGameSmall_Player::clear_team() {
+  _impl_.team_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
+}
+inline uint32_t CSourceTVGameSmall_Player::_internal_team() const {
+  return _impl_.team_;
+}
+inline uint32_t CSourceTVGameSmall_Player::team() const {
+  // @@protoc_insertion_point(field_get:CSourceTVGameSmall.Player.team)
+  return _internal_team();
+}
+inline void CSourceTVGameSmall_Player::_internal_set_team(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_.team_ = value;
+}
+inline void CSourceTVGameSmall_Player::set_team(uint32_t value) {
+  _internal_set_team(value);
+  // @@protoc_insertion_point(field_set:CSourceTVGameSmall.Player.team)
 }
 
 // -------------------------------------------------------------------
@@ -6442,7 +6528,7 @@ inline void CMsgClientToGCFindTopSourceTVGames::set_league_id(uint32_t value) {
   // @@protoc_insertion_point(field_set:CMsgClientToGCFindTopSourceTVGames.league_id)
 }
 
-// optional uint32 hero_id = 3;
+// optional int32 hero_id = 3;
 inline bool CMsgClientToGCFindTopSourceTVGames::_internal_has_hero_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -6451,21 +6537,21 @@ inline bool CMsgClientToGCFindTopSourceTVGames::has_hero_id() const {
   return _internal_has_hero_id();
 }
 inline void CMsgClientToGCFindTopSourceTVGames::clear_hero_id() {
-  _impl_.hero_id_ = 0u;
+  _impl_.hero_id_ = 0;
   _impl_._has_bits_[0] &= ~0x00000004u;
 }
-inline uint32_t CMsgClientToGCFindTopSourceTVGames::_internal_hero_id() const {
+inline int32_t CMsgClientToGCFindTopSourceTVGames::_internal_hero_id() const {
   return _impl_.hero_id_;
 }
-inline uint32_t CMsgClientToGCFindTopSourceTVGames::hero_id() const {
+inline int32_t CMsgClientToGCFindTopSourceTVGames::hero_id() const {
   // @@protoc_insertion_point(field_get:CMsgClientToGCFindTopSourceTVGames.hero_id)
   return _internal_hero_id();
 }
-inline void CMsgClientToGCFindTopSourceTVGames::_internal_set_hero_id(uint32_t value) {
+inline void CMsgClientToGCFindTopSourceTVGames::_internal_set_hero_id(int32_t value) {
   _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.hero_id_ = value;
 }
-inline void CMsgClientToGCFindTopSourceTVGames::set_hero_id(uint32_t value) {
+inline void CMsgClientToGCFindTopSourceTVGames::set_hero_id(int32_t value) {
   _internal_set_hero_id(value);
   // @@protoc_insertion_point(field_set:CMsgClientToGCFindTopSourceTVGames.hero_id)
 }
@@ -6673,7 +6759,7 @@ inline void CMsgGCToClientFindTopSourceTVGamesResponse::set_league_id(uint32_t v
   // @@protoc_insertion_point(field_set:CMsgGCToClientFindTopSourceTVGamesResponse.league_id)
 }
 
-// optional uint32 hero_id = 3;
+// optional int32 hero_id = 3;
 inline bool CMsgGCToClientFindTopSourceTVGamesResponse::_internal_has_hero_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -6682,21 +6768,21 @@ inline bool CMsgGCToClientFindTopSourceTVGamesResponse::has_hero_id() const {
   return _internal_has_hero_id();
 }
 inline void CMsgGCToClientFindTopSourceTVGamesResponse::clear_hero_id() {
-  _impl_.hero_id_ = 0u;
+  _impl_.hero_id_ = 0;
   _impl_._has_bits_[0] &= ~0x00000008u;
 }
-inline uint32_t CMsgGCToClientFindTopSourceTVGamesResponse::_internal_hero_id() const {
+inline int32_t CMsgGCToClientFindTopSourceTVGamesResponse::_internal_hero_id() const {
   return _impl_.hero_id_;
 }
-inline uint32_t CMsgGCToClientFindTopSourceTVGamesResponse::hero_id() const {
+inline int32_t CMsgGCToClientFindTopSourceTVGamesResponse::hero_id() const {
   // @@protoc_insertion_point(field_get:CMsgGCToClientFindTopSourceTVGamesResponse.hero_id)
   return _internal_hero_id();
 }
-inline void CMsgGCToClientFindTopSourceTVGamesResponse::_internal_set_hero_id(uint32_t value) {
+inline void CMsgGCToClientFindTopSourceTVGamesResponse::_internal_set_hero_id(int32_t value) {
   _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.hero_id_ = value;
 }
-inline void CMsgGCToClientFindTopSourceTVGamesResponse::set_hero_id(uint32_t value) {
+inline void CMsgGCToClientFindTopSourceTVGamesResponse::set_hero_id(int32_t value) {
   _internal_set_hero_id(value);
   // @@protoc_insertion_point(field_set:CMsgGCToClientFindTopSourceTVGamesResponse.hero_id)
 }

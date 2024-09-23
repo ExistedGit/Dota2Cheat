@@ -2047,17 +2047,17 @@ class CMsgShowcaseItem_Hero_Data final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CSOEconItem >&
       econ_items() const;
 
-  // optional uint32 actual_hero_id = 2;
+  // optional int32 actual_hero_id = 2;
   bool has_actual_hero_id() const;
   private:
   bool _internal_has_actual_hero_id() const;
   public:
   void clear_actual_hero_id();
-  uint32_t actual_hero_id() const;
-  void set_actual_hero_id(uint32_t value);
+  int32_t actual_hero_id() const;
+  void set_actual_hero_id(int32_t value);
   private:
-  uint32_t _internal_actual_hero_id() const;
-  void _internal_set_actual_hero_id(uint32_t value);
+  int32_t _internal_actual_hero_id() const;
+  void _internal_set_actual_hero_id(int32_t value);
   public:
 
   // optional uint32 plus_hero_xp = 3;
@@ -2084,7 +2084,7 @@ class CMsgShowcaseItem_Hero_Data final :
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CSOEconItem > econ_items_;
-    uint32_t actual_hero_id_;
+    int32_t actual_hero_id_;
     uint32_t plus_hero_xp_;
   };
   union { Impl_ _impl_; };
@@ -2307,17 +2307,17 @@ class CMsgShowcaseItem_Hero final :
       ::CMsgHeroPlusInfo* plus_info);
   ::CMsgHeroPlusInfo* unsafe_arena_release_plus_info();
 
-  // optional uint32 hero_id = 2;
+  // optional int32 hero_id = 2;
   bool has_hero_id() const;
   private:
   bool _internal_has_hero_id() const;
   public:
   void clear_hero_id();
-  uint32_t hero_id() const;
-  void set_hero_id(uint32_t value);
+  int32_t hero_id() const;
+  void set_hero_id(int32_t value);
   private:
-  uint32_t _internal_hero_id() const;
-  void _internal_set_hero_id(uint32_t value);
+  int32_t _internal_hero_id() const;
+  void _internal_set_hero_id(int32_t value);
   public:
 
   // optional uint32 rotation = 4;
@@ -2425,7 +2425,7 @@ class CMsgShowcaseItem_Hero final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr animation_name_;
     ::CMsgShowcaseItem_Hero_Data* data_;
     ::CMsgHeroPlusInfo* plus_info_;
-    uint32_t hero_id_;
+    int32_t hero_id_;
     uint32_t rotation_;
     uint32_t flags_;
     uint32_t animation_offset_;
@@ -2774,17 +2774,17 @@ class CMsgShowcaseItem_HeroIcon final :
       ::CMsgShowcaseEconItemReference* econ_item_ref);
   ::CMsgShowcaseEconItemReference* unsafe_arena_release_econ_item_ref();
 
-  // optional uint32 hero_id = 2;
+  // optional int32 hero_id = 2;
   bool has_hero_id() const;
   private:
   bool _internal_has_hero_id() const;
   public:
   void clear_hero_id();
-  uint32_t hero_id() const;
-  void set_hero_id(uint32_t value);
+  int32_t hero_id() const;
+  void set_hero_id(int32_t value);
   private:
-  uint32_t _internal_hero_id() const;
-  void _internal_set_hero_id(uint32_t value);
+  int32_t _internal_hero_id() const;
+  void _internal_set_hero_id(int32_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:CMsgShowcaseItem_HeroIcon)
@@ -2799,7 +2799,7 @@ class CMsgShowcaseItem_HeroIcon final :
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::CMsgShowcaseItem_HeroIcon_Data* data_;
     ::CMsgShowcaseEconItemReference* econ_item_ref_;
-    uint32_t hero_id_;
+    int32_t hero_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fgcmessages_5fclient_5fshowcase_2eproto;
@@ -2943,17 +2943,17 @@ class CMsgShowcaseItem_PlayerMatch_Data final :
     kDeathsFieldNumber = 7,
     kAssistsFieldNumber = 8,
   };
-  // optional uint32 hero_id = 1;
+  // optional int32 hero_id = 1;
   bool has_hero_id() const;
   private:
   bool _internal_has_hero_id() const;
   public:
   void clear_hero_id();
-  uint32_t hero_id() const;
-  void set_hero_id(uint32_t value);
+  int32_t hero_id() const;
+  void set_hero_id(int32_t value);
   private:
-  uint32_t _internal_hero_id() const;
-  void _internal_set_hero_id(uint32_t value);
+  int32_t _internal_hero_id() const;
+  void _internal_set_hero_id(int32_t value);
   public:
 
   // optional uint32 timestamp = 2;
@@ -3057,7 +3057,7 @@ class CMsgShowcaseItem_PlayerMatch_Data final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    uint32_t hero_id_;
+    int32_t hero_id_;
     uint32_t timestamp_;
     uint32_t duration_;
     int game_mode_;
@@ -5308,6 +5308,7 @@ class CMsgShowcaseItemData final :
     kCreep = 17,
     kTower = 18,
     kEffigy = 19,
+    kDecoration = 20,
     kBackground = 100,
     ITEM_NOT_SET = 0,
   };
@@ -5408,6 +5409,7 @@ class CMsgShowcaseItemData final :
     kCreepFieldNumber = 17,
     kTowerFieldNumber = 18,
     kEffigyFieldNumber = 19,
+    kDecorationFieldNumber = 20,
     kBackgroundFieldNumber = 100,
   };
   // .CMsgShowcaseItem_Trophy trophy = 1;
@@ -5734,6 +5736,24 @@ class CMsgShowcaseItemData final :
       ::CMsgShowcaseItem_EconItem* effigy);
   ::CMsgShowcaseItem_EconItem* unsafe_arena_release_effigy();
 
+  // .CMsgShowcaseItem_EconItem decoration = 20;
+  bool has_decoration() const;
+  private:
+  bool _internal_has_decoration() const;
+  public:
+  void clear_decoration();
+  const ::CMsgShowcaseItem_EconItem& decoration() const;
+  PROTOBUF_NODISCARD ::CMsgShowcaseItem_EconItem* release_decoration();
+  ::CMsgShowcaseItem_EconItem* mutable_decoration();
+  void set_allocated_decoration(::CMsgShowcaseItem_EconItem* decoration);
+  private:
+  const ::CMsgShowcaseItem_EconItem& _internal_decoration() const;
+  ::CMsgShowcaseItem_EconItem* _internal_mutable_decoration();
+  public:
+  void unsafe_arena_set_allocated_decoration(
+      ::CMsgShowcaseItem_EconItem* decoration);
+  ::CMsgShowcaseItem_EconItem* unsafe_arena_release_decoration();
+
   // .CMsgShowcaseBackground background = 100;
   bool has_background() const;
   private:
@@ -5775,6 +5795,7 @@ class CMsgShowcaseItemData final :
   void set_has_creep();
   void set_has_tower();
   void set_has_effigy();
+  void set_has_decoration();
   void set_has_background();
 
   inline bool has_item() const;
@@ -5805,6 +5826,7 @@ class CMsgShowcaseItemData final :
       ::CMsgShowcaseItem_EconItem* creep_;
       ::CMsgShowcaseItem_EconItem* tower_;
       ::CMsgShowcaseItem_EconItem* effigy_;
+      ::CMsgShowcaseItem_EconItem* decoration_;
       ::CMsgShowcaseBackground* background_;
     } item_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -13343,7 +13365,7 @@ CMsgShowcaseItem_Hero_Data::econ_items() const {
   return _impl_.econ_items_;
 }
 
-// optional uint32 actual_hero_id = 2;
+// optional int32 actual_hero_id = 2;
 inline bool CMsgShowcaseItem_Hero_Data::_internal_has_actual_hero_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -13352,21 +13374,21 @@ inline bool CMsgShowcaseItem_Hero_Data::has_actual_hero_id() const {
   return _internal_has_actual_hero_id();
 }
 inline void CMsgShowcaseItem_Hero_Data::clear_actual_hero_id() {
-  _impl_.actual_hero_id_ = 0u;
+  _impl_.actual_hero_id_ = 0;
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint32_t CMsgShowcaseItem_Hero_Data::_internal_actual_hero_id() const {
+inline int32_t CMsgShowcaseItem_Hero_Data::_internal_actual_hero_id() const {
   return _impl_.actual_hero_id_;
 }
-inline uint32_t CMsgShowcaseItem_Hero_Data::actual_hero_id() const {
+inline int32_t CMsgShowcaseItem_Hero_Data::actual_hero_id() const {
   // @@protoc_insertion_point(field_get:CMsgShowcaseItem_Hero.Data.actual_hero_id)
   return _internal_actual_hero_id();
 }
-inline void CMsgShowcaseItem_Hero_Data::_internal_set_actual_hero_id(uint32_t value) {
+inline void CMsgShowcaseItem_Hero_Data::_internal_set_actual_hero_id(int32_t value) {
   _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.actual_hero_id_ = value;
 }
-inline void CMsgShowcaseItem_Hero_Data::set_actual_hero_id(uint32_t value) {
+inline void CMsgShowcaseItem_Hero_Data::set_actual_hero_id(int32_t value) {
   _internal_set_actual_hero_id(value);
   // @@protoc_insertion_point(field_set:CMsgShowcaseItem_Hero.Data.actual_hero_id)
 }
@@ -13493,7 +13515,7 @@ inline void CMsgShowcaseItem_Hero::set_allocated_data(::CMsgShowcaseItem_Hero_Da
   // @@protoc_insertion_point(field_set_allocated:CMsgShowcaseItem_Hero.data)
 }
 
-// optional uint32 hero_id = 2;
+// optional int32 hero_id = 2;
 inline bool CMsgShowcaseItem_Hero::_internal_has_hero_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -13502,21 +13524,21 @@ inline bool CMsgShowcaseItem_Hero::has_hero_id() const {
   return _internal_has_hero_id();
 }
 inline void CMsgShowcaseItem_Hero::clear_hero_id() {
-  _impl_.hero_id_ = 0u;
+  _impl_.hero_id_ = 0;
   _impl_._has_bits_[0] &= ~0x00000008u;
 }
-inline uint32_t CMsgShowcaseItem_Hero::_internal_hero_id() const {
+inline int32_t CMsgShowcaseItem_Hero::_internal_hero_id() const {
   return _impl_.hero_id_;
 }
-inline uint32_t CMsgShowcaseItem_Hero::hero_id() const {
+inline int32_t CMsgShowcaseItem_Hero::hero_id() const {
   // @@protoc_insertion_point(field_get:CMsgShowcaseItem_Hero.hero_id)
   return _internal_hero_id();
 }
-inline void CMsgShowcaseItem_Hero::_internal_set_hero_id(uint32_t value) {
+inline void CMsgShowcaseItem_Hero::_internal_set_hero_id(int32_t value) {
   _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.hero_id_ = value;
 }
-inline void CMsgShowcaseItem_Hero::set_hero_id(uint32_t value) {
+inline void CMsgShowcaseItem_Hero::set_hero_id(int32_t value) {
   _internal_set_hero_id(value);
   // @@protoc_insertion_point(field_set:CMsgShowcaseItem_Hero.hero_id)
 }
@@ -14100,7 +14122,7 @@ inline void CMsgShowcaseItem_HeroIcon::set_allocated_data(::CMsgShowcaseItem_Her
   // @@protoc_insertion_point(field_set_allocated:CMsgShowcaseItem_HeroIcon.data)
 }
 
-// optional uint32 hero_id = 2;
+// optional int32 hero_id = 2;
 inline bool CMsgShowcaseItem_HeroIcon::_internal_has_hero_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -14109,21 +14131,21 @@ inline bool CMsgShowcaseItem_HeroIcon::has_hero_id() const {
   return _internal_has_hero_id();
 }
 inline void CMsgShowcaseItem_HeroIcon::clear_hero_id() {
-  _impl_.hero_id_ = 0u;
+  _impl_.hero_id_ = 0;
   _impl_._has_bits_[0] &= ~0x00000004u;
 }
-inline uint32_t CMsgShowcaseItem_HeroIcon::_internal_hero_id() const {
+inline int32_t CMsgShowcaseItem_HeroIcon::_internal_hero_id() const {
   return _impl_.hero_id_;
 }
-inline uint32_t CMsgShowcaseItem_HeroIcon::hero_id() const {
+inline int32_t CMsgShowcaseItem_HeroIcon::hero_id() const {
   // @@protoc_insertion_point(field_get:CMsgShowcaseItem_HeroIcon.hero_id)
   return _internal_hero_id();
 }
-inline void CMsgShowcaseItem_HeroIcon::_internal_set_hero_id(uint32_t value) {
+inline void CMsgShowcaseItem_HeroIcon::_internal_set_hero_id(int32_t value) {
   _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.hero_id_ = value;
 }
-inline void CMsgShowcaseItem_HeroIcon::set_hero_id(uint32_t value) {
+inline void CMsgShowcaseItem_HeroIcon::set_hero_id(int32_t value) {
   _internal_set_hero_id(value);
   // @@protoc_insertion_point(field_set:CMsgShowcaseItem_HeroIcon.hero_id)
 }
@@ -14222,7 +14244,7 @@ inline void CMsgShowcaseItem_HeroIcon::set_allocated_econ_item_ref(::CMsgShowcas
 
 // CMsgShowcaseItem_PlayerMatch_Data
 
-// optional uint32 hero_id = 1;
+// optional int32 hero_id = 1;
 inline bool CMsgShowcaseItem_PlayerMatch_Data::_internal_has_hero_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -14231,21 +14253,21 @@ inline bool CMsgShowcaseItem_PlayerMatch_Data::has_hero_id() const {
   return _internal_has_hero_id();
 }
 inline void CMsgShowcaseItem_PlayerMatch_Data::clear_hero_id() {
-  _impl_.hero_id_ = 0u;
+  _impl_.hero_id_ = 0;
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint32_t CMsgShowcaseItem_PlayerMatch_Data::_internal_hero_id() const {
+inline int32_t CMsgShowcaseItem_PlayerMatch_Data::_internal_hero_id() const {
   return _impl_.hero_id_;
 }
-inline uint32_t CMsgShowcaseItem_PlayerMatch_Data::hero_id() const {
+inline int32_t CMsgShowcaseItem_PlayerMatch_Data::hero_id() const {
   // @@protoc_insertion_point(field_get:CMsgShowcaseItem_PlayerMatch.Data.hero_id)
   return _internal_hero_id();
 }
-inline void CMsgShowcaseItem_PlayerMatch_Data::_internal_set_hero_id(uint32_t value) {
+inline void CMsgShowcaseItem_PlayerMatch_Data::_internal_set_hero_id(int32_t value) {
   _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.hero_id_ = value;
 }
-inline void CMsgShowcaseItem_PlayerMatch_Data::set_hero_id(uint32_t value) {
+inline void CMsgShowcaseItem_PlayerMatch_Data::set_hero_id(int32_t value) {
   _internal_set_hero_id(value);
   // @@protoc_insertion_point(field_set:CMsgShowcaseItem_PlayerMatch.Data.hero_id)
 }
@@ -16893,6 +16915,80 @@ inline ::CMsgShowcaseItem_EconItem* CMsgShowcaseItemData::_internal_mutable_effi
 inline ::CMsgShowcaseItem_EconItem* CMsgShowcaseItemData::mutable_effigy() {
   ::CMsgShowcaseItem_EconItem* _msg = _internal_mutable_effigy();
   // @@protoc_insertion_point(field_mutable:CMsgShowcaseItemData.effigy)
+  return _msg;
+}
+
+// .CMsgShowcaseItem_EconItem decoration = 20;
+inline bool CMsgShowcaseItemData::_internal_has_decoration() const {
+  return item_case() == kDecoration;
+}
+inline bool CMsgShowcaseItemData::has_decoration() const {
+  return _internal_has_decoration();
+}
+inline void CMsgShowcaseItemData::set_has_decoration() {
+  _impl_._oneof_case_[0] = kDecoration;
+}
+inline void CMsgShowcaseItemData::clear_decoration() {
+  if (_internal_has_decoration()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.item_.decoration_;
+    }
+    clear_has_item();
+  }
+}
+inline ::CMsgShowcaseItem_EconItem* CMsgShowcaseItemData::release_decoration() {
+  // @@protoc_insertion_point(field_release:CMsgShowcaseItemData.decoration)
+  if (_internal_has_decoration()) {
+    clear_has_item();
+    ::CMsgShowcaseItem_EconItem* temp = _impl_.item_.decoration_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.item_.decoration_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::CMsgShowcaseItem_EconItem& CMsgShowcaseItemData::_internal_decoration() const {
+  return _internal_has_decoration()
+      ? *_impl_.item_.decoration_
+      : reinterpret_cast< ::CMsgShowcaseItem_EconItem&>(::_CMsgShowcaseItem_EconItem_default_instance_);
+}
+inline const ::CMsgShowcaseItem_EconItem& CMsgShowcaseItemData::decoration() const {
+  // @@protoc_insertion_point(field_get:CMsgShowcaseItemData.decoration)
+  return _internal_decoration();
+}
+inline ::CMsgShowcaseItem_EconItem* CMsgShowcaseItemData::unsafe_arena_release_decoration() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:CMsgShowcaseItemData.decoration)
+  if (_internal_has_decoration()) {
+    clear_has_item();
+    ::CMsgShowcaseItem_EconItem* temp = _impl_.item_.decoration_;
+    _impl_.item_.decoration_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void CMsgShowcaseItemData::unsafe_arena_set_allocated_decoration(::CMsgShowcaseItem_EconItem* decoration) {
+  clear_item();
+  if (decoration) {
+    set_has_decoration();
+    _impl_.item_.decoration_ = decoration;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CMsgShowcaseItemData.decoration)
+}
+inline ::CMsgShowcaseItem_EconItem* CMsgShowcaseItemData::_internal_mutable_decoration() {
+  if (!_internal_has_decoration()) {
+    clear_item();
+    set_has_decoration();
+    _impl_.item_.decoration_ = CreateMaybeMessage< ::CMsgShowcaseItem_EconItem >(GetArenaForAllocation());
+  }
+  return _impl_.item_.decoration_;
+}
+inline ::CMsgShowcaseItem_EconItem* CMsgShowcaseItemData::mutable_decoration() {
+  ::CMsgShowcaseItem_EconItem* _msg = _internal_mutable_decoration();
+  // @@protoc_insertion_point(field_mutable:CMsgShowcaseItemData.decoration)
   return _msg;
 }
 

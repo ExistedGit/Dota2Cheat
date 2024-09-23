@@ -54,6 +54,9 @@ struct TableStruct_dota_5fgcmessages_5fclient_5fbingo_2eproto {
   static const uint32_t offsets[];
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_dota_5fgcmessages_5fclient_5fbingo_2eproto;
+class CMsgBingoCard;
+struct CMsgBingoCardDefaultTypeInternal;
+extern CMsgBingoCardDefaultTypeInternal _CMsgBingoCard_default_instance_;
 class CMsgBingoIndividualStatData;
 struct CMsgBingoIndividualStatDataDefaultTypeInternal;
 extern CMsgBingoIndividualStatDataDefaultTypeInternal _CMsgBingoIndividualStatData_default_instance_;
@@ -63,15 +66,36 @@ extern CMsgBingoSquareDefaultTypeInternal _CMsgBingoSquare_default_instance_;
 class CMsgBingoStatsData;
 struct CMsgBingoStatsDataDefaultTypeInternal;
 extern CMsgBingoStatsDataDefaultTypeInternal _CMsgBingoStatsData_default_instance_;
+class CMsgBingoTokens;
+struct CMsgBingoTokensDefaultTypeInternal;
+extern CMsgBingoTokensDefaultTypeInternal _CMsgBingoTokens_default_instance_;
 class CMsgBingoUserData;
 struct CMsgBingoUserDataDefaultTypeInternal;
 extern CMsgBingoUserDataDefaultTypeInternal _CMsgBingoUserData_default_instance_;
+class CMsgBingoUserData_BingoCardsEntry;
+struct CMsgBingoUserData_BingoCardsEntryDefaultTypeInternal;
+extern CMsgBingoUserData_BingoCardsEntryDefaultTypeInternal _CMsgBingoUserData_BingoCardsEntry_default_instance_;
+class CMsgBingoUserData_BingoTokensEntry;
+struct CMsgBingoUserData_BingoTokensEntryDefaultTypeInternal;
+extern CMsgBingoUserData_BingoTokensEntryDefaultTypeInternal _CMsgBingoUserData_BingoTokensEntry_default_instance_;
 class CMsgClientToGCBingoClaimRow;
 struct CMsgClientToGCBingoClaimRowDefaultTypeInternal;
 extern CMsgClientToGCBingoClaimRowDefaultTypeInternal _CMsgClientToGCBingoClaimRow_default_instance_;
 class CMsgClientToGCBingoClaimRowResponse;
 struct CMsgClientToGCBingoClaimRowResponseDefaultTypeInternal;
 extern CMsgClientToGCBingoClaimRowResponseDefaultTypeInternal _CMsgClientToGCBingoClaimRowResponse_default_instance_;
+class CMsgClientToGCBingoDevAddTokens;
+struct CMsgClientToGCBingoDevAddTokensDefaultTypeInternal;
+extern CMsgClientToGCBingoDevAddTokensDefaultTypeInternal _CMsgClientToGCBingoDevAddTokens_default_instance_;
+class CMsgClientToGCBingoDevAddTokensResponse;
+struct CMsgClientToGCBingoDevAddTokensResponseDefaultTypeInternal;
+extern CMsgClientToGCBingoDevAddTokensResponseDefaultTypeInternal _CMsgClientToGCBingoDevAddTokensResponse_default_instance_;
+class CMsgClientToGCBingoDevClearInventory;
+struct CMsgClientToGCBingoDevClearInventoryDefaultTypeInternal;
+extern CMsgClientToGCBingoDevClearInventoryDefaultTypeInternal _CMsgClientToGCBingoDevClearInventory_default_instance_;
+class CMsgClientToGCBingoDevClearInventoryResponse;
+struct CMsgClientToGCBingoDevClearInventoryResponseDefaultTypeInternal;
+extern CMsgClientToGCBingoDevClearInventoryResponseDefaultTypeInternal _CMsgClientToGCBingoDevClearInventoryResponse_default_instance_;
 class CMsgClientToGCBingoDevRerollCard;
 struct CMsgClientToGCBingoDevRerollCardDefaultTypeInternal;
 extern CMsgClientToGCBingoDevRerollCardDefaultTypeInternal _CMsgClientToGCBingoDevRerollCard_default_instance_;
@@ -90,22 +114,46 @@ extern CMsgClientToGCBingoGetUserDataDefaultTypeInternal _CMsgClientToGCBingoGet
 class CMsgClientToGCBingoGetUserDataResponse;
 struct CMsgClientToGCBingoGetUserDataResponseDefaultTypeInternal;
 extern CMsgClientToGCBingoGetUserDataResponseDefaultTypeInternal _CMsgClientToGCBingoGetUserDataResponse_default_instance_;
+class CMsgClientToGCBingoModifySquare;
+struct CMsgClientToGCBingoModifySquareDefaultTypeInternal;
+extern CMsgClientToGCBingoModifySquareDefaultTypeInternal _CMsgClientToGCBingoModifySquare_default_instance_;
+class CMsgClientToGCBingoModifySquareResponse;
+struct CMsgClientToGCBingoModifySquareResponseDefaultTypeInternal;
+extern CMsgClientToGCBingoModifySquareResponseDefaultTypeInternal _CMsgClientToGCBingoModifySquareResponse_default_instance_;
+class CMsgClientToGCBingoShuffleCard;
+struct CMsgClientToGCBingoShuffleCardDefaultTypeInternal;
+extern CMsgClientToGCBingoShuffleCardDefaultTypeInternal _CMsgClientToGCBingoShuffleCard_default_instance_;
+class CMsgClientToGCBingoShuffleCardResponse;
+struct CMsgClientToGCBingoShuffleCardResponseDefaultTypeInternal;
+extern CMsgClientToGCBingoShuffleCardResponseDefaultTypeInternal _CMsgClientToGCBingoShuffleCardResponse_default_instance_;
 class CMsgGCToClientBingoUserDataUpdated;
 struct CMsgGCToClientBingoUserDataUpdatedDefaultTypeInternal;
 extern CMsgGCToClientBingoUserDataUpdatedDefaultTypeInternal _CMsgGCToClientBingoUserDataUpdated_default_instance_;
 PROTOBUF_NAMESPACE_OPEN
+template<> ::CMsgBingoCard* Arena::CreateMaybeMessage<::CMsgBingoCard>(Arena*);
 template<> ::CMsgBingoIndividualStatData* Arena::CreateMaybeMessage<::CMsgBingoIndividualStatData>(Arena*);
 template<> ::CMsgBingoSquare* Arena::CreateMaybeMessage<::CMsgBingoSquare>(Arena*);
 template<> ::CMsgBingoStatsData* Arena::CreateMaybeMessage<::CMsgBingoStatsData>(Arena*);
+template<> ::CMsgBingoTokens* Arena::CreateMaybeMessage<::CMsgBingoTokens>(Arena*);
 template<> ::CMsgBingoUserData* Arena::CreateMaybeMessage<::CMsgBingoUserData>(Arena*);
+template<> ::CMsgBingoUserData_BingoCardsEntry* Arena::CreateMaybeMessage<::CMsgBingoUserData_BingoCardsEntry>(Arena*);
+template<> ::CMsgBingoUserData_BingoTokensEntry* Arena::CreateMaybeMessage<::CMsgBingoUserData_BingoTokensEntry>(Arena*);
 template<> ::CMsgClientToGCBingoClaimRow* Arena::CreateMaybeMessage<::CMsgClientToGCBingoClaimRow>(Arena*);
 template<> ::CMsgClientToGCBingoClaimRowResponse* Arena::CreateMaybeMessage<::CMsgClientToGCBingoClaimRowResponse>(Arena*);
+template<> ::CMsgClientToGCBingoDevAddTokens* Arena::CreateMaybeMessage<::CMsgClientToGCBingoDevAddTokens>(Arena*);
+template<> ::CMsgClientToGCBingoDevAddTokensResponse* Arena::CreateMaybeMessage<::CMsgClientToGCBingoDevAddTokensResponse>(Arena*);
+template<> ::CMsgClientToGCBingoDevClearInventory* Arena::CreateMaybeMessage<::CMsgClientToGCBingoDevClearInventory>(Arena*);
+template<> ::CMsgClientToGCBingoDevClearInventoryResponse* Arena::CreateMaybeMessage<::CMsgClientToGCBingoDevClearInventoryResponse>(Arena*);
 template<> ::CMsgClientToGCBingoDevRerollCard* Arena::CreateMaybeMessage<::CMsgClientToGCBingoDevRerollCard>(Arena*);
 template<> ::CMsgClientToGCBingoDevRerollCardResponse* Arena::CreateMaybeMessage<::CMsgClientToGCBingoDevRerollCardResponse>(Arena*);
 template<> ::CMsgClientToGCBingoGetStatsData* Arena::CreateMaybeMessage<::CMsgClientToGCBingoGetStatsData>(Arena*);
 template<> ::CMsgClientToGCBingoGetStatsDataResponse* Arena::CreateMaybeMessage<::CMsgClientToGCBingoGetStatsDataResponse>(Arena*);
 template<> ::CMsgClientToGCBingoGetUserData* Arena::CreateMaybeMessage<::CMsgClientToGCBingoGetUserData>(Arena*);
 template<> ::CMsgClientToGCBingoGetUserDataResponse* Arena::CreateMaybeMessage<::CMsgClientToGCBingoGetUserDataResponse>(Arena*);
+template<> ::CMsgClientToGCBingoModifySquare* Arena::CreateMaybeMessage<::CMsgClientToGCBingoModifySquare>(Arena*);
+template<> ::CMsgClientToGCBingoModifySquareResponse* Arena::CreateMaybeMessage<::CMsgClientToGCBingoModifySquareResponse>(Arena*);
+template<> ::CMsgClientToGCBingoShuffleCard* Arena::CreateMaybeMessage<::CMsgClientToGCBingoShuffleCard>(Arena*);
+template<> ::CMsgClientToGCBingoShuffleCardResponse* Arena::CreateMaybeMessage<::CMsgClientToGCBingoShuffleCardResponse>(Arena*);
 template<> ::CMsgGCToClientBingoUserDataUpdated* Arena::CreateMaybeMessage<::CMsgGCToClientBingoUserDataUpdated>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 
@@ -189,6 +237,90 @@ inline bool CMsgClientToGCBingoClaimRowResponse_EResponse_Parse(
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<CMsgClientToGCBingoClaimRowResponse_EResponse>(
     CMsgClientToGCBingoClaimRowResponse_EResponse_descriptor(), name, value);
 }
+enum CMsgClientToGCBingoShuffleCardResponse_EResponse : int {
+  CMsgClientToGCBingoShuffleCardResponse_EResponse_k_eInternalError = 0,
+  CMsgClientToGCBingoShuffleCardResponse_EResponse_k_eSuccess = 1,
+  CMsgClientToGCBingoShuffleCardResponse_EResponse_k_eTooBusy = 2,
+  CMsgClientToGCBingoShuffleCardResponse_EResponse_k_eDisabled = 3,
+  CMsgClientToGCBingoShuffleCardResponse_EResponse_k_eTimeout = 4,
+  CMsgClientToGCBingoShuffleCardResponse_EResponse_k_eExpiredCard = 6,
+  CMsgClientToGCBingoShuffleCardResponse_EResponse_k_eNotAllowed = 7,
+  CMsgClientToGCBingoShuffleCardResponse_EResponse_k_eInsufficientTokens = 8
+};
+bool CMsgClientToGCBingoShuffleCardResponse_EResponse_IsValid(int value);
+constexpr CMsgClientToGCBingoShuffleCardResponse_EResponse CMsgClientToGCBingoShuffleCardResponse_EResponse_EResponse_MIN = CMsgClientToGCBingoShuffleCardResponse_EResponse_k_eInternalError;
+constexpr CMsgClientToGCBingoShuffleCardResponse_EResponse CMsgClientToGCBingoShuffleCardResponse_EResponse_EResponse_MAX = CMsgClientToGCBingoShuffleCardResponse_EResponse_k_eInsufficientTokens;
+constexpr int CMsgClientToGCBingoShuffleCardResponse_EResponse_EResponse_ARRAYSIZE = CMsgClientToGCBingoShuffleCardResponse_EResponse_EResponse_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgClientToGCBingoShuffleCardResponse_EResponse_descriptor();
+template<typename T>
+inline const std::string& CMsgClientToGCBingoShuffleCardResponse_EResponse_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, CMsgClientToGCBingoShuffleCardResponse_EResponse>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function CMsgClientToGCBingoShuffleCardResponse_EResponse_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    CMsgClientToGCBingoShuffleCardResponse_EResponse_descriptor(), enum_t_value);
+}
+inline bool CMsgClientToGCBingoShuffleCardResponse_EResponse_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, CMsgClientToGCBingoShuffleCardResponse_EResponse* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<CMsgClientToGCBingoShuffleCardResponse_EResponse>(
+    CMsgClientToGCBingoShuffleCardResponse_EResponse_descriptor(), name, value);
+}
+enum CMsgClientToGCBingoModifySquare_EModifyAction : int {
+  CMsgClientToGCBingoModifySquare_EModifyAction_k_eRerollStat = 0,
+  CMsgClientToGCBingoModifySquare_EModifyAction_k_eUpgrade = 1
+};
+bool CMsgClientToGCBingoModifySquare_EModifyAction_IsValid(int value);
+constexpr CMsgClientToGCBingoModifySquare_EModifyAction CMsgClientToGCBingoModifySquare_EModifyAction_EModifyAction_MIN = CMsgClientToGCBingoModifySquare_EModifyAction_k_eRerollStat;
+constexpr CMsgClientToGCBingoModifySquare_EModifyAction CMsgClientToGCBingoModifySquare_EModifyAction_EModifyAction_MAX = CMsgClientToGCBingoModifySquare_EModifyAction_k_eUpgrade;
+constexpr int CMsgClientToGCBingoModifySquare_EModifyAction_EModifyAction_ARRAYSIZE = CMsgClientToGCBingoModifySquare_EModifyAction_EModifyAction_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgClientToGCBingoModifySquare_EModifyAction_descriptor();
+template<typename T>
+inline const std::string& CMsgClientToGCBingoModifySquare_EModifyAction_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, CMsgClientToGCBingoModifySquare_EModifyAction>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function CMsgClientToGCBingoModifySquare_EModifyAction_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    CMsgClientToGCBingoModifySquare_EModifyAction_descriptor(), enum_t_value);
+}
+inline bool CMsgClientToGCBingoModifySquare_EModifyAction_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, CMsgClientToGCBingoModifySquare_EModifyAction* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<CMsgClientToGCBingoModifySquare_EModifyAction>(
+    CMsgClientToGCBingoModifySquare_EModifyAction_descriptor(), name, value);
+}
+enum CMsgClientToGCBingoModifySquareResponse_EResponse : int {
+  CMsgClientToGCBingoModifySquareResponse_EResponse_k_eInternalError = 0,
+  CMsgClientToGCBingoModifySquareResponse_EResponse_k_eSuccess = 1,
+  CMsgClientToGCBingoModifySquareResponse_EResponse_k_eTooBusy = 2,
+  CMsgClientToGCBingoModifySquareResponse_EResponse_k_eDisabled = 3,
+  CMsgClientToGCBingoModifySquareResponse_EResponse_k_eTimeout = 4,
+  CMsgClientToGCBingoModifySquareResponse_EResponse_k_eExpiredCard = 6,
+  CMsgClientToGCBingoModifySquareResponse_EResponse_k_eNotAllowed = 7,
+  CMsgClientToGCBingoModifySquareResponse_EResponse_k_eInsufficientTokens = 8,
+  CMsgClientToGCBingoModifySquareResponse_EResponse_k_eCantUpgrade = 9,
+  CMsgClientToGCBingoModifySquareResponse_EResponse_k_eCantReroll = 10,
+  CMsgClientToGCBingoModifySquareResponse_EResponse_k_eInvalidSquare = 11
+};
+bool CMsgClientToGCBingoModifySquareResponse_EResponse_IsValid(int value);
+constexpr CMsgClientToGCBingoModifySquareResponse_EResponse CMsgClientToGCBingoModifySquareResponse_EResponse_EResponse_MIN = CMsgClientToGCBingoModifySquareResponse_EResponse_k_eInternalError;
+constexpr CMsgClientToGCBingoModifySquareResponse_EResponse CMsgClientToGCBingoModifySquareResponse_EResponse_EResponse_MAX = CMsgClientToGCBingoModifySquareResponse_EResponse_k_eInvalidSquare;
+constexpr int CMsgClientToGCBingoModifySquareResponse_EResponse_EResponse_ARRAYSIZE = CMsgClientToGCBingoModifySquareResponse_EResponse_EResponse_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgClientToGCBingoModifySquareResponse_EResponse_descriptor();
+template<typename T>
+inline const std::string& CMsgClientToGCBingoModifySquareResponse_EResponse_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, CMsgClientToGCBingoModifySquareResponse_EResponse>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function CMsgClientToGCBingoModifySquareResponse_EResponse_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    CMsgClientToGCBingoModifySquareResponse_EResponse_descriptor(), enum_t_value);
+}
+inline bool CMsgClientToGCBingoModifySquareResponse_EResponse_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, CMsgClientToGCBingoModifySquareResponse_EResponse* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<CMsgClientToGCBingoModifySquareResponse_EResponse>(
+    CMsgClientToGCBingoModifySquareResponse_EResponse_descriptor(), name, value);
+}
 enum CMsgClientToGCBingoDevRerollCardResponse_EResponse : int {
   CMsgClientToGCBingoDevRerollCardResponse_EResponse_k_eInternalError = 0,
   CMsgClientToGCBingoDevRerollCardResponse_EResponse_k_eSuccess = 1,
@@ -216,6 +348,94 @@ inline bool CMsgClientToGCBingoDevRerollCardResponse_EResponse_Parse(
     ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, CMsgClientToGCBingoDevRerollCardResponse_EResponse* value) {
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<CMsgClientToGCBingoDevRerollCardResponse_EResponse>(
     CMsgClientToGCBingoDevRerollCardResponse_EResponse_descriptor(), name, value);
+}
+enum CMsgClientToGCBingoDevAddTokensResponse_EResponse : int {
+  CMsgClientToGCBingoDevAddTokensResponse_EResponse_k_eInternalError = 0,
+  CMsgClientToGCBingoDevAddTokensResponse_EResponse_k_eSuccess = 1,
+  CMsgClientToGCBingoDevAddTokensResponse_EResponse_k_eTooBusy = 2,
+  CMsgClientToGCBingoDevAddTokensResponse_EResponse_k_eDisabled = 3,
+  CMsgClientToGCBingoDevAddTokensResponse_EResponse_k_eTimeout = 4,
+  CMsgClientToGCBingoDevAddTokensResponse_EResponse_k_eExpiredCard = 6,
+  CMsgClientToGCBingoDevAddTokensResponse_EResponse_k_eNotAllowed = 7
+};
+bool CMsgClientToGCBingoDevAddTokensResponse_EResponse_IsValid(int value);
+constexpr CMsgClientToGCBingoDevAddTokensResponse_EResponse CMsgClientToGCBingoDevAddTokensResponse_EResponse_EResponse_MIN = CMsgClientToGCBingoDevAddTokensResponse_EResponse_k_eInternalError;
+constexpr CMsgClientToGCBingoDevAddTokensResponse_EResponse CMsgClientToGCBingoDevAddTokensResponse_EResponse_EResponse_MAX = CMsgClientToGCBingoDevAddTokensResponse_EResponse_k_eNotAllowed;
+constexpr int CMsgClientToGCBingoDevAddTokensResponse_EResponse_EResponse_ARRAYSIZE = CMsgClientToGCBingoDevAddTokensResponse_EResponse_EResponse_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgClientToGCBingoDevAddTokensResponse_EResponse_descriptor();
+template<typename T>
+inline const std::string& CMsgClientToGCBingoDevAddTokensResponse_EResponse_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, CMsgClientToGCBingoDevAddTokensResponse_EResponse>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function CMsgClientToGCBingoDevAddTokensResponse_EResponse_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    CMsgClientToGCBingoDevAddTokensResponse_EResponse_descriptor(), enum_t_value);
+}
+inline bool CMsgClientToGCBingoDevAddTokensResponse_EResponse_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, CMsgClientToGCBingoDevAddTokensResponse_EResponse* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<CMsgClientToGCBingoDevAddTokensResponse_EResponse>(
+    CMsgClientToGCBingoDevAddTokensResponse_EResponse_descriptor(), name, value);
+}
+enum CMsgClientToGCBingoDevClearInventoryResponse_EResponse : int {
+  CMsgClientToGCBingoDevClearInventoryResponse_EResponse_k_eInternalError = 0,
+  CMsgClientToGCBingoDevClearInventoryResponse_EResponse_k_eSuccess = 1,
+  CMsgClientToGCBingoDevClearInventoryResponse_EResponse_k_eTooBusy = 2,
+  CMsgClientToGCBingoDevClearInventoryResponse_EResponse_k_eDisabled = 3,
+  CMsgClientToGCBingoDevClearInventoryResponse_EResponse_k_eTimeout = 4,
+  CMsgClientToGCBingoDevClearInventoryResponse_EResponse_k_eExpiredCard = 6,
+  CMsgClientToGCBingoDevClearInventoryResponse_EResponse_k_eNotAllowed = 7
+};
+bool CMsgClientToGCBingoDevClearInventoryResponse_EResponse_IsValid(int value);
+constexpr CMsgClientToGCBingoDevClearInventoryResponse_EResponse CMsgClientToGCBingoDevClearInventoryResponse_EResponse_EResponse_MIN = CMsgClientToGCBingoDevClearInventoryResponse_EResponse_k_eInternalError;
+constexpr CMsgClientToGCBingoDevClearInventoryResponse_EResponse CMsgClientToGCBingoDevClearInventoryResponse_EResponse_EResponse_MAX = CMsgClientToGCBingoDevClearInventoryResponse_EResponse_k_eNotAllowed;
+constexpr int CMsgClientToGCBingoDevClearInventoryResponse_EResponse_EResponse_ARRAYSIZE = CMsgClientToGCBingoDevClearInventoryResponse_EResponse_EResponse_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgClientToGCBingoDevClearInventoryResponse_EResponse_descriptor();
+template<typename T>
+inline const std::string& CMsgClientToGCBingoDevClearInventoryResponse_EResponse_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, CMsgClientToGCBingoDevClearInventoryResponse_EResponse>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function CMsgClientToGCBingoDevClearInventoryResponse_EResponse_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    CMsgClientToGCBingoDevClearInventoryResponse_EResponse_descriptor(), enum_t_value);
+}
+inline bool CMsgClientToGCBingoDevClearInventoryResponse_EResponse_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, CMsgClientToGCBingoDevClearInventoryResponse_EResponse* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<CMsgClientToGCBingoDevClearInventoryResponse_EResponse>(
+    CMsgClientToGCBingoDevClearInventoryResponse_EResponse_descriptor(), name, value);
+}
+enum EBingoAuditAction : int {
+  k_eBingoAuditAction_Invalid = 0,
+  k_eBingoAuditAction_DevModifyTokens = 1,
+  k_eBingoAuditAction_DevClearInventory = 2,
+  k_eBingoAuditAction_DevRerollCard = 3,
+  k_eBingoAuditAction_ShuffleCard = 4,
+  k_eBingoAuditAction_RerollSquare = 5,
+  k_eBingoAuditAction_UpgradeSquare = 6,
+  k_eBingoAuditAction_ClaimRow = 7,
+  k_eBingoAuditAction_EventActionTokenGrant = 8,
+  k_eBingoAuditAction_SupportGrantTokens = 9,
+  k_eBingoAuditAction_SupportStatThresholdFixup = 10
+};
+bool EBingoAuditAction_IsValid(int value);
+constexpr EBingoAuditAction EBingoAuditAction_MIN = k_eBingoAuditAction_Invalid;
+constexpr EBingoAuditAction EBingoAuditAction_MAX = k_eBingoAuditAction_SupportStatThresholdFixup;
+constexpr int EBingoAuditAction_ARRAYSIZE = EBingoAuditAction_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EBingoAuditAction_descriptor();
+template<typename T>
+inline const std::string& EBingoAuditAction_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, EBingoAuditAction>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function EBingoAuditAction_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    EBingoAuditAction_descriptor(), enum_t_value);
+}
+inline bool EBingoAuditAction_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, EBingoAuditAction* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EBingoAuditAction>(
+    EBingoAuditAction_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -349,6 +569,7 @@ class CMsgBingoSquare final :
   enum : int {
     kStatIdFieldNumber = 1,
     kStatThresholdFieldNumber = 2,
+    kUpgradeLevelFieldNumber = 3,
   };
   // optional uint32 stat_id = 1;
   bool has_stat_id() const;
@@ -376,6 +597,19 @@ class CMsgBingoSquare final :
   void _internal_set_stat_threshold(int32_t value);
   public:
 
+  // optional uint32 upgrade_level = 3;
+  bool has_upgrade_level() const;
+  private:
+  bool _internal_has_upgrade_level() const;
+  public:
+  void clear_upgrade_level();
+  uint32_t upgrade_level() const;
+  void set_upgrade_level(uint32_t value);
+  private:
+  uint32_t _internal_upgrade_level() const;
+  void _internal_set_upgrade_level(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CMsgBingoSquare)
  private:
   class _Internal;
@@ -388,6 +622,691 @@ class CMsgBingoSquare final :
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t stat_id_;
     int32_t stat_threshold_;
+    uint32_t upgrade_level_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_dota_5fgcmessages_5fclient_5fbingo_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgBingoTokens final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgBingoTokens) */ {
+ public:
+  inline CMsgBingoTokens() : CMsgBingoTokens(nullptr) {}
+  ~CMsgBingoTokens() override;
+  explicit PROTOBUF_CONSTEXPR CMsgBingoTokens(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgBingoTokens(const CMsgBingoTokens& from);
+  CMsgBingoTokens(CMsgBingoTokens&& from) noexcept
+    : CMsgBingoTokens() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgBingoTokens& operator=(const CMsgBingoTokens& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgBingoTokens& operator=(CMsgBingoTokens&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgBingoTokens& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgBingoTokens* internal_default_instance() {
+    return reinterpret_cast<const CMsgBingoTokens*>(
+               &_CMsgBingoTokens_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    1;
+
+  friend void swap(CMsgBingoTokens& a, CMsgBingoTokens& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgBingoTokens* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgBingoTokens* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgBingoTokens* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgBingoTokens>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgBingoTokens& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgBingoTokens& from) {
+    CMsgBingoTokens::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgBingoTokens* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgBingoTokens";
+  }
+  protected:
+  explicit CMsgBingoTokens(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTokenCountFieldNumber = 1,
+  };
+  // optional uint32 token_count = 1;
+  bool has_token_count() const;
+  private:
+  bool _internal_has_token_count() const;
+  public:
+  void clear_token_count();
+  uint32_t token_count() const;
+  void set_token_count(uint32_t value);
+  private:
+  uint32_t _internal_token_count() const;
+  void _internal_set_token_count(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgBingoTokens)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    uint32_t token_count_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_dota_5fgcmessages_5fclient_5fbingo_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgBingoCard final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgBingoCard) */ {
+ public:
+  inline CMsgBingoCard() : CMsgBingoCard(nullptr) {}
+  ~CMsgBingoCard() override;
+  explicit PROTOBUF_CONSTEXPR CMsgBingoCard(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgBingoCard(const CMsgBingoCard& from);
+  CMsgBingoCard(CMsgBingoCard&& from) noexcept
+    : CMsgBingoCard() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgBingoCard& operator=(const CMsgBingoCard& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgBingoCard& operator=(CMsgBingoCard&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgBingoCard& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgBingoCard* internal_default_instance() {
+    return reinterpret_cast<const CMsgBingoCard*>(
+               &_CMsgBingoCard_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  friend void swap(CMsgBingoCard& a, CMsgBingoCard& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgBingoCard* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgBingoCard* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgBingoCard* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgBingoCard>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgBingoCard& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgBingoCard& from) {
+    CMsgBingoCard::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgBingoCard* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgBingoCard";
+  }
+  protected:
+  explicit CMsgBingoCard(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kSquaresFieldNumber = 1,
+  };
+  // repeated .CMsgBingoSquare squares = 1;
+  int squares_size() const;
+  private:
+  int _internal_squares_size() const;
+  public:
+  void clear_squares();
+  ::CMsgBingoSquare* mutable_squares(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgBingoSquare >*
+      mutable_squares();
+  private:
+  const ::CMsgBingoSquare& _internal_squares(int index) const;
+  ::CMsgBingoSquare* _internal_add_squares();
+  public:
+  const ::CMsgBingoSquare& squares(int index) const;
+  ::CMsgBingoSquare* add_squares();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgBingoSquare >&
+      squares() const;
+
+  // @@protoc_insertion_point(class_scope:CMsgBingoCard)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgBingoSquare > squares_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_dota_5fgcmessages_5fclient_5fbingo_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgBingoUserData_BingoCardsEntry final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgBingoUserData.BingoCardsEntry) */ {
+ public:
+  inline CMsgBingoUserData_BingoCardsEntry() : CMsgBingoUserData_BingoCardsEntry(nullptr) {}
+  ~CMsgBingoUserData_BingoCardsEntry() override;
+  explicit PROTOBUF_CONSTEXPR CMsgBingoUserData_BingoCardsEntry(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgBingoUserData_BingoCardsEntry(const CMsgBingoUserData_BingoCardsEntry& from);
+  CMsgBingoUserData_BingoCardsEntry(CMsgBingoUserData_BingoCardsEntry&& from) noexcept
+    : CMsgBingoUserData_BingoCardsEntry() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgBingoUserData_BingoCardsEntry& operator=(const CMsgBingoUserData_BingoCardsEntry& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgBingoUserData_BingoCardsEntry& operator=(CMsgBingoUserData_BingoCardsEntry&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgBingoUserData_BingoCardsEntry& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgBingoUserData_BingoCardsEntry* internal_default_instance() {
+    return reinterpret_cast<const CMsgBingoUserData_BingoCardsEntry*>(
+               &_CMsgBingoUserData_BingoCardsEntry_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  friend void swap(CMsgBingoUserData_BingoCardsEntry& a, CMsgBingoUserData_BingoCardsEntry& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgBingoUserData_BingoCardsEntry* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgBingoUserData_BingoCardsEntry* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgBingoUserData_BingoCardsEntry* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgBingoUserData_BingoCardsEntry>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgBingoUserData_BingoCardsEntry& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgBingoUserData_BingoCardsEntry& from) {
+    CMsgBingoUserData_BingoCardsEntry::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgBingoUserData_BingoCardsEntry* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgBingoUserData.BingoCardsEntry";
+  }
+  protected:
+  explicit CMsgBingoUserData_BingoCardsEntry(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kValueFieldNumber = 2,
+    kKeyFieldNumber = 1,
+  };
+  // optional .CMsgBingoCard value = 2;
+  bool has_value() const;
+  private:
+  bool _internal_has_value() const;
+  public:
+  void clear_value();
+  const ::CMsgBingoCard& value() const;
+  PROTOBUF_NODISCARD ::CMsgBingoCard* release_value();
+  ::CMsgBingoCard* mutable_value();
+  void set_allocated_value(::CMsgBingoCard* value);
+  private:
+  const ::CMsgBingoCard& _internal_value() const;
+  ::CMsgBingoCard* _internal_mutable_value();
+  public:
+  void unsafe_arena_set_allocated_value(
+      ::CMsgBingoCard* value);
+  ::CMsgBingoCard* unsafe_arena_release_value();
+
+  // optional uint32 key = 1;
+  bool has_key() const;
+  private:
+  bool _internal_has_key() const;
+  public:
+  void clear_key();
+  uint32_t key() const;
+  void set_key(uint32_t value);
+  private:
+  uint32_t _internal_key() const;
+  void _internal_set_key(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgBingoUserData.BingoCardsEntry)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::CMsgBingoCard* value_;
+    uint32_t key_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_dota_5fgcmessages_5fclient_5fbingo_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgBingoUserData_BingoTokensEntry final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgBingoUserData.BingoTokensEntry) */ {
+ public:
+  inline CMsgBingoUserData_BingoTokensEntry() : CMsgBingoUserData_BingoTokensEntry(nullptr) {}
+  ~CMsgBingoUserData_BingoTokensEntry() override;
+  explicit PROTOBUF_CONSTEXPR CMsgBingoUserData_BingoTokensEntry(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgBingoUserData_BingoTokensEntry(const CMsgBingoUserData_BingoTokensEntry& from);
+  CMsgBingoUserData_BingoTokensEntry(CMsgBingoUserData_BingoTokensEntry&& from) noexcept
+    : CMsgBingoUserData_BingoTokensEntry() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgBingoUserData_BingoTokensEntry& operator=(const CMsgBingoUserData_BingoTokensEntry& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgBingoUserData_BingoTokensEntry& operator=(CMsgBingoUserData_BingoTokensEntry&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgBingoUserData_BingoTokensEntry& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgBingoUserData_BingoTokensEntry* internal_default_instance() {
+    return reinterpret_cast<const CMsgBingoUserData_BingoTokensEntry*>(
+               &_CMsgBingoUserData_BingoTokensEntry_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    4;
+
+  friend void swap(CMsgBingoUserData_BingoTokensEntry& a, CMsgBingoUserData_BingoTokensEntry& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgBingoUserData_BingoTokensEntry* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgBingoUserData_BingoTokensEntry* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgBingoUserData_BingoTokensEntry* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgBingoUserData_BingoTokensEntry>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgBingoUserData_BingoTokensEntry& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgBingoUserData_BingoTokensEntry& from) {
+    CMsgBingoUserData_BingoTokensEntry::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgBingoUserData_BingoTokensEntry* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgBingoUserData.BingoTokensEntry";
+  }
+  protected:
+  explicit CMsgBingoUserData_BingoTokensEntry(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kValueFieldNumber = 2,
+    kKeyFieldNumber = 1,
+  };
+  // optional .CMsgBingoTokens value = 2;
+  bool has_value() const;
+  private:
+  bool _internal_has_value() const;
+  public:
+  void clear_value();
+  const ::CMsgBingoTokens& value() const;
+  PROTOBUF_NODISCARD ::CMsgBingoTokens* release_value();
+  ::CMsgBingoTokens* mutable_value();
+  void set_allocated_value(::CMsgBingoTokens* value);
+  private:
+  const ::CMsgBingoTokens& _internal_value() const;
+  ::CMsgBingoTokens* _internal_mutable_value();
+  public:
+  void unsafe_arena_set_allocated_value(
+      ::CMsgBingoTokens* value);
+  ::CMsgBingoTokens* unsafe_arena_release_value();
+
+  // optional uint32 key = 1;
+  bool has_key() const;
+  private:
+  bool _internal_has_key() const;
+  public:
+  void clear_key();
+  uint32_t key() const;
+  void set_key(uint32_t value);
+  private:
+  uint32_t _internal_key() const;
+  void _internal_set_key(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgBingoUserData.BingoTokensEntry)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::CMsgBingoTokens* value_;
+    uint32_t key_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fgcmessages_5fclient_5fbingo_2eproto;
@@ -449,7 +1368,7 @@ class CMsgBingoUserData final :
                &_CMsgBingoUserData_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    5;
 
   friend void swap(CMsgBingoUserData& a, CMsgBingoUserData& b) {
     a.Swap(&b);
@@ -519,28 +1438,50 @@ class CMsgBingoUserData final :
 
   // nested types ----------------------------------------------------
 
+  typedef CMsgBingoUserData_BingoCardsEntry BingoCardsEntry;
+  typedef CMsgBingoUserData_BingoTokensEntry BingoTokensEntry;
+
   // accessors -------------------------------------------------------
 
   enum : int {
-    kSquaresFieldNumber = 1,
+    kBingoCardsFieldNumber = 1,
+    kBingoTokensFieldNumber = 2,
   };
-  // repeated .CMsgBingoSquare squares = 1;
-  int squares_size() const;
+  // repeated .CMsgBingoUserData.BingoCardsEntry bingo_cards = 1;
+  int bingo_cards_size() const;
   private:
-  int _internal_squares_size() const;
+  int _internal_bingo_cards_size() const;
   public:
-  void clear_squares();
-  ::CMsgBingoSquare* mutable_squares(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgBingoSquare >*
-      mutable_squares();
+  void clear_bingo_cards();
+  ::CMsgBingoUserData_BingoCardsEntry* mutable_bingo_cards(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgBingoUserData_BingoCardsEntry >*
+      mutable_bingo_cards();
   private:
-  const ::CMsgBingoSquare& _internal_squares(int index) const;
-  ::CMsgBingoSquare* _internal_add_squares();
+  const ::CMsgBingoUserData_BingoCardsEntry& _internal_bingo_cards(int index) const;
+  ::CMsgBingoUserData_BingoCardsEntry* _internal_add_bingo_cards();
   public:
-  const ::CMsgBingoSquare& squares(int index) const;
-  ::CMsgBingoSquare* add_squares();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgBingoSquare >&
-      squares() const;
+  const ::CMsgBingoUserData_BingoCardsEntry& bingo_cards(int index) const;
+  ::CMsgBingoUserData_BingoCardsEntry* add_bingo_cards();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgBingoUserData_BingoCardsEntry >&
+      bingo_cards() const;
+
+  // repeated .CMsgBingoUserData.BingoTokensEntry bingo_tokens = 2;
+  int bingo_tokens_size() const;
+  private:
+  int _internal_bingo_tokens_size() const;
+  public:
+  void clear_bingo_tokens();
+  ::CMsgBingoUserData_BingoTokensEntry* mutable_bingo_tokens(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgBingoUserData_BingoTokensEntry >*
+      mutable_bingo_tokens();
+  private:
+  const ::CMsgBingoUserData_BingoTokensEntry& _internal_bingo_tokens(int index) const;
+  ::CMsgBingoUserData_BingoTokensEntry* _internal_add_bingo_tokens();
+  public:
+  const ::CMsgBingoUserData_BingoTokensEntry& bingo_tokens(int index) const;
+  ::CMsgBingoUserData_BingoTokensEntry* add_bingo_tokens();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgBingoUserData_BingoTokensEntry >&
+      bingo_tokens() const;
 
   // @@protoc_insertion_point(class_scope:CMsgBingoUserData)
  private:
@@ -550,7 +1491,8 @@ class CMsgBingoUserData final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgBingoSquare > squares_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgBingoUserData_BingoCardsEntry > bingo_cards_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgBingoUserData_BingoTokensEntry > bingo_tokens_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -613,7 +1555,7 @@ class CMsgClientToGCBingoGetUserData final :
                &_CMsgClientToGCBingoGetUserData_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    6;
 
   friend void swap(CMsgClientToGCBingoGetUserData& a, CMsgClientToGCBingoGetUserData& b) {
     a.Swap(&b);
@@ -687,7 +1629,6 @@ class CMsgClientToGCBingoGetUserData final :
 
   enum : int {
     kLeagueIdFieldNumber = 1,
-    kLeaguePhaseFieldNumber = 2,
   };
   // optional uint32 league_id = 1;
   bool has_league_id() const;
@@ -702,19 +1643,6 @@ class CMsgClientToGCBingoGetUserData final :
   void _internal_set_league_id(uint32_t value);
   public:
 
-  // optional uint32 league_phase = 2;
-  bool has_league_phase() const;
-  private:
-  bool _internal_has_league_phase() const;
-  public:
-  void clear_league_phase();
-  uint32_t league_phase() const;
-  void set_league_phase(uint32_t value);
-  private:
-  uint32_t _internal_league_phase() const;
-  void _internal_set_league_phase(uint32_t value);
-  public:
-
   // @@protoc_insertion_point(class_scope:CMsgClientToGCBingoGetUserData)
  private:
   class _Internal;
@@ -726,7 +1654,6 @@ class CMsgClientToGCBingoGetUserData final :
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t league_id_;
-    uint32_t league_phase_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fgcmessages_5fclient_5fbingo_2eproto;
@@ -788,7 +1715,7 @@ class CMsgClientToGCBingoGetUserDataResponse final :
                &_CMsgClientToGCBingoGetUserDataResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    7;
 
   friend void swap(CMsgClientToGCBingoGetUserDataResponse& a, CMsgClientToGCBingoGetUserDataResponse& b) {
     a.Swap(&b);
@@ -1004,7 +1931,7 @@ class CMsgBingoIndividualStatData final :
                &_CMsgBingoIndividualStatData_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    8;
 
   friend void swap(CMsgBingoIndividualStatData& a, CMsgBingoIndividualStatData& b) {
     a.Swap(&b);
@@ -1179,7 +2106,7 @@ class CMsgBingoStatsData final :
                &_CMsgBingoStatsData_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    9;
 
   friend void swap(CMsgBingoStatsData& a, CMsgBingoStatsData& b) {
     a.Swap(&b);
@@ -1343,7 +2270,7 @@ class CMsgClientToGCBingoGetStatsData final :
                &_CMsgClientToGCBingoGetStatsData_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    10;
 
   friend void swap(CMsgClientToGCBingoGetStatsData& a, CMsgClientToGCBingoGetStatsData& b) {
     a.Swap(&b);
@@ -1518,7 +2445,7 @@ class CMsgClientToGCBingoGetStatsDataResponse final :
                &_CMsgClientToGCBingoGetStatsDataResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    11;
 
   friend void swap(CMsgClientToGCBingoGetStatsDataResponse& a, CMsgClientToGCBingoGetStatsDataResponse& b) {
     a.Swap(&b);
@@ -1734,7 +2661,7 @@ class CMsgGCToClientBingoUserDataUpdated final :
                &_CMsgGCToClientBingoUserDataUpdated_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    12;
 
   friend void swap(CMsgGCToClientBingoUserDataUpdated& a, CMsgGCToClientBingoUserDataUpdated& b) {
     a.Swap(&b);
@@ -1807,11 +2734,10 @@ class CMsgGCToClientBingoUserDataUpdated final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kUserDataFieldNumber = 3,
+    kUserDataFieldNumber = 2,
     kLeagueIdFieldNumber = 1,
-    kLeaguePhaseFieldNumber = 2,
   };
-  // optional .CMsgBingoUserData user_data = 3;
+  // optional .CMsgBingoUserData user_data = 2;
   bool has_user_data() const;
   private:
   bool _internal_has_user_data() const;
@@ -1842,19 +2768,6 @@ class CMsgGCToClientBingoUserDataUpdated final :
   void _internal_set_league_id(uint32_t value);
   public:
 
-  // optional uint32 league_phase = 2;
-  bool has_league_phase() const;
-  private:
-  bool _internal_has_league_phase() const;
-  public:
-  void clear_league_phase();
-  uint32_t league_phase() const;
-  void set_league_phase(uint32_t value);
-  private:
-  uint32_t _internal_league_phase() const;
-  void _internal_set_league_phase(uint32_t value);
-  public:
-
   // @@protoc_insertion_point(class_scope:CMsgGCToClientBingoUserDataUpdated)
  private:
   class _Internal;
@@ -1867,7 +2780,6 @@ class CMsgGCToClientBingoUserDataUpdated final :
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::CMsgBingoUserData* user_data_;
     uint32_t league_id_;
-    uint32_t league_phase_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fgcmessages_5fclient_5fbingo_2eproto;
@@ -1929,7 +2841,7 @@ class CMsgClientToGCBingoClaimRow final :
                &_CMsgClientToGCBingoClaimRow_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    13;
 
   friend void swap(CMsgClientToGCBingoClaimRow& a, CMsgClientToGCBingoClaimRow& b) {
     a.Swap(&b);
@@ -2119,7 +3031,7 @@ class CMsgClientToGCBingoClaimRowResponse final :
                &_CMsgClientToGCBingoClaimRowResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    14;
 
   friend void swap(CMsgClientToGCBingoClaimRowResponse& a, CMsgClientToGCBingoClaimRowResponse& b) {
     a.Swap(&b);
@@ -2264,6 +3176,826 @@ class CMsgClientToGCBingoClaimRowResponse final :
 };
 // -------------------------------------------------------------------
 
+class CMsgClientToGCBingoShuffleCard final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgClientToGCBingoShuffleCard) */ {
+ public:
+  inline CMsgClientToGCBingoShuffleCard() : CMsgClientToGCBingoShuffleCard(nullptr) {}
+  ~CMsgClientToGCBingoShuffleCard() override;
+  explicit PROTOBUF_CONSTEXPR CMsgClientToGCBingoShuffleCard(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgClientToGCBingoShuffleCard(const CMsgClientToGCBingoShuffleCard& from);
+  CMsgClientToGCBingoShuffleCard(CMsgClientToGCBingoShuffleCard&& from) noexcept
+    : CMsgClientToGCBingoShuffleCard() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgClientToGCBingoShuffleCard& operator=(const CMsgClientToGCBingoShuffleCard& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgClientToGCBingoShuffleCard& operator=(CMsgClientToGCBingoShuffleCard&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgClientToGCBingoShuffleCard& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgClientToGCBingoShuffleCard* internal_default_instance() {
+    return reinterpret_cast<const CMsgClientToGCBingoShuffleCard*>(
+               &_CMsgClientToGCBingoShuffleCard_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    15;
+
+  friend void swap(CMsgClientToGCBingoShuffleCard& a, CMsgClientToGCBingoShuffleCard& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgClientToGCBingoShuffleCard* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgClientToGCBingoShuffleCard* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgClientToGCBingoShuffleCard* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgClientToGCBingoShuffleCard>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgClientToGCBingoShuffleCard& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgClientToGCBingoShuffleCard& from) {
+    CMsgClientToGCBingoShuffleCard::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgClientToGCBingoShuffleCard* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgClientToGCBingoShuffleCard";
+  }
+  protected:
+  explicit CMsgClientToGCBingoShuffleCard(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kLeagueIdFieldNumber = 1,
+    kLeaguePhaseFieldNumber = 2,
+  };
+  // optional uint32 league_id = 1;
+  bool has_league_id() const;
+  private:
+  bool _internal_has_league_id() const;
+  public:
+  void clear_league_id();
+  uint32_t league_id() const;
+  void set_league_id(uint32_t value);
+  private:
+  uint32_t _internal_league_id() const;
+  void _internal_set_league_id(uint32_t value);
+  public:
+
+  // optional uint32 league_phase = 2;
+  bool has_league_phase() const;
+  private:
+  bool _internal_has_league_phase() const;
+  public:
+  void clear_league_phase();
+  uint32_t league_phase() const;
+  void set_league_phase(uint32_t value);
+  private:
+  uint32_t _internal_league_phase() const;
+  void _internal_set_league_phase(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgClientToGCBingoShuffleCard)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    uint32_t league_id_;
+    uint32_t league_phase_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_dota_5fgcmessages_5fclient_5fbingo_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgClientToGCBingoShuffleCardResponse final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgClientToGCBingoShuffleCardResponse) */ {
+ public:
+  inline CMsgClientToGCBingoShuffleCardResponse() : CMsgClientToGCBingoShuffleCardResponse(nullptr) {}
+  ~CMsgClientToGCBingoShuffleCardResponse() override;
+  explicit PROTOBUF_CONSTEXPR CMsgClientToGCBingoShuffleCardResponse(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgClientToGCBingoShuffleCardResponse(const CMsgClientToGCBingoShuffleCardResponse& from);
+  CMsgClientToGCBingoShuffleCardResponse(CMsgClientToGCBingoShuffleCardResponse&& from) noexcept
+    : CMsgClientToGCBingoShuffleCardResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgClientToGCBingoShuffleCardResponse& operator=(const CMsgClientToGCBingoShuffleCardResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgClientToGCBingoShuffleCardResponse& operator=(CMsgClientToGCBingoShuffleCardResponse&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgClientToGCBingoShuffleCardResponse& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgClientToGCBingoShuffleCardResponse* internal_default_instance() {
+    return reinterpret_cast<const CMsgClientToGCBingoShuffleCardResponse*>(
+               &_CMsgClientToGCBingoShuffleCardResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    16;
+
+  friend void swap(CMsgClientToGCBingoShuffleCardResponse& a, CMsgClientToGCBingoShuffleCardResponse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgClientToGCBingoShuffleCardResponse* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgClientToGCBingoShuffleCardResponse* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgClientToGCBingoShuffleCardResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgClientToGCBingoShuffleCardResponse>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgClientToGCBingoShuffleCardResponse& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgClientToGCBingoShuffleCardResponse& from) {
+    CMsgClientToGCBingoShuffleCardResponse::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgClientToGCBingoShuffleCardResponse* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgClientToGCBingoShuffleCardResponse";
+  }
+  protected:
+  explicit CMsgClientToGCBingoShuffleCardResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  typedef CMsgClientToGCBingoShuffleCardResponse_EResponse EResponse;
+  static constexpr EResponse k_eInternalError =
+    CMsgClientToGCBingoShuffleCardResponse_EResponse_k_eInternalError;
+  static constexpr EResponse k_eSuccess =
+    CMsgClientToGCBingoShuffleCardResponse_EResponse_k_eSuccess;
+  static constexpr EResponse k_eTooBusy =
+    CMsgClientToGCBingoShuffleCardResponse_EResponse_k_eTooBusy;
+  static constexpr EResponse k_eDisabled =
+    CMsgClientToGCBingoShuffleCardResponse_EResponse_k_eDisabled;
+  static constexpr EResponse k_eTimeout =
+    CMsgClientToGCBingoShuffleCardResponse_EResponse_k_eTimeout;
+  static constexpr EResponse k_eExpiredCard =
+    CMsgClientToGCBingoShuffleCardResponse_EResponse_k_eExpiredCard;
+  static constexpr EResponse k_eNotAllowed =
+    CMsgClientToGCBingoShuffleCardResponse_EResponse_k_eNotAllowed;
+  static constexpr EResponse k_eInsufficientTokens =
+    CMsgClientToGCBingoShuffleCardResponse_EResponse_k_eInsufficientTokens;
+  static inline bool EResponse_IsValid(int value) {
+    return CMsgClientToGCBingoShuffleCardResponse_EResponse_IsValid(value);
+  }
+  static constexpr EResponse EResponse_MIN =
+    CMsgClientToGCBingoShuffleCardResponse_EResponse_EResponse_MIN;
+  static constexpr EResponse EResponse_MAX =
+    CMsgClientToGCBingoShuffleCardResponse_EResponse_EResponse_MAX;
+  static constexpr int EResponse_ARRAYSIZE =
+    CMsgClientToGCBingoShuffleCardResponse_EResponse_EResponse_ARRAYSIZE;
+  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
+  EResponse_descriptor() {
+    return CMsgClientToGCBingoShuffleCardResponse_EResponse_descriptor();
+  }
+  template<typename T>
+  static inline const std::string& EResponse_Name(T enum_t_value) {
+    static_assert(::std::is_same<T, EResponse>::value ||
+      ::std::is_integral<T>::value,
+      "Incorrect type passed to function EResponse_Name.");
+    return CMsgClientToGCBingoShuffleCardResponse_EResponse_Name(enum_t_value);
+  }
+  static inline bool EResponse_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
+      EResponse* value) {
+    return CMsgClientToGCBingoShuffleCardResponse_EResponse_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kResponseFieldNumber = 1,
+  };
+  // optional .CMsgClientToGCBingoShuffleCardResponse.EResponse response = 1 [default = k_eInternalError];
+  bool has_response() const;
+  private:
+  bool _internal_has_response() const;
+  public:
+  void clear_response();
+  ::CMsgClientToGCBingoShuffleCardResponse_EResponse response() const;
+  void set_response(::CMsgClientToGCBingoShuffleCardResponse_EResponse value);
+  private:
+  ::CMsgClientToGCBingoShuffleCardResponse_EResponse _internal_response() const;
+  void _internal_set_response(::CMsgClientToGCBingoShuffleCardResponse_EResponse value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgClientToGCBingoShuffleCardResponse)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    int response_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_dota_5fgcmessages_5fclient_5fbingo_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgClientToGCBingoModifySquare final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgClientToGCBingoModifySquare) */ {
+ public:
+  inline CMsgClientToGCBingoModifySquare() : CMsgClientToGCBingoModifySquare(nullptr) {}
+  ~CMsgClientToGCBingoModifySquare() override;
+  explicit PROTOBUF_CONSTEXPR CMsgClientToGCBingoModifySquare(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgClientToGCBingoModifySquare(const CMsgClientToGCBingoModifySquare& from);
+  CMsgClientToGCBingoModifySquare(CMsgClientToGCBingoModifySquare&& from) noexcept
+    : CMsgClientToGCBingoModifySquare() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgClientToGCBingoModifySquare& operator=(const CMsgClientToGCBingoModifySquare& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgClientToGCBingoModifySquare& operator=(CMsgClientToGCBingoModifySquare&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgClientToGCBingoModifySquare& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgClientToGCBingoModifySquare* internal_default_instance() {
+    return reinterpret_cast<const CMsgClientToGCBingoModifySquare*>(
+               &_CMsgClientToGCBingoModifySquare_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    17;
+
+  friend void swap(CMsgClientToGCBingoModifySquare& a, CMsgClientToGCBingoModifySquare& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgClientToGCBingoModifySquare* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgClientToGCBingoModifySquare* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgClientToGCBingoModifySquare* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgClientToGCBingoModifySquare>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgClientToGCBingoModifySquare& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgClientToGCBingoModifySquare& from) {
+    CMsgClientToGCBingoModifySquare::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgClientToGCBingoModifySquare* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgClientToGCBingoModifySquare";
+  }
+  protected:
+  explicit CMsgClientToGCBingoModifySquare(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  typedef CMsgClientToGCBingoModifySquare_EModifyAction EModifyAction;
+  static constexpr EModifyAction k_eRerollStat =
+    CMsgClientToGCBingoModifySquare_EModifyAction_k_eRerollStat;
+  static constexpr EModifyAction k_eUpgrade =
+    CMsgClientToGCBingoModifySquare_EModifyAction_k_eUpgrade;
+  static inline bool EModifyAction_IsValid(int value) {
+    return CMsgClientToGCBingoModifySquare_EModifyAction_IsValid(value);
+  }
+  static constexpr EModifyAction EModifyAction_MIN =
+    CMsgClientToGCBingoModifySquare_EModifyAction_EModifyAction_MIN;
+  static constexpr EModifyAction EModifyAction_MAX =
+    CMsgClientToGCBingoModifySquare_EModifyAction_EModifyAction_MAX;
+  static constexpr int EModifyAction_ARRAYSIZE =
+    CMsgClientToGCBingoModifySquare_EModifyAction_EModifyAction_ARRAYSIZE;
+  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
+  EModifyAction_descriptor() {
+    return CMsgClientToGCBingoModifySquare_EModifyAction_descriptor();
+  }
+  template<typename T>
+  static inline const std::string& EModifyAction_Name(T enum_t_value) {
+    static_assert(::std::is_same<T, EModifyAction>::value ||
+      ::std::is_integral<T>::value,
+      "Incorrect type passed to function EModifyAction_Name.");
+    return CMsgClientToGCBingoModifySquare_EModifyAction_Name(enum_t_value);
+  }
+  static inline bool EModifyAction_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
+      EModifyAction* value) {
+    return CMsgClientToGCBingoModifySquare_EModifyAction_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kLeagueIdFieldNumber = 1,
+    kLeaguePhaseFieldNumber = 2,
+    kSquareIndexFieldNumber = 3,
+    kActionFieldNumber = 4,
+  };
+  // optional uint32 league_id = 1;
+  bool has_league_id() const;
+  private:
+  bool _internal_has_league_id() const;
+  public:
+  void clear_league_id();
+  uint32_t league_id() const;
+  void set_league_id(uint32_t value);
+  private:
+  uint32_t _internal_league_id() const;
+  void _internal_set_league_id(uint32_t value);
+  public:
+
+  // optional uint32 league_phase = 2;
+  bool has_league_phase() const;
+  private:
+  bool _internal_has_league_phase() const;
+  public:
+  void clear_league_phase();
+  uint32_t league_phase() const;
+  void set_league_phase(uint32_t value);
+  private:
+  uint32_t _internal_league_phase() const;
+  void _internal_set_league_phase(uint32_t value);
+  public:
+
+  // optional uint32 square_index = 3;
+  bool has_square_index() const;
+  private:
+  bool _internal_has_square_index() const;
+  public:
+  void clear_square_index();
+  uint32_t square_index() const;
+  void set_square_index(uint32_t value);
+  private:
+  uint32_t _internal_square_index() const;
+  void _internal_set_square_index(uint32_t value);
+  public:
+
+  // optional .CMsgClientToGCBingoModifySquare.EModifyAction action = 4 [default = k_eRerollStat];
+  bool has_action() const;
+  private:
+  bool _internal_has_action() const;
+  public:
+  void clear_action();
+  ::CMsgClientToGCBingoModifySquare_EModifyAction action() const;
+  void set_action(::CMsgClientToGCBingoModifySquare_EModifyAction value);
+  private:
+  ::CMsgClientToGCBingoModifySquare_EModifyAction _internal_action() const;
+  void _internal_set_action(::CMsgClientToGCBingoModifySquare_EModifyAction value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgClientToGCBingoModifySquare)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    uint32_t league_id_;
+    uint32_t league_phase_;
+    uint32_t square_index_;
+    int action_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_dota_5fgcmessages_5fclient_5fbingo_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgClientToGCBingoModifySquareResponse final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgClientToGCBingoModifySquareResponse) */ {
+ public:
+  inline CMsgClientToGCBingoModifySquareResponse() : CMsgClientToGCBingoModifySquareResponse(nullptr) {}
+  ~CMsgClientToGCBingoModifySquareResponse() override;
+  explicit PROTOBUF_CONSTEXPR CMsgClientToGCBingoModifySquareResponse(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgClientToGCBingoModifySquareResponse(const CMsgClientToGCBingoModifySquareResponse& from);
+  CMsgClientToGCBingoModifySquareResponse(CMsgClientToGCBingoModifySquareResponse&& from) noexcept
+    : CMsgClientToGCBingoModifySquareResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgClientToGCBingoModifySquareResponse& operator=(const CMsgClientToGCBingoModifySquareResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgClientToGCBingoModifySquareResponse& operator=(CMsgClientToGCBingoModifySquareResponse&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgClientToGCBingoModifySquareResponse& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgClientToGCBingoModifySquareResponse* internal_default_instance() {
+    return reinterpret_cast<const CMsgClientToGCBingoModifySquareResponse*>(
+               &_CMsgClientToGCBingoModifySquareResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    18;
+
+  friend void swap(CMsgClientToGCBingoModifySquareResponse& a, CMsgClientToGCBingoModifySquareResponse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgClientToGCBingoModifySquareResponse* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgClientToGCBingoModifySquareResponse* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgClientToGCBingoModifySquareResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgClientToGCBingoModifySquareResponse>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgClientToGCBingoModifySquareResponse& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgClientToGCBingoModifySquareResponse& from) {
+    CMsgClientToGCBingoModifySquareResponse::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgClientToGCBingoModifySquareResponse* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgClientToGCBingoModifySquareResponse";
+  }
+  protected:
+  explicit CMsgClientToGCBingoModifySquareResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  typedef CMsgClientToGCBingoModifySquareResponse_EResponse EResponse;
+  static constexpr EResponse k_eInternalError =
+    CMsgClientToGCBingoModifySquareResponse_EResponse_k_eInternalError;
+  static constexpr EResponse k_eSuccess =
+    CMsgClientToGCBingoModifySquareResponse_EResponse_k_eSuccess;
+  static constexpr EResponse k_eTooBusy =
+    CMsgClientToGCBingoModifySquareResponse_EResponse_k_eTooBusy;
+  static constexpr EResponse k_eDisabled =
+    CMsgClientToGCBingoModifySquareResponse_EResponse_k_eDisabled;
+  static constexpr EResponse k_eTimeout =
+    CMsgClientToGCBingoModifySquareResponse_EResponse_k_eTimeout;
+  static constexpr EResponse k_eExpiredCard =
+    CMsgClientToGCBingoModifySquareResponse_EResponse_k_eExpiredCard;
+  static constexpr EResponse k_eNotAllowed =
+    CMsgClientToGCBingoModifySquareResponse_EResponse_k_eNotAllowed;
+  static constexpr EResponse k_eInsufficientTokens =
+    CMsgClientToGCBingoModifySquareResponse_EResponse_k_eInsufficientTokens;
+  static constexpr EResponse k_eCantUpgrade =
+    CMsgClientToGCBingoModifySquareResponse_EResponse_k_eCantUpgrade;
+  static constexpr EResponse k_eCantReroll =
+    CMsgClientToGCBingoModifySquareResponse_EResponse_k_eCantReroll;
+  static constexpr EResponse k_eInvalidSquare =
+    CMsgClientToGCBingoModifySquareResponse_EResponse_k_eInvalidSquare;
+  static inline bool EResponse_IsValid(int value) {
+    return CMsgClientToGCBingoModifySquareResponse_EResponse_IsValid(value);
+  }
+  static constexpr EResponse EResponse_MIN =
+    CMsgClientToGCBingoModifySquareResponse_EResponse_EResponse_MIN;
+  static constexpr EResponse EResponse_MAX =
+    CMsgClientToGCBingoModifySquareResponse_EResponse_EResponse_MAX;
+  static constexpr int EResponse_ARRAYSIZE =
+    CMsgClientToGCBingoModifySquareResponse_EResponse_EResponse_ARRAYSIZE;
+  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
+  EResponse_descriptor() {
+    return CMsgClientToGCBingoModifySquareResponse_EResponse_descriptor();
+  }
+  template<typename T>
+  static inline const std::string& EResponse_Name(T enum_t_value) {
+    static_assert(::std::is_same<T, EResponse>::value ||
+      ::std::is_integral<T>::value,
+      "Incorrect type passed to function EResponse_Name.");
+    return CMsgClientToGCBingoModifySquareResponse_EResponse_Name(enum_t_value);
+  }
+  static inline bool EResponse_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
+      EResponse* value) {
+    return CMsgClientToGCBingoModifySquareResponse_EResponse_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kResponseFieldNumber = 1,
+  };
+  // optional .CMsgClientToGCBingoModifySquareResponse.EResponse response = 1 [default = k_eInternalError];
+  bool has_response() const;
+  private:
+  bool _internal_has_response() const;
+  public:
+  void clear_response();
+  ::CMsgClientToGCBingoModifySquareResponse_EResponse response() const;
+  void set_response(::CMsgClientToGCBingoModifySquareResponse_EResponse value);
+  private:
+  ::CMsgClientToGCBingoModifySquareResponse_EResponse _internal_response() const;
+  void _internal_set_response(::CMsgClientToGCBingoModifySquareResponse_EResponse value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgClientToGCBingoModifySquareResponse)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    int response_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_dota_5fgcmessages_5fclient_5fbingo_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CMsgClientToGCBingoDevRerollCard final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgClientToGCBingoDevRerollCard) */ {
  public:
@@ -2319,7 +4051,7 @@ class CMsgClientToGCBingoDevRerollCard final :
                &_CMsgClientToGCBingoDevRerollCard_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    19;
 
   friend void swap(CMsgClientToGCBingoDevRerollCard& a, CMsgClientToGCBingoDevRerollCard& b) {
     a.Swap(&b);
@@ -2494,7 +4226,7 @@ class CMsgClientToGCBingoDevRerollCardResponse final :
                &_CMsgClientToGCBingoDevRerollCardResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    20;
 
   friend void swap(CMsgClientToGCBingoDevRerollCardResponse& a, CMsgClientToGCBingoDevRerollCardResponse& b) {
     a.Swap(&b);
@@ -2637,6 +4369,756 @@ class CMsgClientToGCBingoDevRerollCardResponse final :
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fgcmessages_5fclient_5fbingo_2eproto;
 };
+// -------------------------------------------------------------------
+
+class CMsgClientToGCBingoDevAddTokens final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgClientToGCBingoDevAddTokens) */ {
+ public:
+  inline CMsgClientToGCBingoDevAddTokens() : CMsgClientToGCBingoDevAddTokens(nullptr) {}
+  ~CMsgClientToGCBingoDevAddTokens() override;
+  explicit PROTOBUF_CONSTEXPR CMsgClientToGCBingoDevAddTokens(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgClientToGCBingoDevAddTokens(const CMsgClientToGCBingoDevAddTokens& from);
+  CMsgClientToGCBingoDevAddTokens(CMsgClientToGCBingoDevAddTokens&& from) noexcept
+    : CMsgClientToGCBingoDevAddTokens() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgClientToGCBingoDevAddTokens& operator=(const CMsgClientToGCBingoDevAddTokens& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgClientToGCBingoDevAddTokens& operator=(CMsgClientToGCBingoDevAddTokens&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgClientToGCBingoDevAddTokens& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgClientToGCBingoDevAddTokens* internal_default_instance() {
+    return reinterpret_cast<const CMsgClientToGCBingoDevAddTokens*>(
+               &_CMsgClientToGCBingoDevAddTokens_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    21;
+
+  friend void swap(CMsgClientToGCBingoDevAddTokens& a, CMsgClientToGCBingoDevAddTokens& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgClientToGCBingoDevAddTokens* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgClientToGCBingoDevAddTokens* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgClientToGCBingoDevAddTokens* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgClientToGCBingoDevAddTokens>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgClientToGCBingoDevAddTokens& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgClientToGCBingoDevAddTokens& from) {
+    CMsgClientToGCBingoDevAddTokens::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgClientToGCBingoDevAddTokens* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgClientToGCBingoDevAddTokens";
+  }
+  protected:
+  explicit CMsgClientToGCBingoDevAddTokens(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kLeagueIdFieldNumber = 1,
+    kLeaguePhaseFieldNumber = 2,
+    kTokenCountFieldNumber = 3,
+  };
+  // optional uint32 league_id = 1;
+  bool has_league_id() const;
+  private:
+  bool _internal_has_league_id() const;
+  public:
+  void clear_league_id();
+  uint32_t league_id() const;
+  void set_league_id(uint32_t value);
+  private:
+  uint32_t _internal_league_id() const;
+  void _internal_set_league_id(uint32_t value);
+  public:
+
+  // optional uint32 league_phase = 2;
+  bool has_league_phase() const;
+  private:
+  bool _internal_has_league_phase() const;
+  public:
+  void clear_league_phase();
+  uint32_t league_phase() const;
+  void set_league_phase(uint32_t value);
+  private:
+  uint32_t _internal_league_phase() const;
+  void _internal_set_league_phase(uint32_t value);
+  public:
+
+  // optional int32 token_count = 3;
+  bool has_token_count() const;
+  private:
+  bool _internal_has_token_count() const;
+  public:
+  void clear_token_count();
+  int32_t token_count() const;
+  void set_token_count(int32_t value);
+  private:
+  int32_t _internal_token_count() const;
+  void _internal_set_token_count(int32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgClientToGCBingoDevAddTokens)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    uint32_t league_id_;
+    uint32_t league_phase_;
+    int32_t token_count_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_dota_5fgcmessages_5fclient_5fbingo_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgClientToGCBingoDevAddTokensResponse final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgClientToGCBingoDevAddTokensResponse) */ {
+ public:
+  inline CMsgClientToGCBingoDevAddTokensResponse() : CMsgClientToGCBingoDevAddTokensResponse(nullptr) {}
+  ~CMsgClientToGCBingoDevAddTokensResponse() override;
+  explicit PROTOBUF_CONSTEXPR CMsgClientToGCBingoDevAddTokensResponse(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgClientToGCBingoDevAddTokensResponse(const CMsgClientToGCBingoDevAddTokensResponse& from);
+  CMsgClientToGCBingoDevAddTokensResponse(CMsgClientToGCBingoDevAddTokensResponse&& from) noexcept
+    : CMsgClientToGCBingoDevAddTokensResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgClientToGCBingoDevAddTokensResponse& operator=(const CMsgClientToGCBingoDevAddTokensResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgClientToGCBingoDevAddTokensResponse& operator=(CMsgClientToGCBingoDevAddTokensResponse&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgClientToGCBingoDevAddTokensResponse& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgClientToGCBingoDevAddTokensResponse* internal_default_instance() {
+    return reinterpret_cast<const CMsgClientToGCBingoDevAddTokensResponse*>(
+               &_CMsgClientToGCBingoDevAddTokensResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    22;
+
+  friend void swap(CMsgClientToGCBingoDevAddTokensResponse& a, CMsgClientToGCBingoDevAddTokensResponse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgClientToGCBingoDevAddTokensResponse* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgClientToGCBingoDevAddTokensResponse* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgClientToGCBingoDevAddTokensResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgClientToGCBingoDevAddTokensResponse>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgClientToGCBingoDevAddTokensResponse& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgClientToGCBingoDevAddTokensResponse& from) {
+    CMsgClientToGCBingoDevAddTokensResponse::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgClientToGCBingoDevAddTokensResponse* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgClientToGCBingoDevAddTokensResponse";
+  }
+  protected:
+  explicit CMsgClientToGCBingoDevAddTokensResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  typedef CMsgClientToGCBingoDevAddTokensResponse_EResponse EResponse;
+  static constexpr EResponse k_eInternalError =
+    CMsgClientToGCBingoDevAddTokensResponse_EResponse_k_eInternalError;
+  static constexpr EResponse k_eSuccess =
+    CMsgClientToGCBingoDevAddTokensResponse_EResponse_k_eSuccess;
+  static constexpr EResponse k_eTooBusy =
+    CMsgClientToGCBingoDevAddTokensResponse_EResponse_k_eTooBusy;
+  static constexpr EResponse k_eDisabled =
+    CMsgClientToGCBingoDevAddTokensResponse_EResponse_k_eDisabled;
+  static constexpr EResponse k_eTimeout =
+    CMsgClientToGCBingoDevAddTokensResponse_EResponse_k_eTimeout;
+  static constexpr EResponse k_eExpiredCard =
+    CMsgClientToGCBingoDevAddTokensResponse_EResponse_k_eExpiredCard;
+  static constexpr EResponse k_eNotAllowed =
+    CMsgClientToGCBingoDevAddTokensResponse_EResponse_k_eNotAllowed;
+  static inline bool EResponse_IsValid(int value) {
+    return CMsgClientToGCBingoDevAddTokensResponse_EResponse_IsValid(value);
+  }
+  static constexpr EResponse EResponse_MIN =
+    CMsgClientToGCBingoDevAddTokensResponse_EResponse_EResponse_MIN;
+  static constexpr EResponse EResponse_MAX =
+    CMsgClientToGCBingoDevAddTokensResponse_EResponse_EResponse_MAX;
+  static constexpr int EResponse_ARRAYSIZE =
+    CMsgClientToGCBingoDevAddTokensResponse_EResponse_EResponse_ARRAYSIZE;
+  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
+  EResponse_descriptor() {
+    return CMsgClientToGCBingoDevAddTokensResponse_EResponse_descriptor();
+  }
+  template<typename T>
+  static inline const std::string& EResponse_Name(T enum_t_value) {
+    static_assert(::std::is_same<T, EResponse>::value ||
+      ::std::is_integral<T>::value,
+      "Incorrect type passed to function EResponse_Name.");
+    return CMsgClientToGCBingoDevAddTokensResponse_EResponse_Name(enum_t_value);
+  }
+  static inline bool EResponse_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
+      EResponse* value) {
+    return CMsgClientToGCBingoDevAddTokensResponse_EResponse_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kResponseFieldNumber = 1,
+  };
+  // optional .CMsgClientToGCBingoDevAddTokensResponse.EResponse response = 1 [default = k_eInternalError];
+  bool has_response() const;
+  private:
+  bool _internal_has_response() const;
+  public:
+  void clear_response();
+  ::CMsgClientToGCBingoDevAddTokensResponse_EResponse response() const;
+  void set_response(::CMsgClientToGCBingoDevAddTokensResponse_EResponse value);
+  private:
+  ::CMsgClientToGCBingoDevAddTokensResponse_EResponse _internal_response() const;
+  void _internal_set_response(::CMsgClientToGCBingoDevAddTokensResponse_EResponse value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgClientToGCBingoDevAddTokensResponse)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    int response_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_dota_5fgcmessages_5fclient_5fbingo_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgClientToGCBingoDevClearInventory final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgClientToGCBingoDevClearInventory) */ {
+ public:
+  inline CMsgClientToGCBingoDevClearInventory() : CMsgClientToGCBingoDevClearInventory(nullptr) {}
+  ~CMsgClientToGCBingoDevClearInventory() override;
+  explicit PROTOBUF_CONSTEXPR CMsgClientToGCBingoDevClearInventory(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgClientToGCBingoDevClearInventory(const CMsgClientToGCBingoDevClearInventory& from);
+  CMsgClientToGCBingoDevClearInventory(CMsgClientToGCBingoDevClearInventory&& from) noexcept
+    : CMsgClientToGCBingoDevClearInventory() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgClientToGCBingoDevClearInventory& operator=(const CMsgClientToGCBingoDevClearInventory& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgClientToGCBingoDevClearInventory& operator=(CMsgClientToGCBingoDevClearInventory&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgClientToGCBingoDevClearInventory& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgClientToGCBingoDevClearInventory* internal_default_instance() {
+    return reinterpret_cast<const CMsgClientToGCBingoDevClearInventory*>(
+               &_CMsgClientToGCBingoDevClearInventory_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    23;
+
+  friend void swap(CMsgClientToGCBingoDevClearInventory& a, CMsgClientToGCBingoDevClearInventory& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgClientToGCBingoDevClearInventory* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgClientToGCBingoDevClearInventory* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgClientToGCBingoDevClearInventory* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgClientToGCBingoDevClearInventory>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgClientToGCBingoDevClearInventory& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgClientToGCBingoDevClearInventory& from) {
+    CMsgClientToGCBingoDevClearInventory::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgClientToGCBingoDevClearInventory* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgClientToGCBingoDevClearInventory";
+  }
+  protected:
+  explicit CMsgClientToGCBingoDevClearInventory(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kLeagueIdFieldNumber = 1,
+  };
+  // optional uint32 league_id = 1;
+  bool has_league_id() const;
+  private:
+  bool _internal_has_league_id() const;
+  public:
+  void clear_league_id();
+  uint32_t league_id() const;
+  void set_league_id(uint32_t value);
+  private:
+  uint32_t _internal_league_id() const;
+  void _internal_set_league_id(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgClientToGCBingoDevClearInventory)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    uint32_t league_id_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_dota_5fgcmessages_5fclient_5fbingo_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgClientToGCBingoDevClearInventoryResponse final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgClientToGCBingoDevClearInventoryResponse) */ {
+ public:
+  inline CMsgClientToGCBingoDevClearInventoryResponse() : CMsgClientToGCBingoDevClearInventoryResponse(nullptr) {}
+  ~CMsgClientToGCBingoDevClearInventoryResponse() override;
+  explicit PROTOBUF_CONSTEXPR CMsgClientToGCBingoDevClearInventoryResponse(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgClientToGCBingoDevClearInventoryResponse(const CMsgClientToGCBingoDevClearInventoryResponse& from);
+  CMsgClientToGCBingoDevClearInventoryResponse(CMsgClientToGCBingoDevClearInventoryResponse&& from) noexcept
+    : CMsgClientToGCBingoDevClearInventoryResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgClientToGCBingoDevClearInventoryResponse& operator=(const CMsgClientToGCBingoDevClearInventoryResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgClientToGCBingoDevClearInventoryResponse& operator=(CMsgClientToGCBingoDevClearInventoryResponse&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgClientToGCBingoDevClearInventoryResponse& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgClientToGCBingoDevClearInventoryResponse* internal_default_instance() {
+    return reinterpret_cast<const CMsgClientToGCBingoDevClearInventoryResponse*>(
+               &_CMsgClientToGCBingoDevClearInventoryResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    24;
+
+  friend void swap(CMsgClientToGCBingoDevClearInventoryResponse& a, CMsgClientToGCBingoDevClearInventoryResponse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgClientToGCBingoDevClearInventoryResponse* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgClientToGCBingoDevClearInventoryResponse* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgClientToGCBingoDevClearInventoryResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgClientToGCBingoDevClearInventoryResponse>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgClientToGCBingoDevClearInventoryResponse& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgClientToGCBingoDevClearInventoryResponse& from) {
+    CMsgClientToGCBingoDevClearInventoryResponse::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgClientToGCBingoDevClearInventoryResponse* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgClientToGCBingoDevClearInventoryResponse";
+  }
+  protected:
+  explicit CMsgClientToGCBingoDevClearInventoryResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  typedef CMsgClientToGCBingoDevClearInventoryResponse_EResponse EResponse;
+  static constexpr EResponse k_eInternalError =
+    CMsgClientToGCBingoDevClearInventoryResponse_EResponse_k_eInternalError;
+  static constexpr EResponse k_eSuccess =
+    CMsgClientToGCBingoDevClearInventoryResponse_EResponse_k_eSuccess;
+  static constexpr EResponse k_eTooBusy =
+    CMsgClientToGCBingoDevClearInventoryResponse_EResponse_k_eTooBusy;
+  static constexpr EResponse k_eDisabled =
+    CMsgClientToGCBingoDevClearInventoryResponse_EResponse_k_eDisabled;
+  static constexpr EResponse k_eTimeout =
+    CMsgClientToGCBingoDevClearInventoryResponse_EResponse_k_eTimeout;
+  static constexpr EResponse k_eExpiredCard =
+    CMsgClientToGCBingoDevClearInventoryResponse_EResponse_k_eExpiredCard;
+  static constexpr EResponse k_eNotAllowed =
+    CMsgClientToGCBingoDevClearInventoryResponse_EResponse_k_eNotAllowed;
+  static inline bool EResponse_IsValid(int value) {
+    return CMsgClientToGCBingoDevClearInventoryResponse_EResponse_IsValid(value);
+  }
+  static constexpr EResponse EResponse_MIN =
+    CMsgClientToGCBingoDevClearInventoryResponse_EResponse_EResponse_MIN;
+  static constexpr EResponse EResponse_MAX =
+    CMsgClientToGCBingoDevClearInventoryResponse_EResponse_EResponse_MAX;
+  static constexpr int EResponse_ARRAYSIZE =
+    CMsgClientToGCBingoDevClearInventoryResponse_EResponse_EResponse_ARRAYSIZE;
+  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
+  EResponse_descriptor() {
+    return CMsgClientToGCBingoDevClearInventoryResponse_EResponse_descriptor();
+  }
+  template<typename T>
+  static inline const std::string& EResponse_Name(T enum_t_value) {
+    static_assert(::std::is_same<T, EResponse>::value ||
+      ::std::is_integral<T>::value,
+      "Incorrect type passed to function EResponse_Name.");
+    return CMsgClientToGCBingoDevClearInventoryResponse_EResponse_Name(enum_t_value);
+  }
+  static inline bool EResponse_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
+      EResponse* value) {
+    return CMsgClientToGCBingoDevClearInventoryResponse_EResponse_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kResponseFieldNumber = 1,
+  };
+  // optional .CMsgClientToGCBingoDevClearInventoryResponse.EResponse response = 1 [default = k_eInternalError];
+  bool has_response() const;
+  private:
+  bool _internal_has_response() const;
+  public:
+  void clear_response();
+  ::CMsgClientToGCBingoDevClearInventoryResponse_EResponse response() const;
+  void set_response(::CMsgClientToGCBingoDevClearInventoryResponse_EResponse value);
+  private:
+  ::CMsgClientToGCBingoDevClearInventoryResponse_EResponse _internal_response() const;
+  void _internal_set_response(::CMsgClientToGCBingoDevClearInventoryResponse_EResponse value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgClientToGCBingoDevClearInventoryResponse)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    int response_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_dota_5fgcmessages_5fclient_5fbingo_2eproto;
+};
 // ===================================================================
 
 
@@ -2704,48 +5186,436 @@ inline void CMsgBingoSquare::set_stat_threshold(int32_t value) {
   // @@protoc_insertion_point(field_set:CMsgBingoSquare.stat_threshold)
 }
 
+// optional uint32 upgrade_level = 3;
+inline bool CMsgBingoSquare::_internal_has_upgrade_level() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CMsgBingoSquare::has_upgrade_level() const {
+  return _internal_has_upgrade_level();
+}
+inline void CMsgBingoSquare::clear_upgrade_level() {
+  _impl_.upgrade_level_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline uint32_t CMsgBingoSquare::_internal_upgrade_level() const {
+  return _impl_.upgrade_level_;
+}
+inline uint32_t CMsgBingoSquare::upgrade_level() const {
+  // @@protoc_insertion_point(field_get:CMsgBingoSquare.upgrade_level)
+  return _internal_upgrade_level();
+}
+inline void CMsgBingoSquare::_internal_set_upgrade_level(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.upgrade_level_ = value;
+}
+inline void CMsgBingoSquare::set_upgrade_level(uint32_t value) {
+  _internal_set_upgrade_level(value);
+  // @@protoc_insertion_point(field_set:CMsgBingoSquare.upgrade_level)
+}
+
+// -------------------------------------------------------------------
+
+// CMsgBingoTokens
+
+// optional uint32 token_count = 1;
+inline bool CMsgBingoTokens::_internal_has_token_count() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgBingoTokens::has_token_count() const {
+  return _internal_has_token_count();
+}
+inline void CMsgBingoTokens::clear_token_count() {
+  _impl_.token_count_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline uint32_t CMsgBingoTokens::_internal_token_count() const {
+  return _impl_.token_count_;
+}
+inline uint32_t CMsgBingoTokens::token_count() const {
+  // @@protoc_insertion_point(field_get:CMsgBingoTokens.token_count)
+  return _internal_token_count();
+}
+inline void CMsgBingoTokens::_internal_set_token_count(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.token_count_ = value;
+}
+inline void CMsgBingoTokens::set_token_count(uint32_t value) {
+  _internal_set_token_count(value);
+  // @@protoc_insertion_point(field_set:CMsgBingoTokens.token_count)
+}
+
+// -------------------------------------------------------------------
+
+// CMsgBingoCard
+
+// repeated .CMsgBingoSquare squares = 1;
+inline int CMsgBingoCard::_internal_squares_size() const {
+  return _impl_.squares_.size();
+}
+inline int CMsgBingoCard::squares_size() const {
+  return _internal_squares_size();
+}
+inline void CMsgBingoCard::clear_squares() {
+  _impl_.squares_.Clear();
+}
+inline ::CMsgBingoSquare* CMsgBingoCard::mutable_squares(int index) {
+  // @@protoc_insertion_point(field_mutable:CMsgBingoCard.squares)
+  return _impl_.squares_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgBingoSquare >*
+CMsgBingoCard::mutable_squares() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgBingoCard.squares)
+  return &_impl_.squares_;
+}
+inline const ::CMsgBingoSquare& CMsgBingoCard::_internal_squares(int index) const {
+  return _impl_.squares_.Get(index);
+}
+inline const ::CMsgBingoSquare& CMsgBingoCard::squares(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgBingoCard.squares)
+  return _internal_squares(index);
+}
+inline ::CMsgBingoSquare* CMsgBingoCard::_internal_add_squares() {
+  return _impl_.squares_.Add();
+}
+inline ::CMsgBingoSquare* CMsgBingoCard::add_squares() {
+  ::CMsgBingoSquare* _add = _internal_add_squares();
+  // @@protoc_insertion_point(field_add:CMsgBingoCard.squares)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgBingoSquare >&
+CMsgBingoCard::squares() const {
+  // @@protoc_insertion_point(field_list:CMsgBingoCard.squares)
+  return _impl_.squares_;
+}
+
+// -------------------------------------------------------------------
+
+// CMsgBingoUserData_BingoCardsEntry
+
+// optional uint32 key = 1;
+inline bool CMsgBingoUserData_BingoCardsEntry::_internal_has_key() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMsgBingoUserData_BingoCardsEntry::has_key() const {
+  return _internal_has_key();
+}
+inline void CMsgBingoUserData_BingoCardsEntry::clear_key() {
+  _impl_.key_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline uint32_t CMsgBingoUserData_BingoCardsEntry::_internal_key() const {
+  return _impl_.key_;
+}
+inline uint32_t CMsgBingoUserData_BingoCardsEntry::key() const {
+  // @@protoc_insertion_point(field_get:CMsgBingoUserData.BingoCardsEntry.key)
+  return _internal_key();
+}
+inline void CMsgBingoUserData_BingoCardsEntry::_internal_set_key(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.key_ = value;
+}
+inline void CMsgBingoUserData_BingoCardsEntry::set_key(uint32_t value) {
+  _internal_set_key(value);
+  // @@protoc_insertion_point(field_set:CMsgBingoUserData.BingoCardsEntry.key)
+}
+
+// optional .CMsgBingoCard value = 2;
+inline bool CMsgBingoUserData_BingoCardsEntry::_internal_has_value() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.value_ != nullptr);
+  return value;
+}
+inline bool CMsgBingoUserData_BingoCardsEntry::has_value() const {
+  return _internal_has_value();
+}
+inline void CMsgBingoUserData_BingoCardsEntry::clear_value() {
+  if (_impl_.value_ != nullptr) _impl_.value_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline const ::CMsgBingoCard& CMsgBingoUserData_BingoCardsEntry::_internal_value() const {
+  const ::CMsgBingoCard* p = _impl_.value_;
+  return p != nullptr ? *p : reinterpret_cast<const ::CMsgBingoCard&>(
+      ::_CMsgBingoCard_default_instance_);
+}
+inline const ::CMsgBingoCard& CMsgBingoUserData_BingoCardsEntry::value() const {
+  // @@protoc_insertion_point(field_get:CMsgBingoUserData.BingoCardsEntry.value)
+  return _internal_value();
+}
+inline void CMsgBingoUserData_BingoCardsEntry::unsafe_arena_set_allocated_value(
+    ::CMsgBingoCard* value) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.value_);
+  }
+  _impl_.value_ = value;
+  if (value) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CMsgBingoUserData.BingoCardsEntry.value)
+}
+inline ::CMsgBingoCard* CMsgBingoUserData_BingoCardsEntry::release_value() {
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::CMsgBingoCard* temp = _impl_.value_;
+  _impl_.value_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::CMsgBingoCard* CMsgBingoUserData_BingoCardsEntry::unsafe_arena_release_value() {
+  // @@protoc_insertion_point(field_release:CMsgBingoUserData.BingoCardsEntry.value)
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::CMsgBingoCard* temp = _impl_.value_;
+  _impl_.value_ = nullptr;
+  return temp;
+}
+inline ::CMsgBingoCard* CMsgBingoUserData_BingoCardsEntry::_internal_mutable_value() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  if (_impl_.value_ == nullptr) {
+    auto* p = CreateMaybeMessage<::CMsgBingoCard>(GetArenaForAllocation());
+    _impl_.value_ = p;
+  }
+  return _impl_.value_;
+}
+inline ::CMsgBingoCard* CMsgBingoUserData_BingoCardsEntry::mutable_value() {
+  ::CMsgBingoCard* _msg = _internal_mutable_value();
+  // @@protoc_insertion_point(field_mutable:CMsgBingoUserData.BingoCardsEntry.value)
+  return _msg;
+}
+inline void CMsgBingoUserData_BingoCardsEntry::set_allocated_value(::CMsgBingoCard* value) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.value_;
+  }
+  if (value) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(value);
+    if (message_arena != submessage_arena) {
+      value = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, value, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.value_ = value;
+  // @@protoc_insertion_point(field_set_allocated:CMsgBingoUserData.BingoCardsEntry.value)
+}
+
+// -------------------------------------------------------------------
+
+// CMsgBingoUserData_BingoTokensEntry
+
+// optional uint32 key = 1;
+inline bool CMsgBingoUserData_BingoTokensEntry::_internal_has_key() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMsgBingoUserData_BingoTokensEntry::has_key() const {
+  return _internal_has_key();
+}
+inline void CMsgBingoUserData_BingoTokensEntry::clear_key() {
+  _impl_.key_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline uint32_t CMsgBingoUserData_BingoTokensEntry::_internal_key() const {
+  return _impl_.key_;
+}
+inline uint32_t CMsgBingoUserData_BingoTokensEntry::key() const {
+  // @@protoc_insertion_point(field_get:CMsgBingoUserData.BingoTokensEntry.key)
+  return _internal_key();
+}
+inline void CMsgBingoUserData_BingoTokensEntry::_internal_set_key(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.key_ = value;
+}
+inline void CMsgBingoUserData_BingoTokensEntry::set_key(uint32_t value) {
+  _internal_set_key(value);
+  // @@protoc_insertion_point(field_set:CMsgBingoUserData.BingoTokensEntry.key)
+}
+
+// optional .CMsgBingoTokens value = 2;
+inline bool CMsgBingoUserData_BingoTokensEntry::_internal_has_value() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.value_ != nullptr);
+  return value;
+}
+inline bool CMsgBingoUserData_BingoTokensEntry::has_value() const {
+  return _internal_has_value();
+}
+inline void CMsgBingoUserData_BingoTokensEntry::clear_value() {
+  if (_impl_.value_ != nullptr) _impl_.value_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline const ::CMsgBingoTokens& CMsgBingoUserData_BingoTokensEntry::_internal_value() const {
+  const ::CMsgBingoTokens* p = _impl_.value_;
+  return p != nullptr ? *p : reinterpret_cast<const ::CMsgBingoTokens&>(
+      ::_CMsgBingoTokens_default_instance_);
+}
+inline const ::CMsgBingoTokens& CMsgBingoUserData_BingoTokensEntry::value() const {
+  // @@protoc_insertion_point(field_get:CMsgBingoUserData.BingoTokensEntry.value)
+  return _internal_value();
+}
+inline void CMsgBingoUserData_BingoTokensEntry::unsafe_arena_set_allocated_value(
+    ::CMsgBingoTokens* value) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.value_);
+  }
+  _impl_.value_ = value;
+  if (value) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CMsgBingoUserData.BingoTokensEntry.value)
+}
+inline ::CMsgBingoTokens* CMsgBingoUserData_BingoTokensEntry::release_value() {
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::CMsgBingoTokens* temp = _impl_.value_;
+  _impl_.value_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::CMsgBingoTokens* CMsgBingoUserData_BingoTokensEntry::unsafe_arena_release_value() {
+  // @@protoc_insertion_point(field_release:CMsgBingoUserData.BingoTokensEntry.value)
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::CMsgBingoTokens* temp = _impl_.value_;
+  _impl_.value_ = nullptr;
+  return temp;
+}
+inline ::CMsgBingoTokens* CMsgBingoUserData_BingoTokensEntry::_internal_mutable_value() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  if (_impl_.value_ == nullptr) {
+    auto* p = CreateMaybeMessage<::CMsgBingoTokens>(GetArenaForAllocation());
+    _impl_.value_ = p;
+  }
+  return _impl_.value_;
+}
+inline ::CMsgBingoTokens* CMsgBingoUserData_BingoTokensEntry::mutable_value() {
+  ::CMsgBingoTokens* _msg = _internal_mutable_value();
+  // @@protoc_insertion_point(field_mutable:CMsgBingoUserData.BingoTokensEntry.value)
+  return _msg;
+}
+inline void CMsgBingoUserData_BingoTokensEntry::set_allocated_value(::CMsgBingoTokens* value) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.value_;
+  }
+  if (value) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(value);
+    if (message_arena != submessage_arena) {
+      value = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, value, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.value_ = value;
+  // @@protoc_insertion_point(field_set_allocated:CMsgBingoUserData.BingoTokensEntry.value)
+}
+
 // -------------------------------------------------------------------
 
 // CMsgBingoUserData
 
-// repeated .CMsgBingoSquare squares = 1;
-inline int CMsgBingoUserData::_internal_squares_size() const {
-  return _impl_.squares_.size();
+// repeated .CMsgBingoUserData.BingoCardsEntry bingo_cards = 1;
+inline int CMsgBingoUserData::_internal_bingo_cards_size() const {
+  return _impl_.bingo_cards_.size();
 }
-inline int CMsgBingoUserData::squares_size() const {
-  return _internal_squares_size();
+inline int CMsgBingoUserData::bingo_cards_size() const {
+  return _internal_bingo_cards_size();
 }
-inline void CMsgBingoUserData::clear_squares() {
-  _impl_.squares_.Clear();
+inline void CMsgBingoUserData::clear_bingo_cards() {
+  _impl_.bingo_cards_.Clear();
 }
-inline ::CMsgBingoSquare* CMsgBingoUserData::mutable_squares(int index) {
-  // @@protoc_insertion_point(field_mutable:CMsgBingoUserData.squares)
-  return _impl_.squares_.Mutable(index);
+inline ::CMsgBingoUserData_BingoCardsEntry* CMsgBingoUserData::mutable_bingo_cards(int index) {
+  // @@protoc_insertion_point(field_mutable:CMsgBingoUserData.bingo_cards)
+  return _impl_.bingo_cards_.Mutable(index);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgBingoSquare >*
-CMsgBingoUserData::mutable_squares() {
-  // @@protoc_insertion_point(field_mutable_list:CMsgBingoUserData.squares)
-  return &_impl_.squares_;
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgBingoUserData_BingoCardsEntry >*
+CMsgBingoUserData::mutable_bingo_cards() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgBingoUserData.bingo_cards)
+  return &_impl_.bingo_cards_;
 }
-inline const ::CMsgBingoSquare& CMsgBingoUserData::_internal_squares(int index) const {
-  return _impl_.squares_.Get(index);
+inline const ::CMsgBingoUserData_BingoCardsEntry& CMsgBingoUserData::_internal_bingo_cards(int index) const {
+  return _impl_.bingo_cards_.Get(index);
 }
-inline const ::CMsgBingoSquare& CMsgBingoUserData::squares(int index) const {
-  // @@protoc_insertion_point(field_get:CMsgBingoUserData.squares)
-  return _internal_squares(index);
+inline const ::CMsgBingoUserData_BingoCardsEntry& CMsgBingoUserData::bingo_cards(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgBingoUserData.bingo_cards)
+  return _internal_bingo_cards(index);
 }
-inline ::CMsgBingoSquare* CMsgBingoUserData::_internal_add_squares() {
-  return _impl_.squares_.Add();
+inline ::CMsgBingoUserData_BingoCardsEntry* CMsgBingoUserData::_internal_add_bingo_cards() {
+  return _impl_.bingo_cards_.Add();
 }
-inline ::CMsgBingoSquare* CMsgBingoUserData::add_squares() {
-  ::CMsgBingoSquare* _add = _internal_add_squares();
-  // @@protoc_insertion_point(field_add:CMsgBingoUserData.squares)
+inline ::CMsgBingoUserData_BingoCardsEntry* CMsgBingoUserData::add_bingo_cards() {
+  ::CMsgBingoUserData_BingoCardsEntry* _add = _internal_add_bingo_cards();
+  // @@protoc_insertion_point(field_add:CMsgBingoUserData.bingo_cards)
   return _add;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgBingoSquare >&
-CMsgBingoUserData::squares() const {
-  // @@protoc_insertion_point(field_list:CMsgBingoUserData.squares)
-  return _impl_.squares_;
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgBingoUserData_BingoCardsEntry >&
+CMsgBingoUserData::bingo_cards() const {
+  // @@protoc_insertion_point(field_list:CMsgBingoUserData.bingo_cards)
+  return _impl_.bingo_cards_;
+}
+
+// repeated .CMsgBingoUserData.BingoTokensEntry bingo_tokens = 2;
+inline int CMsgBingoUserData::_internal_bingo_tokens_size() const {
+  return _impl_.bingo_tokens_.size();
+}
+inline int CMsgBingoUserData::bingo_tokens_size() const {
+  return _internal_bingo_tokens_size();
+}
+inline void CMsgBingoUserData::clear_bingo_tokens() {
+  _impl_.bingo_tokens_.Clear();
+}
+inline ::CMsgBingoUserData_BingoTokensEntry* CMsgBingoUserData::mutable_bingo_tokens(int index) {
+  // @@protoc_insertion_point(field_mutable:CMsgBingoUserData.bingo_tokens)
+  return _impl_.bingo_tokens_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgBingoUserData_BingoTokensEntry >*
+CMsgBingoUserData::mutable_bingo_tokens() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgBingoUserData.bingo_tokens)
+  return &_impl_.bingo_tokens_;
+}
+inline const ::CMsgBingoUserData_BingoTokensEntry& CMsgBingoUserData::_internal_bingo_tokens(int index) const {
+  return _impl_.bingo_tokens_.Get(index);
+}
+inline const ::CMsgBingoUserData_BingoTokensEntry& CMsgBingoUserData::bingo_tokens(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgBingoUserData.bingo_tokens)
+  return _internal_bingo_tokens(index);
+}
+inline ::CMsgBingoUserData_BingoTokensEntry* CMsgBingoUserData::_internal_add_bingo_tokens() {
+  return _impl_.bingo_tokens_.Add();
+}
+inline ::CMsgBingoUserData_BingoTokensEntry* CMsgBingoUserData::add_bingo_tokens() {
+  ::CMsgBingoUserData_BingoTokensEntry* _add = _internal_add_bingo_tokens();
+  // @@protoc_insertion_point(field_add:CMsgBingoUserData.bingo_tokens)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgBingoUserData_BingoTokensEntry >&
+CMsgBingoUserData::bingo_tokens() const {
+  // @@protoc_insertion_point(field_list:CMsgBingoUserData.bingo_tokens)
+  return _impl_.bingo_tokens_;
 }
 
 // -------------------------------------------------------------------
@@ -2778,34 +5648,6 @@ inline void CMsgClientToGCBingoGetUserData::_internal_set_league_id(uint32_t val
 inline void CMsgClientToGCBingoGetUserData::set_league_id(uint32_t value) {
   _internal_set_league_id(value);
   // @@protoc_insertion_point(field_set:CMsgClientToGCBingoGetUserData.league_id)
-}
-
-// optional uint32 league_phase = 2;
-inline bool CMsgClientToGCBingoGetUserData::_internal_has_league_phase() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
-  return value;
-}
-inline bool CMsgClientToGCBingoGetUserData::has_league_phase() const {
-  return _internal_has_league_phase();
-}
-inline void CMsgClientToGCBingoGetUserData::clear_league_phase() {
-  _impl_.league_phase_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
-}
-inline uint32_t CMsgClientToGCBingoGetUserData::_internal_league_phase() const {
-  return _impl_.league_phase_;
-}
-inline uint32_t CMsgClientToGCBingoGetUserData::league_phase() const {
-  // @@protoc_insertion_point(field_get:CMsgClientToGCBingoGetUserData.league_phase)
-  return _internal_league_phase();
-}
-inline void CMsgClientToGCBingoGetUserData::_internal_set_league_phase(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  _impl_.league_phase_ = value;
-}
-inline void CMsgClientToGCBingoGetUserData::set_league_phase(uint32_t value) {
-  _internal_set_league_phase(value);
-  // @@protoc_insertion_point(field_set:CMsgClientToGCBingoGetUserData.league_phase)
 }
 
 // -------------------------------------------------------------------
@@ -3250,35 +6092,7 @@ inline void CMsgGCToClientBingoUserDataUpdated::set_league_id(uint32_t value) {
   // @@protoc_insertion_point(field_set:CMsgGCToClientBingoUserDataUpdated.league_id)
 }
 
-// optional uint32 league_phase = 2;
-inline bool CMsgGCToClientBingoUserDataUpdated::_internal_has_league_phase() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
-  return value;
-}
-inline bool CMsgGCToClientBingoUserDataUpdated::has_league_phase() const {
-  return _internal_has_league_phase();
-}
-inline void CMsgGCToClientBingoUserDataUpdated::clear_league_phase() {
-  _impl_.league_phase_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000004u;
-}
-inline uint32_t CMsgGCToClientBingoUserDataUpdated::_internal_league_phase() const {
-  return _impl_.league_phase_;
-}
-inline uint32_t CMsgGCToClientBingoUserDataUpdated::league_phase() const {
-  // @@protoc_insertion_point(field_get:CMsgGCToClientBingoUserDataUpdated.league_phase)
-  return _internal_league_phase();
-}
-inline void CMsgGCToClientBingoUserDataUpdated::_internal_set_league_phase(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
-  _impl_.league_phase_ = value;
-}
-inline void CMsgGCToClientBingoUserDataUpdated::set_league_phase(uint32_t value) {
-  _internal_set_league_phase(value);
-  // @@protoc_insertion_point(field_set:CMsgGCToClientBingoUserDataUpdated.league_phase)
-}
-
-// optional .CMsgBingoUserData user_data = 3;
+// optional .CMsgBingoUserData user_data = 2;
 inline bool CMsgGCToClientBingoUserDataUpdated::_internal_has_user_data() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.user_data_ != nullptr);
@@ -3491,6 +6305,249 @@ inline void CMsgClientToGCBingoClaimRowResponse::set_response(::CMsgClientToGCBi
 
 // -------------------------------------------------------------------
 
+// CMsgClientToGCBingoShuffleCard
+
+// optional uint32 league_id = 1;
+inline bool CMsgClientToGCBingoShuffleCard::_internal_has_league_id() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgClientToGCBingoShuffleCard::has_league_id() const {
+  return _internal_has_league_id();
+}
+inline void CMsgClientToGCBingoShuffleCard::clear_league_id() {
+  _impl_.league_id_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline uint32_t CMsgClientToGCBingoShuffleCard::_internal_league_id() const {
+  return _impl_.league_id_;
+}
+inline uint32_t CMsgClientToGCBingoShuffleCard::league_id() const {
+  // @@protoc_insertion_point(field_get:CMsgClientToGCBingoShuffleCard.league_id)
+  return _internal_league_id();
+}
+inline void CMsgClientToGCBingoShuffleCard::_internal_set_league_id(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.league_id_ = value;
+}
+inline void CMsgClientToGCBingoShuffleCard::set_league_id(uint32_t value) {
+  _internal_set_league_id(value);
+  // @@protoc_insertion_point(field_set:CMsgClientToGCBingoShuffleCard.league_id)
+}
+
+// optional uint32 league_phase = 2;
+inline bool CMsgClientToGCBingoShuffleCard::_internal_has_league_phase() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMsgClientToGCBingoShuffleCard::has_league_phase() const {
+  return _internal_has_league_phase();
+}
+inline void CMsgClientToGCBingoShuffleCard::clear_league_phase() {
+  _impl_.league_phase_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline uint32_t CMsgClientToGCBingoShuffleCard::_internal_league_phase() const {
+  return _impl_.league_phase_;
+}
+inline uint32_t CMsgClientToGCBingoShuffleCard::league_phase() const {
+  // @@protoc_insertion_point(field_get:CMsgClientToGCBingoShuffleCard.league_phase)
+  return _internal_league_phase();
+}
+inline void CMsgClientToGCBingoShuffleCard::_internal_set_league_phase(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.league_phase_ = value;
+}
+inline void CMsgClientToGCBingoShuffleCard::set_league_phase(uint32_t value) {
+  _internal_set_league_phase(value);
+  // @@protoc_insertion_point(field_set:CMsgClientToGCBingoShuffleCard.league_phase)
+}
+
+// -------------------------------------------------------------------
+
+// CMsgClientToGCBingoShuffleCardResponse
+
+// optional .CMsgClientToGCBingoShuffleCardResponse.EResponse response = 1 [default = k_eInternalError];
+inline bool CMsgClientToGCBingoShuffleCardResponse::_internal_has_response() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgClientToGCBingoShuffleCardResponse::has_response() const {
+  return _internal_has_response();
+}
+inline void CMsgClientToGCBingoShuffleCardResponse::clear_response() {
+  _impl_.response_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline ::CMsgClientToGCBingoShuffleCardResponse_EResponse CMsgClientToGCBingoShuffleCardResponse::_internal_response() const {
+  return static_cast< ::CMsgClientToGCBingoShuffleCardResponse_EResponse >(_impl_.response_);
+}
+inline ::CMsgClientToGCBingoShuffleCardResponse_EResponse CMsgClientToGCBingoShuffleCardResponse::response() const {
+  // @@protoc_insertion_point(field_get:CMsgClientToGCBingoShuffleCardResponse.response)
+  return _internal_response();
+}
+inline void CMsgClientToGCBingoShuffleCardResponse::_internal_set_response(::CMsgClientToGCBingoShuffleCardResponse_EResponse value) {
+  assert(::CMsgClientToGCBingoShuffleCardResponse_EResponse_IsValid(value));
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.response_ = value;
+}
+inline void CMsgClientToGCBingoShuffleCardResponse::set_response(::CMsgClientToGCBingoShuffleCardResponse_EResponse value) {
+  _internal_set_response(value);
+  // @@protoc_insertion_point(field_set:CMsgClientToGCBingoShuffleCardResponse.response)
+}
+
+// -------------------------------------------------------------------
+
+// CMsgClientToGCBingoModifySquare
+
+// optional uint32 league_id = 1;
+inline bool CMsgClientToGCBingoModifySquare::_internal_has_league_id() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgClientToGCBingoModifySquare::has_league_id() const {
+  return _internal_has_league_id();
+}
+inline void CMsgClientToGCBingoModifySquare::clear_league_id() {
+  _impl_.league_id_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline uint32_t CMsgClientToGCBingoModifySquare::_internal_league_id() const {
+  return _impl_.league_id_;
+}
+inline uint32_t CMsgClientToGCBingoModifySquare::league_id() const {
+  // @@protoc_insertion_point(field_get:CMsgClientToGCBingoModifySquare.league_id)
+  return _internal_league_id();
+}
+inline void CMsgClientToGCBingoModifySquare::_internal_set_league_id(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.league_id_ = value;
+}
+inline void CMsgClientToGCBingoModifySquare::set_league_id(uint32_t value) {
+  _internal_set_league_id(value);
+  // @@protoc_insertion_point(field_set:CMsgClientToGCBingoModifySquare.league_id)
+}
+
+// optional uint32 league_phase = 2;
+inline bool CMsgClientToGCBingoModifySquare::_internal_has_league_phase() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMsgClientToGCBingoModifySquare::has_league_phase() const {
+  return _internal_has_league_phase();
+}
+inline void CMsgClientToGCBingoModifySquare::clear_league_phase() {
+  _impl_.league_phase_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline uint32_t CMsgClientToGCBingoModifySquare::_internal_league_phase() const {
+  return _impl_.league_phase_;
+}
+inline uint32_t CMsgClientToGCBingoModifySquare::league_phase() const {
+  // @@protoc_insertion_point(field_get:CMsgClientToGCBingoModifySquare.league_phase)
+  return _internal_league_phase();
+}
+inline void CMsgClientToGCBingoModifySquare::_internal_set_league_phase(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.league_phase_ = value;
+}
+inline void CMsgClientToGCBingoModifySquare::set_league_phase(uint32_t value) {
+  _internal_set_league_phase(value);
+  // @@protoc_insertion_point(field_set:CMsgClientToGCBingoModifySquare.league_phase)
+}
+
+// optional uint32 square_index = 3;
+inline bool CMsgClientToGCBingoModifySquare::_internal_has_square_index() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CMsgClientToGCBingoModifySquare::has_square_index() const {
+  return _internal_has_square_index();
+}
+inline void CMsgClientToGCBingoModifySquare::clear_square_index() {
+  _impl_.square_index_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline uint32_t CMsgClientToGCBingoModifySquare::_internal_square_index() const {
+  return _impl_.square_index_;
+}
+inline uint32_t CMsgClientToGCBingoModifySquare::square_index() const {
+  // @@protoc_insertion_point(field_get:CMsgClientToGCBingoModifySquare.square_index)
+  return _internal_square_index();
+}
+inline void CMsgClientToGCBingoModifySquare::_internal_set_square_index(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.square_index_ = value;
+}
+inline void CMsgClientToGCBingoModifySquare::set_square_index(uint32_t value) {
+  _internal_set_square_index(value);
+  // @@protoc_insertion_point(field_set:CMsgClientToGCBingoModifySquare.square_index)
+}
+
+// optional .CMsgClientToGCBingoModifySquare.EModifyAction action = 4 [default = k_eRerollStat];
+inline bool CMsgClientToGCBingoModifySquare::_internal_has_action() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool CMsgClientToGCBingoModifySquare::has_action() const {
+  return _internal_has_action();
+}
+inline void CMsgClientToGCBingoModifySquare::clear_action() {
+  _impl_.action_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000008u;
+}
+inline ::CMsgClientToGCBingoModifySquare_EModifyAction CMsgClientToGCBingoModifySquare::_internal_action() const {
+  return static_cast< ::CMsgClientToGCBingoModifySquare_EModifyAction >(_impl_.action_);
+}
+inline ::CMsgClientToGCBingoModifySquare_EModifyAction CMsgClientToGCBingoModifySquare::action() const {
+  // @@protoc_insertion_point(field_get:CMsgClientToGCBingoModifySquare.action)
+  return _internal_action();
+}
+inline void CMsgClientToGCBingoModifySquare::_internal_set_action(::CMsgClientToGCBingoModifySquare_EModifyAction value) {
+  assert(::CMsgClientToGCBingoModifySquare_EModifyAction_IsValid(value));
+  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_.action_ = value;
+}
+inline void CMsgClientToGCBingoModifySquare::set_action(::CMsgClientToGCBingoModifySquare_EModifyAction value) {
+  _internal_set_action(value);
+  // @@protoc_insertion_point(field_set:CMsgClientToGCBingoModifySquare.action)
+}
+
+// -------------------------------------------------------------------
+
+// CMsgClientToGCBingoModifySquareResponse
+
+// optional .CMsgClientToGCBingoModifySquareResponse.EResponse response = 1 [default = k_eInternalError];
+inline bool CMsgClientToGCBingoModifySquareResponse::_internal_has_response() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgClientToGCBingoModifySquareResponse::has_response() const {
+  return _internal_has_response();
+}
+inline void CMsgClientToGCBingoModifySquareResponse::clear_response() {
+  _impl_.response_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline ::CMsgClientToGCBingoModifySquareResponse_EResponse CMsgClientToGCBingoModifySquareResponse::_internal_response() const {
+  return static_cast< ::CMsgClientToGCBingoModifySquareResponse_EResponse >(_impl_.response_);
+}
+inline ::CMsgClientToGCBingoModifySquareResponse_EResponse CMsgClientToGCBingoModifySquareResponse::response() const {
+  // @@protoc_insertion_point(field_get:CMsgClientToGCBingoModifySquareResponse.response)
+  return _internal_response();
+}
+inline void CMsgClientToGCBingoModifySquareResponse::_internal_set_response(::CMsgClientToGCBingoModifySquareResponse_EResponse value) {
+  assert(::CMsgClientToGCBingoModifySquareResponse_EResponse_IsValid(value));
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.response_ = value;
+}
+inline void CMsgClientToGCBingoModifySquareResponse::set_response(::CMsgClientToGCBingoModifySquareResponse_EResponse value) {
+  _internal_set_response(value);
+  // @@protoc_insertion_point(field_set:CMsgClientToGCBingoModifySquareResponse.response)
+}
+
+// -------------------------------------------------------------------
+
 // CMsgClientToGCBingoDevRerollCard
 
 // optional uint32 league_id = 1;
@@ -3582,9 +6639,219 @@ inline void CMsgClientToGCBingoDevRerollCardResponse::set_response(::CMsgClientT
   // @@protoc_insertion_point(field_set:CMsgClientToGCBingoDevRerollCardResponse.response)
 }
 
+// -------------------------------------------------------------------
+
+// CMsgClientToGCBingoDevAddTokens
+
+// optional uint32 league_id = 1;
+inline bool CMsgClientToGCBingoDevAddTokens::_internal_has_league_id() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgClientToGCBingoDevAddTokens::has_league_id() const {
+  return _internal_has_league_id();
+}
+inline void CMsgClientToGCBingoDevAddTokens::clear_league_id() {
+  _impl_.league_id_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline uint32_t CMsgClientToGCBingoDevAddTokens::_internal_league_id() const {
+  return _impl_.league_id_;
+}
+inline uint32_t CMsgClientToGCBingoDevAddTokens::league_id() const {
+  // @@protoc_insertion_point(field_get:CMsgClientToGCBingoDevAddTokens.league_id)
+  return _internal_league_id();
+}
+inline void CMsgClientToGCBingoDevAddTokens::_internal_set_league_id(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.league_id_ = value;
+}
+inline void CMsgClientToGCBingoDevAddTokens::set_league_id(uint32_t value) {
+  _internal_set_league_id(value);
+  // @@protoc_insertion_point(field_set:CMsgClientToGCBingoDevAddTokens.league_id)
+}
+
+// optional uint32 league_phase = 2;
+inline bool CMsgClientToGCBingoDevAddTokens::_internal_has_league_phase() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMsgClientToGCBingoDevAddTokens::has_league_phase() const {
+  return _internal_has_league_phase();
+}
+inline void CMsgClientToGCBingoDevAddTokens::clear_league_phase() {
+  _impl_.league_phase_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline uint32_t CMsgClientToGCBingoDevAddTokens::_internal_league_phase() const {
+  return _impl_.league_phase_;
+}
+inline uint32_t CMsgClientToGCBingoDevAddTokens::league_phase() const {
+  // @@protoc_insertion_point(field_get:CMsgClientToGCBingoDevAddTokens.league_phase)
+  return _internal_league_phase();
+}
+inline void CMsgClientToGCBingoDevAddTokens::_internal_set_league_phase(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.league_phase_ = value;
+}
+inline void CMsgClientToGCBingoDevAddTokens::set_league_phase(uint32_t value) {
+  _internal_set_league_phase(value);
+  // @@protoc_insertion_point(field_set:CMsgClientToGCBingoDevAddTokens.league_phase)
+}
+
+// optional int32 token_count = 3;
+inline bool CMsgClientToGCBingoDevAddTokens::_internal_has_token_count() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CMsgClientToGCBingoDevAddTokens::has_token_count() const {
+  return _internal_has_token_count();
+}
+inline void CMsgClientToGCBingoDevAddTokens::clear_token_count() {
+  _impl_.token_count_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline int32_t CMsgClientToGCBingoDevAddTokens::_internal_token_count() const {
+  return _impl_.token_count_;
+}
+inline int32_t CMsgClientToGCBingoDevAddTokens::token_count() const {
+  // @@protoc_insertion_point(field_get:CMsgClientToGCBingoDevAddTokens.token_count)
+  return _internal_token_count();
+}
+inline void CMsgClientToGCBingoDevAddTokens::_internal_set_token_count(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.token_count_ = value;
+}
+inline void CMsgClientToGCBingoDevAddTokens::set_token_count(int32_t value) {
+  _internal_set_token_count(value);
+  // @@protoc_insertion_point(field_set:CMsgClientToGCBingoDevAddTokens.token_count)
+}
+
+// -------------------------------------------------------------------
+
+// CMsgClientToGCBingoDevAddTokensResponse
+
+// optional .CMsgClientToGCBingoDevAddTokensResponse.EResponse response = 1 [default = k_eInternalError];
+inline bool CMsgClientToGCBingoDevAddTokensResponse::_internal_has_response() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgClientToGCBingoDevAddTokensResponse::has_response() const {
+  return _internal_has_response();
+}
+inline void CMsgClientToGCBingoDevAddTokensResponse::clear_response() {
+  _impl_.response_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline ::CMsgClientToGCBingoDevAddTokensResponse_EResponse CMsgClientToGCBingoDevAddTokensResponse::_internal_response() const {
+  return static_cast< ::CMsgClientToGCBingoDevAddTokensResponse_EResponse >(_impl_.response_);
+}
+inline ::CMsgClientToGCBingoDevAddTokensResponse_EResponse CMsgClientToGCBingoDevAddTokensResponse::response() const {
+  // @@protoc_insertion_point(field_get:CMsgClientToGCBingoDevAddTokensResponse.response)
+  return _internal_response();
+}
+inline void CMsgClientToGCBingoDevAddTokensResponse::_internal_set_response(::CMsgClientToGCBingoDevAddTokensResponse_EResponse value) {
+  assert(::CMsgClientToGCBingoDevAddTokensResponse_EResponse_IsValid(value));
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.response_ = value;
+}
+inline void CMsgClientToGCBingoDevAddTokensResponse::set_response(::CMsgClientToGCBingoDevAddTokensResponse_EResponse value) {
+  _internal_set_response(value);
+  // @@protoc_insertion_point(field_set:CMsgClientToGCBingoDevAddTokensResponse.response)
+}
+
+// -------------------------------------------------------------------
+
+// CMsgClientToGCBingoDevClearInventory
+
+// optional uint32 league_id = 1;
+inline bool CMsgClientToGCBingoDevClearInventory::_internal_has_league_id() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgClientToGCBingoDevClearInventory::has_league_id() const {
+  return _internal_has_league_id();
+}
+inline void CMsgClientToGCBingoDevClearInventory::clear_league_id() {
+  _impl_.league_id_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline uint32_t CMsgClientToGCBingoDevClearInventory::_internal_league_id() const {
+  return _impl_.league_id_;
+}
+inline uint32_t CMsgClientToGCBingoDevClearInventory::league_id() const {
+  // @@protoc_insertion_point(field_get:CMsgClientToGCBingoDevClearInventory.league_id)
+  return _internal_league_id();
+}
+inline void CMsgClientToGCBingoDevClearInventory::_internal_set_league_id(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.league_id_ = value;
+}
+inline void CMsgClientToGCBingoDevClearInventory::set_league_id(uint32_t value) {
+  _internal_set_league_id(value);
+  // @@protoc_insertion_point(field_set:CMsgClientToGCBingoDevClearInventory.league_id)
+}
+
+// -------------------------------------------------------------------
+
+// CMsgClientToGCBingoDevClearInventoryResponse
+
+// optional .CMsgClientToGCBingoDevClearInventoryResponse.EResponse response = 1 [default = k_eInternalError];
+inline bool CMsgClientToGCBingoDevClearInventoryResponse::_internal_has_response() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgClientToGCBingoDevClearInventoryResponse::has_response() const {
+  return _internal_has_response();
+}
+inline void CMsgClientToGCBingoDevClearInventoryResponse::clear_response() {
+  _impl_.response_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline ::CMsgClientToGCBingoDevClearInventoryResponse_EResponse CMsgClientToGCBingoDevClearInventoryResponse::_internal_response() const {
+  return static_cast< ::CMsgClientToGCBingoDevClearInventoryResponse_EResponse >(_impl_.response_);
+}
+inline ::CMsgClientToGCBingoDevClearInventoryResponse_EResponse CMsgClientToGCBingoDevClearInventoryResponse::response() const {
+  // @@protoc_insertion_point(field_get:CMsgClientToGCBingoDevClearInventoryResponse.response)
+  return _internal_response();
+}
+inline void CMsgClientToGCBingoDevClearInventoryResponse::_internal_set_response(::CMsgClientToGCBingoDevClearInventoryResponse_EResponse value) {
+  assert(::CMsgClientToGCBingoDevClearInventoryResponse_EResponse_IsValid(value));
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.response_ = value;
+}
+inline void CMsgClientToGCBingoDevClearInventoryResponse::set_response(::CMsgClientToGCBingoDevClearInventoryResponse_EResponse value) {
+  _internal_set_response(value);
+  // @@protoc_insertion_point(field_set:CMsgClientToGCBingoDevClearInventoryResponse.response)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
@@ -3630,10 +6897,40 @@ template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::CMsgClientToGCBingoClaimRowResponse_EResponse>() {
   return ::CMsgClientToGCBingoClaimRowResponse_EResponse_descriptor();
 }
+template <> struct is_proto_enum< ::CMsgClientToGCBingoShuffleCardResponse_EResponse> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::CMsgClientToGCBingoShuffleCardResponse_EResponse>() {
+  return ::CMsgClientToGCBingoShuffleCardResponse_EResponse_descriptor();
+}
+template <> struct is_proto_enum< ::CMsgClientToGCBingoModifySquare_EModifyAction> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::CMsgClientToGCBingoModifySquare_EModifyAction>() {
+  return ::CMsgClientToGCBingoModifySquare_EModifyAction_descriptor();
+}
+template <> struct is_proto_enum< ::CMsgClientToGCBingoModifySquareResponse_EResponse> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::CMsgClientToGCBingoModifySquareResponse_EResponse>() {
+  return ::CMsgClientToGCBingoModifySquareResponse_EResponse_descriptor();
+}
 template <> struct is_proto_enum< ::CMsgClientToGCBingoDevRerollCardResponse_EResponse> : ::std::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::CMsgClientToGCBingoDevRerollCardResponse_EResponse>() {
   return ::CMsgClientToGCBingoDevRerollCardResponse_EResponse_descriptor();
+}
+template <> struct is_proto_enum< ::CMsgClientToGCBingoDevAddTokensResponse_EResponse> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::CMsgClientToGCBingoDevAddTokensResponse_EResponse>() {
+  return ::CMsgClientToGCBingoDevAddTokensResponse_EResponse_descriptor();
+}
+template <> struct is_proto_enum< ::CMsgClientToGCBingoDevClearInventoryResponse_EResponse> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::CMsgClientToGCBingoDevClearInventoryResponse_EResponse>() {
+  return ::CMsgClientToGCBingoDevClearInventoryResponse_EResponse_descriptor();
+}
+template <> struct is_proto_enum< ::EBingoAuditAction> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::EBingoAuditAction>() {
+  return ::EBingoAuditAction_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE

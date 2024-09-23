@@ -68,6 +68,12 @@ extern CMsgApplyAutographDefaultTypeInternal _CMsgApplyAutograph_default_instanc
 class CMsgBannedWordList;
 struct CMsgBannedWordListDefaultTypeInternal;
 extern CMsgBannedWordListDefaultTypeInternal _CMsgBannedWordList_default_instance_;
+class CMsgClientToGCCancelUnfinalizedTransactions;
+struct CMsgClientToGCCancelUnfinalizedTransactionsDefaultTypeInternal;
+extern CMsgClientToGCCancelUnfinalizedTransactionsDefaultTypeInternal _CMsgClientToGCCancelUnfinalizedTransactions_default_instance_;
+class CMsgClientToGCCancelUnfinalizedTransactionsResponse;
+struct CMsgClientToGCCancelUnfinalizedTransactionsResponseDefaultTypeInternal;
+extern CMsgClientToGCCancelUnfinalizedTransactionsResponseDefaultTypeInternal _CMsgClientToGCCancelUnfinalizedTransactionsResponse_default_instance_;
 class CMsgClientToGCCreateStaticRecipe;
 struct CMsgClientToGCCreateStaticRecipeDefaultTypeInternal;
 extern CMsgClientToGCCreateStaticRecipeDefaultTypeInternal _CMsgClientToGCCreateStaticRecipe_default_instance_;
@@ -101,6 +107,12 @@ extern CMsgClientToGCGetGiftPermissionsResponseDefaultTypeInternal _CMsgClientTo
 class CMsgClientToGCGetGiftPermissionsResponse_FriendPermission;
 struct CMsgClientToGCGetGiftPermissionsResponse_FriendPermissionDefaultTypeInternal;
 extern CMsgClientToGCGetGiftPermissionsResponse_FriendPermissionDefaultTypeInternal _CMsgClientToGCGetGiftPermissionsResponse_FriendPermission_default_instance_;
+class CMsgClientToGCGetInFlightItemCharges;
+struct CMsgClientToGCGetInFlightItemChargesDefaultTypeInternal;
+extern CMsgClientToGCGetInFlightItemChargesDefaultTypeInternal _CMsgClientToGCGetInFlightItemCharges_default_instance_;
+class CMsgClientToGCGetInFlightItemChargesResponse;
+struct CMsgClientToGCGetInFlightItemChargesResponseDefaultTypeInternal;
+extern CMsgClientToGCGetInFlightItemChargesResponseDefaultTypeInternal _CMsgClientToGCGetInFlightItemChargesResponse_default_instance_;
 class CMsgClientToGCGetLimitedItemPurchaseQuantity;
 struct CMsgClientToGCGetLimitedItemPurchaseQuantityDefaultTypeInternal;
 extern CMsgClientToGCGetLimitedItemPurchaseQuantityDefaultTypeInternal _CMsgClientToGCGetLimitedItemPurchaseQuantity_default_instance_;
@@ -125,6 +137,15 @@ extern CMsgClientToGCPackBundleDefaultTypeInternal _CMsgClientToGCPackBundle_def
 class CMsgClientToGCPackBundleResponse;
 struct CMsgClientToGCPackBundleResponseDefaultTypeInternal;
 extern CMsgClientToGCPackBundleResponseDefaultTypeInternal _CMsgClientToGCPackBundleResponse_default_instance_;
+class CMsgClientToGCPurchaseChargeCostItems;
+struct CMsgClientToGCPurchaseChargeCostItemsDefaultTypeInternal;
+extern CMsgClientToGCPurchaseChargeCostItemsDefaultTypeInternal _CMsgClientToGCPurchaseChargeCostItems_default_instance_;
+class CMsgClientToGCPurchaseChargeCostItemsResponse;
+struct CMsgClientToGCPurchaseChargeCostItemsResponseDefaultTypeInternal;
+extern CMsgClientToGCPurchaseChargeCostItemsResponseDefaultTypeInternal _CMsgClientToGCPurchaseChargeCostItemsResponse_default_instance_;
+class CMsgClientToGCPurchaseChargeCostItems_Item;
+struct CMsgClientToGCPurchaseChargeCostItems_ItemDefaultTypeInternal;
+extern CMsgClientToGCPurchaseChargeCostItems_ItemDefaultTypeInternal _CMsgClientToGCPurchaseChargeCostItems_Item_default_instance_;
 class CMsgClientToGCRemoveItemAttribute;
 struct CMsgClientToGCRemoveItemAttributeDefaultTypeInternal;
 extern CMsgClientToGCRemoveItemAttributeDefaultTypeInternal _CMsgClientToGCRemoveItemAttribute_default_instance_;
@@ -227,6 +248,12 @@ extern CMsgGCToClientCurrencyPricePointsDefaultTypeInternal _CMsgGCToClientCurre
 class CMsgGCToClientCurrencyPricePoints_Currency;
 struct CMsgGCToClientCurrencyPricePoints_CurrencyDefaultTypeInternal;
 extern CMsgGCToClientCurrencyPricePoints_CurrencyDefaultTypeInternal _CMsgGCToClientCurrencyPricePoints_Currency_default_instance_;
+class CMsgGCToClientInFlightChargesUpdated;
+struct CMsgGCToClientInFlightChargesUpdatedDefaultTypeInternal;
+extern CMsgGCToClientInFlightChargesUpdatedDefaultTypeInternal _CMsgGCToClientInFlightChargesUpdated_default_instance_;
+class CMsgGCToClientInFlightChargesUpdated_ItemCharges;
+struct CMsgGCToClientInFlightChargesUpdated_ItemChargesDefaultTypeInternal;
+extern CMsgGCToClientInFlightChargesUpdated_ItemChargesDefaultTypeInternal _CMsgGCToClientInFlightChargesUpdated_ItemCharges_default_instance_;
 class CMsgGCToClientStoreTransactionCompleted;
 struct CMsgGCToClientStoreTransactionCompletedDefaultTypeInternal;
 extern CMsgGCToClientStoreTransactionCompletedDefaultTypeInternal _CMsgGCToClientStoreTransactionCompleted_default_instance_;
@@ -374,6 +401,9 @@ extern CMsgSQLAddDropRateBonusDefaultTypeInternal _CMsgSQLAddDropRateBonus_defau
 class CMsgSQLGCToGCGrantBackpackSlots;
 struct CMsgSQLGCToGCGrantBackpackSlotsDefaultTypeInternal;
 extern CMsgSQLGCToGCGrantBackpackSlotsDefaultTypeInternal _CMsgSQLGCToGCGrantBackpackSlots_default_instance_;
+class CMsgSQLGCToGCRevokeUntrustedGift;
+struct CMsgSQLGCToGCRevokeUntrustedGiftDefaultTypeInternal;
+extern CMsgSQLGCToGCRevokeUntrustedGiftDefaultTypeInternal _CMsgSQLGCToGCRevokeUntrustedGift_default_instance_;
 class CMsgSQLUpgradeBattleBooster;
 struct CMsgSQLUpgradeBattleBoosterDefaultTypeInternal;
 extern CMsgSQLUpgradeBattleBoosterDefaultTypeInternal _CMsgSQLUpgradeBattleBooster_default_instance_;
@@ -444,6 +474,8 @@ template<> ::CGCStoreRechargeRedirect_LineItem* Arena::CreateMaybeMessage<::CGCS
 template<> ::CMsgAdjustItemEquippedState* Arena::CreateMaybeMessage<::CMsgAdjustItemEquippedState>(Arena*);
 template<> ::CMsgApplyAutograph* Arena::CreateMaybeMessage<::CMsgApplyAutograph>(Arena*);
 template<> ::CMsgBannedWordList* Arena::CreateMaybeMessage<::CMsgBannedWordList>(Arena*);
+template<> ::CMsgClientToGCCancelUnfinalizedTransactions* Arena::CreateMaybeMessage<::CMsgClientToGCCancelUnfinalizedTransactions>(Arena*);
+template<> ::CMsgClientToGCCancelUnfinalizedTransactionsResponse* Arena::CreateMaybeMessage<::CMsgClientToGCCancelUnfinalizedTransactionsResponse>(Arena*);
 template<> ::CMsgClientToGCCreateStaticRecipe* Arena::CreateMaybeMessage<::CMsgClientToGCCreateStaticRecipe>(Arena*);
 template<> ::CMsgClientToGCCreateStaticRecipeResponse* Arena::CreateMaybeMessage<::CMsgClientToGCCreateStaticRecipeResponse>(Arena*);
 template<> ::CMsgClientToGCCreateStaticRecipeResponse_AdditionalOutput* Arena::CreateMaybeMessage<::CMsgClientToGCCreateStaticRecipeResponse_AdditionalOutput>(Arena*);
@@ -455,6 +487,8 @@ template<> ::CMsgClientToGCEquipItemsResponse* Arena::CreateMaybeMessage<::CMsgC
 template<> ::CMsgClientToGCGetGiftPermissions* Arena::CreateMaybeMessage<::CMsgClientToGCGetGiftPermissions>(Arena*);
 template<> ::CMsgClientToGCGetGiftPermissionsResponse* Arena::CreateMaybeMessage<::CMsgClientToGCGetGiftPermissionsResponse>(Arena*);
 template<> ::CMsgClientToGCGetGiftPermissionsResponse_FriendPermission* Arena::CreateMaybeMessage<::CMsgClientToGCGetGiftPermissionsResponse_FriendPermission>(Arena*);
+template<> ::CMsgClientToGCGetInFlightItemCharges* Arena::CreateMaybeMessage<::CMsgClientToGCGetInFlightItemCharges>(Arena*);
+template<> ::CMsgClientToGCGetInFlightItemChargesResponse* Arena::CreateMaybeMessage<::CMsgClientToGCGetInFlightItemChargesResponse>(Arena*);
 template<> ::CMsgClientToGCGetLimitedItemPurchaseQuantity* Arena::CreateMaybeMessage<::CMsgClientToGCGetLimitedItemPurchaseQuantity>(Arena*);
 template<> ::CMsgClientToGCGetLimitedItemPurchaseQuantityResponse* Arena::CreateMaybeMessage<::CMsgClientToGCGetLimitedItemPurchaseQuantityResponse>(Arena*);
 template<> ::CMsgClientToGCLookupAccountName* Arena::CreateMaybeMessage<::CMsgClientToGCLookupAccountName>(Arena*);
@@ -463,6 +497,9 @@ template<> ::CMsgClientToGCNameItem* Arena::CreateMaybeMessage<::CMsgClientToGCN
 template<> ::CMsgClientToGCNameItemResponse* Arena::CreateMaybeMessage<::CMsgClientToGCNameItemResponse>(Arena*);
 template<> ::CMsgClientToGCPackBundle* Arena::CreateMaybeMessage<::CMsgClientToGCPackBundle>(Arena*);
 template<> ::CMsgClientToGCPackBundleResponse* Arena::CreateMaybeMessage<::CMsgClientToGCPackBundleResponse>(Arena*);
+template<> ::CMsgClientToGCPurchaseChargeCostItems* Arena::CreateMaybeMessage<::CMsgClientToGCPurchaseChargeCostItems>(Arena*);
+template<> ::CMsgClientToGCPurchaseChargeCostItemsResponse* Arena::CreateMaybeMessage<::CMsgClientToGCPurchaseChargeCostItemsResponse>(Arena*);
+template<> ::CMsgClientToGCPurchaseChargeCostItems_Item* Arena::CreateMaybeMessage<::CMsgClientToGCPurchaseChargeCostItems_Item>(Arena*);
 template<> ::CMsgClientToGCRemoveItemAttribute* Arena::CreateMaybeMessage<::CMsgClientToGCRemoveItemAttribute>(Arena*);
 template<> ::CMsgClientToGCRemoveItemAttributeResponse* Arena::CreateMaybeMessage<::CMsgClientToGCRemoveItemAttributeResponse>(Arena*);
 template<> ::CMsgClientToGCSetItemInventoryCategory* Arena::CreateMaybeMessage<::CMsgClientToGCSetItemInventoryCategory>(Arena*);
@@ -497,6 +534,8 @@ template<> ::CMsgGCRequestStoreSalesDataUpToDateResponse* Arena::CreateMaybeMess
 template<> ::CMsgGCSetItemPosition* Arena::CreateMaybeMessage<::CMsgGCSetItemPosition>(Arena*);
 template<> ::CMsgGCToClientCurrencyPricePoints* Arena::CreateMaybeMessage<::CMsgGCToClientCurrencyPricePoints>(Arena*);
 template<> ::CMsgGCToClientCurrencyPricePoints_Currency* Arena::CreateMaybeMessage<::CMsgGCToClientCurrencyPricePoints_Currency>(Arena*);
+template<> ::CMsgGCToClientInFlightChargesUpdated* Arena::CreateMaybeMessage<::CMsgGCToClientInFlightChargesUpdated>(Arena*);
+template<> ::CMsgGCToClientInFlightChargesUpdated_ItemCharges* Arena::CreateMaybeMessage<::CMsgGCToClientInFlightChargesUpdated_ItemCharges>(Arena*);
 template<> ::CMsgGCToClientStoreTransactionCompleted* Arena::CreateMaybeMessage<::CMsgGCToClientStoreTransactionCompleted>(Arena*);
 template<> ::CMsgGCToGCAddSubscriptionTime* Arena::CreateMaybeMessage<::CMsgGCToGCAddSubscriptionTime>(Arena*);
 template<> ::CMsgGCToGCBetaDeleteItems* Arena::CreateMaybeMessage<::CMsgGCToGCBetaDeleteItems>(Arena*);
@@ -546,6 +585,7 @@ template<> ::CMsgRequestCrateItems* Arena::CreateMaybeMessage<::CMsgRequestCrate
 template<> ::CMsgRequestCrateItemsResponse* Arena::CreateMaybeMessage<::CMsgRequestCrateItemsResponse>(Arena*);
 template<> ::CMsgSQLAddDropRateBonus* Arena::CreateMaybeMessage<::CMsgSQLAddDropRateBonus>(Arena*);
 template<> ::CMsgSQLGCToGCGrantBackpackSlots* Arena::CreateMaybeMessage<::CMsgSQLGCToGCGrantBackpackSlots>(Arena*);
+template<> ::CMsgSQLGCToGCRevokeUntrustedGift* Arena::CreateMaybeMessage<::CMsgSQLGCToGCRevokeUntrustedGift>(Arena*);
 template<> ::CMsgSQLUpgradeBattleBooster* Arena::CreateMaybeMessage<::CMsgSQLUpgradeBattleBooster>(Arena*);
 template<> ::CMsgServerUseItem* Arena::CreateMaybeMessage<::CMsgServerUseItem>(Arena*);
 template<> ::CMsgUseItem* Arena::CreateMaybeMessage<::CMsgUseItem>(Arena*);
@@ -868,6 +908,64 @@ inline bool CMsgClientToGCGetLimitedItemPurchaseQuantityResponse_EResponse_Parse
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<CMsgClientToGCGetLimitedItemPurchaseQuantityResponse_EResponse>(
     CMsgClientToGCGetLimitedItemPurchaseQuantityResponse_EResponse_descriptor(), name, value);
 }
+enum CMsgClientToGCGetInFlightItemChargesResponse_EResponse : int {
+  CMsgClientToGCGetInFlightItemChargesResponse_EResponse_k_eInternalError = 0,
+  CMsgClientToGCGetInFlightItemChargesResponse_EResponse_k_eSuccess = 1,
+  CMsgClientToGCGetInFlightItemChargesResponse_EResponse_k_eTooBusy = 2,
+  CMsgClientToGCGetInFlightItemChargesResponse_EResponse_k_eDisabled = 3,
+  CMsgClientToGCGetInFlightItemChargesResponse_EResponse_k_eTimeout = 4,
+  CMsgClientToGCGetInFlightItemChargesResponse_EResponse_k_eInvalidItemDef = 5
+};
+bool CMsgClientToGCGetInFlightItemChargesResponse_EResponse_IsValid(int value);
+constexpr CMsgClientToGCGetInFlightItemChargesResponse_EResponse CMsgClientToGCGetInFlightItemChargesResponse_EResponse_EResponse_MIN = CMsgClientToGCGetInFlightItemChargesResponse_EResponse_k_eInternalError;
+constexpr CMsgClientToGCGetInFlightItemChargesResponse_EResponse CMsgClientToGCGetInFlightItemChargesResponse_EResponse_EResponse_MAX = CMsgClientToGCGetInFlightItemChargesResponse_EResponse_k_eInvalidItemDef;
+constexpr int CMsgClientToGCGetInFlightItemChargesResponse_EResponse_EResponse_ARRAYSIZE = CMsgClientToGCGetInFlightItemChargesResponse_EResponse_EResponse_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgClientToGCGetInFlightItemChargesResponse_EResponse_descriptor();
+template<typename T>
+inline const std::string& CMsgClientToGCGetInFlightItemChargesResponse_EResponse_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, CMsgClientToGCGetInFlightItemChargesResponse_EResponse>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function CMsgClientToGCGetInFlightItemChargesResponse_EResponse_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    CMsgClientToGCGetInFlightItemChargesResponse_EResponse_descriptor(), enum_t_value);
+}
+inline bool CMsgClientToGCGetInFlightItemChargesResponse_EResponse_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, CMsgClientToGCGetInFlightItemChargesResponse_EResponse* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<CMsgClientToGCGetInFlightItemChargesResponse_EResponse>(
+    CMsgClientToGCGetInFlightItemChargesResponse_EResponse_descriptor(), name, value);
+}
+enum CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse : int {
+  CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse_k_eInternalError = 0,
+  CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse_k_eSuccess = 1,
+  CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse_k_eTooBusy = 2,
+  CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse_k_eDisabled = 3,
+  CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse_k_eTimeout = 4,
+  CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse_k_eInvalidParam = 5,
+  CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse_k_eInvalidPrice = 6,
+  CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse_k_eInsufficientCharges = 7,
+  CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse_k_eLimitedItem = 8,
+  CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse_k_eMissingPrereq = 10
+};
+bool CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse_IsValid(int value);
+constexpr CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse_EResponse_MIN = CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse_k_eInternalError;
+constexpr CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse_EResponse_MAX = CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse_k_eMissingPrereq;
+constexpr int CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse_EResponse_ARRAYSIZE = CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse_EResponse_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse_descriptor();
+template<typename T>
+inline const std::string& CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse_descriptor(), enum_t_value);
+}
+inline bool CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse>(
+    CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse_descriptor(), name, value);
+}
 enum EGCItemMsg : int {
   k_EMsgGCBase = 1000,
   k_EMsgGCSetItemPosition = 1001,
@@ -907,6 +1005,7 @@ enum EGCItemMsg : int {
   k_EMsgGCResetStrangeGemCountResponse = 1095,
   k_EMsgGCServerUseItemRequest = 1103,
   k_EMsgGCAddGiftItem = 1104,
+  k_EMsgSQLGCToGCRevokeUntrustedGift = 1105,
   k_EMsgClientToGCRemoveItemGifterAttributes = 1109,
   k_EMsgClientToGCRemoveItemName = 1110,
   k_EMsgClientToGCRemoveItemDescription = 1111,
@@ -992,11 +1091,18 @@ enum EGCItemMsg : int {
   k_EMsgGCToGCPurchaseSucceeded = 2608,
   k_EMsgClientToGCGetLimitedItemPurchaseQuantity = 2609,
   k_EMsgClientToGCGetLimitedItemPurchaseQuantityResponse = 2610,
-  k_EMsgGCToGCBetaDeleteItems = 2611
+  k_EMsgGCToGCBetaDeleteItems = 2611,
+  k_EMsgClientToGCGetInFlightItemCharges = 2612,
+  k_EMsgClientToGCGetInFlightItemChargesResponse = 2613,
+  k_EMsgGCToClientInFlightChargesUpdated = 2614,
+  k_EMsgClientToGCPurchaseChargeCostItems = 2615,
+  k_EMsgClientToGCPurchaseChargeCostItemsResponse = 2616,
+  k_EMsgClientToGCCancelUnfinalizedTransactions = 2617,
+  k_EMsgClientToGCCancelUnfinalizedTransactionsResponse = 2618
 };
 bool EGCItemMsg_IsValid(int value);
 constexpr EGCItemMsg EGCItemMsg_MIN = k_EMsgGCBase;
-constexpr EGCItemMsg EGCItemMsg_MAX = k_EMsgGCToGCBetaDeleteItems;
+constexpr EGCItemMsg EGCItemMsg_MAX = k_EMsgClientToGCCancelUnfinalizedTransactionsResponse;
 constexpr int EGCItemMsg_ARRAYSIZE = EGCItemMsg_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EGCItemMsg_descriptor();
@@ -6695,17 +6801,17 @@ class CMsgGCToGCGrantAccountRolledItems_Item final :
   void _internal_set_inventory_token(uint32_t value);
   public:
 
-  // optional uint32 quality = 8;
+  // optional int32 quality = 8 [default = -1];
   bool has_quality() const;
   private:
   bool _internal_has_quality() const;
   public:
   void clear_quality();
-  uint32_t quality() const;
-  void set_quality(uint32_t value);
+  int32_t quality() const;
+  void set_quality(int32_t value);
   private:
-  uint32_t _internal_quality() const;
-  void _internal_set_quality(uint32_t value);
+  int32_t _internal_quality() const;
+  void _internal_set_quality(int32_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:CMsgGCToGCGrantAccountRolledItems.Item)
@@ -6725,7 +6831,7 @@ class CMsgGCToGCGrantAccountRolledItems_Item final :
     bool ignore_limit_;
     uint32_t origin_;
     uint32_t inventory_token_;
-    uint32_t quality_;
+    int32_t quality_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_econ_5fgcmessages_2eproto;
@@ -10410,6 +10516,181 @@ class CMsgClientToGCWrapAndDeliverGift final :
 };
 // -------------------------------------------------------------------
 
+class CMsgSQLGCToGCRevokeUntrustedGift final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSQLGCToGCRevokeUntrustedGift) */ {
+ public:
+  inline CMsgSQLGCToGCRevokeUntrustedGift() : CMsgSQLGCToGCRevokeUntrustedGift(nullptr) {}
+  ~CMsgSQLGCToGCRevokeUntrustedGift() override;
+  explicit PROTOBUF_CONSTEXPR CMsgSQLGCToGCRevokeUntrustedGift(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgSQLGCToGCRevokeUntrustedGift(const CMsgSQLGCToGCRevokeUntrustedGift& from);
+  CMsgSQLGCToGCRevokeUntrustedGift(CMsgSQLGCToGCRevokeUntrustedGift&& from) noexcept
+    : CMsgSQLGCToGCRevokeUntrustedGift() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgSQLGCToGCRevokeUntrustedGift& operator=(const CMsgSQLGCToGCRevokeUntrustedGift& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgSQLGCToGCRevokeUntrustedGift& operator=(CMsgSQLGCToGCRevokeUntrustedGift&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgSQLGCToGCRevokeUntrustedGift& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgSQLGCToGCRevokeUntrustedGift* internal_default_instance() {
+    return reinterpret_cast<const CMsgSQLGCToGCRevokeUntrustedGift*>(
+               &_CMsgSQLGCToGCRevokeUntrustedGift_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    49;
+
+  friend void swap(CMsgSQLGCToGCRevokeUntrustedGift& a, CMsgSQLGCToGCRevokeUntrustedGift& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgSQLGCToGCRevokeUntrustedGift* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgSQLGCToGCRevokeUntrustedGift* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgSQLGCToGCRevokeUntrustedGift* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgSQLGCToGCRevokeUntrustedGift>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgSQLGCToGCRevokeUntrustedGift& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgSQLGCToGCRevokeUntrustedGift& from) {
+    CMsgSQLGCToGCRevokeUntrustedGift::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgSQLGCToGCRevokeUntrustedGift* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgSQLGCToGCRevokeUntrustedGift";
+  }
+  protected:
+  explicit CMsgSQLGCToGCRevokeUntrustedGift(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kSentItemIdFieldNumber = 4,
+    kAccountIdFieldNumber = 1,
+  };
+  // optional uint64 sent_item_id = 4;
+  bool has_sent_item_id() const;
+  private:
+  bool _internal_has_sent_item_id() const;
+  public:
+  void clear_sent_item_id();
+  uint64_t sent_item_id() const;
+  void set_sent_item_id(uint64_t value);
+  private:
+  uint64_t _internal_sent_item_id() const;
+  void _internal_set_sent_item_id(uint64_t value);
+  public:
+
+  // optional uint32 account_id = 1;
+  bool has_account_id() const;
+  private:
+  bool _internal_has_account_id() const;
+  public:
+  void clear_account_id();
+  uint32_t account_id() const;
+  void set_account_id(uint32_t value);
+  private:
+  uint32_t _internal_account_id() const;
+  void _internal_set_account_id(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgSQLGCToGCRevokeUntrustedGift)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    uint64_t sent_item_id_;
+    uint32_t account_id_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_econ_5fgcmessages_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CMsgClientToGCWrapAndDeliverGiftResponse final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgClientToGCWrapAndDeliverGiftResponse) */ {
  public:
@@ -10465,7 +10746,7 @@ class CMsgClientToGCWrapAndDeliverGiftResponse final :
                &_CMsgClientToGCWrapAndDeliverGiftResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    49;
+    50;
 
   friend void swap(CMsgClientToGCWrapAndDeliverGiftResponse& a, CMsgClientToGCWrapAndDeliverGiftResponse& b) {
     a.Swap(&b);
@@ -10715,7 +10996,7 @@ class CMsgClientToGCUnwrapGift final :
                &_CMsgClientToGCUnwrapGift_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    50;
+    51;
 
   friend void swap(CMsgClientToGCUnwrapGift& a, CMsgClientToGCUnwrapGift& b) {
     a.Swap(&b);
@@ -10874,7 +11155,7 @@ class CMsgClientToGCGetGiftPermissions final :
                &_CMsgClientToGCGetGiftPermissions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    51;
+    52;
 
   friend void swap(CMsgClientToGCGetGiftPermissions& a, CMsgClientToGCGetGiftPermissions& b) {
     a.Swap(&b);
@@ -11000,7 +11281,7 @@ class CMsgClientToGCGetGiftPermissionsResponse_FriendPermission final :
                &_CMsgClientToGCGetGiftPermissionsResponse_FriendPermission_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    52;
+    53;
 
   friend void swap(CMsgClientToGCGetGiftPermissionsResponse_FriendPermission& a, CMsgClientToGCGetGiftPermissionsResponse_FriendPermission& b) {
     a.Swap(&b);
@@ -11175,7 +11456,7 @@ class CMsgClientToGCGetGiftPermissionsResponse final :
                &_CMsgClientToGCGetGiftPermissionsResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    53;
+    54;
 
   friend void swap(CMsgClientToGCGetGiftPermissionsResponse& a, CMsgClientToGCGetGiftPermissionsResponse& b) {
     a.Swap(&b);
@@ -11417,7 +11698,7 @@ class CMsgClientToGCUnpackBundle final :
                &_CMsgClientToGCUnpackBundle_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    54;
+    55;
 
   friend void swap(CMsgClientToGCUnpackBundle& a, CMsgClientToGCUnpackBundle& b) {
     a.Swap(&b);
@@ -11577,7 +11858,7 @@ class CMsgClientToGCUnpackBundleResponse final :
                &_CMsgClientToGCUnpackBundleResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    55;
+    56;
 
   friend void swap(CMsgClientToGCUnpackBundleResponse& a, CMsgClientToGCUnpackBundleResponse& b) {
     a.Swap(&b);
@@ -11825,7 +12106,7 @@ class CMsgClientToGCPackBundle final :
                &_CMsgClientToGCPackBundle_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    56;
+    57;
 
   friend void swap(CMsgClientToGCPackBundle& a, CMsgClientToGCPackBundle& b) {
     a.Swap(&b);
@@ -12009,7 +12290,7 @@ class CMsgClientToGCPackBundleResponse final :
                &_CMsgClientToGCPackBundleResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    57;
+    58;
 
   friend void swap(CMsgClientToGCPackBundleResponse& a, CMsgClientToGCPackBundleResponse& b) {
     a.Swap(&b);
@@ -12240,7 +12521,7 @@ class CMsgGCToClientStoreTransactionCompleted final :
                &_CMsgGCToClientStoreTransactionCompleted_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    58;
+    59;
 
   friend void swap(CMsgGCToClientStoreTransactionCompleted& a, CMsgGCToClientStoreTransactionCompleted& b) {
     a.Swap(&b);
@@ -12424,7 +12705,7 @@ class CMsgClientToGCEquipItems final :
                &_CMsgClientToGCEquipItems_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    59;
+    60;
 
   friend void swap(CMsgClientToGCEquipItems& a, CMsgClientToGCEquipItems& b) {
     a.Swap(&b);
@@ -12588,7 +12869,7 @@ class CMsgClientToGCEquipItemsResponse final :
                &_CMsgClientToGCEquipItemsResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    60;
+    61;
 
   friend void swap(CMsgClientToGCEquipItemsResponse& a, CMsgClientToGCEquipItemsResponse& b) {
     a.Swap(&b);
@@ -12748,7 +13029,7 @@ class CMsgClientToGCSetItemStyle final :
                &_CMsgClientToGCSetItemStyle_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    61;
+    62;
 
   friend void swap(CMsgClientToGCSetItemStyle& a, CMsgClientToGCSetItemStyle& b) {
     a.Swap(&b);
@@ -12923,7 +13204,7 @@ class CMsgClientToGCSetItemStyleResponse final :
                &_CMsgClientToGCSetItemStyleResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    62;
+    63;
 
   friend void swap(CMsgClientToGCSetItemStyleResponse& a, CMsgClientToGCSetItemStyleResponse& b) {
     a.Swap(&b);
@@ -13115,7 +13396,7 @@ class CMsgClientToGCUnlockItemStyle final :
                &_CMsgClientToGCUnlockItemStyle_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    63;
+    64;
 
   friend void swap(CMsgClientToGCUnlockItemStyle& a, CMsgClientToGCUnlockItemStyle& b) {
     a.Swap(&b);
@@ -13314,7 +13595,7 @@ class CMsgClientToGCUnlockItemStyleResponse final :
                &_CMsgClientToGCUnlockItemStyleResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    64;
+    65;
 
   friend void swap(CMsgClientToGCUnlockItemStyleResponse& a, CMsgClientToGCUnlockItemStyleResponse& b) {
     a.Swap(&b);
@@ -13569,7 +13850,7 @@ class CMsgClientToGCSetItemInventoryCategory final :
                &_CMsgClientToGCSetItemInventoryCategory_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    65;
+    66;
 
   friend void swap(CMsgClientToGCSetItemInventoryCategory& a, CMsgClientToGCSetItemInventoryCategory& b) {
     a.Swap(&b);
@@ -13783,7 +14064,7 @@ class CMsgClientToGCUnlockCrate final :
                &_CMsgClientToGCUnlockCrate_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    66;
+    67;
 
   friend void swap(CMsgClientToGCUnlockCrate& a, CMsgClientToGCUnlockCrate& b) {
     a.Swap(&b);
@@ -13958,7 +14239,7 @@ class CMsgClientToGCUnlockCrateResponse_Item final :
                &_CMsgClientToGCUnlockCrateResponse_Item_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    67;
+    68;
 
   friend void swap(CMsgClientToGCUnlockCrateResponse_Item& a, CMsgClientToGCUnlockCrateResponse_Item& b) {
     a.Swap(&b);
@@ -14133,7 +14414,7 @@ class CMsgClientToGCUnlockCrateResponse final :
                &_CMsgClientToGCUnlockCrateResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    68;
+    69;
 
   friend void swap(CMsgClientToGCUnlockCrateResponse& a, CMsgClientToGCUnlockCrateResponse& b) {
     a.Swap(&b);
@@ -14315,7 +14596,7 @@ class CMsgClientToGCRemoveItemAttribute final :
                &_CMsgClientToGCRemoveItemAttribute_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    69;
+    70;
 
   friend void swap(CMsgClientToGCRemoveItemAttribute& a, CMsgClientToGCRemoveItemAttribute& b) {
     a.Swap(&b);
@@ -14475,7 +14756,7 @@ class CMsgClientToGCRemoveItemAttributeResponse final :
                &_CMsgClientToGCRemoveItemAttributeResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    70;
+    71;
 
   friend void swap(CMsgClientToGCRemoveItemAttributeResponse& a, CMsgClientToGCRemoveItemAttributeResponse& b) {
     a.Swap(&b);
@@ -14686,7 +14967,7 @@ class CMsgClientToGCNameItem final :
                &_CMsgClientToGCNameItem_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    71;
+    72;
 
   friend void swap(CMsgClientToGCNameItem& a, CMsgClientToGCNameItem& b) {
     a.Swap(&b);
@@ -14881,7 +15162,7 @@ class CMsgClientToGCNameItemResponse final :
                &_CMsgClientToGCNameItemResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    72;
+    73;
 
   friend void swap(CMsgClientToGCNameItemResponse& a, CMsgClientToGCNameItemResponse& b) {
     a.Swap(&b);
@@ -15092,7 +15373,7 @@ class CMsgGCSetItemPosition final :
                &_CMsgGCSetItemPosition_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    73;
+    74;
 
   friend void swap(CMsgGCSetItemPosition& a, CMsgGCSetItemPosition& b) {
     a.Swap(&b);
@@ -15267,7 +15548,7 @@ class CAttribute_ItemDynamicRecipeComponent final :
                &_CAttribute_ItemDynamicRecipeComponent_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    74;
+    75;
 
   friend void swap(CAttribute_ItemDynamicRecipeComponent& a, CAttribute_ItemDynamicRecipeComponent& b) {
     a.Swap(&b);
@@ -15572,7 +15853,7 @@ class CProtoItemSocket final :
                &_CProtoItemSocket_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    75;
+    76;
 
   friend void swap(CProtoItemSocket& a, CProtoItemSocket& b) {
     a.Swap(&b);
@@ -15832,7 +16113,7 @@ class CProtoItemSocket_Empty final :
                &_CProtoItemSocket_Empty_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    76;
+    77;
 
   friend void swap(CProtoItemSocket_Empty& a, CProtoItemSocket_Empty& b) {
     a.Swap(&b);
@@ -15997,7 +16278,7 @@ class CProtoItemSocket_Effect final :
                &_CProtoItemSocket_Effect_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    77;
+    78;
 
   friend void swap(CProtoItemSocket_Effect& a, CProtoItemSocket_Effect& b) {
     a.Swap(&b);
@@ -16177,7 +16458,7 @@ class CProtoItemSocket_Color final :
                &_CProtoItemSocket_Color_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    78;
+    79;
 
   friend void swap(CProtoItemSocket_Color& a, CProtoItemSocket_Color& b) {
     a.Swap(&b);
@@ -16387,7 +16668,7 @@ class CProtoItemSocket_Strange final :
                &_CProtoItemSocket_Strange_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    79;
+    80;
 
   friend void swap(CProtoItemSocket_Strange& a, CProtoItemSocket_Strange& b) {
     a.Swap(&b);
@@ -16582,7 +16863,7 @@ class CProtoItemSocket_Strange_DESERIALIZE_FROM_STRING_ONLY final :
                &_CProtoItemSocket_Strange_DESERIALIZE_FROM_STRING_ONLY_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    80;
+    81;
 
   friend void swap(CProtoItemSocket_Strange_DESERIALIZE_FROM_STRING_ONLY& a, CProtoItemSocket_Strange_DESERIALIZE_FROM_STRING_ONLY& b) {
     a.Swap(&b);
@@ -16792,7 +17073,7 @@ class CProtoItemSocket_Spectator final :
                &_CProtoItemSocket_Spectator_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    81;
+    82;
 
   friend void swap(CProtoItemSocket_Spectator& a, CProtoItemSocket_Spectator& b) {
     a.Swap(&b);
@@ -17017,7 +17298,7 @@ class CProtoItemSocket_AssetModifier final :
                &_CProtoItemSocket_AssetModifier_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    82;
+    83;
 
   friend void swap(CProtoItemSocket_AssetModifier& a, CProtoItemSocket_AssetModifier& b) {
     a.Swap(&b);
@@ -17197,7 +17478,7 @@ class CProtoItemSocket_AssetModifier_DESERIALIZE_FROM_STRING_ONLY final :
                &_CProtoItemSocket_AssetModifier_DESERIALIZE_FROM_STRING_ONLY_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    83;
+    84;
 
   friend void swap(CProtoItemSocket_AssetModifier_DESERIALIZE_FROM_STRING_ONLY& a, CProtoItemSocket_AssetModifier_DESERIALIZE_FROM_STRING_ONLY& b) {
     a.Swap(&b);
@@ -17407,7 +17688,7 @@ class CProtoItemSocket_Autograph final :
                &_CProtoItemSocket_Autograph_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    84;
+    85;
 
   friend void swap(CProtoItemSocket_Autograph& a, CProtoItemSocket_Autograph& b) {
     a.Swap(&b);
@@ -17622,7 +17903,7 @@ class CProtoItemSocket_StaticVisuals final :
                &_CProtoItemSocket_StaticVisuals_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    85;
+    86;
 
   friend void swap(CProtoItemSocket_StaticVisuals& a, CProtoItemSocket_StaticVisuals& b) {
     a.Swap(&b);
@@ -17787,7 +18068,7 @@ class CAttribute_String final :
                &_CAttribute_String_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    86;
+    87;
 
   friend void swap(CAttribute_String& a, CAttribute_String& b) {
     a.Swap(&b);
@@ -17952,7 +18233,7 @@ class CWorkshop_GetItemDailyRevenue_Request final :
                &_CWorkshop_GetItemDailyRevenue_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    87;
+    88;
 
   friend void swap(CWorkshop_GetItemDailyRevenue_Request& a, CWorkshop_GetItemDailyRevenue_Request& b) {
     a.Swap(&b);
@@ -18157,7 +18438,7 @@ class CWorkshop_GetItemDailyRevenue_Response_CountryDailyRevenue final :
                &_CWorkshop_GetItemDailyRevenue_Response_CountryDailyRevenue_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    88;
+    89;
 
   friend void swap(CWorkshop_GetItemDailyRevenue_Response_CountryDailyRevenue& a, CWorkshop_GetItemDailyRevenue_Response_CountryDailyRevenue& b) {
     a.Swap(&b);
@@ -18367,7 +18648,7 @@ class CWorkshop_GetItemDailyRevenue_Response final :
                &_CWorkshop_GetItemDailyRevenue_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    89;
+    90;
 
   friend void swap(CWorkshop_GetItemDailyRevenue_Response& a, CWorkshop_GetItemDailyRevenue_Response& b) {
     a.Swap(&b);
@@ -18533,7 +18814,7 @@ class CWorkshop_GetPackageDailyRevenue_Request final :
                &_CWorkshop_GetPackageDailyRevenue_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    90;
+    91;
 
   friend void swap(CWorkshop_GetPackageDailyRevenue_Request& a, CWorkshop_GetPackageDailyRevenue_Request& b) {
     a.Swap(&b);
@@ -18723,7 +19004,7 @@ class CWorkshop_GetPackageDailyRevenue_Response_CountryDailyRevenue final :
                &_CWorkshop_GetPackageDailyRevenue_Response_CountryDailyRevenue_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    91;
+    92;
 
   friend void swap(CWorkshop_GetPackageDailyRevenue_Response_CountryDailyRevenue& a, CWorkshop_GetPackageDailyRevenue_Response_CountryDailyRevenue& b) {
     a.Swap(&b);
@@ -18933,7 +19214,7 @@ class CWorkshop_GetPackageDailyRevenue_Response final :
                &_CWorkshop_GetPackageDailyRevenue_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    92;
+    93;
 
   friend void swap(CWorkshop_GetPackageDailyRevenue_Response& a, CWorkshop_GetPackageDailyRevenue_Response& b) {
     a.Swap(&b);
@@ -19099,7 +19380,7 @@ class CMsgSQLGCToGCGrantBackpackSlots final :
                &_CMsgSQLGCToGCGrantBackpackSlots_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    93;
+    94;
 
   friend void swap(CMsgSQLGCToGCGrantBackpackSlots& a, CMsgSQLGCToGCGrantBackpackSlots& b) {
     a.Swap(&b);
@@ -19274,7 +19555,7 @@ class CMsgClientToGCLookupAccountName final :
                &_CMsgClientToGCLookupAccountName_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    94;
+    95;
 
   friend void swap(CMsgClientToGCLookupAccountName& a, CMsgClientToGCLookupAccountName& b) {
     a.Swap(&b);
@@ -19434,7 +19715,7 @@ class CMsgClientToGCLookupAccountNameResponse final :
                &_CMsgClientToGCLookupAccountNameResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    95;
+    96;
 
   friend void swap(CMsgClientToGCLookupAccountNameResponse& a, CMsgClientToGCLookupAccountNameResponse& b) {
     a.Swap(&b);
@@ -19614,7 +19895,7 @@ class CMsgClientToGCCreateStaticRecipe_Item final :
                &_CMsgClientToGCCreateStaticRecipe_Item_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    96;
+    97;
 
   friend void swap(CMsgClientToGCCreateStaticRecipe_Item& a, CMsgClientToGCCreateStaticRecipe_Item& b) {
     a.Swap(&b);
@@ -19789,7 +20070,7 @@ class CMsgClientToGCCreateStaticRecipe final :
                &_CMsgClientToGCCreateStaticRecipe_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    97;
+    98;
 
   friend void swap(CMsgClientToGCCreateStaticRecipe& a, CMsgClientToGCCreateStaticRecipe& b) {
     a.Swap(&b);
@@ -19971,7 +20252,7 @@ class CMsgClientToGCCreateStaticRecipeResponse_OutputItem final :
                &_CMsgClientToGCCreateStaticRecipeResponse_OutputItem_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    98;
+    99;
 
   friend void swap(CMsgClientToGCCreateStaticRecipeResponse_OutputItem& a, CMsgClientToGCCreateStaticRecipeResponse_OutputItem& b) {
     a.Swap(&b);
@@ -20161,7 +20442,7 @@ class CMsgClientToGCCreateStaticRecipeResponse_InputError final :
                &_CMsgClientToGCCreateStaticRecipeResponse_InputError_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    99;
+    100;
 
   friend void swap(CMsgClientToGCCreateStaticRecipeResponse_InputError& a, CMsgClientToGCCreateStaticRecipeResponse_InputError& b) {
     a.Swap(&b);
@@ -20336,7 +20617,7 @@ class CMsgClientToGCCreateStaticRecipeResponse_AdditionalOutput final :
                &_CMsgClientToGCCreateStaticRecipeResponse_AdditionalOutput_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    100;
+    101;
 
   friend void swap(CMsgClientToGCCreateStaticRecipeResponse_AdditionalOutput& a, CMsgClientToGCCreateStaticRecipeResponse_AdditionalOutput& b) {
     a.Swap(&b);
@@ -20511,7 +20792,7 @@ class CMsgClientToGCCreateStaticRecipeResponse final :
                &_CMsgClientToGCCreateStaticRecipeResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    101;
+    102;
 
   friend void swap(CMsgClientToGCCreateStaticRecipeResponse& a, CMsgClientToGCCreateStaticRecipeResponse& b) {
     a.Swap(&b);
@@ -20773,7 +21054,7 @@ class CMsgProcessTransactionOrder_Item final :
                &_CMsgProcessTransactionOrder_Item_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    102;
+    103;
 
   friend void swap(CMsgProcessTransactionOrder_Item& a, CMsgProcessTransactionOrder_Item& b) {
     a.Swap(&b);
@@ -20855,6 +21136,7 @@ class CMsgProcessTransactionOrder_Item final :
     kParentStackIndexFieldNumber = 7,
     kDefaultPriceFieldNumber = 8,
     kIsUserFacingFieldNumber = 9,
+    kPriceIndexFieldNumber = 11,
   };
   // optional string category_desc = 4;
   bool has_category_desc() const;
@@ -20978,6 +21260,19 @@ class CMsgProcessTransactionOrder_Item final :
   void _internal_set_is_user_facing(bool value);
   public:
 
+  // optional int32 price_index = 11;
+  bool has_price_index() const;
+  private:
+  bool _internal_has_price_index() const;
+  public:
+  void clear_price_index();
+  int32_t price_index() const;
+  void set_price_index(int32_t value);
+  private:
+  int32_t _internal_price_index() const;
+  void _internal_set_price_index(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CMsgProcessTransactionOrder.Item)
  private:
   class _Internal;
@@ -20997,6 +21292,7 @@ class CMsgProcessTransactionOrder_Item final :
     int32_t parent_stack_index_;
     bool default_price_;
     bool is_user_facing_;
+    int32_t price_index_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_econ_5fgcmessages_2eproto;
@@ -21058,7 +21354,7 @@ class CMsgProcessTransactionOrder final :
                &_CMsgProcessTransactionOrder_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    103;
+    104;
 
   friend void swap(CMsgProcessTransactionOrder& a, CMsgProcessTransactionOrder& b) {
     a.Swap(&b);
@@ -21345,7 +21641,7 @@ class CMsgGCToGCStoreProcessCDKeyTransaction final :
                &_CMsgGCToGCStoreProcessCDKeyTransaction_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    104;
+    105;
 
   friend void swap(CMsgGCToGCStoreProcessCDKeyTransaction& a, CMsgGCToGCStoreProcessCDKeyTransaction& b) {
     a.Swap(&b);
@@ -21540,7 +21836,7 @@ class CMsgGCToGCStoreProcessCDKeyTransactionResponse final :
                &_CMsgGCToGCStoreProcessCDKeyTransactionResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    105;
+    106;
 
   friend void swap(CMsgGCToGCStoreProcessCDKeyTransactionResponse& a, CMsgGCToGCStoreProcessCDKeyTransactionResponse& b) {
     a.Swap(&b);
@@ -21700,7 +21996,7 @@ class CMsgGCToGCStoreProcessSettlement final :
                &_CMsgGCToGCStoreProcessSettlement_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    106;
+    107;
 
   friend void swap(CMsgGCToGCStoreProcessSettlement& a, CMsgGCToGCStoreProcessSettlement& b) {
     a.Swap(&b);
@@ -21865,7 +22161,7 @@ class CMsgGCToGCStoreProcessSettlementResponse final :
                &_CMsgGCToGCStoreProcessSettlementResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    107;
+    108;
 
   friend void swap(CMsgGCToGCStoreProcessSettlementResponse& a, CMsgGCToGCStoreProcessSettlementResponse& b) {
     a.Swap(&b);
@@ -22025,7 +22321,7 @@ class CMsgGCToGCBroadcastConsoleCommand final :
                &_CMsgGCToGCBroadcastConsoleCommand_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    108;
+    109;
 
   friend void swap(CMsgGCToGCBroadcastConsoleCommand& a, CMsgGCToGCBroadcastConsoleCommand& b) {
     a.Swap(&b);
@@ -22100,6 +22396,7 @@ class CMsgGCToGCBroadcastConsoleCommand final :
   enum : int {
     kConCommandFieldNumber = 1,
     kOutputInitiatorFieldNumber = 4,
+    kSenderSourceFieldNumber = 5,
     kReportOutputFieldNumber = 2,
     kSendingGcFieldNumber = 3,
   };
@@ -22137,6 +22434,24 @@ class CMsgGCToGCBroadcastConsoleCommand final :
   const std::string& _internal_output_initiator() const;
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_output_initiator(const std::string& value);
   std::string* _internal_mutable_output_initiator();
+  public:
+
+  // optional string sender_source = 5;
+  bool has_sender_source() const;
+  private:
+  bool _internal_has_sender_source() const;
+  public:
+  void clear_sender_source();
+  const std::string& sender_source() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_sender_source(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_sender_source();
+  PROTOBUF_NODISCARD std::string* release_sender_source();
+  void set_allocated_sender_source(std::string* sender_source);
+  private:
+  const std::string& _internal_sender_source() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_sender_source(const std::string& value);
+  std::string* _internal_mutable_sender_source();
   public:
 
   // optional bool report_output = 2;
@@ -22177,6 +22492,7 @@ class CMsgGCToGCBroadcastConsoleCommand final :
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr con_command_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr output_initiator_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr sender_source_;
     bool report_output_;
     int32_t sending_gc_;
   };
@@ -22240,7 +22556,7 @@ class CMsgGCToGCConsoleOutput_OutputLine final :
                &_CMsgGCToGCConsoleOutput_OutputLine_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    109;
+    110;
 
   friend void swap(CMsgGCToGCConsoleOutput_OutputLine& a, CMsgGCToGCConsoleOutput_OutputLine& b) {
     a.Swap(&b);
@@ -22420,7 +22736,7 @@ class CMsgGCToGCConsoleOutput final :
                &_CMsgGCToGCConsoleOutput_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    110;
+    111;
 
   friend void swap(CMsgGCToGCConsoleOutput& a, CMsgGCToGCConsoleOutput& b) {
     a.Swap(&b);
@@ -22637,7 +22953,7 @@ class CMsgItemAges_MaxItemIDTimestamp final :
                &_CMsgItemAges_MaxItemIDTimestamp_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    111;
+    112;
 
   friend void swap(CMsgItemAges_MaxItemIDTimestamp& a, CMsgItemAges_MaxItemIDTimestamp& b) {
     a.Swap(&b);
@@ -22812,7 +23128,7 @@ class CMsgItemAges final :
                &_CMsgItemAges_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    112;
+    113;
 
   friend void swap(CMsgItemAges& a, CMsgItemAges& b) {
     a.Swap(&b);
@@ -22978,7 +23294,7 @@ class CMsgGCToGCInternalTestMsg final :
                &_CMsgGCToGCInternalTestMsg_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    113;
+    114;
 
   friend void swap(CMsgGCToGCInternalTestMsg& a, CMsgGCToGCInternalTestMsg& b) {
     a.Swap(&b);
@@ -23233,7 +23549,7 @@ class CMsgGCToGCClientServerVersionsUpdated final :
                &_CMsgGCToGCClientServerVersionsUpdated_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    114;
+    115;
 
   friend void swap(CMsgGCToGCClientServerVersionsUpdated& a, CMsgGCToGCClientServerVersionsUpdated& b) {
     a.Swap(&b);
@@ -23453,7 +23769,7 @@ class CMsgGCToGCBroadcastMessageFromSub final :
                &_CMsgGCToGCBroadcastMessageFromSub_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    115;
+    116;
 
   friend void swap(CMsgGCToGCBroadcastMessageFromSub& a, CMsgGCToGCBroadcastMessageFromSub& b) {
     a.Swap(&b);
@@ -23682,7 +23998,7 @@ class CMsgGCToClientCurrencyPricePoints_Currency final :
                &_CMsgGCToClientCurrencyPricePoints_Currency_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    116;
+    117;
 
   friend void swap(CMsgGCToClientCurrencyPricePoints_Currency& a, CMsgGCToClientCurrencyPricePoints_Currency& b) {
     a.Swap(&b);
@@ -23867,7 +24183,7 @@ class CMsgGCToClientCurrencyPricePoints final :
                &_CMsgGCToClientCurrencyPricePoints_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    117;
+    118;
 
   friend void swap(CMsgGCToClientCurrencyPricePoints& a, CMsgGCToClientCurrencyPricePoints& b) {
     a.Swap(&b);
@@ -24058,7 +24374,7 @@ class CMsgBannedWordList final :
                &_CMsgBannedWordList_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    118;
+    119;
 
   friend void swap(CMsgBannedWordList& a, CMsgBannedWordList& b) {
     a.Swap(&b);
@@ -24244,7 +24560,7 @@ class CMsgGCToGCFlushSteamInventoryCache_Key final :
                &_CMsgGCToGCFlushSteamInventoryCache_Key_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    119;
+    120;
 
   friend void swap(CMsgGCToGCFlushSteamInventoryCache_Key& a, CMsgGCToGCFlushSteamInventoryCache_Key& b) {
     a.Swap(&b);
@@ -24419,7 +24735,7 @@ class CMsgGCToGCFlushSteamInventoryCache final :
                &_CMsgGCToGCFlushSteamInventoryCache_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    120;
+    121;
 
   friend void swap(CMsgGCToGCFlushSteamInventoryCache& a, CMsgGCToGCFlushSteamInventoryCache& b) {
     a.Swap(&b);
@@ -24585,7 +24901,7 @@ class CMsgGCToGCUpdateSubscriptionItems final :
                &_CMsgGCToGCUpdateSubscriptionItems_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    121;
+    122;
 
   friend void swap(CMsgGCToGCUpdateSubscriptionItems& a, CMsgGCToGCUpdateSubscriptionItems& b) {
     a.Swap(&b);
@@ -24760,7 +25076,7 @@ class CMsgGCToGCSelfPing final :
                &_CMsgGCToGCSelfPing_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    122;
+    123;
 
   friend void swap(CMsgGCToGCSelfPing& a, CMsgGCToGCSelfPing& b) {
     a.Swap(&b);
@@ -24919,7 +25235,7 @@ class CMsgGCToGCGetInfuxIntervalStats final :
                &_CMsgGCToGCGetInfuxIntervalStats_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    123;
+    124;
 
   friend void swap(CMsgGCToGCGetInfuxIntervalStats& a, CMsgGCToGCGetInfuxIntervalStats& b) {
     a.Swap(&b);
@@ -25045,7 +25361,7 @@ class CMsgGCToGCGetInfuxIntervalStatsResponse final :
                &_CMsgGCToGCGetInfuxIntervalStatsResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    124;
+    125;
 
   friend void swap(CMsgGCToGCGetInfuxIntervalStatsResponse& a, CMsgGCToGCGetInfuxIntervalStatsResponse& b) {
     a.Swap(&b);
@@ -25303,7 +25619,7 @@ class CMsgGCToGCPurchaseSucceeded final :
                &_CMsgGCToGCPurchaseSucceeded_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    125;
+    126;
 
   friend void swap(CMsgGCToGCPurchaseSucceeded& a, CMsgGCToGCPurchaseSucceeded& b) {
     a.Swap(&b);
@@ -25429,7 +25745,7 @@ class CMsgClientToGCGetLimitedItemPurchaseQuantity final :
                &_CMsgClientToGCGetLimitedItemPurchaseQuantity_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    126;
+    127;
 
   friend void swap(CMsgClientToGCGetLimitedItemPurchaseQuantity& a, CMsgClientToGCGetLimitedItemPurchaseQuantity& b) {
     a.Swap(&b);
@@ -25589,7 +25905,7 @@ class CMsgClientToGCGetLimitedItemPurchaseQuantityResponse final :
                &_CMsgClientToGCGetLimitedItemPurchaseQuantityResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    127;
+    128;
 
   friend void swap(CMsgClientToGCGetLimitedItemPurchaseQuantityResponse& a, CMsgClientToGCGetLimitedItemPurchaseQuantityResponse& b) {
     a.Swap(&b);
@@ -25749,6 +26065,1657 @@ class CMsgClientToGCGetLimitedItemPurchaseQuantityResponse final :
 };
 // -------------------------------------------------------------------
 
+class CMsgClientToGCGetInFlightItemCharges final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgClientToGCGetInFlightItemCharges) */ {
+ public:
+  inline CMsgClientToGCGetInFlightItemCharges() : CMsgClientToGCGetInFlightItemCharges(nullptr) {}
+  ~CMsgClientToGCGetInFlightItemCharges() override;
+  explicit PROTOBUF_CONSTEXPR CMsgClientToGCGetInFlightItemCharges(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgClientToGCGetInFlightItemCharges(const CMsgClientToGCGetInFlightItemCharges& from);
+  CMsgClientToGCGetInFlightItemCharges(CMsgClientToGCGetInFlightItemCharges&& from) noexcept
+    : CMsgClientToGCGetInFlightItemCharges() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgClientToGCGetInFlightItemCharges& operator=(const CMsgClientToGCGetInFlightItemCharges& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgClientToGCGetInFlightItemCharges& operator=(CMsgClientToGCGetInFlightItemCharges&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgClientToGCGetInFlightItemCharges& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgClientToGCGetInFlightItemCharges* internal_default_instance() {
+    return reinterpret_cast<const CMsgClientToGCGetInFlightItemCharges*>(
+               &_CMsgClientToGCGetInFlightItemCharges_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    129;
+
+  friend void swap(CMsgClientToGCGetInFlightItemCharges& a, CMsgClientToGCGetInFlightItemCharges& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgClientToGCGetInFlightItemCharges* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgClientToGCGetInFlightItemCharges* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgClientToGCGetInFlightItemCharges* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgClientToGCGetInFlightItemCharges>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgClientToGCGetInFlightItemCharges& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgClientToGCGetInFlightItemCharges& from) {
+    CMsgClientToGCGetInFlightItemCharges::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgClientToGCGetInFlightItemCharges* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgClientToGCGetInFlightItemCharges";
+  }
+  protected:
+  explicit CMsgClientToGCGetInFlightItemCharges(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kItemDefFieldNumber = 1,
+  };
+  // optional uint32 item_def = 1;
+  bool has_item_def() const;
+  private:
+  bool _internal_has_item_def() const;
+  public:
+  void clear_item_def();
+  uint32_t item_def() const;
+  void set_item_def(uint32_t value);
+  private:
+  uint32_t _internal_item_def() const;
+  void _internal_set_item_def(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgClientToGCGetInFlightItemCharges)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    uint32_t item_def_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_econ_5fgcmessages_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgClientToGCGetInFlightItemChargesResponse final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgClientToGCGetInFlightItemChargesResponse) */ {
+ public:
+  inline CMsgClientToGCGetInFlightItemChargesResponse() : CMsgClientToGCGetInFlightItemChargesResponse(nullptr) {}
+  ~CMsgClientToGCGetInFlightItemChargesResponse() override;
+  explicit PROTOBUF_CONSTEXPR CMsgClientToGCGetInFlightItemChargesResponse(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgClientToGCGetInFlightItemChargesResponse(const CMsgClientToGCGetInFlightItemChargesResponse& from);
+  CMsgClientToGCGetInFlightItemChargesResponse(CMsgClientToGCGetInFlightItemChargesResponse&& from) noexcept
+    : CMsgClientToGCGetInFlightItemChargesResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgClientToGCGetInFlightItemChargesResponse& operator=(const CMsgClientToGCGetInFlightItemChargesResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgClientToGCGetInFlightItemChargesResponse& operator=(CMsgClientToGCGetInFlightItemChargesResponse&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgClientToGCGetInFlightItemChargesResponse& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgClientToGCGetInFlightItemChargesResponse* internal_default_instance() {
+    return reinterpret_cast<const CMsgClientToGCGetInFlightItemChargesResponse*>(
+               &_CMsgClientToGCGetInFlightItemChargesResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    130;
+
+  friend void swap(CMsgClientToGCGetInFlightItemChargesResponse& a, CMsgClientToGCGetInFlightItemChargesResponse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgClientToGCGetInFlightItemChargesResponse* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgClientToGCGetInFlightItemChargesResponse* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgClientToGCGetInFlightItemChargesResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgClientToGCGetInFlightItemChargesResponse>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgClientToGCGetInFlightItemChargesResponse& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgClientToGCGetInFlightItemChargesResponse& from) {
+    CMsgClientToGCGetInFlightItemChargesResponse::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgClientToGCGetInFlightItemChargesResponse* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgClientToGCGetInFlightItemChargesResponse";
+  }
+  protected:
+  explicit CMsgClientToGCGetInFlightItemChargesResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  typedef CMsgClientToGCGetInFlightItemChargesResponse_EResponse EResponse;
+  static constexpr EResponse k_eInternalError =
+    CMsgClientToGCGetInFlightItemChargesResponse_EResponse_k_eInternalError;
+  static constexpr EResponse k_eSuccess =
+    CMsgClientToGCGetInFlightItemChargesResponse_EResponse_k_eSuccess;
+  static constexpr EResponse k_eTooBusy =
+    CMsgClientToGCGetInFlightItemChargesResponse_EResponse_k_eTooBusy;
+  static constexpr EResponse k_eDisabled =
+    CMsgClientToGCGetInFlightItemChargesResponse_EResponse_k_eDisabled;
+  static constexpr EResponse k_eTimeout =
+    CMsgClientToGCGetInFlightItemChargesResponse_EResponse_k_eTimeout;
+  static constexpr EResponse k_eInvalidItemDef =
+    CMsgClientToGCGetInFlightItemChargesResponse_EResponse_k_eInvalidItemDef;
+  static inline bool EResponse_IsValid(int value) {
+    return CMsgClientToGCGetInFlightItemChargesResponse_EResponse_IsValid(value);
+  }
+  static constexpr EResponse EResponse_MIN =
+    CMsgClientToGCGetInFlightItemChargesResponse_EResponse_EResponse_MIN;
+  static constexpr EResponse EResponse_MAX =
+    CMsgClientToGCGetInFlightItemChargesResponse_EResponse_EResponse_MAX;
+  static constexpr int EResponse_ARRAYSIZE =
+    CMsgClientToGCGetInFlightItemChargesResponse_EResponse_EResponse_ARRAYSIZE;
+  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
+  EResponse_descriptor() {
+    return CMsgClientToGCGetInFlightItemChargesResponse_EResponse_descriptor();
+  }
+  template<typename T>
+  static inline const std::string& EResponse_Name(T enum_t_value) {
+    static_assert(::std::is_same<T, EResponse>::value ||
+      ::std::is_integral<T>::value,
+      "Incorrect type passed to function EResponse_Name.");
+    return CMsgClientToGCGetInFlightItemChargesResponse_EResponse_Name(enum_t_value);
+  }
+  static inline bool EResponse_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
+      EResponse* value) {
+    return CMsgClientToGCGetInFlightItemChargesResponse_EResponse_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kResultFieldNumber = 1,
+    kChargesInFlightFieldNumber = 2,
+  };
+  // optional .CMsgClientToGCGetInFlightItemChargesResponse.EResponse result = 1 [default = k_eInternalError];
+  bool has_result() const;
+  private:
+  bool _internal_has_result() const;
+  public:
+  void clear_result();
+  ::CMsgClientToGCGetInFlightItemChargesResponse_EResponse result() const;
+  void set_result(::CMsgClientToGCGetInFlightItemChargesResponse_EResponse value);
+  private:
+  ::CMsgClientToGCGetInFlightItemChargesResponse_EResponse _internal_result() const;
+  void _internal_set_result(::CMsgClientToGCGetInFlightItemChargesResponse_EResponse value);
+  public:
+
+  // optional uint32 charges_in_flight = 2;
+  bool has_charges_in_flight() const;
+  private:
+  bool _internal_has_charges_in_flight() const;
+  public:
+  void clear_charges_in_flight();
+  uint32_t charges_in_flight() const;
+  void set_charges_in_flight(uint32_t value);
+  private:
+  uint32_t _internal_charges_in_flight() const;
+  void _internal_set_charges_in_flight(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgClientToGCGetInFlightItemChargesResponse)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    int result_;
+    uint32_t charges_in_flight_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_econ_5fgcmessages_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgClientToGCPurchaseChargeCostItems_Item final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgClientToGCPurchaseChargeCostItems.Item) */ {
+ public:
+  inline CMsgClientToGCPurchaseChargeCostItems_Item() : CMsgClientToGCPurchaseChargeCostItems_Item(nullptr) {}
+  ~CMsgClientToGCPurchaseChargeCostItems_Item() override;
+  explicit PROTOBUF_CONSTEXPR CMsgClientToGCPurchaseChargeCostItems_Item(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgClientToGCPurchaseChargeCostItems_Item(const CMsgClientToGCPurchaseChargeCostItems_Item& from);
+  CMsgClientToGCPurchaseChargeCostItems_Item(CMsgClientToGCPurchaseChargeCostItems_Item&& from) noexcept
+    : CMsgClientToGCPurchaseChargeCostItems_Item() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgClientToGCPurchaseChargeCostItems_Item& operator=(const CMsgClientToGCPurchaseChargeCostItems_Item& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgClientToGCPurchaseChargeCostItems_Item& operator=(CMsgClientToGCPurchaseChargeCostItems_Item&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgClientToGCPurchaseChargeCostItems_Item& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgClientToGCPurchaseChargeCostItems_Item* internal_default_instance() {
+    return reinterpret_cast<const CMsgClientToGCPurchaseChargeCostItems_Item*>(
+               &_CMsgClientToGCPurchaseChargeCostItems_Item_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    131;
+
+  friend void swap(CMsgClientToGCPurchaseChargeCostItems_Item& a, CMsgClientToGCPurchaseChargeCostItems_Item& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgClientToGCPurchaseChargeCostItems_Item* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgClientToGCPurchaseChargeCostItems_Item* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgClientToGCPurchaseChargeCostItems_Item* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgClientToGCPurchaseChargeCostItems_Item>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgClientToGCPurchaseChargeCostItems_Item& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgClientToGCPurchaseChargeCostItems_Item& from) {
+    CMsgClientToGCPurchaseChargeCostItems_Item::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgClientToGCPurchaseChargeCostItems_Item* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgClientToGCPurchaseChargeCostItems.Item";
+  }
+  protected:
+  explicit CMsgClientToGCPurchaseChargeCostItems_Item(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kItemDefIndexFieldNumber = 1,
+    kQuantityFieldNumber = 2,
+    kSourceReferenceIdFieldNumber = 3,
+    kPriceIndexFieldNumber = 4,
+  };
+  // optional uint32 item_def_index = 1;
+  bool has_item_def_index() const;
+  private:
+  bool _internal_has_item_def_index() const;
+  public:
+  void clear_item_def_index();
+  uint32_t item_def_index() const;
+  void set_item_def_index(uint32_t value);
+  private:
+  uint32_t _internal_item_def_index() const;
+  void _internal_set_item_def_index(uint32_t value);
+  public:
+
+  // optional uint32 quantity = 2;
+  bool has_quantity() const;
+  private:
+  bool _internal_has_quantity() const;
+  public:
+  void clear_quantity();
+  uint32_t quantity() const;
+  void set_quantity(uint32_t value);
+  private:
+  uint32_t _internal_quantity() const;
+  void _internal_set_quantity(uint32_t value);
+  public:
+
+  // optional uint64 source_reference_id = 3;
+  bool has_source_reference_id() const;
+  private:
+  bool _internal_has_source_reference_id() const;
+  public:
+  void clear_source_reference_id();
+  uint64_t source_reference_id() const;
+  void set_source_reference_id(uint64_t value);
+  private:
+  uint64_t _internal_source_reference_id() const;
+  void _internal_set_source_reference_id(uint64_t value);
+  public:
+
+  // optional int32 price_index = 4;
+  bool has_price_index() const;
+  private:
+  bool _internal_has_price_index() const;
+  public:
+  void clear_price_index();
+  int32_t price_index() const;
+  void set_price_index(int32_t value);
+  private:
+  int32_t _internal_price_index() const;
+  void _internal_set_price_index(int32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgClientToGCPurchaseChargeCostItems.Item)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    uint32_t item_def_index_;
+    uint32_t quantity_;
+    uint64_t source_reference_id_;
+    int32_t price_index_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_econ_5fgcmessages_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgClientToGCPurchaseChargeCostItems final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgClientToGCPurchaseChargeCostItems) */ {
+ public:
+  inline CMsgClientToGCPurchaseChargeCostItems() : CMsgClientToGCPurchaseChargeCostItems(nullptr) {}
+  ~CMsgClientToGCPurchaseChargeCostItems() override;
+  explicit PROTOBUF_CONSTEXPR CMsgClientToGCPurchaseChargeCostItems(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgClientToGCPurchaseChargeCostItems(const CMsgClientToGCPurchaseChargeCostItems& from);
+  CMsgClientToGCPurchaseChargeCostItems(CMsgClientToGCPurchaseChargeCostItems&& from) noexcept
+    : CMsgClientToGCPurchaseChargeCostItems() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgClientToGCPurchaseChargeCostItems& operator=(const CMsgClientToGCPurchaseChargeCostItems& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgClientToGCPurchaseChargeCostItems& operator=(CMsgClientToGCPurchaseChargeCostItems&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgClientToGCPurchaseChargeCostItems& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgClientToGCPurchaseChargeCostItems* internal_default_instance() {
+    return reinterpret_cast<const CMsgClientToGCPurchaseChargeCostItems*>(
+               &_CMsgClientToGCPurchaseChargeCostItems_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    132;
+
+  friend void swap(CMsgClientToGCPurchaseChargeCostItems& a, CMsgClientToGCPurchaseChargeCostItems& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgClientToGCPurchaseChargeCostItems* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgClientToGCPurchaseChargeCostItems* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgClientToGCPurchaseChargeCostItems* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgClientToGCPurchaseChargeCostItems>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgClientToGCPurchaseChargeCostItems& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgClientToGCPurchaseChargeCostItems& from) {
+    CMsgClientToGCPurchaseChargeCostItems::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgClientToGCPurchaseChargeCostItems* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgClientToGCPurchaseChargeCostItems";
+  }
+  protected:
+  explicit CMsgClientToGCPurchaseChargeCostItems(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  typedef CMsgClientToGCPurchaseChargeCostItems_Item Item;
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kItemsFieldNumber = 1,
+    kCurrencyFieldNumber = 2,
+  };
+  // repeated .CMsgClientToGCPurchaseChargeCostItems.Item items = 1;
+  int items_size() const;
+  private:
+  int _internal_items_size() const;
+  public:
+  void clear_items();
+  ::CMsgClientToGCPurchaseChargeCostItems_Item* mutable_items(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgClientToGCPurchaseChargeCostItems_Item >*
+      mutable_items();
+  private:
+  const ::CMsgClientToGCPurchaseChargeCostItems_Item& _internal_items(int index) const;
+  ::CMsgClientToGCPurchaseChargeCostItems_Item* _internal_add_items();
+  public:
+  const ::CMsgClientToGCPurchaseChargeCostItems_Item& items(int index) const;
+  ::CMsgClientToGCPurchaseChargeCostItems_Item* add_items();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgClientToGCPurchaseChargeCostItems_Item >&
+      items() const;
+
+  // optional uint32 currency = 2;
+  bool has_currency() const;
+  private:
+  bool _internal_has_currency() const;
+  public:
+  void clear_currency();
+  uint32_t currency() const;
+  void set_currency(uint32_t value);
+  private:
+  uint32_t _internal_currency() const;
+  void _internal_set_currency(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgClientToGCPurchaseChargeCostItems)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgClientToGCPurchaseChargeCostItems_Item > items_;
+    uint32_t currency_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_econ_5fgcmessages_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgClientToGCPurchaseChargeCostItemsResponse final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgClientToGCPurchaseChargeCostItemsResponse) */ {
+ public:
+  inline CMsgClientToGCPurchaseChargeCostItemsResponse() : CMsgClientToGCPurchaseChargeCostItemsResponse(nullptr) {}
+  ~CMsgClientToGCPurchaseChargeCostItemsResponse() override;
+  explicit PROTOBUF_CONSTEXPR CMsgClientToGCPurchaseChargeCostItemsResponse(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgClientToGCPurchaseChargeCostItemsResponse(const CMsgClientToGCPurchaseChargeCostItemsResponse& from);
+  CMsgClientToGCPurchaseChargeCostItemsResponse(CMsgClientToGCPurchaseChargeCostItemsResponse&& from) noexcept
+    : CMsgClientToGCPurchaseChargeCostItemsResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgClientToGCPurchaseChargeCostItemsResponse& operator=(const CMsgClientToGCPurchaseChargeCostItemsResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgClientToGCPurchaseChargeCostItemsResponse& operator=(CMsgClientToGCPurchaseChargeCostItemsResponse&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgClientToGCPurchaseChargeCostItemsResponse& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgClientToGCPurchaseChargeCostItemsResponse* internal_default_instance() {
+    return reinterpret_cast<const CMsgClientToGCPurchaseChargeCostItemsResponse*>(
+               &_CMsgClientToGCPurchaseChargeCostItemsResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    133;
+
+  friend void swap(CMsgClientToGCPurchaseChargeCostItemsResponse& a, CMsgClientToGCPurchaseChargeCostItemsResponse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgClientToGCPurchaseChargeCostItemsResponse* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgClientToGCPurchaseChargeCostItemsResponse* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgClientToGCPurchaseChargeCostItemsResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgClientToGCPurchaseChargeCostItemsResponse>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgClientToGCPurchaseChargeCostItemsResponse& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgClientToGCPurchaseChargeCostItemsResponse& from) {
+    CMsgClientToGCPurchaseChargeCostItemsResponse::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgClientToGCPurchaseChargeCostItemsResponse* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgClientToGCPurchaseChargeCostItemsResponse";
+  }
+  protected:
+  explicit CMsgClientToGCPurchaseChargeCostItemsResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  typedef CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse EResponse;
+  static constexpr EResponse k_eInternalError =
+    CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse_k_eInternalError;
+  static constexpr EResponse k_eSuccess =
+    CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse_k_eSuccess;
+  static constexpr EResponse k_eTooBusy =
+    CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse_k_eTooBusy;
+  static constexpr EResponse k_eDisabled =
+    CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse_k_eDisabled;
+  static constexpr EResponse k_eTimeout =
+    CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse_k_eTimeout;
+  static constexpr EResponse k_eInvalidParam =
+    CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse_k_eInvalidParam;
+  static constexpr EResponse k_eInvalidPrice =
+    CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse_k_eInvalidPrice;
+  static constexpr EResponse k_eInsufficientCharges =
+    CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse_k_eInsufficientCharges;
+  static constexpr EResponse k_eLimitedItem =
+    CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse_k_eLimitedItem;
+  static constexpr EResponse k_eMissingPrereq =
+    CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse_k_eMissingPrereq;
+  static inline bool EResponse_IsValid(int value) {
+    return CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse_IsValid(value);
+  }
+  static constexpr EResponse EResponse_MIN =
+    CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse_EResponse_MIN;
+  static constexpr EResponse EResponse_MAX =
+    CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse_EResponse_MAX;
+  static constexpr int EResponse_ARRAYSIZE =
+    CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse_EResponse_ARRAYSIZE;
+  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
+  EResponse_descriptor() {
+    return CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse_descriptor();
+  }
+  template<typename T>
+  static inline const std::string& EResponse_Name(T enum_t_value) {
+    static_assert(::std::is_same<T, EResponse>::value ||
+      ::std::is_integral<T>::value,
+      "Incorrect type passed to function EResponse_Name.");
+    return CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse_Name(enum_t_value);
+  }
+  static inline bool EResponse_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
+      EResponse* value) {
+    return CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kItemIdsFieldNumber = 2,
+    kResultFieldNumber = 1,
+  };
+  // repeated uint64 item_ids = 2;
+  int item_ids_size() const;
+  private:
+  int _internal_item_ids_size() const;
+  public:
+  void clear_item_ids();
+  private:
+  uint64_t _internal_item_ids(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+      _internal_item_ids() const;
+  void _internal_add_item_ids(uint64_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+      _internal_mutable_item_ids();
+  public:
+  uint64_t item_ids(int index) const;
+  void set_item_ids(int index, uint64_t value);
+  void add_item_ids(uint64_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+      item_ids() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+      mutable_item_ids();
+
+  // optional .CMsgClientToGCPurchaseChargeCostItemsResponse.EResponse result = 1 [default = k_eInternalError];
+  bool has_result() const;
+  private:
+  bool _internal_has_result() const;
+  public:
+  void clear_result();
+  ::CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse result() const;
+  void set_result(::CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse value);
+  private:
+  ::CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse _internal_result() const;
+  void _internal_set_result(::CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgClientToGCPurchaseChargeCostItemsResponse)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t > item_ids_;
+    int result_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_econ_5fgcmessages_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgGCToClientInFlightChargesUpdated_ItemCharges final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgGCToClientInFlightChargesUpdated.ItemCharges) */ {
+ public:
+  inline CMsgGCToClientInFlightChargesUpdated_ItemCharges() : CMsgGCToClientInFlightChargesUpdated_ItemCharges(nullptr) {}
+  ~CMsgGCToClientInFlightChargesUpdated_ItemCharges() override;
+  explicit PROTOBUF_CONSTEXPR CMsgGCToClientInFlightChargesUpdated_ItemCharges(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgGCToClientInFlightChargesUpdated_ItemCharges(const CMsgGCToClientInFlightChargesUpdated_ItemCharges& from);
+  CMsgGCToClientInFlightChargesUpdated_ItemCharges(CMsgGCToClientInFlightChargesUpdated_ItemCharges&& from) noexcept
+    : CMsgGCToClientInFlightChargesUpdated_ItemCharges() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgGCToClientInFlightChargesUpdated_ItemCharges& operator=(const CMsgGCToClientInFlightChargesUpdated_ItemCharges& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgGCToClientInFlightChargesUpdated_ItemCharges& operator=(CMsgGCToClientInFlightChargesUpdated_ItemCharges&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgGCToClientInFlightChargesUpdated_ItemCharges& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgGCToClientInFlightChargesUpdated_ItemCharges* internal_default_instance() {
+    return reinterpret_cast<const CMsgGCToClientInFlightChargesUpdated_ItemCharges*>(
+               &_CMsgGCToClientInFlightChargesUpdated_ItemCharges_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    134;
+
+  friend void swap(CMsgGCToClientInFlightChargesUpdated_ItemCharges& a, CMsgGCToClientInFlightChargesUpdated_ItemCharges& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgGCToClientInFlightChargesUpdated_ItemCharges* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgGCToClientInFlightChargesUpdated_ItemCharges* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgGCToClientInFlightChargesUpdated_ItemCharges* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgGCToClientInFlightChargesUpdated_ItemCharges>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgGCToClientInFlightChargesUpdated_ItemCharges& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgGCToClientInFlightChargesUpdated_ItemCharges& from) {
+    CMsgGCToClientInFlightChargesUpdated_ItemCharges::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgGCToClientInFlightChargesUpdated_ItemCharges* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgGCToClientInFlightChargesUpdated.ItemCharges";
+  }
+  protected:
+  explicit CMsgGCToClientInFlightChargesUpdated_ItemCharges(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kItemDefFieldNumber = 1,
+    kChargesInFlightFieldNumber = 2,
+  };
+  // optional uint32 item_def = 1;
+  bool has_item_def() const;
+  private:
+  bool _internal_has_item_def() const;
+  public:
+  void clear_item_def();
+  uint32_t item_def() const;
+  void set_item_def(uint32_t value);
+  private:
+  uint32_t _internal_item_def() const;
+  void _internal_set_item_def(uint32_t value);
+  public:
+
+  // optional uint32 charges_in_flight = 2;
+  bool has_charges_in_flight() const;
+  private:
+  bool _internal_has_charges_in_flight() const;
+  public:
+  void clear_charges_in_flight();
+  uint32_t charges_in_flight() const;
+  void set_charges_in_flight(uint32_t value);
+  private:
+  uint32_t _internal_charges_in_flight() const;
+  void _internal_set_charges_in_flight(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgGCToClientInFlightChargesUpdated.ItemCharges)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    uint32_t item_def_;
+    uint32_t charges_in_flight_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_econ_5fgcmessages_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgGCToClientInFlightChargesUpdated final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgGCToClientInFlightChargesUpdated) */ {
+ public:
+  inline CMsgGCToClientInFlightChargesUpdated() : CMsgGCToClientInFlightChargesUpdated(nullptr) {}
+  ~CMsgGCToClientInFlightChargesUpdated() override;
+  explicit PROTOBUF_CONSTEXPR CMsgGCToClientInFlightChargesUpdated(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgGCToClientInFlightChargesUpdated(const CMsgGCToClientInFlightChargesUpdated& from);
+  CMsgGCToClientInFlightChargesUpdated(CMsgGCToClientInFlightChargesUpdated&& from) noexcept
+    : CMsgGCToClientInFlightChargesUpdated() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgGCToClientInFlightChargesUpdated& operator=(const CMsgGCToClientInFlightChargesUpdated& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgGCToClientInFlightChargesUpdated& operator=(CMsgGCToClientInFlightChargesUpdated&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgGCToClientInFlightChargesUpdated& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgGCToClientInFlightChargesUpdated* internal_default_instance() {
+    return reinterpret_cast<const CMsgGCToClientInFlightChargesUpdated*>(
+               &_CMsgGCToClientInFlightChargesUpdated_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    135;
+
+  friend void swap(CMsgGCToClientInFlightChargesUpdated& a, CMsgGCToClientInFlightChargesUpdated& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgGCToClientInFlightChargesUpdated* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgGCToClientInFlightChargesUpdated* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgGCToClientInFlightChargesUpdated* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgGCToClientInFlightChargesUpdated>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgGCToClientInFlightChargesUpdated& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgGCToClientInFlightChargesUpdated& from) {
+    CMsgGCToClientInFlightChargesUpdated::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgGCToClientInFlightChargesUpdated* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgGCToClientInFlightChargesUpdated";
+  }
+  protected:
+  explicit CMsgGCToClientInFlightChargesUpdated(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  typedef CMsgGCToClientInFlightChargesUpdated_ItemCharges ItemCharges;
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kInFlightChargesFieldNumber = 2,
+  };
+  // repeated .CMsgGCToClientInFlightChargesUpdated.ItemCharges in_flight_charges = 2;
+  int in_flight_charges_size() const;
+  private:
+  int _internal_in_flight_charges_size() const;
+  public:
+  void clear_in_flight_charges();
+  ::CMsgGCToClientInFlightChargesUpdated_ItemCharges* mutable_in_flight_charges(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgGCToClientInFlightChargesUpdated_ItemCharges >*
+      mutable_in_flight_charges();
+  private:
+  const ::CMsgGCToClientInFlightChargesUpdated_ItemCharges& _internal_in_flight_charges(int index) const;
+  ::CMsgGCToClientInFlightChargesUpdated_ItemCharges* _internal_add_in_flight_charges();
+  public:
+  const ::CMsgGCToClientInFlightChargesUpdated_ItemCharges& in_flight_charges(int index) const;
+  ::CMsgGCToClientInFlightChargesUpdated_ItemCharges* add_in_flight_charges();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgGCToClientInFlightChargesUpdated_ItemCharges >&
+      in_flight_charges() const;
+
+  // @@protoc_insertion_point(class_scope:CMsgGCToClientInFlightChargesUpdated)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgGCToClientInFlightChargesUpdated_ItemCharges > in_flight_charges_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_econ_5fgcmessages_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgClientToGCCancelUnfinalizedTransactions final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgClientToGCCancelUnfinalizedTransactions) */ {
+ public:
+  inline CMsgClientToGCCancelUnfinalizedTransactions() : CMsgClientToGCCancelUnfinalizedTransactions(nullptr) {}
+  ~CMsgClientToGCCancelUnfinalizedTransactions() override;
+  explicit PROTOBUF_CONSTEXPR CMsgClientToGCCancelUnfinalizedTransactions(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgClientToGCCancelUnfinalizedTransactions(const CMsgClientToGCCancelUnfinalizedTransactions& from);
+  CMsgClientToGCCancelUnfinalizedTransactions(CMsgClientToGCCancelUnfinalizedTransactions&& from) noexcept
+    : CMsgClientToGCCancelUnfinalizedTransactions() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgClientToGCCancelUnfinalizedTransactions& operator=(const CMsgClientToGCCancelUnfinalizedTransactions& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgClientToGCCancelUnfinalizedTransactions& operator=(CMsgClientToGCCancelUnfinalizedTransactions&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgClientToGCCancelUnfinalizedTransactions& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgClientToGCCancelUnfinalizedTransactions* internal_default_instance() {
+    return reinterpret_cast<const CMsgClientToGCCancelUnfinalizedTransactions*>(
+               &_CMsgClientToGCCancelUnfinalizedTransactions_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    136;
+
+  friend void swap(CMsgClientToGCCancelUnfinalizedTransactions& a, CMsgClientToGCCancelUnfinalizedTransactions& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgClientToGCCancelUnfinalizedTransactions* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgClientToGCCancelUnfinalizedTransactions* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgClientToGCCancelUnfinalizedTransactions* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgClientToGCCancelUnfinalizedTransactions>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgClientToGCCancelUnfinalizedTransactions& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgClientToGCCancelUnfinalizedTransactions& from) {
+    CMsgClientToGCCancelUnfinalizedTransactions::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgClientToGCCancelUnfinalizedTransactions* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgClientToGCCancelUnfinalizedTransactions";
+  }
+  protected:
+  explicit CMsgClientToGCCancelUnfinalizedTransactions(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kUnusedFieldNumber = 1,
+  };
+  // optional uint32 unused = 1;
+  bool has_unused() const;
+  private:
+  bool _internal_has_unused() const;
+  public:
+  void clear_unused();
+  uint32_t unused() const;
+  void set_unused(uint32_t value);
+  private:
+  uint32_t _internal_unused() const;
+  void _internal_set_unused(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgClientToGCCancelUnfinalizedTransactions)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    uint32_t unused_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_econ_5fgcmessages_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgClientToGCCancelUnfinalizedTransactionsResponse final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgClientToGCCancelUnfinalizedTransactionsResponse) */ {
+ public:
+  inline CMsgClientToGCCancelUnfinalizedTransactionsResponse() : CMsgClientToGCCancelUnfinalizedTransactionsResponse(nullptr) {}
+  ~CMsgClientToGCCancelUnfinalizedTransactionsResponse() override;
+  explicit PROTOBUF_CONSTEXPR CMsgClientToGCCancelUnfinalizedTransactionsResponse(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgClientToGCCancelUnfinalizedTransactionsResponse(const CMsgClientToGCCancelUnfinalizedTransactionsResponse& from);
+  CMsgClientToGCCancelUnfinalizedTransactionsResponse(CMsgClientToGCCancelUnfinalizedTransactionsResponse&& from) noexcept
+    : CMsgClientToGCCancelUnfinalizedTransactionsResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgClientToGCCancelUnfinalizedTransactionsResponse& operator=(const CMsgClientToGCCancelUnfinalizedTransactionsResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgClientToGCCancelUnfinalizedTransactionsResponse& operator=(CMsgClientToGCCancelUnfinalizedTransactionsResponse&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgClientToGCCancelUnfinalizedTransactionsResponse& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgClientToGCCancelUnfinalizedTransactionsResponse* internal_default_instance() {
+    return reinterpret_cast<const CMsgClientToGCCancelUnfinalizedTransactionsResponse*>(
+               &_CMsgClientToGCCancelUnfinalizedTransactionsResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    137;
+
+  friend void swap(CMsgClientToGCCancelUnfinalizedTransactionsResponse& a, CMsgClientToGCCancelUnfinalizedTransactionsResponse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgClientToGCCancelUnfinalizedTransactionsResponse* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgClientToGCCancelUnfinalizedTransactionsResponse* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgClientToGCCancelUnfinalizedTransactionsResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgClientToGCCancelUnfinalizedTransactionsResponse>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgClientToGCCancelUnfinalizedTransactionsResponse& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgClientToGCCancelUnfinalizedTransactionsResponse& from) {
+    CMsgClientToGCCancelUnfinalizedTransactionsResponse::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgClientToGCCancelUnfinalizedTransactionsResponse* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgClientToGCCancelUnfinalizedTransactionsResponse";
+  }
+  protected:
+  explicit CMsgClientToGCCancelUnfinalizedTransactionsResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kResultFieldNumber = 1,
+  };
+  // optional uint32 result = 1;
+  bool has_result() const;
+  private:
+  bool _internal_has_result() const;
+  public:
+  void clear_result();
+  uint32_t result() const;
+  void set_result(uint32_t value);
+  private:
+  uint32_t _internal_result() const;
+  void _internal_set_result(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgClientToGCCancelUnfinalizedTransactionsResponse)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    uint32_t result_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_econ_5fgcmessages_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CMsgGCToGCUpdateWelcomeMsg final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgGCToGCUpdateWelcomeMsg) */ {
  public:
@@ -25804,7 +27771,7 @@ class CMsgGCToGCUpdateWelcomeMsg final :
                &_CMsgGCToGCUpdateWelcomeMsg_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    128;
+    138;
 
   friend void swap(CMsgGCToGCUpdateWelcomeMsg& a, CMsgGCToGCUpdateWelcomeMsg& b) {
     a.Swap(&b);
@@ -28603,7 +30570,7 @@ inline void CMsgGCToGCGrantAccountRolledItems_Item::set_inventory_token(uint32_t
   // @@protoc_insertion_point(field_set:CMsgGCToGCGrantAccountRolledItems.Item.inventory_token)
 }
 
-// optional uint32 quality = 8;
+// optional int32 quality = 8 [default = -1];
 inline bool CMsgGCToGCGrantAccountRolledItems_Item::_internal_has_quality() const {
   bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -28612,21 +30579,21 @@ inline bool CMsgGCToGCGrantAccountRolledItems_Item::has_quality() const {
   return _internal_has_quality();
 }
 inline void CMsgGCToGCGrantAccountRolledItems_Item::clear_quality() {
-  _impl_.quality_ = 0u;
+  _impl_.quality_ = -1;
   _impl_._has_bits_[0] &= ~0x00000010u;
 }
-inline uint32_t CMsgGCToGCGrantAccountRolledItems_Item::_internal_quality() const {
+inline int32_t CMsgGCToGCGrantAccountRolledItems_Item::_internal_quality() const {
   return _impl_.quality_;
 }
-inline uint32_t CMsgGCToGCGrantAccountRolledItems_Item::quality() const {
+inline int32_t CMsgGCToGCGrantAccountRolledItems_Item::quality() const {
   // @@protoc_insertion_point(field_get:CMsgGCToGCGrantAccountRolledItems.Item.quality)
   return _internal_quality();
 }
-inline void CMsgGCToGCGrantAccountRolledItems_Item::_internal_set_quality(uint32_t value) {
+inline void CMsgGCToGCGrantAccountRolledItems_Item::_internal_set_quality(int32_t value) {
   _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.quality_ = value;
 }
-inline void CMsgGCToGCGrantAccountRolledItems_Item::set_quality(uint32_t value) {
+inline void CMsgGCToGCGrantAccountRolledItems_Item::set_quality(int32_t value) {
   _internal_set_quality(value);
   // @@protoc_insertion_point(field_set:CMsgGCToGCGrantAccountRolledItems.Item.quality)
 }
@@ -30744,6 +32711,66 @@ inline void CMsgClientToGCWrapAndDeliverGift::set_allocated_gift_message(std::st
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:CMsgClientToGCWrapAndDeliverGift.gift_message)
+}
+
+// -------------------------------------------------------------------
+
+// CMsgSQLGCToGCRevokeUntrustedGift
+
+// optional uint32 account_id = 1;
+inline bool CMsgSQLGCToGCRevokeUntrustedGift::_internal_has_account_id() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMsgSQLGCToGCRevokeUntrustedGift::has_account_id() const {
+  return _internal_has_account_id();
+}
+inline void CMsgSQLGCToGCRevokeUntrustedGift::clear_account_id() {
+  _impl_.account_id_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline uint32_t CMsgSQLGCToGCRevokeUntrustedGift::_internal_account_id() const {
+  return _impl_.account_id_;
+}
+inline uint32_t CMsgSQLGCToGCRevokeUntrustedGift::account_id() const {
+  // @@protoc_insertion_point(field_get:CMsgSQLGCToGCRevokeUntrustedGift.account_id)
+  return _internal_account_id();
+}
+inline void CMsgSQLGCToGCRevokeUntrustedGift::_internal_set_account_id(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.account_id_ = value;
+}
+inline void CMsgSQLGCToGCRevokeUntrustedGift::set_account_id(uint32_t value) {
+  _internal_set_account_id(value);
+  // @@protoc_insertion_point(field_set:CMsgSQLGCToGCRevokeUntrustedGift.account_id)
+}
+
+// optional uint64 sent_item_id = 4;
+inline bool CMsgSQLGCToGCRevokeUntrustedGift::_internal_has_sent_item_id() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgSQLGCToGCRevokeUntrustedGift::has_sent_item_id() const {
+  return _internal_has_sent_item_id();
+}
+inline void CMsgSQLGCToGCRevokeUntrustedGift::clear_sent_item_id() {
+  _impl_.sent_item_id_ = uint64_t{0u};
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline uint64_t CMsgSQLGCToGCRevokeUntrustedGift::_internal_sent_item_id() const {
+  return _impl_.sent_item_id_;
+}
+inline uint64_t CMsgSQLGCToGCRevokeUntrustedGift::sent_item_id() const {
+  // @@protoc_insertion_point(field_get:CMsgSQLGCToGCRevokeUntrustedGift.sent_item_id)
+  return _internal_sent_item_id();
+}
+inline void CMsgSQLGCToGCRevokeUntrustedGift::_internal_set_sent_item_id(uint64_t value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.sent_item_id_ = value;
+}
+inline void CMsgSQLGCToGCRevokeUntrustedGift::set_sent_item_id(uint64_t value) {
+  _internal_set_sent_item_id(value);
+  // @@protoc_insertion_point(field_set:CMsgSQLGCToGCRevokeUntrustedGift.sent_item_id)
 }
 
 // -------------------------------------------------------------------
@@ -36513,6 +38540,34 @@ inline void CMsgProcessTransactionOrder_Item::set_is_user_facing(bool value) {
   // @@protoc_insertion_point(field_set:CMsgProcessTransactionOrder.Item.is_user_facing)
 }
 
+// optional int32 price_index = 11;
+inline bool CMsgProcessTransactionOrder_Item::_internal_has_price_index() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000200u) != 0;
+  return value;
+}
+inline bool CMsgProcessTransactionOrder_Item::has_price_index() const {
+  return _internal_has_price_index();
+}
+inline void CMsgProcessTransactionOrder_Item::clear_price_index() {
+  _impl_.price_index_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000200u;
+}
+inline int32_t CMsgProcessTransactionOrder_Item::_internal_price_index() const {
+  return _impl_.price_index_;
+}
+inline int32_t CMsgProcessTransactionOrder_Item::price_index() const {
+  // @@protoc_insertion_point(field_get:CMsgProcessTransactionOrder.Item.price_index)
+  return _internal_price_index();
+}
+inline void CMsgProcessTransactionOrder_Item::_internal_set_price_index(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00000200u;
+  _impl_.price_index_ = value;
+}
+inline void CMsgProcessTransactionOrder_Item::set_price_index(int32_t value) {
+  _internal_set_price_index(value);
+  // @@protoc_insertion_point(field_set:CMsgProcessTransactionOrder.Item.price_index)
+}
+
 // -------------------------------------------------------------------
 
 // CMsgProcessTransactionOrder
@@ -37163,7 +39218,7 @@ inline void CMsgGCToGCBroadcastConsoleCommand::set_allocated_con_command(std::st
 
 // optional bool report_output = 2;
 inline bool CMsgGCToGCBroadcastConsoleCommand::_internal_has_report_output() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CMsgGCToGCBroadcastConsoleCommand::has_report_output() const {
@@ -37171,7 +39226,7 @@ inline bool CMsgGCToGCBroadcastConsoleCommand::has_report_output() const {
 }
 inline void CMsgGCToGCBroadcastConsoleCommand::clear_report_output() {
   _impl_.report_output_ = false;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline bool CMsgGCToGCBroadcastConsoleCommand::_internal_report_output() const {
   return _impl_.report_output_;
@@ -37181,7 +39236,7 @@ inline bool CMsgGCToGCBroadcastConsoleCommand::report_output() const {
   return _internal_report_output();
 }
 inline void CMsgGCToGCBroadcastConsoleCommand::_internal_set_report_output(bool value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.report_output_ = value;
 }
 inline void CMsgGCToGCBroadcastConsoleCommand::set_report_output(bool value) {
@@ -37191,7 +39246,7 @@ inline void CMsgGCToGCBroadcastConsoleCommand::set_report_output(bool value) {
 
 // optional int32 sending_gc = 3 [default = -1];
 inline bool CMsgGCToGCBroadcastConsoleCommand::_internal_has_sending_gc() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CMsgGCToGCBroadcastConsoleCommand::has_sending_gc() const {
@@ -37199,7 +39254,7 @@ inline bool CMsgGCToGCBroadcastConsoleCommand::has_sending_gc() const {
 }
 inline void CMsgGCToGCBroadcastConsoleCommand::clear_sending_gc() {
   _impl_.sending_gc_ = -1;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline int32_t CMsgGCToGCBroadcastConsoleCommand::_internal_sending_gc() const {
   return _impl_.sending_gc_;
@@ -37209,7 +39264,7 @@ inline int32_t CMsgGCToGCBroadcastConsoleCommand::sending_gc() const {
   return _internal_sending_gc();
 }
 inline void CMsgGCToGCBroadcastConsoleCommand::_internal_set_sending_gc(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.sending_gc_ = value;
 }
 inline void CMsgGCToGCBroadcastConsoleCommand::set_sending_gc(int32_t value) {
@@ -37283,6 +39338,74 @@ inline void CMsgGCToGCBroadcastConsoleCommand::set_allocated_output_initiator(st
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:CMsgGCToGCBroadcastConsoleCommand.output_initiator)
+}
+
+// optional string sender_source = 5;
+inline bool CMsgGCToGCBroadcastConsoleCommand::_internal_has_sender_source() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CMsgGCToGCBroadcastConsoleCommand::has_sender_source() const {
+  return _internal_has_sender_source();
+}
+inline void CMsgGCToGCBroadcastConsoleCommand::clear_sender_source() {
+  _impl_.sender_source_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline const std::string& CMsgGCToGCBroadcastConsoleCommand::sender_source() const {
+  // @@protoc_insertion_point(field_get:CMsgGCToGCBroadcastConsoleCommand.sender_source)
+  return _internal_sender_source();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CMsgGCToGCBroadcastConsoleCommand::set_sender_source(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000004u;
+ _impl_.sender_source_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:CMsgGCToGCBroadcastConsoleCommand.sender_source)
+}
+inline std::string* CMsgGCToGCBroadcastConsoleCommand::mutable_sender_source() {
+  std::string* _s = _internal_mutable_sender_source();
+  // @@protoc_insertion_point(field_mutable:CMsgGCToGCBroadcastConsoleCommand.sender_source)
+  return _s;
+}
+inline const std::string& CMsgGCToGCBroadcastConsoleCommand::_internal_sender_source() const {
+  return _impl_.sender_source_.Get();
+}
+inline void CMsgGCToGCBroadcastConsoleCommand::_internal_set_sender_source(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.sender_source_.Set(value, GetArenaForAllocation());
+}
+inline std::string* CMsgGCToGCBroadcastConsoleCommand::_internal_mutable_sender_source() {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  return _impl_.sender_source_.Mutable(GetArenaForAllocation());
+}
+inline std::string* CMsgGCToGCBroadcastConsoleCommand::release_sender_source() {
+  // @@protoc_insertion_point(field_release:CMsgGCToGCBroadcastConsoleCommand.sender_source)
+  if (!_internal_has_sender_source()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000004u;
+  auto* p = _impl_.sender_source_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.sender_source_.IsDefault()) {
+    _impl_.sender_source_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void CMsgGCToGCBroadcastConsoleCommand::set_allocated_sender_source(std::string* sender_source) {
+  if (sender_source != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000004u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000004u;
+  }
+  _impl_.sender_source_.SetAllocated(sender_source, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.sender_source_.IsDefault()) {
+    _impl_.sender_source_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:CMsgGCToGCBroadcastConsoleCommand.sender_source)
 }
 
 // -------------------------------------------------------------------
@@ -39031,6 +41154,535 @@ inline void CMsgClientToGCGetLimitedItemPurchaseQuantityResponse::set_quantity_p
 
 // -------------------------------------------------------------------
 
+// CMsgClientToGCGetInFlightItemCharges
+
+// optional uint32 item_def = 1;
+inline bool CMsgClientToGCGetInFlightItemCharges::_internal_has_item_def() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgClientToGCGetInFlightItemCharges::has_item_def() const {
+  return _internal_has_item_def();
+}
+inline void CMsgClientToGCGetInFlightItemCharges::clear_item_def() {
+  _impl_.item_def_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline uint32_t CMsgClientToGCGetInFlightItemCharges::_internal_item_def() const {
+  return _impl_.item_def_;
+}
+inline uint32_t CMsgClientToGCGetInFlightItemCharges::item_def() const {
+  // @@protoc_insertion_point(field_get:CMsgClientToGCGetInFlightItemCharges.item_def)
+  return _internal_item_def();
+}
+inline void CMsgClientToGCGetInFlightItemCharges::_internal_set_item_def(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.item_def_ = value;
+}
+inline void CMsgClientToGCGetInFlightItemCharges::set_item_def(uint32_t value) {
+  _internal_set_item_def(value);
+  // @@protoc_insertion_point(field_set:CMsgClientToGCGetInFlightItemCharges.item_def)
+}
+
+// -------------------------------------------------------------------
+
+// CMsgClientToGCGetInFlightItemChargesResponse
+
+// optional .CMsgClientToGCGetInFlightItemChargesResponse.EResponse result = 1 [default = k_eInternalError];
+inline bool CMsgClientToGCGetInFlightItemChargesResponse::_internal_has_result() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgClientToGCGetInFlightItemChargesResponse::has_result() const {
+  return _internal_has_result();
+}
+inline void CMsgClientToGCGetInFlightItemChargesResponse::clear_result() {
+  _impl_.result_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline ::CMsgClientToGCGetInFlightItemChargesResponse_EResponse CMsgClientToGCGetInFlightItemChargesResponse::_internal_result() const {
+  return static_cast< ::CMsgClientToGCGetInFlightItemChargesResponse_EResponse >(_impl_.result_);
+}
+inline ::CMsgClientToGCGetInFlightItemChargesResponse_EResponse CMsgClientToGCGetInFlightItemChargesResponse::result() const {
+  // @@protoc_insertion_point(field_get:CMsgClientToGCGetInFlightItemChargesResponse.result)
+  return _internal_result();
+}
+inline void CMsgClientToGCGetInFlightItemChargesResponse::_internal_set_result(::CMsgClientToGCGetInFlightItemChargesResponse_EResponse value) {
+  assert(::CMsgClientToGCGetInFlightItemChargesResponse_EResponse_IsValid(value));
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.result_ = value;
+}
+inline void CMsgClientToGCGetInFlightItemChargesResponse::set_result(::CMsgClientToGCGetInFlightItemChargesResponse_EResponse value) {
+  _internal_set_result(value);
+  // @@protoc_insertion_point(field_set:CMsgClientToGCGetInFlightItemChargesResponse.result)
+}
+
+// optional uint32 charges_in_flight = 2;
+inline bool CMsgClientToGCGetInFlightItemChargesResponse::_internal_has_charges_in_flight() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMsgClientToGCGetInFlightItemChargesResponse::has_charges_in_flight() const {
+  return _internal_has_charges_in_flight();
+}
+inline void CMsgClientToGCGetInFlightItemChargesResponse::clear_charges_in_flight() {
+  _impl_.charges_in_flight_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline uint32_t CMsgClientToGCGetInFlightItemChargesResponse::_internal_charges_in_flight() const {
+  return _impl_.charges_in_flight_;
+}
+inline uint32_t CMsgClientToGCGetInFlightItemChargesResponse::charges_in_flight() const {
+  // @@protoc_insertion_point(field_get:CMsgClientToGCGetInFlightItemChargesResponse.charges_in_flight)
+  return _internal_charges_in_flight();
+}
+inline void CMsgClientToGCGetInFlightItemChargesResponse::_internal_set_charges_in_flight(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.charges_in_flight_ = value;
+}
+inline void CMsgClientToGCGetInFlightItemChargesResponse::set_charges_in_flight(uint32_t value) {
+  _internal_set_charges_in_flight(value);
+  // @@protoc_insertion_point(field_set:CMsgClientToGCGetInFlightItemChargesResponse.charges_in_flight)
+}
+
+// -------------------------------------------------------------------
+
+// CMsgClientToGCPurchaseChargeCostItems_Item
+
+// optional uint32 item_def_index = 1;
+inline bool CMsgClientToGCPurchaseChargeCostItems_Item::_internal_has_item_def_index() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgClientToGCPurchaseChargeCostItems_Item::has_item_def_index() const {
+  return _internal_has_item_def_index();
+}
+inline void CMsgClientToGCPurchaseChargeCostItems_Item::clear_item_def_index() {
+  _impl_.item_def_index_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline uint32_t CMsgClientToGCPurchaseChargeCostItems_Item::_internal_item_def_index() const {
+  return _impl_.item_def_index_;
+}
+inline uint32_t CMsgClientToGCPurchaseChargeCostItems_Item::item_def_index() const {
+  // @@protoc_insertion_point(field_get:CMsgClientToGCPurchaseChargeCostItems.Item.item_def_index)
+  return _internal_item_def_index();
+}
+inline void CMsgClientToGCPurchaseChargeCostItems_Item::_internal_set_item_def_index(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.item_def_index_ = value;
+}
+inline void CMsgClientToGCPurchaseChargeCostItems_Item::set_item_def_index(uint32_t value) {
+  _internal_set_item_def_index(value);
+  // @@protoc_insertion_point(field_set:CMsgClientToGCPurchaseChargeCostItems.Item.item_def_index)
+}
+
+// optional uint32 quantity = 2;
+inline bool CMsgClientToGCPurchaseChargeCostItems_Item::_internal_has_quantity() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMsgClientToGCPurchaseChargeCostItems_Item::has_quantity() const {
+  return _internal_has_quantity();
+}
+inline void CMsgClientToGCPurchaseChargeCostItems_Item::clear_quantity() {
+  _impl_.quantity_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline uint32_t CMsgClientToGCPurchaseChargeCostItems_Item::_internal_quantity() const {
+  return _impl_.quantity_;
+}
+inline uint32_t CMsgClientToGCPurchaseChargeCostItems_Item::quantity() const {
+  // @@protoc_insertion_point(field_get:CMsgClientToGCPurchaseChargeCostItems.Item.quantity)
+  return _internal_quantity();
+}
+inline void CMsgClientToGCPurchaseChargeCostItems_Item::_internal_set_quantity(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.quantity_ = value;
+}
+inline void CMsgClientToGCPurchaseChargeCostItems_Item::set_quantity(uint32_t value) {
+  _internal_set_quantity(value);
+  // @@protoc_insertion_point(field_set:CMsgClientToGCPurchaseChargeCostItems.Item.quantity)
+}
+
+// optional uint64 source_reference_id = 3;
+inline bool CMsgClientToGCPurchaseChargeCostItems_Item::_internal_has_source_reference_id() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CMsgClientToGCPurchaseChargeCostItems_Item::has_source_reference_id() const {
+  return _internal_has_source_reference_id();
+}
+inline void CMsgClientToGCPurchaseChargeCostItems_Item::clear_source_reference_id() {
+  _impl_.source_reference_id_ = uint64_t{0u};
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline uint64_t CMsgClientToGCPurchaseChargeCostItems_Item::_internal_source_reference_id() const {
+  return _impl_.source_reference_id_;
+}
+inline uint64_t CMsgClientToGCPurchaseChargeCostItems_Item::source_reference_id() const {
+  // @@protoc_insertion_point(field_get:CMsgClientToGCPurchaseChargeCostItems.Item.source_reference_id)
+  return _internal_source_reference_id();
+}
+inline void CMsgClientToGCPurchaseChargeCostItems_Item::_internal_set_source_reference_id(uint64_t value) {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.source_reference_id_ = value;
+}
+inline void CMsgClientToGCPurchaseChargeCostItems_Item::set_source_reference_id(uint64_t value) {
+  _internal_set_source_reference_id(value);
+  // @@protoc_insertion_point(field_set:CMsgClientToGCPurchaseChargeCostItems.Item.source_reference_id)
+}
+
+// optional int32 price_index = 4;
+inline bool CMsgClientToGCPurchaseChargeCostItems_Item::_internal_has_price_index() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool CMsgClientToGCPurchaseChargeCostItems_Item::has_price_index() const {
+  return _internal_has_price_index();
+}
+inline void CMsgClientToGCPurchaseChargeCostItems_Item::clear_price_index() {
+  _impl_.price_index_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000008u;
+}
+inline int32_t CMsgClientToGCPurchaseChargeCostItems_Item::_internal_price_index() const {
+  return _impl_.price_index_;
+}
+inline int32_t CMsgClientToGCPurchaseChargeCostItems_Item::price_index() const {
+  // @@protoc_insertion_point(field_get:CMsgClientToGCPurchaseChargeCostItems.Item.price_index)
+  return _internal_price_index();
+}
+inline void CMsgClientToGCPurchaseChargeCostItems_Item::_internal_set_price_index(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_.price_index_ = value;
+}
+inline void CMsgClientToGCPurchaseChargeCostItems_Item::set_price_index(int32_t value) {
+  _internal_set_price_index(value);
+  // @@protoc_insertion_point(field_set:CMsgClientToGCPurchaseChargeCostItems.Item.price_index)
+}
+
+// -------------------------------------------------------------------
+
+// CMsgClientToGCPurchaseChargeCostItems
+
+// repeated .CMsgClientToGCPurchaseChargeCostItems.Item items = 1;
+inline int CMsgClientToGCPurchaseChargeCostItems::_internal_items_size() const {
+  return _impl_.items_.size();
+}
+inline int CMsgClientToGCPurchaseChargeCostItems::items_size() const {
+  return _internal_items_size();
+}
+inline void CMsgClientToGCPurchaseChargeCostItems::clear_items() {
+  _impl_.items_.Clear();
+}
+inline ::CMsgClientToGCPurchaseChargeCostItems_Item* CMsgClientToGCPurchaseChargeCostItems::mutable_items(int index) {
+  // @@protoc_insertion_point(field_mutable:CMsgClientToGCPurchaseChargeCostItems.items)
+  return _impl_.items_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgClientToGCPurchaseChargeCostItems_Item >*
+CMsgClientToGCPurchaseChargeCostItems::mutable_items() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgClientToGCPurchaseChargeCostItems.items)
+  return &_impl_.items_;
+}
+inline const ::CMsgClientToGCPurchaseChargeCostItems_Item& CMsgClientToGCPurchaseChargeCostItems::_internal_items(int index) const {
+  return _impl_.items_.Get(index);
+}
+inline const ::CMsgClientToGCPurchaseChargeCostItems_Item& CMsgClientToGCPurchaseChargeCostItems::items(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgClientToGCPurchaseChargeCostItems.items)
+  return _internal_items(index);
+}
+inline ::CMsgClientToGCPurchaseChargeCostItems_Item* CMsgClientToGCPurchaseChargeCostItems::_internal_add_items() {
+  return _impl_.items_.Add();
+}
+inline ::CMsgClientToGCPurchaseChargeCostItems_Item* CMsgClientToGCPurchaseChargeCostItems::add_items() {
+  ::CMsgClientToGCPurchaseChargeCostItems_Item* _add = _internal_add_items();
+  // @@protoc_insertion_point(field_add:CMsgClientToGCPurchaseChargeCostItems.items)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgClientToGCPurchaseChargeCostItems_Item >&
+CMsgClientToGCPurchaseChargeCostItems::items() const {
+  // @@protoc_insertion_point(field_list:CMsgClientToGCPurchaseChargeCostItems.items)
+  return _impl_.items_;
+}
+
+// optional uint32 currency = 2;
+inline bool CMsgClientToGCPurchaseChargeCostItems::_internal_has_currency() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgClientToGCPurchaseChargeCostItems::has_currency() const {
+  return _internal_has_currency();
+}
+inline void CMsgClientToGCPurchaseChargeCostItems::clear_currency() {
+  _impl_.currency_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline uint32_t CMsgClientToGCPurchaseChargeCostItems::_internal_currency() const {
+  return _impl_.currency_;
+}
+inline uint32_t CMsgClientToGCPurchaseChargeCostItems::currency() const {
+  // @@protoc_insertion_point(field_get:CMsgClientToGCPurchaseChargeCostItems.currency)
+  return _internal_currency();
+}
+inline void CMsgClientToGCPurchaseChargeCostItems::_internal_set_currency(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.currency_ = value;
+}
+inline void CMsgClientToGCPurchaseChargeCostItems::set_currency(uint32_t value) {
+  _internal_set_currency(value);
+  // @@protoc_insertion_point(field_set:CMsgClientToGCPurchaseChargeCostItems.currency)
+}
+
+// -------------------------------------------------------------------
+
+// CMsgClientToGCPurchaseChargeCostItemsResponse
+
+// optional .CMsgClientToGCPurchaseChargeCostItemsResponse.EResponse result = 1 [default = k_eInternalError];
+inline bool CMsgClientToGCPurchaseChargeCostItemsResponse::_internal_has_result() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgClientToGCPurchaseChargeCostItemsResponse::has_result() const {
+  return _internal_has_result();
+}
+inline void CMsgClientToGCPurchaseChargeCostItemsResponse::clear_result() {
+  _impl_.result_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline ::CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse CMsgClientToGCPurchaseChargeCostItemsResponse::_internal_result() const {
+  return static_cast< ::CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse >(_impl_.result_);
+}
+inline ::CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse CMsgClientToGCPurchaseChargeCostItemsResponse::result() const {
+  // @@protoc_insertion_point(field_get:CMsgClientToGCPurchaseChargeCostItemsResponse.result)
+  return _internal_result();
+}
+inline void CMsgClientToGCPurchaseChargeCostItemsResponse::_internal_set_result(::CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse value) {
+  assert(::CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse_IsValid(value));
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.result_ = value;
+}
+inline void CMsgClientToGCPurchaseChargeCostItemsResponse::set_result(::CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse value) {
+  _internal_set_result(value);
+  // @@protoc_insertion_point(field_set:CMsgClientToGCPurchaseChargeCostItemsResponse.result)
+}
+
+// repeated uint64 item_ids = 2;
+inline int CMsgClientToGCPurchaseChargeCostItemsResponse::_internal_item_ids_size() const {
+  return _impl_.item_ids_.size();
+}
+inline int CMsgClientToGCPurchaseChargeCostItemsResponse::item_ids_size() const {
+  return _internal_item_ids_size();
+}
+inline void CMsgClientToGCPurchaseChargeCostItemsResponse::clear_item_ids() {
+  _impl_.item_ids_.Clear();
+}
+inline uint64_t CMsgClientToGCPurchaseChargeCostItemsResponse::_internal_item_ids(int index) const {
+  return _impl_.item_ids_.Get(index);
+}
+inline uint64_t CMsgClientToGCPurchaseChargeCostItemsResponse::item_ids(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgClientToGCPurchaseChargeCostItemsResponse.item_ids)
+  return _internal_item_ids(index);
+}
+inline void CMsgClientToGCPurchaseChargeCostItemsResponse::set_item_ids(int index, uint64_t value) {
+  _impl_.item_ids_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CMsgClientToGCPurchaseChargeCostItemsResponse.item_ids)
+}
+inline void CMsgClientToGCPurchaseChargeCostItemsResponse::_internal_add_item_ids(uint64_t value) {
+  _impl_.item_ids_.Add(value);
+}
+inline void CMsgClientToGCPurchaseChargeCostItemsResponse::add_item_ids(uint64_t value) {
+  _internal_add_item_ids(value);
+  // @@protoc_insertion_point(field_add:CMsgClientToGCPurchaseChargeCostItemsResponse.item_ids)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+CMsgClientToGCPurchaseChargeCostItemsResponse::_internal_item_ids() const {
+  return _impl_.item_ids_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+CMsgClientToGCPurchaseChargeCostItemsResponse::item_ids() const {
+  // @@protoc_insertion_point(field_list:CMsgClientToGCPurchaseChargeCostItemsResponse.item_ids)
+  return _internal_item_ids();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+CMsgClientToGCPurchaseChargeCostItemsResponse::_internal_mutable_item_ids() {
+  return &_impl_.item_ids_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+CMsgClientToGCPurchaseChargeCostItemsResponse::mutable_item_ids() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgClientToGCPurchaseChargeCostItemsResponse.item_ids)
+  return _internal_mutable_item_ids();
+}
+
+// -------------------------------------------------------------------
+
+// CMsgGCToClientInFlightChargesUpdated_ItemCharges
+
+// optional uint32 item_def = 1;
+inline bool CMsgGCToClientInFlightChargesUpdated_ItemCharges::_internal_has_item_def() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgGCToClientInFlightChargesUpdated_ItemCharges::has_item_def() const {
+  return _internal_has_item_def();
+}
+inline void CMsgGCToClientInFlightChargesUpdated_ItemCharges::clear_item_def() {
+  _impl_.item_def_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline uint32_t CMsgGCToClientInFlightChargesUpdated_ItemCharges::_internal_item_def() const {
+  return _impl_.item_def_;
+}
+inline uint32_t CMsgGCToClientInFlightChargesUpdated_ItemCharges::item_def() const {
+  // @@protoc_insertion_point(field_get:CMsgGCToClientInFlightChargesUpdated.ItemCharges.item_def)
+  return _internal_item_def();
+}
+inline void CMsgGCToClientInFlightChargesUpdated_ItemCharges::_internal_set_item_def(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.item_def_ = value;
+}
+inline void CMsgGCToClientInFlightChargesUpdated_ItemCharges::set_item_def(uint32_t value) {
+  _internal_set_item_def(value);
+  // @@protoc_insertion_point(field_set:CMsgGCToClientInFlightChargesUpdated.ItemCharges.item_def)
+}
+
+// optional uint32 charges_in_flight = 2;
+inline bool CMsgGCToClientInFlightChargesUpdated_ItemCharges::_internal_has_charges_in_flight() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMsgGCToClientInFlightChargesUpdated_ItemCharges::has_charges_in_flight() const {
+  return _internal_has_charges_in_flight();
+}
+inline void CMsgGCToClientInFlightChargesUpdated_ItemCharges::clear_charges_in_flight() {
+  _impl_.charges_in_flight_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline uint32_t CMsgGCToClientInFlightChargesUpdated_ItemCharges::_internal_charges_in_flight() const {
+  return _impl_.charges_in_flight_;
+}
+inline uint32_t CMsgGCToClientInFlightChargesUpdated_ItemCharges::charges_in_flight() const {
+  // @@protoc_insertion_point(field_get:CMsgGCToClientInFlightChargesUpdated.ItemCharges.charges_in_flight)
+  return _internal_charges_in_flight();
+}
+inline void CMsgGCToClientInFlightChargesUpdated_ItemCharges::_internal_set_charges_in_flight(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.charges_in_flight_ = value;
+}
+inline void CMsgGCToClientInFlightChargesUpdated_ItemCharges::set_charges_in_flight(uint32_t value) {
+  _internal_set_charges_in_flight(value);
+  // @@protoc_insertion_point(field_set:CMsgGCToClientInFlightChargesUpdated.ItemCharges.charges_in_flight)
+}
+
+// -------------------------------------------------------------------
+
+// CMsgGCToClientInFlightChargesUpdated
+
+// repeated .CMsgGCToClientInFlightChargesUpdated.ItemCharges in_flight_charges = 2;
+inline int CMsgGCToClientInFlightChargesUpdated::_internal_in_flight_charges_size() const {
+  return _impl_.in_flight_charges_.size();
+}
+inline int CMsgGCToClientInFlightChargesUpdated::in_flight_charges_size() const {
+  return _internal_in_flight_charges_size();
+}
+inline void CMsgGCToClientInFlightChargesUpdated::clear_in_flight_charges() {
+  _impl_.in_flight_charges_.Clear();
+}
+inline ::CMsgGCToClientInFlightChargesUpdated_ItemCharges* CMsgGCToClientInFlightChargesUpdated::mutable_in_flight_charges(int index) {
+  // @@protoc_insertion_point(field_mutable:CMsgGCToClientInFlightChargesUpdated.in_flight_charges)
+  return _impl_.in_flight_charges_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgGCToClientInFlightChargesUpdated_ItemCharges >*
+CMsgGCToClientInFlightChargesUpdated::mutable_in_flight_charges() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgGCToClientInFlightChargesUpdated.in_flight_charges)
+  return &_impl_.in_flight_charges_;
+}
+inline const ::CMsgGCToClientInFlightChargesUpdated_ItemCharges& CMsgGCToClientInFlightChargesUpdated::_internal_in_flight_charges(int index) const {
+  return _impl_.in_flight_charges_.Get(index);
+}
+inline const ::CMsgGCToClientInFlightChargesUpdated_ItemCharges& CMsgGCToClientInFlightChargesUpdated::in_flight_charges(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgGCToClientInFlightChargesUpdated.in_flight_charges)
+  return _internal_in_flight_charges(index);
+}
+inline ::CMsgGCToClientInFlightChargesUpdated_ItemCharges* CMsgGCToClientInFlightChargesUpdated::_internal_add_in_flight_charges() {
+  return _impl_.in_flight_charges_.Add();
+}
+inline ::CMsgGCToClientInFlightChargesUpdated_ItemCharges* CMsgGCToClientInFlightChargesUpdated::add_in_flight_charges() {
+  ::CMsgGCToClientInFlightChargesUpdated_ItemCharges* _add = _internal_add_in_flight_charges();
+  // @@protoc_insertion_point(field_add:CMsgGCToClientInFlightChargesUpdated.in_flight_charges)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgGCToClientInFlightChargesUpdated_ItemCharges >&
+CMsgGCToClientInFlightChargesUpdated::in_flight_charges() const {
+  // @@protoc_insertion_point(field_list:CMsgGCToClientInFlightChargesUpdated.in_flight_charges)
+  return _impl_.in_flight_charges_;
+}
+
+// -------------------------------------------------------------------
+
+// CMsgClientToGCCancelUnfinalizedTransactions
+
+// optional uint32 unused = 1;
+inline bool CMsgClientToGCCancelUnfinalizedTransactions::_internal_has_unused() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgClientToGCCancelUnfinalizedTransactions::has_unused() const {
+  return _internal_has_unused();
+}
+inline void CMsgClientToGCCancelUnfinalizedTransactions::clear_unused() {
+  _impl_.unused_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline uint32_t CMsgClientToGCCancelUnfinalizedTransactions::_internal_unused() const {
+  return _impl_.unused_;
+}
+inline uint32_t CMsgClientToGCCancelUnfinalizedTransactions::unused() const {
+  // @@protoc_insertion_point(field_get:CMsgClientToGCCancelUnfinalizedTransactions.unused)
+  return _internal_unused();
+}
+inline void CMsgClientToGCCancelUnfinalizedTransactions::_internal_set_unused(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.unused_ = value;
+}
+inline void CMsgClientToGCCancelUnfinalizedTransactions::set_unused(uint32_t value) {
+  _internal_set_unused(value);
+  // @@protoc_insertion_point(field_set:CMsgClientToGCCancelUnfinalizedTransactions.unused)
+}
+
+// -------------------------------------------------------------------
+
+// CMsgClientToGCCancelUnfinalizedTransactionsResponse
+
+// optional uint32 result = 1;
+inline bool CMsgClientToGCCancelUnfinalizedTransactionsResponse::_internal_has_result() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgClientToGCCancelUnfinalizedTransactionsResponse::has_result() const {
+  return _internal_has_result();
+}
+inline void CMsgClientToGCCancelUnfinalizedTransactionsResponse::clear_result() {
+  _impl_.result_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline uint32_t CMsgClientToGCCancelUnfinalizedTransactionsResponse::_internal_result() const {
+  return _impl_.result_;
+}
+inline uint32_t CMsgClientToGCCancelUnfinalizedTransactionsResponse::result() const {
+  // @@protoc_insertion_point(field_get:CMsgClientToGCCancelUnfinalizedTransactionsResponse.result)
+  return _internal_result();
+}
+inline void CMsgClientToGCCancelUnfinalizedTransactionsResponse::_internal_set_result(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.result_ = value;
+}
+inline void CMsgClientToGCCancelUnfinalizedTransactionsResponse::set_result(uint32_t value) {
+  _internal_set_result(value);
+  // @@protoc_insertion_point(field_set:CMsgClientToGCCancelUnfinalizedTransactionsResponse.result)
+}
+
+// -------------------------------------------------------------------
+
 // CMsgGCToGCUpdateWelcomeMsg
 
 // optional bool server = 1;
@@ -39435,6 +42087,26 @@ inline void CMsgGCToGCUpdateWelcomeMsg::set_broadcast(bool value) {
 
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 
 // @@protoc_insertion_point(namespace_scope)
 
@@ -39495,6 +42167,16 @@ template <> struct is_proto_enum< ::CMsgClientToGCGetLimitedItemPurchaseQuantity
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::CMsgClientToGCGetLimitedItemPurchaseQuantityResponse_EResponse>() {
   return ::CMsgClientToGCGetLimitedItemPurchaseQuantityResponse_EResponse_descriptor();
+}
+template <> struct is_proto_enum< ::CMsgClientToGCGetInFlightItemChargesResponse_EResponse> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::CMsgClientToGCGetInFlightItemChargesResponse_EResponse>() {
+  return ::CMsgClientToGCGetInFlightItemChargesResponse_EResponse_descriptor();
+}
+template <> struct is_proto_enum< ::CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse>() {
+  return ::CMsgClientToGCPurchaseChargeCostItemsResponse_EResponse_descriptor();
 }
 template <> struct is_proto_enum< ::EGCItemMsg> : ::std::true_type {};
 template <>

@@ -105,11 +105,13 @@ enum P2P_Messages : int {
   p2p_Voice = 257,
   p2p_Ping = 258,
   p2p_VRAvatarPosition = 259,
-  p2p_WatchSynchronization = 260
+  p2p_WatchSynchronization = 260,
+  p2p_FightingGame_GameData = 261,
+  p2p_FightingGame_Connection = 262
 };
 bool P2P_Messages_IsValid(int value);
 constexpr P2P_Messages P2P_Messages_MIN = p2p_TextMessage;
-constexpr P2P_Messages P2P_Messages_MAX = p2p_WatchSynchronization;
+constexpr P2P_Messages P2P_Messages_MAX = p2p_FightingGame_Connection;
 constexpr int P2P_Messages_ARRAYSIZE = P2P_Messages_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* P2P_Messages_descriptor();

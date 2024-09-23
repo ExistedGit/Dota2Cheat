@@ -40,6 +40,7 @@
 #include "network_connection.pb.h"
 #include "dota_gcmessages_common_lobby.pb.h"
 #include "dota_gcmessages_common_match_management.pb.h"
+#include "dota_gcmessages_common_overworld.pb.h"
 #include "gcsdk_gcmessages.pb.h"
 #include "steammessages_steamlearn.steamworkssdk.pb.h"
 // @@protoc_insertion_point(includes)
@@ -149,30 +150,21 @@ extern CMsgGCToServerPingRequestDefaultTypeInternal _CMsgGCToServerPingRequest_d
 class CMsgGCToServerPingResponse;
 struct CMsgGCToServerPingResponseDefaultTypeInternal;
 extern CMsgGCToServerPingResponseDefaultTypeInternal _CMsgGCToServerPingResponse_default_instance_;
-class CMsgGCToServerPredictionResult;
-struct CMsgGCToServerPredictionResultDefaultTypeInternal;
-extern CMsgGCToServerPredictionResultDefaultTypeInternal _CMsgGCToServerPredictionResult_default_instance_;
-class CMsgGCToServerPredictionResult_Prediction;
-struct CMsgGCToServerPredictionResult_PredictionDefaultTypeInternal;
-extern CMsgGCToServerPredictionResult_PredictionDefaultTypeInternal _CMsgGCToServerPredictionResult_Prediction_default_instance_;
 class CMsgGCToServerRealtimeStatsStartStop;
 struct CMsgGCToServerRealtimeStatsStartStopDefaultTypeInternal;
 extern CMsgGCToServerRealtimeStatsStartStopDefaultTypeInternal _CMsgGCToServerRealtimeStatsStartStop_default_instance_;
 class CMsgGCToServerRecordTrainingData;
 struct CMsgGCToServerRecordTrainingDataDefaultTypeInternal;
 extern CMsgGCToServerRecordTrainingDataDefaultTypeInternal _CMsgGCToServerRecordTrainingData_default_instance_;
-class CMsgGCToServerSetSteamLearnInferencing;
-struct CMsgGCToServerSetSteamLearnInferencingDefaultTypeInternal;
-extern CMsgGCToServerSetSteamLearnInferencingDefaultTypeInternal _CMsgGCToServerSetSteamLearnInferencing_default_instance_;
-class CMsgGCToServerSetSteamLearnKeysChanged;
-struct CMsgGCToServerSetSteamLearnKeysChangedDefaultTypeInternal;
-extern CMsgGCToServerSetSteamLearnKeysChangedDefaultTypeInternal _CMsgGCToServerSetSteamLearnKeysChanged_default_instance_;
+class CMsgGCToServerSteamLearnAccessTokensChanged;
+struct CMsgGCToServerSteamLearnAccessTokensChangedDefaultTypeInternal;
+extern CMsgGCToServerSteamLearnAccessTokensChangedDefaultTypeInternal _CMsgGCToServerSteamLearnAccessTokensChanged_default_instance_;
+class CMsgGCToServerSteamLearnUseHTTP;
+struct CMsgGCToServerSteamLearnUseHTTPDefaultTypeInternal;
+extern CMsgGCToServerSteamLearnUseHTTPDefaultTypeInternal _CMsgGCToServerSteamLearnUseHTTP_default_instance_;
 class CMsgGCToServerUpdateSteamBroadcasting;
 struct CMsgGCToServerUpdateSteamBroadcastingDefaultTypeInternal;
 extern CMsgGCToServerUpdateSteamBroadcastingDefaultTypeInternal _CMsgGCToServerUpdateSteamBroadcasting_default_instance_;
-class CMsgGCtoServerTensorflowInstance;
-struct CMsgGCtoServerTensorflowInstanceDefaultTypeInternal;
-extern CMsgGCtoServerTensorflowInstanceDefaultTypeInternal _CMsgGCtoServerTensorflowInstance_default_instance_;
 class CMsgGameMatchSignOut;
 struct CMsgGameMatchSignOutDefaultTypeInternal;
 extern CMsgGameMatchSignOutDefaultTypeInternal _CMsgGameMatchSignOut_default_instance_;
@@ -224,21 +216,9 @@ extern CMsgGameMatchSignoutResponseDefaultTypeInternal _CMsgGameMatchSignoutResp
 class CMsgGameMatchSignoutResponse_PlayerMetadata;
 struct CMsgGameMatchSignoutResponse_PlayerMetadataDefaultTypeInternal;
 extern CMsgGameMatchSignoutResponse_PlayerMetadataDefaultTypeInternal _CMsgGameMatchSignoutResponse_PlayerMetadata_default_instance_;
-class CMsgGameServerGetLoadGame;
-struct CMsgGameServerGetLoadGameDefaultTypeInternal;
-extern CMsgGameServerGetLoadGameDefaultTypeInternal _CMsgGameServerGetLoadGame_default_instance_;
-class CMsgGameServerGetLoadGameResult;
-struct CMsgGameServerGetLoadGameResultDefaultTypeInternal;
-extern CMsgGameServerGetLoadGameResultDefaultTypeInternal _CMsgGameServerGetLoadGameResult_default_instance_;
 class CMsgGameServerInfo;
 struct CMsgGameServerInfoDefaultTypeInternal;
 extern CMsgGameServerInfoDefaultTypeInternal _CMsgGameServerInfo_default_instance_;
-class CMsgGameServerSaveGameResult;
-struct CMsgGameServerSaveGameResultDefaultTypeInternal;
-extern CMsgGameServerSaveGameResultDefaultTypeInternal _CMsgGameServerSaveGameResult_default_instance_;
-class CMsgGameServerUploadSaveGame;
-struct CMsgGameServerUploadSaveGameDefaultTypeInternal;
-extern CMsgGameServerUploadSaveGameDefaultTypeInternal _CMsgGameServerUploadSaveGame_default_instance_;
 class CMsgGameserverCrash;
 struct CMsgGameserverCrashDefaultTypeInternal;
 extern CMsgGameserverCrashDefaultTypeInternal _CMsgGameserverCrash_default_instance_;
@@ -395,6 +375,12 @@ extern CMsgServerToGCMatchStateHistory_PlayerStateDefaultTypeInternal _CMsgServe
 class CMsgServerToGCMatchStateHistory_TeamState;
 struct CMsgServerToGCMatchStateHistory_TeamStateDefaultTypeInternal;
 extern CMsgServerToGCMatchStateHistory_TeamStateDefaultTypeInternal _CMsgServerToGCMatchStateHistory_TeamState_default_instance_;
+class CMsgServerToGCNewBloomGift;
+struct CMsgServerToGCNewBloomGiftDefaultTypeInternal;
+extern CMsgServerToGCNewBloomGiftDefaultTypeInternal _CMsgServerToGCNewBloomGift_default_instance_;
+class CMsgServerToGCNewBloomGiftResponse;
+struct CMsgServerToGCNewBloomGiftResponseDefaultTypeInternal;
+extern CMsgServerToGCNewBloomGiftResponseDefaultTypeInternal _CMsgServerToGCNewBloomGiftResponse_default_instance_;
 class CMsgServerToGCPlayerChallengeHistory;
 struct CMsgServerToGCPlayerChallengeHistoryDefaultTypeInternal;
 extern CMsgServerToGCPlayerChallengeHistoryDefaultTypeInternal _CMsgServerToGCPlayerChallengeHistory_default_instance_;
@@ -428,6 +414,9 @@ extern CMsgServerToGCRerollPlayerChallengeDefaultTypeInternal _CMsgServerToGCRer
 class CMsgServerToGCVictoryPredictions;
 struct CMsgServerToGCVictoryPredictionsDefaultTypeInternal;
 extern CMsgServerToGCVictoryPredictionsDefaultTypeInternal _CMsgServerToGCVictoryPredictions_default_instance_;
+class CMsgServerToGCVictoryPredictions_PredictionItem;
+struct CMsgServerToGCVictoryPredictions_PredictionItemDefaultTypeInternal;
+extern CMsgServerToGCVictoryPredictions_PredictionItemDefaultTypeInternal _CMsgServerToGCVictoryPredictions_PredictionItem_default_instance_;
 class CMsgServerToGCVictoryPredictions_Record;
 struct CMsgServerToGCVictoryPredictions_RecordDefaultTypeInternal;
 extern CMsgServerToGCVictoryPredictions_RecordDefaultTypeInternal _CMsgServerToGCVictoryPredictions_Record_default_instance_;
@@ -503,6 +492,12 @@ extern CMsgSignOutMapStats_PlayerDefaultTypeInternal _CMsgSignOutMapStats_Player
 class CMsgSignOutMuertaMinigame;
 struct CMsgSignOutMuertaMinigameDefaultTypeInternal;
 extern CMsgSignOutMuertaMinigameDefaultTypeInternal _CMsgSignOutMuertaMinigame_default_instance_;
+class CMsgSignOutOverworld;
+struct CMsgSignOutOverworldDefaultTypeInternal;
+extern CMsgSignOutOverworldDefaultTypeInternal _CMsgSignOutOverworld_default_instance_;
+class CMsgSignOutOverworld_Player;
+struct CMsgSignOutOverworld_PlayerDefaultTypeInternal;
+extern CMsgSignOutOverworld_PlayerDefaultTypeInternal _CMsgSignOutOverworld_Player_default_instance_;
 class CMsgSignOutPlayerStats;
 struct CMsgSignOutPlayerStatsDefaultTypeInternal;
 extern CMsgSignOutPlayerStatsDefaultTypeInternal _CMsgSignOutPlayerStats_default_instance_;
@@ -533,33 +528,51 @@ extern CMsgSpendWager_PlayerDefaultTypeInternal _CMsgSpendWager_Player_default_i
 class CMsgSteamLearnAbilitySkill;
 struct CMsgSteamLearnAbilitySkillDefaultTypeInternal;
 extern CMsgSteamLearnAbilitySkillDefaultTypeInternal _CMsgSteamLearnAbilitySkill_default_instance_;
+class CMsgSteamLearnEarlyGameItemPurchases;
+struct CMsgSteamLearnEarlyGameItemPurchasesDefaultTypeInternal;
+extern CMsgSteamLearnEarlyGameItemPurchasesDefaultTypeInternal _CMsgSteamLearnEarlyGameItemPurchases_default_instance_;
+class CMsgSteamLearnEarlyGameItemPurchasesV2;
+struct CMsgSteamLearnEarlyGameItemPurchasesV2DefaultTypeInternal;
+extern CMsgSteamLearnEarlyGameItemPurchasesV2DefaultTypeInternal _CMsgSteamLearnEarlyGameItemPurchasesV2_default_instance_;
 class CMsgSteamLearnItemPurchase;
 struct CMsgSteamLearnItemPurchaseDefaultTypeInternal;
 extern CMsgSteamLearnItemPurchaseDefaultTypeInternal _CMsgSteamLearnItemPurchase_default_instance_;
-class CMsgSteamLearnMatchHero;
-struct CMsgSteamLearnMatchHeroDefaultTypeInternal;
-extern CMsgSteamLearnMatchHeroDefaultTypeInternal _CMsgSteamLearnMatchHero_default_instance_;
-class CMsgSteamLearnMatchHeroes;
-struct CMsgSteamLearnMatchHeroesDefaultTypeInternal;
-extern CMsgSteamLearnMatchHeroesDefaultTypeInternal _CMsgSteamLearnMatchHeroes_default_instance_;
+class CMsgSteamLearnLateGameItemPurchases;
+struct CMsgSteamLearnLateGameItemPurchasesDefaultTypeInternal;
+extern CMsgSteamLearnLateGameItemPurchasesDefaultTypeInternal _CMsgSteamLearnLateGameItemPurchases_default_instance_;
+class CMsgSteamLearnLateGameItemPurchasesV2;
+struct CMsgSteamLearnLateGameItemPurchasesV2DefaultTypeInternal;
+extern CMsgSteamLearnLateGameItemPurchasesV2DefaultTypeInternal _CMsgSteamLearnLateGameItemPurchasesV2_default_instance_;
+class CMsgSteamLearnMatchHeroV3;
+struct CMsgSteamLearnMatchHeroV3DefaultTypeInternal;
+extern CMsgSteamLearnMatchHeroV3DefaultTypeInternal _CMsgSteamLearnMatchHeroV3_default_instance_;
+class CMsgSteamLearnMatchHeroesV3;
+struct CMsgSteamLearnMatchHeroesV3DefaultTypeInternal;
+extern CMsgSteamLearnMatchHeroesV3DefaultTypeInternal _CMsgSteamLearnMatchHeroesV3_default_instance_;
 class CMsgSteamLearnMatchInfo;
 struct CMsgSteamLearnMatchInfoDefaultTypeInternal;
 extern CMsgSteamLearnMatchInfoDefaultTypeInternal _CMsgSteamLearnMatchInfo_default_instance_;
 class CMsgSteamLearnMatchInfoPlayer;
 struct CMsgSteamLearnMatchInfoPlayerDefaultTypeInternal;
 extern CMsgSteamLearnMatchInfoPlayerDefaultTypeInternal _CMsgSteamLearnMatchInfoPlayer_default_instance_;
-class CMsgSteamLearnMatchState;
-struct CMsgSteamLearnMatchStateDefaultTypeInternal;
-extern CMsgSteamLearnMatchStateDefaultTypeInternal _CMsgSteamLearnMatchState_default_instance_;
-class CMsgSteamLearnMatchState_PlayerState;
-struct CMsgSteamLearnMatchState_PlayerStateDefaultTypeInternal;
-extern CMsgSteamLearnMatchState_PlayerStateDefaultTypeInternal _CMsgSteamLearnMatchState_PlayerState_default_instance_;
-class CMsgSteamLearnMatchState_TeamState;
-struct CMsgSteamLearnMatchState_TeamStateDefaultTypeInternal;
-extern CMsgSteamLearnMatchState_TeamStateDefaultTypeInternal _CMsgSteamLearnMatchState_TeamState_default_instance_;
+class CMsgSteamLearnMatchStateV5;
+struct CMsgSteamLearnMatchStateV5DefaultTypeInternal;
+extern CMsgSteamLearnMatchStateV5DefaultTypeInternal _CMsgSteamLearnMatchStateV5_default_instance_;
+class CMsgSteamLearnMatchStateV5_PlayerState;
+struct CMsgSteamLearnMatchStateV5_PlayerStateDefaultTypeInternal;
+extern CMsgSteamLearnMatchStateV5_PlayerStateDefaultTypeInternal _CMsgSteamLearnMatchStateV5_PlayerState_default_instance_;
+class CMsgSteamLearnMatchStateV5_TeamState;
+struct CMsgSteamLearnMatchStateV5_TeamStateDefaultTypeInternal;
+extern CMsgSteamLearnMatchStateV5_TeamStateDefaultTypeInternal _CMsgSteamLearnMatchStateV5_TeamState_default_instance_;
 class CMsgSteamLearnNeutralItemPurchase;
 struct CMsgSteamLearnNeutralItemPurchaseDefaultTypeInternal;
 extern CMsgSteamLearnNeutralItemPurchaseDefaultTypeInternal _CMsgSteamLearnNeutralItemPurchase_default_instance_;
+class CMsgSteamLearnPlayerTimedStats;
+struct CMsgSteamLearnPlayerTimedStatsDefaultTypeInternal;
+extern CMsgSteamLearnPlayerTimedStatsDefaultTypeInternal _CMsgSteamLearnPlayerTimedStats_default_instance_;
+class CMsgSteamLearnPlayerTimedStats_StatBucket;
+struct CMsgSteamLearnPlayerTimedStats_StatBucketDefaultTypeInternal;
+extern CMsgSteamLearnPlayerTimedStats_StatBucketDefaultTypeInternal _CMsgSteamLearnPlayerTimedStats_StatBucket_default_instance_;
 class CMsgSteamLearnPreGameItemPurchases;
 struct CMsgSteamLearnPreGameItemPurchasesDefaultTypeInternal;
 extern CMsgSteamLearnPreGameItemPurchasesDefaultTypeInternal _CMsgSteamLearnPreGameItemPurchases_default_instance_;
@@ -572,9 +585,6 @@ extern CMsgSteamLearnWardPlacement_LocationDefaultTypeInternal _CMsgSteamLearnWa
 class CMsgTeamFanfare;
 struct CMsgTeamFanfareDefaultTypeInternal;
 extern CMsgTeamFanfareDefaultTypeInternal _CMsgTeamFanfare_default_instance_;
-class CMsgTimedRewardContainer;
-struct CMsgTimedRewardContainerDefaultTypeInternal;
-extern CMsgTimedRewardContainerDefaultTypeInternal _CMsgTimedRewardContainer_default_instance_;
 class CMsgTournamentItemEvent;
 struct CMsgTournamentItemEventDefaultTypeInternal;
 extern CMsgTournamentItemEventDefaultTypeInternal _CMsgTournamentItemEvent_default_instance_;
@@ -622,14 +632,11 @@ template<> ::CMsgGCToServerLobbyHeroBanRates* Arena::CreateMaybeMessage<::CMsgGC
 template<> ::CMsgGCToServerLobbyHeroBanRates_HeroBanEntry* Arena::CreateMaybeMessage<::CMsgGCToServerLobbyHeroBanRates_HeroBanEntry>(Arena*);
 template<> ::CMsgGCToServerPingRequest* Arena::CreateMaybeMessage<::CMsgGCToServerPingRequest>(Arena*);
 template<> ::CMsgGCToServerPingResponse* Arena::CreateMaybeMessage<::CMsgGCToServerPingResponse>(Arena*);
-template<> ::CMsgGCToServerPredictionResult* Arena::CreateMaybeMessage<::CMsgGCToServerPredictionResult>(Arena*);
-template<> ::CMsgGCToServerPredictionResult_Prediction* Arena::CreateMaybeMessage<::CMsgGCToServerPredictionResult_Prediction>(Arena*);
 template<> ::CMsgGCToServerRealtimeStatsStartStop* Arena::CreateMaybeMessage<::CMsgGCToServerRealtimeStatsStartStop>(Arena*);
 template<> ::CMsgGCToServerRecordTrainingData* Arena::CreateMaybeMessage<::CMsgGCToServerRecordTrainingData>(Arena*);
-template<> ::CMsgGCToServerSetSteamLearnInferencing* Arena::CreateMaybeMessage<::CMsgGCToServerSetSteamLearnInferencing>(Arena*);
-template<> ::CMsgGCToServerSetSteamLearnKeysChanged* Arena::CreateMaybeMessage<::CMsgGCToServerSetSteamLearnKeysChanged>(Arena*);
+template<> ::CMsgGCToServerSteamLearnAccessTokensChanged* Arena::CreateMaybeMessage<::CMsgGCToServerSteamLearnAccessTokensChanged>(Arena*);
+template<> ::CMsgGCToServerSteamLearnUseHTTP* Arena::CreateMaybeMessage<::CMsgGCToServerSteamLearnUseHTTP>(Arena*);
 template<> ::CMsgGCToServerUpdateSteamBroadcasting* Arena::CreateMaybeMessage<::CMsgGCToServerUpdateSteamBroadcasting>(Arena*);
-template<> ::CMsgGCtoServerTensorflowInstance* Arena::CreateMaybeMessage<::CMsgGCtoServerTensorflowInstance>(Arena*);
 template<> ::CMsgGameMatchSignOut* Arena::CreateMaybeMessage<::CMsgGameMatchSignOut>(Arena*);
 template<> ::CMsgGameMatchSignOutBanData* Arena::CreateMaybeMessage<::CMsgGameMatchSignOutBanData>(Arena*);
 template<> ::CMsgGameMatchSignOutEventGameData* Arena::CreateMaybeMessage<::CMsgGameMatchSignOutEventGameData>(Arena*);
@@ -647,11 +654,7 @@ template<> ::CMsgGameMatchSignOut_EventGameLeaderboardEntry* Arena::CreateMaybeM
 template<> ::CMsgGameMatchSignOut_WardPlacement* Arena::CreateMaybeMessage<::CMsgGameMatchSignOut_WardPlacement>(Arena*);
 template<> ::CMsgGameMatchSignoutResponse* Arena::CreateMaybeMessage<::CMsgGameMatchSignoutResponse>(Arena*);
 template<> ::CMsgGameMatchSignoutResponse_PlayerMetadata* Arena::CreateMaybeMessage<::CMsgGameMatchSignoutResponse_PlayerMetadata>(Arena*);
-template<> ::CMsgGameServerGetLoadGame* Arena::CreateMaybeMessage<::CMsgGameServerGetLoadGame>(Arena*);
-template<> ::CMsgGameServerGetLoadGameResult* Arena::CreateMaybeMessage<::CMsgGameServerGetLoadGameResult>(Arena*);
 template<> ::CMsgGameServerInfo* Arena::CreateMaybeMessage<::CMsgGameServerInfo>(Arena*);
-template<> ::CMsgGameServerSaveGameResult* Arena::CreateMaybeMessage<::CMsgGameServerSaveGameResult>(Arena*);
-template<> ::CMsgGameServerUploadSaveGame* Arena::CreateMaybeMessage<::CMsgGameServerUploadSaveGame>(Arena*);
 template<> ::CMsgGameserverCrash* Arena::CreateMaybeMessage<::CMsgGameserverCrash>(Arena*);
 template<> ::CMsgItemPurchasePregameSteamMLEntry* Arena::CreateMaybeMessage<::CMsgItemPurchasePregameSteamMLEntry>(Arena*);
 template<> ::CMsgItemPurchaseSequenceSteamMLEntry* Arena::CreateMaybeMessage<::CMsgItemPurchaseSequenceSteamMLEntry>(Arena*);
@@ -704,6 +707,8 @@ template<> ::CMsgServerToGCMatchStateHistory* Arena::CreateMaybeMessage<::CMsgSe
 template<> ::CMsgServerToGCMatchStateHistory_MatchState* Arena::CreateMaybeMessage<::CMsgServerToGCMatchStateHistory_MatchState>(Arena*);
 template<> ::CMsgServerToGCMatchStateHistory_PlayerState* Arena::CreateMaybeMessage<::CMsgServerToGCMatchStateHistory_PlayerState>(Arena*);
 template<> ::CMsgServerToGCMatchStateHistory_TeamState* Arena::CreateMaybeMessage<::CMsgServerToGCMatchStateHistory_TeamState>(Arena*);
+template<> ::CMsgServerToGCNewBloomGift* Arena::CreateMaybeMessage<::CMsgServerToGCNewBloomGift>(Arena*);
+template<> ::CMsgServerToGCNewBloomGiftResponse* Arena::CreateMaybeMessage<::CMsgServerToGCNewBloomGiftResponse>(Arena*);
 template<> ::CMsgServerToGCPlayerChallengeHistory* Arena::CreateMaybeMessage<::CMsgServerToGCPlayerChallengeHistory>(Arena*);
 template<> ::CMsgServerToGCPlayerChallengeHistory_PlayerChallenge* Arena::CreateMaybeMessage<::CMsgServerToGCPlayerChallengeHistory_PlayerChallenge>(Arena*);
 template<> ::CMsgServerToGCRealtimeStats* Arena::CreateMaybeMessage<::CMsgServerToGCRealtimeStats>(Arena*);
@@ -715,6 +720,7 @@ template<> ::CMsgServerToGCRequestStatus* Arena::CreateMaybeMessage<::CMsgServer
 template<> ::CMsgServerToGCRequestStatus_Response* Arena::CreateMaybeMessage<::CMsgServerToGCRequestStatus_Response>(Arena*);
 template<> ::CMsgServerToGCRerollPlayerChallenge* Arena::CreateMaybeMessage<::CMsgServerToGCRerollPlayerChallenge>(Arena*);
 template<> ::CMsgServerToGCVictoryPredictions* Arena::CreateMaybeMessage<::CMsgServerToGCVictoryPredictions>(Arena*);
+template<> ::CMsgServerToGCVictoryPredictions_PredictionItem* Arena::CreateMaybeMessage<::CMsgServerToGCVictoryPredictions_PredictionItem>(Arena*);
 template<> ::CMsgServerToGCVictoryPredictions_Record* Arena::CreateMaybeMessage<::CMsgServerToGCVictoryPredictions_Record>(Arena*);
 template<> ::CMsgSignOutAssassinMiniGameInfo* Arena::CreateMaybeMessage<::CMsgSignOutAssassinMiniGameInfo>(Arena*);
 template<> ::CMsgSignOutBotInfo* Arena::CreateMaybeMessage<::CMsgSignOutBotInfo>(Arena*);
@@ -740,6 +746,8 @@ template<> ::CMsgSignOutMVPStats_Player_KillEaterEvent* Arena::CreateMaybeMessag
 template<> ::CMsgSignOutMapStats* Arena::CreateMaybeMessage<::CMsgSignOutMapStats>(Arena*);
 template<> ::CMsgSignOutMapStats_Player* Arena::CreateMaybeMessage<::CMsgSignOutMapStats_Player>(Arena*);
 template<> ::CMsgSignOutMuertaMinigame* Arena::CreateMaybeMessage<::CMsgSignOutMuertaMinigame>(Arena*);
+template<> ::CMsgSignOutOverworld* Arena::CreateMaybeMessage<::CMsgSignOutOverworld>(Arena*);
+template<> ::CMsgSignOutOverworld_Player* Arena::CreateMaybeMessage<::CMsgSignOutOverworld_Player>(Arena*);
 template<> ::CMsgSignOutPlayerStats* Arena::CreateMaybeMessage<::CMsgSignOutPlayerStats>(Arena*);
 template<> ::CMsgSignOutTextMuteInfo* Arena::CreateMaybeMessage<::CMsgSignOutTextMuteInfo>(Arena*);
 template<> ::CMsgSignOutTextMuteInfo_TextMuteMessage* Arena::CreateMaybeMessage<::CMsgSignOutTextMuteInfo_TextMuteMessage>(Arena*);
@@ -750,20 +758,25 @@ template<> ::CMsgSignOutXPCoins_Player* Arena::CreateMaybeMessage<::CMsgSignOutX
 template<> ::CMsgSpendWager* Arena::CreateMaybeMessage<::CMsgSpendWager>(Arena*);
 template<> ::CMsgSpendWager_Player* Arena::CreateMaybeMessage<::CMsgSpendWager_Player>(Arena*);
 template<> ::CMsgSteamLearnAbilitySkill* Arena::CreateMaybeMessage<::CMsgSteamLearnAbilitySkill>(Arena*);
+template<> ::CMsgSteamLearnEarlyGameItemPurchases* Arena::CreateMaybeMessage<::CMsgSteamLearnEarlyGameItemPurchases>(Arena*);
+template<> ::CMsgSteamLearnEarlyGameItemPurchasesV2* Arena::CreateMaybeMessage<::CMsgSteamLearnEarlyGameItemPurchasesV2>(Arena*);
 template<> ::CMsgSteamLearnItemPurchase* Arena::CreateMaybeMessage<::CMsgSteamLearnItemPurchase>(Arena*);
-template<> ::CMsgSteamLearnMatchHero* Arena::CreateMaybeMessage<::CMsgSteamLearnMatchHero>(Arena*);
-template<> ::CMsgSteamLearnMatchHeroes* Arena::CreateMaybeMessage<::CMsgSteamLearnMatchHeroes>(Arena*);
+template<> ::CMsgSteamLearnLateGameItemPurchases* Arena::CreateMaybeMessage<::CMsgSteamLearnLateGameItemPurchases>(Arena*);
+template<> ::CMsgSteamLearnLateGameItemPurchasesV2* Arena::CreateMaybeMessage<::CMsgSteamLearnLateGameItemPurchasesV2>(Arena*);
+template<> ::CMsgSteamLearnMatchHeroV3* Arena::CreateMaybeMessage<::CMsgSteamLearnMatchHeroV3>(Arena*);
+template<> ::CMsgSteamLearnMatchHeroesV3* Arena::CreateMaybeMessage<::CMsgSteamLearnMatchHeroesV3>(Arena*);
 template<> ::CMsgSteamLearnMatchInfo* Arena::CreateMaybeMessage<::CMsgSteamLearnMatchInfo>(Arena*);
 template<> ::CMsgSteamLearnMatchInfoPlayer* Arena::CreateMaybeMessage<::CMsgSteamLearnMatchInfoPlayer>(Arena*);
-template<> ::CMsgSteamLearnMatchState* Arena::CreateMaybeMessage<::CMsgSteamLearnMatchState>(Arena*);
-template<> ::CMsgSteamLearnMatchState_PlayerState* Arena::CreateMaybeMessage<::CMsgSteamLearnMatchState_PlayerState>(Arena*);
-template<> ::CMsgSteamLearnMatchState_TeamState* Arena::CreateMaybeMessage<::CMsgSteamLearnMatchState_TeamState>(Arena*);
+template<> ::CMsgSteamLearnMatchStateV5* Arena::CreateMaybeMessage<::CMsgSteamLearnMatchStateV5>(Arena*);
+template<> ::CMsgSteamLearnMatchStateV5_PlayerState* Arena::CreateMaybeMessage<::CMsgSteamLearnMatchStateV5_PlayerState>(Arena*);
+template<> ::CMsgSteamLearnMatchStateV5_TeamState* Arena::CreateMaybeMessage<::CMsgSteamLearnMatchStateV5_TeamState>(Arena*);
 template<> ::CMsgSteamLearnNeutralItemPurchase* Arena::CreateMaybeMessage<::CMsgSteamLearnNeutralItemPurchase>(Arena*);
+template<> ::CMsgSteamLearnPlayerTimedStats* Arena::CreateMaybeMessage<::CMsgSteamLearnPlayerTimedStats>(Arena*);
+template<> ::CMsgSteamLearnPlayerTimedStats_StatBucket* Arena::CreateMaybeMessage<::CMsgSteamLearnPlayerTimedStats_StatBucket>(Arena*);
 template<> ::CMsgSteamLearnPreGameItemPurchases* Arena::CreateMaybeMessage<::CMsgSteamLearnPreGameItemPurchases>(Arena*);
 template<> ::CMsgSteamLearnWardPlacement* Arena::CreateMaybeMessage<::CMsgSteamLearnWardPlacement>(Arena*);
 template<> ::CMsgSteamLearnWardPlacement_Location* Arena::CreateMaybeMessage<::CMsgSteamLearnWardPlacement_Location>(Arena*);
 template<> ::CMsgTeamFanfare* Arena::CreateMaybeMessage<::CMsgTeamFanfare>(Arena*);
-template<> ::CMsgTimedRewardContainer* Arena::CreateMaybeMessage<::CMsgTimedRewardContainer>(Arena*);
 template<> ::CMsgTournamentItemEvent* Arena::CreateMaybeMessage<::CMsgTournamentItemEvent>(Arena*);
 template<> ::CMsgTournamentItemEventResponse* Arena::CreateMaybeMessage<::CMsgTournamentItemEventResponse>(Arena*);
 template<> ::CSerializedCombatLog* Arena::CreateMaybeMessage<::CSerializedCombatLog>(Arena*);
@@ -808,7 +821,6 @@ enum CMsgGameServerInfo_ServerType : int {
   CMsgGameServerInfo_ServerType_UNSPECIFIED = 0,
   CMsgGameServerInfo_ServerType_GAME = 1,
   CMsgGameServerInfo_ServerType_PROXY = 2,
-  CMsgGameServerInfo_ServerType_TENSORFLOW = 3,
   CMsgGameServerInfo_ServerType_DOTA_ONLY = 4,
   CMsgGameServerInfo_ServerType_CUSTOM_GAME_ONLY = 5,
   CMsgGameServerInfo_ServerType_EVENT_GAME_ONLY = 6
@@ -905,54 +917,6 @@ inline bool CMsgDOTALiveScoreboardUpdate_Team_Player_DOTAUltimateState_Parse(
     ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, CMsgDOTALiveScoreboardUpdate_Team_Player_DOTAUltimateState* value) {
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<CMsgDOTALiveScoreboardUpdate_Team_Player_DOTAUltimateState>(
     CMsgDOTALiveScoreboardUpdate_Team_Player_DOTAUltimateState_descriptor(), name, value);
-}
-enum CMsgGameServerSaveGameResult_Result : int {
-  CMsgGameServerSaveGameResult_Result_SaveSuccessful = 0,
-  CMsgGameServerSaveGameResult_Result_SessionNotFound = 1,
-  CMsgGameServerSaveGameResult_Result_DatabaseError = 2,
-  CMsgGameServerSaveGameResult_Result_TooBig = 3
-};
-bool CMsgGameServerSaveGameResult_Result_IsValid(int value);
-constexpr CMsgGameServerSaveGameResult_Result CMsgGameServerSaveGameResult_Result_Result_MIN = CMsgGameServerSaveGameResult_Result_SaveSuccessful;
-constexpr CMsgGameServerSaveGameResult_Result CMsgGameServerSaveGameResult_Result_Result_MAX = CMsgGameServerSaveGameResult_Result_TooBig;
-constexpr int CMsgGameServerSaveGameResult_Result_Result_ARRAYSIZE = CMsgGameServerSaveGameResult_Result_Result_MAX + 1;
-
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgGameServerSaveGameResult_Result_descriptor();
-template<typename T>
-inline const std::string& CMsgGameServerSaveGameResult_Result_Name(T enum_t_value) {
-  static_assert(::std::is_same<T, CMsgGameServerSaveGameResult_Result>::value ||
-    ::std::is_integral<T>::value,
-    "Incorrect type passed to function CMsgGameServerSaveGameResult_Result_Name.");
-  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    CMsgGameServerSaveGameResult_Result_descriptor(), enum_t_value);
-}
-inline bool CMsgGameServerSaveGameResult_Result_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, CMsgGameServerSaveGameResult_Result* value) {
-  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<CMsgGameServerSaveGameResult_Result>(
-    CMsgGameServerSaveGameResult_Result_descriptor(), name, value);
-}
-enum CMsgGCToServerPredictionResult_Prediction_EResult : int {
-  CMsgGCToServerPredictionResult_Prediction_EResult_k_eResult_ItemGranted = 1,
-  CMsgGCToServerPredictionResult_Prediction_EResult_k_eResult_Destroyed = 2
-};
-bool CMsgGCToServerPredictionResult_Prediction_EResult_IsValid(int value);
-constexpr CMsgGCToServerPredictionResult_Prediction_EResult CMsgGCToServerPredictionResult_Prediction_EResult_EResult_MIN = CMsgGCToServerPredictionResult_Prediction_EResult_k_eResult_ItemGranted;
-constexpr CMsgGCToServerPredictionResult_Prediction_EResult CMsgGCToServerPredictionResult_Prediction_EResult_EResult_MAX = CMsgGCToServerPredictionResult_Prediction_EResult_k_eResult_Destroyed;
-constexpr int CMsgGCToServerPredictionResult_Prediction_EResult_EResult_ARRAYSIZE = CMsgGCToServerPredictionResult_Prediction_EResult_EResult_MAX + 1;
-
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgGCToServerPredictionResult_Prediction_EResult_descriptor();
-template<typename T>
-inline const std::string& CMsgGCToServerPredictionResult_Prediction_EResult_Name(T enum_t_value) {
-  static_assert(::std::is_same<T, CMsgGCToServerPredictionResult_Prediction_EResult>::value ||
-    ::std::is_integral<T>::value,
-    "Incorrect type passed to function CMsgGCToServerPredictionResult_Prediction_EResult_Name.");
-  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    CMsgGCToServerPredictionResult_Prediction_EResult_descriptor(), enum_t_value);
-}
-inline bool CMsgGCToServerPredictionResult_Prediction_EResult_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, CMsgGCToServerPredictionResult_Prediction_EResult* value) {
-  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<CMsgGCToServerPredictionResult_Prediction_EResult>(
-    CMsgGCToServerPredictionResult_Prediction_EResult_descriptor(), name, value);
 }
 enum EPoorNetworkConditionsType : int {
   k_EPoorNetworkConditions_None = 0,
@@ -1857,17 +1821,17 @@ class CMsgConnectedPlayers_Player final :
   void _internal_set_steam_id(uint64_t value);
   public:
 
-  // optional uint32 hero_id = 2;
+  // optional int32 hero_id = 2;
   bool has_hero_id() const;
   private:
   bool _internal_has_hero_id() const;
   public:
   void clear_hero_id();
-  uint32_t hero_id() const;
-  void set_hero_id(uint32_t value);
+  int32_t hero_id() const;
+  void set_hero_id(int32_t value);
   private:
-  uint32_t _internal_hero_id() const;
-  void _internal_set_hero_id(uint32_t value);
+  int32_t _internal_hero_id() const;
+  void _internal_set_hero_id(int32_t value);
   public:
 
   // optional .ENetworkDisconnectionReason disconnect_reason = 4 [default = NETWORK_DISCONNECT_INVALID];
@@ -1895,7 +1859,7 @@ class CMsgConnectedPlayers_Player final :
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::CMsgLeaverState* leaver_state_;
     uint64_t steam_id_;
-    uint32_t hero_id_;
+    int32_t hero_id_;
     int disconnect_reason_;
   };
   union { Impl_ _impl_; };
@@ -2608,8 +2572,6 @@ class CMsgGameServerInfo final :
     CMsgGameServerInfo_ServerType_GAME;
   static constexpr ServerType PROXY =
     CMsgGameServerInfo_ServerType_PROXY;
-  static constexpr ServerType TENSORFLOW =
-    CMsgGameServerInfo_ServerType_TENSORFLOW;
   static constexpr ServerType DOTA_ONLY =
     CMsgGameServerInfo_ServerType_DOTA_ONLY;
   static constexpr ServerType CUSTOM_GAME_ONLY =
@@ -2704,7 +2666,6 @@ class CMsgGameServerInfo final :
     kAssignedServerTvPortFieldNumber = 22,
     kAllowCustomGamesFieldNumber = 23,
     kBuildVersionFieldNumber = 24,
-    kTfServerCountFieldNumber = 25,
     kSrcdsInstanceFieldNumber = 26,
   };
   // optional string server_key = 5;
@@ -3055,19 +3016,6 @@ class CMsgGameServerInfo final :
   void _internal_set_build_version(uint32_t value);
   public:
 
-  // optional uint32 tf_server_count = 25;
-  bool has_tf_server_count() const;
-  private:
-  bool _internal_has_tf_server_count() const;
-  public:
-  void clear_tf_server_count();
-  uint32_t tf_server_count() const;
-  void set_tf_server_count(uint32_t value);
-  private:
-  uint32_t _internal_tf_server_count() const;
-  void _internal_set_tf_server_count(uint32_t value);
-  public:
-
   // optional uint32 srcds_instance = 26;
   bool has_srcds_instance() const;
   private:
@@ -3117,7 +3065,6 @@ class CMsgGameServerInfo final :
     uint32_t assigned_server_tv_port_;
     int allow_custom_games_;
     uint32_t build_version_;
-    uint32_t tf_server_count_;
     uint32_t srcds_instance_;
   };
   union { Impl_ _impl_; };
@@ -4520,17 +4467,17 @@ class CMsgSignOutGameplayStats_CPlayer final :
   void _internal_set_player_slot(uint32_t value);
   public:
 
-  // optional uint32 hero_id = 3;
+  // optional int32 hero_id = 3;
   bool has_hero_id() const;
   private:
   bool _internal_has_hero_id() const;
   public:
   void clear_hero_id();
-  uint32_t hero_id() const;
-  void set_hero_id(uint32_t value);
+  int32_t hero_id() const;
+  void set_hero_id(int32_t value);
   private:
-  uint32_t _internal_hero_id() const;
-  void _internal_set_hero_id(uint32_t value);
+  int32_t _internal_hero_id() const;
+  void _internal_set_hero_id(int32_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:CMsgSignOutGameplayStats.CPlayer)
@@ -4546,7 +4493,7 @@ class CMsgSignOutGameplayStats_CPlayer final :
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMatchPlayerTimedStats > timed_player_stats_;
     uint64_t steam_id_;
     uint32_t player_slot_;
-    uint32_t hero_id_;
+    int32_t hero_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fgcmessages_5fserver_2eproto;
@@ -5531,6 +5478,8 @@ class CMsgGameMatchSignOut_CTeam_CPlayer final :
     kTeamSlotFieldNumber = 76,
     kTimePurchasedShardFieldNumber = 77,
     kTimePurchasedAghsFieldNumber = 78,
+    kPredictedRankFieldNumber = 81,
+    kSelectedFacetFieldNumber = 82,
     kCavernCrawlPreferredMapVariantFieldNumber = 56,
     kLaneOutcomesFieldNumber = 67,
   };
@@ -5761,17 +5710,17 @@ class CMsgGameMatchSignOut_CTeam_CPlayer final :
   void _internal_set_steam_id(uint64_t value);
   public:
 
-  // optional uint32 hero_id = 3;
+  // optional int32 hero_id = 3;
   bool has_hero_id() const;
   private:
   bool _internal_has_hero_id() const;
   public:
   void clear_hero_id();
-  uint32_t hero_id() const;
-  void set_hero_id(uint32_t value);
+  int32_t hero_id() const;
+  void set_hero_id(int32_t value);
   private:
-  uint32_t _internal_hero_id() const;
-  void _internal_set_hero_id(uint32_t value);
+  int32_t _internal_hero_id() const;
+  void _internal_set_hero_id(int32_t value);
   public:
 
   // optional uint32 gold = 5;
@@ -6489,6 +6438,32 @@ class CMsgGameMatchSignOut_CTeam_CPlayer final :
   void _internal_set_time_purchased_aghs(uint32_t value);
   public:
 
+  // optional uint32 predicted_rank = 81;
+  bool has_predicted_rank() const;
+  private:
+  bool _internal_has_predicted_rank() const;
+  public:
+  void clear_predicted_rank();
+  uint32_t predicted_rank() const;
+  void set_predicted_rank(uint32_t value);
+  private:
+  uint32_t _internal_predicted_rank() const;
+  void _internal_set_predicted_rank(uint32_t value);
+  public:
+
+  // optional uint32 selected_facet = 82;
+  bool has_selected_facet() const;
+  private:
+  bool _internal_has_selected_facet() const;
+  public:
+  void clear_selected_facet();
+  uint32_t selected_facet() const;
+  void set_selected_facet(uint32_t value);
+  private:
+  uint32_t _internal_selected_facet() const;
+  void _internal_set_selected_facet(uint32_t value);
+  public:
+
   // optional uint32 cavern_crawl_preferred_map_variant = 56 [default = 255];
   bool has_cavern_crawl_preferred_map_variant() const;
   private:
@@ -6537,7 +6512,7 @@ class CMsgGameMatchSignOut_CTeam_CPlayer final :
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgTrackedStat > player_tracked_stats_;
     ::CMsgGameMatchSignOut_CTeam_CPlayer_CCustomGameData* custom_game_data_;
     uint64_t steam_id_;
-    uint32_t hero_id_;
+    int32_t hero_id_;
     uint32_t gold_;
     uint32_t kills_;
     uint32_t deaths_;
@@ -6593,6 +6568,8 @@ class CMsgGameMatchSignOut_CTeam_CPlayer final :
     uint32_t team_slot_;
     uint32_t time_purchased_shard_;
     uint32_t time_purchased_aghs_;
+    uint32_t predicted_rank_;
+    uint32_t selected_facet_;
     uint32_t cavern_crawl_preferred_map_variant_;
     uint32_t lane_outcomes_;
   };
@@ -8005,7 +7982,6 @@ class CMsgGameMatchSignOut final :
     kTeamsFieldNumber = 6,
     kTowerStatusFieldNumber = 8,
     kBarracksStatusFieldNumber = 9,
-    kPicksBansFieldNumber = 15,
     kPlayerStrangeCountAdjustmentsFieldNumber = 17,
     kAdditionalMsgsFieldNumber = 20,
     kSocialFeedEventsFieldNumber = 36,
@@ -8096,24 +8072,6 @@ class CMsgGameMatchSignOut final :
       barracks_status() const;
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
       mutable_barracks_status();
-
-  // repeated .CMatchHeroSelectEvent picks_bans = 15;
-  int picks_bans_size() const;
-  private:
-  int _internal_picks_bans_size() const;
-  public:
-  void clear_picks_bans();
-  ::CMatchHeroSelectEvent* mutable_picks_bans(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMatchHeroSelectEvent >*
-      mutable_picks_bans();
-  private:
-  const ::CMatchHeroSelectEvent& _internal_picks_bans(int index) const;
-  ::CMatchHeroSelectEvent* _internal_add_picks_bans();
-  public:
-  const ::CMatchHeroSelectEvent& picks_bans(int index) const;
-  ::CMatchHeroSelectEvent* add_picks_bans();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMatchHeroSelectEvent >&
-      picks_bans() const;
 
   // repeated .CMsgEconPlayerStrangeCountAdjustment player_strange_count_adjustments = 17;
   int player_strange_count_adjustments_size() const;
@@ -8561,7 +8519,6 @@ class CMsgGameMatchSignOut final :
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgGameMatchSignOut_CTeam > teams_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > tower_status_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > barracks_status_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMatchHeroSelectEvent > picks_bans_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgEconPlayerStrangeCountAdjustment > player_strange_count_adjustments_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgGameMatchSignOut_CAdditionalSignoutMsg > additional_msgs_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgGameMatchSignOut_CSocialFeedMatchEvent > social_feed_events_;
@@ -9555,17 +9512,17 @@ class CMsgSignOutPlayerStats final :
   void _internal_set_rank(uint32_t value);
   public:
 
-  // optional uint32 hero_id = 4;
+  // optional int32 hero_id = 4;
   bool has_hero_id() const;
   private:
   bool _internal_has_hero_id() const;
   public:
   void clear_hero_id();
-  uint32_t hero_id() const;
-  void set_hero_id(uint32_t value);
+  int32_t hero_id() const;
+  void set_hero_id(int32_t value);
   private:
-  uint32_t _internal_hero_id() const;
-  void _internal_set_hero_id(uint32_t value);
+  int32_t _internal_hero_id() const;
+  void _internal_set_hero_id(int32_t value);
   public:
 
   // optional uint32 rampages = 5;
@@ -9919,7 +9876,7 @@ class CMsgSignOutPlayerStats final :
     uint64_t match_id_;
     int32_t account_id_;
     uint32_t rank_;
-    uint32_t hero_id_;
+    int32_t hero_id_;
     uint32_t rampages_;
     uint32_t triple_kills_;
     uint32_t first_blood_claimed_;
@@ -10868,17 +10825,17 @@ class CMsgGameMatchSignoutResponse_PlayerMetadata final :
     kBestWinStreakFieldNumber = 12,
     kGamesPlayedFieldNumber = 13,
   };
-  // optional uint32 hero_id = 1;
+  // optional int32 hero_id = 1;
   bool has_hero_id() const;
   private:
   bool _internal_has_hero_id() const;
   public:
   void clear_hero_id();
-  uint32_t hero_id() const;
-  void set_hero_id(uint32_t value);
+  int32_t hero_id() const;
+  void set_hero_id(int32_t value);
   private:
-  uint32_t _internal_hero_id() const;
-  void _internal_set_hero_id(uint32_t value);
+  int32_t _internal_hero_id() const;
+  void _internal_set_hero_id(int32_t value);
   public:
 
   // optional uint32 avg_kills_x16 = 2;
@@ -11047,7 +11004,7 @@ class CMsgGameMatchSignoutResponse_PlayerMetadata final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    uint32_t hero_id_;
+    int32_t hero_id_;
     uint32_t avg_kills_x16_;
     uint32_t avg_deaths_x16_;
     uint32_t avg_assists_x16_;
@@ -11196,11 +11153,10 @@ class CMsgGameMatchSignoutResponse final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kTimedRewardDetailsFieldNumber = 3,
-    kXpRewardDetailsFieldNumber = 4,
     kPlayersMetadataFieldNumber = 9,
     kMatchDetailsFieldNumber = 8,
     kMvpDataFieldNumber = 10,
+    kOverworldRewardsFieldNumber = 14,
     kMatchIdFieldNumber = 1,
     kReplaySaltFieldNumber = 2,
     kLeagueidFieldNumber = 5,
@@ -11209,42 +11165,6 @@ class CMsgGameMatchSignoutResponse final :
     kOwPrivateKeyFieldNumber = 11,
     kOwReplayIdFieldNumber = 13,
   };
-  // repeated .CLobbyTimedRewardDetails timed_reward_details = 3;
-  int timed_reward_details_size() const;
-  private:
-  int _internal_timed_reward_details_size() const;
-  public:
-  void clear_timed_reward_details();
-  ::CLobbyTimedRewardDetails* mutable_timed_reward_details(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CLobbyTimedRewardDetails >*
-      mutable_timed_reward_details();
-  private:
-  const ::CLobbyTimedRewardDetails& _internal_timed_reward_details(int index) const;
-  ::CLobbyTimedRewardDetails* _internal_add_timed_reward_details();
-  public:
-  const ::CLobbyTimedRewardDetails& timed_reward_details(int index) const;
-  ::CLobbyTimedRewardDetails* add_timed_reward_details();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CLobbyTimedRewardDetails >&
-      timed_reward_details() const;
-
-  // repeated .CSODOTALobbyMember xp_reward_details = 4;
-  int xp_reward_details_size() const;
-  private:
-  int _internal_xp_reward_details_size() const;
-  public:
-  void clear_xp_reward_details();
-  ::CSODOTALobbyMember* mutable_xp_reward_details(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CSODOTALobbyMember >*
-      mutable_xp_reward_details();
-  private:
-  const ::CSODOTALobbyMember& _internal_xp_reward_details(int index) const;
-  ::CSODOTALobbyMember* _internal_add_xp_reward_details();
-  public:
-  const ::CSODOTALobbyMember& xp_reward_details(int index) const;
-  ::CSODOTALobbyMember* add_xp_reward_details();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CSODOTALobbyMember >&
-      xp_reward_details() const;
-
   // repeated .CMsgGameMatchSignoutResponse.PlayerMetadata players_metadata = 9;
   int players_metadata_size() const;
   private:
@@ -11298,6 +11218,24 @@ class CMsgGameMatchSignoutResponse final :
   void unsafe_arena_set_allocated_mvp_data(
       ::CMvpData* mvp_data);
   ::CMvpData* unsafe_arena_release_mvp_data();
+
+  // optional .CMsgOverworldMatchRewards overworld_rewards = 14;
+  bool has_overworld_rewards() const;
+  private:
+  bool _internal_has_overworld_rewards() const;
+  public:
+  void clear_overworld_rewards();
+  const ::CMsgOverworldMatchRewards& overworld_rewards() const;
+  PROTOBUF_NODISCARD ::CMsgOverworldMatchRewards* release_overworld_rewards();
+  ::CMsgOverworldMatchRewards* mutable_overworld_rewards();
+  void set_allocated_overworld_rewards(::CMsgOverworldMatchRewards* overworld_rewards);
+  private:
+  const ::CMsgOverworldMatchRewards& _internal_overworld_rewards() const;
+  ::CMsgOverworldMatchRewards* _internal_mutable_overworld_rewards();
+  public:
+  void unsafe_arena_set_allocated_overworld_rewards(
+      ::CMsgOverworldMatchRewards* overworld_rewards);
+  ::CMsgOverworldMatchRewards* unsafe_arena_release_overworld_rewards();
 
   // optional uint64 match_id = 1;
   bool has_match_id() const;
@@ -11400,11 +11338,10 @@ class CMsgGameMatchSignoutResponse final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CLobbyTimedRewardDetails > timed_reward_details_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CSODOTALobbyMember > xp_reward_details_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgGameMatchSignoutResponse_PlayerMetadata > players_metadata_;
     ::CMsgDOTAMatch* match_details_;
     ::CMvpData* mvp_data_;
+    ::CMsgOverworldMatchRewards* overworld_rewards_;
     uint64_t match_id_;
     uint32_t replay_salt_;
     uint32_t leagueid_;
@@ -11412,170 +11349,6 @@ class CMsgGameMatchSignoutResponse final :
     uint32_t ow_salt_;
     uint64_t ow_private_key_;
     uint64_t ow_replay_id_;
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_dota_5fgcmessages_5fserver_2eproto;
-};
-// -------------------------------------------------------------------
-
-class CMsgTimedRewardContainer final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgTimedRewardContainer) */ {
- public:
-  inline CMsgTimedRewardContainer() : CMsgTimedRewardContainer(nullptr) {}
-  ~CMsgTimedRewardContainer() override;
-  explicit PROTOBUF_CONSTEXPR CMsgTimedRewardContainer(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  CMsgTimedRewardContainer(const CMsgTimedRewardContainer& from);
-  CMsgTimedRewardContainer(CMsgTimedRewardContainer&& from) noexcept
-    : CMsgTimedRewardContainer() {
-    *this = ::std::move(from);
-  }
-
-  inline CMsgTimedRewardContainer& operator=(const CMsgTimedRewardContainer& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CMsgTimedRewardContainer& operator=(CMsgTimedRewardContainer&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const CMsgTimedRewardContainer& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const CMsgTimedRewardContainer* internal_default_instance() {
-    return reinterpret_cast<const CMsgTimedRewardContainer*>(
-               &_CMsgTimedRewardContainer_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    37;
-
-  friend void swap(CMsgTimedRewardContainer& a, CMsgTimedRewardContainer& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CMsgTimedRewardContainer* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CMsgTimedRewardContainer* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  CMsgTimedRewardContainer* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<CMsgTimedRewardContainer>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const CMsgTimedRewardContainer& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const CMsgTimedRewardContainer& from) {
-    CMsgTimedRewardContainer::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CMsgTimedRewardContainer* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CMsgTimedRewardContainer";
-  }
-  protected:
-  explicit CMsgTimedRewardContainer(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kTimedRewardDetailsFieldNumber = 1,
-  };
-  // repeated .CLobbyTimedRewardDetails timed_reward_details = 1;
-  int timed_reward_details_size() const;
-  private:
-  int _internal_timed_reward_details_size() const;
-  public:
-  void clear_timed_reward_details();
-  ::CLobbyTimedRewardDetails* mutable_timed_reward_details(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CLobbyTimedRewardDetails >*
-      mutable_timed_reward_details();
-  private:
-  const ::CLobbyTimedRewardDetails& _internal_timed_reward_details(int index) const;
-  ::CLobbyTimedRewardDetails* _internal_add_timed_reward_details();
-  public:
-  const ::CLobbyTimedRewardDetails& timed_reward_details(int index) const;
-  ::CLobbyTimedRewardDetails* add_timed_reward_details();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CLobbyTimedRewardDetails >&
-      timed_reward_details() const;
-
-  // @@protoc_insertion_point(class_scope:CMsgTimedRewardContainer)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CLobbyTimedRewardDetails > timed_reward_details_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fgcmessages_5fserver_2eproto;
@@ -11637,7 +11410,7 @@ class CMsgGameMatchSignOutPermissionRequest final :
                &_CMsgGameMatchSignOutPermissionRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    38;
+    37;
 
   friend void swap(CMsgGameMatchSignOutPermissionRequest& a, CMsgGameMatchSignOutPermissionRequest& b) {
     a.Swap(&b);
@@ -11842,7 +11615,7 @@ class CMsgGameMatchSignOutPermissionResponse final :
                &_CMsgGameMatchSignOutPermissionResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    39;
+    38;
 
   friend void swap(CMsgGameMatchSignOutPermissionResponse& a, CMsgGameMatchSignOutPermissionResponse& b) {
     a.Swap(&b);
@@ -12032,7 +11805,7 @@ class CMsgGameMatchSignOutEventGameData final :
                &_CMsgGameMatchSignOutEventGameData_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    40;
+    39;
 
   friend void swap(CMsgGameMatchSignOutEventGameData& a, CMsgGameMatchSignOutEventGameData& b) {
     a.Swap(&b);
@@ -12267,7 +12040,7 @@ class CMsgGameMatchSignOutPerfData final :
                &_CMsgGameMatchSignOutPerfData_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    41;
+    40;
 
   friend void swap(CMsgGameMatchSignOutPerfData& a, CMsgGameMatchSignOutPerfData& b) {
     a.Swap(&b);
@@ -12922,7 +12695,7 @@ class CMsgGameMatchSignOutBanData final :
                &_CMsgGameMatchSignOutBanData_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    42;
+    41;
 
   friend void swap(CMsgGameMatchSignOutBanData& a, CMsgGameMatchSignOutBanData& b) {
     a.Swap(&b);
@@ -12998,48 +12771,48 @@ class CMsgGameMatchSignOutBanData final :
     kHeroBansFieldNumber = 1,
     kHeroBanVotesFieldNumber = 2,
   };
-  // repeated uint32 hero_bans = 1;
+  // repeated int32 hero_bans = 1;
   int hero_bans_size() const;
   private:
   int _internal_hero_bans_size() const;
   public:
   void clear_hero_bans();
   private:
-  uint32_t _internal_hero_bans(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+  int32_t _internal_hero_bans(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
       _internal_hero_bans() const;
-  void _internal_add_hero_bans(uint32_t value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+  void _internal_add_hero_bans(int32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
       _internal_mutable_hero_bans();
   public:
-  uint32_t hero_bans(int index) const;
-  void set_hero_bans(int index, uint32_t value);
-  void add_hero_bans(uint32_t value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+  int32_t hero_bans(int index) const;
+  void set_hero_bans(int index, int32_t value);
+  void add_hero_bans(int32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
       hero_bans() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
       mutable_hero_bans();
 
-  // repeated uint32 hero_ban_votes = 2;
+  // repeated int32 hero_ban_votes = 2;
   int hero_ban_votes_size() const;
   private:
   int _internal_hero_ban_votes_size() const;
   public:
   void clear_hero_ban_votes();
   private:
-  uint32_t _internal_hero_ban_votes(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+  int32_t _internal_hero_ban_votes(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
       _internal_hero_ban_votes() const;
-  void _internal_add_hero_ban_votes(uint32_t value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+  void _internal_add_hero_ban_votes(int32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
       _internal_mutable_hero_ban_votes();
   public:
-  uint32_t hero_ban_votes(int index) const;
-  void set_hero_ban_votes(int index, uint32_t value);
-  void add_hero_ban_votes(uint32_t value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+  int32_t hero_ban_votes(int index) const;
+  void set_hero_ban_votes(int index, int32_t value);
+  void add_hero_ban_votes(int32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
       hero_ban_votes() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
       mutable_hero_ban_votes();
 
   // @@protoc_insertion_point(class_scope:CMsgGameMatchSignOutBanData)
@@ -13050,8 +12823,8 @@ class CMsgGameMatchSignOutBanData final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > hero_bans_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > hero_ban_votes_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > hero_bans_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > hero_ban_votes_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -13114,7 +12887,7 @@ class CMsgDOTALiveScoreboardUpdate_Team_Player_HeroAbility final :
                &_CMsgDOTALiveScoreboardUpdate_Team_Player_HeroAbility_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    43;
+    42;
 
   friend void swap(CMsgDOTALiveScoreboardUpdate_Team_Player_HeroAbility& a, CMsgDOTALiveScoreboardUpdate_Team_Player_HeroAbility& b) {
     a.Swap(&b);
@@ -13289,7 +13062,7 @@ class CMsgDOTALiveScoreboardUpdate_Team_Player final :
                &_CMsgDOTALiveScoreboardUpdate_Team_Player_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    44;
+    43;
 
   friend void swap(CMsgDOTALiveScoreboardUpdate_Team_Player& a, CMsgDOTALiveScoreboardUpdate_Team_Player& b) {
     a.Swap(&b);
@@ -13493,17 +13266,17 @@ class CMsgDOTALiveScoreboardUpdate_Team_Player final :
   void _internal_set_player_slot(uint32_t value);
   public:
 
-  // optional uint32 hero_id = 4;
+  // optional int32 hero_id = 4;
   bool has_hero_id() const;
   private:
   bool _internal_has_hero_id() const;
   public:
   void clear_hero_id();
-  uint32_t hero_id() const;
-  void set_hero_id(uint32_t value);
+  int32_t hero_id() const;
+  void set_hero_id(int32_t value);
   private:
-  uint32_t _internal_hero_id() const;
-  void _internal_set_hero_id(uint32_t value);
+  int32_t _internal_hero_id() const;
+  void _internal_set_hero_id(int32_t value);
   public:
 
   // optional uint32 kills = 5;
@@ -13806,7 +13579,7 @@ class CMsgDOTALiveScoreboardUpdate_Team_Player final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr player_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr hero_name_;
     uint32_t player_slot_;
-    uint32_t hero_id_;
+    int32_t hero_id_;
     uint32_t kills_;
     uint32_t deaths_;
     uint32_t assists_;
@@ -13890,7 +13663,7 @@ class CMsgDOTALiveScoreboardUpdate_Team final :
                &_CMsgDOTALiveScoreboardUpdate_Team_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    45;
+    44;
 
   friend void swap(CMsgDOTALiveScoreboardUpdate_Team& a, CMsgDOTALiveScoreboardUpdate_Team& b) {
     a.Swap(&b);
@@ -13990,48 +13763,48 @@ class CMsgDOTALiveScoreboardUpdate_Team final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgDOTALiveScoreboardUpdate_Team_Player >&
       players() const;
 
-  // repeated uint32 hero_picks = 5;
+  // repeated int32 hero_picks = 5;
   int hero_picks_size() const;
   private:
   int _internal_hero_picks_size() const;
   public:
   void clear_hero_picks();
   private:
-  uint32_t _internal_hero_picks(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+  int32_t _internal_hero_picks(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
       _internal_hero_picks() const;
-  void _internal_add_hero_picks(uint32_t value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+  void _internal_add_hero_picks(int32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
       _internal_mutable_hero_picks();
   public:
-  uint32_t hero_picks(int index) const;
-  void set_hero_picks(int index, uint32_t value);
-  void add_hero_picks(uint32_t value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+  int32_t hero_picks(int index) const;
+  void set_hero_picks(int index, int32_t value);
+  void add_hero_picks(int32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
       hero_picks() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
       mutable_hero_picks();
 
-  // repeated uint32 hero_bans = 6;
+  // repeated int32 hero_bans = 6;
   int hero_bans_size() const;
   private:
   int _internal_hero_bans_size() const;
   public:
   void clear_hero_bans();
   private:
-  uint32_t _internal_hero_bans(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+  int32_t _internal_hero_bans(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
       _internal_hero_bans() const;
-  void _internal_add_hero_bans(uint32_t value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+  void _internal_add_hero_bans(int32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
       _internal_mutable_hero_bans();
   public:
-  uint32_t hero_bans(int index) const;
-  void set_hero_bans(int index, uint32_t value);
-  void add_hero_bans(uint32_t value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+  int32_t hero_bans(int index) const;
+  void set_hero_bans(int index, int32_t value);
+  void add_hero_bans(int32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
       hero_bans() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
       mutable_hero_bans();
 
   // optional uint32 score = 2;
@@ -14084,8 +13857,8 @@ class CMsgDOTALiveScoreboardUpdate_Team final :
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgDOTALiveScoreboardUpdate_Team_Player > players_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > hero_picks_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > hero_bans_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > hero_picks_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > hero_bans_;
     uint32_t score_;
     uint32_t tower_state_;
     uint32_t barracks_state_;
@@ -14150,7 +13923,7 @@ class CMsgDOTALiveScoreboardUpdate final :
                &_CMsgDOTALiveScoreboardUpdate_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    46;
+    45;
 
   friend void swap(CMsgDOTALiveScoreboardUpdate& a, CMsgDOTALiveScoreboardUpdate& b) {
     a.Swap(&b);
@@ -14442,7 +14215,7 @@ class CMsgServerToGCRequestBatchPlayerResources final :
                &_CMsgServerToGCRequestBatchPlayerResources_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    47;
+    46;
 
   friend void swap(CMsgServerToGCRequestBatchPlayerResources& a, CMsgServerToGCRequestBatchPlayerResources& b) {
     a.Swap(&b);
@@ -14652,7 +14425,7 @@ class CMsgServerToGCRequestBatchPlayerResourcesResponse_Result final :
                &_CMsgServerToGCRequestBatchPlayerResourcesResponse_Result_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    48;
+    47;
 
   friend void swap(CMsgServerToGCRequestBatchPlayerResourcesResponse_Result& a, CMsgServerToGCRequestBatchPlayerResourcesResponse_Result& b) {
     a.Swap(&b);
@@ -14733,6 +14506,9 @@ class CMsgServerToGCRequestBatchPlayerResourcesResponse_Result final :
     kIsGuidePlayerFieldNumber = 8,
     kCommLevelFieldNumber = 9,
     kBehaviorLevelFieldNumber = 10,
+    kWinsFieldNumber = 11,
+    kLossesFieldNumber = 12,
+    kSmurfCategoryFieldNumber = 13,
   };
   // optional uint32 account_id = 1;
   bool has_account_id() const;
@@ -14838,6 +14614,45 @@ class CMsgServerToGCRequestBatchPlayerResourcesResponse_Result final :
   void _internal_set_behavior_level(int32_t value);
   public:
 
+  // optional int32 wins = 11;
+  bool has_wins() const;
+  private:
+  bool _internal_has_wins() const;
+  public:
+  void clear_wins();
+  int32_t wins() const;
+  void set_wins(int32_t value);
+  private:
+  int32_t _internal_wins() const;
+  void _internal_set_wins(int32_t value);
+  public:
+
+  // optional int32 losses = 12;
+  bool has_losses() const;
+  private:
+  bool _internal_has_losses() const;
+  public:
+  void clear_losses();
+  int32_t losses() const;
+  void set_losses(int32_t value);
+  private:
+  int32_t _internal_losses() const;
+  void _internal_set_losses(int32_t value);
+  public:
+
+  // optional int32 smurf_category = 13;
+  bool has_smurf_category() const;
+  private:
+  bool _internal_has_smurf_category() const;
+  public:
+  void clear_smurf_category();
+  int32_t smurf_category() const;
+  void set_smurf_category(int32_t value);
+  private:
+  int32_t _internal_smurf_category() const;
+  void _internal_set_smurf_category(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CMsgServerToGCRequestBatchPlayerResourcesResponse.Result)
  private:
   class _Internal;
@@ -14856,6 +14671,9 @@ class CMsgServerToGCRequestBatchPlayerResourcesResponse_Result final :
     bool is_guide_player_;
     int32_t comm_level_;
     int32_t behavior_level_;
+    int32_t wins_;
+    int32_t losses_;
+    int32_t smurf_category_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fgcmessages_5fserver_2eproto;
@@ -14917,7 +14735,7 @@ class CMsgServerToGCRequestBatchPlayerResourcesResponse final :
                &_CMsgServerToGCRequestBatchPlayerResourcesResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    49;
+    48;
 
   friend void swap(CMsgServerToGCRequestBatchPlayerResourcesResponse& a, CMsgServerToGCRequestBatchPlayerResourcesResponse& b) {
     a.Swap(&b);
@@ -15083,7 +14901,7 @@ class CMsgDOTAPlayerFailedToConnect final :
                &_CMsgDOTAPlayerFailedToConnect_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    50;
+    49;
 
   friend void swap(CMsgDOTAPlayerFailedToConnect& a, CMsgDOTAPlayerFailedToConnect& b) {
     a.Swap(&b);
@@ -15275,7 +15093,7 @@ class CMsgGCToRelayConnect final :
                &_CMsgGCToRelayConnect_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    51;
+    50;
 
   friend void swap(CMsgGCToRelayConnect& a, CMsgGCToRelayConnect& b) {
     a.Swap(&b);
@@ -15525,7 +15343,7 @@ class CMsgGCGCToLANServerRelayConnect final :
                &_CMsgGCGCToLANServerRelayConnect_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    52;
+    51;
 
   friend void swap(CMsgGCGCToLANServerRelayConnect& a, CMsgGCGCToLANServerRelayConnect& b) {
     a.Swap(&b);
@@ -15685,7 +15503,7 @@ class CMsgGCBanStatusRequest final :
                &_CMsgGCBanStatusRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    53;
+    52;
 
   friend void swap(CMsgGCBanStatusRequest& a, CMsgGCBanStatusRequest& b) {
     a.Swap(&b);
@@ -15845,7 +15663,7 @@ class CMsgGCBanStatusResponse final :
                &_CMsgGCBanStatusResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    54;
+    53;
 
   friend void swap(CMsgGCBanStatusResponse& a, CMsgGCBanStatusResponse& b) {
     a.Swap(&b);
@@ -16050,7 +15868,7 @@ class CMsgTournamentItemEvent final :
                &_CMsgTournamentItemEvent_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    55;
+    54;
 
   friend void swap(CMsgTournamentItemEvent& a, CMsgTournamentItemEvent& b) {
     a.Swap(&b);
@@ -16385,7 +16203,7 @@ class CMsgTournamentItemEventResponse final :
                &_CMsgTournamentItemEventResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    56;
+    55;
 
   friend void swap(CMsgTournamentItemEventResponse& a, CMsgTournamentItemEventResponse& b) {
     a.Swap(&b);
@@ -16560,7 +16378,7 @@ class CMsgTeamFanfare final :
                &_CMsgTeamFanfare_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    57;
+    56;
 
   friend void swap(CMsgTeamFanfare& a, CMsgTeamFanfare& b) {
     a.Swap(&b);
@@ -16720,7 +16538,7 @@ class CMsgResponseTeamFanfare final :
                &_CMsgResponseTeamFanfare_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    58;
+    57;
 
   friend void swap(CMsgResponseTeamFanfare& a, CMsgResponseTeamFanfare& b) {
     a.Swap(&b);
@@ -16840,744 +16658,6 @@ class CMsgResponseTeamFanfare final :
 };
 // -------------------------------------------------------------------
 
-class CMsgGameServerUploadSaveGame final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgGameServerUploadSaveGame) */ {
- public:
-  inline CMsgGameServerUploadSaveGame() : CMsgGameServerUploadSaveGame(nullptr) {}
-  ~CMsgGameServerUploadSaveGame() override;
-  explicit PROTOBUF_CONSTEXPR CMsgGameServerUploadSaveGame(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  CMsgGameServerUploadSaveGame(const CMsgGameServerUploadSaveGame& from);
-  CMsgGameServerUploadSaveGame(CMsgGameServerUploadSaveGame&& from) noexcept
-    : CMsgGameServerUploadSaveGame() {
-    *this = ::std::move(from);
-  }
-
-  inline CMsgGameServerUploadSaveGame& operator=(const CMsgGameServerUploadSaveGame& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CMsgGameServerUploadSaveGame& operator=(CMsgGameServerUploadSaveGame&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const CMsgGameServerUploadSaveGame& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const CMsgGameServerUploadSaveGame* internal_default_instance() {
-    return reinterpret_cast<const CMsgGameServerUploadSaveGame*>(
-               &_CMsgGameServerUploadSaveGame_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    59;
-
-  friend void swap(CMsgGameServerUploadSaveGame& a, CMsgGameServerUploadSaveGame& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CMsgGameServerUploadSaveGame* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CMsgGameServerUploadSaveGame* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  CMsgGameServerUploadSaveGame* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<CMsgGameServerUploadSaveGame>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const CMsgGameServerUploadSaveGame& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const CMsgGameServerUploadSaveGame& from) {
-    CMsgGameServerUploadSaveGame::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CMsgGameServerUploadSaveGame* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CMsgGameServerUploadSaveGame";
-  }
-  protected:
-  explicit CMsgGameServerUploadSaveGame(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kPlayerSteamIdsFieldNumber = 4,
-    kSaveGameDataFieldNumber = 2,
-    kLobbyIdFieldNumber = 3,
-    kGameTimeFieldNumber = 1,
-  };
-  // repeated uint64 player_steam_ids = 4;
-  int player_steam_ids_size() const;
-  private:
-  int _internal_player_steam_ids_size() const;
-  public:
-  void clear_player_steam_ids();
-  private:
-  uint64_t _internal_player_steam_ids(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
-      _internal_player_steam_ids() const;
-  void _internal_add_player_steam_ids(uint64_t value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
-      _internal_mutable_player_steam_ids();
-  public:
-  uint64_t player_steam_ids(int index) const;
-  void set_player_steam_ids(int index, uint64_t value);
-  void add_player_steam_ids(uint64_t value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
-      player_steam_ids() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
-      mutable_player_steam_ids();
-
-  // optional bytes save_game_data = 2;
-  bool has_save_game_data() const;
-  private:
-  bool _internal_has_save_game_data() const;
-  public:
-  void clear_save_game_data();
-  const std::string& save_game_data() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_save_game_data(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_save_game_data();
-  PROTOBUF_NODISCARD std::string* release_save_game_data();
-  void set_allocated_save_game_data(std::string* save_game_data);
-  private:
-  const std::string& _internal_save_game_data() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_save_game_data(const std::string& value);
-  std::string* _internal_mutable_save_game_data();
-  public:
-
-  // optional uint64 lobby_id = 3;
-  bool has_lobby_id() const;
-  private:
-  bool _internal_has_lobby_id() const;
-  public:
-  void clear_lobby_id();
-  uint64_t lobby_id() const;
-  void set_lobby_id(uint64_t value);
-  private:
-  uint64_t _internal_lobby_id() const;
-  void _internal_set_lobby_id(uint64_t value);
-  public:
-
-  // optional uint32 game_time = 1;
-  bool has_game_time() const;
-  private:
-  bool _internal_has_game_time() const;
-  public:
-  void clear_game_time();
-  uint32_t game_time() const;
-  void set_game_time(uint32_t value);
-  private:
-  uint32_t _internal_game_time() const;
-  void _internal_set_game_time(uint32_t value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:CMsgGameServerUploadSaveGame)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t > player_steam_ids_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr save_game_data_;
-    uint64_t lobby_id_;
-    uint32_t game_time_;
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_dota_5fgcmessages_5fserver_2eproto;
-};
-// -------------------------------------------------------------------
-
-class CMsgGameServerSaveGameResult final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgGameServerSaveGameResult) */ {
- public:
-  inline CMsgGameServerSaveGameResult() : CMsgGameServerSaveGameResult(nullptr) {}
-  ~CMsgGameServerSaveGameResult() override;
-  explicit PROTOBUF_CONSTEXPR CMsgGameServerSaveGameResult(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  CMsgGameServerSaveGameResult(const CMsgGameServerSaveGameResult& from);
-  CMsgGameServerSaveGameResult(CMsgGameServerSaveGameResult&& from) noexcept
-    : CMsgGameServerSaveGameResult() {
-    *this = ::std::move(from);
-  }
-
-  inline CMsgGameServerSaveGameResult& operator=(const CMsgGameServerSaveGameResult& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CMsgGameServerSaveGameResult& operator=(CMsgGameServerSaveGameResult&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const CMsgGameServerSaveGameResult& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const CMsgGameServerSaveGameResult* internal_default_instance() {
-    return reinterpret_cast<const CMsgGameServerSaveGameResult*>(
-               &_CMsgGameServerSaveGameResult_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    60;
-
-  friend void swap(CMsgGameServerSaveGameResult& a, CMsgGameServerSaveGameResult& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CMsgGameServerSaveGameResult* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CMsgGameServerSaveGameResult* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  CMsgGameServerSaveGameResult* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<CMsgGameServerSaveGameResult>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const CMsgGameServerSaveGameResult& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const CMsgGameServerSaveGameResult& from) {
-    CMsgGameServerSaveGameResult::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CMsgGameServerSaveGameResult* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CMsgGameServerSaveGameResult";
-  }
-  protected:
-  explicit CMsgGameServerSaveGameResult(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  typedef CMsgGameServerSaveGameResult_Result Result;
-  static constexpr Result SaveSuccessful =
-    CMsgGameServerSaveGameResult_Result_SaveSuccessful;
-  static constexpr Result SessionNotFound =
-    CMsgGameServerSaveGameResult_Result_SessionNotFound;
-  static constexpr Result DatabaseError =
-    CMsgGameServerSaveGameResult_Result_DatabaseError;
-  static constexpr Result TooBig =
-    CMsgGameServerSaveGameResult_Result_TooBig;
-  static inline bool Result_IsValid(int value) {
-    return CMsgGameServerSaveGameResult_Result_IsValid(value);
-  }
-  static constexpr Result Result_MIN =
-    CMsgGameServerSaveGameResult_Result_Result_MIN;
-  static constexpr Result Result_MAX =
-    CMsgGameServerSaveGameResult_Result_Result_MAX;
-  static constexpr int Result_ARRAYSIZE =
-    CMsgGameServerSaveGameResult_Result_Result_ARRAYSIZE;
-  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
-  Result_descriptor() {
-    return CMsgGameServerSaveGameResult_Result_descriptor();
-  }
-  template<typename T>
-  static inline const std::string& Result_Name(T enum_t_value) {
-    static_assert(::std::is_same<T, Result>::value ||
-      ::std::is_integral<T>::value,
-      "Incorrect type passed to function Result_Name.");
-    return CMsgGameServerSaveGameResult_Result_Name(enum_t_value);
-  }
-  static inline bool Result_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
-      Result* value) {
-    return CMsgGameServerSaveGameResult_Result_Parse(name, value);
-  }
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kResultFieldNumber = 1,
-  };
-  // optional .CMsgGameServerSaveGameResult.Result result = 1 [default = SaveSuccessful];
-  bool has_result() const;
-  private:
-  bool _internal_has_result() const;
-  public:
-  void clear_result();
-  ::CMsgGameServerSaveGameResult_Result result() const;
-  void set_result(::CMsgGameServerSaveGameResult_Result value);
-  private:
-  ::CMsgGameServerSaveGameResult_Result _internal_result() const;
-  void _internal_set_result(::CMsgGameServerSaveGameResult_Result value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:CMsgGameServerSaveGameResult)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    int result_;
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_dota_5fgcmessages_5fserver_2eproto;
-};
-// -------------------------------------------------------------------
-
-class CMsgGameServerGetLoadGame final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgGameServerGetLoadGame) */ {
- public:
-  inline CMsgGameServerGetLoadGame() : CMsgGameServerGetLoadGame(nullptr) {}
-  ~CMsgGameServerGetLoadGame() override;
-  explicit PROTOBUF_CONSTEXPR CMsgGameServerGetLoadGame(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  CMsgGameServerGetLoadGame(const CMsgGameServerGetLoadGame& from);
-  CMsgGameServerGetLoadGame(CMsgGameServerGetLoadGame&& from) noexcept
-    : CMsgGameServerGetLoadGame() {
-    *this = ::std::move(from);
-  }
-
-  inline CMsgGameServerGetLoadGame& operator=(const CMsgGameServerGetLoadGame& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CMsgGameServerGetLoadGame& operator=(CMsgGameServerGetLoadGame&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const CMsgGameServerGetLoadGame& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const CMsgGameServerGetLoadGame* internal_default_instance() {
-    return reinterpret_cast<const CMsgGameServerGetLoadGame*>(
-               &_CMsgGameServerGetLoadGame_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    61;
-
-  friend void swap(CMsgGameServerGetLoadGame& a, CMsgGameServerGetLoadGame& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CMsgGameServerGetLoadGame* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CMsgGameServerGetLoadGame* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  CMsgGameServerGetLoadGame* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<CMsgGameServerGetLoadGame>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const CMsgGameServerGetLoadGame& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const CMsgGameServerGetLoadGame& from) {
-    CMsgGameServerGetLoadGame::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CMsgGameServerGetLoadGame* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CMsgGameServerGetLoadGame";
-  }
-  protected:
-  explicit CMsgGameServerGetLoadGame(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kSaveIdFieldNumber = 1,
-  };
-  // optional uint32 save_id = 1;
-  bool has_save_id() const;
-  private:
-  bool _internal_has_save_id() const;
-  public:
-  void clear_save_id();
-  uint32_t save_id() const;
-  void set_save_id(uint32_t value);
-  private:
-  uint32_t _internal_save_id() const;
-  void _internal_set_save_id(uint32_t value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:CMsgGameServerGetLoadGame)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    uint32_t save_id_;
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_dota_5fgcmessages_5fserver_2eproto;
-};
-// -------------------------------------------------------------------
-
-class CMsgGameServerGetLoadGameResult final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgGameServerGetLoadGameResult) */ {
- public:
-  inline CMsgGameServerGetLoadGameResult() : CMsgGameServerGetLoadGameResult(nullptr) {}
-  ~CMsgGameServerGetLoadGameResult() override;
-  explicit PROTOBUF_CONSTEXPR CMsgGameServerGetLoadGameResult(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  CMsgGameServerGetLoadGameResult(const CMsgGameServerGetLoadGameResult& from);
-  CMsgGameServerGetLoadGameResult(CMsgGameServerGetLoadGameResult&& from) noexcept
-    : CMsgGameServerGetLoadGameResult() {
-    *this = ::std::move(from);
-  }
-
-  inline CMsgGameServerGetLoadGameResult& operator=(const CMsgGameServerGetLoadGameResult& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CMsgGameServerGetLoadGameResult& operator=(CMsgGameServerGetLoadGameResult&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const CMsgGameServerGetLoadGameResult& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const CMsgGameServerGetLoadGameResult* internal_default_instance() {
-    return reinterpret_cast<const CMsgGameServerGetLoadGameResult*>(
-               &_CMsgGameServerGetLoadGameResult_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    62;
-
-  friend void swap(CMsgGameServerGetLoadGameResult& a, CMsgGameServerGetLoadGameResult& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CMsgGameServerGetLoadGameResult* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CMsgGameServerGetLoadGameResult* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  CMsgGameServerGetLoadGameResult* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<CMsgGameServerGetLoadGameResult>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const CMsgGameServerGetLoadGameResult& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const CMsgGameServerGetLoadGameResult& from) {
-    CMsgGameServerGetLoadGameResult::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CMsgGameServerGetLoadGameResult* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CMsgGameServerGetLoadGameResult";
-  }
-  protected:
-  explicit CMsgGameServerGetLoadGameResult(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kSaveGameDataFieldNumber = 1,
-  };
-  // optional bytes save_game_data = 1;
-  bool has_save_game_data() const;
-  private:
-  bool _internal_has_save_game_data() const;
-  public:
-  void clear_save_game_data();
-  const std::string& save_game_data() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_save_game_data(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_save_game_data();
-  PROTOBUF_NODISCARD std::string* release_save_game_data();
-  void set_allocated_save_game_data(std::string* save_game_data);
-  private:
-  const std::string& _internal_save_game_data() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_save_game_data(const std::string& value);
-  std::string* _internal_mutable_save_game_data();
-  public:
-
-  // @@protoc_insertion_point(class_scope:CMsgGameServerGetLoadGameResult)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr save_game_data_;
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_dota_5fgcmessages_5fserver_2eproto;
-};
-// -------------------------------------------------------------------
-
 class CMsgDOTAAwardEventPoints_AwardPoints final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgDOTAAwardEventPoints.AwardPoints) */ {
  public:
@@ -17633,7 +16713,7 @@ class CMsgDOTAAwardEventPoints_AwardPoints final :
                &_CMsgDOTAAwardEventPoints_AwardPoints_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    63;
+    58;
 
   friend void swap(CMsgDOTAAwardEventPoints_AwardPoints& a, CMsgDOTAAwardEventPoints_AwardPoints& b) {
     a.Swap(&b);
@@ -17868,7 +16948,7 @@ class CMsgDOTAAwardEventPoints final :
                &_CMsgDOTAAwardEventPoints_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    64;
+    59;
 
   friend void swap(CMsgDOTAAwardEventPoints& a, CMsgDOTAAwardEventPoints& b) {
     a.Swap(&b);
@@ -18095,7 +17175,7 @@ class CMsgGCToServerPingRequest final :
                &_CMsgGCToServerPingRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    65;
+    60;
 
   friend void swap(CMsgGCToServerPingRequest& a, CMsgGCToServerPingRequest& b) {
     a.Swap(&b);
@@ -18270,7 +17350,7 @@ class CMsgGCToServerPingResponse final :
                &_CMsgGCToServerPingResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    66;
+    61;
 
   friend void swap(CMsgGCToServerPingResponse& a, CMsgGCToServerPingResponse& b) {
     a.Swap(&b);
@@ -18460,7 +17540,7 @@ class CMsgServerToGCMatchConnectionStats_Player final :
                &_CMsgServerToGCMatchConnectionStats_Player_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    67;
+    62;
 
   friend void swap(CMsgServerToGCMatchConnectionStats_Player& a, CMsgServerToGCMatchConnectionStats_Player& b) {
     a.Swap(&b);
@@ -18695,7 +17775,7 @@ class CMsgServerToGCMatchConnectionStats final :
                &_CMsgServerToGCMatchConnectionStats_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    68;
+    63;
 
   friend void swap(CMsgServerToGCMatchConnectionStats& a, CMsgServerToGCMatchConnectionStats& b) {
     a.Swap(&b);
@@ -18922,7 +18002,7 @@ class CMsgServerGCUpdateSpectatorCount final :
                &_CMsgServerGCUpdateSpectatorCount_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    69;
+    64;
 
   friend void swap(CMsgServerGCUpdateSpectatorCount& a, CMsgServerGCUpdateSpectatorCount& b) {
     a.Swap(&b);
@@ -19082,7 +18162,7 @@ class CSerializedCombatLog_Dictionary_DictString final :
                &_CSerializedCombatLog_Dictionary_DictString_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    70;
+    65;
 
   friend void swap(CSerializedCombatLog_Dictionary_DictString& a, CSerializedCombatLog_Dictionary_DictString& b) {
     a.Swap(&b);
@@ -19265,7 +18345,7 @@ class CSerializedCombatLog_Dictionary final :
                &_CSerializedCombatLog_Dictionary_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    71;
+    66;
 
   friend void swap(CSerializedCombatLog_Dictionary& a, CSerializedCombatLog_Dictionary& b) {
     a.Swap(&b);
@@ -19431,7 +18511,7 @@ class CSerializedCombatLog final :
                &_CSerializedCombatLog_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    72;
+    67;
 
   friend void swap(CSerializedCombatLog& a, CSerializedCombatLog& b) {
     a.Swap(&b);
@@ -19578,6 +18658,181 @@ class CSerializedCombatLog final :
 };
 // -------------------------------------------------------------------
 
+class CMsgServerToGCVictoryPredictions_PredictionItem final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgServerToGCVictoryPredictions.PredictionItem) */ {
+ public:
+  inline CMsgServerToGCVictoryPredictions_PredictionItem() : CMsgServerToGCVictoryPredictions_PredictionItem(nullptr) {}
+  ~CMsgServerToGCVictoryPredictions_PredictionItem() override;
+  explicit PROTOBUF_CONSTEXPR CMsgServerToGCVictoryPredictions_PredictionItem(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgServerToGCVictoryPredictions_PredictionItem(const CMsgServerToGCVictoryPredictions_PredictionItem& from);
+  CMsgServerToGCVictoryPredictions_PredictionItem(CMsgServerToGCVictoryPredictions_PredictionItem&& from) noexcept
+    : CMsgServerToGCVictoryPredictions_PredictionItem() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgServerToGCVictoryPredictions_PredictionItem& operator=(const CMsgServerToGCVictoryPredictions_PredictionItem& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgServerToGCVictoryPredictions_PredictionItem& operator=(CMsgServerToGCVictoryPredictions_PredictionItem&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgServerToGCVictoryPredictions_PredictionItem& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgServerToGCVictoryPredictions_PredictionItem* internal_default_instance() {
+    return reinterpret_cast<const CMsgServerToGCVictoryPredictions_PredictionItem*>(
+               &_CMsgServerToGCVictoryPredictions_PredictionItem_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    68;
+
+  friend void swap(CMsgServerToGCVictoryPredictions_PredictionItem& a, CMsgServerToGCVictoryPredictions_PredictionItem& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgServerToGCVictoryPredictions_PredictionItem* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgServerToGCVictoryPredictions_PredictionItem* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgServerToGCVictoryPredictions_PredictionItem* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgServerToGCVictoryPredictions_PredictionItem>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgServerToGCVictoryPredictions_PredictionItem& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgServerToGCVictoryPredictions_PredictionItem& from) {
+    CMsgServerToGCVictoryPredictions_PredictionItem::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgServerToGCVictoryPredictions_PredictionItem* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgServerToGCVictoryPredictions.PredictionItem";
+  }
+  protected:
+  explicit CMsgServerToGCVictoryPredictions_PredictionItem(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kItemIdFieldNumber = 1,
+    kItemDefFieldNumber = 2,
+  };
+  // optional uint64 item_id = 1;
+  bool has_item_id() const;
+  private:
+  bool _internal_has_item_id() const;
+  public:
+  void clear_item_id();
+  uint64_t item_id() const;
+  void set_item_id(uint64_t value);
+  private:
+  uint64_t _internal_item_id() const;
+  void _internal_set_item_id(uint64_t value);
+  public:
+
+  // optional uint32 item_def = 2;
+  bool has_item_def() const;
+  private:
+  bool _internal_has_item_def() const;
+  public:
+  void clear_item_def();
+  uint32_t item_def() const;
+  void set_item_def(uint32_t value);
+  private:
+  uint32_t _internal_item_def() const;
+  void _internal_set_item_def(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgServerToGCVictoryPredictions.PredictionItem)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    uint64_t item_id_;
+    uint32_t item_def_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_dota_5fgcmessages_5fserver_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CMsgServerToGCVictoryPredictions_Record final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgServerToGCVictoryPredictions.Record) */ {
  public:
@@ -19633,7 +18888,7 @@ class CMsgServerToGCVictoryPredictions_Record final :
                &_CMsgServerToGCVictoryPredictions_Record_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    73;
+    69;
 
   friend void swap(CMsgServerToGCVictoryPredictions_Record& a, CMsgServerToGCVictoryPredictions_Record& b) {
     a.Swap(&b);
@@ -19707,7 +18962,7 @@ class CMsgServerToGCVictoryPredictions_Record final :
 
   enum : int {
     kItemIdsFieldNumber = 5,
-    kItemIdFieldNumber = 2,
+    kPredictionItemsFieldNumber = 6,
     kAccountIdFieldNumber = 1,
   };
   // repeated uint64 item_ids = 5;
@@ -19732,18 +18987,23 @@ class CMsgServerToGCVictoryPredictions_Record final :
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
       mutable_item_ids();
 
-  // optional uint64 item_id = 2;
-  bool has_item_id() const;
+  // repeated .CMsgServerToGCVictoryPredictions.PredictionItem prediction_items = 6;
+  int prediction_items_size() const;
   private:
-  bool _internal_has_item_id() const;
+  int _internal_prediction_items_size() const;
   public:
-  void clear_item_id();
-  uint64_t item_id() const;
-  void set_item_id(uint64_t value);
+  void clear_prediction_items();
+  ::CMsgServerToGCVictoryPredictions_PredictionItem* mutable_prediction_items(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgServerToGCVictoryPredictions_PredictionItem >*
+      mutable_prediction_items();
   private:
-  uint64_t _internal_item_id() const;
-  void _internal_set_item_id(uint64_t value);
+  const ::CMsgServerToGCVictoryPredictions_PredictionItem& _internal_prediction_items(int index) const;
+  ::CMsgServerToGCVictoryPredictions_PredictionItem* _internal_add_prediction_items();
   public:
+  const ::CMsgServerToGCVictoryPredictions_PredictionItem& prediction_items(int index) const;
+  ::CMsgServerToGCVictoryPredictions_PredictionItem* add_prediction_items();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgServerToGCVictoryPredictions_PredictionItem >&
+      prediction_items() const;
 
   // optional uint32 account_id = 1;
   bool has_account_id() const;
@@ -19769,7 +19029,7 @@ class CMsgServerToGCVictoryPredictions_Record final :
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t > item_ids_;
-    uint64_t item_id_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgServerToGCVictoryPredictions_PredictionItem > prediction_items_;
     uint32_t account_id_;
   };
   union { Impl_ _impl_; };
@@ -19832,7 +19092,7 @@ class CMsgServerToGCVictoryPredictions final :
                &_CMsgServerToGCVictoryPredictions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    74;
+    70;
 
   friend void swap(CMsgServerToGCVictoryPredictions& a, CMsgServerToGCVictoryPredictions& b) {
     a.Swap(&b);
@@ -19902,6 +19162,7 @@ class CMsgServerToGCVictoryPredictions final :
 
   // nested types ----------------------------------------------------
 
+  typedef CMsgServerToGCVictoryPredictions_PredictionItem PredictionItem;
   typedef CMsgServerToGCVictoryPredictions_Record Record;
 
   // accessors -------------------------------------------------------
@@ -19997,7 +19258,7 @@ class CMsgServerToGCRequestStatus final :
                &_CMsgServerToGCRequestStatus_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    75;
+    71;
 
   friend void swap(CMsgServerToGCRequestStatus& a, CMsgServerToGCRequestStatus& b) {
     a.Swap(&b);
@@ -20123,7 +19384,7 @@ class CMsgServerToGCRequestStatus_Response final :
                &_CMsgServerToGCRequestStatus_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    76;
+    72;
 
   friend void swap(CMsgServerToGCRequestStatus_Response& a, CMsgServerToGCRequestStatus_Response& b) {
     a.Swap(&b);
@@ -20283,7 +19544,7 @@ class CMsgGCToServerEvaluateToxicChat final :
                &_CMsgGCToServerEvaluateToxicChat_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    77;
+    73;
 
   friend void swap(CMsgGCToServerEvaluateToxicChat& a, CMsgGCToServerEvaluateToxicChat& b) {
     a.Swap(&b);
@@ -20458,7 +19719,7 @@ class CMsgServerToGCEvaluateToxicChat final :
                &_CMsgServerToGCEvaluateToxicChat_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    78;
+    74;
 
   friend void swap(CMsgServerToGCEvaluateToxicChat& a, CMsgServerToGCEvaluateToxicChat& b) {
     a.Swap(&b);
@@ -20698,7 +19959,7 @@ class CMsgServerToGCEvaluateToxicChatResponse final :
                &_CMsgServerToGCEvaluateToxicChatResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    79;
+    75;
 
   friend void swap(CMsgServerToGCEvaluateToxicChatResponse& a, CMsgServerToGCEvaluateToxicChatResponse& b) {
     a.Swap(&b);
@@ -20918,7 +20179,7 @@ class CMsgSignOutAssassinMiniGameInfo final :
                &_CMsgSignOutAssassinMiniGameInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    80;
+    76;
 
   friend void swap(CMsgSignOutAssassinMiniGameInfo& a, CMsgSignOutAssassinMiniGameInfo& b) {
     a.Swap(&b);
@@ -21066,17 +20327,17 @@ class CMsgSignOutAssassinMiniGameInfo final :
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
       mutable_arcana_owners();
 
-  // optional uint32 target_hero_id = 5;
+  // optional int32 target_hero_id = 5;
   bool has_target_hero_id() const;
   private:
   bool _internal_has_target_hero_id() const;
   public:
   void clear_target_hero_id();
-  uint32_t target_hero_id() const;
-  void set_target_hero_id(uint32_t value);
+  int32_t target_hero_id() const;
+  void set_target_hero_id(int32_t value);
   private:
-  uint32_t _internal_target_hero_id() const;
-  void _internal_set_target_hero_id(uint32_t value);
+  int32_t _internal_target_hero_id() const;
+  void _internal_set_target_hero_id(int32_t value);
   public:
 
   // optional bool assassin_won = 4;
@@ -21144,7 +20405,7 @@ class CMsgSignOutAssassinMiniGameInfo final :
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t > winning_players_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t > losing_players_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t > arcana_owners_;
-    uint32_t target_hero_id_;
+    int32_t target_hero_id_;
     bool assassin_won_;
     bool contract_completed_;
     bool pa_is_radiant_;
@@ -21210,7 +20471,7 @@ class CMsgServerToGCKillSummaries_KillSummary final :
                &_CMsgServerToGCKillSummaries_KillSummary_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    81;
+    77;
 
   friend void swap(CMsgServerToGCKillSummaries_KillSummary& a, CMsgServerToGCKillSummaries_KillSummary& b) {
     a.Swap(&b);
@@ -21400,7 +20661,7 @@ class CMsgServerToGCKillSummaries final :
                &_CMsgServerToGCKillSummaries_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    82;
+    78;
 
   friend void swap(CMsgServerToGCKillSummaries& a, CMsgServerToGCKillSummaries& b) {
     a.Swap(&b);
@@ -21527,477 +20788,6 @@ class CMsgServerToGCKillSummaries final :
 };
 // -------------------------------------------------------------------
 
-class CMsgGCToServerPredictionResult_Prediction final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgGCToServerPredictionResult.Prediction) */ {
- public:
-  inline CMsgGCToServerPredictionResult_Prediction() : CMsgGCToServerPredictionResult_Prediction(nullptr) {}
-  ~CMsgGCToServerPredictionResult_Prediction() override;
-  explicit PROTOBUF_CONSTEXPR CMsgGCToServerPredictionResult_Prediction(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  CMsgGCToServerPredictionResult_Prediction(const CMsgGCToServerPredictionResult_Prediction& from);
-  CMsgGCToServerPredictionResult_Prediction(CMsgGCToServerPredictionResult_Prediction&& from) noexcept
-    : CMsgGCToServerPredictionResult_Prediction() {
-    *this = ::std::move(from);
-  }
-
-  inline CMsgGCToServerPredictionResult_Prediction& operator=(const CMsgGCToServerPredictionResult_Prediction& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CMsgGCToServerPredictionResult_Prediction& operator=(CMsgGCToServerPredictionResult_Prediction&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const CMsgGCToServerPredictionResult_Prediction& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const CMsgGCToServerPredictionResult_Prediction* internal_default_instance() {
-    return reinterpret_cast<const CMsgGCToServerPredictionResult_Prediction*>(
-               &_CMsgGCToServerPredictionResult_Prediction_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    83;
-
-  friend void swap(CMsgGCToServerPredictionResult_Prediction& a, CMsgGCToServerPredictionResult_Prediction& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CMsgGCToServerPredictionResult_Prediction* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CMsgGCToServerPredictionResult_Prediction* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  CMsgGCToServerPredictionResult_Prediction* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<CMsgGCToServerPredictionResult_Prediction>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const CMsgGCToServerPredictionResult_Prediction& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const CMsgGCToServerPredictionResult_Prediction& from) {
-    CMsgGCToServerPredictionResult_Prediction::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CMsgGCToServerPredictionResult_Prediction* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CMsgGCToServerPredictionResult.Prediction";
-  }
-  protected:
-  explicit CMsgGCToServerPredictionResult_Prediction(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  typedef CMsgGCToServerPredictionResult_Prediction_EResult EResult;
-  static constexpr EResult k_eResult_ItemGranted =
-    CMsgGCToServerPredictionResult_Prediction_EResult_k_eResult_ItemGranted;
-  static constexpr EResult k_eResult_Destroyed =
-    CMsgGCToServerPredictionResult_Prediction_EResult_k_eResult_Destroyed;
-  static inline bool EResult_IsValid(int value) {
-    return CMsgGCToServerPredictionResult_Prediction_EResult_IsValid(value);
-  }
-  static constexpr EResult EResult_MIN =
-    CMsgGCToServerPredictionResult_Prediction_EResult_EResult_MIN;
-  static constexpr EResult EResult_MAX =
-    CMsgGCToServerPredictionResult_Prediction_EResult_EResult_MAX;
-  static constexpr int EResult_ARRAYSIZE =
-    CMsgGCToServerPredictionResult_Prediction_EResult_EResult_ARRAYSIZE;
-  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
-  EResult_descriptor() {
-    return CMsgGCToServerPredictionResult_Prediction_EResult_descriptor();
-  }
-  template<typename T>
-  static inline const std::string& EResult_Name(T enum_t_value) {
-    static_assert(::std::is_same<T, EResult>::value ||
-      ::std::is_integral<T>::value,
-      "Incorrect type passed to function EResult_Name.");
-    return CMsgGCToServerPredictionResult_Prediction_EResult_Name(enum_t_value);
-  }
-  static inline bool EResult_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
-      EResult* value) {
-    return CMsgGCToServerPredictionResult_Prediction_EResult_Parse(name, value);
-  }
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kGrantedItemDefsFieldNumber = 6,
-    kItemDefFieldNumber = 1,
-    kNumCorrectFieldNumber = 2,
-    kNumFailsFieldNumber = 3,
-    kResultFieldNumber = 4,
-  };
-  // repeated uint32 granted_item_defs = 6;
-  int granted_item_defs_size() const;
-  private:
-  int _internal_granted_item_defs_size() const;
-  public:
-  void clear_granted_item_defs();
-  private:
-  uint32_t _internal_granted_item_defs(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-      _internal_granted_item_defs() const;
-  void _internal_add_granted_item_defs(uint32_t value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-      _internal_mutable_granted_item_defs();
-  public:
-  uint32_t granted_item_defs(int index) const;
-  void set_granted_item_defs(int index, uint32_t value);
-  void add_granted_item_defs(uint32_t value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-      granted_item_defs() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-      mutable_granted_item_defs();
-
-  // optional uint32 item_def = 1;
-  bool has_item_def() const;
-  private:
-  bool _internal_has_item_def() const;
-  public:
-  void clear_item_def();
-  uint32_t item_def() const;
-  void set_item_def(uint32_t value);
-  private:
-  uint32_t _internal_item_def() const;
-  void _internal_set_item_def(uint32_t value);
-  public:
-
-  // optional uint32 num_correct = 2;
-  bool has_num_correct() const;
-  private:
-  bool _internal_has_num_correct() const;
-  public:
-  void clear_num_correct();
-  uint32_t num_correct() const;
-  void set_num_correct(uint32_t value);
-  private:
-  uint32_t _internal_num_correct() const;
-  void _internal_set_num_correct(uint32_t value);
-  public:
-
-  // optional uint32 num_fails = 3;
-  bool has_num_fails() const;
-  private:
-  bool _internal_has_num_fails() const;
-  public:
-  void clear_num_fails();
-  uint32_t num_fails() const;
-  void set_num_fails(uint32_t value);
-  private:
-  uint32_t _internal_num_fails() const;
-  void _internal_set_num_fails(uint32_t value);
-  public:
-
-  // optional .CMsgGCToServerPredictionResult.Prediction.EResult result = 4 [default = k_eResult_ItemGranted];
-  bool has_result() const;
-  private:
-  bool _internal_has_result() const;
-  public:
-  void clear_result();
-  ::CMsgGCToServerPredictionResult_Prediction_EResult result() const;
-  void set_result(::CMsgGCToServerPredictionResult_Prediction_EResult value);
-  private:
-  ::CMsgGCToServerPredictionResult_Prediction_EResult _internal_result() const;
-  void _internal_set_result(::CMsgGCToServerPredictionResult_Prediction_EResult value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:CMsgGCToServerPredictionResult.Prediction)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > granted_item_defs_;
-    uint32_t item_def_;
-    uint32_t num_correct_;
-    uint32_t num_fails_;
-    int result_;
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_dota_5fgcmessages_5fserver_2eproto;
-};
-// -------------------------------------------------------------------
-
-class CMsgGCToServerPredictionResult final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgGCToServerPredictionResult) */ {
- public:
-  inline CMsgGCToServerPredictionResult() : CMsgGCToServerPredictionResult(nullptr) {}
-  ~CMsgGCToServerPredictionResult() override;
-  explicit PROTOBUF_CONSTEXPR CMsgGCToServerPredictionResult(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  CMsgGCToServerPredictionResult(const CMsgGCToServerPredictionResult& from);
-  CMsgGCToServerPredictionResult(CMsgGCToServerPredictionResult&& from) noexcept
-    : CMsgGCToServerPredictionResult() {
-    *this = ::std::move(from);
-  }
-
-  inline CMsgGCToServerPredictionResult& operator=(const CMsgGCToServerPredictionResult& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CMsgGCToServerPredictionResult& operator=(CMsgGCToServerPredictionResult&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const CMsgGCToServerPredictionResult& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const CMsgGCToServerPredictionResult* internal_default_instance() {
-    return reinterpret_cast<const CMsgGCToServerPredictionResult*>(
-               &_CMsgGCToServerPredictionResult_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    84;
-
-  friend void swap(CMsgGCToServerPredictionResult& a, CMsgGCToServerPredictionResult& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CMsgGCToServerPredictionResult* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CMsgGCToServerPredictionResult* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  CMsgGCToServerPredictionResult* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<CMsgGCToServerPredictionResult>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const CMsgGCToServerPredictionResult& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const CMsgGCToServerPredictionResult& from) {
-    CMsgGCToServerPredictionResult::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CMsgGCToServerPredictionResult* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CMsgGCToServerPredictionResult";
-  }
-  protected:
-  explicit CMsgGCToServerPredictionResult(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  typedef CMsgGCToServerPredictionResult_Prediction Prediction;
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kPredictionsFieldNumber = 4,
-    kMatchIdFieldNumber = 2,
-    kAccountIdFieldNumber = 1,
-    kCorrectFieldNumber = 3,
-  };
-  // repeated .CMsgGCToServerPredictionResult.Prediction predictions = 4;
-  int predictions_size() const;
-  private:
-  int _internal_predictions_size() const;
-  public:
-  void clear_predictions();
-  ::CMsgGCToServerPredictionResult_Prediction* mutable_predictions(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgGCToServerPredictionResult_Prediction >*
-      mutable_predictions();
-  private:
-  const ::CMsgGCToServerPredictionResult_Prediction& _internal_predictions(int index) const;
-  ::CMsgGCToServerPredictionResult_Prediction* _internal_add_predictions();
-  public:
-  const ::CMsgGCToServerPredictionResult_Prediction& predictions(int index) const;
-  ::CMsgGCToServerPredictionResult_Prediction* add_predictions();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgGCToServerPredictionResult_Prediction >&
-      predictions() const;
-
-  // optional uint64 match_id = 2;
-  bool has_match_id() const;
-  private:
-  bool _internal_has_match_id() const;
-  public:
-  void clear_match_id();
-  uint64_t match_id() const;
-  void set_match_id(uint64_t value);
-  private:
-  uint64_t _internal_match_id() const;
-  void _internal_set_match_id(uint64_t value);
-  public:
-
-  // optional uint32 account_id = 1;
-  bool has_account_id() const;
-  private:
-  bool _internal_has_account_id() const;
-  public:
-  void clear_account_id();
-  uint32_t account_id() const;
-  void set_account_id(uint32_t value);
-  private:
-  uint32_t _internal_account_id() const;
-  void _internal_set_account_id(uint32_t value);
-  public:
-
-  // optional bool correct = 3;
-  bool has_correct() const;
-  private:
-  bool _internal_has_correct() const;
-  public:
-  void clear_correct();
-  bool correct() const;
-  void set_correct(bool value);
-  private:
-  bool _internal_correct() const;
-  void _internal_set_correct(bool value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:CMsgGCToServerPredictionResult)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgGCToServerPredictionResult_Prediction > predictions_;
-    uint64_t match_id_;
-    uint32_t account_id_;
-    bool correct_;
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_dota_5fgcmessages_5fserver_2eproto;
-};
-// -------------------------------------------------------------------
-
 class CMsgServerToGCLockCharmTrading final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgServerToGCLockCharmTrading) */ {
  public:
@@ -22053,7 +20843,7 @@ class CMsgServerToGCLockCharmTrading final :
                &_CMsgServerToGCLockCharmTrading_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    85;
+    79;
 
   friend void swap(CMsgServerToGCLockCharmTrading& a, CMsgServerToGCLockCharmTrading& b) {
     a.Swap(&b);
@@ -22228,7 +21018,7 @@ class CMsgSignOutUpdatePlayerChallenge_Challenge final :
                &_CMsgSignOutUpdatePlayerChallenge_Challenge_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    86;
+    80;
 
   friend void swap(CMsgSignOutUpdatePlayerChallenge_Challenge& a, CMsgSignOutUpdatePlayerChallenge_Challenge& b) {
     a.Swap(&b);
@@ -22448,7 +21238,7 @@ class CMsgSignOutUpdatePlayerChallenge final :
                &_CMsgSignOutUpdatePlayerChallenge_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    87;
+    81;
 
   friend void swap(CMsgSignOutUpdatePlayerChallenge& a, CMsgSignOutUpdatePlayerChallenge& b) {
     a.Swap(&b);
@@ -22578,17 +21368,17 @@ class CMsgSignOutUpdatePlayerChallenge final :
   void _internal_set_account_id(uint32_t value);
   public:
 
-  // optional uint32 hero_id = 5;
+  // optional int32 hero_id = 5;
   bool has_hero_id() const;
   private:
   bool _internal_has_hero_id() const;
   public:
   void clear_hero_id();
-  uint32_t hero_id() const;
-  void set_hero_id(uint32_t value);
+  int32_t hero_id() const;
+  void set_hero_id(int32_t value);
   private:
-  uint32_t _internal_hero_id() const;
-  void _internal_set_hero_id(uint32_t value);
+  int32_t _internal_hero_id() const;
+  void _internal_set_hero_id(int32_t value);
   public:
 
   // optional uint64 match_id = 4;
@@ -22617,7 +21407,7 @@ class CMsgSignOutUpdatePlayerChallenge final :
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSignOutUpdatePlayerChallenge_Challenge > completed_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSignOutUpdatePlayerChallenge_Challenge > rerolled_;
     uint32_t account_id_;
-    uint32_t hero_id_;
+    int32_t hero_id_;
     uint64_t match_id_;
   };
   union { Impl_ _impl_; };
@@ -22680,7 +21470,7 @@ class CMsgServerToGCRerollPlayerChallenge final :
                &_CMsgServerToGCRerollPlayerChallenge_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    88;
+    82;
 
   friend void swap(CMsgServerToGCRerollPlayerChallenge& a, CMsgServerToGCRerollPlayerChallenge& b) {
     a.Swap(&b);
@@ -22860,7 +21650,7 @@ class CMsgSpendWager_Player final :
                &_CMsgSpendWager_Player_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    89;
+    83;
 
   friend void swap(CMsgSpendWager_Player& a, CMsgSpendWager_Player& b) {
     a.Swap(&b);
@@ -23050,7 +21840,7 @@ class CMsgSpendWager final :
                &_CMsgSpendWager_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    90;
+    84;
 
   friend void swap(CMsgSpendWager& a, CMsgSpendWager& b) {
     a.Swap(&b);
@@ -23277,7 +22067,7 @@ class CMsgSignOutXPCoins_Player final :
                &_CMsgSignOutXPCoins_Player_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    91;
+    85;
 
   friend void swap(CMsgSignOutXPCoins_Player& a, CMsgSignOutXPCoins_Player& b) {
     a.Swap(&b);
@@ -23512,7 +22302,7 @@ class CMsgSignOutXPCoins final :
                &_CMsgSignOutXPCoins_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    92;
+    86;
 
   friend void swap(CMsgSignOutXPCoins& a, CMsgSignOutXPCoins& b) {
     a.Swap(&b);
@@ -23724,7 +22514,7 @@ class CMsgSignOutBounties_Bounty final :
                &_CMsgSignOutBounties_Bounty_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    93;
+    87;
 
   friend void swap(CMsgSignOutBounties_Bounty& a, CMsgSignOutBounties_Bounty& b) {
     a.Swap(&b);
@@ -23914,7 +22704,7 @@ class CMsgSignOutBounties final :
                &_CMsgSignOutBounties_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    94;
+    88;
 
   friend void swap(CMsgSignOutBounties& a, CMsgSignOutBounties& b) {
     a.Swap(&b);
@@ -24126,7 +22916,7 @@ class CMsgSignOutCommunityGoalProgress_EventGoalIncrement final :
                &_CMsgSignOutCommunityGoalProgress_EventGoalIncrement_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    95;
+    89;
 
   friend void swap(CMsgSignOutCommunityGoalProgress_EventGoalIncrement& a, CMsgSignOutCommunityGoalProgress_EventGoalIncrement& b) {
     a.Swap(&b);
@@ -24301,7 +23091,7 @@ class CMsgSignOutCommunityGoalProgress final :
                &_CMsgSignOutCommunityGoalProgress_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    96;
+    90;
 
   friend void swap(CMsgSignOutCommunityGoalProgress& a, CMsgSignOutCommunityGoalProgress& b) {
     a.Swap(&b);
@@ -24483,7 +23273,7 @@ class CMsgServerToGCCloseCompendiumInGamePredictionVoting final :
                &_CMsgServerToGCCloseCompendiumInGamePredictionVoting_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    97;
+    91;
 
   friend void swap(CMsgServerToGCCloseCompendiumInGamePredictionVoting& a, CMsgServerToGCCloseCompendiumInGamePredictionVoting& b) {
     a.Swap(&b);
@@ -24673,7 +23463,7 @@ class CMsgServerToGCCloseCompendiumInGamePredictionVotingResponse final :
                &_CMsgServerToGCCloseCompendiumInGamePredictionVotingResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    98;
+    92;
 
   friend void swap(CMsgServerToGCCloseCompendiumInGamePredictionVotingResponse& a, CMsgServerToGCCloseCompendiumInGamePredictionVotingResponse& b) {
     a.Swap(&b);
@@ -24833,7 +23623,7 @@ class CMsgServerToGCCompendiumInGamePredictionResults_PredictionResult final :
                &_CMsgServerToGCCompendiumInGamePredictionResults_PredictionResult_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    99;
+    93;
 
   friend void swap(CMsgServerToGCCompendiumInGamePredictionResults_PredictionResult& a, CMsgServerToGCCompendiumInGamePredictionResults_PredictionResult& b) {
     a.Swap(&b);
@@ -25023,7 +23813,7 @@ class CMsgServerToGCCompendiumInGamePredictionResults final :
                &_CMsgServerToGCCompendiumInGamePredictionResults_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    100;
+    94;
 
   friend void swap(CMsgServerToGCCompendiumInGamePredictionResults& a, CMsgServerToGCCompendiumInGamePredictionResults& b) {
     a.Swap(&b);
@@ -25235,7 +24025,7 @@ class CMsgServerToGCCompendiumChosenInGamePredictions_Prediction final :
                &_CMsgServerToGCCompendiumChosenInGamePredictions_Prediction_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    101;
+    95;
 
   friend void swap(CMsgServerToGCCompendiumChosenInGamePredictions_Prediction& a, CMsgServerToGCCompendiumChosenInGamePredictions_Prediction& b) {
     a.Swap(&b);
@@ -25395,7 +24185,7 @@ class CMsgServerToGCCompendiumChosenInGamePredictions final :
                &_CMsgServerToGCCompendiumChosenInGamePredictions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    102;
+    96;
 
   friend void swap(CMsgServerToGCCompendiumChosenInGamePredictions& a, CMsgServerToGCCompendiumChosenInGamePredictions& b) {
     a.Swap(&b);
@@ -25592,7 +24382,7 @@ class CMsgGCToGCCompendiumInGamePredictionResults final :
                &_CMsgGCToGCCompendiumInGamePredictionResults_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    103;
+    97;
 
   friend void swap(CMsgGCToGCCompendiumInGamePredictionResults& a, CMsgGCToGCCompendiumInGamePredictionResults& b) {
     a.Swap(&b);
@@ -25757,7 +24547,7 @@ class CMsgServerToGCMatchPlayerItemPurchaseHistory_ItemPurchase final :
                &_CMsgServerToGCMatchPlayerItemPurchaseHistory_ItemPurchase_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    104;
+    98;
 
   friend void swap(CMsgServerToGCMatchPlayerItemPurchaseHistory_ItemPurchase& a, CMsgServerToGCMatchPlayerItemPurchaseHistory_ItemPurchase& b) {
     a.Swap(&b);
@@ -26010,7 +24800,7 @@ class CMsgServerToGCMatchPlayerItemPurchaseHistory_Player final :
                &_CMsgServerToGCMatchPlayerItemPurchaseHistory_Player_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    105;
+    99;
 
   friend void swap(CMsgServerToGCMatchPlayerItemPurchaseHistory_Player& a, CMsgServerToGCMatchPlayerItemPurchaseHistory_Player& b) {
     a.Swap(&b);
@@ -26092,48 +24882,48 @@ class CMsgServerToGCMatchPlayerItemPurchaseHistory_Player final :
     kLaneFieldNumber = 7,
     kIsWinnerFieldNumber = 8,
   };
-  // repeated uint32 allied_hero_ids = 4;
+  // repeated int32 allied_hero_ids = 4;
   int allied_hero_ids_size() const;
   private:
   int _internal_allied_hero_ids_size() const;
   public:
   void clear_allied_hero_ids();
   private:
-  uint32_t _internal_allied_hero_ids(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+  int32_t _internal_allied_hero_ids(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
       _internal_allied_hero_ids() const;
-  void _internal_add_allied_hero_ids(uint32_t value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+  void _internal_add_allied_hero_ids(int32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
       _internal_mutable_allied_hero_ids();
   public:
-  uint32_t allied_hero_ids(int index) const;
-  void set_allied_hero_ids(int index, uint32_t value);
-  void add_allied_hero_ids(uint32_t value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+  int32_t allied_hero_ids(int index) const;
+  void set_allied_hero_ids(int index, int32_t value);
+  void add_allied_hero_ids(int32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
       allied_hero_ids() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
       mutable_allied_hero_ids();
 
-  // repeated uint32 enemy_hero_ids = 5;
+  // repeated int32 enemy_hero_ids = 5;
   int enemy_hero_ids_size() const;
   private:
   int _internal_enemy_hero_ids_size() const;
   public:
   void clear_enemy_hero_ids();
   private:
-  uint32_t _internal_enemy_hero_ids(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+  int32_t _internal_enemy_hero_ids(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
       _internal_enemy_hero_ids() const;
-  void _internal_add_enemy_hero_ids(uint32_t value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+  void _internal_add_enemy_hero_ids(int32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
       _internal_mutable_enemy_hero_ids();
   public:
-  uint32_t enemy_hero_ids(int index) const;
-  void set_enemy_hero_ids(int index, uint32_t value);
-  void add_enemy_hero_ids(uint32_t value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+  int32_t enemy_hero_ids(int index) const;
+  void set_enemy_hero_ids(int index, int32_t value);
+  void add_enemy_hero_ids(int32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
       enemy_hero_ids() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
       mutable_enemy_hero_ids();
 
   // repeated .CMsgServerToGCMatchPlayerItemPurchaseHistory.ItemPurchase item_purchases = 6;
@@ -26180,17 +24970,17 @@ class CMsgServerToGCMatchPlayerItemPurchaseHistory_Player final :
   void _internal_set_account_id(uint32_t value);
   public:
 
-  // optional uint32 hero_id = 3;
+  // optional int32 hero_id = 3;
   bool has_hero_id() const;
   private:
   bool _internal_has_hero_id() const;
   public:
   void clear_hero_id();
-  uint32_t hero_id() const;
-  void set_hero_id(uint32_t value);
+  int32_t hero_id() const;
+  void set_hero_id(int32_t value);
   private:
-  uint32_t _internal_hero_id() const;
-  void _internal_set_hero_id(uint32_t value);
+  int32_t _internal_hero_id() const;
+  void _internal_set_hero_id(int32_t value);
   public:
 
   // optional uint32 lane = 7;
@@ -26229,12 +25019,12 @@ class CMsgServerToGCMatchPlayerItemPurchaseHistory_Player final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > allied_hero_ids_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > enemy_hero_ids_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > allied_hero_ids_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > enemy_hero_ids_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgServerToGCMatchPlayerItemPurchaseHistory_ItemPurchase > item_purchases_;
     uint32_t player_slot_;
     uint32_t account_id_;
-    uint32_t hero_id_;
+    int32_t hero_id_;
     uint32_t lane_;
     bool is_winner_;
   };
@@ -26298,7 +25088,7 @@ class CMsgServerToGCMatchPlayerItemPurchaseHistory final :
                &_CMsgServerToGCMatchPlayerItemPurchaseHistory_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    106;
+    100;
 
   friend void swap(CMsgServerToGCMatchPlayerItemPurchaseHistory& a, CMsgServerToGCMatchPlayerItemPurchaseHistory& b) {
     a.Swap(&b);
@@ -26496,7 +25286,7 @@ class CMsgServerToGCMatchPlayerNeutralItemEquipHistory_ItemEquip final :
                &_CMsgServerToGCMatchPlayerNeutralItemEquipHistory_ItemEquip_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    107;
+    101;
 
   friend void swap(CMsgServerToGCMatchPlayerNeutralItemEquipHistory_ItemEquip& a, CMsgServerToGCMatchPlayerNeutralItemEquipHistory_ItemEquip& b) {
     a.Swap(&b);
@@ -26743,7 +25533,7 @@ class CMsgServerToGCMatchPlayerNeutralItemEquipHistory_Player final :
                &_CMsgServerToGCMatchPlayerNeutralItemEquipHistory_Player_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    108;
+    102;
 
   friend void swap(CMsgServerToGCMatchPlayerNeutralItemEquipHistory_Player& a, CMsgServerToGCMatchPlayerNeutralItemEquipHistory_Player& b) {
     a.Swap(&b);
@@ -26822,48 +25612,48 @@ class CMsgServerToGCMatchPlayerNeutralItemEquipHistory_Player final :
     kAccountIdFieldNumber = 1,
     kIsWinnerFieldNumber = 5,
   };
-  // repeated uint32 allied_hero_ids = 2;
+  // repeated int32 allied_hero_ids = 2;
   int allied_hero_ids_size() const;
   private:
   int _internal_allied_hero_ids_size() const;
   public:
   void clear_allied_hero_ids();
   private:
-  uint32_t _internal_allied_hero_ids(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+  int32_t _internal_allied_hero_ids(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
       _internal_allied_hero_ids() const;
-  void _internal_add_allied_hero_ids(uint32_t value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+  void _internal_add_allied_hero_ids(int32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
       _internal_mutable_allied_hero_ids();
   public:
-  uint32_t allied_hero_ids(int index) const;
-  void set_allied_hero_ids(int index, uint32_t value);
-  void add_allied_hero_ids(uint32_t value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+  int32_t allied_hero_ids(int index) const;
+  void set_allied_hero_ids(int index, int32_t value);
+  void add_allied_hero_ids(int32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
       allied_hero_ids() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
       mutable_allied_hero_ids();
 
-  // repeated uint32 enemy_hero_ids = 3;
+  // repeated int32 enemy_hero_ids = 3;
   int enemy_hero_ids_size() const;
   private:
   int _internal_enemy_hero_ids_size() const;
   public:
   void clear_enemy_hero_ids();
   private:
-  uint32_t _internal_enemy_hero_ids(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+  int32_t _internal_enemy_hero_ids(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
       _internal_enemy_hero_ids() const;
-  void _internal_add_enemy_hero_ids(uint32_t value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+  void _internal_add_enemy_hero_ids(int32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
       _internal_mutable_enemy_hero_ids();
   public:
-  uint32_t enemy_hero_ids(int index) const;
-  void set_enemy_hero_ids(int index, uint32_t value);
-  void add_enemy_hero_ids(uint32_t value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+  int32_t enemy_hero_ids(int index) const;
+  void set_enemy_hero_ids(int index, int32_t value);
+  void add_enemy_hero_ids(int32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
       enemy_hero_ids() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
       mutable_enemy_hero_ids();
 
   // repeated .CMsgServerToGCMatchPlayerNeutralItemEquipHistory.ItemEquip item_equips = 4;
@@ -26920,8 +25710,8 @@ class CMsgServerToGCMatchPlayerNeutralItemEquipHistory_Player final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > allied_hero_ids_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > enemy_hero_ids_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > allied_hero_ids_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > enemy_hero_ids_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgServerToGCMatchPlayerNeutralItemEquipHistory_ItemEquip > item_equips_;
     uint32_t account_id_;
     bool is_winner_;
@@ -26986,7 +25776,7 @@ class CMsgServerToGCMatchPlayerNeutralItemEquipHistory final :
                &_CMsgServerToGCMatchPlayerNeutralItemEquipHistory_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    109;
+    103;
 
   friend void swap(CMsgServerToGCMatchPlayerNeutralItemEquipHistory& a, CMsgServerToGCMatchPlayerNeutralItemEquipHistory& b) {
     a.Swap(&b);
@@ -27169,7 +25959,7 @@ class CMsgServerToGCMatchStateHistory_PlayerState final :
                &_CMsgServerToGCMatchStateHistory_PlayerState_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    110;
+    104;
 
   friend void swap(CMsgServerToGCMatchStateHistory_PlayerState& a, CMsgServerToGCMatchStateHistory_PlayerState& b) {
     a.Swap(&b);
@@ -27252,17 +26042,17 @@ class CMsgServerToGCMatchStateHistory_PlayerState final :
     kHasRapierFieldNumber = 8,
     kDistanceFieldNumber = 9,
   };
-  // optional uint32 hero_id = 1;
+  // optional int32 hero_id = 1;
   bool has_hero_id() const;
   private:
   bool _internal_has_hero_id() const;
   public:
   void clear_hero_id();
-  uint32_t hero_id() const;
-  void set_hero_id(uint32_t value);
+  int32_t hero_id() const;
+  void set_hero_id(int32_t value);
   private:
-  uint32_t _internal_hero_id() const;
-  void _internal_set_hero_id(uint32_t value);
+  int32_t _internal_hero_id() const;
+  void _internal_set_hero_id(int32_t value);
   public:
 
   // optional uint32 net_worth = 2;
@@ -27379,7 +26169,7 @@ class CMsgServerToGCMatchStateHistory_PlayerState final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    uint32_t hero_id_;
+    int32_t hero_id_;
     uint32_t net_worth_;
     uint32_t level_;
     uint32_t deaths_;
@@ -27449,7 +26239,7 @@ class CMsgServerToGCMatchStateHistory_TeamState final :
                &_CMsgServerToGCMatchStateHistory_TeamState_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    111;
+    105;
 
   friend void swap(CMsgServerToGCMatchStateHistory_TeamState& a, CMsgServerToGCMatchStateHistory_TeamState& b) {
     a.Swap(&b);
@@ -27767,7 +26557,7 @@ class CMsgServerToGCMatchStateHistory_MatchState final :
                &_CMsgServerToGCMatchStateHistory_MatchState_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    112;
+    106;
 
   friend void swap(CMsgServerToGCMatchStateHistory_MatchState& a, CMsgServerToGCMatchStateHistory_MatchState& b) {
     a.Swap(&b);
@@ -27967,7 +26757,7 @@ class CMsgServerToGCMatchStateHistory final :
                &_CMsgServerToGCMatchStateHistory_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    113;
+    107;
 
   friend void swap(CMsgServerToGCMatchStateHistory& a, CMsgServerToGCMatchStateHistory& b) {
     a.Swap(&b);
@@ -28181,7 +26971,7 @@ class CMsgMatchStateSteamMLEntry final :
                &_CMsgMatchStateSteamMLEntry_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    114;
+    108;
 
   friend void swap(CMsgMatchStateSteamMLEntry& a, CMsgMatchStateSteamMLEntry& b) {
     a.Swap(&b);
@@ -28376,7 +27166,7 @@ class CMsgLaneSelectionSteamMLEntry final :
                &_CMsgLaneSelectionSteamMLEntry_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    115;
+    109;
 
   friend void swap(CMsgLaneSelectionSteamMLEntry& a, CMsgLaneSelectionSteamMLEntry& b) {
     a.Swap(&b);
@@ -28452,26 +27242,26 @@ class CMsgLaneSelectionSteamMLEntry final :
     kHeroIdsFieldNumber = 1,
     kLanesFieldNumber = 2,
   };
-  // repeated uint32 hero_ids = 1 [(.steamml_max_entries) = 10];
+  // repeated int32 hero_ids = 1 [(.steamml_max_entries) = 10];
   int hero_ids_size() const;
   private:
   int _internal_hero_ids_size() const;
   public:
   void clear_hero_ids();
   private:
-  uint32_t _internal_hero_ids(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+  int32_t _internal_hero_ids(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
       _internal_hero_ids() const;
-  void _internal_add_hero_ids(uint32_t value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+  void _internal_add_hero_ids(int32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
       _internal_mutable_hero_ids();
   public:
-  uint32_t hero_ids(int index) const;
-  void set_hero_ids(int index, uint32_t value);
-  void add_hero_ids(uint32_t value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+  int32_t hero_ids(int index) const;
+  void set_hero_ids(int index, int32_t value);
+  void add_hero_ids(int32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
       hero_ids() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
       mutable_hero_ids();
 
   // repeated uint32 lanes = 2 [(.steamml_max_entries) = 6];
@@ -28504,7 +27294,7 @@ class CMsgLaneSelectionSteamMLEntry final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > hero_ids_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > hero_ids_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > lanes_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -28568,7 +27358,7 @@ class CMsgAbilitySelectionSteamMLEntry final :
                &_CMsgAbilitySelectionSteamMLEntry_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    116;
+    110;
 
   friend void swap(CMsgAbilitySelectionSteamMLEntry& a, CMsgAbilitySelectionSteamMLEntry& b) {
     a.Swap(&b);
@@ -28648,26 +27438,26 @@ class CMsgAbilitySelectionSteamMLEntry final :
     kLaneFieldNumber = 4,
     kSelectedAbilityFieldNumber = 6,
   };
-  // repeated uint32 enemy_hero_ids = 3 [(.steamml_max_entries) = 4];
+  // repeated int32 enemy_hero_ids = 3 [(.steamml_max_entries) = 4];
   int enemy_hero_ids_size() const;
   private:
   int _internal_enemy_hero_ids_size() const;
   public:
   void clear_enemy_hero_ids();
   private:
-  uint32_t _internal_enemy_hero_ids(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+  int32_t _internal_enemy_hero_ids(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
       _internal_enemy_hero_ids() const;
-  void _internal_add_enemy_hero_ids(uint32_t value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+  void _internal_add_enemy_hero_ids(int32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
       _internal_mutable_enemy_hero_ids();
   public:
-  uint32_t enemy_hero_ids(int index) const;
-  void set_enemy_hero_ids(int index, uint32_t value);
-  void add_enemy_hero_ids(uint32_t value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+  int32_t enemy_hero_ids(int index) const;
+  void set_enemy_hero_ids(int index, int32_t value);
+  void add_enemy_hero_ids(int32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
       enemy_hero_ids() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
       mutable_enemy_hero_ids();
 
   // repeated int32 abilities = 5 [(.steamml_max_entries) = 25];
@@ -28705,17 +27495,17 @@ class CMsgAbilitySelectionSteamMLEntry final :
   void _internal_set_mmr(uint32_t value);
   public:
 
-  // optional uint32 hero_id = 2;
+  // optional int32 hero_id = 2;
   bool has_hero_id() const;
   private:
   bool _internal_has_hero_id() const;
   public:
   void clear_hero_id();
-  uint32_t hero_id() const;
-  void set_hero_id(uint32_t value);
+  int32_t hero_id() const;
+  void set_hero_id(int32_t value);
   private:
-  uint32_t _internal_hero_id() const;
-  void _internal_set_hero_id(uint32_t value);
+  int32_t _internal_hero_id() const;
+  void _internal_set_hero_id(int32_t value);
   public:
 
   // optional uint32 lane = 4;
@@ -28754,10 +27544,10 @@ class CMsgAbilitySelectionSteamMLEntry final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > enemy_hero_ids_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > enemy_hero_ids_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > abilities_;
     uint32_t mmr_;
-    uint32_t hero_id_;
+    int32_t hero_id_;
     uint32_t lane_;
     int32_t selected_ability_;
   };
@@ -28821,7 +27611,7 @@ class CMsgItemPurchasePregameSteamMLEntry final :
                &_CMsgItemPurchasePregameSteamMLEntry_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    117;
+    111;
 
   friend void swap(CMsgItemPurchasePregameSteamMLEntry& a, CMsgItemPurchasePregameSteamMLEntry& b) {
     a.Swap(&b);
@@ -28902,48 +27692,48 @@ class CMsgItemPurchasePregameSteamMLEntry final :
     kBalanceFieldNumber = 3,
     kHeroIdFieldNumber = 4,
   };
-  // repeated uint32 allied_hero_ids = 5 [(.steamml_max_entries) = 4];
+  // repeated int32 allied_hero_ids = 5 [(.steamml_max_entries) = 4];
   int allied_hero_ids_size() const;
   private:
   int _internal_allied_hero_ids_size() const;
   public:
   void clear_allied_hero_ids();
   private:
-  uint32_t _internal_allied_hero_ids(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+  int32_t _internal_allied_hero_ids(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
       _internal_allied_hero_ids() const;
-  void _internal_add_allied_hero_ids(uint32_t value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+  void _internal_add_allied_hero_ids(int32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
       _internal_mutable_allied_hero_ids();
   public:
-  uint32_t allied_hero_ids(int index) const;
-  void set_allied_hero_ids(int index, uint32_t value);
-  void add_allied_hero_ids(uint32_t value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+  int32_t allied_hero_ids(int index) const;
+  void set_allied_hero_ids(int index, int32_t value);
+  void add_allied_hero_ids(int32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
       allied_hero_ids() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
       mutable_allied_hero_ids();
 
-  // repeated uint32 enemy_hero_ids = 6 [(.steamml_max_entries) = 5];
+  // repeated int32 enemy_hero_ids = 6 [(.steamml_max_entries) = 5];
   int enemy_hero_ids_size() const;
   private:
   int _internal_enemy_hero_ids_size() const;
   public:
   void clear_enemy_hero_ids();
   private:
-  uint32_t _internal_enemy_hero_ids(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+  int32_t _internal_enemy_hero_ids(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
       _internal_enemy_hero_ids() const;
-  void _internal_add_enemy_hero_ids(uint32_t value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+  void _internal_add_enemy_hero_ids(int32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
       _internal_mutable_enemy_hero_ids();
   public:
-  uint32_t enemy_hero_ids(int index) const;
-  void set_enemy_hero_ids(int index, uint32_t value);
-  void add_enemy_hero_ids(uint32_t value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+  int32_t enemy_hero_ids(int index) const;
+  void set_enemy_hero_ids(int index, int32_t value);
+  void add_enemy_hero_ids(int32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
       enemy_hero_ids() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
       mutable_enemy_hero_ids();
 
   // repeated int32 items = 7 [(.steamml_max_entries) = 9];
@@ -29007,17 +27797,17 @@ class CMsgItemPurchasePregameSteamMLEntry final :
   void _internal_set_balance(float value);
   public:
 
-  // optional uint32 hero_id = 4;
+  // optional int32 hero_id = 4;
   bool has_hero_id() const;
   private:
   bool _internal_has_hero_id() const;
   public:
   void clear_hero_id();
-  uint32_t hero_id() const;
-  void set_hero_id(uint32_t value);
+  int32_t hero_id() const;
+  void set_hero_id(int32_t value);
   private:
-  uint32_t _internal_hero_id() const;
-  void _internal_set_hero_id(uint32_t value);
+  int32_t _internal_hero_id() const;
+  void _internal_set_hero_id(int32_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:CMsgItemPurchasePregameSteamMLEntry)
@@ -29030,13 +27820,13 @@ class CMsgItemPurchasePregameSteamMLEntry final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > allied_hero_ids_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > enemy_hero_ids_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > allied_hero_ids_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > enemy_hero_ids_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > items_;
     uint32_t mmr_;
     uint32_t lane_;
     float balance_;
-    uint32_t hero_id_;
+    int32_t hero_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fgcmessages_5fserver_2eproto;
@@ -29098,7 +27888,7 @@ class CMsgItemPurchaseSteamMLEntry final :
                &_CMsgItemPurchaseSteamMLEntry_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    118;
+    112;
 
   friend void swap(CMsgItemPurchaseSteamMLEntry& a, CMsgItemPurchaseSteamMLEntry& b) {
     a.Swap(&b);
@@ -29179,48 +27969,48 @@ class CMsgItemPurchaseSteamMLEntry final :
     kLaneFieldNumber = 2,
     kHeroIdFieldNumber = 3,
   };
-  // repeated uint32 allied_hero_ids = 4 [(.steamml_max_entries) = 4];
+  // repeated int32 allied_hero_ids = 4 [(.steamml_max_entries) = 4];
   int allied_hero_ids_size() const;
   private:
   int _internal_allied_hero_ids_size() const;
   public:
   void clear_allied_hero_ids();
   private:
-  uint32_t _internal_allied_hero_ids(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+  int32_t _internal_allied_hero_ids(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
       _internal_allied_hero_ids() const;
-  void _internal_add_allied_hero_ids(uint32_t value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+  void _internal_add_allied_hero_ids(int32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
       _internal_mutable_allied_hero_ids();
   public:
-  uint32_t allied_hero_ids(int index) const;
-  void set_allied_hero_ids(int index, uint32_t value);
-  void add_allied_hero_ids(uint32_t value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+  int32_t allied_hero_ids(int index) const;
+  void set_allied_hero_ids(int index, int32_t value);
+  void add_allied_hero_ids(int32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
       allied_hero_ids() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
       mutable_allied_hero_ids();
 
-  // repeated uint32 enemy_hero_ids = 5 [(.steamml_max_entries) = 5];
+  // repeated int32 enemy_hero_ids = 5 [(.steamml_max_entries) = 5];
   int enemy_hero_ids_size() const;
   private:
   int _internal_enemy_hero_ids_size() const;
   public:
   void clear_enemy_hero_ids();
   private:
-  uint32_t _internal_enemy_hero_ids(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+  int32_t _internal_enemy_hero_ids(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
       _internal_enemy_hero_ids() const;
-  void _internal_add_enemy_hero_ids(uint32_t value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+  void _internal_add_enemy_hero_ids(int32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
       _internal_mutable_enemy_hero_ids();
   public:
-  uint32_t enemy_hero_ids(int index) const;
-  void set_enemy_hero_ids(int index, uint32_t value);
-  void add_enemy_hero_ids(uint32_t value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+  int32_t enemy_hero_ids(int index) const;
+  void set_enemy_hero_ids(int index, int32_t value);
+  void add_enemy_hero_ids(int32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
       enemy_hero_ids() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
       mutable_enemy_hero_ids();
 
   // repeated int32 items = 6 [(.steamml_max_entries) = 20];
@@ -29293,17 +28083,17 @@ class CMsgItemPurchaseSteamMLEntry final :
   void _internal_set_lane(uint32_t value);
   public:
 
-  // optional uint32 hero_id = 3;
+  // optional int32 hero_id = 3;
   bool has_hero_id() const;
   private:
   bool _internal_has_hero_id() const;
   public:
   void clear_hero_id();
-  uint32_t hero_id() const;
-  void set_hero_id(uint32_t value);
+  int32_t hero_id() const;
+  void set_hero_id(int32_t value);
   private:
-  uint32_t _internal_hero_id() const;
-  void _internal_set_hero_id(uint32_t value);
+  int32_t _internal_hero_id() const;
+  void _internal_set_hero_id(int32_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:CMsgItemPurchaseSteamMLEntry)
@@ -29316,13 +28106,13 @@ class CMsgItemPurchaseSteamMLEntry final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > allied_hero_ids_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > enemy_hero_ids_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > allied_hero_ids_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > enemy_hero_ids_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > items_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > items_to_be_purchased_;
     uint32_t mmr_;
     uint32_t lane_;
-    uint32_t hero_id_;
+    int32_t hero_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fgcmessages_5fserver_2eproto;
@@ -29384,7 +28174,7 @@ class CMsgItemPurchaseSequenceSteamMLEntry final :
                &_CMsgItemPurchaseSequenceSteamMLEntry_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    119;
+    113;
 
   friend void swap(CMsgItemPurchaseSequenceSteamMLEntry& a, CMsgItemPurchaseSequenceSteamMLEntry& b) {
     a.Swap(&b);
@@ -29465,48 +28255,48 @@ class CMsgItemPurchaseSequenceSteamMLEntry final :
     kHeroIdFieldNumber = 3,
     kItemToBePurchasedFieldNumber = 7,
   };
-  // repeated uint32 allied_hero_ids = 4 [(.steamml_max_entries) = 4];
+  // repeated int32 allied_hero_ids = 4 [(.steamml_max_entries) = 4];
   int allied_hero_ids_size() const;
   private:
   int _internal_allied_hero_ids_size() const;
   public:
   void clear_allied_hero_ids();
   private:
-  uint32_t _internal_allied_hero_ids(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+  int32_t _internal_allied_hero_ids(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
       _internal_allied_hero_ids() const;
-  void _internal_add_allied_hero_ids(uint32_t value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+  void _internal_add_allied_hero_ids(int32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
       _internal_mutable_allied_hero_ids();
   public:
-  uint32_t allied_hero_ids(int index) const;
-  void set_allied_hero_ids(int index, uint32_t value);
-  void add_allied_hero_ids(uint32_t value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+  int32_t allied_hero_ids(int index) const;
+  void set_allied_hero_ids(int index, int32_t value);
+  void add_allied_hero_ids(int32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
       allied_hero_ids() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
       mutable_allied_hero_ids();
 
-  // repeated uint32 enemy_hero_ids = 5 [(.steamml_max_entries) = 5];
+  // repeated int32 enemy_hero_ids = 5 [(.steamml_max_entries) = 5];
   int enemy_hero_ids_size() const;
   private:
   int _internal_enemy_hero_ids_size() const;
   public:
   void clear_enemy_hero_ids();
   private:
-  uint32_t _internal_enemy_hero_ids(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+  int32_t _internal_enemy_hero_ids(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
       _internal_enemy_hero_ids() const;
-  void _internal_add_enemy_hero_ids(uint32_t value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+  void _internal_add_enemy_hero_ids(int32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
       _internal_mutable_enemy_hero_ids();
   public:
-  uint32_t enemy_hero_ids(int index) const;
-  void set_enemy_hero_ids(int index, uint32_t value);
-  void add_enemy_hero_ids(uint32_t value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+  int32_t enemy_hero_ids(int index) const;
+  void set_enemy_hero_ids(int index, int32_t value);
+  void add_enemy_hero_ids(int32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
       enemy_hero_ids() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
       mutable_enemy_hero_ids();
 
   // repeated int32 items = 6 [(.steamml_max_entries) = 20];
@@ -29557,17 +28347,17 @@ class CMsgItemPurchaseSequenceSteamMLEntry final :
   void _internal_set_lane(uint32_t value);
   public:
 
-  // optional uint32 hero_id = 3;
+  // optional int32 hero_id = 3;
   bool has_hero_id() const;
   private:
   bool _internal_has_hero_id() const;
   public:
   void clear_hero_id();
-  uint32_t hero_id() const;
-  void set_hero_id(uint32_t value);
+  int32_t hero_id() const;
+  void set_hero_id(int32_t value);
   private:
-  uint32_t _internal_hero_id() const;
-  void _internal_set_hero_id(uint32_t value);
+  int32_t _internal_hero_id() const;
+  void _internal_set_hero_id(int32_t value);
   public:
 
   // optional int32 item_to_be_purchased = 7 [default = -1];
@@ -29593,12 +28383,12 @@ class CMsgItemPurchaseSequenceSteamMLEntry final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > allied_hero_ids_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > enemy_hero_ids_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > allied_hero_ids_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > enemy_hero_ids_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > items_;
     uint32_t mmr_;
     uint32_t lane_;
-    uint32_t hero_id_;
+    int32_t hero_id_;
     int32_t item_to_be_purchased_;
   };
   union { Impl_ _impl_; };
@@ -29661,7 +28451,7 @@ class CMsgServerToGCCavernCrawlIsHeroActive final :
                &_CMsgServerToGCCavernCrawlIsHeroActive_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    120;
+    114;
 
   friend void swap(CMsgServerToGCCavernCrawlIsHeroActive& a, CMsgServerToGCCavernCrawlIsHeroActive& b) {
     a.Swap(&b);
@@ -29766,17 +28556,17 @@ class CMsgServerToGCCavernCrawlIsHeroActive final :
   void _internal_set_account_id(uint32_t value);
   public:
 
-  // optional uint32 hero_id = 4;
+  // optional int32 hero_id = 4;
   bool has_hero_id() const;
   private:
   bool _internal_has_hero_id() const;
   public:
   void clear_hero_id();
-  uint32_t hero_id() const;
-  void set_hero_id(uint32_t value);
+  int32_t hero_id() const;
+  void set_hero_id(int32_t value);
   private:
-  uint32_t _internal_hero_id() const;
-  void _internal_set_hero_id(uint32_t value);
+  int32_t _internal_hero_id() const;
+  void _internal_set_hero_id(int32_t value);
   public:
 
   // optional bool turbo_mode = 5;
@@ -29817,7 +28607,7 @@ class CMsgServerToGCCavernCrawlIsHeroActive final :
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t event_id_;
     uint32_t account_id_;
-    uint32_t hero_id_;
+    int32_t hero_id_;
     bool turbo_mode_;
     uint32_t preferred_map_variant_;
   };
@@ -29881,7 +28671,7 @@ class CMsgServerToGCPlayerChallengeHistory_PlayerChallenge final :
                &_CMsgServerToGCPlayerChallengeHistory_PlayerChallenge_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    121;
+    115;
 
   friend void swap(CMsgServerToGCPlayerChallengeHistory_PlayerChallenge& a, CMsgServerToGCPlayerChallengeHistory_PlayerChallenge& b) {
     a.Swap(&b);
@@ -30069,17 +28859,17 @@ class CMsgServerToGCPlayerChallengeHistory_PlayerChallenge final :
   void _internal_set_team_won(bool value);
   public:
 
-  // optional uint32 hero_id = 9;
+  // optional int32 hero_id = 9;
   bool has_hero_id() const;
   private:
   bool _internal_has_hero_id() const;
   public:
   void clear_hero_id();
-  uint32_t hero_id() const;
-  void set_hero_id(uint32_t value);
+  int32_t hero_id() const;
+  void set_hero_id(int32_t value);
   private:
-  uint32_t _internal_hero_id() const;
-  void _internal_set_hero_id(uint32_t value);
+  int32_t _internal_hero_id() const;
+  void _internal_set_hero_id(int32_t value);
   public:
 
   // optional uint32 rank_completed = 10;
@@ -30113,7 +28903,7 @@ class CMsgServerToGCPlayerChallengeHistory_PlayerChallenge final :
     uint32_t progress_value_end_;
     uint64_t audit_data_;
     bool team_won_;
-    uint32_t hero_id_;
+    int32_t hero_id_;
     uint32_t rank_completed_;
   };
   union { Impl_ _impl_; };
@@ -30176,7 +28966,7 @@ class CMsgServerToGCPlayerChallengeHistory final :
                &_CMsgServerToGCPlayerChallengeHistory_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    122;
+    116;
 
   friend void swap(CMsgServerToGCPlayerChallengeHistory& a, CMsgServerToGCPlayerChallengeHistory& b) {
     a.Swap(&b);
@@ -30373,7 +29163,7 @@ class CMsgServerToGCCavernCrawlIsHeroActiveResponse_MapResults final :
                &_CMsgServerToGCCavernCrawlIsHeroActiveResponse_MapResults_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    123;
+    117;
 
   friend void swap(CMsgServerToGCCavernCrawlIsHeroActiveResponse_MapResults& a, CMsgServerToGCCavernCrawlIsHeroActiveResponse_MapResults& b) {
     a.Swap(&b);
@@ -30548,7 +29338,7 @@ class CMsgServerToGCCavernCrawlIsHeroActiveResponse final :
                &_CMsgServerToGCCavernCrawlIsHeroActiveResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    124;
+    118;
 
   friend void swap(CMsgServerToGCCavernCrawlIsHeroActiveResponse& a, CMsgServerToGCCavernCrawlIsHeroActiveResponse& b) {
     a.Swap(&b);
@@ -30720,166 +29510,6 @@ class CMsgServerToGCCavernCrawlIsHeroActiveResponse final :
 };
 // -------------------------------------------------------------------
 
-class CMsgGCtoServerTensorflowInstance final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgGCtoServerTensorflowInstance) */ {
- public:
-  inline CMsgGCtoServerTensorflowInstance() : CMsgGCtoServerTensorflowInstance(nullptr) {}
-  ~CMsgGCtoServerTensorflowInstance() override;
-  explicit PROTOBUF_CONSTEXPR CMsgGCtoServerTensorflowInstance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  CMsgGCtoServerTensorflowInstance(const CMsgGCtoServerTensorflowInstance& from);
-  CMsgGCtoServerTensorflowInstance(CMsgGCtoServerTensorflowInstance&& from) noexcept
-    : CMsgGCtoServerTensorflowInstance() {
-    *this = ::std::move(from);
-  }
-
-  inline CMsgGCtoServerTensorflowInstance& operator=(const CMsgGCtoServerTensorflowInstance& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CMsgGCtoServerTensorflowInstance& operator=(CMsgGCtoServerTensorflowInstance&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const CMsgGCtoServerTensorflowInstance& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const CMsgGCtoServerTensorflowInstance* internal_default_instance() {
-    return reinterpret_cast<const CMsgGCtoServerTensorflowInstance*>(
-               &_CMsgGCtoServerTensorflowInstance_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    125;
-
-  friend void swap(CMsgGCtoServerTensorflowInstance& a, CMsgGCtoServerTensorflowInstance& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CMsgGCtoServerTensorflowInstance* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CMsgGCtoServerTensorflowInstance* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  CMsgGCtoServerTensorflowInstance* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<CMsgGCtoServerTensorflowInstance>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const CMsgGCtoServerTensorflowInstance& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const CMsgGCtoServerTensorflowInstance& from) {
-    CMsgGCtoServerTensorflowInstance::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CMsgGCtoServerTensorflowInstance* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CMsgGCtoServerTensorflowInstance";
-  }
-  protected:
-  explicit CMsgGCtoServerTensorflowInstance(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kServerInstanceFieldNumber = 1,
-  };
-  // optional uint32 server_instance = 1;
-  bool has_server_instance() const;
-  private:
-  bool _internal_has_server_instance() const;
-  public:
-  void clear_server_instance();
-  uint32_t server_instance() const;
-  void set_server_instance(uint32_t value);
-  private:
-  uint32_t _internal_server_instance() const;
-  void _internal_set_server_instance(uint32_t value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:CMsgGCtoServerTensorflowInstance)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    uint32_t server_instance_;
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_dota_5fgcmessages_5fserver_2eproto;
-};
-// -------------------------------------------------------------------
-
 class CMsgNeutralItemStats_NeutralItem final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgNeutralItemStats.NeutralItem) */ {
  public:
@@ -30935,7 +29565,7 @@ class CMsgNeutralItemStats_NeutralItem final :
                &_CMsgNeutralItemStats_NeutralItem_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    126;
+    119;
 
   friend void swap(CMsgNeutralItemStats_NeutralItem& a, CMsgNeutralItemStats_NeutralItem& b) {
     a.Swap(&b);
@@ -31170,7 +29800,7 @@ class CMsgNeutralItemStats final :
                &_CMsgNeutralItemStats_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    127;
+    120;
 
   friend void swap(CMsgNeutralItemStats& a, CMsgNeutralItemStats& b) {
     a.Swap(&b);
@@ -31336,7 +29966,7 @@ class CMsgGCToServerLobbyHeroBanRates_HeroBanEntry final :
                &_CMsgGCToServerLobbyHeroBanRates_HeroBanEntry_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    128;
+    121;
 
   friend void swap(CMsgGCToServerLobbyHeroBanRates_HeroBanEntry& a, CMsgGCToServerLobbyHeroBanRates_HeroBanEntry& b) {
     a.Swap(&b);
@@ -31413,17 +30043,17 @@ class CMsgGCToServerLobbyHeroBanRates_HeroBanEntry final :
     kBanCountFieldNumber = 2,
     kPickCountFieldNumber = 3,
   };
-  // optional uint32 hero_id = 1;
+  // optional int32 hero_id = 1;
   bool has_hero_id() const;
   private:
   bool _internal_has_hero_id() const;
   public:
   void clear_hero_id();
-  uint32_t hero_id() const;
-  void set_hero_id(uint32_t value);
+  int32_t hero_id() const;
+  void set_hero_id(int32_t value);
   private:
-  uint32_t _internal_hero_id() const;
-  void _internal_set_hero_id(uint32_t value);
+  int32_t _internal_hero_id() const;
+  void _internal_set_hero_id(int32_t value);
   public:
 
   // optional uint32 ban_count = 2;
@@ -31462,7 +30092,7 @@ class CMsgGCToServerLobbyHeroBanRates_HeroBanEntry final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    uint32_t hero_id_;
+    int32_t hero_id_;
     uint32_t ban_count_;
     uint32_t pick_count_;
   };
@@ -31526,7 +30156,7 @@ class CMsgGCToServerLobbyHeroBanRates final :
                &_CMsgGCToServerLobbyHeroBanRates_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    129;
+    122;
 
   friend void swap(CMsgGCToServerLobbyHeroBanRates& a, CMsgGCToServerLobbyHeroBanRates& b) {
     a.Swap(&b);
@@ -31692,7 +30322,7 @@ class CMsgSignOutGuildContractProgress_CompletedGuildEventContracts final :
                &_CMsgSignOutGuildContractProgress_CompletedGuildEventContracts_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    130;
+    123;
 
   friend void swap(CMsgSignOutGuildContractProgress_CompletedGuildEventContracts& a, CMsgSignOutGuildContractProgress_CompletedGuildEventContracts& b) {
     a.Swap(&b);
@@ -31891,7 +30521,7 @@ class CMsgSignOutGuildContractProgress_PlayerContract final :
                &_CMsgSignOutGuildContractProgress_PlayerContract_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    131;
+    124;
 
   friend void swap(CMsgSignOutGuildContractProgress_PlayerContract& a, CMsgSignOutGuildContractProgress_PlayerContract& b) {
     a.Swap(&b);
@@ -32071,7 +30701,7 @@ class CMsgSignOutGuildContractProgress final :
                &_CMsgSignOutGuildContractProgress_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    132;
+    125;
 
   friend void swap(CMsgSignOutGuildContractProgress& a, CMsgSignOutGuildContractProgress& b) {
     a.Swap(&b);
@@ -32238,7 +30868,7 @@ class CMsgSignOutGuildChallengeProgress_ChallengeProgress final :
                &_CMsgSignOutGuildChallengeProgress_ChallengeProgress_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    133;
+    126;
 
   friend void swap(CMsgSignOutGuildChallengeProgress_ChallengeProgress& a, CMsgSignOutGuildChallengeProgress_ChallengeProgress& b) {
     a.Swap(&b);
@@ -32488,7 +31118,7 @@ class CMsgSignOutGuildChallengeProgress final :
                &_CMsgSignOutGuildChallengeProgress_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    134;
+    127;
 
   friend void swap(CMsgSignOutGuildChallengeProgress& a, CMsgSignOutGuildChallengeProgress& b) {
     a.Swap(&b);
@@ -32654,7 +31284,7 @@ class CMsgSignOutMVPStats_Player_KillEaterEvent final :
                &_CMsgSignOutMVPStats_Player_KillEaterEvent_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    135;
+    128;
 
   friend void swap(CMsgSignOutMVPStats_Player_KillEaterEvent& a, CMsgSignOutMVPStats_Player_KillEaterEvent& b) {
     a.Swap(&b);
@@ -32832,7 +31462,7 @@ class CMsgSignOutMVPStats_Player final :
                &_CMsgSignOutMVPStats_Player_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    136;
+    129;
 
   friend void swap(CMsgSignOutMVPStats_Player& a, CMsgSignOutMVPStats_Player& b) {
     a.Swap(&b);
@@ -32990,17 +31620,17 @@ class CMsgSignOutMVPStats_Player final :
   void _internal_set_account_id(uint32_t value);
   public:
 
-  // optional uint32 hero_id = 4;
+  // optional int32 hero_id = 4;
   bool has_hero_id() const;
   private:
   bool _internal_has_hero_id() const;
   public:
   void clear_hero_id();
-  uint32_t hero_id() const;
-  void set_hero_id(uint32_t value);
+  int32_t hero_id() const;
+  void set_hero_id(int32_t value);
   private:
-  uint32_t _internal_hero_id() const;
-  void _internal_set_hero_id(uint32_t value);
+  int32_t _internal_hero_id() const;
+  void _internal_set_hero_id(int32_t value);
   public:
 
   // optional uint32 role = 5;
@@ -33277,7 +31907,7 @@ class CMsgSignOutMVPStats_Player final :
     uint32_t team_id_;
     uint32_t team_networth_rank_;
     uint32_t account_id_;
-    uint32_t hero_id_;
+    int32_t hero_id_;
     uint32_t role_;
     int32_t kills_;
     int32_t deaths_;
@@ -33359,7 +31989,7 @@ class CMsgSignOutMVPStats final :
                &_CMsgSignOutMVPStats_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    137;
+    130;
 
   friend void swap(CMsgSignOutMVPStats& a, CMsgSignOutMVPStats& b) {
     a.Swap(&b);
@@ -33586,7 +32216,7 @@ class CMsgGCToServerRecordTrainingData final :
                &_CMsgGCToServerRecordTrainingData_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    138;
+    131;
 
   friend void swap(CMsgGCToServerRecordTrainingData& a, CMsgGCToServerRecordTrainingData& b) {
     a.Swap(&b);
@@ -33746,7 +32376,7 @@ class CMsgServerToGCGetGuildContracts final :
                &_CMsgServerToGCGetGuildContracts_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    139;
+    132;
 
   friend void swap(CMsgServerToGCGetGuildContracts& a, CMsgServerToGCGetGuildContracts& b) {
     a.Swap(&b);
@@ -33914,7 +32544,7 @@ class CMsgServerToGCGetGuildContractsResponse_ContractDetails final :
                &_CMsgServerToGCGetGuildContractsResponse_ContractDetails_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    140;
+    133;
 
   friend void swap(CMsgServerToGCGetGuildContractsResponse_ContractDetails& a, CMsgServerToGCGetGuildContractsResponse_ContractDetails& b) {
     a.Swap(&b);
@@ -34134,7 +32764,7 @@ class CMsgServerToGCGetGuildContractsResponse_Player final :
                &_CMsgServerToGCGetGuildContractsResponse_Player_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    141;
+    134;
 
   friend void swap(CMsgServerToGCGetGuildContractsResponse_Player& a, CMsgServerToGCGetGuildContractsResponse_Player& b) {
     a.Swap(&b);
@@ -34344,7 +32974,7 @@ class CMsgServerToGCGetGuildContractsResponse final :
                &_CMsgServerToGCGetGuildContractsResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    142;
+    135;
 
   friend void swap(CMsgServerToGCGetGuildContractsResponse& a, CMsgServerToGCGetGuildContractsResponse& b) {
     a.Swap(&b);
@@ -34511,7 +33141,7 @@ class CMsgMatchDiretideCandy_CandyDetails final :
                &_CMsgMatchDiretideCandy_CandyDetails_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    143;
+    136;
 
   friend void swap(CMsgMatchDiretideCandy_CandyDetails& a, CMsgMatchDiretideCandy_CandyDetails& b) {
     a.Swap(&b);
@@ -34686,7 +33316,7 @@ class CMsgMatchDiretideCandy_PlayerCandy final :
                &_CMsgMatchDiretideCandy_PlayerCandy_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    144;
+    137;
 
   friend void swap(CMsgMatchDiretideCandy_PlayerCandy& a, CMsgMatchDiretideCandy_PlayerCandy& b) {
     a.Swap(&b);
@@ -34896,7 +33526,7 @@ class CMsgMatchDiretideCandy final :
                &_CMsgMatchDiretideCandy_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    145;
+    138;
 
   friend void swap(CMsgMatchDiretideCandy& a, CMsgMatchDiretideCandy& b) {
     a.Swap(&b);
@@ -35079,7 +33709,7 @@ class CMsgGCToServerCheerData_CheerTypeCount final :
                &_CMsgGCToServerCheerData_CheerTypeCount_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    146;
+    139;
 
   friend void swap(CMsgGCToServerCheerData_CheerTypeCount& a, CMsgGCToServerCheerData_CheerTypeCount& b) {
     a.Swap(&b);
@@ -35254,7 +33884,7 @@ class CMsgGCToServerCheerData final :
                &_CMsgGCToServerCheerData_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    147;
+    140;
 
   friend void swap(CMsgGCToServerCheerData& a, CMsgGCToServerCheerData& b) {
     a.Swap(&b);
@@ -35420,7 +34050,7 @@ class CMsgCheerConfig final :
                &_CMsgCheerConfig_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    148;
+    141;
 
   friend void swap(CMsgCheerConfig& a, CMsgCheerConfig& b) {
     a.Swap(&b);
@@ -35835,7 +34465,7 @@ class CMsgGCToServerCheerConfig final :
                &_CMsgGCToServerCheerConfig_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    149;
+    142;
 
   friend void swap(CMsgGCToServerCheerConfig& a, CMsgGCToServerCheerConfig& b) {
     a.Swap(&b);
@@ -36000,7 +34630,7 @@ class CMsgServerToGCGetCheerConfig final :
                &_CMsgServerToGCGetCheerConfig_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    150;
+    143;
 
   friend void swap(CMsgServerToGCGetCheerConfig& a, CMsgServerToGCGetCheerConfig& b) {
     a.Swap(&b);
@@ -36160,7 +34790,7 @@ class CMsgServerToGCGetCheerConfigResponse final :
                &_CMsgServerToGCGetCheerConfigResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    151;
+    144;
 
   friend void swap(CMsgServerToGCGetCheerConfigResponse& a, CMsgServerToGCGetCheerConfigResponse& b) {
     a.Swap(&b);
@@ -36325,7 +34955,7 @@ class CMsgGCToServerCheerScalesOverride final :
                &_CMsgGCToServerCheerScalesOverride_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    152;
+    145;
 
   friend void swap(CMsgGCToServerCheerScalesOverride& a, CMsgGCToServerCheerScalesOverride& b) {
     a.Swap(&b);
@@ -36492,7 +35122,7 @@ class CMsgGCToServerGetCheerState final :
                &_CMsgGCToServerGetCheerState_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    153;
+    146;
 
   friend void swap(CMsgGCToServerGetCheerState& a, CMsgGCToServerGetCheerState& b) {
     a.Swap(&b);
@@ -36618,7 +35248,7 @@ class CMsgCheerTypeState final :
                &_CMsgCheerTypeState_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    154;
+    147;
 
   friend void swap(CMsgCheerTypeState& a, CMsgCheerTypeState& b) {
     a.Swap(&b);
@@ -36832,7 +35462,7 @@ class CMsgCheerState final :
                &_CMsgCheerState_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    155;
+    148;
 
   friend void swap(CMsgCheerState& a, CMsgCheerState& b) {
     a.Swap(&b);
@@ -37027,7 +35657,7 @@ class CMsgServerToGCReportCheerState final :
                &_CMsgServerToGCReportCheerState_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    156;
+    149;
 
   friend void swap(CMsgServerToGCReportCheerState& a, CMsgServerToGCReportCheerState& b) {
     a.Swap(&b);
@@ -37212,7 +35842,7 @@ class CMsgServerToGCGetStickerHeroes final :
                &_CMsgServerToGCGetStickerHeroes_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    157;
+    150;
 
   friend void swap(CMsgServerToGCGetStickerHeroes& a, CMsgServerToGCGetStickerHeroes& b) {
     a.Swap(&b);
@@ -37380,7 +36010,7 @@ class CMsgServerToGCGetStickerHeroesResponse_Player final :
                &_CMsgServerToGCGetStickerHeroesResponse_Player_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    158;
+    151;
 
   friend void swap(CMsgServerToGCGetStickerHeroesResponse_Player& a, CMsgServerToGCGetStickerHeroesResponse_Player& b) {
     a.Swap(&b);
@@ -37560,7 +36190,7 @@ class CMsgServerToGCGetStickerHeroesResponse final :
                &_CMsgServerToGCGetStickerHeroesResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    159;
+    152;
 
   friend void swap(CMsgServerToGCGetStickerHeroesResponse& a, CMsgServerToGCGetStickerHeroesResponse& b) {
     a.Swap(&b);
@@ -37671,24 +36301,24 @@ class CMsgServerToGCGetStickerHeroesResponse final :
 };
 // -------------------------------------------------------------------
 
-class CMsgGCToServerSetSteamLearnInferencing final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgGCToServerSetSteamLearnInferencing) */ {
+class CMsgGCToServerSteamLearnAccessTokensChanged final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgGCToServerSteamLearnAccessTokensChanged) */ {
  public:
-  inline CMsgGCToServerSetSteamLearnInferencing() : CMsgGCToServerSetSteamLearnInferencing(nullptr) {}
-  ~CMsgGCToServerSetSteamLearnInferencing() override;
-  explicit PROTOBUF_CONSTEXPR CMsgGCToServerSetSteamLearnInferencing(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline CMsgGCToServerSteamLearnAccessTokensChanged() : CMsgGCToServerSteamLearnAccessTokensChanged(nullptr) {}
+  ~CMsgGCToServerSteamLearnAccessTokensChanged() override;
+  explicit PROTOBUF_CONSTEXPR CMsgGCToServerSteamLearnAccessTokensChanged(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  CMsgGCToServerSetSteamLearnInferencing(const CMsgGCToServerSetSteamLearnInferencing& from);
-  CMsgGCToServerSetSteamLearnInferencing(CMsgGCToServerSetSteamLearnInferencing&& from) noexcept
-    : CMsgGCToServerSetSteamLearnInferencing() {
+  CMsgGCToServerSteamLearnAccessTokensChanged(const CMsgGCToServerSteamLearnAccessTokensChanged& from);
+  CMsgGCToServerSteamLearnAccessTokensChanged(CMsgGCToServerSteamLearnAccessTokensChanged&& from) noexcept
+    : CMsgGCToServerSteamLearnAccessTokensChanged() {
     *this = ::std::move(from);
   }
 
-  inline CMsgGCToServerSetSteamLearnInferencing& operator=(const CMsgGCToServerSetSteamLearnInferencing& from) {
+  inline CMsgGCToServerSteamLearnAccessTokensChanged& operator=(const CMsgGCToServerSteamLearnAccessTokensChanged& from) {
     CopyFrom(from);
     return *this;
   }
-  inline CMsgGCToServerSetSteamLearnInferencing& operator=(CMsgGCToServerSetSteamLearnInferencing&& from) noexcept {
+  inline CMsgGCToServerSteamLearnAccessTokensChanged& operator=(CMsgGCToServerSteamLearnAccessTokensChanged&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -37718,20 +36348,20 @@ class CMsgGCToServerSetSteamLearnInferencing final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const CMsgGCToServerSetSteamLearnInferencing& default_instance() {
+  static const CMsgGCToServerSteamLearnAccessTokensChanged& default_instance() {
     return *internal_default_instance();
   }
-  static inline const CMsgGCToServerSetSteamLearnInferencing* internal_default_instance() {
-    return reinterpret_cast<const CMsgGCToServerSetSteamLearnInferencing*>(
-               &_CMsgGCToServerSetSteamLearnInferencing_default_instance_);
+  static inline const CMsgGCToServerSteamLearnAccessTokensChanged* internal_default_instance() {
+    return reinterpret_cast<const CMsgGCToServerSteamLearnAccessTokensChanged*>(
+               &_CMsgGCToServerSteamLearnAccessTokensChanged_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    160;
+    153;
 
-  friend void swap(CMsgGCToServerSetSteamLearnInferencing& a, CMsgGCToServerSetSteamLearnInferencing& b) {
+  friend void swap(CMsgGCToServerSteamLearnAccessTokensChanged& a, CMsgGCToServerSteamLearnAccessTokensChanged& b) {
     a.Swap(&b);
   }
-  inline void Swap(CMsgGCToServerSetSteamLearnInferencing* other) {
+  inline void Swap(CMsgGCToServerSteamLearnAccessTokensChanged* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -37744,7 +36374,7 @@ class CMsgGCToServerSetSteamLearnInferencing final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(CMsgGCToServerSetSteamLearnInferencing* other) {
+  void UnsafeArenaSwap(CMsgGCToServerSteamLearnAccessTokensChanged* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -37752,14 +36382,14 @@ class CMsgGCToServerSetSteamLearnInferencing final :
 
   // implements Message ----------------------------------------------
 
-  CMsgGCToServerSetSteamLearnInferencing* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<CMsgGCToServerSetSteamLearnInferencing>(arena);
+  CMsgGCToServerSteamLearnAccessTokensChanged* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgGCToServerSteamLearnAccessTokensChanged>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const CMsgGCToServerSetSteamLearnInferencing& from);
+  void CopyFrom(const CMsgGCToServerSteamLearnAccessTokensChanged& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const CMsgGCToServerSetSteamLearnInferencing& from) {
-    CMsgGCToServerSetSteamLearnInferencing::MergeImpl(*this, from);
+  void MergeFrom( const CMsgGCToServerSteamLearnAccessTokensChanged& from) {
+    CMsgGCToServerSteamLearnAccessTokensChanged::MergeImpl(*this, from);
   }
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
@@ -37777,15 +36407,15 @@ class CMsgGCToServerSetSteamLearnInferencing final :
   void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(CMsgGCToServerSetSteamLearnInferencing* other);
+  void InternalSwap(CMsgGCToServerSteamLearnAccessTokensChanged* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CMsgGCToServerSetSteamLearnInferencing";
+    return "CMsgGCToServerSteamLearnAccessTokensChanged";
   }
   protected:
-  explicit CMsgGCToServerSetSteamLearnInferencing(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit CMsgGCToServerSteamLearnAccessTokensChanged(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   public:
 
@@ -37799,22 +36429,27 @@ class CMsgGCToServerSetSteamLearnInferencing final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kEnableFieldNumber = 1,
+    kAccessTokensFieldNumber = 1,
   };
-  // optional bool enable = 1;
-  bool has_enable() const;
+  // optional .CMsgSteamLearnAccessTokens access_tokens = 1;
+  bool has_access_tokens() const;
   private:
-  bool _internal_has_enable() const;
+  bool _internal_has_access_tokens() const;
   public:
-  void clear_enable();
-  bool enable() const;
-  void set_enable(bool value);
+  void clear_access_tokens();
+  const ::CMsgSteamLearnAccessTokens& access_tokens() const;
+  PROTOBUF_NODISCARD ::CMsgSteamLearnAccessTokens* release_access_tokens();
+  ::CMsgSteamLearnAccessTokens* mutable_access_tokens();
+  void set_allocated_access_tokens(::CMsgSteamLearnAccessTokens* access_tokens);
   private:
-  bool _internal_enable() const;
-  void _internal_set_enable(bool value);
+  const ::CMsgSteamLearnAccessTokens& _internal_access_tokens() const;
+  ::CMsgSteamLearnAccessTokens* _internal_mutable_access_tokens();
   public:
+  void unsafe_arena_set_allocated_access_tokens(
+      ::CMsgSteamLearnAccessTokens* access_tokens);
+  ::CMsgSteamLearnAccessTokens* unsafe_arena_release_access_tokens();
 
-  // @@protoc_insertion_point(class_scope:CMsgGCToServerSetSteamLearnInferencing)
+  // @@protoc_insertion_point(class_scope:CMsgGCToServerSteamLearnAccessTokensChanged)
  private:
   class _Internal;
 
@@ -37824,31 +36459,31 @@ class CMsgGCToServerSetSteamLearnInferencing final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    bool enable_;
+    ::CMsgSteamLearnAccessTokens* access_tokens_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fgcmessages_5fserver_2eproto;
 };
 // -------------------------------------------------------------------
 
-class CMsgGCToServerSetSteamLearnKeysChanged final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgGCToServerSetSteamLearnKeysChanged) */ {
+class CMsgGCToServerSteamLearnUseHTTP final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgGCToServerSteamLearnUseHTTP) */ {
  public:
-  inline CMsgGCToServerSetSteamLearnKeysChanged() : CMsgGCToServerSetSteamLearnKeysChanged(nullptr) {}
-  ~CMsgGCToServerSetSteamLearnKeysChanged() override;
-  explicit PROTOBUF_CONSTEXPR CMsgGCToServerSetSteamLearnKeysChanged(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline CMsgGCToServerSteamLearnUseHTTP() : CMsgGCToServerSteamLearnUseHTTP(nullptr) {}
+  ~CMsgGCToServerSteamLearnUseHTTP() override;
+  explicit PROTOBUF_CONSTEXPR CMsgGCToServerSteamLearnUseHTTP(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  CMsgGCToServerSetSteamLearnKeysChanged(const CMsgGCToServerSetSteamLearnKeysChanged& from);
-  CMsgGCToServerSetSteamLearnKeysChanged(CMsgGCToServerSetSteamLearnKeysChanged&& from) noexcept
-    : CMsgGCToServerSetSteamLearnKeysChanged() {
+  CMsgGCToServerSteamLearnUseHTTP(const CMsgGCToServerSteamLearnUseHTTP& from);
+  CMsgGCToServerSteamLearnUseHTTP(CMsgGCToServerSteamLearnUseHTTP&& from) noexcept
+    : CMsgGCToServerSteamLearnUseHTTP() {
     *this = ::std::move(from);
   }
 
-  inline CMsgGCToServerSetSteamLearnKeysChanged& operator=(const CMsgGCToServerSetSteamLearnKeysChanged& from) {
+  inline CMsgGCToServerSteamLearnUseHTTP& operator=(const CMsgGCToServerSteamLearnUseHTTP& from) {
     CopyFrom(from);
     return *this;
   }
-  inline CMsgGCToServerSetSteamLearnKeysChanged& operator=(CMsgGCToServerSetSteamLearnKeysChanged&& from) noexcept {
+  inline CMsgGCToServerSteamLearnUseHTTP& operator=(CMsgGCToServerSteamLearnUseHTTP&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -37878,20 +36513,20 @@ class CMsgGCToServerSetSteamLearnKeysChanged final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const CMsgGCToServerSetSteamLearnKeysChanged& default_instance() {
+  static const CMsgGCToServerSteamLearnUseHTTP& default_instance() {
     return *internal_default_instance();
   }
-  static inline const CMsgGCToServerSetSteamLearnKeysChanged* internal_default_instance() {
-    return reinterpret_cast<const CMsgGCToServerSetSteamLearnKeysChanged*>(
-               &_CMsgGCToServerSetSteamLearnKeysChanged_default_instance_);
+  static inline const CMsgGCToServerSteamLearnUseHTTP* internal_default_instance() {
+    return reinterpret_cast<const CMsgGCToServerSteamLearnUseHTTP*>(
+               &_CMsgGCToServerSteamLearnUseHTTP_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    161;
+    154;
 
-  friend void swap(CMsgGCToServerSetSteamLearnKeysChanged& a, CMsgGCToServerSetSteamLearnKeysChanged& b) {
+  friend void swap(CMsgGCToServerSteamLearnUseHTTP& a, CMsgGCToServerSteamLearnUseHTTP& b) {
     a.Swap(&b);
   }
-  inline void Swap(CMsgGCToServerSetSteamLearnKeysChanged* other) {
+  inline void Swap(CMsgGCToServerSteamLearnUseHTTP* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -37904,7 +36539,7 @@ class CMsgGCToServerSetSteamLearnKeysChanged final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(CMsgGCToServerSetSteamLearnKeysChanged* other) {
+  void UnsafeArenaSwap(CMsgGCToServerSteamLearnUseHTTP* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -37912,14 +36547,14 @@ class CMsgGCToServerSetSteamLearnKeysChanged final :
 
   // implements Message ----------------------------------------------
 
-  CMsgGCToServerSetSteamLearnKeysChanged* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<CMsgGCToServerSetSteamLearnKeysChanged>(arena);
+  CMsgGCToServerSteamLearnUseHTTP* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgGCToServerSteamLearnUseHTTP>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const CMsgGCToServerSetSteamLearnKeysChanged& from);
+  void CopyFrom(const CMsgGCToServerSteamLearnUseHTTP& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const CMsgGCToServerSetSteamLearnKeysChanged& from) {
-    CMsgGCToServerSetSteamLearnKeysChanged::MergeImpl(*this, from);
+  void MergeFrom( const CMsgGCToServerSteamLearnUseHTTP& from) {
+    CMsgGCToServerSteamLearnUseHTTP::MergeImpl(*this, from);
   }
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
@@ -37937,15 +36572,15 @@ class CMsgGCToServerSetSteamLearnKeysChanged final :
   void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(CMsgGCToServerSetSteamLearnKeysChanged* other);
+  void InternalSwap(CMsgGCToServerSteamLearnUseHTTP* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CMsgGCToServerSetSteamLearnKeysChanged";
+    return "CMsgGCToServerSteamLearnUseHTTP";
   }
   protected:
-  explicit CMsgGCToServerSetSteamLearnKeysChanged(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit CMsgGCToServerSteamLearnUseHTTP(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   public:
 
@@ -37959,27 +36594,22 @@ class CMsgGCToServerSetSteamLearnKeysChanged final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kKeysFieldNumber = 1,
+    kUseHttpFieldNumber = 1,
   };
-  // optional .CMsgSteamLearnHMACKeys keys = 1;
-  bool has_keys() const;
+  // optional bool use_http = 1;
+  bool has_use_http() const;
   private:
-  bool _internal_has_keys() const;
+  bool _internal_has_use_http() const;
   public:
-  void clear_keys();
-  const ::CMsgSteamLearnHMACKeys& keys() const;
-  PROTOBUF_NODISCARD ::CMsgSteamLearnHMACKeys* release_keys();
-  ::CMsgSteamLearnHMACKeys* mutable_keys();
-  void set_allocated_keys(::CMsgSteamLearnHMACKeys* keys);
+  void clear_use_http();
+  bool use_http() const;
+  void set_use_http(bool value);
   private:
-  const ::CMsgSteamLearnHMACKeys& _internal_keys() const;
-  ::CMsgSteamLearnHMACKeys* _internal_mutable_keys();
+  bool _internal_use_http() const;
+  void _internal_set_use_http(bool value);
   public:
-  void unsafe_arena_set_allocated_keys(
-      ::CMsgSteamLearnHMACKeys* keys);
-  ::CMsgSteamLearnHMACKeys* unsafe_arena_release_keys();
 
-  // @@protoc_insertion_point(class_scope:CMsgGCToServerSetSteamLearnKeysChanged)
+  // @@protoc_insertion_point(class_scope:CMsgGCToServerSteamLearnUseHTTP)
  private:
   class _Internal;
 
@@ -37989,7 +36619,7 @@ class CMsgGCToServerSetSteamLearnKeysChanged final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    ::CMsgSteamLearnHMACKeys* keys_;
+    bool use_http_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fgcmessages_5fserver_2eproto;
@@ -38051,7 +36681,7 @@ class CMsgSteamLearnMatchInfo final :
                &_CMsgSteamLearnMatchInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    162;
+    155;
 
   friend void swap(CMsgSteamLearnMatchInfo& a, CMsgSteamLearnMatchInfo& b) {
     a.Swap(&b);
@@ -38271,7 +36901,7 @@ class CMsgSteamLearnMatchInfoPlayer final :
                &_CMsgSteamLearnMatchInfoPlayer_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    163;
+    156;
 
   friend void swap(CMsgSteamLearnMatchInfoPlayer& a, CMsgSteamLearnMatchInfoPlayer& b) {
     a.Swap(&b);
@@ -38349,6 +36979,7 @@ class CMsgSteamLearnMatchInfoPlayer final :
     kDurationFieldNumber = 3,
     kGameModeFieldNumber = 4,
     kLobbyTypeFieldNumber = 5,
+    kPlayerMmrFieldNumber = 6,
   };
   // optional uint32 average_mmr = 1;
   bool has_average_mmr() const;
@@ -38415,6 +37046,19 @@ class CMsgSteamLearnMatchInfoPlayer final :
   void _internal_set_lobby_type(uint32_t value);
   public:
 
+  // optional uint32 player_mmr = 6;
+  bool has_player_mmr() const;
+  private:
+  bool _internal_has_player_mmr() const;
+  public:
+  void clear_player_mmr();
+  uint32_t player_mmr() const;
+  void set_player_mmr(uint32_t value);
+  private:
+  uint32_t _internal_player_mmr() const;
+  void _internal_set_player_mmr(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CMsgSteamLearnMatchInfoPlayer)
  private:
   class _Internal;
@@ -38430,30 +37074,31 @@ class CMsgSteamLearnMatchInfoPlayer final :
     uint32_t duration_;
     uint32_t game_mode_;
     uint32_t lobby_type_;
+    uint32_t player_mmr_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fgcmessages_5fserver_2eproto;
 };
 // -------------------------------------------------------------------
 
-class CMsgSteamLearnMatchHeroes final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearnMatchHeroes) */ {
+class CMsgSteamLearnMatchHeroesV3 final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearnMatchHeroesV3) */ {
  public:
-  inline CMsgSteamLearnMatchHeroes() : CMsgSteamLearnMatchHeroes(nullptr) {}
-  ~CMsgSteamLearnMatchHeroes() override;
-  explicit PROTOBUF_CONSTEXPR CMsgSteamLearnMatchHeroes(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline CMsgSteamLearnMatchHeroesV3() : CMsgSteamLearnMatchHeroesV3(nullptr) {}
+  ~CMsgSteamLearnMatchHeroesV3() override;
+  explicit PROTOBUF_CONSTEXPR CMsgSteamLearnMatchHeroesV3(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  CMsgSteamLearnMatchHeroes(const CMsgSteamLearnMatchHeroes& from);
-  CMsgSteamLearnMatchHeroes(CMsgSteamLearnMatchHeroes&& from) noexcept
-    : CMsgSteamLearnMatchHeroes() {
+  CMsgSteamLearnMatchHeroesV3(const CMsgSteamLearnMatchHeroesV3& from);
+  CMsgSteamLearnMatchHeroesV3(CMsgSteamLearnMatchHeroesV3&& from) noexcept
+    : CMsgSteamLearnMatchHeroesV3() {
     *this = ::std::move(from);
   }
 
-  inline CMsgSteamLearnMatchHeroes& operator=(const CMsgSteamLearnMatchHeroes& from) {
+  inline CMsgSteamLearnMatchHeroesV3& operator=(const CMsgSteamLearnMatchHeroesV3& from) {
     CopyFrom(from);
     return *this;
   }
-  inline CMsgSteamLearnMatchHeroes& operator=(CMsgSteamLearnMatchHeroes&& from) noexcept {
+  inline CMsgSteamLearnMatchHeroesV3& operator=(CMsgSteamLearnMatchHeroesV3&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -38483,20 +37128,20 @@ class CMsgSteamLearnMatchHeroes final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const CMsgSteamLearnMatchHeroes& default_instance() {
+  static const CMsgSteamLearnMatchHeroesV3& default_instance() {
     return *internal_default_instance();
   }
-  static inline const CMsgSteamLearnMatchHeroes* internal_default_instance() {
-    return reinterpret_cast<const CMsgSteamLearnMatchHeroes*>(
-               &_CMsgSteamLearnMatchHeroes_default_instance_);
+  static inline const CMsgSteamLearnMatchHeroesV3* internal_default_instance() {
+    return reinterpret_cast<const CMsgSteamLearnMatchHeroesV3*>(
+               &_CMsgSteamLearnMatchHeroesV3_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    164;
+    157;
 
-  friend void swap(CMsgSteamLearnMatchHeroes& a, CMsgSteamLearnMatchHeroes& b) {
+  friend void swap(CMsgSteamLearnMatchHeroesV3& a, CMsgSteamLearnMatchHeroesV3& b) {
     a.Swap(&b);
   }
-  inline void Swap(CMsgSteamLearnMatchHeroes* other) {
+  inline void Swap(CMsgSteamLearnMatchHeroesV3* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -38509,7 +37154,7 @@ class CMsgSteamLearnMatchHeroes final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(CMsgSteamLearnMatchHeroes* other) {
+  void UnsafeArenaSwap(CMsgSteamLearnMatchHeroesV3* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -38517,14 +37162,14 @@ class CMsgSteamLearnMatchHeroes final :
 
   // implements Message ----------------------------------------------
 
-  CMsgSteamLearnMatchHeroes* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<CMsgSteamLearnMatchHeroes>(arena);
+  CMsgSteamLearnMatchHeroesV3* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgSteamLearnMatchHeroesV3>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const CMsgSteamLearnMatchHeroes& from);
+  void CopyFrom(const CMsgSteamLearnMatchHeroesV3& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const CMsgSteamLearnMatchHeroes& from) {
-    CMsgSteamLearnMatchHeroes::MergeImpl(*this, from);
+  void MergeFrom( const CMsgSteamLearnMatchHeroesV3& from) {
+    CMsgSteamLearnMatchHeroesV3::MergeImpl(*this, from);
   }
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
@@ -38542,15 +37187,15 @@ class CMsgSteamLearnMatchHeroes final :
   void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(CMsgSteamLearnMatchHeroes* other);
+  void InternalSwap(CMsgSteamLearnMatchHeroesV3* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CMsgSteamLearnMatchHeroes";
+    return "CMsgSteamLearnMatchHeroesV3";
   }
   protected:
-  explicit CMsgSteamLearnMatchHeroes(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit CMsgSteamLearnMatchHeroesV3(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   public:
 
@@ -38568,49 +37213,53 @@ class CMsgSteamLearnMatchHeroes final :
     kDireHeroIdsFieldNumber = 2,
     kRadiantLanesFieldNumber = 3,
     kDireLanesFieldNumber = 4,
+    kRadiantHeroFacetsFieldNumber = 5,
+    kDireHeroFacetsFieldNumber = 6,
+    kRadiantPositionsFieldNumber = 7,
+    kDirePositionsFieldNumber = 8,
   };
-  // repeated uint32 radiant_hero_ids = 1 [(.steamlearn_count) = 5];
+  // repeated int32 radiant_hero_ids = 1 [(.steamlearn_count) = 5];
   int radiant_hero_ids_size() const;
   private:
   int _internal_radiant_hero_ids_size() const;
   public:
   void clear_radiant_hero_ids();
   private:
-  uint32_t _internal_radiant_hero_ids(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+  int32_t _internal_radiant_hero_ids(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
       _internal_radiant_hero_ids() const;
-  void _internal_add_radiant_hero_ids(uint32_t value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+  void _internal_add_radiant_hero_ids(int32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
       _internal_mutable_radiant_hero_ids();
   public:
-  uint32_t radiant_hero_ids(int index) const;
-  void set_radiant_hero_ids(int index, uint32_t value);
-  void add_radiant_hero_ids(uint32_t value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+  int32_t radiant_hero_ids(int index) const;
+  void set_radiant_hero_ids(int index, int32_t value);
+  void add_radiant_hero_ids(int32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
       radiant_hero_ids() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
       mutable_radiant_hero_ids();
 
-  // repeated uint32 dire_hero_ids = 2 [(.steamlearn_count) = 5];
+  // repeated int32 dire_hero_ids = 2 [(.steamlearn_count) = 5];
   int dire_hero_ids_size() const;
   private:
   int _internal_dire_hero_ids_size() const;
   public:
   void clear_dire_hero_ids();
   private:
-  uint32_t _internal_dire_hero_ids(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+  int32_t _internal_dire_hero_ids(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
       _internal_dire_hero_ids() const;
-  void _internal_add_dire_hero_ids(uint32_t value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+  void _internal_add_dire_hero_ids(int32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
       _internal_mutable_dire_hero_ids();
   public:
-  uint32_t dire_hero_ids(int index) const;
-  void set_dire_hero_ids(int index, uint32_t value);
-  void add_dire_hero_ids(uint32_t value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+  int32_t dire_hero_ids(int index) const;
+  void set_dire_hero_ids(int index, int32_t value);
+  void add_dire_hero_ids(int32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
       dire_hero_ids() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
       mutable_dire_hero_ids();
 
   // repeated uint32 radiant_lanes = 3 [(.steamlearn_count) = 5];
@@ -38657,7 +37306,95 @@ class CMsgSteamLearnMatchHeroes final :
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
       mutable_dire_lanes();
 
-  // @@protoc_insertion_point(class_scope:CMsgSteamLearnMatchHeroes)
+  // repeated uint32 radiant_hero_facets = 5 [(.steamlearn_count) = 5];
+  int radiant_hero_facets_size() const;
+  private:
+  int _internal_radiant_hero_facets_size() const;
+  public:
+  void clear_radiant_hero_facets();
+  private:
+  uint32_t _internal_radiant_hero_facets(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+      _internal_radiant_hero_facets() const;
+  void _internal_add_radiant_hero_facets(uint32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+      _internal_mutable_radiant_hero_facets();
+  public:
+  uint32_t radiant_hero_facets(int index) const;
+  void set_radiant_hero_facets(int index, uint32_t value);
+  void add_radiant_hero_facets(uint32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+      radiant_hero_facets() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+      mutable_radiant_hero_facets();
+
+  // repeated uint32 dire_hero_facets = 6 [(.steamlearn_count) = 5];
+  int dire_hero_facets_size() const;
+  private:
+  int _internal_dire_hero_facets_size() const;
+  public:
+  void clear_dire_hero_facets();
+  private:
+  uint32_t _internal_dire_hero_facets(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+      _internal_dire_hero_facets() const;
+  void _internal_add_dire_hero_facets(uint32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+      _internal_mutable_dire_hero_facets();
+  public:
+  uint32_t dire_hero_facets(int index) const;
+  void set_dire_hero_facets(int index, uint32_t value);
+  void add_dire_hero_facets(uint32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+      dire_hero_facets() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+      mutable_dire_hero_facets();
+
+  // repeated uint32 radiant_positions = 7 [(.steamlearn_count) = 5];
+  int radiant_positions_size() const;
+  private:
+  int _internal_radiant_positions_size() const;
+  public:
+  void clear_radiant_positions();
+  private:
+  uint32_t _internal_radiant_positions(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+      _internal_radiant_positions() const;
+  void _internal_add_radiant_positions(uint32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+      _internal_mutable_radiant_positions();
+  public:
+  uint32_t radiant_positions(int index) const;
+  void set_radiant_positions(int index, uint32_t value);
+  void add_radiant_positions(uint32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+      radiant_positions() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+      mutable_radiant_positions();
+
+  // repeated uint32 dire_positions = 8 [(.steamlearn_count) = 5];
+  int dire_positions_size() const;
+  private:
+  int _internal_dire_positions_size() const;
+  public:
+  void clear_dire_positions();
+  private:
+  uint32_t _internal_dire_positions(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+      _internal_dire_positions() const;
+  void _internal_add_dire_positions(uint32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+      _internal_mutable_dire_positions();
+  public:
+  uint32_t dire_positions(int index) const;
+  void set_dire_positions(int index, uint32_t value);
+  void add_dire_positions(uint32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+      dire_positions() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+      mutable_dire_positions();
+
+  // @@protoc_insertion_point(class_scope:CMsgSteamLearnMatchHeroesV3)
  private:
   class _Internal;
 
@@ -38665,10 +37402,14 @@ class CMsgSteamLearnMatchHeroes final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > radiant_hero_ids_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > dire_hero_ids_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > radiant_hero_ids_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > dire_hero_ids_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > radiant_lanes_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > dire_lanes_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > radiant_hero_facets_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > dire_hero_facets_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > radiant_positions_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > dire_positions_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -38676,24 +37417,24 @@ class CMsgSteamLearnMatchHeroes final :
 };
 // -------------------------------------------------------------------
 
-class CMsgSteamLearnMatchHero final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearnMatchHero) */ {
+class CMsgSteamLearnMatchHeroV3 final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearnMatchHeroV3) */ {
  public:
-  inline CMsgSteamLearnMatchHero() : CMsgSteamLearnMatchHero(nullptr) {}
-  ~CMsgSteamLearnMatchHero() override;
-  explicit PROTOBUF_CONSTEXPR CMsgSteamLearnMatchHero(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline CMsgSteamLearnMatchHeroV3() : CMsgSteamLearnMatchHeroV3(nullptr) {}
+  ~CMsgSteamLearnMatchHeroV3() override;
+  explicit PROTOBUF_CONSTEXPR CMsgSteamLearnMatchHeroV3(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  CMsgSteamLearnMatchHero(const CMsgSteamLearnMatchHero& from);
-  CMsgSteamLearnMatchHero(CMsgSteamLearnMatchHero&& from) noexcept
-    : CMsgSteamLearnMatchHero() {
+  CMsgSteamLearnMatchHeroV3(const CMsgSteamLearnMatchHeroV3& from);
+  CMsgSteamLearnMatchHeroV3(CMsgSteamLearnMatchHeroV3&& from) noexcept
+    : CMsgSteamLearnMatchHeroV3() {
     *this = ::std::move(from);
   }
 
-  inline CMsgSteamLearnMatchHero& operator=(const CMsgSteamLearnMatchHero& from) {
+  inline CMsgSteamLearnMatchHeroV3& operator=(const CMsgSteamLearnMatchHeroV3& from) {
     CopyFrom(from);
     return *this;
   }
-  inline CMsgSteamLearnMatchHero& operator=(CMsgSteamLearnMatchHero&& from) noexcept {
+  inline CMsgSteamLearnMatchHeroV3& operator=(CMsgSteamLearnMatchHeroV3&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -38723,20 +37464,20 @@ class CMsgSteamLearnMatchHero final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const CMsgSteamLearnMatchHero& default_instance() {
+  static const CMsgSteamLearnMatchHeroV3& default_instance() {
     return *internal_default_instance();
   }
-  static inline const CMsgSteamLearnMatchHero* internal_default_instance() {
-    return reinterpret_cast<const CMsgSteamLearnMatchHero*>(
-               &_CMsgSteamLearnMatchHero_default_instance_);
+  static inline const CMsgSteamLearnMatchHeroV3* internal_default_instance() {
+    return reinterpret_cast<const CMsgSteamLearnMatchHeroV3*>(
+               &_CMsgSteamLearnMatchHeroV3_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    165;
+    158;
 
-  friend void swap(CMsgSteamLearnMatchHero& a, CMsgSteamLearnMatchHero& b) {
+  friend void swap(CMsgSteamLearnMatchHeroV3& a, CMsgSteamLearnMatchHeroV3& b) {
     a.Swap(&b);
   }
-  inline void Swap(CMsgSteamLearnMatchHero* other) {
+  inline void Swap(CMsgSteamLearnMatchHeroV3* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -38749,7 +37490,7 @@ class CMsgSteamLearnMatchHero final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(CMsgSteamLearnMatchHero* other) {
+  void UnsafeArenaSwap(CMsgSteamLearnMatchHeroV3* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -38757,14 +37498,14 @@ class CMsgSteamLearnMatchHero final :
 
   // implements Message ----------------------------------------------
 
-  CMsgSteamLearnMatchHero* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<CMsgSteamLearnMatchHero>(arena);
+  CMsgSteamLearnMatchHeroV3* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgSteamLearnMatchHeroV3>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const CMsgSteamLearnMatchHero& from);
+  void CopyFrom(const CMsgSteamLearnMatchHeroV3& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const CMsgSteamLearnMatchHero& from) {
-    CMsgSteamLearnMatchHero::MergeImpl(*this, from);
+  void MergeFrom( const CMsgSteamLearnMatchHeroV3& from) {
+    CMsgSteamLearnMatchHeroV3::MergeImpl(*this, from);
   }
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
@@ -38782,15 +37523,15 @@ class CMsgSteamLearnMatchHero final :
   void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(CMsgSteamLearnMatchHero* other);
+  void InternalSwap(CMsgSteamLearnMatchHeroV3* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CMsgSteamLearnMatchHero";
+    return "CMsgSteamLearnMatchHeroV3";
   }
   protected:
-  explicit CMsgSteamLearnMatchHero(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit CMsgSteamLearnMatchHeroV3(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   public:
 
@@ -38806,64 +37547,112 @@ class CMsgSteamLearnMatchHero final :
   enum : int {
     kAlliedHeroIdsFieldNumber = 3,
     kEnemyHeroIdsFieldNumber = 4,
+    kAlliedHeroFacetsFieldNumber = 6,
+    kEnemyHerofacetsFieldNumber = 7,
     kHeroIdFieldNumber = 1,
     kLaneFieldNumber = 2,
+    kHeroFacetFieldNumber = 5,
+    kPositionFieldNumber = 8,
   };
-  // repeated uint32 allied_hero_ids = 3 [(.steamlearn_count) = 4];
+  // repeated int32 allied_hero_ids = 3 [(.steamlearn_count) = 4];
   int allied_hero_ids_size() const;
   private:
   int _internal_allied_hero_ids_size() const;
   public:
   void clear_allied_hero_ids();
   private:
-  uint32_t _internal_allied_hero_ids(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+  int32_t _internal_allied_hero_ids(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
       _internal_allied_hero_ids() const;
-  void _internal_add_allied_hero_ids(uint32_t value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+  void _internal_add_allied_hero_ids(int32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
       _internal_mutable_allied_hero_ids();
   public:
-  uint32_t allied_hero_ids(int index) const;
-  void set_allied_hero_ids(int index, uint32_t value);
-  void add_allied_hero_ids(uint32_t value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+  int32_t allied_hero_ids(int index) const;
+  void set_allied_hero_ids(int index, int32_t value);
+  void add_allied_hero_ids(int32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
       allied_hero_ids() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
       mutable_allied_hero_ids();
 
-  // repeated uint32 enemy_hero_ids = 4 [(.steamlearn_count) = 5];
+  // repeated int32 enemy_hero_ids = 4 [(.steamlearn_count) = 5];
   int enemy_hero_ids_size() const;
   private:
   int _internal_enemy_hero_ids_size() const;
   public:
   void clear_enemy_hero_ids();
   private:
-  uint32_t _internal_enemy_hero_ids(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+  int32_t _internal_enemy_hero_ids(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
       _internal_enemy_hero_ids() const;
-  void _internal_add_enemy_hero_ids(uint32_t value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+  void _internal_add_enemy_hero_ids(int32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
       _internal_mutable_enemy_hero_ids();
   public:
-  uint32_t enemy_hero_ids(int index) const;
-  void set_enemy_hero_ids(int index, uint32_t value);
-  void add_enemy_hero_ids(uint32_t value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+  int32_t enemy_hero_ids(int index) const;
+  void set_enemy_hero_ids(int index, int32_t value);
+  void add_enemy_hero_ids(int32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
       enemy_hero_ids() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
       mutable_enemy_hero_ids();
 
-  // optional uint32 hero_id = 1;
+  // repeated uint32 allied_hero_facets = 6 [(.steamlearn_count) = 4];
+  int allied_hero_facets_size() const;
+  private:
+  int _internal_allied_hero_facets_size() const;
+  public:
+  void clear_allied_hero_facets();
+  private:
+  uint32_t _internal_allied_hero_facets(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+      _internal_allied_hero_facets() const;
+  void _internal_add_allied_hero_facets(uint32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+      _internal_mutable_allied_hero_facets();
+  public:
+  uint32_t allied_hero_facets(int index) const;
+  void set_allied_hero_facets(int index, uint32_t value);
+  void add_allied_hero_facets(uint32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+      allied_hero_facets() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+      mutable_allied_hero_facets();
+
+  // repeated uint32 enemy_herofacets = 7 [(.steamlearn_count) = 5];
+  int enemy_herofacets_size() const;
+  private:
+  int _internal_enemy_herofacets_size() const;
+  public:
+  void clear_enemy_herofacets();
+  private:
+  uint32_t _internal_enemy_herofacets(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+      _internal_enemy_herofacets() const;
+  void _internal_add_enemy_herofacets(uint32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+      _internal_mutable_enemy_herofacets();
+  public:
+  uint32_t enemy_herofacets(int index) const;
+  void set_enemy_herofacets(int index, uint32_t value);
+  void add_enemy_herofacets(uint32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+      enemy_herofacets() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+      mutable_enemy_herofacets();
+
+  // optional int32 hero_id = 1;
   bool has_hero_id() const;
   private:
   bool _internal_has_hero_id() const;
   public:
   void clear_hero_id();
-  uint32_t hero_id() const;
-  void set_hero_id(uint32_t value);
+  int32_t hero_id() const;
+  void set_hero_id(int32_t value);
   private:
-  uint32_t _internal_hero_id() const;
-  void _internal_set_hero_id(uint32_t value);
+  int32_t _internal_hero_id() const;
+  void _internal_set_hero_id(int32_t value);
   public:
 
   // optional uint32 lane = 2;
@@ -38879,7 +37668,33 @@ class CMsgSteamLearnMatchHero final :
   void _internal_set_lane(uint32_t value);
   public:
 
-  // @@protoc_insertion_point(class_scope:CMsgSteamLearnMatchHero)
+  // optional uint32 hero_facet = 5;
+  bool has_hero_facet() const;
+  private:
+  bool _internal_has_hero_facet() const;
+  public:
+  void clear_hero_facet();
+  uint32_t hero_facet() const;
+  void set_hero_facet(uint32_t value);
+  private:
+  uint32_t _internal_hero_facet() const;
+  void _internal_set_hero_facet(uint32_t value);
+  public:
+
+  // optional uint32 position = 8;
+  bool has_position() const;
+  private:
+  bool _internal_has_position() const;
+  public:
+  void clear_position();
+  uint32_t position() const;
+  void set_position(uint32_t value);
+  private:
+  uint32_t _internal_position() const;
+  void _internal_set_position(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgSteamLearnMatchHeroV3)
  private:
   class _Internal;
 
@@ -38889,34 +37704,38 @@ class CMsgSteamLearnMatchHero final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > allied_hero_ids_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > enemy_hero_ids_;
-    uint32_t hero_id_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > allied_hero_ids_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > enemy_hero_ids_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > allied_hero_facets_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > enemy_herofacets_;
+    int32_t hero_id_;
     uint32_t lane_;
+    uint32_t hero_facet_;
+    uint32_t position_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fgcmessages_5fserver_2eproto;
 };
 // -------------------------------------------------------------------
 
-class CMsgSteamLearnMatchState_PlayerState final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearnMatchState.PlayerState) */ {
+class CMsgSteamLearnPlayerTimedStats_StatBucket final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearnPlayerTimedStats.StatBucket) */ {
  public:
-  inline CMsgSteamLearnMatchState_PlayerState() : CMsgSteamLearnMatchState_PlayerState(nullptr) {}
-  ~CMsgSteamLearnMatchState_PlayerState() override;
-  explicit PROTOBUF_CONSTEXPR CMsgSteamLearnMatchState_PlayerState(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline CMsgSteamLearnPlayerTimedStats_StatBucket() : CMsgSteamLearnPlayerTimedStats_StatBucket(nullptr) {}
+  ~CMsgSteamLearnPlayerTimedStats_StatBucket() override;
+  explicit PROTOBUF_CONSTEXPR CMsgSteamLearnPlayerTimedStats_StatBucket(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  CMsgSteamLearnMatchState_PlayerState(const CMsgSteamLearnMatchState_PlayerState& from);
-  CMsgSteamLearnMatchState_PlayerState(CMsgSteamLearnMatchState_PlayerState&& from) noexcept
-    : CMsgSteamLearnMatchState_PlayerState() {
+  CMsgSteamLearnPlayerTimedStats_StatBucket(const CMsgSteamLearnPlayerTimedStats_StatBucket& from);
+  CMsgSteamLearnPlayerTimedStats_StatBucket(CMsgSteamLearnPlayerTimedStats_StatBucket&& from) noexcept
+    : CMsgSteamLearnPlayerTimedStats_StatBucket() {
     *this = ::std::move(from);
   }
 
-  inline CMsgSteamLearnMatchState_PlayerState& operator=(const CMsgSteamLearnMatchState_PlayerState& from) {
+  inline CMsgSteamLearnPlayerTimedStats_StatBucket& operator=(const CMsgSteamLearnPlayerTimedStats_StatBucket& from) {
     CopyFrom(from);
     return *this;
   }
-  inline CMsgSteamLearnMatchState_PlayerState& operator=(CMsgSteamLearnMatchState_PlayerState&& from) noexcept {
+  inline CMsgSteamLearnPlayerTimedStats_StatBucket& operator=(CMsgSteamLearnPlayerTimedStats_StatBucket&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -38946,20 +37765,20 @@ class CMsgSteamLearnMatchState_PlayerState final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const CMsgSteamLearnMatchState_PlayerState& default_instance() {
+  static const CMsgSteamLearnPlayerTimedStats_StatBucket& default_instance() {
     return *internal_default_instance();
   }
-  static inline const CMsgSteamLearnMatchState_PlayerState* internal_default_instance() {
-    return reinterpret_cast<const CMsgSteamLearnMatchState_PlayerState*>(
-               &_CMsgSteamLearnMatchState_PlayerState_default_instance_);
+  static inline const CMsgSteamLearnPlayerTimedStats_StatBucket* internal_default_instance() {
+    return reinterpret_cast<const CMsgSteamLearnPlayerTimedStats_StatBucket*>(
+               &_CMsgSteamLearnPlayerTimedStats_StatBucket_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    166;
+    159;
 
-  friend void swap(CMsgSteamLearnMatchState_PlayerState& a, CMsgSteamLearnMatchState_PlayerState& b) {
+  friend void swap(CMsgSteamLearnPlayerTimedStats_StatBucket& a, CMsgSteamLearnPlayerTimedStats_StatBucket& b) {
     a.Swap(&b);
   }
-  inline void Swap(CMsgSteamLearnMatchState_PlayerState* other) {
+  inline void Swap(CMsgSteamLearnPlayerTimedStats_StatBucket* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -38972,7 +37791,7 @@ class CMsgSteamLearnMatchState_PlayerState final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(CMsgSteamLearnMatchState_PlayerState* other) {
+  void UnsafeArenaSwap(CMsgSteamLearnPlayerTimedStats_StatBucket* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -38980,14 +37799,14 @@ class CMsgSteamLearnMatchState_PlayerState final :
 
   // implements Message ----------------------------------------------
 
-  CMsgSteamLearnMatchState_PlayerState* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<CMsgSteamLearnMatchState_PlayerState>(arena);
+  CMsgSteamLearnPlayerTimedStats_StatBucket* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgSteamLearnPlayerTimedStats_StatBucket>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const CMsgSteamLearnMatchState_PlayerState& from);
+  void CopyFrom(const CMsgSteamLearnPlayerTimedStats_StatBucket& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const CMsgSteamLearnMatchState_PlayerState& from) {
-    CMsgSteamLearnMatchState_PlayerState::MergeImpl(*this, from);
+  void MergeFrom( const CMsgSteamLearnPlayerTimedStats_StatBucket& from) {
+    CMsgSteamLearnPlayerTimedStats_StatBucket::MergeImpl(*this, from);
   }
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
@@ -39005,15 +37824,506 @@ class CMsgSteamLearnMatchState_PlayerState final :
   void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(CMsgSteamLearnMatchState_PlayerState* other);
+  void InternalSwap(CMsgSteamLearnPlayerTimedStats_StatBucket* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CMsgSteamLearnMatchState.PlayerState";
+    return "CMsgSteamLearnPlayerTimedStats.StatBucket";
   }
   protected:
-  explicit CMsgSteamLearnMatchState_PlayerState(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit CMsgSteamLearnPlayerTimedStats_StatBucket(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kGameTimeFieldNumber = 1,
+    kKillsFieldNumber = 2,
+    kDeathsFieldNumber = 3,
+    kAssistsFieldNumber = 4,
+    kExperienceFieldNumber = 5,
+    kLastHitsFieldNumber = 6,
+    kDeniesFieldNumber = 7,
+    kNetWorthFieldNumber = 8,
+    kIdleTimeFieldNumber = 9,
+    kCommandsIssuedFieldNumber = 10,
+    kSentryWardsPlacedFieldNumber = 11,
+    kObserverWardsPlacedFieldNumber = 12,
+  };
+  // optional float game_time = 1;
+  bool has_game_time() const;
+  private:
+  bool _internal_has_game_time() const;
+  public:
+  void clear_game_time();
+  float game_time() const;
+  void set_game_time(float value);
+  private:
+  float _internal_game_time() const;
+  void _internal_set_game_time(float value);
+  public:
+
+  // optional uint32 kills = 2;
+  bool has_kills() const;
+  private:
+  bool _internal_has_kills() const;
+  public:
+  void clear_kills();
+  uint32_t kills() const;
+  void set_kills(uint32_t value);
+  private:
+  uint32_t _internal_kills() const;
+  void _internal_set_kills(uint32_t value);
+  public:
+
+  // optional uint32 deaths = 3;
+  bool has_deaths() const;
+  private:
+  bool _internal_has_deaths() const;
+  public:
+  void clear_deaths();
+  uint32_t deaths() const;
+  void set_deaths(uint32_t value);
+  private:
+  uint32_t _internal_deaths() const;
+  void _internal_set_deaths(uint32_t value);
+  public:
+
+  // optional uint32 assists = 4;
+  bool has_assists() const;
+  private:
+  bool _internal_has_assists() const;
+  public:
+  void clear_assists();
+  uint32_t assists() const;
+  void set_assists(uint32_t value);
+  private:
+  uint32_t _internal_assists() const;
+  void _internal_set_assists(uint32_t value);
+  public:
+
+  // optional uint32 experience = 5;
+  bool has_experience() const;
+  private:
+  bool _internal_has_experience() const;
+  public:
+  void clear_experience();
+  uint32_t experience() const;
+  void set_experience(uint32_t value);
+  private:
+  uint32_t _internal_experience() const;
+  void _internal_set_experience(uint32_t value);
+  public:
+
+  // optional uint32 last_hits = 6;
+  bool has_last_hits() const;
+  private:
+  bool _internal_has_last_hits() const;
+  public:
+  void clear_last_hits();
+  uint32_t last_hits() const;
+  void set_last_hits(uint32_t value);
+  private:
+  uint32_t _internal_last_hits() const;
+  void _internal_set_last_hits(uint32_t value);
+  public:
+
+  // optional uint32 denies = 7;
+  bool has_denies() const;
+  private:
+  bool _internal_has_denies() const;
+  public:
+  void clear_denies();
+  uint32_t denies() const;
+  void set_denies(uint32_t value);
+  private:
+  uint32_t _internal_denies() const;
+  void _internal_set_denies(uint32_t value);
+  public:
+
+  // optional uint32 net_worth = 8;
+  bool has_net_worth() const;
+  private:
+  bool _internal_has_net_worth() const;
+  public:
+  void clear_net_worth();
+  uint32_t net_worth() const;
+  void set_net_worth(uint32_t value);
+  private:
+  uint32_t _internal_net_worth() const;
+  void _internal_set_net_worth(uint32_t value);
+  public:
+
+  // optional float idle_time = 9;
+  bool has_idle_time() const;
+  private:
+  bool _internal_has_idle_time() const;
+  public:
+  void clear_idle_time();
+  float idle_time() const;
+  void set_idle_time(float value);
+  private:
+  float _internal_idle_time() const;
+  void _internal_set_idle_time(float value);
+  public:
+
+  // optional uint32 commands_issued = 10;
+  bool has_commands_issued() const;
+  private:
+  bool _internal_has_commands_issued() const;
+  public:
+  void clear_commands_issued();
+  uint32_t commands_issued() const;
+  void set_commands_issued(uint32_t value);
+  private:
+  uint32_t _internal_commands_issued() const;
+  void _internal_set_commands_issued(uint32_t value);
+  public:
+
+  // optional uint32 sentry_wards_placed = 11;
+  bool has_sentry_wards_placed() const;
+  private:
+  bool _internal_has_sentry_wards_placed() const;
+  public:
+  void clear_sentry_wards_placed();
+  uint32_t sentry_wards_placed() const;
+  void set_sentry_wards_placed(uint32_t value);
+  private:
+  uint32_t _internal_sentry_wards_placed() const;
+  void _internal_set_sentry_wards_placed(uint32_t value);
+  public:
+
+  // optional uint32 observer_wards_placed = 12;
+  bool has_observer_wards_placed() const;
+  private:
+  bool _internal_has_observer_wards_placed() const;
+  public:
+  void clear_observer_wards_placed();
+  uint32_t observer_wards_placed() const;
+  void set_observer_wards_placed(uint32_t value);
+  private:
+  uint32_t _internal_observer_wards_placed() const;
+  void _internal_set_observer_wards_placed(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgSteamLearnPlayerTimedStats.StatBucket)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    float game_time_;
+    uint32_t kills_;
+    uint32_t deaths_;
+    uint32_t assists_;
+    uint32_t experience_;
+    uint32_t last_hits_;
+    uint32_t denies_;
+    uint32_t net_worth_;
+    float idle_time_;
+    uint32_t commands_issued_;
+    uint32_t sentry_wards_placed_;
+    uint32_t observer_wards_placed_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_dota_5fgcmessages_5fserver_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgSteamLearnPlayerTimedStats final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearnPlayerTimedStats) */ {
+ public:
+  inline CMsgSteamLearnPlayerTimedStats() : CMsgSteamLearnPlayerTimedStats(nullptr) {}
+  ~CMsgSteamLearnPlayerTimedStats() override;
+  explicit PROTOBUF_CONSTEXPR CMsgSteamLearnPlayerTimedStats(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgSteamLearnPlayerTimedStats(const CMsgSteamLearnPlayerTimedStats& from);
+  CMsgSteamLearnPlayerTimedStats(CMsgSteamLearnPlayerTimedStats&& from) noexcept
+    : CMsgSteamLearnPlayerTimedStats() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgSteamLearnPlayerTimedStats& operator=(const CMsgSteamLearnPlayerTimedStats& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgSteamLearnPlayerTimedStats& operator=(CMsgSteamLearnPlayerTimedStats&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgSteamLearnPlayerTimedStats& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgSteamLearnPlayerTimedStats* internal_default_instance() {
+    return reinterpret_cast<const CMsgSteamLearnPlayerTimedStats*>(
+               &_CMsgSteamLearnPlayerTimedStats_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    160;
+
+  friend void swap(CMsgSteamLearnPlayerTimedStats& a, CMsgSteamLearnPlayerTimedStats& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgSteamLearnPlayerTimedStats* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgSteamLearnPlayerTimedStats* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgSteamLearnPlayerTimedStats* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgSteamLearnPlayerTimedStats>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgSteamLearnPlayerTimedStats& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgSteamLearnPlayerTimedStats& from) {
+    CMsgSteamLearnPlayerTimedStats::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgSteamLearnPlayerTimedStats* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgSteamLearnPlayerTimedStats";
+  }
+  protected:
+  explicit CMsgSteamLearnPlayerTimedStats(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  typedef CMsgSteamLearnPlayerTimedStats_StatBucket StatBucket;
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kStatBucketsFieldNumber = 1,
+  };
+  // repeated .CMsgSteamLearnPlayerTimedStats.StatBucket stat_buckets = 1 [(.steamlearn_count) = 90];
+  int stat_buckets_size() const;
+  private:
+  int _internal_stat_buckets_size() const;
+  public:
+  void clear_stat_buckets();
+  ::CMsgSteamLearnPlayerTimedStats_StatBucket* mutable_stat_buckets(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearnPlayerTimedStats_StatBucket >*
+      mutable_stat_buckets();
+  private:
+  const ::CMsgSteamLearnPlayerTimedStats_StatBucket& _internal_stat_buckets(int index) const;
+  ::CMsgSteamLearnPlayerTimedStats_StatBucket* _internal_add_stat_buckets();
+  public:
+  const ::CMsgSteamLearnPlayerTimedStats_StatBucket& stat_buckets(int index) const;
+  ::CMsgSteamLearnPlayerTimedStats_StatBucket* add_stat_buckets();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearnPlayerTimedStats_StatBucket >&
+      stat_buckets() const;
+
+  // @@protoc_insertion_point(class_scope:CMsgSteamLearnPlayerTimedStats)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearnPlayerTimedStats_StatBucket > stat_buckets_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_dota_5fgcmessages_5fserver_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgSteamLearnMatchStateV5_PlayerState final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearnMatchStateV5.PlayerState) */ {
+ public:
+  inline CMsgSteamLearnMatchStateV5_PlayerState() : CMsgSteamLearnMatchStateV5_PlayerState(nullptr) {}
+  ~CMsgSteamLearnMatchStateV5_PlayerState() override;
+  explicit PROTOBUF_CONSTEXPR CMsgSteamLearnMatchStateV5_PlayerState(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgSteamLearnMatchStateV5_PlayerState(const CMsgSteamLearnMatchStateV5_PlayerState& from);
+  CMsgSteamLearnMatchStateV5_PlayerState(CMsgSteamLearnMatchStateV5_PlayerState&& from) noexcept
+    : CMsgSteamLearnMatchStateV5_PlayerState() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgSteamLearnMatchStateV5_PlayerState& operator=(const CMsgSteamLearnMatchStateV5_PlayerState& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgSteamLearnMatchStateV5_PlayerState& operator=(CMsgSteamLearnMatchStateV5_PlayerState&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgSteamLearnMatchStateV5_PlayerState& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgSteamLearnMatchStateV5_PlayerState* internal_default_instance() {
+    return reinterpret_cast<const CMsgSteamLearnMatchStateV5_PlayerState*>(
+               &_CMsgSteamLearnMatchStateV5_PlayerState_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    161;
+
+  friend void swap(CMsgSteamLearnMatchStateV5_PlayerState& a, CMsgSteamLearnMatchStateV5_PlayerState& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgSteamLearnMatchStateV5_PlayerState* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgSteamLearnMatchStateV5_PlayerState* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgSteamLearnMatchStateV5_PlayerState* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgSteamLearnMatchStateV5_PlayerState>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgSteamLearnMatchStateV5_PlayerState& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgSteamLearnMatchStateV5_PlayerState& from) {
+    CMsgSteamLearnMatchStateV5_PlayerState::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgSteamLearnMatchStateV5_PlayerState* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgSteamLearnMatchStateV5.PlayerState";
+  }
+  protected:
+  explicit CMsgSteamLearnMatchStateV5_PlayerState(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   public:
 
@@ -39036,18 +38346,19 @@ class CMsgSteamLearnMatchState_PlayerState final :
     kHasAegisFieldNumber = 7,
     kHasRapierFieldNumber = 8,
     kDistanceFieldNumber = 9,
+    kHeroFacetFieldNumber = 10,
   };
-  // optional uint32 hero_id = 1;
+  // optional int32 hero_id = 1;
   bool has_hero_id() const;
   private:
   bool _internal_has_hero_id() const;
   public:
   void clear_hero_id();
-  uint32_t hero_id() const;
-  void set_hero_id(uint32_t value);
+  int32_t hero_id() const;
+  void set_hero_id(int32_t value);
   private:
-  uint32_t _internal_hero_id() const;
-  void _internal_set_hero_id(uint32_t value);
+  int32_t _internal_hero_id() const;
+  void _internal_set_hero_id(int32_t value);
   public:
 
   // optional uint32 net_worth = 2;
@@ -39154,7 +38465,20 @@ class CMsgSteamLearnMatchState_PlayerState final :
   void _internal_set_distance(uint32_t value);
   public:
 
-  // @@protoc_insertion_point(class_scope:CMsgSteamLearnMatchState.PlayerState)
+  // optional uint32 hero_facet = 10;
+  bool has_hero_facet() const;
+  private:
+  bool _internal_has_hero_facet() const;
+  public:
+  void clear_hero_facet();
+  uint32_t hero_facet() const;
+  void set_hero_facet(uint32_t value);
+  private:
+  uint32_t _internal_hero_facet() const;
+  void _internal_set_hero_facet(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgSteamLearnMatchStateV5.PlayerState)
  private:
   class _Internal;
 
@@ -39164,7 +38488,7 @@ class CMsgSteamLearnMatchState_PlayerState final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    uint32_t hero_id_;
+    int32_t hero_id_;
     uint32_t net_worth_;
     uint32_t level_;
     uint32_t deaths_;
@@ -39173,30 +38497,31 @@ class CMsgSteamLearnMatchState_PlayerState final :
     bool has_aegis_;
     bool has_rapier_;
     uint32_t distance_;
+    uint32_t hero_facet_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fgcmessages_5fserver_2eproto;
 };
 // -------------------------------------------------------------------
 
-class CMsgSteamLearnMatchState_TeamState final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearnMatchState.TeamState) */ {
+class CMsgSteamLearnMatchStateV5_TeamState final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearnMatchStateV5.TeamState) */ {
  public:
-  inline CMsgSteamLearnMatchState_TeamState() : CMsgSteamLearnMatchState_TeamState(nullptr) {}
-  ~CMsgSteamLearnMatchState_TeamState() override;
-  explicit PROTOBUF_CONSTEXPR CMsgSteamLearnMatchState_TeamState(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline CMsgSteamLearnMatchStateV5_TeamState() : CMsgSteamLearnMatchStateV5_TeamState(nullptr) {}
+  ~CMsgSteamLearnMatchStateV5_TeamState() override;
+  explicit PROTOBUF_CONSTEXPR CMsgSteamLearnMatchStateV5_TeamState(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  CMsgSteamLearnMatchState_TeamState(const CMsgSteamLearnMatchState_TeamState& from);
-  CMsgSteamLearnMatchState_TeamState(CMsgSteamLearnMatchState_TeamState&& from) noexcept
-    : CMsgSteamLearnMatchState_TeamState() {
+  CMsgSteamLearnMatchStateV5_TeamState(const CMsgSteamLearnMatchStateV5_TeamState& from);
+  CMsgSteamLearnMatchStateV5_TeamState(CMsgSteamLearnMatchStateV5_TeamState&& from) noexcept
+    : CMsgSteamLearnMatchStateV5_TeamState() {
     *this = ::std::move(from);
   }
 
-  inline CMsgSteamLearnMatchState_TeamState& operator=(const CMsgSteamLearnMatchState_TeamState& from) {
+  inline CMsgSteamLearnMatchStateV5_TeamState& operator=(const CMsgSteamLearnMatchStateV5_TeamState& from) {
     CopyFrom(from);
     return *this;
   }
-  inline CMsgSteamLearnMatchState_TeamState& operator=(CMsgSteamLearnMatchState_TeamState&& from) noexcept {
+  inline CMsgSteamLearnMatchStateV5_TeamState& operator=(CMsgSteamLearnMatchStateV5_TeamState&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -39226,20 +38551,20 @@ class CMsgSteamLearnMatchState_TeamState final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const CMsgSteamLearnMatchState_TeamState& default_instance() {
+  static const CMsgSteamLearnMatchStateV5_TeamState& default_instance() {
     return *internal_default_instance();
   }
-  static inline const CMsgSteamLearnMatchState_TeamState* internal_default_instance() {
-    return reinterpret_cast<const CMsgSteamLearnMatchState_TeamState*>(
-               &_CMsgSteamLearnMatchState_TeamState_default_instance_);
+  static inline const CMsgSteamLearnMatchStateV5_TeamState* internal_default_instance() {
+    return reinterpret_cast<const CMsgSteamLearnMatchStateV5_TeamState*>(
+               &_CMsgSteamLearnMatchStateV5_TeamState_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    167;
+    162;
 
-  friend void swap(CMsgSteamLearnMatchState_TeamState& a, CMsgSteamLearnMatchState_TeamState& b) {
+  friend void swap(CMsgSteamLearnMatchStateV5_TeamState& a, CMsgSteamLearnMatchStateV5_TeamState& b) {
     a.Swap(&b);
   }
-  inline void Swap(CMsgSteamLearnMatchState_TeamState* other) {
+  inline void Swap(CMsgSteamLearnMatchStateV5_TeamState* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -39252,7 +38577,7 @@ class CMsgSteamLearnMatchState_TeamState final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(CMsgSteamLearnMatchState_TeamState* other) {
+  void UnsafeArenaSwap(CMsgSteamLearnMatchStateV5_TeamState* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -39260,14 +38585,14 @@ class CMsgSteamLearnMatchState_TeamState final :
 
   // implements Message ----------------------------------------------
 
-  CMsgSteamLearnMatchState_TeamState* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<CMsgSteamLearnMatchState_TeamState>(arena);
+  CMsgSteamLearnMatchStateV5_TeamState* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgSteamLearnMatchStateV5_TeamState>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const CMsgSteamLearnMatchState_TeamState& from);
+  void CopyFrom(const CMsgSteamLearnMatchStateV5_TeamState& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const CMsgSteamLearnMatchState_TeamState& from) {
-    CMsgSteamLearnMatchState_TeamState::MergeImpl(*this, from);
+  void MergeFrom( const CMsgSteamLearnMatchStateV5_TeamState& from) {
+    CMsgSteamLearnMatchStateV5_TeamState::MergeImpl(*this, from);
   }
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
@@ -39285,15 +38610,15 @@ class CMsgSteamLearnMatchState_TeamState final :
   void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(CMsgSteamLearnMatchState_TeamState* other);
+  void InternalSwap(CMsgSteamLearnMatchStateV5_TeamState* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CMsgSteamLearnMatchState.TeamState";
+    return "CMsgSteamLearnMatchStateV5.TeamState";
   }
   protected:
-  explicit CMsgSteamLearnMatchState_TeamState(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit CMsgSteamLearnMatchStateV5_TeamState(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   public:
 
@@ -39318,22 +38643,22 @@ class CMsgSteamLearnMatchState_TeamState final :
     kCreepDistanceMidFieldNumber = 9,
     kCreepDistanceOffFieldNumber = 10,
   };
-  // repeated .CMsgSteamLearnMatchState.PlayerState player_states = 2 [(.steamlearn_count) = 5];
+  // repeated .CMsgSteamLearnMatchStateV5.PlayerState player_states = 2 [(.steamlearn_count) = 5];
   int player_states_size() const;
   private:
   int _internal_player_states_size() const;
   public:
   void clear_player_states();
-  ::CMsgSteamLearnMatchState_PlayerState* mutable_player_states(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearnMatchState_PlayerState >*
+  ::CMsgSteamLearnMatchStateV5_PlayerState* mutable_player_states(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearnMatchStateV5_PlayerState >*
       mutable_player_states();
   private:
-  const ::CMsgSteamLearnMatchState_PlayerState& _internal_player_states(int index) const;
-  ::CMsgSteamLearnMatchState_PlayerState* _internal_add_player_states();
+  const ::CMsgSteamLearnMatchStateV5_PlayerState& _internal_player_states(int index) const;
+  ::CMsgSteamLearnMatchStateV5_PlayerState* _internal_add_player_states();
   public:
-  const ::CMsgSteamLearnMatchState_PlayerState& player_states(int index) const;
-  ::CMsgSteamLearnMatchState_PlayerState* add_player_states();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearnMatchState_PlayerState >&
+  const ::CMsgSteamLearnMatchStateV5_PlayerState& player_states(int index) const;
+  ::CMsgSteamLearnMatchStateV5_PlayerState* add_player_states();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearnMatchStateV5_PlayerState >&
       player_states() const;
 
   // repeated uint32 tower_health_pct = 3 [(.steamlearn_count) = 11];
@@ -39471,7 +38796,7 @@ class CMsgSteamLearnMatchState_TeamState final :
   void _internal_set_creep_distance_off(uint32_t value);
   public:
 
-  // @@protoc_insertion_point(class_scope:CMsgSteamLearnMatchState.TeamState)
+  // @@protoc_insertion_point(class_scope:CMsgSteamLearnMatchStateV5.TeamState)
  private:
   class _Internal;
 
@@ -39481,7 +38806,7 @@ class CMsgSteamLearnMatchState_TeamState final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearnMatchState_PlayerState > player_states_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearnMatchStateV5_PlayerState > player_states_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > tower_health_pct_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > barracks_health_pct_;
     uint32_t team_;
@@ -39497,24 +38822,24 @@ class CMsgSteamLearnMatchState_TeamState final :
 };
 // -------------------------------------------------------------------
 
-class CMsgSteamLearnMatchState final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearnMatchState) */ {
+class CMsgSteamLearnMatchStateV5 final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearnMatchStateV5) */ {
  public:
-  inline CMsgSteamLearnMatchState() : CMsgSteamLearnMatchState(nullptr) {}
-  ~CMsgSteamLearnMatchState() override;
-  explicit PROTOBUF_CONSTEXPR CMsgSteamLearnMatchState(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline CMsgSteamLearnMatchStateV5() : CMsgSteamLearnMatchStateV5(nullptr) {}
+  ~CMsgSteamLearnMatchStateV5() override;
+  explicit PROTOBUF_CONSTEXPR CMsgSteamLearnMatchStateV5(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  CMsgSteamLearnMatchState(const CMsgSteamLearnMatchState& from);
-  CMsgSteamLearnMatchState(CMsgSteamLearnMatchState&& from) noexcept
-    : CMsgSteamLearnMatchState() {
+  CMsgSteamLearnMatchStateV5(const CMsgSteamLearnMatchStateV5& from);
+  CMsgSteamLearnMatchStateV5(CMsgSteamLearnMatchStateV5&& from) noexcept
+    : CMsgSteamLearnMatchStateV5() {
     *this = ::std::move(from);
   }
 
-  inline CMsgSteamLearnMatchState& operator=(const CMsgSteamLearnMatchState& from) {
+  inline CMsgSteamLearnMatchStateV5& operator=(const CMsgSteamLearnMatchStateV5& from) {
     CopyFrom(from);
     return *this;
   }
-  inline CMsgSteamLearnMatchState& operator=(CMsgSteamLearnMatchState&& from) noexcept {
+  inline CMsgSteamLearnMatchStateV5& operator=(CMsgSteamLearnMatchStateV5&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -39544,20 +38869,20 @@ class CMsgSteamLearnMatchState final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const CMsgSteamLearnMatchState& default_instance() {
+  static const CMsgSteamLearnMatchStateV5& default_instance() {
     return *internal_default_instance();
   }
-  static inline const CMsgSteamLearnMatchState* internal_default_instance() {
-    return reinterpret_cast<const CMsgSteamLearnMatchState*>(
-               &_CMsgSteamLearnMatchState_default_instance_);
+  static inline const CMsgSteamLearnMatchStateV5* internal_default_instance() {
+    return reinterpret_cast<const CMsgSteamLearnMatchStateV5*>(
+               &_CMsgSteamLearnMatchStateV5_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    168;
+    163;
 
-  friend void swap(CMsgSteamLearnMatchState& a, CMsgSteamLearnMatchState& b) {
+  friend void swap(CMsgSteamLearnMatchStateV5& a, CMsgSteamLearnMatchStateV5& b) {
     a.Swap(&b);
   }
-  inline void Swap(CMsgSteamLearnMatchState* other) {
+  inline void Swap(CMsgSteamLearnMatchStateV5* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -39570,7 +38895,7 @@ class CMsgSteamLearnMatchState final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(CMsgSteamLearnMatchState* other) {
+  void UnsafeArenaSwap(CMsgSteamLearnMatchStateV5* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -39578,14 +38903,14 @@ class CMsgSteamLearnMatchState final :
 
   // implements Message ----------------------------------------------
 
-  CMsgSteamLearnMatchState* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<CMsgSteamLearnMatchState>(arena);
+  CMsgSteamLearnMatchStateV5* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgSteamLearnMatchStateV5>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const CMsgSteamLearnMatchState& from);
+  void CopyFrom(const CMsgSteamLearnMatchStateV5& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const CMsgSteamLearnMatchState& from) {
-    CMsgSteamLearnMatchState::MergeImpl(*this, from);
+  void MergeFrom( const CMsgSteamLearnMatchStateV5& from) {
+    CMsgSteamLearnMatchStateV5::MergeImpl(*this, from);
   }
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
@@ -39603,15 +38928,15 @@ class CMsgSteamLearnMatchState final :
   void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(CMsgSteamLearnMatchState* other);
+  void InternalSwap(CMsgSteamLearnMatchStateV5* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CMsgSteamLearnMatchState";
+    return "CMsgSteamLearnMatchStateV5";
   }
   protected:
-  explicit CMsgSteamLearnMatchState(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit CMsgSteamLearnMatchStateV5(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   public:
 
@@ -39622,8 +38947,8 @@ class CMsgSteamLearnMatchState final :
 
   // nested types ----------------------------------------------------
 
-  typedef CMsgSteamLearnMatchState_PlayerState PlayerState;
-  typedef CMsgSteamLearnMatchState_TeamState TeamState;
+  typedef CMsgSteamLearnMatchStateV5_PlayerState PlayerState;
+  typedef CMsgSteamLearnMatchStateV5_TeamState TeamState;
 
   // accessors -------------------------------------------------------
 
@@ -39632,41 +38957,41 @@ class CMsgSteamLearnMatchState final :
     kDireStateFieldNumber = 3,
     kGameTimeFieldNumber = 1,
   };
-  // optional .CMsgSteamLearnMatchState.TeamState radiant_state = 2;
+  // optional .CMsgSteamLearnMatchStateV5.TeamState radiant_state = 2;
   bool has_radiant_state() const;
   private:
   bool _internal_has_radiant_state() const;
   public:
   void clear_radiant_state();
-  const ::CMsgSteamLearnMatchState_TeamState& radiant_state() const;
-  PROTOBUF_NODISCARD ::CMsgSteamLearnMatchState_TeamState* release_radiant_state();
-  ::CMsgSteamLearnMatchState_TeamState* mutable_radiant_state();
-  void set_allocated_radiant_state(::CMsgSteamLearnMatchState_TeamState* radiant_state);
+  const ::CMsgSteamLearnMatchStateV5_TeamState& radiant_state() const;
+  PROTOBUF_NODISCARD ::CMsgSteamLearnMatchStateV5_TeamState* release_radiant_state();
+  ::CMsgSteamLearnMatchStateV5_TeamState* mutable_radiant_state();
+  void set_allocated_radiant_state(::CMsgSteamLearnMatchStateV5_TeamState* radiant_state);
   private:
-  const ::CMsgSteamLearnMatchState_TeamState& _internal_radiant_state() const;
-  ::CMsgSteamLearnMatchState_TeamState* _internal_mutable_radiant_state();
+  const ::CMsgSteamLearnMatchStateV5_TeamState& _internal_radiant_state() const;
+  ::CMsgSteamLearnMatchStateV5_TeamState* _internal_mutable_radiant_state();
   public:
   void unsafe_arena_set_allocated_radiant_state(
-      ::CMsgSteamLearnMatchState_TeamState* radiant_state);
-  ::CMsgSteamLearnMatchState_TeamState* unsafe_arena_release_radiant_state();
+      ::CMsgSteamLearnMatchStateV5_TeamState* radiant_state);
+  ::CMsgSteamLearnMatchStateV5_TeamState* unsafe_arena_release_radiant_state();
 
-  // optional .CMsgSteamLearnMatchState.TeamState dire_state = 3;
+  // optional .CMsgSteamLearnMatchStateV5.TeamState dire_state = 3;
   bool has_dire_state() const;
   private:
   bool _internal_has_dire_state() const;
   public:
   void clear_dire_state();
-  const ::CMsgSteamLearnMatchState_TeamState& dire_state() const;
-  PROTOBUF_NODISCARD ::CMsgSteamLearnMatchState_TeamState* release_dire_state();
-  ::CMsgSteamLearnMatchState_TeamState* mutable_dire_state();
-  void set_allocated_dire_state(::CMsgSteamLearnMatchState_TeamState* dire_state);
+  const ::CMsgSteamLearnMatchStateV5_TeamState& dire_state() const;
+  PROTOBUF_NODISCARD ::CMsgSteamLearnMatchStateV5_TeamState* release_dire_state();
+  ::CMsgSteamLearnMatchStateV5_TeamState* mutable_dire_state();
+  void set_allocated_dire_state(::CMsgSteamLearnMatchStateV5_TeamState* dire_state);
   private:
-  const ::CMsgSteamLearnMatchState_TeamState& _internal_dire_state() const;
-  ::CMsgSteamLearnMatchState_TeamState* _internal_mutable_dire_state();
+  const ::CMsgSteamLearnMatchStateV5_TeamState& _internal_dire_state() const;
+  ::CMsgSteamLearnMatchStateV5_TeamState* _internal_mutable_dire_state();
   public:
   void unsafe_arena_set_allocated_dire_state(
-      ::CMsgSteamLearnMatchState_TeamState* dire_state);
-  ::CMsgSteamLearnMatchState_TeamState* unsafe_arena_release_dire_state();
+      ::CMsgSteamLearnMatchStateV5_TeamState* dire_state);
+  ::CMsgSteamLearnMatchStateV5_TeamState* unsafe_arena_release_dire_state();
 
   // optional float game_time = 1;
   bool has_game_time() const;
@@ -39681,7 +39006,7 @@ class CMsgSteamLearnMatchState final :
   void _internal_set_game_time(float value);
   public:
 
-  // @@protoc_insertion_point(class_scope:CMsgSteamLearnMatchState)
+  // @@protoc_insertion_point(class_scope:CMsgSteamLearnMatchStateV5)
  private:
   class _Internal;
 
@@ -39691,8 +39016,8 @@ class CMsgSteamLearnMatchState final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    ::CMsgSteamLearnMatchState_TeamState* radiant_state_;
-    ::CMsgSteamLearnMatchState_TeamState* dire_state_;
+    ::CMsgSteamLearnMatchStateV5_TeamState* radiant_state_;
+    ::CMsgSteamLearnMatchStateV5_TeamState* dire_state_;
     float game_time_;
   };
   union { Impl_ _impl_; };
@@ -39755,7 +39080,7 @@ class CMsgSteamLearnItemPurchase final :
                &_CMsgSteamLearnItemPurchase_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    169;
+    164;
 
   friend void swap(CMsgSteamLearnItemPurchase& a, CMsgSteamLearnItemPurchase& b) {
     a.Swap(&b);
@@ -40038,7 +39363,7 @@ class CMsgSteamLearnPreGameItemPurchases final :
                &_CMsgSteamLearnPreGameItemPurchases_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    170;
+    165;
 
   friend void swap(CMsgSteamLearnPreGameItemPurchases& a, CMsgSteamLearnPreGameItemPurchases& b) {
     a.Swap(&b);
@@ -40237,7 +39562,7 @@ class CMsgSteamLearnNeutralItemPurchase final :
                &_CMsgSteamLearnNeutralItemPurchase_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    171;
+    166;
 
   friend void swap(CMsgSteamLearnNeutralItemPurchase& a, CMsgSteamLearnNeutralItemPurchase& b) {
     a.Swap(&b);
@@ -40442,7 +39767,7 @@ class CMsgSteamLearnAbilitySkill final :
                &_CMsgSteamLearnAbilitySkill_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    172;
+    167;
 
   friend void swap(CMsgSteamLearnAbilitySkill& a, CMsgSteamLearnAbilitySkill& b) {
     a.Swap(&b);
@@ -40601,6 +39926,726 @@ class CMsgSteamLearnAbilitySkill final :
 };
 // -------------------------------------------------------------------
 
+class CMsgSteamLearnEarlyGameItemPurchases final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearnEarlyGameItemPurchases) */ {
+ public:
+  inline CMsgSteamLearnEarlyGameItemPurchases() : CMsgSteamLearnEarlyGameItemPurchases(nullptr) {}
+  ~CMsgSteamLearnEarlyGameItemPurchases() override;
+  explicit PROTOBUF_CONSTEXPR CMsgSteamLearnEarlyGameItemPurchases(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgSteamLearnEarlyGameItemPurchases(const CMsgSteamLearnEarlyGameItemPurchases& from);
+  CMsgSteamLearnEarlyGameItemPurchases(CMsgSteamLearnEarlyGameItemPurchases&& from) noexcept
+    : CMsgSteamLearnEarlyGameItemPurchases() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgSteamLearnEarlyGameItemPurchases& operator=(const CMsgSteamLearnEarlyGameItemPurchases& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgSteamLearnEarlyGameItemPurchases& operator=(CMsgSteamLearnEarlyGameItemPurchases&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgSteamLearnEarlyGameItemPurchases& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgSteamLearnEarlyGameItemPurchases* internal_default_instance() {
+    return reinterpret_cast<const CMsgSteamLearnEarlyGameItemPurchases*>(
+               &_CMsgSteamLearnEarlyGameItemPurchases_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    168;
+
+  friend void swap(CMsgSteamLearnEarlyGameItemPurchases& a, CMsgSteamLearnEarlyGameItemPurchases& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgSteamLearnEarlyGameItemPurchases* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgSteamLearnEarlyGameItemPurchases* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgSteamLearnEarlyGameItemPurchases* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgSteamLearnEarlyGameItemPurchases>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgSteamLearnEarlyGameItemPurchases& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgSteamLearnEarlyGameItemPurchases& from) {
+    CMsgSteamLearnEarlyGameItemPurchases::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgSteamLearnEarlyGameItemPurchases* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgSteamLearnEarlyGameItemPurchases";
+  }
+  protected:
+  explicit CMsgSteamLearnEarlyGameItemPurchases(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kItemIdsFieldNumber = 1,
+  };
+  // repeated int32 item_ids = 1 [(.steamlearn_count) = 10];
+  int item_ids_size() const;
+  private:
+  int _internal_item_ids_size() const;
+  public:
+  void clear_item_ids();
+  private:
+  int32_t _internal_item_ids(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+      _internal_item_ids() const;
+  void _internal_add_item_ids(int32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+      _internal_mutable_item_ids();
+  public:
+  int32_t item_ids(int index) const;
+  void set_item_ids(int index, int32_t value);
+  void add_item_ids(int32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+      item_ids() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+      mutable_item_ids();
+
+  // @@protoc_insertion_point(class_scope:CMsgSteamLearnEarlyGameItemPurchases)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > item_ids_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_dota_5fgcmessages_5fserver_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgSteamLearnEarlyGameItemPurchasesV2 final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearnEarlyGameItemPurchasesV2) */ {
+ public:
+  inline CMsgSteamLearnEarlyGameItemPurchasesV2() : CMsgSteamLearnEarlyGameItemPurchasesV2(nullptr) {}
+  ~CMsgSteamLearnEarlyGameItemPurchasesV2() override;
+  explicit PROTOBUF_CONSTEXPR CMsgSteamLearnEarlyGameItemPurchasesV2(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgSteamLearnEarlyGameItemPurchasesV2(const CMsgSteamLearnEarlyGameItemPurchasesV2& from);
+  CMsgSteamLearnEarlyGameItemPurchasesV2(CMsgSteamLearnEarlyGameItemPurchasesV2&& from) noexcept
+    : CMsgSteamLearnEarlyGameItemPurchasesV2() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgSteamLearnEarlyGameItemPurchasesV2& operator=(const CMsgSteamLearnEarlyGameItemPurchasesV2& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgSteamLearnEarlyGameItemPurchasesV2& operator=(CMsgSteamLearnEarlyGameItemPurchasesV2&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgSteamLearnEarlyGameItemPurchasesV2& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgSteamLearnEarlyGameItemPurchasesV2* internal_default_instance() {
+    return reinterpret_cast<const CMsgSteamLearnEarlyGameItemPurchasesV2*>(
+               &_CMsgSteamLearnEarlyGameItemPurchasesV2_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    169;
+
+  friend void swap(CMsgSteamLearnEarlyGameItemPurchasesV2& a, CMsgSteamLearnEarlyGameItemPurchasesV2& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgSteamLearnEarlyGameItemPurchasesV2* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgSteamLearnEarlyGameItemPurchasesV2* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgSteamLearnEarlyGameItemPurchasesV2* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgSteamLearnEarlyGameItemPurchasesV2>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgSteamLearnEarlyGameItemPurchasesV2& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgSteamLearnEarlyGameItemPurchasesV2& from) {
+    CMsgSteamLearnEarlyGameItemPurchasesV2::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgSteamLearnEarlyGameItemPurchasesV2* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgSteamLearnEarlyGameItemPurchasesV2";
+  }
+  protected:
+  explicit CMsgSteamLearnEarlyGameItemPurchasesV2(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kItemIdsFieldNumber = 1,
+    kOtherItemIdsFieldNumber = 2,
+  };
+  // repeated int32 item_ids = 1 [(.steamlearn_count) = 10];
+  int item_ids_size() const;
+  private:
+  int _internal_item_ids_size() const;
+  public:
+  void clear_item_ids();
+  private:
+  int32_t _internal_item_ids(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+      _internal_item_ids() const;
+  void _internal_add_item_ids(int32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+      _internal_mutable_item_ids();
+  public:
+  int32_t item_ids(int index) const;
+  void set_item_ids(int index, int32_t value);
+  void add_item_ids(int32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+      item_ids() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+      mutable_item_ids();
+
+  // repeated int32 other_item_ids = 2 [(.steamlearn_count) = 30];
+  int other_item_ids_size() const;
+  private:
+  int _internal_other_item_ids_size() const;
+  public:
+  void clear_other_item_ids();
+  private:
+  int32_t _internal_other_item_ids(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+      _internal_other_item_ids() const;
+  void _internal_add_other_item_ids(int32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+      _internal_mutable_other_item_ids();
+  public:
+  int32_t other_item_ids(int index) const;
+  void set_other_item_ids(int index, int32_t value);
+  void add_other_item_ids(int32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+      other_item_ids() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+      mutable_other_item_ids();
+
+  // @@protoc_insertion_point(class_scope:CMsgSteamLearnEarlyGameItemPurchasesV2)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > item_ids_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > other_item_ids_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_dota_5fgcmessages_5fserver_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgSteamLearnLateGameItemPurchases final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearnLateGameItemPurchases) */ {
+ public:
+  inline CMsgSteamLearnLateGameItemPurchases() : CMsgSteamLearnLateGameItemPurchases(nullptr) {}
+  ~CMsgSteamLearnLateGameItemPurchases() override;
+  explicit PROTOBUF_CONSTEXPR CMsgSteamLearnLateGameItemPurchases(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgSteamLearnLateGameItemPurchases(const CMsgSteamLearnLateGameItemPurchases& from);
+  CMsgSteamLearnLateGameItemPurchases(CMsgSteamLearnLateGameItemPurchases&& from) noexcept
+    : CMsgSteamLearnLateGameItemPurchases() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgSteamLearnLateGameItemPurchases& operator=(const CMsgSteamLearnLateGameItemPurchases& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgSteamLearnLateGameItemPurchases& operator=(CMsgSteamLearnLateGameItemPurchases&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgSteamLearnLateGameItemPurchases& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgSteamLearnLateGameItemPurchases* internal_default_instance() {
+    return reinterpret_cast<const CMsgSteamLearnLateGameItemPurchases*>(
+               &_CMsgSteamLearnLateGameItemPurchases_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    170;
+
+  friend void swap(CMsgSteamLearnLateGameItemPurchases& a, CMsgSteamLearnLateGameItemPurchases& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgSteamLearnLateGameItemPurchases* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgSteamLearnLateGameItemPurchases* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgSteamLearnLateGameItemPurchases* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgSteamLearnLateGameItemPurchases>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgSteamLearnLateGameItemPurchases& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgSteamLearnLateGameItemPurchases& from) {
+    CMsgSteamLearnLateGameItemPurchases::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgSteamLearnLateGameItemPurchases* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgSteamLearnLateGameItemPurchases";
+  }
+  protected:
+  explicit CMsgSteamLearnLateGameItemPurchases(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kItemIdsFieldNumber = 1,
+  };
+  // repeated int32 item_ids = 1 [(.steamlearn_count) = 10];
+  int item_ids_size() const;
+  private:
+  int _internal_item_ids_size() const;
+  public:
+  void clear_item_ids();
+  private:
+  int32_t _internal_item_ids(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+      _internal_item_ids() const;
+  void _internal_add_item_ids(int32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+      _internal_mutable_item_ids();
+  public:
+  int32_t item_ids(int index) const;
+  void set_item_ids(int index, int32_t value);
+  void add_item_ids(int32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+      item_ids() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+      mutable_item_ids();
+
+  // @@protoc_insertion_point(class_scope:CMsgSteamLearnLateGameItemPurchases)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > item_ids_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_dota_5fgcmessages_5fserver_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgSteamLearnLateGameItemPurchasesV2 final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearnLateGameItemPurchasesV2) */ {
+ public:
+  inline CMsgSteamLearnLateGameItemPurchasesV2() : CMsgSteamLearnLateGameItemPurchasesV2(nullptr) {}
+  ~CMsgSteamLearnLateGameItemPurchasesV2() override;
+  explicit PROTOBUF_CONSTEXPR CMsgSteamLearnLateGameItemPurchasesV2(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgSteamLearnLateGameItemPurchasesV2(const CMsgSteamLearnLateGameItemPurchasesV2& from);
+  CMsgSteamLearnLateGameItemPurchasesV2(CMsgSteamLearnLateGameItemPurchasesV2&& from) noexcept
+    : CMsgSteamLearnLateGameItemPurchasesV2() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgSteamLearnLateGameItemPurchasesV2& operator=(const CMsgSteamLearnLateGameItemPurchasesV2& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgSteamLearnLateGameItemPurchasesV2& operator=(CMsgSteamLearnLateGameItemPurchasesV2&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgSteamLearnLateGameItemPurchasesV2& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgSteamLearnLateGameItemPurchasesV2* internal_default_instance() {
+    return reinterpret_cast<const CMsgSteamLearnLateGameItemPurchasesV2*>(
+               &_CMsgSteamLearnLateGameItemPurchasesV2_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    171;
+
+  friend void swap(CMsgSteamLearnLateGameItemPurchasesV2& a, CMsgSteamLearnLateGameItemPurchasesV2& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgSteamLearnLateGameItemPurchasesV2* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgSteamLearnLateGameItemPurchasesV2* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgSteamLearnLateGameItemPurchasesV2* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgSteamLearnLateGameItemPurchasesV2>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgSteamLearnLateGameItemPurchasesV2& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgSteamLearnLateGameItemPurchasesV2& from) {
+    CMsgSteamLearnLateGameItemPurchasesV2::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgSteamLearnLateGameItemPurchasesV2* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgSteamLearnLateGameItemPurchasesV2";
+  }
+  protected:
+  explicit CMsgSteamLearnLateGameItemPurchasesV2(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kItemIdsFieldNumber = 1,
+    kOtherItemIdsFieldNumber = 2,
+  };
+  // repeated int32 item_ids = 1 [(.steamlearn_count) = 10];
+  int item_ids_size() const;
+  private:
+  int _internal_item_ids_size() const;
+  public:
+  void clear_item_ids();
+  private:
+  int32_t _internal_item_ids(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+      _internal_item_ids() const;
+  void _internal_add_item_ids(int32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+      _internal_mutable_item_ids();
+  public:
+  int32_t item_ids(int index) const;
+  void set_item_ids(int index, int32_t value);
+  void add_item_ids(int32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+      item_ids() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+      mutable_item_ids();
+
+  // repeated int32 other_item_ids = 2 [(.steamlearn_count) = 30];
+  int other_item_ids_size() const;
+  private:
+  int _internal_other_item_ids_size() const;
+  public:
+  void clear_other_item_ids();
+  private:
+  int32_t _internal_other_item_ids(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+      _internal_other_item_ids() const;
+  void _internal_add_other_item_ids(int32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+      _internal_mutable_other_item_ids();
+  public:
+  int32_t other_item_ids(int index) const;
+  void set_other_item_ids(int index, int32_t value);
+  void add_other_item_ids(int32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+      other_item_ids() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+      mutable_other_item_ids();
+
+  // @@protoc_insertion_point(class_scope:CMsgSteamLearnLateGameItemPurchasesV2)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > item_ids_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > other_item_ids_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_dota_5fgcmessages_5fserver_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CMsgSteamLearnWardPlacement_Location final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearnWardPlacement.Location) */ {
  public:
@@ -40656,7 +40701,7 @@ class CMsgSteamLearnWardPlacement_Location final :
                &_CMsgSteamLearnWardPlacement_Location_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    173;
+    172;
 
   friend void swap(CMsgSteamLearnWardPlacement_Location& a, CMsgSteamLearnWardPlacement_Location& b) {
     a.Swap(&b);
@@ -40831,7 +40876,7 @@ class CMsgSteamLearnWardPlacement final :
                &_CMsgSteamLearnWardPlacement_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    174;
+    173;
 
   friend void swap(CMsgSteamLearnWardPlacement& a, CMsgSteamLearnWardPlacement& b) {
     a.Swap(&b);
@@ -41033,7 +41078,7 @@ class CMsgSignOutMuertaMinigame final :
                &_CMsgSignOutMuertaMinigame_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    175;
+    174;
 
   friend void swap(CMsgSignOutMuertaMinigame& a, CMsgSignOutMuertaMinigame& b) {
     a.Swap(&b);
@@ -41198,7 +41243,7 @@ class CMsgSignOutMapStats_Player final :
                &_CMsgSignOutMapStats_Player_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    176;
+    175;
 
   friend void swap(CMsgSignOutMapStats_Player& a, CMsgSignOutMapStats_Player& b) {
     a.Swap(&b);
@@ -41378,7 +41423,7 @@ class CMsgSignOutMapStats final :
                &_CMsgSignOutMapStats_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    177;
+    176;
 
   friend void swap(CMsgSignOutMapStats& a, CMsgSignOutMapStats& b) {
     a.Swap(&b);
@@ -41504,6 +41549,770 @@ class CMsgSignOutMapStats final :
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSignOutMapStats_Player > players_;
     ::CMsgMapStatsSnapshot* global_stats_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_dota_5fgcmessages_5fserver_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgServerToGCNewBloomGift final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgServerToGCNewBloomGift) */ {
+ public:
+  inline CMsgServerToGCNewBloomGift() : CMsgServerToGCNewBloomGift(nullptr) {}
+  ~CMsgServerToGCNewBloomGift() override;
+  explicit PROTOBUF_CONSTEXPR CMsgServerToGCNewBloomGift(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgServerToGCNewBloomGift(const CMsgServerToGCNewBloomGift& from);
+  CMsgServerToGCNewBloomGift(CMsgServerToGCNewBloomGift&& from) noexcept
+    : CMsgServerToGCNewBloomGift() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgServerToGCNewBloomGift& operator=(const CMsgServerToGCNewBloomGift& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgServerToGCNewBloomGift& operator=(CMsgServerToGCNewBloomGift&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgServerToGCNewBloomGift& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgServerToGCNewBloomGift* internal_default_instance() {
+    return reinterpret_cast<const CMsgServerToGCNewBloomGift*>(
+               &_CMsgServerToGCNewBloomGift_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    177;
+
+  friend void swap(CMsgServerToGCNewBloomGift& a, CMsgServerToGCNewBloomGift& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgServerToGCNewBloomGift* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgServerToGCNewBloomGift* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgServerToGCNewBloomGift* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgServerToGCNewBloomGift>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgServerToGCNewBloomGift& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgServerToGCNewBloomGift& from) {
+    CMsgServerToGCNewBloomGift::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgServerToGCNewBloomGift* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgServerToGCNewBloomGift";
+  }
+  protected:
+  explicit CMsgServerToGCNewBloomGift(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTargetAccountIdsFieldNumber = 3,
+    kDefindexFieldNumber = 1,
+    kGifterAccountIdFieldNumber = 2,
+  };
+  // repeated uint32 target_account_ids = 3;
+  int target_account_ids_size() const;
+  private:
+  int _internal_target_account_ids_size() const;
+  public:
+  void clear_target_account_ids();
+  private:
+  uint32_t _internal_target_account_ids(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+      _internal_target_account_ids() const;
+  void _internal_add_target_account_ids(uint32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+      _internal_mutable_target_account_ids();
+  public:
+  uint32_t target_account_ids(int index) const;
+  void set_target_account_ids(int index, uint32_t value);
+  void add_target_account_ids(uint32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+      target_account_ids() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+      mutable_target_account_ids();
+
+  // optional uint32 defindex = 1;
+  bool has_defindex() const;
+  private:
+  bool _internal_has_defindex() const;
+  public:
+  void clear_defindex();
+  uint32_t defindex() const;
+  void set_defindex(uint32_t value);
+  private:
+  uint32_t _internal_defindex() const;
+  void _internal_set_defindex(uint32_t value);
+  public:
+
+  // optional uint32 gifter_account_id = 2;
+  bool has_gifter_account_id() const;
+  private:
+  bool _internal_has_gifter_account_id() const;
+  public:
+  void clear_gifter_account_id();
+  uint32_t gifter_account_id() const;
+  void set_gifter_account_id(uint32_t value);
+  private:
+  uint32_t _internal_gifter_account_id() const;
+  void _internal_set_gifter_account_id(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgServerToGCNewBloomGift)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > target_account_ids_;
+    uint32_t defindex_;
+    uint32_t gifter_account_id_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_dota_5fgcmessages_5fserver_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgServerToGCNewBloomGiftResponse final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgServerToGCNewBloomGiftResponse) */ {
+ public:
+  inline CMsgServerToGCNewBloomGiftResponse() : CMsgServerToGCNewBloomGiftResponse(nullptr) {}
+  ~CMsgServerToGCNewBloomGiftResponse() override;
+  explicit PROTOBUF_CONSTEXPR CMsgServerToGCNewBloomGiftResponse(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgServerToGCNewBloomGiftResponse(const CMsgServerToGCNewBloomGiftResponse& from);
+  CMsgServerToGCNewBloomGiftResponse(CMsgServerToGCNewBloomGiftResponse&& from) noexcept
+    : CMsgServerToGCNewBloomGiftResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgServerToGCNewBloomGiftResponse& operator=(const CMsgServerToGCNewBloomGiftResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgServerToGCNewBloomGiftResponse& operator=(CMsgServerToGCNewBloomGiftResponse&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgServerToGCNewBloomGiftResponse& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgServerToGCNewBloomGiftResponse* internal_default_instance() {
+    return reinterpret_cast<const CMsgServerToGCNewBloomGiftResponse*>(
+               &_CMsgServerToGCNewBloomGiftResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    178;
+
+  friend void swap(CMsgServerToGCNewBloomGiftResponse& a, CMsgServerToGCNewBloomGiftResponse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgServerToGCNewBloomGiftResponse* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgServerToGCNewBloomGiftResponse* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgServerToGCNewBloomGiftResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgServerToGCNewBloomGiftResponse>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgServerToGCNewBloomGiftResponse& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgServerToGCNewBloomGiftResponse& from) {
+    CMsgServerToGCNewBloomGiftResponse::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgServerToGCNewBloomGiftResponse* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgServerToGCNewBloomGiftResponse";
+  }
+  protected:
+  explicit CMsgServerToGCNewBloomGiftResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kReceivedAccountIdsFieldNumber = 2,
+    kResultFieldNumber = 1,
+  };
+  // repeated uint32 received_account_ids = 2;
+  int received_account_ids_size() const;
+  private:
+  int _internal_received_account_ids_size() const;
+  public:
+  void clear_received_account_ids();
+  private:
+  uint32_t _internal_received_account_ids(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+      _internal_received_account_ids() const;
+  void _internal_add_received_account_ids(uint32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+      _internal_mutable_received_account_ids();
+  public:
+  uint32_t received_account_ids(int index) const;
+  void set_received_account_ids(int index, uint32_t value);
+  void add_received_account_ids(uint32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+      received_account_ids() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+      mutable_received_account_ids();
+
+  // optional .ENewBloomGiftingResponse result = 1 [default = kENewBloomGifting_UnknownFailure];
+  bool has_result() const;
+  private:
+  bool _internal_has_result() const;
+  public:
+  void clear_result();
+  ::ENewBloomGiftingResponse result() const;
+  void set_result(::ENewBloomGiftingResponse value);
+  private:
+  ::ENewBloomGiftingResponse _internal_result() const;
+  void _internal_set_result(::ENewBloomGiftingResponse value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgServerToGCNewBloomGiftResponse)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > received_account_ids_;
+    int result_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_dota_5fgcmessages_5fserver_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgSignOutOverworld_Player final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSignOutOverworld.Player) */ {
+ public:
+  inline CMsgSignOutOverworld_Player() : CMsgSignOutOverworld_Player(nullptr) {}
+  ~CMsgSignOutOverworld_Player() override;
+  explicit PROTOBUF_CONSTEXPR CMsgSignOutOverworld_Player(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgSignOutOverworld_Player(const CMsgSignOutOverworld_Player& from);
+  CMsgSignOutOverworld_Player(CMsgSignOutOverworld_Player&& from) noexcept
+    : CMsgSignOutOverworld_Player() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgSignOutOverworld_Player& operator=(const CMsgSignOutOverworld_Player& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgSignOutOverworld_Player& operator=(CMsgSignOutOverworld_Player&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgSignOutOverworld_Player& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgSignOutOverworld_Player* internal_default_instance() {
+    return reinterpret_cast<const CMsgSignOutOverworld_Player*>(
+               &_CMsgSignOutOverworld_Player_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    179;
+
+  friend void swap(CMsgSignOutOverworld_Player& a, CMsgSignOutOverworld_Player& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgSignOutOverworld_Player* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgSignOutOverworld_Player* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgSignOutOverworld_Player* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgSignOutOverworld_Player>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgSignOutOverworld_Player& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgSignOutOverworld_Player& from) {
+    CMsgSignOutOverworld_Player::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgSignOutOverworld_Player* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgSignOutOverworld.Player";
+  }
+  protected:
+  explicit CMsgSignOutOverworld_Player(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kDesiredTokenRewardsFieldNumber = 3,
+    kAccountIdFieldNumber = 1,
+    kOverworldIdFieldNumber = 2,
+  };
+  // repeated uint32 desired_token_rewards = 3;
+  int desired_token_rewards_size() const;
+  private:
+  int _internal_desired_token_rewards_size() const;
+  public:
+  void clear_desired_token_rewards();
+  private:
+  uint32_t _internal_desired_token_rewards(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+      _internal_desired_token_rewards() const;
+  void _internal_add_desired_token_rewards(uint32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+      _internal_mutable_desired_token_rewards();
+  public:
+  uint32_t desired_token_rewards(int index) const;
+  void set_desired_token_rewards(int index, uint32_t value);
+  void add_desired_token_rewards(uint32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+      desired_token_rewards() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+      mutable_desired_token_rewards();
+
+  // optional uint32 account_id = 1;
+  bool has_account_id() const;
+  private:
+  bool _internal_has_account_id() const;
+  public:
+  void clear_account_id();
+  uint32_t account_id() const;
+  void set_account_id(uint32_t value);
+  private:
+  uint32_t _internal_account_id() const;
+  void _internal_set_account_id(uint32_t value);
+  public:
+
+  // optional uint32 overworld_id = 2;
+  bool has_overworld_id() const;
+  private:
+  bool _internal_has_overworld_id() const;
+  public:
+  void clear_overworld_id();
+  uint32_t overworld_id() const;
+  void set_overworld_id(uint32_t value);
+  private:
+  uint32_t _internal_overworld_id() const;
+  void _internal_set_overworld_id(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgSignOutOverworld.Player)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > desired_token_rewards_;
+    uint32_t account_id_;
+    uint32_t overworld_id_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_dota_5fgcmessages_5fserver_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgSignOutOverworld final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSignOutOverworld) */ {
+ public:
+  inline CMsgSignOutOverworld() : CMsgSignOutOverworld(nullptr) {}
+  ~CMsgSignOutOverworld() override;
+  explicit PROTOBUF_CONSTEXPR CMsgSignOutOverworld(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgSignOutOverworld(const CMsgSignOutOverworld& from);
+  CMsgSignOutOverworld(CMsgSignOutOverworld&& from) noexcept
+    : CMsgSignOutOverworld() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgSignOutOverworld& operator=(const CMsgSignOutOverworld& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgSignOutOverworld& operator=(CMsgSignOutOverworld&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgSignOutOverworld& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgSignOutOverworld* internal_default_instance() {
+    return reinterpret_cast<const CMsgSignOutOverworld*>(
+               &_CMsgSignOutOverworld_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    180;
+
+  friend void swap(CMsgSignOutOverworld& a, CMsgSignOutOverworld& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgSignOutOverworld* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgSignOutOverworld* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgSignOutOverworld* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgSignOutOverworld>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgSignOutOverworld& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgSignOutOverworld& from) {
+    CMsgSignOutOverworld::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgSignOutOverworld* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgSignOutOverworld";
+  }
+  protected:
+  explicit CMsgSignOutOverworld(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  typedef CMsgSignOutOverworld_Player Player;
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPlayersFieldNumber = 1,
+    kEventIdFieldNumber = 2,
+  };
+  // repeated .CMsgSignOutOverworld.Player players = 1;
+  int players_size() const;
+  private:
+  int _internal_players_size() const;
+  public:
+  void clear_players();
+  ::CMsgSignOutOverworld_Player* mutable_players(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSignOutOverworld_Player >*
+      mutable_players();
+  private:
+  const ::CMsgSignOutOverworld_Player& _internal_players(int index) const;
+  ::CMsgSignOutOverworld_Player* _internal_add_players();
+  public:
+  const ::CMsgSignOutOverworld_Player& players(int index) const;
+  ::CMsgSignOutOverworld_Player* add_players();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSignOutOverworld_Player >&
+      players() const;
+
+  // optional .EEvent event_id = 2 [default = EVENT_ID_NONE];
+  bool has_event_id() const;
+  private:
+  bool _internal_has_event_id() const;
+  public:
+  void clear_event_id();
+  ::EEvent event_id() const;
+  void set_event_id(::EEvent value);
+  private:
+  ::EEvent _internal_event_id() const;
+  void _internal_set_event_id(::EEvent value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgSignOutOverworld)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSignOutOverworld_Player > players_;
+    int event_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fgcmessages_5fserver_2eproto;
@@ -42078,7 +42887,7 @@ inline void CMsgConnectedPlayers_Player::set_steam_id(uint64_t value) {
   // @@protoc_insertion_point(field_set:CMsgConnectedPlayers.Player.steam_id)
 }
 
-// optional uint32 hero_id = 2;
+// optional int32 hero_id = 2;
 inline bool CMsgConnectedPlayers_Player::_internal_has_hero_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -42087,21 +42896,21 @@ inline bool CMsgConnectedPlayers_Player::has_hero_id() const {
   return _internal_has_hero_id();
 }
 inline void CMsgConnectedPlayers_Player::clear_hero_id() {
-  _impl_.hero_id_ = 0u;
+  _impl_.hero_id_ = 0;
   _impl_._has_bits_[0] &= ~0x00000004u;
 }
-inline uint32_t CMsgConnectedPlayers_Player::_internal_hero_id() const {
+inline int32_t CMsgConnectedPlayers_Player::_internal_hero_id() const {
   return _impl_.hero_id_;
 }
-inline uint32_t CMsgConnectedPlayers_Player::hero_id() const {
+inline int32_t CMsgConnectedPlayers_Player::hero_id() const {
   // @@protoc_insertion_point(field_get:CMsgConnectedPlayers.Player.hero_id)
   return _internal_hero_id();
 }
-inline void CMsgConnectedPlayers_Player::_internal_set_hero_id(uint32_t value) {
+inline void CMsgConnectedPlayers_Player::_internal_set_hero_id(int32_t value) {
   _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.hero_id_ = value;
 }
-inline void CMsgConnectedPlayers_Player::set_hero_id(uint32_t value) {
+inline void CMsgConnectedPlayers_Player::set_hero_id(int32_t value) {
   _internal_set_hero_id(value);
   // @@protoc_insertion_point(field_set:CMsgConnectedPlayers.Player.hero_id)
 }
@@ -43481,37 +44290,9 @@ inline void CMsgGameServerInfo::set_build_version(uint32_t value) {
   // @@protoc_insertion_point(field_set:CMsgGameServerInfo.build_version)
 }
 
-// optional uint32 tf_server_count = 25;
-inline bool CMsgGameServerInfo::_internal_has_tf_server_count() const {
-  bool value = (_impl_._has_bits_[0] & 0x04000000u) != 0;
-  return value;
-}
-inline bool CMsgGameServerInfo::has_tf_server_count() const {
-  return _internal_has_tf_server_count();
-}
-inline void CMsgGameServerInfo::clear_tf_server_count() {
-  _impl_.tf_server_count_ = 0u;
-  _impl_._has_bits_[0] &= ~0x04000000u;
-}
-inline uint32_t CMsgGameServerInfo::_internal_tf_server_count() const {
-  return _impl_.tf_server_count_;
-}
-inline uint32_t CMsgGameServerInfo::tf_server_count() const {
-  // @@protoc_insertion_point(field_get:CMsgGameServerInfo.tf_server_count)
-  return _internal_tf_server_count();
-}
-inline void CMsgGameServerInfo::_internal_set_tf_server_count(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x04000000u;
-  _impl_.tf_server_count_ = value;
-}
-inline void CMsgGameServerInfo::set_tf_server_count(uint32_t value) {
-  _internal_set_tf_server_count(value);
-  // @@protoc_insertion_point(field_set:CMsgGameServerInfo.tf_server_count)
-}
-
 // optional uint32 srcds_instance = 26;
 inline bool CMsgGameServerInfo::_internal_has_srcds_instance() const {
-  bool value = (_impl_._has_bits_[0] & 0x08000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x04000000u) != 0;
   return value;
 }
 inline bool CMsgGameServerInfo::has_srcds_instance() const {
@@ -43519,7 +44300,7 @@ inline bool CMsgGameServerInfo::has_srcds_instance() const {
 }
 inline void CMsgGameServerInfo::clear_srcds_instance() {
   _impl_.srcds_instance_ = 0u;
-  _impl_._has_bits_[0] &= ~0x08000000u;
+  _impl_._has_bits_[0] &= ~0x04000000u;
 }
 inline uint32_t CMsgGameServerInfo::_internal_srcds_instance() const {
   return _impl_.srcds_instance_;
@@ -43529,7 +44310,7 @@ inline uint32_t CMsgGameServerInfo::srcds_instance() const {
   return _internal_srcds_instance();
 }
 inline void CMsgGameServerInfo::_internal_set_srcds_instance(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x08000000u;
+  _impl_._has_bits_[0] |= 0x04000000u;
   _impl_.srcds_instance_ = value;
 }
 inline void CMsgGameServerInfo::set_srcds_instance(uint32_t value) {
@@ -44217,7 +44998,7 @@ inline void CMsgSignOutGameplayStats_CPlayer::set_player_slot(uint32_t value) {
   // @@protoc_insertion_point(field_set:CMsgSignOutGameplayStats.CPlayer.player_slot)
 }
 
-// optional uint32 hero_id = 3;
+// optional int32 hero_id = 3;
 inline bool CMsgSignOutGameplayStats_CPlayer::_internal_has_hero_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -44226,21 +45007,21 @@ inline bool CMsgSignOutGameplayStats_CPlayer::has_hero_id() const {
   return _internal_has_hero_id();
 }
 inline void CMsgSignOutGameplayStats_CPlayer::clear_hero_id() {
-  _impl_.hero_id_ = 0u;
+  _impl_.hero_id_ = 0;
   _impl_._has_bits_[0] &= ~0x00000004u;
 }
-inline uint32_t CMsgSignOutGameplayStats_CPlayer::_internal_hero_id() const {
+inline int32_t CMsgSignOutGameplayStats_CPlayer::_internal_hero_id() const {
   return _impl_.hero_id_;
 }
-inline uint32_t CMsgSignOutGameplayStats_CPlayer::hero_id() const {
+inline int32_t CMsgSignOutGameplayStats_CPlayer::hero_id() const {
   // @@protoc_insertion_point(field_get:CMsgSignOutGameplayStats.CPlayer.hero_id)
   return _internal_hero_id();
 }
-inline void CMsgSignOutGameplayStats_CPlayer::_internal_set_hero_id(uint32_t value) {
+inline void CMsgSignOutGameplayStats_CPlayer::_internal_set_hero_id(int32_t value) {
   _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.hero_id_ = value;
 }
-inline void CMsgSignOutGameplayStats_CPlayer::set_hero_id(uint32_t value) {
+inline void CMsgSignOutGameplayStats_CPlayer::set_hero_id(int32_t value) {
   _internal_set_hero_id(value);
   // @@protoc_insertion_point(field_set:CMsgSignOutGameplayStats.CPlayer.hero_id)
 }
@@ -44644,7 +45425,7 @@ inline void CMsgGameMatchSignOut_CTeam_CPlayer::set_steam_id(uint64_t value) {
   // @@protoc_insertion_point(field_set:CMsgGameMatchSignOut.CTeam.CPlayer.steam_id)
 }
 
-// optional uint32 hero_id = 3;
+// optional int32 hero_id = 3;
 inline bool CMsgGameMatchSignOut_CTeam_CPlayer::_internal_has_hero_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -44653,21 +45434,21 @@ inline bool CMsgGameMatchSignOut_CTeam_CPlayer::has_hero_id() const {
   return _internal_has_hero_id();
 }
 inline void CMsgGameMatchSignOut_CTeam_CPlayer::clear_hero_id() {
-  _impl_.hero_id_ = 0u;
+  _impl_.hero_id_ = 0;
   _impl_._has_bits_[0] &= ~0x00000004u;
 }
-inline uint32_t CMsgGameMatchSignOut_CTeam_CPlayer::_internal_hero_id() const {
+inline int32_t CMsgGameMatchSignOut_CTeam_CPlayer::_internal_hero_id() const {
   return _impl_.hero_id_;
 }
-inline uint32_t CMsgGameMatchSignOut_CTeam_CPlayer::hero_id() const {
+inline int32_t CMsgGameMatchSignOut_CTeam_CPlayer::hero_id() const {
   // @@protoc_insertion_point(field_get:CMsgGameMatchSignOut.CTeam.CPlayer.hero_id)
   return _internal_hero_id();
 }
-inline void CMsgGameMatchSignOut_CTeam_CPlayer::_internal_set_hero_id(uint32_t value) {
+inline void CMsgGameMatchSignOut_CTeam_CPlayer::_internal_set_hero_id(int32_t value) {
   _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.hero_id_ = value;
 }
-inline void CMsgGameMatchSignOut_CTeam_CPlayer::set_hero_id(uint32_t value) {
+inline void CMsgGameMatchSignOut_CTeam_CPlayer::set_hero_id(int32_t value) {
   _internal_set_hero_id(value);
   // @@protoc_insertion_point(field_set:CMsgGameMatchSignOut.CTeam.CPlayer.hero_id)
 }
@@ -46132,7 +46913,7 @@ inline void CMsgGameMatchSignOut_CTeam_CPlayer::set_teleports_used(uint32_t valu
 
 // optional uint32 cavern_crawl_preferred_map_variant = 56 [default = 255];
 inline bool CMsgGameMatchSignOut_CTeam_CPlayer::_internal_has_cavern_crawl_preferred_map_variant() const {
-  bool value = (_impl_._has_bits_[1] & 0x04000000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x10000000u) != 0;
   return value;
 }
 inline bool CMsgGameMatchSignOut_CTeam_CPlayer::has_cavern_crawl_preferred_map_variant() const {
@@ -46140,7 +46921,7 @@ inline bool CMsgGameMatchSignOut_CTeam_CPlayer::has_cavern_crawl_preferred_map_v
 }
 inline void CMsgGameMatchSignOut_CTeam_CPlayer::clear_cavern_crawl_preferred_map_variant() {
   _impl_.cavern_crawl_preferred_map_variant_ = 255u;
-  _impl_._has_bits_[1] &= ~0x04000000u;
+  _impl_._has_bits_[1] &= ~0x10000000u;
 }
 inline uint32_t CMsgGameMatchSignOut_CTeam_CPlayer::_internal_cavern_crawl_preferred_map_variant() const {
   return _impl_.cavern_crawl_preferred_map_variant_;
@@ -46150,7 +46931,7 @@ inline uint32_t CMsgGameMatchSignOut_CTeam_CPlayer::cavern_crawl_preferred_map_v
   return _internal_cavern_crawl_preferred_map_variant();
 }
 inline void CMsgGameMatchSignOut_CTeam_CPlayer::_internal_set_cavern_crawl_preferred_map_variant(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x04000000u;
+  _impl_._has_bits_[1] |= 0x10000000u;
   _impl_.cavern_crawl_preferred_map_variant_ = value;
 }
 inline void CMsgGameMatchSignOut_CTeam_CPlayer::set_cavern_crawl_preferred_map_variant(uint32_t value) {
@@ -46356,7 +47137,7 @@ inline void CMsgGameMatchSignOut_CTeam_CPlayer::set_predicted_position(uint32_t 
 
 // optional uint32 lane_outcomes = 67 [default = 255];
 inline bool CMsgGameMatchSignOut_CTeam_CPlayer::_internal_has_lane_outcomes() const {
-  bool value = (_impl_._has_bits_[1] & 0x08000000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x20000000u) != 0;
   return value;
 }
 inline bool CMsgGameMatchSignOut_CTeam_CPlayer::has_lane_outcomes() const {
@@ -46364,7 +47145,7 @@ inline bool CMsgGameMatchSignOut_CTeam_CPlayer::has_lane_outcomes() const {
 }
 inline void CMsgGameMatchSignOut_CTeam_CPlayer::clear_lane_outcomes() {
   _impl_.lane_outcomes_ = 255u;
-  _impl_._has_bits_[1] &= ~0x08000000u;
+  _impl_._has_bits_[1] &= ~0x20000000u;
 }
 inline uint32_t CMsgGameMatchSignOut_CTeam_CPlayer::_internal_lane_outcomes() const {
   return _impl_.lane_outcomes_;
@@ -46374,7 +47155,7 @@ inline uint32_t CMsgGameMatchSignOut_CTeam_CPlayer::lane_outcomes() const {
   return _internal_lane_outcomes();
 }
 inline void CMsgGameMatchSignOut_CTeam_CPlayer::_internal_set_lane_outcomes(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x08000000u;
+  _impl_._has_bits_[1] |= 0x20000000u;
   _impl_.lane_outcomes_ = value;
 }
 inline void CMsgGameMatchSignOut_CTeam_CPlayer::set_lane_outcomes(uint32_t value) {
@@ -46773,6 +47554,62 @@ inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgTrackedStat >&
 CMsgGameMatchSignOut_CTeam_CPlayer::player_tracked_stats() const {
   // @@protoc_insertion_point(field_list:CMsgGameMatchSignOut.CTeam.CPlayer.player_tracked_stats)
   return _impl_.player_tracked_stats_;
+}
+
+// optional uint32 predicted_rank = 81;
+inline bool CMsgGameMatchSignOut_CTeam_CPlayer::_internal_has_predicted_rank() const {
+  bool value = (_impl_._has_bits_[1] & 0x04000000u) != 0;
+  return value;
+}
+inline bool CMsgGameMatchSignOut_CTeam_CPlayer::has_predicted_rank() const {
+  return _internal_has_predicted_rank();
+}
+inline void CMsgGameMatchSignOut_CTeam_CPlayer::clear_predicted_rank() {
+  _impl_.predicted_rank_ = 0u;
+  _impl_._has_bits_[1] &= ~0x04000000u;
+}
+inline uint32_t CMsgGameMatchSignOut_CTeam_CPlayer::_internal_predicted_rank() const {
+  return _impl_.predicted_rank_;
+}
+inline uint32_t CMsgGameMatchSignOut_CTeam_CPlayer::predicted_rank() const {
+  // @@protoc_insertion_point(field_get:CMsgGameMatchSignOut.CTeam.CPlayer.predicted_rank)
+  return _internal_predicted_rank();
+}
+inline void CMsgGameMatchSignOut_CTeam_CPlayer::_internal_set_predicted_rank(uint32_t value) {
+  _impl_._has_bits_[1] |= 0x04000000u;
+  _impl_.predicted_rank_ = value;
+}
+inline void CMsgGameMatchSignOut_CTeam_CPlayer::set_predicted_rank(uint32_t value) {
+  _internal_set_predicted_rank(value);
+  // @@protoc_insertion_point(field_set:CMsgGameMatchSignOut.CTeam.CPlayer.predicted_rank)
+}
+
+// optional uint32 selected_facet = 82;
+inline bool CMsgGameMatchSignOut_CTeam_CPlayer::_internal_has_selected_facet() const {
+  bool value = (_impl_._has_bits_[1] & 0x08000000u) != 0;
+  return value;
+}
+inline bool CMsgGameMatchSignOut_CTeam_CPlayer::has_selected_facet() const {
+  return _internal_has_selected_facet();
+}
+inline void CMsgGameMatchSignOut_CTeam_CPlayer::clear_selected_facet() {
+  _impl_.selected_facet_ = 0u;
+  _impl_._has_bits_[1] &= ~0x08000000u;
+}
+inline uint32_t CMsgGameMatchSignOut_CTeam_CPlayer::_internal_selected_facet() const {
+  return _impl_.selected_facet_;
+}
+inline uint32_t CMsgGameMatchSignOut_CTeam_CPlayer::selected_facet() const {
+  // @@protoc_insertion_point(field_get:CMsgGameMatchSignOut.CTeam.CPlayer.selected_facet)
+  return _internal_selected_facet();
+}
+inline void CMsgGameMatchSignOut_CTeam_CPlayer::_internal_set_selected_facet(uint32_t value) {
+  _impl_._has_bits_[1] |= 0x08000000u;
+  _impl_.selected_facet_ = value;
+}
+inline void CMsgGameMatchSignOut_CTeam_CPlayer::set_selected_facet(uint32_t value) {
+  _internal_set_selected_facet(value);
+  // @@protoc_insertion_point(field_set:CMsgGameMatchSignOut.CTeam.CPlayer.selected_facet)
 }
 
 // -------------------------------------------------------------------
@@ -48000,43 +48837,6 @@ inline void CMsgGameMatchSignOut::_internal_set_event_score(uint32_t value) {
 inline void CMsgGameMatchSignOut::set_event_score(uint32_t value) {
   _internal_set_event_score(value);
   // @@protoc_insertion_point(field_set:CMsgGameMatchSignOut.event_score)
-}
-
-// repeated .CMatchHeroSelectEvent picks_bans = 15;
-inline int CMsgGameMatchSignOut::_internal_picks_bans_size() const {
-  return _impl_.picks_bans_.size();
-}
-inline int CMsgGameMatchSignOut::picks_bans_size() const {
-  return _internal_picks_bans_size();
-}
-inline ::CMatchHeroSelectEvent* CMsgGameMatchSignOut::mutable_picks_bans(int index) {
-  // @@protoc_insertion_point(field_mutable:CMsgGameMatchSignOut.picks_bans)
-  return _impl_.picks_bans_.Mutable(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMatchHeroSelectEvent >*
-CMsgGameMatchSignOut::mutable_picks_bans() {
-  // @@protoc_insertion_point(field_mutable_list:CMsgGameMatchSignOut.picks_bans)
-  return &_impl_.picks_bans_;
-}
-inline const ::CMatchHeroSelectEvent& CMsgGameMatchSignOut::_internal_picks_bans(int index) const {
-  return _impl_.picks_bans_.Get(index);
-}
-inline const ::CMatchHeroSelectEvent& CMsgGameMatchSignOut::picks_bans(int index) const {
-  // @@protoc_insertion_point(field_get:CMsgGameMatchSignOut.picks_bans)
-  return _internal_picks_bans(index);
-}
-inline ::CMatchHeroSelectEvent* CMsgGameMatchSignOut::_internal_add_picks_bans() {
-  return _impl_.picks_bans_.Add();
-}
-inline ::CMatchHeroSelectEvent* CMsgGameMatchSignOut::add_picks_bans() {
-  ::CMatchHeroSelectEvent* _add = _internal_add_picks_bans();
-  // @@protoc_insertion_point(field_add:CMsgGameMatchSignOut.picks_bans)
-  return _add;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMatchHeroSelectEvent >&
-CMsgGameMatchSignOut::picks_bans() const {
-  // @@protoc_insertion_point(field_list:CMsgGameMatchSignOut.picks_bans)
-  return _impl_.picks_bans_;
 }
 
 // repeated .CMsgDOTAFantasyPlayerStats fantasy_stats = 41;
@@ -49364,7 +50164,7 @@ inline void CMsgSignOutPlayerStats::set_rank(uint32_t value) {
   // @@protoc_insertion_point(field_set:CMsgSignOutPlayerStats.rank)
 }
 
-// optional uint32 hero_id = 4;
+// optional int32 hero_id = 4;
 inline bool CMsgSignOutPlayerStats::_internal_has_hero_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -49373,21 +50173,21 @@ inline bool CMsgSignOutPlayerStats::has_hero_id() const {
   return _internal_has_hero_id();
 }
 inline void CMsgSignOutPlayerStats::clear_hero_id() {
-  _impl_.hero_id_ = 0u;
+  _impl_.hero_id_ = 0;
   _impl_._has_bits_[0] &= ~0x00000008u;
 }
-inline uint32_t CMsgSignOutPlayerStats::_internal_hero_id() const {
+inline int32_t CMsgSignOutPlayerStats::_internal_hero_id() const {
   return _impl_.hero_id_;
 }
-inline uint32_t CMsgSignOutPlayerStats::hero_id() const {
+inline int32_t CMsgSignOutPlayerStats::hero_id() const {
   // @@protoc_insertion_point(field_get:CMsgSignOutPlayerStats.hero_id)
   return _internal_hero_id();
 }
-inline void CMsgSignOutPlayerStats::_internal_set_hero_id(uint32_t value) {
+inline void CMsgSignOutPlayerStats::_internal_set_hero_id(int32_t value) {
   _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.hero_id_ = value;
 }
-inline void CMsgSignOutPlayerStats::set_hero_id(uint32_t value) {
+inline void CMsgSignOutPlayerStats::set_hero_id(int32_t value) {
   _internal_set_hero_id(value);
   // @@protoc_insertion_point(field_set:CMsgSignOutPlayerStats.hero_id)
 }
@@ -50795,7 +51595,7 @@ CMsgSignOutCommunicationSummary::players() const {
 
 // CMsgGameMatchSignoutResponse_PlayerMetadata
 
-// optional uint32 hero_id = 1;
+// optional int32 hero_id = 1;
 inline bool CMsgGameMatchSignoutResponse_PlayerMetadata::_internal_has_hero_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -50804,21 +51604,21 @@ inline bool CMsgGameMatchSignoutResponse_PlayerMetadata::has_hero_id() const {
   return _internal_has_hero_id();
 }
 inline void CMsgGameMatchSignoutResponse_PlayerMetadata::clear_hero_id() {
-  _impl_.hero_id_ = 0u;
+  _impl_.hero_id_ = 0;
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint32_t CMsgGameMatchSignoutResponse_PlayerMetadata::_internal_hero_id() const {
+inline int32_t CMsgGameMatchSignoutResponse_PlayerMetadata::_internal_hero_id() const {
   return _impl_.hero_id_;
 }
-inline uint32_t CMsgGameMatchSignoutResponse_PlayerMetadata::hero_id() const {
+inline int32_t CMsgGameMatchSignoutResponse_PlayerMetadata::hero_id() const {
   // @@protoc_insertion_point(field_get:CMsgGameMatchSignoutResponse.PlayerMetadata.hero_id)
   return _internal_hero_id();
 }
-inline void CMsgGameMatchSignoutResponse_PlayerMetadata::_internal_set_hero_id(uint32_t value) {
+inline void CMsgGameMatchSignoutResponse_PlayerMetadata::_internal_set_hero_id(int32_t value) {
   _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.hero_id_ = value;
 }
-inline void CMsgGameMatchSignoutResponse_PlayerMetadata::set_hero_id(uint32_t value) {
+inline void CMsgGameMatchSignoutResponse_PlayerMetadata::set_hero_id(int32_t value) {
   _internal_set_hero_id(value);
   // @@protoc_insertion_point(field_set:CMsgGameMatchSignoutResponse.PlayerMetadata.hero_id)
 }
@@ -51165,7 +51965,7 @@ inline void CMsgGameMatchSignoutResponse_PlayerMetadata::set_games_played(uint32
 
 // optional uint64 match_id = 1;
 inline bool CMsgGameMatchSignoutResponse::_internal_has_match_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CMsgGameMatchSignoutResponse::has_match_id() const {
@@ -51173,7 +51973,7 @@ inline bool CMsgGameMatchSignoutResponse::has_match_id() const {
 }
 inline void CMsgGameMatchSignoutResponse::clear_match_id() {
   _impl_.match_id_ = uint64_t{0u};
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline uint64_t CMsgGameMatchSignoutResponse::_internal_match_id() const {
   return _impl_.match_id_;
@@ -51183,7 +51983,7 @@ inline uint64_t CMsgGameMatchSignoutResponse::match_id() const {
   return _internal_match_id();
 }
 inline void CMsgGameMatchSignoutResponse::_internal_set_match_id(uint64_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.match_id_ = value;
 }
 inline void CMsgGameMatchSignoutResponse::set_match_id(uint64_t value) {
@@ -51193,7 +51993,7 @@ inline void CMsgGameMatchSignoutResponse::set_match_id(uint64_t value) {
 
 // optional fixed32 replay_salt = 2;
 inline bool CMsgGameMatchSignoutResponse::_internal_has_replay_salt() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CMsgGameMatchSignoutResponse::has_replay_salt() const {
@@ -51201,7 +52001,7 @@ inline bool CMsgGameMatchSignoutResponse::has_replay_salt() const {
 }
 inline void CMsgGameMatchSignoutResponse::clear_replay_salt() {
   _impl_.replay_salt_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline uint32_t CMsgGameMatchSignoutResponse::_internal_replay_salt() const {
   return _impl_.replay_salt_;
@@ -51211,7 +52011,7 @@ inline uint32_t CMsgGameMatchSignoutResponse::replay_salt() const {
   return _internal_replay_salt();
 }
 inline void CMsgGameMatchSignoutResponse::_internal_set_replay_salt(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.replay_salt_ = value;
 }
 inline void CMsgGameMatchSignoutResponse::set_replay_salt(uint32_t value) {
@@ -51219,83 +52019,9 @@ inline void CMsgGameMatchSignoutResponse::set_replay_salt(uint32_t value) {
   // @@protoc_insertion_point(field_set:CMsgGameMatchSignoutResponse.replay_salt)
 }
 
-// repeated .CLobbyTimedRewardDetails timed_reward_details = 3;
-inline int CMsgGameMatchSignoutResponse::_internal_timed_reward_details_size() const {
-  return _impl_.timed_reward_details_.size();
-}
-inline int CMsgGameMatchSignoutResponse::timed_reward_details_size() const {
-  return _internal_timed_reward_details_size();
-}
-inline ::CLobbyTimedRewardDetails* CMsgGameMatchSignoutResponse::mutable_timed_reward_details(int index) {
-  // @@protoc_insertion_point(field_mutable:CMsgGameMatchSignoutResponse.timed_reward_details)
-  return _impl_.timed_reward_details_.Mutable(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CLobbyTimedRewardDetails >*
-CMsgGameMatchSignoutResponse::mutable_timed_reward_details() {
-  // @@protoc_insertion_point(field_mutable_list:CMsgGameMatchSignoutResponse.timed_reward_details)
-  return &_impl_.timed_reward_details_;
-}
-inline const ::CLobbyTimedRewardDetails& CMsgGameMatchSignoutResponse::_internal_timed_reward_details(int index) const {
-  return _impl_.timed_reward_details_.Get(index);
-}
-inline const ::CLobbyTimedRewardDetails& CMsgGameMatchSignoutResponse::timed_reward_details(int index) const {
-  // @@protoc_insertion_point(field_get:CMsgGameMatchSignoutResponse.timed_reward_details)
-  return _internal_timed_reward_details(index);
-}
-inline ::CLobbyTimedRewardDetails* CMsgGameMatchSignoutResponse::_internal_add_timed_reward_details() {
-  return _impl_.timed_reward_details_.Add();
-}
-inline ::CLobbyTimedRewardDetails* CMsgGameMatchSignoutResponse::add_timed_reward_details() {
-  ::CLobbyTimedRewardDetails* _add = _internal_add_timed_reward_details();
-  // @@protoc_insertion_point(field_add:CMsgGameMatchSignoutResponse.timed_reward_details)
-  return _add;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CLobbyTimedRewardDetails >&
-CMsgGameMatchSignoutResponse::timed_reward_details() const {
-  // @@protoc_insertion_point(field_list:CMsgGameMatchSignoutResponse.timed_reward_details)
-  return _impl_.timed_reward_details_;
-}
-
-// repeated .CSODOTALobbyMember xp_reward_details = 4;
-inline int CMsgGameMatchSignoutResponse::_internal_xp_reward_details_size() const {
-  return _impl_.xp_reward_details_.size();
-}
-inline int CMsgGameMatchSignoutResponse::xp_reward_details_size() const {
-  return _internal_xp_reward_details_size();
-}
-inline ::CSODOTALobbyMember* CMsgGameMatchSignoutResponse::mutable_xp_reward_details(int index) {
-  // @@protoc_insertion_point(field_mutable:CMsgGameMatchSignoutResponse.xp_reward_details)
-  return _impl_.xp_reward_details_.Mutable(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CSODOTALobbyMember >*
-CMsgGameMatchSignoutResponse::mutable_xp_reward_details() {
-  // @@protoc_insertion_point(field_mutable_list:CMsgGameMatchSignoutResponse.xp_reward_details)
-  return &_impl_.xp_reward_details_;
-}
-inline const ::CSODOTALobbyMember& CMsgGameMatchSignoutResponse::_internal_xp_reward_details(int index) const {
-  return _impl_.xp_reward_details_.Get(index);
-}
-inline const ::CSODOTALobbyMember& CMsgGameMatchSignoutResponse::xp_reward_details(int index) const {
-  // @@protoc_insertion_point(field_get:CMsgGameMatchSignoutResponse.xp_reward_details)
-  return _internal_xp_reward_details(index);
-}
-inline ::CSODOTALobbyMember* CMsgGameMatchSignoutResponse::_internal_add_xp_reward_details() {
-  return _impl_.xp_reward_details_.Add();
-}
-inline ::CSODOTALobbyMember* CMsgGameMatchSignoutResponse::add_xp_reward_details() {
-  ::CSODOTALobbyMember* _add = _internal_add_xp_reward_details();
-  // @@protoc_insertion_point(field_add:CMsgGameMatchSignoutResponse.xp_reward_details)
-  return _add;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CSODOTALobbyMember >&
-CMsgGameMatchSignoutResponse::xp_reward_details() const {
-  // @@protoc_insertion_point(field_list:CMsgGameMatchSignoutResponse.xp_reward_details)
-  return _impl_.xp_reward_details_;
-}
-
 // optional uint32 leagueid = 5;
 inline bool CMsgGameMatchSignoutResponse::_internal_has_leagueid() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool CMsgGameMatchSignoutResponse::has_leagueid() const {
@@ -51303,7 +52029,7 @@ inline bool CMsgGameMatchSignoutResponse::has_leagueid() const {
 }
 inline void CMsgGameMatchSignoutResponse::clear_leagueid() {
   _impl_.leagueid_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000020u;
 }
 inline uint32_t CMsgGameMatchSignoutResponse::_internal_leagueid() const {
   return _impl_.leagueid_;
@@ -51313,7 +52039,7 @@ inline uint32_t CMsgGameMatchSignoutResponse::leagueid() const {
   return _internal_leagueid();
 }
 inline void CMsgGameMatchSignoutResponse::_internal_set_leagueid(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000020u;
   _impl_.leagueid_ = value;
 }
 inline void CMsgGameMatchSignoutResponse::set_leagueid(uint32_t value) {
@@ -51323,7 +52049,7 @@ inline void CMsgGameMatchSignoutResponse::set_leagueid(uint32_t value) {
 
 // optional fixed32 metadata_private_key = 7;
 inline bool CMsgGameMatchSignoutResponse::_internal_has_metadata_private_key() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
   return value;
 }
 inline bool CMsgGameMatchSignoutResponse::has_metadata_private_key() const {
@@ -51331,7 +52057,7 @@ inline bool CMsgGameMatchSignoutResponse::has_metadata_private_key() const {
 }
 inline void CMsgGameMatchSignoutResponse::clear_metadata_private_key() {
   _impl_.metadata_private_key_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000020u;
+  _impl_._has_bits_[0] &= ~0x00000040u;
 }
 inline uint32_t CMsgGameMatchSignoutResponse::_internal_metadata_private_key() const {
   return _impl_.metadata_private_key_;
@@ -51341,7 +52067,7 @@ inline uint32_t CMsgGameMatchSignoutResponse::metadata_private_key() const {
   return _internal_metadata_private_key();
 }
 inline void CMsgGameMatchSignoutResponse::_internal_set_metadata_private_key(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_._has_bits_[0] |= 0x00000040u;
   _impl_.metadata_private_key_ = value;
 }
 inline void CMsgGameMatchSignoutResponse::set_metadata_private_key(uint32_t value) {
@@ -51565,7 +52291,7 @@ inline void CMsgGameMatchSignoutResponse::set_allocated_mvp_data(::CMvpData* mvp
 
 // optional fixed64 ow_private_key = 11;
 inline bool CMsgGameMatchSignoutResponse::_internal_has_ow_private_key() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000100u) != 0;
   return value;
 }
 inline bool CMsgGameMatchSignoutResponse::has_ow_private_key() const {
@@ -51573,7 +52299,7 @@ inline bool CMsgGameMatchSignoutResponse::has_ow_private_key() const {
 }
 inline void CMsgGameMatchSignoutResponse::clear_ow_private_key() {
   _impl_.ow_private_key_ = uint64_t{0u};
-  _impl_._has_bits_[0] &= ~0x00000080u;
+  _impl_._has_bits_[0] &= ~0x00000100u;
 }
 inline uint64_t CMsgGameMatchSignoutResponse::_internal_ow_private_key() const {
   return _impl_.ow_private_key_;
@@ -51583,7 +52309,7 @@ inline uint64_t CMsgGameMatchSignoutResponse::ow_private_key() const {
   return _internal_ow_private_key();
 }
 inline void CMsgGameMatchSignoutResponse::_internal_set_ow_private_key(uint64_t value) {
-  _impl_._has_bits_[0] |= 0x00000080u;
+  _impl_._has_bits_[0] |= 0x00000100u;
   _impl_.ow_private_key_ = value;
 }
 inline void CMsgGameMatchSignoutResponse::set_ow_private_key(uint64_t value) {
@@ -51593,7 +52319,7 @@ inline void CMsgGameMatchSignoutResponse::set_ow_private_key(uint64_t value) {
 
 // optional fixed32 ow_salt = 12;
 inline bool CMsgGameMatchSignoutResponse::_internal_has_ow_salt() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
   return value;
 }
 inline bool CMsgGameMatchSignoutResponse::has_ow_salt() const {
@@ -51601,7 +52327,7 @@ inline bool CMsgGameMatchSignoutResponse::has_ow_salt() const {
 }
 inline void CMsgGameMatchSignoutResponse::clear_ow_salt() {
   _impl_.ow_salt_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000040u;
+  _impl_._has_bits_[0] &= ~0x00000080u;
 }
 inline uint32_t CMsgGameMatchSignoutResponse::_internal_ow_salt() const {
   return _impl_.ow_salt_;
@@ -51611,7 +52337,7 @@ inline uint32_t CMsgGameMatchSignoutResponse::ow_salt() const {
   return _internal_ow_salt();
 }
 inline void CMsgGameMatchSignoutResponse::_internal_set_ow_salt(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000040u;
+  _impl_._has_bits_[0] |= 0x00000080u;
   _impl_.ow_salt_ = value;
 }
 inline void CMsgGameMatchSignoutResponse::set_ow_salt(uint32_t value) {
@@ -51621,7 +52347,7 @@ inline void CMsgGameMatchSignoutResponse::set_ow_salt(uint32_t value) {
 
 // optional uint64 ow_replay_id = 13;
 inline bool CMsgGameMatchSignoutResponse::_internal_has_ow_replay_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000100u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000200u) != 0;
   return value;
 }
 inline bool CMsgGameMatchSignoutResponse::has_ow_replay_id() const {
@@ -51629,7 +52355,7 @@ inline bool CMsgGameMatchSignoutResponse::has_ow_replay_id() const {
 }
 inline void CMsgGameMatchSignoutResponse::clear_ow_replay_id() {
   _impl_.ow_replay_id_ = uint64_t{0u};
-  _impl_._has_bits_[0] &= ~0x00000100u;
+  _impl_._has_bits_[0] &= ~0x00000200u;
 }
 inline uint64_t CMsgGameMatchSignoutResponse::_internal_ow_replay_id() const {
   return _impl_.ow_replay_id_;
@@ -51639,7 +52365,7 @@ inline uint64_t CMsgGameMatchSignoutResponse::ow_replay_id() const {
   return _internal_ow_replay_id();
 }
 inline void CMsgGameMatchSignoutResponse::_internal_set_ow_replay_id(uint64_t value) {
-  _impl_._has_bits_[0] |= 0x00000100u;
+  _impl_._has_bits_[0] |= 0x00000200u;
   _impl_.ow_replay_id_ = value;
 }
 inline void CMsgGameMatchSignoutResponse::set_ow_replay_id(uint64_t value) {
@@ -51647,45 +52373,91 @@ inline void CMsgGameMatchSignoutResponse::set_ow_replay_id(uint64_t value) {
   // @@protoc_insertion_point(field_set:CMsgGameMatchSignoutResponse.ow_replay_id)
 }
 
-// -------------------------------------------------------------------
-
-// CMsgTimedRewardContainer
-
-// repeated .CLobbyTimedRewardDetails timed_reward_details = 1;
-inline int CMsgTimedRewardContainer::_internal_timed_reward_details_size() const {
-  return _impl_.timed_reward_details_.size();
+// optional .CMsgOverworldMatchRewards overworld_rewards = 14;
+inline bool CMsgGameMatchSignoutResponse::_internal_has_overworld_rewards() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.overworld_rewards_ != nullptr);
+  return value;
 }
-inline int CMsgTimedRewardContainer::timed_reward_details_size() const {
-  return _internal_timed_reward_details_size();
+inline bool CMsgGameMatchSignoutResponse::has_overworld_rewards() const {
+  return _internal_has_overworld_rewards();
 }
-inline ::CLobbyTimedRewardDetails* CMsgTimedRewardContainer::mutable_timed_reward_details(int index) {
-  // @@protoc_insertion_point(field_mutable:CMsgTimedRewardContainer.timed_reward_details)
-  return _impl_.timed_reward_details_.Mutable(index);
+inline const ::CMsgOverworldMatchRewards& CMsgGameMatchSignoutResponse::_internal_overworld_rewards() const {
+  const ::CMsgOverworldMatchRewards* p = _impl_.overworld_rewards_;
+  return p != nullptr ? *p : reinterpret_cast<const ::CMsgOverworldMatchRewards&>(
+      ::_CMsgOverworldMatchRewards_default_instance_);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CLobbyTimedRewardDetails >*
-CMsgTimedRewardContainer::mutable_timed_reward_details() {
-  // @@protoc_insertion_point(field_mutable_list:CMsgTimedRewardContainer.timed_reward_details)
-  return &_impl_.timed_reward_details_;
+inline const ::CMsgOverworldMatchRewards& CMsgGameMatchSignoutResponse::overworld_rewards() const {
+  // @@protoc_insertion_point(field_get:CMsgGameMatchSignoutResponse.overworld_rewards)
+  return _internal_overworld_rewards();
 }
-inline const ::CLobbyTimedRewardDetails& CMsgTimedRewardContainer::_internal_timed_reward_details(int index) const {
-  return _impl_.timed_reward_details_.Get(index);
+inline void CMsgGameMatchSignoutResponse::unsafe_arena_set_allocated_overworld_rewards(
+    ::CMsgOverworldMatchRewards* overworld_rewards) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.overworld_rewards_);
+  }
+  _impl_.overworld_rewards_ = overworld_rewards;
+  if (overworld_rewards) {
+    _impl_._has_bits_[0] |= 0x00000004u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000004u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CMsgGameMatchSignoutResponse.overworld_rewards)
 }
-inline const ::CLobbyTimedRewardDetails& CMsgTimedRewardContainer::timed_reward_details(int index) const {
-  // @@protoc_insertion_point(field_get:CMsgTimedRewardContainer.timed_reward_details)
-  return _internal_timed_reward_details(index);
+inline ::CMsgOverworldMatchRewards* CMsgGameMatchSignoutResponse::release_overworld_rewards() {
+  _impl_._has_bits_[0] &= ~0x00000004u;
+  ::CMsgOverworldMatchRewards* temp = _impl_.overworld_rewards_;
+  _impl_.overworld_rewards_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
 }
-inline ::CLobbyTimedRewardDetails* CMsgTimedRewardContainer::_internal_add_timed_reward_details() {
-  return _impl_.timed_reward_details_.Add();
+inline ::CMsgOverworldMatchRewards* CMsgGameMatchSignoutResponse::unsafe_arena_release_overworld_rewards() {
+  // @@protoc_insertion_point(field_release:CMsgGameMatchSignoutResponse.overworld_rewards)
+  _impl_._has_bits_[0] &= ~0x00000004u;
+  ::CMsgOverworldMatchRewards* temp = _impl_.overworld_rewards_;
+  _impl_.overworld_rewards_ = nullptr;
+  return temp;
 }
-inline ::CLobbyTimedRewardDetails* CMsgTimedRewardContainer::add_timed_reward_details() {
-  ::CLobbyTimedRewardDetails* _add = _internal_add_timed_reward_details();
-  // @@protoc_insertion_point(field_add:CMsgTimedRewardContainer.timed_reward_details)
-  return _add;
+inline ::CMsgOverworldMatchRewards* CMsgGameMatchSignoutResponse::_internal_mutable_overworld_rewards() {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  if (_impl_.overworld_rewards_ == nullptr) {
+    auto* p = CreateMaybeMessage<::CMsgOverworldMatchRewards>(GetArenaForAllocation());
+    _impl_.overworld_rewards_ = p;
+  }
+  return _impl_.overworld_rewards_;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CLobbyTimedRewardDetails >&
-CMsgTimedRewardContainer::timed_reward_details() const {
-  // @@protoc_insertion_point(field_list:CMsgTimedRewardContainer.timed_reward_details)
-  return _impl_.timed_reward_details_;
+inline ::CMsgOverworldMatchRewards* CMsgGameMatchSignoutResponse::mutable_overworld_rewards() {
+  ::CMsgOverworldMatchRewards* _msg = _internal_mutable_overworld_rewards();
+  // @@protoc_insertion_point(field_mutable:CMsgGameMatchSignoutResponse.overworld_rewards)
+  return _msg;
+}
+inline void CMsgGameMatchSignoutResponse::set_allocated_overworld_rewards(::CMsgOverworldMatchRewards* overworld_rewards) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.overworld_rewards_);
+  }
+  if (overworld_rewards) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(overworld_rewards));
+    if (message_arena != submessage_arena) {
+      overworld_rewards = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, overworld_rewards, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000004u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000004u;
+  }
+  _impl_.overworld_rewards_ = overworld_rewards;
+  // @@protoc_insertion_point(field_set_allocated:CMsgGameMatchSignoutResponse.overworld_rewards)
 }
 
 // -------------------------------------------------------------------
@@ -53161,7 +53933,7 @@ CMsgGameMatchSignOutPerfData::mutable_max_input_processing_time() {
 
 // CMsgGameMatchSignOutBanData
 
-// repeated uint32 hero_bans = 1;
+// repeated int32 hero_bans = 1;
 inline int CMsgGameMatchSignOutBanData::_internal_hero_bans_size() const {
   return _impl_.hero_bans_.size();
 }
@@ -53171,44 +53943,44 @@ inline int CMsgGameMatchSignOutBanData::hero_bans_size() const {
 inline void CMsgGameMatchSignOutBanData::clear_hero_bans() {
   _impl_.hero_bans_.Clear();
 }
-inline uint32_t CMsgGameMatchSignOutBanData::_internal_hero_bans(int index) const {
+inline int32_t CMsgGameMatchSignOutBanData::_internal_hero_bans(int index) const {
   return _impl_.hero_bans_.Get(index);
 }
-inline uint32_t CMsgGameMatchSignOutBanData::hero_bans(int index) const {
+inline int32_t CMsgGameMatchSignOutBanData::hero_bans(int index) const {
   // @@protoc_insertion_point(field_get:CMsgGameMatchSignOutBanData.hero_bans)
   return _internal_hero_bans(index);
 }
-inline void CMsgGameMatchSignOutBanData::set_hero_bans(int index, uint32_t value) {
+inline void CMsgGameMatchSignOutBanData::set_hero_bans(int index, int32_t value) {
   _impl_.hero_bans_.Set(index, value);
   // @@protoc_insertion_point(field_set:CMsgGameMatchSignOutBanData.hero_bans)
 }
-inline void CMsgGameMatchSignOutBanData::_internal_add_hero_bans(uint32_t value) {
+inline void CMsgGameMatchSignOutBanData::_internal_add_hero_bans(int32_t value) {
   _impl_.hero_bans_.Add(value);
 }
-inline void CMsgGameMatchSignOutBanData::add_hero_bans(uint32_t value) {
+inline void CMsgGameMatchSignOutBanData::add_hero_bans(int32_t value) {
   _internal_add_hero_bans(value);
   // @@protoc_insertion_point(field_add:CMsgGameMatchSignOutBanData.hero_bans)
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
 CMsgGameMatchSignOutBanData::_internal_hero_bans() const {
   return _impl_.hero_bans_;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
 CMsgGameMatchSignOutBanData::hero_bans() const {
   // @@protoc_insertion_point(field_list:CMsgGameMatchSignOutBanData.hero_bans)
   return _internal_hero_bans();
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
 CMsgGameMatchSignOutBanData::_internal_mutable_hero_bans() {
   return &_impl_.hero_bans_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
 CMsgGameMatchSignOutBanData::mutable_hero_bans() {
   // @@protoc_insertion_point(field_mutable_list:CMsgGameMatchSignOutBanData.hero_bans)
   return _internal_mutable_hero_bans();
 }
 
-// repeated uint32 hero_ban_votes = 2;
+// repeated int32 hero_ban_votes = 2;
 inline int CMsgGameMatchSignOutBanData::_internal_hero_ban_votes_size() const {
   return _impl_.hero_ban_votes_.size();
 }
@@ -53218,38 +53990,38 @@ inline int CMsgGameMatchSignOutBanData::hero_ban_votes_size() const {
 inline void CMsgGameMatchSignOutBanData::clear_hero_ban_votes() {
   _impl_.hero_ban_votes_.Clear();
 }
-inline uint32_t CMsgGameMatchSignOutBanData::_internal_hero_ban_votes(int index) const {
+inline int32_t CMsgGameMatchSignOutBanData::_internal_hero_ban_votes(int index) const {
   return _impl_.hero_ban_votes_.Get(index);
 }
-inline uint32_t CMsgGameMatchSignOutBanData::hero_ban_votes(int index) const {
+inline int32_t CMsgGameMatchSignOutBanData::hero_ban_votes(int index) const {
   // @@protoc_insertion_point(field_get:CMsgGameMatchSignOutBanData.hero_ban_votes)
   return _internal_hero_ban_votes(index);
 }
-inline void CMsgGameMatchSignOutBanData::set_hero_ban_votes(int index, uint32_t value) {
+inline void CMsgGameMatchSignOutBanData::set_hero_ban_votes(int index, int32_t value) {
   _impl_.hero_ban_votes_.Set(index, value);
   // @@protoc_insertion_point(field_set:CMsgGameMatchSignOutBanData.hero_ban_votes)
 }
-inline void CMsgGameMatchSignOutBanData::_internal_add_hero_ban_votes(uint32_t value) {
+inline void CMsgGameMatchSignOutBanData::_internal_add_hero_ban_votes(int32_t value) {
   _impl_.hero_ban_votes_.Add(value);
 }
-inline void CMsgGameMatchSignOutBanData::add_hero_ban_votes(uint32_t value) {
+inline void CMsgGameMatchSignOutBanData::add_hero_ban_votes(int32_t value) {
   _internal_add_hero_ban_votes(value);
   // @@protoc_insertion_point(field_add:CMsgGameMatchSignOutBanData.hero_ban_votes)
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
 CMsgGameMatchSignOutBanData::_internal_hero_ban_votes() const {
   return _impl_.hero_ban_votes_;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
 CMsgGameMatchSignOutBanData::hero_ban_votes() const {
   // @@protoc_insertion_point(field_list:CMsgGameMatchSignOutBanData.hero_ban_votes)
   return _internal_hero_ban_votes();
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
 CMsgGameMatchSignOutBanData::_internal_mutable_hero_ban_votes() {
   return &_impl_.hero_ban_votes_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
 CMsgGameMatchSignOutBanData::mutable_hero_ban_votes() {
   // @@protoc_insertion_point(field_mutable_list:CMsgGameMatchSignOutBanData.hero_ban_votes)
   return _internal_mutable_hero_ban_votes();
@@ -53483,7 +54255,7 @@ inline void CMsgDOTALiveScoreboardUpdate_Team_Player::set_allocated_hero_name(st
   // @@protoc_insertion_point(field_set_allocated:CMsgDOTALiveScoreboardUpdate.Team.Player.hero_name)
 }
 
-// optional uint32 hero_id = 4;
+// optional int32 hero_id = 4;
 inline bool CMsgDOTALiveScoreboardUpdate_Team_Player::_internal_has_hero_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -53492,21 +54264,21 @@ inline bool CMsgDOTALiveScoreboardUpdate_Team_Player::has_hero_id() const {
   return _internal_has_hero_id();
 }
 inline void CMsgDOTALiveScoreboardUpdate_Team_Player::clear_hero_id() {
-  _impl_.hero_id_ = 0u;
+  _impl_.hero_id_ = 0;
   _impl_._has_bits_[0] &= ~0x00000008u;
 }
-inline uint32_t CMsgDOTALiveScoreboardUpdate_Team_Player::_internal_hero_id() const {
+inline int32_t CMsgDOTALiveScoreboardUpdate_Team_Player::_internal_hero_id() const {
   return _impl_.hero_id_;
 }
-inline uint32_t CMsgDOTALiveScoreboardUpdate_Team_Player::hero_id() const {
+inline int32_t CMsgDOTALiveScoreboardUpdate_Team_Player::hero_id() const {
   // @@protoc_insertion_point(field_get:CMsgDOTALiveScoreboardUpdate.Team.Player.hero_id)
   return _internal_hero_id();
 }
-inline void CMsgDOTALiveScoreboardUpdate_Team_Player::_internal_set_hero_id(uint32_t value) {
+inline void CMsgDOTALiveScoreboardUpdate_Team_Player::_internal_set_hero_id(int32_t value) {
   _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.hero_id_ = value;
 }
-inline void CMsgDOTALiveScoreboardUpdate_Team_Player::set_hero_id(uint32_t value) {
+inline void CMsgDOTALiveScoreboardUpdate_Team_Player::set_hero_id(int32_t value) {
   _internal_set_hero_id(value);
   // @@protoc_insertion_point(field_set:CMsgDOTALiveScoreboardUpdate.Team.Player.hero_id)
 }
@@ -54296,7 +55068,7 @@ inline void CMsgDOTALiveScoreboardUpdate_Team::set_barracks_state(uint32_t value
   // @@protoc_insertion_point(field_set:CMsgDOTALiveScoreboardUpdate.Team.barracks_state)
 }
 
-// repeated uint32 hero_picks = 5;
+// repeated int32 hero_picks = 5;
 inline int CMsgDOTALiveScoreboardUpdate_Team::_internal_hero_picks_size() const {
   return _impl_.hero_picks_.size();
 }
@@ -54306,44 +55078,44 @@ inline int CMsgDOTALiveScoreboardUpdate_Team::hero_picks_size() const {
 inline void CMsgDOTALiveScoreboardUpdate_Team::clear_hero_picks() {
   _impl_.hero_picks_.Clear();
 }
-inline uint32_t CMsgDOTALiveScoreboardUpdate_Team::_internal_hero_picks(int index) const {
+inline int32_t CMsgDOTALiveScoreboardUpdate_Team::_internal_hero_picks(int index) const {
   return _impl_.hero_picks_.Get(index);
 }
-inline uint32_t CMsgDOTALiveScoreboardUpdate_Team::hero_picks(int index) const {
+inline int32_t CMsgDOTALiveScoreboardUpdate_Team::hero_picks(int index) const {
   // @@protoc_insertion_point(field_get:CMsgDOTALiveScoreboardUpdate.Team.hero_picks)
   return _internal_hero_picks(index);
 }
-inline void CMsgDOTALiveScoreboardUpdate_Team::set_hero_picks(int index, uint32_t value) {
+inline void CMsgDOTALiveScoreboardUpdate_Team::set_hero_picks(int index, int32_t value) {
   _impl_.hero_picks_.Set(index, value);
   // @@protoc_insertion_point(field_set:CMsgDOTALiveScoreboardUpdate.Team.hero_picks)
 }
-inline void CMsgDOTALiveScoreboardUpdate_Team::_internal_add_hero_picks(uint32_t value) {
+inline void CMsgDOTALiveScoreboardUpdate_Team::_internal_add_hero_picks(int32_t value) {
   _impl_.hero_picks_.Add(value);
 }
-inline void CMsgDOTALiveScoreboardUpdate_Team::add_hero_picks(uint32_t value) {
+inline void CMsgDOTALiveScoreboardUpdate_Team::add_hero_picks(int32_t value) {
   _internal_add_hero_picks(value);
   // @@protoc_insertion_point(field_add:CMsgDOTALiveScoreboardUpdate.Team.hero_picks)
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
 CMsgDOTALiveScoreboardUpdate_Team::_internal_hero_picks() const {
   return _impl_.hero_picks_;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
 CMsgDOTALiveScoreboardUpdate_Team::hero_picks() const {
   // @@protoc_insertion_point(field_list:CMsgDOTALiveScoreboardUpdate.Team.hero_picks)
   return _internal_hero_picks();
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
 CMsgDOTALiveScoreboardUpdate_Team::_internal_mutable_hero_picks() {
   return &_impl_.hero_picks_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
 CMsgDOTALiveScoreboardUpdate_Team::mutable_hero_picks() {
   // @@protoc_insertion_point(field_mutable_list:CMsgDOTALiveScoreboardUpdate.Team.hero_picks)
   return _internal_mutable_hero_picks();
 }
 
-// repeated uint32 hero_bans = 6;
+// repeated int32 hero_bans = 6;
 inline int CMsgDOTALiveScoreboardUpdate_Team::_internal_hero_bans_size() const {
   return _impl_.hero_bans_.size();
 }
@@ -54353,38 +55125,38 @@ inline int CMsgDOTALiveScoreboardUpdate_Team::hero_bans_size() const {
 inline void CMsgDOTALiveScoreboardUpdate_Team::clear_hero_bans() {
   _impl_.hero_bans_.Clear();
 }
-inline uint32_t CMsgDOTALiveScoreboardUpdate_Team::_internal_hero_bans(int index) const {
+inline int32_t CMsgDOTALiveScoreboardUpdate_Team::_internal_hero_bans(int index) const {
   return _impl_.hero_bans_.Get(index);
 }
-inline uint32_t CMsgDOTALiveScoreboardUpdate_Team::hero_bans(int index) const {
+inline int32_t CMsgDOTALiveScoreboardUpdate_Team::hero_bans(int index) const {
   // @@protoc_insertion_point(field_get:CMsgDOTALiveScoreboardUpdate.Team.hero_bans)
   return _internal_hero_bans(index);
 }
-inline void CMsgDOTALiveScoreboardUpdate_Team::set_hero_bans(int index, uint32_t value) {
+inline void CMsgDOTALiveScoreboardUpdate_Team::set_hero_bans(int index, int32_t value) {
   _impl_.hero_bans_.Set(index, value);
   // @@protoc_insertion_point(field_set:CMsgDOTALiveScoreboardUpdate.Team.hero_bans)
 }
-inline void CMsgDOTALiveScoreboardUpdate_Team::_internal_add_hero_bans(uint32_t value) {
+inline void CMsgDOTALiveScoreboardUpdate_Team::_internal_add_hero_bans(int32_t value) {
   _impl_.hero_bans_.Add(value);
 }
-inline void CMsgDOTALiveScoreboardUpdate_Team::add_hero_bans(uint32_t value) {
+inline void CMsgDOTALiveScoreboardUpdate_Team::add_hero_bans(int32_t value) {
   _internal_add_hero_bans(value);
   // @@protoc_insertion_point(field_add:CMsgDOTALiveScoreboardUpdate.Team.hero_bans)
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
 CMsgDOTALiveScoreboardUpdate_Team::_internal_hero_bans() const {
   return _impl_.hero_bans_;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
 CMsgDOTALiveScoreboardUpdate_Team::hero_bans() const {
   // @@protoc_insertion_point(field_list:CMsgDOTALiveScoreboardUpdate.Team.hero_bans)
   return _internal_hero_bans();
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
 CMsgDOTALiveScoreboardUpdate_Team::_internal_mutable_hero_bans() {
   return &_impl_.hero_bans_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
 CMsgDOTALiveScoreboardUpdate_Team::mutable_hero_bans() {
   // @@protoc_insertion_point(field_mutable_list:CMsgDOTALiveScoreboardUpdate.Team.hero_bans)
   return _internal_mutable_hero_bans();
@@ -55122,6 +55894,90 @@ inline void CMsgServerToGCRequestBatchPlayerResourcesResponse_Result::_internal_
 inline void CMsgServerToGCRequestBatchPlayerResourcesResponse_Result::set_behavior_level(int32_t value) {
   _internal_set_behavior_level(value);
   // @@protoc_insertion_point(field_set:CMsgServerToGCRequestBatchPlayerResourcesResponse.Result.behavior_level)
+}
+
+// optional int32 wins = 11;
+inline bool CMsgServerToGCRequestBatchPlayerResourcesResponse_Result::_internal_has_wins() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000100u) != 0;
+  return value;
+}
+inline bool CMsgServerToGCRequestBatchPlayerResourcesResponse_Result::has_wins() const {
+  return _internal_has_wins();
+}
+inline void CMsgServerToGCRequestBatchPlayerResourcesResponse_Result::clear_wins() {
+  _impl_.wins_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000100u;
+}
+inline int32_t CMsgServerToGCRequestBatchPlayerResourcesResponse_Result::_internal_wins() const {
+  return _impl_.wins_;
+}
+inline int32_t CMsgServerToGCRequestBatchPlayerResourcesResponse_Result::wins() const {
+  // @@protoc_insertion_point(field_get:CMsgServerToGCRequestBatchPlayerResourcesResponse.Result.wins)
+  return _internal_wins();
+}
+inline void CMsgServerToGCRequestBatchPlayerResourcesResponse_Result::_internal_set_wins(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00000100u;
+  _impl_.wins_ = value;
+}
+inline void CMsgServerToGCRequestBatchPlayerResourcesResponse_Result::set_wins(int32_t value) {
+  _internal_set_wins(value);
+  // @@protoc_insertion_point(field_set:CMsgServerToGCRequestBatchPlayerResourcesResponse.Result.wins)
+}
+
+// optional int32 losses = 12;
+inline bool CMsgServerToGCRequestBatchPlayerResourcesResponse_Result::_internal_has_losses() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000200u) != 0;
+  return value;
+}
+inline bool CMsgServerToGCRequestBatchPlayerResourcesResponse_Result::has_losses() const {
+  return _internal_has_losses();
+}
+inline void CMsgServerToGCRequestBatchPlayerResourcesResponse_Result::clear_losses() {
+  _impl_.losses_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000200u;
+}
+inline int32_t CMsgServerToGCRequestBatchPlayerResourcesResponse_Result::_internal_losses() const {
+  return _impl_.losses_;
+}
+inline int32_t CMsgServerToGCRequestBatchPlayerResourcesResponse_Result::losses() const {
+  // @@protoc_insertion_point(field_get:CMsgServerToGCRequestBatchPlayerResourcesResponse.Result.losses)
+  return _internal_losses();
+}
+inline void CMsgServerToGCRequestBatchPlayerResourcesResponse_Result::_internal_set_losses(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00000200u;
+  _impl_.losses_ = value;
+}
+inline void CMsgServerToGCRequestBatchPlayerResourcesResponse_Result::set_losses(int32_t value) {
+  _internal_set_losses(value);
+  // @@protoc_insertion_point(field_set:CMsgServerToGCRequestBatchPlayerResourcesResponse.Result.losses)
+}
+
+// optional int32 smurf_category = 13;
+inline bool CMsgServerToGCRequestBatchPlayerResourcesResponse_Result::_internal_has_smurf_category() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000400u) != 0;
+  return value;
+}
+inline bool CMsgServerToGCRequestBatchPlayerResourcesResponse_Result::has_smurf_category() const {
+  return _internal_has_smurf_category();
+}
+inline void CMsgServerToGCRequestBatchPlayerResourcesResponse_Result::clear_smurf_category() {
+  _impl_.smurf_category_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000400u;
+}
+inline int32_t CMsgServerToGCRequestBatchPlayerResourcesResponse_Result::_internal_smurf_category() const {
+  return _impl_.smurf_category_;
+}
+inline int32_t CMsgServerToGCRequestBatchPlayerResourcesResponse_Result::smurf_category() const {
+  // @@protoc_insertion_point(field_get:CMsgServerToGCRequestBatchPlayerResourcesResponse.Result.smurf_category)
+  return _internal_smurf_category();
+}
+inline void CMsgServerToGCRequestBatchPlayerResourcesResponse_Result::_internal_set_smurf_category(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00000400u;
+  _impl_.smurf_category_ = value;
+}
+inline void CMsgServerToGCRequestBatchPlayerResourcesResponse_Result::set_smurf_category(int32_t value) {
+  _internal_set_smurf_category(value);
+  // @@protoc_insertion_point(field_set:CMsgServerToGCRequestBatchPlayerResourcesResponse.Result.smurf_category)
 }
 
 // -------------------------------------------------------------------
@@ -56187,318 +57043,6 @@ inline void CMsgResponseTeamFanfare::_internal_set_fanfare_badguys(uint32_t valu
 inline void CMsgResponseTeamFanfare::set_fanfare_badguys(uint32_t value) {
   _internal_set_fanfare_badguys(value);
   // @@protoc_insertion_point(field_set:CMsgResponseTeamFanfare.fanfare_badguys)
-}
-
-// -------------------------------------------------------------------
-
-// CMsgGameServerUploadSaveGame
-
-// optional uint32 game_time = 1;
-inline bool CMsgGameServerUploadSaveGame::_internal_has_game_time() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
-  return value;
-}
-inline bool CMsgGameServerUploadSaveGame::has_game_time() const {
-  return _internal_has_game_time();
-}
-inline void CMsgGameServerUploadSaveGame::clear_game_time() {
-  _impl_.game_time_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000004u;
-}
-inline uint32_t CMsgGameServerUploadSaveGame::_internal_game_time() const {
-  return _impl_.game_time_;
-}
-inline uint32_t CMsgGameServerUploadSaveGame::game_time() const {
-  // @@protoc_insertion_point(field_get:CMsgGameServerUploadSaveGame.game_time)
-  return _internal_game_time();
-}
-inline void CMsgGameServerUploadSaveGame::_internal_set_game_time(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
-  _impl_.game_time_ = value;
-}
-inline void CMsgGameServerUploadSaveGame::set_game_time(uint32_t value) {
-  _internal_set_game_time(value);
-  // @@protoc_insertion_point(field_set:CMsgGameServerUploadSaveGame.game_time)
-}
-
-// optional bytes save_game_data = 2;
-inline bool CMsgGameServerUploadSaveGame::_internal_has_save_game_data() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool CMsgGameServerUploadSaveGame::has_save_game_data() const {
-  return _internal_has_save_game_data();
-}
-inline void CMsgGameServerUploadSaveGame::clear_save_game_data() {
-  _impl_.save_game_data_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000001u;
-}
-inline const std::string& CMsgGameServerUploadSaveGame::save_game_data() const {
-  // @@protoc_insertion_point(field_get:CMsgGameServerUploadSaveGame.save_game_data)
-  return _internal_save_game_data();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void CMsgGameServerUploadSaveGame::set_save_game_data(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000001u;
- _impl_.save_game_data_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:CMsgGameServerUploadSaveGame.save_game_data)
-}
-inline std::string* CMsgGameServerUploadSaveGame::mutable_save_game_data() {
-  std::string* _s = _internal_mutable_save_game_data();
-  // @@protoc_insertion_point(field_mutable:CMsgGameServerUploadSaveGame.save_game_data)
-  return _s;
-}
-inline const std::string& CMsgGameServerUploadSaveGame::_internal_save_game_data() const {
-  return _impl_.save_game_data_.Get();
-}
-inline void CMsgGameServerUploadSaveGame::_internal_set_save_game_data(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  _impl_.save_game_data_.Set(value, GetArenaForAllocation());
-}
-inline std::string* CMsgGameServerUploadSaveGame::_internal_mutable_save_game_data() {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  return _impl_.save_game_data_.Mutable(GetArenaForAllocation());
-}
-inline std::string* CMsgGameServerUploadSaveGame::release_save_game_data() {
-  // @@protoc_insertion_point(field_release:CMsgGameServerUploadSaveGame.save_game_data)
-  if (!_internal_has_save_game_data()) {
-    return nullptr;
-  }
-  _impl_._has_bits_[0] &= ~0x00000001u;
-  auto* p = _impl_.save_game_data_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.save_game_data_.IsDefault()) {
-    _impl_.save_game_data_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
-}
-inline void CMsgGameServerUploadSaveGame::set_allocated_save_game_data(std::string* save_game_data) {
-  if (save_game_data != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000001u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
-  }
-  _impl_.save_game_data_.SetAllocated(save_game_data, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.save_game_data_.IsDefault()) {
-    _impl_.save_game_data_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:CMsgGameServerUploadSaveGame.save_game_data)
-}
-
-// optional uint64 lobby_id = 3;
-inline bool CMsgGameServerUploadSaveGame::_internal_has_lobby_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
-  return value;
-}
-inline bool CMsgGameServerUploadSaveGame::has_lobby_id() const {
-  return _internal_has_lobby_id();
-}
-inline void CMsgGameServerUploadSaveGame::clear_lobby_id() {
-  _impl_.lobby_id_ = uint64_t{0u};
-  _impl_._has_bits_[0] &= ~0x00000002u;
-}
-inline uint64_t CMsgGameServerUploadSaveGame::_internal_lobby_id() const {
-  return _impl_.lobby_id_;
-}
-inline uint64_t CMsgGameServerUploadSaveGame::lobby_id() const {
-  // @@protoc_insertion_point(field_get:CMsgGameServerUploadSaveGame.lobby_id)
-  return _internal_lobby_id();
-}
-inline void CMsgGameServerUploadSaveGame::_internal_set_lobby_id(uint64_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  _impl_.lobby_id_ = value;
-}
-inline void CMsgGameServerUploadSaveGame::set_lobby_id(uint64_t value) {
-  _internal_set_lobby_id(value);
-  // @@protoc_insertion_point(field_set:CMsgGameServerUploadSaveGame.lobby_id)
-}
-
-// repeated uint64 player_steam_ids = 4;
-inline int CMsgGameServerUploadSaveGame::_internal_player_steam_ids_size() const {
-  return _impl_.player_steam_ids_.size();
-}
-inline int CMsgGameServerUploadSaveGame::player_steam_ids_size() const {
-  return _internal_player_steam_ids_size();
-}
-inline void CMsgGameServerUploadSaveGame::clear_player_steam_ids() {
-  _impl_.player_steam_ids_.Clear();
-}
-inline uint64_t CMsgGameServerUploadSaveGame::_internal_player_steam_ids(int index) const {
-  return _impl_.player_steam_ids_.Get(index);
-}
-inline uint64_t CMsgGameServerUploadSaveGame::player_steam_ids(int index) const {
-  // @@protoc_insertion_point(field_get:CMsgGameServerUploadSaveGame.player_steam_ids)
-  return _internal_player_steam_ids(index);
-}
-inline void CMsgGameServerUploadSaveGame::set_player_steam_ids(int index, uint64_t value) {
-  _impl_.player_steam_ids_.Set(index, value);
-  // @@protoc_insertion_point(field_set:CMsgGameServerUploadSaveGame.player_steam_ids)
-}
-inline void CMsgGameServerUploadSaveGame::_internal_add_player_steam_ids(uint64_t value) {
-  _impl_.player_steam_ids_.Add(value);
-}
-inline void CMsgGameServerUploadSaveGame::add_player_steam_ids(uint64_t value) {
-  _internal_add_player_steam_ids(value);
-  // @@protoc_insertion_point(field_add:CMsgGameServerUploadSaveGame.player_steam_ids)
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
-CMsgGameServerUploadSaveGame::_internal_player_steam_ids() const {
-  return _impl_.player_steam_ids_;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
-CMsgGameServerUploadSaveGame::player_steam_ids() const {
-  // @@protoc_insertion_point(field_list:CMsgGameServerUploadSaveGame.player_steam_ids)
-  return _internal_player_steam_ids();
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
-CMsgGameServerUploadSaveGame::_internal_mutable_player_steam_ids() {
-  return &_impl_.player_steam_ids_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
-CMsgGameServerUploadSaveGame::mutable_player_steam_ids() {
-  // @@protoc_insertion_point(field_mutable_list:CMsgGameServerUploadSaveGame.player_steam_ids)
-  return _internal_mutable_player_steam_ids();
-}
-
-// -------------------------------------------------------------------
-
-// CMsgGameServerSaveGameResult
-
-// optional .CMsgGameServerSaveGameResult.Result result = 1 [default = SaveSuccessful];
-inline bool CMsgGameServerSaveGameResult::_internal_has_result() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool CMsgGameServerSaveGameResult::has_result() const {
-  return _internal_has_result();
-}
-inline void CMsgGameServerSaveGameResult::clear_result() {
-  _impl_.result_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000001u;
-}
-inline ::CMsgGameServerSaveGameResult_Result CMsgGameServerSaveGameResult::_internal_result() const {
-  return static_cast< ::CMsgGameServerSaveGameResult_Result >(_impl_.result_);
-}
-inline ::CMsgGameServerSaveGameResult_Result CMsgGameServerSaveGameResult::result() const {
-  // @@protoc_insertion_point(field_get:CMsgGameServerSaveGameResult.result)
-  return _internal_result();
-}
-inline void CMsgGameServerSaveGameResult::_internal_set_result(::CMsgGameServerSaveGameResult_Result value) {
-  assert(::CMsgGameServerSaveGameResult_Result_IsValid(value));
-  _impl_._has_bits_[0] |= 0x00000001u;
-  _impl_.result_ = value;
-}
-inline void CMsgGameServerSaveGameResult::set_result(::CMsgGameServerSaveGameResult_Result value) {
-  _internal_set_result(value);
-  // @@protoc_insertion_point(field_set:CMsgGameServerSaveGameResult.result)
-}
-
-// -------------------------------------------------------------------
-
-// CMsgGameServerGetLoadGame
-
-// optional uint32 save_id = 1;
-inline bool CMsgGameServerGetLoadGame::_internal_has_save_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool CMsgGameServerGetLoadGame::has_save_id() const {
-  return _internal_has_save_id();
-}
-inline void CMsgGameServerGetLoadGame::clear_save_id() {
-  _impl_.save_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000001u;
-}
-inline uint32_t CMsgGameServerGetLoadGame::_internal_save_id() const {
-  return _impl_.save_id_;
-}
-inline uint32_t CMsgGameServerGetLoadGame::save_id() const {
-  // @@protoc_insertion_point(field_get:CMsgGameServerGetLoadGame.save_id)
-  return _internal_save_id();
-}
-inline void CMsgGameServerGetLoadGame::_internal_set_save_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  _impl_.save_id_ = value;
-}
-inline void CMsgGameServerGetLoadGame::set_save_id(uint32_t value) {
-  _internal_set_save_id(value);
-  // @@protoc_insertion_point(field_set:CMsgGameServerGetLoadGame.save_id)
-}
-
-// -------------------------------------------------------------------
-
-// CMsgGameServerGetLoadGameResult
-
-// optional bytes save_game_data = 1;
-inline bool CMsgGameServerGetLoadGameResult::_internal_has_save_game_data() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool CMsgGameServerGetLoadGameResult::has_save_game_data() const {
-  return _internal_has_save_game_data();
-}
-inline void CMsgGameServerGetLoadGameResult::clear_save_game_data() {
-  _impl_.save_game_data_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000001u;
-}
-inline const std::string& CMsgGameServerGetLoadGameResult::save_game_data() const {
-  // @@protoc_insertion_point(field_get:CMsgGameServerGetLoadGameResult.save_game_data)
-  return _internal_save_game_data();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void CMsgGameServerGetLoadGameResult::set_save_game_data(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000001u;
- _impl_.save_game_data_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:CMsgGameServerGetLoadGameResult.save_game_data)
-}
-inline std::string* CMsgGameServerGetLoadGameResult::mutable_save_game_data() {
-  std::string* _s = _internal_mutable_save_game_data();
-  // @@protoc_insertion_point(field_mutable:CMsgGameServerGetLoadGameResult.save_game_data)
-  return _s;
-}
-inline const std::string& CMsgGameServerGetLoadGameResult::_internal_save_game_data() const {
-  return _impl_.save_game_data_.Get();
-}
-inline void CMsgGameServerGetLoadGameResult::_internal_set_save_game_data(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  _impl_.save_game_data_.Set(value, GetArenaForAllocation());
-}
-inline std::string* CMsgGameServerGetLoadGameResult::_internal_mutable_save_game_data() {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  return _impl_.save_game_data_.Mutable(GetArenaForAllocation());
-}
-inline std::string* CMsgGameServerGetLoadGameResult::release_save_game_data() {
-  // @@protoc_insertion_point(field_release:CMsgGameServerGetLoadGameResult.save_game_data)
-  if (!_internal_has_save_game_data()) {
-    return nullptr;
-  }
-  _impl_._has_bits_[0] &= ~0x00000001u;
-  auto* p = _impl_.save_game_data_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.save_game_data_.IsDefault()) {
-    _impl_.save_game_data_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
-}
-inline void CMsgGameServerGetLoadGameResult::set_allocated_save_game_data(std::string* save_game_data) {
-  if (save_game_data != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000001u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
-  }
-  _impl_.save_game_data_.SetAllocated(save_game_data, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.save_game_data_.IsDefault()) {
-    _impl_.save_game_data_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:CMsgGameServerGetLoadGameResult.save_game_data)
 }
 
 // -------------------------------------------------------------------
@@ -57643,11 +58187,71 @@ CSerializedCombatLog::entries() const {
 
 // -------------------------------------------------------------------
 
+// CMsgServerToGCVictoryPredictions_PredictionItem
+
+// optional uint64 item_id = 1;
+inline bool CMsgServerToGCVictoryPredictions_PredictionItem::_internal_has_item_id() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgServerToGCVictoryPredictions_PredictionItem::has_item_id() const {
+  return _internal_has_item_id();
+}
+inline void CMsgServerToGCVictoryPredictions_PredictionItem::clear_item_id() {
+  _impl_.item_id_ = uint64_t{0u};
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline uint64_t CMsgServerToGCVictoryPredictions_PredictionItem::_internal_item_id() const {
+  return _impl_.item_id_;
+}
+inline uint64_t CMsgServerToGCVictoryPredictions_PredictionItem::item_id() const {
+  // @@protoc_insertion_point(field_get:CMsgServerToGCVictoryPredictions.PredictionItem.item_id)
+  return _internal_item_id();
+}
+inline void CMsgServerToGCVictoryPredictions_PredictionItem::_internal_set_item_id(uint64_t value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.item_id_ = value;
+}
+inline void CMsgServerToGCVictoryPredictions_PredictionItem::set_item_id(uint64_t value) {
+  _internal_set_item_id(value);
+  // @@protoc_insertion_point(field_set:CMsgServerToGCVictoryPredictions.PredictionItem.item_id)
+}
+
+// optional uint32 item_def = 2;
+inline bool CMsgServerToGCVictoryPredictions_PredictionItem::_internal_has_item_def() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMsgServerToGCVictoryPredictions_PredictionItem::has_item_def() const {
+  return _internal_has_item_def();
+}
+inline void CMsgServerToGCVictoryPredictions_PredictionItem::clear_item_def() {
+  _impl_.item_def_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline uint32_t CMsgServerToGCVictoryPredictions_PredictionItem::_internal_item_def() const {
+  return _impl_.item_def_;
+}
+inline uint32_t CMsgServerToGCVictoryPredictions_PredictionItem::item_def() const {
+  // @@protoc_insertion_point(field_get:CMsgServerToGCVictoryPredictions.PredictionItem.item_def)
+  return _internal_item_def();
+}
+inline void CMsgServerToGCVictoryPredictions_PredictionItem::_internal_set_item_def(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.item_def_ = value;
+}
+inline void CMsgServerToGCVictoryPredictions_PredictionItem::set_item_def(uint32_t value) {
+  _internal_set_item_def(value);
+  // @@protoc_insertion_point(field_set:CMsgServerToGCVictoryPredictions.PredictionItem.item_def)
+}
+
+// -------------------------------------------------------------------
+
 // CMsgServerToGCVictoryPredictions_Record
 
 // optional uint32 account_id = 1;
 inline bool CMsgServerToGCVictoryPredictions_Record::_internal_has_account_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool CMsgServerToGCVictoryPredictions_Record::has_account_id() const {
@@ -57655,7 +58259,7 @@ inline bool CMsgServerToGCVictoryPredictions_Record::has_account_id() const {
 }
 inline void CMsgServerToGCVictoryPredictions_Record::clear_account_id() {
   _impl_.account_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline uint32_t CMsgServerToGCVictoryPredictions_Record::_internal_account_id() const {
   return _impl_.account_id_;
@@ -57665,40 +58269,12 @@ inline uint32_t CMsgServerToGCVictoryPredictions_Record::account_id() const {
   return _internal_account_id();
 }
 inline void CMsgServerToGCVictoryPredictions_Record::_internal_set_account_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.account_id_ = value;
 }
 inline void CMsgServerToGCVictoryPredictions_Record::set_account_id(uint32_t value) {
   _internal_set_account_id(value);
   // @@protoc_insertion_point(field_set:CMsgServerToGCVictoryPredictions.Record.account_id)
-}
-
-// optional uint64 item_id = 2;
-inline bool CMsgServerToGCVictoryPredictions_Record::_internal_has_item_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool CMsgServerToGCVictoryPredictions_Record::has_item_id() const {
-  return _internal_has_item_id();
-}
-inline void CMsgServerToGCVictoryPredictions_Record::clear_item_id() {
-  _impl_.item_id_ = uint64_t{0u};
-  _impl_._has_bits_[0] &= ~0x00000001u;
-}
-inline uint64_t CMsgServerToGCVictoryPredictions_Record::_internal_item_id() const {
-  return _impl_.item_id_;
-}
-inline uint64_t CMsgServerToGCVictoryPredictions_Record::item_id() const {
-  // @@protoc_insertion_point(field_get:CMsgServerToGCVictoryPredictions.Record.item_id)
-  return _internal_item_id();
-}
-inline void CMsgServerToGCVictoryPredictions_Record::_internal_set_item_id(uint64_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  _impl_.item_id_ = value;
-}
-inline void CMsgServerToGCVictoryPredictions_Record::set_item_id(uint64_t value) {
-  _internal_set_item_id(value);
-  // @@protoc_insertion_point(field_set:CMsgServerToGCVictoryPredictions.Record.item_id)
 }
 
 // repeated uint64 item_ids = 5;
@@ -57746,6 +58322,46 @@ inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
 CMsgServerToGCVictoryPredictions_Record::mutable_item_ids() {
   // @@protoc_insertion_point(field_mutable_list:CMsgServerToGCVictoryPredictions.Record.item_ids)
   return _internal_mutable_item_ids();
+}
+
+// repeated .CMsgServerToGCVictoryPredictions.PredictionItem prediction_items = 6;
+inline int CMsgServerToGCVictoryPredictions_Record::_internal_prediction_items_size() const {
+  return _impl_.prediction_items_.size();
+}
+inline int CMsgServerToGCVictoryPredictions_Record::prediction_items_size() const {
+  return _internal_prediction_items_size();
+}
+inline void CMsgServerToGCVictoryPredictions_Record::clear_prediction_items() {
+  _impl_.prediction_items_.Clear();
+}
+inline ::CMsgServerToGCVictoryPredictions_PredictionItem* CMsgServerToGCVictoryPredictions_Record::mutable_prediction_items(int index) {
+  // @@protoc_insertion_point(field_mutable:CMsgServerToGCVictoryPredictions.Record.prediction_items)
+  return _impl_.prediction_items_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgServerToGCVictoryPredictions_PredictionItem >*
+CMsgServerToGCVictoryPredictions_Record::mutable_prediction_items() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgServerToGCVictoryPredictions.Record.prediction_items)
+  return &_impl_.prediction_items_;
+}
+inline const ::CMsgServerToGCVictoryPredictions_PredictionItem& CMsgServerToGCVictoryPredictions_Record::_internal_prediction_items(int index) const {
+  return _impl_.prediction_items_.Get(index);
+}
+inline const ::CMsgServerToGCVictoryPredictions_PredictionItem& CMsgServerToGCVictoryPredictions_Record::prediction_items(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgServerToGCVictoryPredictions.Record.prediction_items)
+  return _internal_prediction_items(index);
+}
+inline ::CMsgServerToGCVictoryPredictions_PredictionItem* CMsgServerToGCVictoryPredictions_Record::_internal_add_prediction_items() {
+  return _impl_.prediction_items_.Add();
+}
+inline ::CMsgServerToGCVictoryPredictions_PredictionItem* CMsgServerToGCVictoryPredictions_Record::add_prediction_items() {
+  ::CMsgServerToGCVictoryPredictions_PredictionItem* _add = _internal_add_prediction_items();
+  // @@protoc_insertion_point(field_add:CMsgServerToGCVictoryPredictions.Record.prediction_items)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgServerToGCVictoryPredictions_PredictionItem >&
+CMsgServerToGCVictoryPredictions_Record::prediction_items() const {
+  // @@protoc_insertion_point(field_list:CMsgServerToGCVictoryPredictions.Record.prediction_items)
+  return _impl_.prediction_items_;
 }
 
 // -------------------------------------------------------------------
@@ -58415,7 +59031,7 @@ inline void CMsgSignOutAssassinMiniGameInfo::set_assassin_won(bool value) {
   // @@protoc_insertion_point(field_set:CMsgSignOutAssassinMiniGameInfo.assassin_won)
 }
 
-// optional uint32 target_hero_id = 5;
+// optional int32 target_hero_id = 5;
 inline bool CMsgSignOutAssassinMiniGameInfo::_internal_has_target_hero_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -58424,21 +59040,21 @@ inline bool CMsgSignOutAssassinMiniGameInfo::has_target_hero_id() const {
   return _internal_has_target_hero_id();
 }
 inline void CMsgSignOutAssassinMiniGameInfo::clear_target_hero_id() {
-  _impl_.target_hero_id_ = 0u;
+  _impl_.target_hero_id_ = 0;
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint32_t CMsgSignOutAssassinMiniGameInfo::_internal_target_hero_id() const {
+inline int32_t CMsgSignOutAssassinMiniGameInfo::_internal_target_hero_id() const {
   return _impl_.target_hero_id_;
 }
-inline uint32_t CMsgSignOutAssassinMiniGameInfo::target_hero_id() const {
+inline int32_t CMsgSignOutAssassinMiniGameInfo::target_hero_id() const {
   // @@protoc_insertion_point(field_get:CMsgSignOutAssassinMiniGameInfo.target_hero_id)
   return _internal_target_hero_id();
 }
-inline void CMsgSignOutAssassinMiniGameInfo::_internal_set_target_hero_id(uint32_t value) {
+inline void CMsgSignOutAssassinMiniGameInfo::_internal_set_target_hero_id(int32_t value) {
   _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.target_hero_id_ = value;
 }
-inline void CMsgSignOutAssassinMiniGameInfo::set_target_hero_id(uint32_t value) {
+inline void CMsgSignOutAssassinMiniGameInfo::set_target_hero_id(int32_t value) {
   _internal_set_target_hero_id(value);
   // @@protoc_insertion_point(field_set:CMsgSignOutAssassinMiniGameInfo.target_hero_id)
 }
@@ -58685,298 +59301,6 @@ inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgServerToGCKillSumm
 CMsgServerToGCKillSummaries::summaries() const {
   // @@protoc_insertion_point(field_list:CMsgServerToGCKillSummaries.summaries)
   return _impl_.summaries_;
-}
-
-// -------------------------------------------------------------------
-
-// CMsgGCToServerPredictionResult_Prediction
-
-// optional uint32 item_def = 1;
-inline bool CMsgGCToServerPredictionResult_Prediction::_internal_has_item_def() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool CMsgGCToServerPredictionResult_Prediction::has_item_def() const {
-  return _internal_has_item_def();
-}
-inline void CMsgGCToServerPredictionResult_Prediction::clear_item_def() {
-  _impl_.item_def_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000001u;
-}
-inline uint32_t CMsgGCToServerPredictionResult_Prediction::_internal_item_def() const {
-  return _impl_.item_def_;
-}
-inline uint32_t CMsgGCToServerPredictionResult_Prediction::item_def() const {
-  // @@protoc_insertion_point(field_get:CMsgGCToServerPredictionResult.Prediction.item_def)
-  return _internal_item_def();
-}
-inline void CMsgGCToServerPredictionResult_Prediction::_internal_set_item_def(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  _impl_.item_def_ = value;
-}
-inline void CMsgGCToServerPredictionResult_Prediction::set_item_def(uint32_t value) {
-  _internal_set_item_def(value);
-  // @@protoc_insertion_point(field_set:CMsgGCToServerPredictionResult.Prediction.item_def)
-}
-
-// optional uint32 num_correct = 2;
-inline bool CMsgGCToServerPredictionResult_Prediction::_internal_has_num_correct() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
-  return value;
-}
-inline bool CMsgGCToServerPredictionResult_Prediction::has_num_correct() const {
-  return _internal_has_num_correct();
-}
-inline void CMsgGCToServerPredictionResult_Prediction::clear_num_correct() {
-  _impl_.num_correct_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
-}
-inline uint32_t CMsgGCToServerPredictionResult_Prediction::_internal_num_correct() const {
-  return _impl_.num_correct_;
-}
-inline uint32_t CMsgGCToServerPredictionResult_Prediction::num_correct() const {
-  // @@protoc_insertion_point(field_get:CMsgGCToServerPredictionResult.Prediction.num_correct)
-  return _internal_num_correct();
-}
-inline void CMsgGCToServerPredictionResult_Prediction::_internal_set_num_correct(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  _impl_.num_correct_ = value;
-}
-inline void CMsgGCToServerPredictionResult_Prediction::set_num_correct(uint32_t value) {
-  _internal_set_num_correct(value);
-  // @@protoc_insertion_point(field_set:CMsgGCToServerPredictionResult.Prediction.num_correct)
-}
-
-// optional uint32 num_fails = 3;
-inline bool CMsgGCToServerPredictionResult_Prediction::_internal_has_num_fails() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
-  return value;
-}
-inline bool CMsgGCToServerPredictionResult_Prediction::has_num_fails() const {
-  return _internal_has_num_fails();
-}
-inline void CMsgGCToServerPredictionResult_Prediction::clear_num_fails() {
-  _impl_.num_fails_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000004u;
-}
-inline uint32_t CMsgGCToServerPredictionResult_Prediction::_internal_num_fails() const {
-  return _impl_.num_fails_;
-}
-inline uint32_t CMsgGCToServerPredictionResult_Prediction::num_fails() const {
-  // @@protoc_insertion_point(field_get:CMsgGCToServerPredictionResult.Prediction.num_fails)
-  return _internal_num_fails();
-}
-inline void CMsgGCToServerPredictionResult_Prediction::_internal_set_num_fails(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
-  _impl_.num_fails_ = value;
-}
-inline void CMsgGCToServerPredictionResult_Prediction::set_num_fails(uint32_t value) {
-  _internal_set_num_fails(value);
-  // @@protoc_insertion_point(field_set:CMsgGCToServerPredictionResult.Prediction.num_fails)
-}
-
-// optional .CMsgGCToServerPredictionResult.Prediction.EResult result = 4 [default = k_eResult_ItemGranted];
-inline bool CMsgGCToServerPredictionResult_Prediction::_internal_has_result() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
-  return value;
-}
-inline bool CMsgGCToServerPredictionResult_Prediction::has_result() const {
-  return _internal_has_result();
-}
-inline void CMsgGCToServerPredictionResult_Prediction::clear_result() {
-  _impl_.result_ = 1;
-  _impl_._has_bits_[0] &= ~0x00000008u;
-}
-inline ::CMsgGCToServerPredictionResult_Prediction_EResult CMsgGCToServerPredictionResult_Prediction::_internal_result() const {
-  return static_cast< ::CMsgGCToServerPredictionResult_Prediction_EResult >(_impl_.result_);
-}
-inline ::CMsgGCToServerPredictionResult_Prediction_EResult CMsgGCToServerPredictionResult_Prediction::result() const {
-  // @@protoc_insertion_point(field_get:CMsgGCToServerPredictionResult.Prediction.result)
-  return _internal_result();
-}
-inline void CMsgGCToServerPredictionResult_Prediction::_internal_set_result(::CMsgGCToServerPredictionResult_Prediction_EResult value) {
-  assert(::CMsgGCToServerPredictionResult_Prediction_EResult_IsValid(value));
-  _impl_._has_bits_[0] |= 0x00000008u;
-  _impl_.result_ = value;
-}
-inline void CMsgGCToServerPredictionResult_Prediction::set_result(::CMsgGCToServerPredictionResult_Prediction_EResult value) {
-  _internal_set_result(value);
-  // @@protoc_insertion_point(field_set:CMsgGCToServerPredictionResult.Prediction.result)
-}
-
-// repeated uint32 granted_item_defs = 6;
-inline int CMsgGCToServerPredictionResult_Prediction::_internal_granted_item_defs_size() const {
-  return _impl_.granted_item_defs_.size();
-}
-inline int CMsgGCToServerPredictionResult_Prediction::granted_item_defs_size() const {
-  return _internal_granted_item_defs_size();
-}
-inline void CMsgGCToServerPredictionResult_Prediction::clear_granted_item_defs() {
-  _impl_.granted_item_defs_.Clear();
-}
-inline uint32_t CMsgGCToServerPredictionResult_Prediction::_internal_granted_item_defs(int index) const {
-  return _impl_.granted_item_defs_.Get(index);
-}
-inline uint32_t CMsgGCToServerPredictionResult_Prediction::granted_item_defs(int index) const {
-  // @@protoc_insertion_point(field_get:CMsgGCToServerPredictionResult.Prediction.granted_item_defs)
-  return _internal_granted_item_defs(index);
-}
-inline void CMsgGCToServerPredictionResult_Prediction::set_granted_item_defs(int index, uint32_t value) {
-  _impl_.granted_item_defs_.Set(index, value);
-  // @@protoc_insertion_point(field_set:CMsgGCToServerPredictionResult.Prediction.granted_item_defs)
-}
-inline void CMsgGCToServerPredictionResult_Prediction::_internal_add_granted_item_defs(uint32_t value) {
-  _impl_.granted_item_defs_.Add(value);
-}
-inline void CMsgGCToServerPredictionResult_Prediction::add_granted_item_defs(uint32_t value) {
-  _internal_add_granted_item_defs(value);
-  // @@protoc_insertion_point(field_add:CMsgGCToServerPredictionResult.Prediction.granted_item_defs)
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-CMsgGCToServerPredictionResult_Prediction::_internal_granted_item_defs() const {
-  return _impl_.granted_item_defs_;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-CMsgGCToServerPredictionResult_Prediction::granted_item_defs() const {
-  // @@protoc_insertion_point(field_list:CMsgGCToServerPredictionResult.Prediction.granted_item_defs)
-  return _internal_granted_item_defs();
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-CMsgGCToServerPredictionResult_Prediction::_internal_mutable_granted_item_defs() {
-  return &_impl_.granted_item_defs_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-CMsgGCToServerPredictionResult_Prediction::mutable_granted_item_defs() {
-  // @@protoc_insertion_point(field_mutable_list:CMsgGCToServerPredictionResult.Prediction.granted_item_defs)
-  return _internal_mutable_granted_item_defs();
-}
-
-// -------------------------------------------------------------------
-
-// CMsgGCToServerPredictionResult
-
-// optional uint32 account_id = 1;
-inline bool CMsgGCToServerPredictionResult::_internal_has_account_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
-  return value;
-}
-inline bool CMsgGCToServerPredictionResult::has_account_id() const {
-  return _internal_has_account_id();
-}
-inline void CMsgGCToServerPredictionResult::clear_account_id() {
-  _impl_.account_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
-}
-inline uint32_t CMsgGCToServerPredictionResult::_internal_account_id() const {
-  return _impl_.account_id_;
-}
-inline uint32_t CMsgGCToServerPredictionResult::account_id() const {
-  // @@protoc_insertion_point(field_get:CMsgGCToServerPredictionResult.account_id)
-  return _internal_account_id();
-}
-inline void CMsgGCToServerPredictionResult::_internal_set_account_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  _impl_.account_id_ = value;
-}
-inline void CMsgGCToServerPredictionResult::set_account_id(uint32_t value) {
-  _internal_set_account_id(value);
-  // @@protoc_insertion_point(field_set:CMsgGCToServerPredictionResult.account_id)
-}
-
-// optional uint64 match_id = 2;
-inline bool CMsgGCToServerPredictionResult::_internal_has_match_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool CMsgGCToServerPredictionResult::has_match_id() const {
-  return _internal_has_match_id();
-}
-inline void CMsgGCToServerPredictionResult::clear_match_id() {
-  _impl_.match_id_ = uint64_t{0u};
-  _impl_._has_bits_[0] &= ~0x00000001u;
-}
-inline uint64_t CMsgGCToServerPredictionResult::_internal_match_id() const {
-  return _impl_.match_id_;
-}
-inline uint64_t CMsgGCToServerPredictionResult::match_id() const {
-  // @@protoc_insertion_point(field_get:CMsgGCToServerPredictionResult.match_id)
-  return _internal_match_id();
-}
-inline void CMsgGCToServerPredictionResult::_internal_set_match_id(uint64_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  _impl_.match_id_ = value;
-}
-inline void CMsgGCToServerPredictionResult::set_match_id(uint64_t value) {
-  _internal_set_match_id(value);
-  // @@protoc_insertion_point(field_set:CMsgGCToServerPredictionResult.match_id)
-}
-
-// optional bool correct = 3;
-inline bool CMsgGCToServerPredictionResult::_internal_has_correct() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
-  return value;
-}
-inline bool CMsgGCToServerPredictionResult::has_correct() const {
-  return _internal_has_correct();
-}
-inline void CMsgGCToServerPredictionResult::clear_correct() {
-  _impl_.correct_ = false;
-  _impl_._has_bits_[0] &= ~0x00000004u;
-}
-inline bool CMsgGCToServerPredictionResult::_internal_correct() const {
-  return _impl_.correct_;
-}
-inline bool CMsgGCToServerPredictionResult::correct() const {
-  // @@protoc_insertion_point(field_get:CMsgGCToServerPredictionResult.correct)
-  return _internal_correct();
-}
-inline void CMsgGCToServerPredictionResult::_internal_set_correct(bool value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
-  _impl_.correct_ = value;
-}
-inline void CMsgGCToServerPredictionResult::set_correct(bool value) {
-  _internal_set_correct(value);
-  // @@protoc_insertion_point(field_set:CMsgGCToServerPredictionResult.correct)
-}
-
-// repeated .CMsgGCToServerPredictionResult.Prediction predictions = 4;
-inline int CMsgGCToServerPredictionResult::_internal_predictions_size() const {
-  return _impl_.predictions_.size();
-}
-inline int CMsgGCToServerPredictionResult::predictions_size() const {
-  return _internal_predictions_size();
-}
-inline void CMsgGCToServerPredictionResult::clear_predictions() {
-  _impl_.predictions_.Clear();
-}
-inline ::CMsgGCToServerPredictionResult_Prediction* CMsgGCToServerPredictionResult::mutable_predictions(int index) {
-  // @@protoc_insertion_point(field_mutable:CMsgGCToServerPredictionResult.predictions)
-  return _impl_.predictions_.Mutable(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgGCToServerPredictionResult_Prediction >*
-CMsgGCToServerPredictionResult::mutable_predictions() {
-  // @@protoc_insertion_point(field_mutable_list:CMsgGCToServerPredictionResult.predictions)
-  return &_impl_.predictions_;
-}
-inline const ::CMsgGCToServerPredictionResult_Prediction& CMsgGCToServerPredictionResult::_internal_predictions(int index) const {
-  return _impl_.predictions_.Get(index);
-}
-inline const ::CMsgGCToServerPredictionResult_Prediction& CMsgGCToServerPredictionResult::predictions(int index) const {
-  // @@protoc_insertion_point(field_get:CMsgGCToServerPredictionResult.predictions)
-  return _internal_predictions(index);
-}
-inline ::CMsgGCToServerPredictionResult_Prediction* CMsgGCToServerPredictionResult::_internal_add_predictions() {
-  return _impl_.predictions_.Add();
-}
-inline ::CMsgGCToServerPredictionResult_Prediction* CMsgGCToServerPredictionResult::add_predictions() {
-  ::CMsgGCToServerPredictionResult_Prediction* _add = _internal_add_predictions();
-  // @@protoc_insertion_point(field_add:CMsgGCToServerPredictionResult.predictions)
-  return _add;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgGCToServerPredictionResult_Prediction >&
-CMsgGCToServerPredictionResult::predictions() const {
-  // @@protoc_insertion_point(field_list:CMsgGCToServerPredictionResult.predictions)
-  return _impl_.predictions_;
 }
 
 // -------------------------------------------------------------------
@@ -59324,7 +59648,7 @@ inline void CMsgSignOutUpdatePlayerChallenge::set_match_id(uint64_t value) {
   // @@protoc_insertion_point(field_set:CMsgSignOutUpdatePlayerChallenge.match_id)
 }
 
-// optional uint32 hero_id = 5;
+// optional int32 hero_id = 5;
 inline bool CMsgSignOutUpdatePlayerChallenge::_internal_has_hero_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -59333,21 +59657,21 @@ inline bool CMsgSignOutUpdatePlayerChallenge::has_hero_id() const {
   return _internal_has_hero_id();
 }
 inline void CMsgSignOutUpdatePlayerChallenge::clear_hero_id() {
-  _impl_.hero_id_ = 0u;
+  _impl_.hero_id_ = 0;
   _impl_._has_bits_[0] &= ~0x00000002u;
 }
-inline uint32_t CMsgSignOutUpdatePlayerChallenge::_internal_hero_id() const {
+inline int32_t CMsgSignOutUpdatePlayerChallenge::_internal_hero_id() const {
   return _impl_.hero_id_;
 }
-inline uint32_t CMsgSignOutUpdatePlayerChallenge::hero_id() const {
+inline int32_t CMsgSignOutUpdatePlayerChallenge::hero_id() const {
   // @@protoc_insertion_point(field_get:CMsgSignOutUpdatePlayerChallenge.hero_id)
   return _internal_hero_id();
 }
-inline void CMsgSignOutUpdatePlayerChallenge::_internal_set_hero_id(uint32_t value) {
+inline void CMsgSignOutUpdatePlayerChallenge::_internal_set_hero_id(int32_t value) {
   _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.hero_id_ = value;
 }
-inline void CMsgSignOutUpdatePlayerChallenge::set_hero_id(uint32_t value) {
+inline void CMsgSignOutUpdatePlayerChallenge::set_hero_id(int32_t value) {
   _internal_set_hero_id(value);
   // @@protoc_insertion_point(field_set:CMsgSignOutUpdatePlayerChallenge.hero_id)
 }
@@ -61199,7 +61523,7 @@ inline void CMsgServerToGCMatchPlayerItemPurchaseHistory_Player::set_account_id(
   // @@protoc_insertion_point(field_set:CMsgServerToGCMatchPlayerItemPurchaseHistory.Player.account_id)
 }
 
-// optional uint32 hero_id = 3;
+// optional int32 hero_id = 3;
 inline bool CMsgServerToGCMatchPlayerItemPurchaseHistory_Player::_internal_has_hero_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -61208,26 +61532,26 @@ inline bool CMsgServerToGCMatchPlayerItemPurchaseHistory_Player::has_hero_id() c
   return _internal_has_hero_id();
 }
 inline void CMsgServerToGCMatchPlayerItemPurchaseHistory_Player::clear_hero_id() {
-  _impl_.hero_id_ = 0u;
+  _impl_.hero_id_ = 0;
   _impl_._has_bits_[0] &= ~0x00000004u;
 }
-inline uint32_t CMsgServerToGCMatchPlayerItemPurchaseHistory_Player::_internal_hero_id() const {
+inline int32_t CMsgServerToGCMatchPlayerItemPurchaseHistory_Player::_internal_hero_id() const {
   return _impl_.hero_id_;
 }
-inline uint32_t CMsgServerToGCMatchPlayerItemPurchaseHistory_Player::hero_id() const {
+inline int32_t CMsgServerToGCMatchPlayerItemPurchaseHistory_Player::hero_id() const {
   // @@protoc_insertion_point(field_get:CMsgServerToGCMatchPlayerItemPurchaseHistory.Player.hero_id)
   return _internal_hero_id();
 }
-inline void CMsgServerToGCMatchPlayerItemPurchaseHistory_Player::_internal_set_hero_id(uint32_t value) {
+inline void CMsgServerToGCMatchPlayerItemPurchaseHistory_Player::_internal_set_hero_id(int32_t value) {
   _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.hero_id_ = value;
 }
-inline void CMsgServerToGCMatchPlayerItemPurchaseHistory_Player::set_hero_id(uint32_t value) {
+inline void CMsgServerToGCMatchPlayerItemPurchaseHistory_Player::set_hero_id(int32_t value) {
   _internal_set_hero_id(value);
   // @@protoc_insertion_point(field_set:CMsgServerToGCMatchPlayerItemPurchaseHistory.Player.hero_id)
 }
 
-// repeated uint32 allied_hero_ids = 4;
+// repeated int32 allied_hero_ids = 4;
 inline int CMsgServerToGCMatchPlayerItemPurchaseHistory_Player::_internal_allied_hero_ids_size() const {
   return _impl_.allied_hero_ids_.size();
 }
@@ -61237,44 +61561,44 @@ inline int CMsgServerToGCMatchPlayerItemPurchaseHistory_Player::allied_hero_ids_
 inline void CMsgServerToGCMatchPlayerItemPurchaseHistory_Player::clear_allied_hero_ids() {
   _impl_.allied_hero_ids_.Clear();
 }
-inline uint32_t CMsgServerToGCMatchPlayerItemPurchaseHistory_Player::_internal_allied_hero_ids(int index) const {
+inline int32_t CMsgServerToGCMatchPlayerItemPurchaseHistory_Player::_internal_allied_hero_ids(int index) const {
   return _impl_.allied_hero_ids_.Get(index);
 }
-inline uint32_t CMsgServerToGCMatchPlayerItemPurchaseHistory_Player::allied_hero_ids(int index) const {
+inline int32_t CMsgServerToGCMatchPlayerItemPurchaseHistory_Player::allied_hero_ids(int index) const {
   // @@protoc_insertion_point(field_get:CMsgServerToGCMatchPlayerItemPurchaseHistory.Player.allied_hero_ids)
   return _internal_allied_hero_ids(index);
 }
-inline void CMsgServerToGCMatchPlayerItemPurchaseHistory_Player::set_allied_hero_ids(int index, uint32_t value) {
+inline void CMsgServerToGCMatchPlayerItemPurchaseHistory_Player::set_allied_hero_ids(int index, int32_t value) {
   _impl_.allied_hero_ids_.Set(index, value);
   // @@protoc_insertion_point(field_set:CMsgServerToGCMatchPlayerItemPurchaseHistory.Player.allied_hero_ids)
 }
-inline void CMsgServerToGCMatchPlayerItemPurchaseHistory_Player::_internal_add_allied_hero_ids(uint32_t value) {
+inline void CMsgServerToGCMatchPlayerItemPurchaseHistory_Player::_internal_add_allied_hero_ids(int32_t value) {
   _impl_.allied_hero_ids_.Add(value);
 }
-inline void CMsgServerToGCMatchPlayerItemPurchaseHistory_Player::add_allied_hero_ids(uint32_t value) {
+inline void CMsgServerToGCMatchPlayerItemPurchaseHistory_Player::add_allied_hero_ids(int32_t value) {
   _internal_add_allied_hero_ids(value);
   // @@protoc_insertion_point(field_add:CMsgServerToGCMatchPlayerItemPurchaseHistory.Player.allied_hero_ids)
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
 CMsgServerToGCMatchPlayerItemPurchaseHistory_Player::_internal_allied_hero_ids() const {
   return _impl_.allied_hero_ids_;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
 CMsgServerToGCMatchPlayerItemPurchaseHistory_Player::allied_hero_ids() const {
   // @@protoc_insertion_point(field_list:CMsgServerToGCMatchPlayerItemPurchaseHistory.Player.allied_hero_ids)
   return _internal_allied_hero_ids();
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
 CMsgServerToGCMatchPlayerItemPurchaseHistory_Player::_internal_mutable_allied_hero_ids() {
   return &_impl_.allied_hero_ids_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
 CMsgServerToGCMatchPlayerItemPurchaseHistory_Player::mutable_allied_hero_ids() {
   // @@protoc_insertion_point(field_mutable_list:CMsgServerToGCMatchPlayerItemPurchaseHistory.Player.allied_hero_ids)
   return _internal_mutable_allied_hero_ids();
 }
 
-// repeated uint32 enemy_hero_ids = 5;
+// repeated int32 enemy_hero_ids = 5;
 inline int CMsgServerToGCMatchPlayerItemPurchaseHistory_Player::_internal_enemy_hero_ids_size() const {
   return _impl_.enemy_hero_ids_.size();
 }
@@ -61284,38 +61608,38 @@ inline int CMsgServerToGCMatchPlayerItemPurchaseHistory_Player::enemy_hero_ids_s
 inline void CMsgServerToGCMatchPlayerItemPurchaseHistory_Player::clear_enemy_hero_ids() {
   _impl_.enemy_hero_ids_.Clear();
 }
-inline uint32_t CMsgServerToGCMatchPlayerItemPurchaseHistory_Player::_internal_enemy_hero_ids(int index) const {
+inline int32_t CMsgServerToGCMatchPlayerItemPurchaseHistory_Player::_internal_enemy_hero_ids(int index) const {
   return _impl_.enemy_hero_ids_.Get(index);
 }
-inline uint32_t CMsgServerToGCMatchPlayerItemPurchaseHistory_Player::enemy_hero_ids(int index) const {
+inline int32_t CMsgServerToGCMatchPlayerItemPurchaseHistory_Player::enemy_hero_ids(int index) const {
   // @@protoc_insertion_point(field_get:CMsgServerToGCMatchPlayerItemPurchaseHistory.Player.enemy_hero_ids)
   return _internal_enemy_hero_ids(index);
 }
-inline void CMsgServerToGCMatchPlayerItemPurchaseHistory_Player::set_enemy_hero_ids(int index, uint32_t value) {
+inline void CMsgServerToGCMatchPlayerItemPurchaseHistory_Player::set_enemy_hero_ids(int index, int32_t value) {
   _impl_.enemy_hero_ids_.Set(index, value);
   // @@protoc_insertion_point(field_set:CMsgServerToGCMatchPlayerItemPurchaseHistory.Player.enemy_hero_ids)
 }
-inline void CMsgServerToGCMatchPlayerItemPurchaseHistory_Player::_internal_add_enemy_hero_ids(uint32_t value) {
+inline void CMsgServerToGCMatchPlayerItemPurchaseHistory_Player::_internal_add_enemy_hero_ids(int32_t value) {
   _impl_.enemy_hero_ids_.Add(value);
 }
-inline void CMsgServerToGCMatchPlayerItemPurchaseHistory_Player::add_enemy_hero_ids(uint32_t value) {
+inline void CMsgServerToGCMatchPlayerItemPurchaseHistory_Player::add_enemy_hero_ids(int32_t value) {
   _internal_add_enemy_hero_ids(value);
   // @@protoc_insertion_point(field_add:CMsgServerToGCMatchPlayerItemPurchaseHistory.Player.enemy_hero_ids)
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
 CMsgServerToGCMatchPlayerItemPurchaseHistory_Player::_internal_enemy_hero_ids() const {
   return _impl_.enemy_hero_ids_;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
 CMsgServerToGCMatchPlayerItemPurchaseHistory_Player::enemy_hero_ids() const {
   // @@protoc_insertion_point(field_list:CMsgServerToGCMatchPlayerItemPurchaseHistory.Player.enemy_hero_ids)
   return _internal_enemy_hero_ids();
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
 CMsgServerToGCMatchPlayerItemPurchaseHistory_Player::_internal_mutable_enemy_hero_ids() {
   return &_impl_.enemy_hero_ids_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
 CMsgServerToGCMatchPlayerItemPurchaseHistory_Player::mutable_enemy_hero_ids() {
   // @@protoc_insertion_point(field_mutable_list:CMsgServerToGCMatchPlayerItemPurchaseHistory.Player.enemy_hero_ids)
   return _internal_mutable_enemy_hero_ids();
@@ -61750,7 +62074,7 @@ inline void CMsgServerToGCMatchPlayerNeutralItemEquipHistory_Player::set_account
   // @@protoc_insertion_point(field_set:CMsgServerToGCMatchPlayerNeutralItemEquipHistory.Player.account_id)
 }
 
-// repeated uint32 allied_hero_ids = 2;
+// repeated int32 allied_hero_ids = 2;
 inline int CMsgServerToGCMatchPlayerNeutralItemEquipHistory_Player::_internal_allied_hero_ids_size() const {
   return _impl_.allied_hero_ids_.size();
 }
@@ -61760,44 +62084,44 @@ inline int CMsgServerToGCMatchPlayerNeutralItemEquipHistory_Player::allied_hero_
 inline void CMsgServerToGCMatchPlayerNeutralItemEquipHistory_Player::clear_allied_hero_ids() {
   _impl_.allied_hero_ids_.Clear();
 }
-inline uint32_t CMsgServerToGCMatchPlayerNeutralItemEquipHistory_Player::_internal_allied_hero_ids(int index) const {
+inline int32_t CMsgServerToGCMatchPlayerNeutralItemEquipHistory_Player::_internal_allied_hero_ids(int index) const {
   return _impl_.allied_hero_ids_.Get(index);
 }
-inline uint32_t CMsgServerToGCMatchPlayerNeutralItemEquipHistory_Player::allied_hero_ids(int index) const {
+inline int32_t CMsgServerToGCMatchPlayerNeutralItemEquipHistory_Player::allied_hero_ids(int index) const {
   // @@protoc_insertion_point(field_get:CMsgServerToGCMatchPlayerNeutralItemEquipHistory.Player.allied_hero_ids)
   return _internal_allied_hero_ids(index);
 }
-inline void CMsgServerToGCMatchPlayerNeutralItemEquipHistory_Player::set_allied_hero_ids(int index, uint32_t value) {
+inline void CMsgServerToGCMatchPlayerNeutralItemEquipHistory_Player::set_allied_hero_ids(int index, int32_t value) {
   _impl_.allied_hero_ids_.Set(index, value);
   // @@protoc_insertion_point(field_set:CMsgServerToGCMatchPlayerNeutralItemEquipHistory.Player.allied_hero_ids)
 }
-inline void CMsgServerToGCMatchPlayerNeutralItemEquipHistory_Player::_internal_add_allied_hero_ids(uint32_t value) {
+inline void CMsgServerToGCMatchPlayerNeutralItemEquipHistory_Player::_internal_add_allied_hero_ids(int32_t value) {
   _impl_.allied_hero_ids_.Add(value);
 }
-inline void CMsgServerToGCMatchPlayerNeutralItemEquipHistory_Player::add_allied_hero_ids(uint32_t value) {
+inline void CMsgServerToGCMatchPlayerNeutralItemEquipHistory_Player::add_allied_hero_ids(int32_t value) {
   _internal_add_allied_hero_ids(value);
   // @@protoc_insertion_point(field_add:CMsgServerToGCMatchPlayerNeutralItemEquipHistory.Player.allied_hero_ids)
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
 CMsgServerToGCMatchPlayerNeutralItemEquipHistory_Player::_internal_allied_hero_ids() const {
   return _impl_.allied_hero_ids_;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
 CMsgServerToGCMatchPlayerNeutralItemEquipHistory_Player::allied_hero_ids() const {
   // @@protoc_insertion_point(field_list:CMsgServerToGCMatchPlayerNeutralItemEquipHistory.Player.allied_hero_ids)
   return _internal_allied_hero_ids();
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
 CMsgServerToGCMatchPlayerNeutralItemEquipHistory_Player::_internal_mutable_allied_hero_ids() {
   return &_impl_.allied_hero_ids_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
 CMsgServerToGCMatchPlayerNeutralItemEquipHistory_Player::mutable_allied_hero_ids() {
   // @@protoc_insertion_point(field_mutable_list:CMsgServerToGCMatchPlayerNeutralItemEquipHistory.Player.allied_hero_ids)
   return _internal_mutable_allied_hero_ids();
 }
 
-// repeated uint32 enemy_hero_ids = 3;
+// repeated int32 enemy_hero_ids = 3;
 inline int CMsgServerToGCMatchPlayerNeutralItemEquipHistory_Player::_internal_enemy_hero_ids_size() const {
   return _impl_.enemy_hero_ids_.size();
 }
@@ -61807,38 +62131,38 @@ inline int CMsgServerToGCMatchPlayerNeutralItemEquipHistory_Player::enemy_hero_i
 inline void CMsgServerToGCMatchPlayerNeutralItemEquipHistory_Player::clear_enemy_hero_ids() {
   _impl_.enemy_hero_ids_.Clear();
 }
-inline uint32_t CMsgServerToGCMatchPlayerNeutralItemEquipHistory_Player::_internal_enemy_hero_ids(int index) const {
+inline int32_t CMsgServerToGCMatchPlayerNeutralItemEquipHistory_Player::_internal_enemy_hero_ids(int index) const {
   return _impl_.enemy_hero_ids_.Get(index);
 }
-inline uint32_t CMsgServerToGCMatchPlayerNeutralItemEquipHistory_Player::enemy_hero_ids(int index) const {
+inline int32_t CMsgServerToGCMatchPlayerNeutralItemEquipHistory_Player::enemy_hero_ids(int index) const {
   // @@protoc_insertion_point(field_get:CMsgServerToGCMatchPlayerNeutralItemEquipHistory.Player.enemy_hero_ids)
   return _internal_enemy_hero_ids(index);
 }
-inline void CMsgServerToGCMatchPlayerNeutralItemEquipHistory_Player::set_enemy_hero_ids(int index, uint32_t value) {
+inline void CMsgServerToGCMatchPlayerNeutralItemEquipHistory_Player::set_enemy_hero_ids(int index, int32_t value) {
   _impl_.enemy_hero_ids_.Set(index, value);
   // @@protoc_insertion_point(field_set:CMsgServerToGCMatchPlayerNeutralItemEquipHistory.Player.enemy_hero_ids)
 }
-inline void CMsgServerToGCMatchPlayerNeutralItemEquipHistory_Player::_internal_add_enemy_hero_ids(uint32_t value) {
+inline void CMsgServerToGCMatchPlayerNeutralItemEquipHistory_Player::_internal_add_enemy_hero_ids(int32_t value) {
   _impl_.enemy_hero_ids_.Add(value);
 }
-inline void CMsgServerToGCMatchPlayerNeutralItemEquipHistory_Player::add_enemy_hero_ids(uint32_t value) {
+inline void CMsgServerToGCMatchPlayerNeutralItemEquipHistory_Player::add_enemy_hero_ids(int32_t value) {
   _internal_add_enemy_hero_ids(value);
   // @@protoc_insertion_point(field_add:CMsgServerToGCMatchPlayerNeutralItemEquipHistory.Player.enemy_hero_ids)
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
 CMsgServerToGCMatchPlayerNeutralItemEquipHistory_Player::_internal_enemy_hero_ids() const {
   return _impl_.enemy_hero_ids_;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
 CMsgServerToGCMatchPlayerNeutralItemEquipHistory_Player::enemy_hero_ids() const {
   // @@protoc_insertion_point(field_list:CMsgServerToGCMatchPlayerNeutralItemEquipHistory.Player.enemy_hero_ids)
   return _internal_enemy_hero_ids();
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
 CMsgServerToGCMatchPlayerNeutralItemEquipHistory_Player::_internal_mutable_enemy_hero_ids() {
   return &_impl_.enemy_hero_ids_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
 CMsgServerToGCMatchPlayerNeutralItemEquipHistory_Player::mutable_enemy_hero_ids() {
   // @@protoc_insertion_point(field_mutable_list:CMsgServerToGCMatchPlayerNeutralItemEquipHistory.Player.enemy_hero_ids)
   return _internal_mutable_enemy_hero_ids();
@@ -61988,7 +62312,7 @@ CMsgServerToGCMatchPlayerNeutralItemEquipHistory::players() const {
 
 // CMsgServerToGCMatchStateHistory_PlayerState
 
-// optional uint32 hero_id = 1;
+// optional int32 hero_id = 1;
 inline bool CMsgServerToGCMatchStateHistory_PlayerState::_internal_has_hero_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -61997,21 +62321,21 @@ inline bool CMsgServerToGCMatchStateHistory_PlayerState::has_hero_id() const {
   return _internal_has_hero_id();
 }
 inline void CMsgServerToGCMatchStateHistory_PlayerState::clear_hero_id() {
-  _impl_.hero_id_ = 0u;
+  _impl_.hero_id_ = 0;
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint32_t CMsgServerToGCMatchStateHistory_PlayerState::_internal_hero_id() const {
+inline int32_t CMsgServerToGCMatchStateHistory_PlayerState::_internal_hero_id() const {
   return _impl_.hero_id_;
 }
-inline uint32_t CMsgServerToGCMatchStateHistory_PlayerState::hero_id() const {
+inline int32_t CMsgServerToGCMatchStateHistory_PlayerState::hero_id() const {
   // @@protoc_insertion_point(field_get:CMsgServerToGCMatchStateHistory.PlayerState.hero_id)
   return _internal_hero_id();
 }
-inline void CMsgServerToGCMatchStateHistory_PlayerState::_internal_set_hero_id(uint32_t value) {
+inline void CMsgServerToGCMatchStateHistory_PlayerState::_internal_set_hero_id(int32_t value) {
   _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.hero_id_ = value;
 }
-inline void CMsgServerToGCMatchStateHistory_PlayerState::set_hero_id(uint32_t value) {
+inline void CMsgServerToGCMatchStateHistory_PlayerState::set_hero_id(int32_t value) {
   _internal_set_hero_id(value);
   // @@protoc_insertion_point(field_set:CMsgServerToGCMatchStateHistory.PlayerState.hero_id)
 }
@@ -63068,7 +63392,7 @@ inline void CMsgMatchStateSteamMLEntry::set_radiant_won(bool value) {
 
 // CMsgLaneSelectionSteamMLEntry
 
-// repeated uint32 hero_ids = 1 [(.steamml_max_entries) = 10];
+// repeated int32 hero_ids = 1 [(.steamml_max_entries) = 10];
 inline int CMsgLaneSelectionSteamMLEntry::_internal_hero_ids_size() const {
   return _impl_.hero_ids_.size();
 }
@@ -63078,38 +63402,38 @@ inline int CMsgLaneSelectionSteamMLEntry::hero_ids_size() const {
 inline void CMsgLaneSelectionSteamMLEntry::clear_hero_ids() {
   _impl_.hero_ids_.Clear();
 }
-inline uint32_t CMsgLaneSelectionSteamMLEntry::_internal_hero_ids(int index) const {
+inline int32_t CMsgLaneSelectionSteamMLEntry::_internal_hero_ids(int index) const {
   return _impl_.hero_ids_.Get(index);
 }
-inline uint32_t CMsgLaneSelectionSteamMLEntry::hero_ids(int index) const {
+inline int32_t CMsgLaneSelectionSteamMLEntry::hero_ids(int index) const {
   // @@protoc_insertion_point(field_get:CMsgLaneSelectionSteamMLEntry.hero_ids)
   return _internal_hero_ids(index);
 }
-inline void CMsgLaneSelectionSteamMLEntry::set_hero_ids(int index, uint32_t value) {
+inline void CMsgLaneSelectionSteamMLEntry::set_hero_ids(int index, int32_t value) {
   _impl_.hero_ids_.Set(index, value);
   // @@protoc_insertion_point(field_set:CMsgLaneSelectionSteamMLEntry.hero_ids)
 }
-inline void CMsgLaneSelectionSteamMLEntry::_internal_add_hero_ids(uint32_t value) {
+inline void CMsgLaneSelectionSteamMLEntry::_internal_add_hero_ids(int32_t value) {
   _impl_.hero_ids_.Add(value);
 }
-inline void CMsgLaneSelectionSteamMLEntry::add_hero_ids(uint32_t value) {
+inline void CMsgLaneSelectionSteamMLEntry::add_hero_ids(int32_t value) {
   _internal_add_hero_ids(value);
   // @@protoc_insertion_point(field_add:CMsgLaneSelectionSteamMLEntry.hero_ids)
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
 CMsgLaneSelectionSteamMLEntry::_internal_hero_ids() const {
   return _impl_.hero_ids_;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
 CMsgLaneSelectionSteamMLEntry::hero_ids() const {
   // @@protoc_insertion_point(field_list:CMsgLaneSelectionSteamMLEntry.hero_ids)
   return _internal_hero_ids();
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
 CMsgLaneSelectionSteamMLEntry::_internal_mutable_hero_ids() {
   return &_impl_.hero_ids_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
 CMsgLaneSelectionSteamMLEntry::mutable_hero_ids() {
   // @@protoc_insertion_point(field_mutable_list:CMsgLaneSelectionSteamMLEntry.hero_ids)
   return _internal_mutable_hero_ids();
@@ -63194,7 +63518,7 @@ inline void CMsgAbilitySelectionSteamMLEntry::set_mmr(uint32_t value) {
   // @@protoc_insertion_point(field_set:CMsgAbilitySelectionSteamMLEntry.mmr)
 }
 
-// optional uint32 hero_id = 2;
+// optional int32 hero_id = 2;
 inline bool CMsgAbilitySelectionSteamMLEntry::_internal_has_hero_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -63203,26 +63527,26 @@ inline bool CMsgAbilitySelectionSteamMLEntry::has_hero_id() const {
   return _internal_has_hero_id();
 }
 inline void CMsgAbilitySelectionSteamMLEntry::clear_hero_id() {
-  _impl_.hero_id_ = 0u;
+  _impl_.hero_id_ = 0;
   _impl_._has_bits_[0] &= ~0x00000002u;
 }
-inline uint32_t CMsgAbilitySelectionSteamMLEntry::_internal_hero_id() const {
+inline int32_t CMsgAbilitySelectionSteamMLEntry::_internal_hero_id() const {
   return _impl_.hero_id_;
 }
-inline uint32_t CMsgAbilitySelectionSteamMLEntry::hero_id() const {
+inline int32_t CMsgAbilitySelectionSteamMLEntry::hero_id() const {
   // @@protoc_insertion_point(field_get:CMsgAbilitySelectionSteamMLEntry.hero_id)
   return _internal_hero_id();
 }
-inline void CMsgAbilitySelectionSteamMLEntry::_internal_set_hero_id(uint32_t value) {
+inline void CMsgAbilitySelectionSteamMLEntry::_internal_set_hero_id(int32_t value) {
   _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.hero_id_ = value;
 }
-inline void CMsgAbilitySelectionSteamMLEntry::set_hero_id(uint32_t value) {
+inline void CMsgAbilitySelectionSteamMLEntry::set_hero_id(int32_t value) {
   _internal_set_hero_id(value);
   // @@protoc_insertion_point(field_set:CMsgAbilitySelectionSteamMLEntry.hero_id)
 }
 
-// repeated uint32 enemy_hero_ids = 3 [(.steamml_max_entries) = 4];
+// repeated int32 enemy_hero_ids = 3 [(.steamml_max_entries) = 4];
 inline int CMsgAbilitySelectionSteamMLEntry::_internal_enemy_hero_ids_size() const {
   return _impl_.enemy_hero_ids_.size();
 }
@@ -63232,38 +63556,38 @@ inline int CMsgAbilitySelectionSteamMLEntry::enemy_hero_ids_size() const {
 inline void CMsgAbilitySelectionSteamMLEntry::clear_enemy_hero_ids() {
   _impl_.enemy_hero_ids_.Clear();
 }
-inline uint32_t CMsgAbilitySelectionSteamMLEntry::_internal_enemy_hero_ids(int index) const {
+inline int32_t CMsgAbilitySelectionSteamMLEntry::_internal_enemy_hero_ids(int index) const {
   return _impl_.enemy_hero_ids_.Get(index);
 }
-inline uint32_t CMsgAbilitySelectionSteamMLEntry::enemy_hero_ids(int index) const {
+inline int32_t CMsgAbilitySelectionSteamMLEntry::enemy_hero_ids(int index) const {
   // @@protoc_insertion_point(field_get:CMsgAbilitySelectionSteamMLEntry.enemy_hero_ids)
   return _internal_enemy_hero_ids(index);
 }
-inline void CMsgAbilitySelectionSteamMLEntry::set_enemy_hero_ids(int index, uint32_t value) {
+inline void CMsgAbilitySelectionSteamMLEntry::set_enemy_hero_ids(int index, int32_t value) {
   _impl_.enemy_hero_ids_.Set(index, value);
   // @@protoc_insertion_point(field_set:CMsgAbilitySelectionSteamMLEntry.enemy_hero_ids)
 }
-inline void CMsgAbilitySelectionSteamMLEntry::_internal_add_enemy_hero_ids(uint32_t value) {
+inline void CMsgAbilitySelectionSteamMLEntry::_internal_add_enemy_hero_ids(int32_t value) {
   _impl_.enemy_hero_ids_.Add(value);
 }
-inline void CMsgAbilitySelectionSteamMLEntry::add_enemy_hero_ids(uint32_t value) {
+inline void CMsgAbilitySelectionSteamMLEntry::add_enemy_hero_ids(int32_t value) {
   _internal_add_enemy_hero_ids(value);
   // @@protoc_insertion_point(field_add:CMsgAbilitySelectionSteamMLEntry.enemy_hero_ids)
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
 CMsgAbilitySelectionSteamMLEntry::_internal_enemy_hero_ids() const {
   return _impl_.enemy_hero_ids_;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
 CMsgAbilitySelectionSteamMLEntry::enemy_hero_ids() const {
   // @@protoc_insertion_point(field_list:CMsgAbilitySelectionSteamMLEntry.enemy_hero_ids)
   return _internal_enemy_hero_ids();
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
 CMsgAbilitySelectionSteamMLEntry::_internal_mutable_enemy_hero_ids() {
   return &_impl_.enemy_hero_ids_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
 CMsgAbilitySelectionSteamMLEntry::mutable_enemy_hero_ids() {
   // @@protoc_insertion_point(field_mutable_list:CMsgAbilitySelectionSteamMLEntry.enemy_hero_ids)
   return _internal_mutable_enemy_hero_ids();
@@ -63460,7 +63784,7 @@ inline void CMsgItemPurchasePregameSteamMLEntry::set_balance(float value) {
   // @@protoc_insertion_point(field_set:CMsgItemPurchasePregameSteamMLEntry.balance)
 }
 
-// optional uint32 hero_id = 4;
+// optional int32 hero_id = 4;
 inline bool CMsgItemPurchasePregameSteamMLEntry::_internal_has_hero_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -63469,26 +63793,26 @@ inline bool CMsgItemPurchasePregameSteamMLEntry::has_hero_id() const {
   return _internal_has_hero_id();
 }
 inline void CMsgItemPurchasePregameSteamMLEntry::clear_hero_id() {
-  _impl_.hero_id_ = 0u;
+  _impl_.hero_id_ = 0;
   _impl_._has_bits_[0] &= ~0x00000008u;
 }
-inline uint32_t CMsgItemPurchasePregameSteamMLEntry::_internal_hero_id() const {
+inline int32_t CMsgItemPurchasePregameSteamMLEntry::_internal_hero_id() const {
   return _impl_.hero_id_;
 }
-inline uint32_t CMsgItemPurchasePregameSteamMLEntry::hero_id() const {
+inline int32_t CMsgItemPurchasePregameSteamMLEntry::hero_id() const {
   // @@protoc_insertion_point(field_get:CMsgItemPurchasePregameSteamMLEntry.hero_id)
   return _internal_hero_id();
 }
-inline void CMsgItemPurchasePregameSteamMLEntry::_internal_set_hero_id(uint32_t value) {
+inline void CMsgItemPurchasePregameSteamMLEntry::_internal_set_hero_id(int32_t value) {
   _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.hero_id_ = value;
 }
-inline void CMsgItemPurchasePregameSteamMLEntry::set_hero_id(uint32_t value) {
+inline void CMsgItemPurchasePregameSteamMLEntry::set_hero_id(int32_t value) {
   _internal_set_hero_id(value);
   // @@protoc_insertion_point(field_set:CMsgItemPurchasePregameSteamMLEntry.hero_id)
 }
 
-// repeated uint32 allied_hero_ids = 5 [(.steamml_max_entries) = 4];
+// repeated int32 allied_hero_ids = 5 [(.steamml_max_entries) = 4];
 inline int CMsgItemPurchasePregameSteamMLEntry::_internal_allied_hero_ids_size() const {
   return _impl_.allied_hero_ids_.size();
 }
@@ -63498,44 +63822,44 @@ inline int CMsgItemPurchasePregameSteamMLEntry::allied_hero_ids_size() const {
 inline void CMsgItemPurchasePregameSteamMLEntry::clear_allied_hero_ids() {
   _impl_.allied_hero_ids_.Clear();
 }
-inline uint32_t CMsgItemPurchasePregameSteamMLEntry::_internal_allied_hero_ids(int index) const {
+inline int32_t CMsgItemPurchasePregameSteamMLEntry::_internal_allied_hero_ids(int index) const {
   return _impl_.allied_hero_ids_.Get(index);
 }
-inline uint32_t CMsgItemPurchasePregameSteamMLEntry::allied_hero_ids(int index) const {
+inline int32_t CMsgItemPurchasePregameSteamMLEntry::allied_hero_ids(int index) const {
   // @@protoc_insertion_point(field_get:CMsgItemPurchasePregameSteamMLEntry.allied_hero_ids)
   return _internal_allied_hero_ids(index);
 }
-inline void CMsgItemPurchasePregameSteamMLEntry::set_allied_hero_ids(int index, uint32_t value) {
+inline void CMsgItemPurchasePregameSteamMLEntry::set_allied_hero_ids(int index, int32_t value) {
   _impl_.allied_hero_ids_.Set(index, value);
   // @@protoc_insertion_point(field_set:CMsgItemPurchasePregameSteamMLEntry.allied_hero_ids)
 }
-inline void CMsgItemPurchasePregameSteamMLEntry::_internal_add_allied_hero_ids(uint32_t value) {
+inline void CMsgItemPurchasePregameSteamMLEntry::_internal_add_allied_hero_ids(int32_t value) {
   _impl_.allied_hero_ids_.Add(value);
 }
-inline void CMsgItemPurchasePregameSteamMLEntry::add_allied_hero_ids(uint32_t value) {
+inline void CMsgItemPurchasePregameSteamMLEntry::add_allied_hero_ids(int32_t value) {
   _internal_add_allied_hero_ids(value);
   // @@protoc_insertion_point(field_add:CMsgItemPurchasePregameSteamMLEntry.allied_hero_ids)
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
 CMsgItemPurchasePregameSteamMLEntry::_internal_allied_hero_ids() const {
   return _impl_.allied_hero_ids_;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
 CMsgItemPurchasePregameSteamMLEntry::allied_hero_ids() const {
   // @@protoc_insertion_point(field_list:CMsgItemPurchasePregameSteamMLEntry.allied_hero_ids)
   return _internal_allied_hero_ids();
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
 CMsgItemPurchasePregameSteamMLEntry::_internal_mutable_allied_hero_ids() {
   return &_impl_.allied_hero_ids_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
 CMsgItemPurchasePregameSteamMLEntry::mutable_allied_hero_ids() {
   // @@protoc_insertion_point(field_mutable_list:CMsgItemPurchasePregameSteamMLEntry.allied_hero_ids)
   return _internal_mutable_allied_hero_ids();
 }
 
-// repeated uint32 enemy_hero_ids = 6 [(.steamml_max_entries) = 5];
+// repeated int32 enemy_hero_ids = 6 [(.steamml_max_entries) = 5];
 inline int CMsgItemPurchasePregameSteamMLEntry::_internal_enemy_hero_ids_size() const {
   return _impl_.enemy_hero_ids_.size();
 }
@@ -63545,38 +63869,38 @@ inline int CMsgItemPurchasePregameSteamMLEntry::enemy_hero_ids_size() const {
 inline void CMsgItemPurchasePregameSteamMLEntry::clear_enemy_hero_ids() {
   _impl_.enemy_hero_ids_.Clear();
 }
-inline uint32_t CMsgItemPurchasePregameSteamMLEntry::_internal_enemy_hero_ids(int index) const {
+inline int32_t CMsgItemPurchasePregameSteamMLEntry::_internal_enemy_hero_ids(int index) const {
   return _impl_.enemy_hero_ids_.Get(index);
 }
-inline uint32_t CMsgItemPurchasePregameSteamMLEntry::enemy_hero_ids(int index) const {
+inline int32_t CMsgItemPurchasePregameSteamMLEntry::enemy_hero_ids(int index) const {
   // @@protoc_insertion_point(field_get:CMsgItemPurchasePregameSteamMLEntry.enemy_hero_ids)
   return _internal_enemy_hero_ids(index);
 }
-inline void CMsgItemPurchasePregameSteamMLEntry::set_enemy_hero_ids(int index, uint32_t value) {
+inline void CMsgItemPurchasePregameSteamMLEntry::set_enemy_hero_ids(int index, int32_t value) {
   _impl_.enemy_hero_ids_.Set(index, value);
   // @@protoc_insertion_point(field_set:CMsgItemPurchasePregameSteamMLEntry.enemy_hero_ids)
 }
-inline void CMsgItemPurchasePregameSteamMLEntry::_internal_add_enemy_hero_ids(uint32_t value) {
+inline void CMsgItemPurchasePregameSteamMLEntry::_internal_add_enemy_hero_ids(int32_t value) {
   _impl_.enemy_hero_ids_.Add(value);
 }
-inline void CMsgItemPurchasePregameSteamMLEntry::add_enemy_hero_ids(uint32_t value) {
+inline void CMsgItemPurchasePregameSteamMLEntry::add_enemy_hero_ids(int32_t value) {
   _internal_add_enemy_hero_ids(value);
   // @@protoc_insertion_point(field_add:CMsgItemPurchasePregameSteamMLEntry.enemy_hero_ids)
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
 CMsgItemPurchasePregameSteamMLEntry::_internal_enemy_hero_ids() const {
   return _impl_.enemy_hero_ids_;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
 CMsgItemPurchasePregameSteamMLEntry::enemy_hero_ids() const {
   // @@protoc_insertion_point(field_list:CMsgItemPurchasePregameSteamMLEntry.enemy_hero_ids)
   return _internal_enemy_hero_ids();
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
 CMsgItemPurchasePregameSteamMLEntry::_internal_mutable_enemy_hero_ids() {
   return &_impl_.enemy_hero_ids_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
 CMsgItemPurchasePregameSteamMLEntry::mutable_enemy_hero_ids() {
   // @@protoc_insertion_point(field_mutable_list:CMsgItemPurchasePregameSteamMLEntry.enemy_hero_ids)
   return _internal_mutable_enemy_hero_ids();
@@ -63689,7 +64013,7 @@ inline void CMsgItemPurchaseSteamMLEntry::set_lane(uint32_t value) {
   // @@protoc_insertion_point(field_set:CMsgItemPurchaseSteamMLEntry.lane)
 }
 
-// optional uint32 hero_id = 3;
+// optional int32 hero_id = 3;
 inline bool CMsgItemPurchaseSteamMLEntry::_internal_has_hero_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -63698,26 +64022,26 @@ inline bool CMsgItemPurchaseSteamMLEntry::has_hero_id() const {
   return _internal_has_hero_id();
 }
 inline void CMsgItemPurchaseSteamMLEntry::clear_hero_id() {
-  _impl_.hero_id_ = 0u;
+  _impl_.hero_id_ = 0;
   _impl_._has_bits_[0] &= ~0x00000004u;
 }
-inline uint32_t CMsgItemPurchaseSteamMLEntry::_internal_hero_id() const {
+inline int32_t CMsgItemPurchaseSteamMLEntry::_internal_hero_id() const {
   return _impl_.hero_id_;
 }
-inline uint32_t CMsgItemPurchaseSteamMLEntry::hero_id() const {
+inline int32_t CMsgItemPurchaseSteamMLEntry::hero_id() const {
   // @@protoc_insertion_point(field_get:CMsgItemPurchaseSteamMLEntry.hero_id)
   return _internal_hero_id();
 }
-inline void CMsgItemPurchaseSteamMLEntry::_internal_set_hero_id(uint32_t value) {
+inline void CMsgItemPurchaseSteamMLEntry::_internal_set_hero_id(int32_t value) {
   _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.hero_id_ = value;
 }
-inline void CMsgItemPurchaseSteamMLEntry::set_hero_id(uint32_t value) {
+inline void CMsgItemPurchaseSteamMLEntry::set_hero_id(int32_t value) {
   _internal_set_hero_id(value);
   // @@protoc_insertion_point(field_set:CMsgItemPurchaseSteamMLEntry.hero_id)
 }
 
-// repeated uint32 allied_hero_ids = 4 [(.steamml_max_entries) = 4];
+// repeated int32 allied_hero_ids = 4 [(.steamml_max_entries) = 4];
 inline int CMsgItemPurchaseSteamMLEntry::_internal_allied_hero_ids_size() const {
   return _impl_.allied_hero_ids_.size();
 }
@@ -63727,44 +64051,44 @@ inline int CMsgItemPurchaseSteamMLEntry::allied_hero_ids_size() const {
 inline void CMsgItemPurchaseSteamMLEntry::clear_allied_hero_ids() {
   _impl_.allied_hero_ids_.Clear();
 }
-inline uint32_t CMsgItemPurchaseSteamMLEntry::_internal_allied_hero_ids(int index) const {
+inline int32_t CMsgItemPurchaseSteamMLEntry::_internal_allied_hero_ids(int index) const {
   return _impl_.allied_hero_ids_.Get(index);
 }
-inline uint32_t CMsgItemPurchaseSteamMLEntry::allied_hero_ids(int index) const {
+inline int32_t CMsgItemPurchaseSteamMLEntry::allied_hero_ids(int index) const {
   // @@protoc_insertion_point(field_get:CMsgItemPurchaseSteamMLEntry.allied_hero_ids)
   return _internal_allied_hero_ids(index);
 }
-inline void CMsgItemPurchaseSteamMLEntry::set_allied_hero_ids(int index, uint32_t value) {
+inline void CMsgItemPurchaseSteamMLEntry::set_allied_hero_ids(int index, int32_t value) {
   _impl_.allied_hero_ids_.Set(index, value);
   // @@protoc_insertion_point(field_set:CMsgItemPurchaseSteamMLEntry.allied_hero_ids)
 }
-inline void CMsgItemPurchaseSteamMLEntry::_internal_add_allied_hero_ids(uint32_t value) {
+inline void CMsgItemPurchaseSteamMLEntry::_internal_add_allied_hero_ids(int32_t value) {
   _impl_.allied_hero_ids_.Add(value);
 }
-inline void CMsgItemPurchaseSteamMLEntry::add_allied_hero_ids(uint32_t value) {
+inline void CMsgItemPurchaseSteamMLEntry::add_allied_hero_ids(int32_t value) {
   _internal_add_allied_hero_ids(value);
   // @@protoc_insertion_point(field_add:CMsgItemPurchaseSteamMLEntry.allied_hero_ids)
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
 CMsgItemPurchaseSteamMLEntry::_internal_allied_hero_ids() const {
   return _impl_.allied_hero_ids_;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
 CMsgItemPurchaseSteamMLEntry::allied_hero_ids() const {
   // @@protoc_insertion_point(field_list:CMsgItemPurchaseSteamMLEntry.allied_hero_ids)
   return _internal_allied_hero_ids();
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
 CMsgItemPurchaseSteamMLEntry::_internal_mutable_allied_hero_ids() {
   return &_impl_.allied_hero_ids_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
 CMsgItemPurchaseSteamMLEntry::mutable_allied_hero_ids() {
   // @@protoc_insertion_point(field_mutable_list:CMsgItemPurchaseSteamMLEntry.allied_hero_ids)
   return _internal_mutable_allied_hero_ids();
 }
 
-// repeated uint32 enemy_hero_ids = 5 [(.steamml_max_entries) = 5];
+// repeated int32 enemy_hero_ids = 5 [(.steamml_max_entries) = 5];
 inline int CMsgItemPurchaseSteamMLEntry::_internal_enemy_hero_ids_size() const {
   return _impl_.enemy_hero_ids_.size();
 }
@@ -63774,38 +64098,38 @@ inline int CMsgItemPurchaseSteamMLEntry::enemy_hero_ids_size() const {
 inline void CMsgItemPurchaseSteamMLEntry::clear_enemy_hero_ids() {
   _impl_.enemy_hero_ids_.Clear();
 }
-inline uint32_t CMsgItemPurchaseSteamMLEntry::_internal_enemy_hero_ids(int index) const {
+inline int32_t CMsgItemPurchaseSteamMLEntry::_internal_enemy_hero_ids(int index) const {
   return _impl_.enemy_hero_ids_.Get(index);
 }
-inline uint32_t CMsgItemPurchaseSteamMLEntry::enemy_hero_ids(int index) const {
+inline int32_t CMsgItemPurchaseSteamMLEntry::enemy_hero_ids(int index) const {
   // @@protoc_insertion_point(field_get:CMsgItemPurchaseSteamMLEntry.enemy_hero_ids)
   return _internal_enemy_hero_ids(index);
 }
-inline void CMsgItemPurchaseSteamMLEntry::set_enemy_hero_ids(int index, uint32_t value) {
+inline void CMsgItemPurchaseSteamMLEntry::set_enemy_hero_ids(int index, int32_t value) {
   _impl_.enemy_hero_ids_.Set(index, value);
   // @@protoc_insertion_point(field_set:CMsgItemPurchaseSteamMLEntry.enemy_hero_ids)
 }
-inline void CMsgItemPurchaseSteamMLEntry::_internal_add_enemy_hero_ids(uint32_t value) {
+inline void CMsgItemPurchaseSteamMLEntry::_internal_add_enemy_hero_ids(int32_t value) {
   _impl_.enemy_hero_ids_.Add(value);
 }
-inline void CMsgItemPurchaseSteamMLEntry::add_enemy_hero_ids(uint32_t value) {
+inline void CMsgItemPurchaseSteamMLEntry::add_enemy_hero_ids(int32_t value) {
   _internal_add_enemy_hero_ids(value);
   // @@protoc_insertion_point(field_add:CMsgItemPurchaseSteamMLEntry.enemy_hero_ids)
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
 CMsgItemPurchaseSteamMLEntry::_internal_enemy_hero_ids() const {
   return _impl_.enemy_hero_ids_;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
 CMsgItemPurchaseSteamMLEntry::enemy_hero_ids() const {
   // @@protoc_insertion_point(field_list:CMsgItemPurchaseSteamMLEntry.enemy_hero_ids)
   return _internal_enemy_hero_ids();
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
 CMsgItemPurchaseSteamMLEntry::_internal_mutable_enemy_hero_ids() {
   return &_impl_.enemy_hero_ids_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
 CMsgItemPurchaseSteamMLEntry::mutable_enemy_hero_ids() {
   // @@protoc_insertion_point(field_mutable_list:CMsgItemPurchaseSteamMLEntry.enemy_hero_ids)
   return _internal_mutable_enemy_hero_ids();
@@ -63965,7 +64289,7 @@ inline void CMsgItemPurchaseSequenceSteamMLEntry::set_lane(uint32_t value) {
   // @@protoc_insertion_point(field_set:CMsgItemPurchaseSequenceSteamMLEntry.lane)
 }
 
-// optional uint32 hero_id = 3;
+// optional int32 hero_id = 3;
 inline bool CMsgItemPurchaseSequenceSteamMLEntry::_internal_has_hero_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -63974,26 +64298,26 @@ inline bool CMsgItemPurchaseSequenceSteamMLEntry::has_hero_id() const {
   return _internal_has_hero_id();
 }
 inline void CMsgItemPurchaseSequenceSteamMLEntry::clear_hero_id() {
-  _impl_.hero_id_ = 0u;
+  _impl_.hero_id_ = 0;
   _impl_._has_bits_[0] &= ~0x00000004u;
 }
-inline uint32_t CMsgItemPurchaseSequenceSteamMLEntry::_internal_hero_id() const {
+inline int32_t CMsgItemPurchaseSequenceSteamMLEntry::_internal_hero_id() const {
   return _impl_.hero_id_;
 }
-inline uint32_t CMsgItemPurchaseSequenceSteamMLEntry::hero_id() const {
+inline int32_t CMsgItemPurchaseSequenceSteamMLEntry::hero_id() const {
   // @@protoc_insertion_point(field_get:CMsgItemPurchaseSequenceSteamMLEntry.hero_id)
   return _internal_hero_id();
 }
-inline void CMsgItemPurchaseSequenceSteamMLEntry::_internal_set_hero_id(uint32_t value) {
+inline void CMsgItemPurchaseSequenceSteamMLEntry::_internal_set_hero_id(int32_t value) {
   _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.hero_id_ = value;
 }
-inline void CMsgItemPurchaseSequenceSteamMLEntry::set_hero_id(uint32_t value) {
+inline void CMsgItemPurchaseSequenceSteamMLEntry::set_hero_id(int32_t value) {
   _internal_set_hero_id(value);
   // @@protoc_insertion_point(field_set:CMsgItemPurchaseSequenceSteamMLEntry.hero_id)
 }
 
-// repeated uint32 allied_hero_ids = 4 [(.steamml_max_entries) = 4];
+// repeated int32 allied_hero_ids = 4 [(.steamml_max_entries) = 4];
 inline int CMsgItemPurchaseSequenceSteamMLEntry::_internal_allied_hero_ids_size() const {
   return _impl_.allied_hero_ids_.size();
 }
@@ -64003,44 +64327,44 @@ inline int CMsgItemPurchaseSequenceSteamMLEntry::allied_hero_ids_size() const {
 inline void CMsgItemPurchaseSequenceSteamMLEntry::clear_allied_hero_ids() {
   _impl_.allied_hero_ids_.Clear();
 }
-inline uint32_t CMsgItemPurchaseSequenceSteamMLEntry::_internal_allied_hero_ids(int index) const {
+inline int32_t CMsgItemPurchaseSequenceSteamMLEntry::_internal_allied_hero_ids(int index) const {
   return _impl_.allied_hero_ids_.Get(index);
 }
-inline uint32_t CMsgItemPurchaseSequenceSteamMLEntry::allied_hero_ids(int index) const {
+inline int32_t CMsgItemPurchaseSequenceSteamMLEntry::allied_hero_ids(int index) const {
   // @@protoc_insertion_point(field_get:CMsgItemPurchaseSequenceSteamMLEntry.allied_hero_ids)
   return _internal_allied_hero_ids(index);
 }
-inline void CMsgItemPurchaseSequenceSteamMLEntry::set_allied_hero_ids(int index, uint32_t value) {
+inline void CMsgItemPurchaseSequenceSteamMLEntry::set_allied_hero_ids(int index, int32_t value) {
   _impl_.allied_hero_ids_.Set(index, value);
   // @@protoc_insertion_point(field_set:CMsgItemPurchaseSequenceSteamMLEntry.allied_hero_ids)
 }
-inline void CMsgItemPurchaseSequenceSteamMLEntry::_internal_add_allied_hero_ids(uint32_t value) {
+inline void CMsgItemPurchaseSequenceSteamMLEntry::_internal_add_allied_hero_ids(int32_t value) {
   _impl_.allied_hero_ids_.Add(value);
 }
-inline void CMsgItemPurchaseSequenceSteamMLEntry::add_allied_hero_ids(uint32_t value) {
+inline void CMsgItemPurchaseSequenceSteamMLEntry::add_allied_hero_ids(int32_t value) {
   _internal_add_allied_hero_ids(value);
   // @@protoc_insertion_point(field_add:CMsgItemPurchaseSequenceSteamMLEntry.allied_hero_ids)
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
 CMsgItemPurchaseSequenceSteamMLEntry::_internal_allied_hero_ids() const {
   return _impl_.allied_hero_ids_;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
 CMsgItemPurchaseSequenceSteamMLEntry::allied_hero_ids() const {
   // @@protoc_insertion_point(field_list:CMsgItemPurchaseSequenceSteamMLEntry.allied_hero_ids)
   return _internal_allied_hero_ids();
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
 CMsgItemPurchaseSequenceSteamMLEntry::_internal_mutable_allied_hero_ids() {
   return &_impl_.allied_hero_ids_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
 CMsgItemPurchaseSequenceSteamMLEntry::mutable_allied_hero_ids() {
   // @@protoc_insertion_point(field_mutable_list:CMsgItemPurchaseSequenceSteamMLEntry.allied_hero_ids)
   return _internal_mutable_allied_hero_ids();
 }
 
-// repeated uint32 enemy_hero_ids = 5 [(.steamml_max_entries) = 5];
+// repeated int32 enemy_hero_ids = 5 [(.steamml_max_entries) = 5];
 inline int CMsgItemPurchaseSequenceSteamMLEntry::_internal_enemy_hero_ids_size() const {
   return _impl_.enemy_hero_ids_.size();
 }
@@ -64050,38 +64374,38 @@ inline int CMsgItemPurchaseSequenceSteamMLEntry::enemy_hero_ids_size() const {
 inline void CMsgItemPurchaseSequenceSteamMLEntry::clear_enemy_hero_ids() {
   _impl_.enemy_hero_ids_.Clear();
 }
-inline uint32_t CMsgItemPurchaseSequenceSteamMLEntry::_internal_enemy_hero_ids(int index) const {
+inline int32_t CMsgItemPurchaseSequenceSteamMLEntry::_internal_enemy_hero_ids(int index) const {
   return _impl_.enemy_hero_ids_.Get(index);
 }
-inline uint32_t CMsgItemPurchaseSequenceSteamMLEntry::enemy_hero_ids(int index) const {
+inline int32_t CMsgItemPurchaseSequenceSteamMLEntry::enemy_hero_ids(int index) const {
   // @@protoc_insertion_point(field_get:CMsgItemPurchaseSequenceSteamMLEntry.enemy_hero_ids)
   return _internal_enemy_hero_ids(index);
 }
-inline void CMsgItemPurchaseSequenceSteamMLEntry::set_enemy_hero_ids(int index, uint32_t value) {
+inline void CMsgItemPurchaseSequenceSteamMLEntry::set_enemy_hero_ids(int index, int32_t value) {
   _impl_.enemy_hero_ids_.Set(index, value);
   // @@protoc_insertion_point(field_set:CMsgItemPurchaseSequenceSteamMLEntry.enemy_hero_ids)
 }
-inline void CMsgItemPurchaseSequenceSteamMLEntry::_internal_add_enemy_hero_ids(uint32_t value) {
+inline void CMsgItemPurchaseSequenceSteamMLEntry::_internal_add_enemy_hero_ids(int32_t value) {
   _impl_.enemy_hero_ids_.Add(value);
 }
-inline void CMsgItemPurchaseSequenceSteamMLEntry::add_enemy_hero_ids(uint32_t value) {
+inline void CMsgItemPurchaseSequenceSteamMLEntry::add_enemy_hero_ids(int32_t value) {
   _internal_add_enemy_hero_ids(value);
   // @@protoc_insertion_point(field_add:CMsgItemPurchaseSequenceSteamMLEntry.enemy_hero_ids)
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
 CMsgItemPurchaseSequenceSteamMLEntry::_internal_enemy_hero_ids() const {
   return _impl_.enemy_hero_ids_;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
 CMsgItemPurchaseSequenceSteamMLEntry::enemy_hero_ids() const {
   // @@protoc_insertion_point(field_list:CMsgItemPurchaseSequenceSteamMLEntry.enemy_hero_ids)
   return _internal_enemy_hero_ids();
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
 CMsgItemPurchaseSequenceSteamMLEntry::_internal_mutable_enemy_hero_ids() {
   return &_impl_.enemy_hero_ids_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
 CMsgItemPurchaseSequenceSteamMLEntry::mutable_enemy_hero_ids() {
   // @@protoc_insertion_point(field_mutable_list:CMsgItemPurchaseSequenceSteamMLEntry.enemy_hero_ids)
   return _internal_mutable_enemy_hero_ids();
@@ -64250,7 +64574,7 @@ inline void CMsgServerToGCCavernCrawlIsHeroActive::set_preferred_map_variant(uin
   // @@protoc_insertion_point(field_set:CMsgServerToGCCavernCrawlIsHeroActive.preferred_map_variant)
 }
 
-// optional uint32 hero_id = 4;
+// optional int32 hero_id = 4;
 inline bool CMsgServerToGCCavernCrawlIsHeroActive::_internal_has_hero_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -64259,21 +64583,21 @@ inline bool CMsgServerToGCCavernCrawlIsHeroActive::has_hero_id() const {
   return _internal_has_hero_id();
 }
 inline void CMsgServerToGCCavernCrawlIsHeroActive::clear_hero_id() {
-  _impl_.hero_id_ = 0u;
+  _impl_.hero_id_ = 0;
   _impl_._has_bits_[0] &= ~0x00000004u;
 }
-inline uint32_t CMsgServerToGCCavernCrawlIsHeroActive::_internal_hero_id() const {
+inline int32_t CMsgServerToGCCavernCrawlIsHeroActive::_internal_hero_id() const {
   return _impl_.hero_id_;
 }
-inline uint32_t CMsgServerToGCCavernCrawlIsHeroActive::hero_id() const {
+inline int32_t CMsgServerToGCCavernCrawlIsHeroActive::hero_id() const {
   // @@protoc_insertion_point(field_get:CMsgServerToGCCavernCrawlIsHeroActive.hero_id)
   return _internal_hero_id();
 }
-inline void CMsgServerToGCCavernCrawlIsHeroActive::_internal_set_hero_id(uint32_t value) {
+inline void CMsgServerToGCCavernCrawlIsHeroActive::_internal_set_hero_id(int32_t value) {
   _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.hero_id_ = value;
 }
-inline void CMsgServerToGCCavernCrawlIsHeroActive::set_hero_id(uint32_t value) {
+inline void CMsgServerToGCCavernCrawlIsHeroActive::set_hero_id(int32_t value) {
   _internal_set_hero_id(value);
   // @@protoc_insertion_point(field_set:CMsgServerToGCCavernCrawlIsHeroActive.hero_id)
 }
@@ -64535,7 +64859,7 @@ inline void CMsgServerToGCPlayerChallengeHistory_PlayerChallenge::set_audit_data
   // @@protoc_insertion_point(field_set:CMsgServerToGCPlayerChallengeHistory.PlayerChallenge.audit_data)
 }
 
-// optional uint32 hero_id = 9;
+// optional int32 hero_id = 9;
 inline bool CMsgServerToGCPlayerChallengeHistory_PlayerChallenge::_internal_has_hero_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000100u) != 0;
   return value;
@@ -64544,21 +64868,21 @@ inline bool CMsgServerToGCPlayerChallengeHistory_PlayerChallenge::has_hero_id() 
   return _internal_has_hero_id();
 }
 inline void CMsgServerToGCPlayerChallengeHistory_PlayerChallenge::clear_hero_id() {
-  _impl_.hero_id_ = 0u;
+  _impl_.hero_id_ = 0;
   _impl_._has_bits_[0] &= ~0x00000100u;
 }
-inline uint32_t CMsgServerToGCPlayerChallengeHistory_PlayerChallenge::_internal_hero_id() const {
+inline int32_t CMsgServerToGCPlayerChallengeHistory_PlayerChallenge::_internal_hero_id() const {
   return _impl_.hero_id_;
 }
-inline uint32_t CMsgServerToGCPlayerChallengeHistory_PlayerChallenge::hero_id() const {
+inline int32_t CMsgServerToGCPlayerChallengeHistory_PlayerChallenge::hero_id() const {
   // @@protoc_insertion_point(field_get:CMsgServerToGCPlayerChallengeHistory.PlayerChallenge.hero_id)
   return _internal_hero_id();
 }
-inline void CMsgServerToGCPlayerChallengeHistory_PlayerChallenge::_internal_set_hero_id(uint32_t value) {
+inline void CMsgServerToGCPlayerChallengeHistory_PlayerChallenge::_internal_set_hero_id(int32_t value) {
   _impl_._has_bits_[0] |= 0x00000100u;
   _impl_.hero_id_ = value;
 }
-inline void CMsgServerToGCPlayerChallengeHistory_PlayerChallenge::set_hero_id(uint32_t value) {
+inline void CMsgServerToGCPlayerChallengeHistory_PlayerChallenge::set_hero_id(int32_t value) {
   _internal_set_hero_id(value);
   // @@protoc_insertion_point(field_set:CMsgServerToGCPlayerChallengeHistory.PlayerChallenge.hero_id)
 }
@@ -64909,38 +65233,6 @@ inline void CMsgServerToGCCavernCrawlIsHeroActiveResponse::set_potential_plus_sh
 
 // -------------------------------------------------------------------
 
-// CMsgGCtoServerTensorflowInstance
-
-// optional uint32 server_instance = 1;
-inline bool CMsgGCtoServerTensorflowInstance::_internal_has_server_instance() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool CMsgGCtoServerTensorflowInstance::has_server_instance() const {
-  return _internal_has_server_instance();
-}
-inline void CMsgGCtoServerTensorflowInstance::clear_server_instance() {
-  _impl_.server_instance_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000001u;
-}
-inline uint32_t CMsgGCtoServerTensorflowInstance::_internal_server_instance() const {
-  return _impl_.server_instance_;
-}
-inline uint32_t CMsgGCtoServerTensorflowInstance::server_instance() const {
-  // @@protoc_insertion_point(field_get:CMsgGCtoServerTensorflowInstance.server_instance)
-  return _internal_server_instance();
-}
-inline void CMsgGCtoServerTensorflowInstance::_internal_set_server_instance(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  _impl_.server_instance_ = value;
-}
-inline void CMsgGCtoServerTensorflowInstance::set_server_instance(uint32_t value) {
-  _internal_set_server_instance(value);
-  // @@protoc_insertion_point(field_set:CMsgGCtoServerTensorflowInstance.server_instance)
-}
-
-// -------------------------------------------------------------------
-
 // CMsgNeutralItemStats_NeutralItem
 
 // optional int32 item_id = 1 [default = -1];
@@ -65159,7 +65451,7 @@ CMsgNeutralItemStats::neutral_items() const {
 
 // CMsgGCToServerLobbyHeroBanRates_HeroBanEntry
 
-// optional uint32 hero_id = 1;
+// optional int32 hero_id = 1;
 inline bool CMsgGCToServerLobbyHeroBanRates_HeroBanEntry::_internal_has_hero_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -65168,21 +65460,21 @@ inline bool CMsgGCToServerLobbyHeroBanRates_HeroBanEntry::has_hero_id() const {
   return _internal_has_hero_id();
 }
 inline void CMsgGCToServerLobbyHeroBanRates_HeroBanEntry::clear_hero_id() {
-  _impl_.hero_id_ = 0u;
+  _impl_.hero_id_ = 0;
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint32_t CMsgGCToServerLobbyHeroBanRates_HeroBanEntry::_internal_hero_id() const {
+inline int32_t CMsgGCToServerLobbyHeroBanRates_HeroBanEntry::_internal_hero_id() const {
   return _impl_.hero_id_;
 }
-inline uint32_t CMsgGCToServerLobbyHeroBanRates_HeroBanEntry::hero_id() const {
+inline int32_t CMsgGCToServerLobbyHeroBanRates_HeroBanEntry::hero_id() const {
   // @@protoc_insertion_point(field_get:CMsgGCToServerLobbyHeroBanRates.HeroBanEntry.hero_id)
   return _internal_hero_id();
 }
-inline void CMsgGCToServerLobbyHeroBanRates_HeroBanEntry::_internal_set_hero_id(uint32_t value) {
+inline void CMsgGCToServerLobbyHeroBanRates_HeroBanEntry::_internal_set_hero_id(int32_t value) {
   _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.hero_id_ = value;
 }
-inline void CMsgGCToServerLobbyHeroBanRates_HeroBanEntry::set_hero_id(uint32_t value) {
+inline void CMsgGCToServerLobbyHeroBanRates_HeroBanEntry::set_hero_id(int32_t value) {
   _internal_set_hero_id(value);
   // @@protoc_insertion_point(field_set:CMsgGCToServerLobbyHeroBanRates.HeroBanEntry.hero_id)
 }
@@ -65958,7 +66250,7 @@ inline void CMsgSignOutMVPStats_Player::set_rank(uint32_t value) {
   // @@protoc_insertion_point(field_set:CMsgSignOutMVPStats.Player.rank)
 }
 
-// optional uint32 hero_id = 4;
+// optional int32 hero_id = 4;
 inline bool CMsgSignOutMVPStats_Player::_internal_has_hero_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -65967,21 +66259,21 @@ inline bool CMsgSignOutMVPStats_Player::has_hero_id() const {
   return _internal_has_hero_id();
 }
 inline void CMsgSignOutMVPStats_Player::clear_hero_id() {
-  _impl_.hero_id_ = 0u;
+  _impl_.hero_id_ = 0;
   _impl_._has_bits_[0] &= ~0x00000008u;
 }
-inline uint32_t CMsgSignOutMVPStats_Player::_internal_hero_id() const {
+inline int32_t CMsgSignOutMVPStats_Player::_internal_hero_id() const {
   return _impl_.hero_id_;
 }
-inline uint32_t CMsgSignOutMVPStats_Player::hero_id() const {
+inline int32_t CMsgSignOutMVPStats_Player::hero_id() const {
   // @@protoc_insertion_point(field_get:CMsgSignOutMVPStats.Player.hero_id)
   return _internal_hero_id();
 }
-inline void CMsgSignOutMVPStats_Player::_internal_set_hero_id(uint32_t value) {
+inline void CMsgSignOutMVPStats_Player::_internal_set_hero_id(int32_t value) {
   _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.hero_id_ = value;
 }
-inline void CMsgSignOutMVPStats_Player::set_hero_id(uint32_t value) {
+inline void CMsgSignOutMVPStats_Player::set_hero_id(int32_t value) {
   _internal_set_hero_id(value);
   // @@protoc_insertion_point(field_set:CMsgSignOutMVPStats.Player.hero_id)
 }
@@ -68869,75 +69161,43 @@ CMsgServerToGCGetStickerHeroesResponse::players() const {
 
 // -------------------------------------------------------------------
 
-// CMsgGCToServerSetSteamLearnInferencing
+// CMsgGCToServerSteamLearnAccessTokensChanged
 
-// optional bool enable = 1;
-inline bool CMsgGCToServerSetSteamLearnInferencing::_internal_has_enable() const {
+// optional .CMsgSteamLearnAccessTokens access_tokens = 1;
+inline bool CMsgGCToServerSteamLearnAccessTokensChanged::_internal_has_access_tokens() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.access_tokens_ != nullptr);
   return value;
 }
-inline bool CMsgGCToServerSetSteamLearnInferencing::has_enable() const {
-  return _internal_has_enable();
+inline bool CMsgGCToServerSteamLearnAccessTokensChanged::has_access_tokens() const {
+  return _internal_has_access_tokens();
 }
-inline void CMsgGCToServerSetSteamLearnInferencing::clear_enable() {
-  _impl_.enable_ = false;
-  _impl_._has_bits_[0] &= ~0x00000001u;
+inline const ::CMsgSteamLearnAccessTokens& CMsgGCToServerSteamLearnAccessTokensChanged::_internal_access_tokens() const {
+  const ::CMsgSteamLearnAccessTokens* p = _impl_.access_tokens_;
+  return p != nullptr ? *p : reinterpret_cast<const ::CMsgSteamLearnAccessTokens&>(
+      ::_CMsgSteamLearnAccessTokens_default_instance_);
 }
-inline bool CMsgGCToServerSetSteamLearnInferencing::_internal_enable() const {
-  return _impl_.enable_;
+inline const ::CMsgSteamLearnAccessTokens& CMsgGCToServerSteamLearnAccessTokensChanged::access_tokens() const {
+  // @@protoc_insertion_point(field_get:CMsgGCToServerSteamLearnAccessTokensChanged.access_tokens)
+  return _internal_access_tokens();
 }
-inline bool CMsgGCToServerSetSteamLearnInferencing::enable() const {
-  // @@protoc_insertion_point(field_get:CMsgGCToServerSetSteamLearnInferencing.enable)
-  return _internal_enable();
-}
-inline void CMsgGCToServerSetSteamLearnInferencing::_internal_set_enable(bool value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  _impl_.enable_ = value;
-}
-inline void CMsgGCToServerSetSteamLearnInferencing::set_enable(bool value) {
-  _internal_set_enable(value);
-  // @@protoc_insertion_point(field_set:CMsgGCToServerSetSteamLearnInferencing.enable)
-}
-
-// -------------------------------------------------------------------
-
-// CMsgGCToServerSetSteamLearnKeysChanged
-
-// optional .CMsgSteamLearnHMACKeys keys = 1;
-inline bool CMsgGCToServerSetSteamLearnKeysChanged::_internal_has_keys() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  PROTOBUF_ASSUME(!value || _impl_.keys_ != nullptr);
-  return value;
-}
-inline bool CMsgGCToServerSetSteamLearnKeysChanged::has_keys() const {
-  return _internal_has_keys();
-}
-inline const ::CMsgSteamLearnHMACKeys& CMsgGCToServerSetSteamLearnKeysChanged::_internal_keys() const {
-  const ::CMsgSteamLearnHMACKeys* p = _impl_.keys_;
-  return p != nullptr ? *p : reinterpret_cast<const ::CMsgSteamLearnHMACKeys&>(
-      ::_CMsgSteamLearnHMACKeys_default_instance_);
-}
-inline const ::CMsgSteamLearnHMACKeys& CMsgGCToServerSetSteamLearnKeysChanged::keys() const {
-  // @@protoc_insertion_point(field_get:CMsgGCToServerSetSteamLearnKeysChanged.keys)
-  return _internal_keys();
-}
-inline void CMsgGCToServerSetSteamLearnKeysChanged::unsafe_arena_set_allocated_keys(
-    ::CMsgSteamLearnHMACKeys* keys) {
+inline void CMsgGCToServerSteamLearnAccessTokensChanged::unsafe_arena_set_allocated_access_tokens(
+    ::CMsgSteamLearnAccessTokens* access_tokens) {
   if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.keys_);
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.access_tokens_);
   }
-  _impl_.keys_ = keys;
-  if (keys) {
+  _impl_.access_tokens_ = access_tokens;
+  if (access_tokens) {
     _impl_._has_bits_[0] |= 0x00000001u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000001u;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CMsgGCToServerSetSteamLearnKeysChanged.keys)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CMsgGCToServerSteamLearnAccessTokensChanged.access_tokens)
 }
-inline ::CMsgSteamLearnHMACKeys* CMsgGCToServerSetSteamLearnKeysChanged::release_keys() {
+inline ::CMsgSteamLearnAccessTokens* CMsgGCToServerSteamLearnAccessTokensChanged::release_access_tokens() {
   _impl_._has_bits_[0] &= ~0x00000001u;
-  ::CMsgSteamLearnHMACKeys* temp = _impl_.keys_;
-  _impl_.keys_ = nullptr;
+  ::CMsgSteamLearnAccessTokens* temp = _impl_.access_tokens_;
+  _impl_.access_tokens_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
   auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
   temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
@@ -68949,45 +69209,77 @@ inline ::CMsgSteamLearnHMACKeys* CMsgGCToServerSetSteamLearnKeysChanged::release
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::CMsgSteamLearnHMACKeys* CMsgGCToServerSetSteamLearnKeysChanged::unsafe_arena_release_keys() {
-  // @@protoc_insertion_point(field_release:CMsgGCToServerSetSteamLearnKeysChanged.keys)
+inline ::CMsgSteamLearnAccessTokens* CMsgGCToServerSteamLearnAccessTokensChanged::unsafe_arena_release_access_tokens() {
+  // @@protoc_insertion_point(field_release:CMsgGCToServerSteamLearnAccessTokensChanged.access_tokens)
   _impl_._has_bits_[0] &= ~0x00000001u;
-  ::CMsgSteamLearnHMACKeys* temp = _impl_.keys_;
-  _impl_.keys_ = nullptr;
+  ::CMsgSteamLearnAccessTokens* temp = _impl_.access_tokens_;
+  _impl_.access_tokens_ = nullptr;
   return temp;
 }
-inline ::CMsgSteamLearnHMACKeys* CMsgGCToServerSetSteamLearnKeysChanged::_internal_mutable_keys() {
+inline ::CMsgSteamLearnAccessTokens* CMsgGCToServerSteamLearnAccessTokensChanged::_internal_mutable_access_tokens() {
   _impl_._has_bits_[0] |= 0x00000001u;
-  if (_impl_.keys_ == nullptr) {
-    auto* p = CreateMaybeMessage<::CMsgSteamLearnHMACKeys>(GetArenaForAllocation());
-    _impl_.keys_ = p;
+  if (_impl_.access_tokens_ == nullptr) {
+    auto* p = CreateMaybeMessage<::CMsgSteamLearnAccessTokens>(GetArenaForAllocation());
+    _impl_.access_tokens_ = p;
   }
-  return _impl_.keys_;
+  return _impl_.access_tokens_;
 }
-inline ::CMsgSteamLearnHMACKeys* CMsgGCToServerSetSteamLearnKeysChanged::mutable_keys() {
-  ::CMsgSteamLearnHMACKeys* _msg = _internal_mutable_keys();
-  // @@protoc_insertion_point(field_mutable:CMsgGCToServerSetSteamLearnKeysChanged.keys)
+inline ::CMsgSteamLearnAccessTokens* CMsgGCToServerSteamLearnAccessTokensChanged::mutable_access_tokens() {
+  ::CMsgSteamLearnAccessTokens* _msg = _internal_mutable_access_tokens();
+  // @@protoc_insertion_point(field_mutable:CMsgGCToServerSteamLearnAccessTokensChanged.access_tokens)
   return _msg;
 }
-inline void CMsgGCToServerSetSteamLearnKeysChanged::set_allocated_keys(::CMsgSteamLearnHMACKeys* keys) {
+inline void CMsgGCToServerSteamLearnAccessTokensChanged::set_allocated_access_tokens(::CMsgSteamLearnAccessTokens* access_tokens) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.keys_);
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.access_tokens_);
   }
-  if (keys) {
+  if (access_tokens) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
         ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
-                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(keys));
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(access_tokens));
     if (message_arena != submessage_arena) {
-      keys = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, keys, submessage_arena);
+      access_tokens = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, access_tokens, submessage_arena);
     }
     _impl_._has_bits_[0] |= 0x00000001u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000001u;
   }
-  _impl_.keys_ = keys;
-  // @@protoc_insertion_point(field_set_allocated:CMsgGCToServerSetSteamLearnKeysChanged.keys)
+  _impl_.access_tokens_ = access_tokens;
+  // @@protoc_insertion_point(field_set_allocated:CMsgGCToServerSteamLearnAccessTokensChanged.access_tokens)
+}
+
+// -------------------------------------------------------------------
+
+// CMsgGCToServerSteamLearnUseHTTP
+
+// optional bool use_http = 1;
+inline bool CMsgGCToServerSteamLearnUseHTTP::_internal_has_use_http() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgGCToServerSteamLearnUseHTTP::has_use_http() const {
+  return _internal_has_use_http();
+}
+inline void CMsgGCToServerSteamLearnUseHTTP::clear_use_http() {
+  _impl_.use_http_ = false;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline bool CMsgGCToServerSteamLearnUseHTTP::_internal_use_http() const {
+  return _impl_.use_http_;
+}
+inline bool CMsgGCToServerSteamLearnUseHTTP::use_http() const {
+  // @@protoc_insertion_point(field_get:CMsgGCToServerSteamLearnUseHTTP.use_http)
+  return _internal_use_http();
+}
+inline void CMsgGCToServerSteamLearnUseHTTP::_internal_set_use_http(bool value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.use_http_ = value;
+}
+inline void CMsgGCToServerSteamLearnUseHTTP::set_use_http(bool value) {
+  _internal_set_use_http(value);
+  // @@protoc_insertion_point(field_set:CMsgGCToServerSteamLearnUseHTTP.use_http)
 }
 
 // -------------------------------------------------------------------
@@ -69278,998 +69570,1776 @@ inline void CMsgSteamLearnMatchInfoPlayer::set_lobby_type(uint32_t value) {
   // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchInfoPlayer.lobby_type)
 }
 
+// optional uint32 player_mmr = 6;
+inline bool CMsgSteamLearnMatchInfoPlayer::_internal_has_player_mmr() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearnMatchInfoPlayer::has_player_mmr() const {
+  return _internal_has_player_mmr();
+}
+inline void CMsgSteamLearnMatchInfoPlayer::clear_player_mmr() {
+  _impl_.player_mmr_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000020u;
+}
+inline uint32_t CMsgSteamLearnMatchInfoPlayer::_internal_player_mmr() const {
+  return _impl_.player_mmr_;
+}
+inline uint32_t CMsgSteamLearnMatchInfoPlayer::player_mmr() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchInfoPlayer.player_mmr)
+  return _internal_player_mmr();
+}
+inline void CMsgSteamLearnMatchInfoPlayer::_internal_set_player_mmr(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_.player_mmr_ = value;
+}
+inline void CMsgSteamLearnMatchInfoPlayer::set_player_mmr(uint32_t value) {
+  _internal_set_player_mmr(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchInfoPlayer.player_mmr)
+}
+
 // -------------------------------------------------------------------
 
-// CMsgSteamLearnMatchHeroes
+// CMsgSteamLearnMatchHeroesV3
 
-// repeated uint32 radiant_hero_ids = 1 [(.steamlearn_count) = 5];
-inline int CMsgSteamLearnMatchHeroes::_internal_radiant_hero_ids_size() const {
+// repeated int32 radiant_hero_ids = 1 [(.steamlearn_count) = 5];
+inline int CMsgSteamLearnMatchHeroesV3::_internal_radiant_hero_ids_size() const {
   return _impl_.radiant_hero_ids_.size();
 }
-inline int CMsgSteamLearnMatchHeroes::radiant_hero_ids_size() const {
+inline int CMsgSteamLearnMatchHeroesV3::radiant_hero_ids_size() const {
   return _internal_radiant_hero_ids_size();
 }
-inline void CMsgSteamLearnMatchHeroes::clear_radiant_hero_ids() {
+inline void CMsgSteamLearnMatchHeroesV3::clear_radiant_hero_ids() {
   _impl_.radiant_hero_ids_.Clear();
 }
-inline uint32_t CMsgSteamLearnMatchHeroes::_internal_radiant_hero_ids(int index) const {
+inline int32_t CMsgSteamLearnMatchHeroesV3::_internal_radiant_hero_ids(int index) const {
   return _impl_.radiant_hero_ids_.Get(index);
 }
-inline uint32_t CMsgSteamLearnMatchHeroes::radiant_hero_ids(int index) const {
-  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchHeroes.radiant_hero_ids)
+inline int32_t CMsgSteamLearnMatchHeroesV3::radiant_hero_ids(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchHeroesV3.radiant_hero_ids)
   return _internal_radiant_hero_ids(index);
 }
-inline void CMsgSteamLearnMatchHeroes::set_radiant_hero_ids(int index, uint32_t value) {
+inline void CMsgSteamLearnMatchHeroesV3::set_radiant_hero_ids(int index, int32_t value) {
   _impl_.radiant_hero_ids_.Set(index, value);
-  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchHeroes.radiant_hero_ids)
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchHeroesV3.radiant_hero_ids)
 }
-inline void CMsgSteamLearnMatchHeroes::_internal_add_radiant_hero_ids(uint32_t value) {
+inline void CMsgSteamLearnMatchHeroesV3::_internal_add_radiant_hero_ids(int32_t value) {
   _impl_.radiant_hero_ids_.Add(value);
 }
-inline void CMsgSteamLearnMatchHeroes::add_radiant_hero_ids(uint32_t value) {
+inline void CMsgSteamLearnMatchHeroesV3::add_radiant_hero_ids(int32_t value) {
   _internal_add_radiant_hero_ids(value);
-  // @@protoc_insertion_point(field_add:CMsgSteamLearnMatchHeroes.radiant_hero_ids)
+  // @@protoc_insertion_point(field_add:CMsgSteamLearnMatchHeroesV3.radiant_hero_ids)
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-CMsgSteamLearnMatchHeroes::_internal_radiant_hero_ids() const {
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+CMsgSteamLearnMatchHeroesV3::_internal_radiant_hero_ids() const {
   return _impl_.radiant_hero_ids_;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-CMsgSteamLearnMatchHeroes::radiant_hero_ids() const {
-  // @@protoc_insertion_point(field_list:CMsgSteamLearnMatchHeroes.radiant_hero_ids)
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+CMsgSteamLearnMatchHeroesV3::radiant_hero_ids() const {
+  // @@protoc_insertion_point(field_list:CMsgSteamLearnMatchHeroesV3.radiant_hero_ids)
   return _internal_radiant_hero_ids();
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-CMsgSteamLearnMatchHeroes::_internal_mutable_radiant_hero_ids() {
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+CMsgSteamLearnMatchHeroesV3::_internal_mutable_radiant_hero_ids() {
   return &_impl_.radiant_hero_ids_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-CMsgSteamLearnMatchHeroes::mutable_radiant_hero_ids() {
-  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearnMatchHeroes.radiant_hero_ids)
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+CMsgSteamLearnMatchHeroesV3::mutable_radiant_hero_ids() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearnMatchHeroesV3.radiant_hero_ids)
   return _internal_mutable_radiant_hero_ids();
 }
 
-// repeated uint32 dire_hero_ids = 2 [(.steamlearn_count) = 5];
-inline int CMsgSteamLearnMatchHeroes::_internal_dire_hero_ids_size() const {
+// repeated int32 dire_hero_ids = 2 [(.steamlearn_count) = 5];
+inline int CMsgSteamLearnMatchHeroesV3::_internal_dire_hero_ids_size() const {
   return _impl_.dire_hero_ids_.size();
 }
-inline int CMsgSteamLearnMatchHeroes::dire_hero_ids_size() const {
+inline int CMsgSteamLearnMatchHeroesV3::dire_hero_ids_size() const {
   return _internal_dire_hero_ids_size();
 }
-inline void CMsgSteamLearnMatchHeroes::clear_dire_hero_ids() {
+inline void CMsgSteamLearnMatchHeroesV3::clear_dire_hero_ids() {
   _impl_.dire_hero_ids_.Clear();
 }
-inline uint32_t CMsgSteamLearnMatchHeroes::_internal_dire_hero_ids(int index) const {
+inline int32_t CMsgSteamLearnMatchHeroesV3::_internal_dire_hero_ids(int index) const {
   return _impl_.dire_hero_ids_.Get(index);
 }
-inline uint32_t CMsgSteamLearnMatchHeroes::dire_hero_ids(int index) const {
-  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchHeroes.dire_hero_ids)
+inline int32_t CMsgSteamLearnMatchHeroesV3::dire_hero_ids(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchHeroesV3.dire_hero_ids)
   return _internal_dire_hero_ids(index);
 }
-inline void CMsgSteamLearnMatchHeroes::set_dire_hero_ids(int index, uint32_t value) {
+inline void CMsgSteamLearnMatchHeroesV3::set_dire_hero_ids(int index, int32_t value) {
   _impl_.dire_hero_ids_.Set(index, value);
-  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchHeroes.dire_hero_ids)
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchHeroesV3.dire_hero_ids)
 }
-inline void CMsgSteamLearnMatchHeroes::_internal_add_dire_hero_ids(uint32_t value) {
+inline void CMsgSteamLearnMatchHeroesV3::_internal_add_dire_hero_ids(int32_t value) {
   _impl_.dire_hero_ids_.Add(value);
 }
-inline void CMsgSteamLearnMatchHeroes::add_dire_hero_ids(uint32_t value) {
+inline void CMsgSteamLearnMatchHeroesV3::add_dire_hero_ids(int32_t value) {
   _internal_add_dire_hero_ids(value);
-  // @@protoc_insertion_point(field_add:CMsgSteamLearnMatchHeroes.dire_hero_ids)
+  // @@protoc_insertion_point(field_add:CMsgSteamLearnMatchHeroesV3.dire_hero_ids)
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-CMsgSteamLearnMatchHeroes::_internal_dire_hero_ids() const {
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+CMsgSteamLearnMatchHeroesV3::_internal_dire_hero_ids() const {
   return _impl_.dire_hero_ids_;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-CMsgSteamLearnMatchHeroes::dire_hero_ids() const {
-  // @@protoc_insertion_point(field_list:CMsgSteamLearnMatchHeroes.dire_hero_ids)
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+CMsgSteamLearnMatchHeroesV3::dire_hero_ids() const {
+  // @@protoc_insertion_point(field_list:CMsgSteamLearnMatchHeroesV3.dire_hero_ids)
   return _internal_dire_hero_ids();
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-CMsgSteamLearnMatchHeroes::_internal_mutable_dire_hero_ids() {
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+CMsgSteamLearnMatchHeroesV3::_internal_mutable_dire_hero_ids() {
   return &_impl_.dire_hero_ids_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-CMsgSteamLearnMatchHeroes::mutable_dire_hero_ids() {
-  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearnMatchHeroes.dire_hero_ids)
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+CMsgSteamLearnMatchHeroesV3::mutable_dire_hero_ids() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearnMatchHeroesV3.dire_hero_ids)
   return _internal_mutable_dire_hero_ids();
 }
 
 // repeated uint32 radiant_lanes = 3 [(.steamlearn_count) = 5];
-inline int CMsgSteamLearnMatchHeroes::_internal_radiant_lanes_size() const {
+inline int CMsgSteamLearnMatchHeroesV3::_internal_radiant_lanes_size() const {
   return _impl_.radiant_lanes_.size();
 }
-inline int CMsgSteamLearnMatchHeroes::radiant_lanes_size() const {
+inline int CMsgSteamLearnMatchHeroesV3::radiant_lanes_size() const {
   return _internal_radiant_lanes_size();
 }
-inline void CMsgSteamLearnMatchHeroes::clear_radiant_lanes() {
+inline void CMsgSteamLearnMatchHeroesV3::clear_radiant_lanes() {
   _impl_.radiant_lanes_.Clear();
 }
-inline uint32_t CMsgSteamLearnMatchHeroes::_internal_radiant_lanes(int index) const {
+inline uint32_t CMsgSteamLearnMatchHeroesV3::_internal_radiant_lanes(int index) const {
   return _impl_.radiant_lanes_.Get(index);
 }
-inline uint32_t CMsgSteamLearnMatchHeroes::radiant_lanes(int index) const {
-  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchHeroes.radiant_lanes)
+inline uint32_t CMsgSteamLearnMatchHeroesV3::radiant_lanes(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchHeroesV3.radiant_lanes)
   return _internal_radiant_lanes(index);
 }
-inline void CMsgSteamLearnMatchHeroes::set_radiant_lanes(int index, uint32_t value) {
+inline void CMsgSteamLearnMatchHeroesV3::set_radiant_lanes(int index, uint32_t value) {
   _impl_.radiant_lanes_.Set(index, value);
-  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchHeroes.radiant_lanes)
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchHeroesV3.radiant_lanes)
 }
-inline void CMsgSteamLearnMatchHeroes::_internal_add_radiant_lanes(uint32_t value) {
+inline void CMsgSteamLearnMatchHeroesV3::_internal_add_radiant_lanes(uint32_t value) {
   _impl_.radiant_lanes_.Add(value);
 }
-inline void CMsgSteamLearnMatchHeroes::add_radiant_lanes(uint32_t value) {
+inline void CMsgSteamLearnMatchHeroesV3::add_radiant_lanes(uint32_t value) {
   _internal_add_radiant_lanes(value);
-  // @@protoc_insertion_point(field_add:CMsgSteamLearnMatchHeroes.radiant_lanes)
+  // @@protoc_insertion_point(field_add:CMsgSteamLearnMatchHeroesV3.radiant_lanes)
 }
 inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-CMsgSteamLearnMatchHeroes::_internal_radiant_lanes() const {
+CMsgSteamLearnMatchHeroesV3::_internal_radiant_lanes() const {
   return _impl_.radiant_lanes_;
 }
 inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-CMsgSteamLearnMatchHeroes::radiant_lanes() const {
-  // @@protoc_insertion_point(field_list:CMsgSteamLearnMatchHeroes.radiant_lanes)
+CMsgSteamLearnMatchHeroesV3::radiant_lanes() const {
+  // @@protoc_insertion_point(field_list:CMsgSteamLearnMatchHeroesV3.radiant_lanes)
   return _internal_radiant_lanes();
 }
 inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-CMsgSteamLearnMatchHeroes::_internal_mutable_radiant_lanes() {
+CMsgSteamLearnMatchHeroesV3::_internal_mutable_radiant_lanes() {
   return &_impl_.radiant_lanes_;
 }
 inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-CMsgSteamLearnMatchHeroes::mutable_radiant_lanes() {
-  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearnMatchHeroes.radiant_lanes)
+CMsgSteamLearnMatchHeroesV3::mutable_radiant_lanes() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearnMatchHeroesV3.radiant_lanes)
   return _internal_mutable_radiant_lanes();
 }
 
 // repeated uint32 dire_lanes = 4 [(.steamlearn_count) = 5];
-inline int CMsgSteamLearnMatchHeroes::_internal_dire_lanes_size() const {
+inline int CMsgSteamLearnMatchHeroesV3::_internal_dire_lanes_size() const {
   return _impl_.dire_lanes_.size();
 }
-inline int CMsgSteamLearnMatchHeroes::dire_lanes_size() const {
+inline int CMsgSteamLearnMatchHeroesV3::dire_lanes_size() const {
   return _internal_dire_lanes_size();
 }
-inline void CMsgSteamLearnMatchHeroes::clear_dire_lanes() {
+inline void CMsgSteamLearnMatchHeroesV3::clear_dire_lanes() {
   _impl_.dire_lanes_.Clear();
 }
-inline uint32_t CMsgSteamLearnMatchHeroes::_internal_dire_lanes(int index) const {
+inline uint32_t CMsgSteamLearnMatchHeroesV3::_internal_dire_lanes(int index) const {
   return _impl_.dire_lanes_.Get(index);
 }
-inline uint32_t CMsgSteamLearnMatchHeroes::dire_lanes(int index) const {
-  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchHeroes.dire_lanes)
+inline uint32_t CMsgSteamLearnMatchHeroesV3::dire_lanes(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchHeroesV3.dire_lanes)
   return _internal_dire_lanes(index);
 }
-inline void CMsgSteamLearnMatchHeroes::set_dire_lanes(int index, uint32_t value) {
+inline void CMsgSteamLearnMatchHeroesV3::set_dire_lanes(int index, uint32_t value) {
   _impl_.dire_lanes_.Set(index, value);
-  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchHeroes.dire_lanes)
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchHeroesV3.dire_lanes)
 }
-inline void CMsgSteamLearnMatchHeroes::_internal_add_dire_lanes(uint32_t value) {
+inline void CMsgSteamLearnMatchHeroesV3::_internal_add_dire_lanes(uint32_t value) {
   _impl_.dire_lanes_.Add(value);
 }
-inline void CMsgSteamLearnMatchHeroes::add_dire_lanes(uint32_t value) {
+inline void CMsgSteamLearnMatchHeroesV3::add_dire_lanes(uint32_t value) {
   _internal_add_dire_lanes(value);
-  // @@protoc_insertion_point(field_add:CMsgSteamLearnMatchHeroes.dire_lanes)
+  // @@protoc_insertion_point(field_add:CMsgSteamLearnMatchHeroesV3.dire_lanes)
 }
 inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-CMsgSteamLearnMatchHeroes::_internal_dire_lanes() const {
+CMsgSteamLearnMatchHeroesV3::_internal_dire_lanes() const {
   return _impl_.dire_lanes_;
 }
 inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-CMsgSteamLearnMatchHeroes::dire_lanes() const {
-  // @@protoc_insertion_point(field_list:CMsgSteamLearnMatchHeroes.dire_lanes)
+CMsgSteamLearnMatchHeroesV3::dire_lanes() const {
+  // @@protoc_insertion_point(field_list:CMsgSteamLearnMatchHeroesV3.dire_lanes)
   return _internal_dire_lanes();
 }
 inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-CMsgSteamLearnMatchHeroes::_internal_mutable_dire_lanes() {
+CMsgSteamLearnMatchHeroesV3::_internal_mutable_dire_lanes() {
   return &_impl_.dire_lanes_;
 }
 inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-CMsgSteamLearnMatchHeroes::mutable_dire_lanes() {
-  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearnMatchHeroes.dire_lanes)
+CMsgSteamLearnMatchHeroesV3::mutable_dire_lanes() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearnMatchHeroesV3.dire_lanes)
   return _internal_mutable_dire_lanes();
 }
 
+// repeated uint32 radiant_hero_facets = 5 [(.steamlearn_count) = 5];
+inline int CMsgSteamLearnMatchHeroesV3::_internal_radiant_hero_facets_size() const {
+  return _impl_.radiant_hero_facets_.size();
+}
+inline int CMsgSteamLearnMatchHeroesV3::radiant_hero_facets_size() const {
+  return _internal_radiant_hero_facets_size();
+}
+inline void CMsgSteamLearnMatchHeroesV3::clear_radiant_hero_facets() {
+  _impl_.radiant_hero_facets_.Clear();
+}
+inline uint32_t CMsgSteamLearnMatchHeroesV3::_internal_radiant_hero_facets(int index) const {
+  return _impl_.radiant_hero_facets_.Get(index);
+}
+inline uint32_t CMsgSteamLearnMatchHeroesV3::radiant_hero_facets(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchHeroesV3.radiant_hero_facets)
+  return _internal_radiant_hero_facets(index);
+}
+inline void CMsgSteamLearnMatchHeroesV3::set_radiant_hero_facets(int index, uint32_t value) {
+  _impl_.radiant_hero_facets_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchHeroesV3.radiant_hero_facets)
+}
+inline void CMsgSteamLearnMatchHeroesV3::_internal_add_radiant_hero_facets(uint32_t value) {
+  _impl_.radiant_hero_facets_.Add(value);
+}
+inline void CMsgSteamLearnMatchHeroesV3::add_radiant_hero_facets(uint32_t value) {
+  _internal_add_radiant_hero_facets(value);
+  // @@protoc_insertion_point(field_add:CMsgSteamLearnMatchHeroesV3.radiant_hero_facets)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+CMsgSteamLearnMatchHeroesV3::_internal_radiant_hero_facets() const {
+  return _impl_.radiant_hero_facets_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+CMsgSteamLearnMatchHeroesV3::radiant_hero_facets() const {
+  // @@protoc_insertion_point(field_list:CMsgSteamLearnMatchHeroesV3.radiant_hero_facets)
+  return _internal_radiant_hero_facets();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+CMsgSteamLearnMatchHeroesV3::_internal_mutable_radiant_hero_facets() {
+  return &_impl_.radiant_hero_facets_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+CMsgSteamLearnMatchHeroesV3::mutable_radiant_hero_facets() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearnMatchHeroesV3.radiant_hero_facets)
+  return _internal_mutable_radiant_hero_facets();
+}
+
+// repeated uint32 dire_hero_facets = 6 [(.steamlearn_count) = 5];
+inline int CMsgSteamLearnMatchHeroesV3::_internal_dire_hero_facets_size() const {
+  return _impl_.dire_hero_facets_.size();
+}
+inline int CMsgSteamLearnMatchHeroesV3::dire_hero_facets_size() const {
+  return _internal_dire_hero_facets_size();
+}
+inline void CMsgSteamLearnMatchHeroesV3::clear_dire_hero_facets() {
+  _impl_.dire_hero_facets_.Clear();
+}
+inline uint32_t CMsgSteamLearnMatchHeroesV3::_internal_dire_hero_facets(int index) const {
+  return _impl_.dire_hero_facets_.Get(index);
+}
+inline uint32_t CMsgSteamLearnMatchHeroesV3::dire_hero_facets(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchHeroesV3.dire_hero_facets)
+  return _internal_dire_hero_facets(index);
+}
+inline void CMsgSteamLearnMatchHeroesV3::set_dire_hero_facets(int index, uint32_t value) {
+  _impl_.dire_hero_facets_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchHeroesV3.dire_hero_facets)
+}
+inline void CMsgSteamLearnMatchHeroesV3::_internal_add_dire_hero_facets(uint32_t value) {
+  _impl_.dire_hero_facets_.Add(value);
+}
+inline void CMsgSteamLearnMatchHeroesV3::add_dire_hero_facets(uint32_t value) {
+  _internal_add_dire_hero_facets(value);
+  // @@protoc_insertion_point(field_add:CMsgSteamLearnMatchHeroesV3.dire_hero_facets)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+CMsgSteamLearnMatchHeroesV3::_internal_dire_hero_facets() const {
+  return _impl_.dire_hero_facets_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+CMsgSteamLearnMatchHeroesV3::dire_hero_facets() const {
+  // @@protoc_insertion_point(field_list:CMsgSteamLearnMatchHeroesV3.dire_hero_facets)
+  return _internal_dire_hero_facets();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+CMsgSteamLearnMatchHeroesV3::_internal_mutable_dire_hero_facets() {
+  return &_impl_.dire_hero_facets_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+CMsgSteamLearnMatchHeroesV3::mutable_dire_hero_facets() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearnMatchHeroesV3.dire_hero_facets)
+  return _internal_mutable_dire_hero_facets();
+}
+
+// repeated uint32 radiant_positions = 7 [(.steamlearn_count) = 5];
+inline int CMsgSteamLearnMatchHeroesV3::_internal_radiant_positions_size() const {
+  return _impl_.radiant_positions_.size();
+}
+inline int CMsgSteamLearnMatchHeroesV3::radiant_positions_size() const {
+  return _internal_radiant_positions_size();
+}
+inline void CMsgSteamLearnMatchHeroesV3::clear_radiant_positions() {
+  _impl_.radiant_positions_.Clear();
+}
+inline uint32_t CMsgSteamLearnMatchHeroesV3::_internal_radiant_positions(int index) const {
+  return _impl_.radiant_positions_.Get(index);
+}
+inline uint32_t CMsgSteamLearnMatchHeroesV3::radiant_positions(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchHeroesV3.radiant_positions)
+  return _internal_radiant_positions(index);
+}
+inline void CMsgSteamLearnMatchHeroesV3::set_radiant_positions(int index, uint32_t value) {
+  _impl_.radiant_positions_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchHeroesV3.radiant_positions)
+}
+inline void CMsgSteamLearnMatchHeroesV3::_internal_add_radiant_positions(uint32_t value) {
+  _impl_.radiant_positions_.Add(value);
+}
+inline void CMsgSteamLearnMatchHeroesV3::add_radiant_positions(uint32_t value) {
+  _internal_add_radiant_positions(value);
+  // @@protoc_insertion_point(field_add:CMsgSteamLearnMatchHeroesV3.radiant_positions)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+CMsgSteamLearnMatchHeroesV3::_internal_radiant_positions() const {
+  return _impl_.radiant_positions_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+CMsgSteamLearnMatchHeroesV3::radiant_positions() const {
+  // @@protoc_insertion_point(field_list:CMsgSteamLearnMatchHeroesV3.radiant_positions)
+  return _internal_radiant_positions();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+CMsgSteamLearnMatchHeroesV3::_internal_mutable_radiant_positions() {
+  return &_impl_.radiant_positions_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+CMsgSteamLearnMatchHeroesV3::mutable_radiant_positions() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearnMatchHeroesV3.radiant_positions)
+  return _internal_mutable_radiant_positions();
+}
+
+// repeated uint32 dire_positions = 8 [(.steamlearn_count) = 5];
+inline int CMsgSteamLearnMatchHeroesV3::_internal_dire_positions_size() const {
+  return _impl_.dire_positions_.size();
+}
+inline int CMsgSteamLearnMatchHeroesV3::dire_positions_size() const {
+  return _internal_dire_positions_size();
+}
+inline void CMsgSteamLearnMatchHeroesV3::clear_dire_positions() {
+  _impl_.dire_positions_.Clear();
+}
+inline uint32_t CMsgSteamLearnMatchHeroesV3::_internal_dire_positions(int index) const {
+  return _impl_.dire_positions_.Get(index);
+}
+inline uint32_t CMsgSteamLearnMatchHeroesV3::dire_positions(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchHeroesV3.dire_positions)
+  return _internal_dire_positions(index);
+}
+inline void CMsgSteamLearnMatchHeroesV3::set_dire_positions(int index, uint32_t value) {
+  _impl_.dire_positions_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchHeroesV3.dire_positions)
+}
+inline void CMsgSteamLearnMatchHeroesV3::_internal_add_dire_positions(uint32_t value) {
+  _impl_.dire_positions_.Add(value);
+}
+inline void CMsgSteamLearnMatchHeroesV3::add_dire_positions(uint32_t value) {
+  _internal_add_dire_positions(value);
+  // @@protoc_insertion_point(field_add:CMsgSteamLearnMatchHeroesV3.dire_positions)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+CMsgSteamLearnMatchHeroesV3::_internal_dire_positions() const {
+  return _impl_.dire_positions_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+CMsgSteamLearnMatchHeroesV3::dire_positions() const {
+  // @@protoc_insertion_point(field_list:CMsgSteamLearnMatchHeroesV3.dire_positions)
+  return _internal_dire_positions();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+CMsgSteamLearnMatchHeroesV3::_internal_mutable_dire_positions() {
+  return &_impl_.dire_positions_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+CMsgSteamLearnMatchHeroesV3::mutable_dire_positions() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearnMatchHeroesV3.dire_positions)
+  return _internal_mutable_dire_positions();
+}
+
 // -------------------------------------------------------------------
 
-// CMsgSteamLearnMatchHero
+// CMsgSteamLearnMatchHeroV3
 
-// optional uint32 hero_id = 1;
-inline bool CMsgSteamLearnMatchHero::_internal_has_hero_id() const {
+// optional int32 hero_id = 1;
+inline bool CMsgSteamLearnMatchHeroV3::_internal_has_hero_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
-inline bool CMsgSteamLearnMatchHero::has_hero_id() const {
+inline bool CMsgSteamLearnMatchHeroV3::has_hero_id() const {
   return _internal_has_hero_id();
 }
-inline void CMsgSteamLearnMatchHero::clear_hero_id() {
-  _impl_.hero_id_ = 0u;
+inline void CMsgSteamLearnMatchHeroV3::clear_hero_id() {
+  _impl_.hero_id_ = 0;
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint32_t CMsgSteamLearnMatchHero::_internal_hero_id() const {
+inline int32_t CMsgSteamLearnMatchHeroV3::_internal_hero_id() const {
   return _impl_.hero_id_;
 }
-inline uint32_t CMsgSteamLearnMatchHero::hero_id() const {
-  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchHero.hero_id)
+inline int32_t CMsgSteamLearnMatchHeroV3::hero_id() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchHeroV3.hero_id)
   return _internal_hero_id();
 }
-inline void CMsgSteamLearnMatchHero::_internal_set_hero_id(uint32_t value) {
+inline void CMsgSteamLearnMatchHeroV3::_internal_set_hero_id(int32_t value) {
   _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.hero_id_ = value;
 }
-inline void CMsgSteamLearnMatchHero::set_hero_id(uint32_t value) {
+inline void CMsgSteamLearnMatchHeroV3::set_hero_id(int32_t value) {
   _internal_set_hero_id(value);
-  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchHero.hero_id)
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchHeroV3.hero_id)
 }
 
 // optional uint32 lane = 2;
-inline bool CMsgSteamLearnMatchHero::_internal_has_lane() const {
+inline bool CMsgSteamLearnMatchHeroV3::_internal_has_lane() const {
   bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
-inline bool CMsgSteamLearnMatchHero::has_lane() const {
+inline bool CMsgSteamLearnMatchHeroV3::has_lane() const {
   return _internal_has_lane();
 }
-inline void CMsgSteamLearnMatchHero::clear_lane() {
+inline void CMsgSteamLearnMatchHeroV3::clear_lane() {
   _impl_.lane_ = 0u;
   _impl_._has_bits_[0] &= ~0x00000002u;
 }
-inline uint32_t CMsgSteamLearnMatchHero::_internal_lane() const {
+inline uint32_t CMsgSteamLearnMatchHeroV3::_internal_lane() const {
   return _impl_.lane_;
 }
-inline uint32_t CMsgSteamLearnMatchHero::lane() const {
-  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchHero.lane)
+inline uint32_t CMsgSteamLearnMatchHeroV3::lane() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchHeroV3.lane)
   return _internal_lane();
 }
-inline void CMsgSteamLearnMatchHero::_internal_set_lane(uint32_t value) {
+inline void CMsgSteamLearnMatchHeroV3::_internal_set_lane(uint32_t value) {
   _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.lane_ = value;
 }
-inline void CMsgSteamLearnMatchHero::set_lane(uint32_t value) {
+inline void CMsgSteamLearnMatchHeroV3::set_lane(uint32_t value) {
   _internal_set_lane(value);
-  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchHero.lane)
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchHeroV3.lane)
 }
 
-// repeated uint32 allied_hero_ids = 3 [(.steamlearn_count) = 4];
-inline int CMsgSteamLearnMatchHero::_internal_allied_hero_ids_size() const {
-  return _impl_.allied_hero_ids_.size();
-}
-inline int CMsgSteamLearnMatchHero::allied_hero_ids_size() const {
-  return _internal_allied_hero_ids_size();
-}
-inline void CMsgSteamLearnMatchHero::clear_allied_hero_ids() {
-  _impl_.allied_hero_ids_.Clear();
-}
-inline uint32_t CMsgSteamLearnMatchHero::_internal_allied_hero_ids(int index) const {
-  return _impl_.allied_hero_ids_.Get(index);
-}
-inline uint32_t CMsgSteamLearnMatchHero::allied_hero_ids(int index) const {
-  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchHero.allied_hero_ids)
-  return _internal_allied_hero_ids(index);
-}
-inline void CMsgSteamLearnMatchHero::set_allied_hero_ids(int index, uint32_t value) {
-  _impl_.allied_hero_ids_.Set(index, value);
-  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchHero.allied_hero_ids)
-}
-inline void CMsgSteamLearnMatchHero::_internal_add_allied_hero_ids(uint32_t value) {
-  _impl_.allied_hero_ids_.Add(value);
-}
-inline void CMsgSteamLearnMatchHero::add_allied_hero_ids(uint32_t value) {
-  _internal_add_allied_hero_ids(value);
-  // @@protoc_insertion_point(field_add:CMsgSteamLearnMatchHero.allied_hero_ids)
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-CMsgSteamLearnMatchHero::_internal_allied_hero_ids() const {
-  return _impl_.allied_hero_ids_;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-CMsgSteamLearnMatchHero::allied_hero_ids() const {
-  // @@protoc_insertion_point(field_list:CMsgSteamLearnMatchHero.allied_hero_ids)
-  return _internal_allied_hero_ids();
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-CMsgSteamLearnMatchHero::_internal_mutable_allied_hero_ids() {
-  return &_impl_.allied_hero_ids_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-CMsgSteamLearnMatchHero::mutable_allied_hero_ids() {
-  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearnMatchHero.allied_hero_ids)
-  return _internal_mutable_allied_hero_ids();
-}
-
-// repeated uint32 enemy_hero_ids = 4 [(.steamlearn_count) = 5];
-inline int CMsgSteamLearnMatchHero::_internal_enemy_hero_ids_size() const {
-  return _impl_.enemy_hero_ids_.size();
-}
-inline int CMsgSteamLearnMatchHero::enemy_hero_ids_size() const {
-  return _internal_enemy_hero_ids_size();
-}
-inline void CMsgSteamLearnMatchHero::clear_enemy_hero_ids() {
-  _impl_.enemy_hero_ids_.Clear();
-}
-inline uint32_t CMsgSteamLearnMatchHero::_internal_enemy_hero_ids(int index) const {
-  return _impl_.enemy_hero_ids_.Get(index);
-}
-inline uint32_t CMsgSteamLearnMatchHero::enemy_hero_ids(int index) const {
-  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchHero.enemy_hero_ids)
-  return _internal_enemy_hero_ids(index);
-}
-inline void CMsgSteamLearnMatchHero::set_enemy_hero_ids(int index, uint32_t value) {
-  _impl_.enemy_hero_ids_.Set(index, value);
-  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchHero.enemy_hero_ids)
-}
-inline void CMsgSteamLearnMatchHero::_internal_add_enemy_hero_ids(uint32_t value) {
-  _impl_.enemy_hero_ids_.Add(value);
-}
-inline void CMsgSteamLearnMatchHero::add_enemy_hero_ids(uint32_t value) {
-  _internal_add_enemy_hero_ids(value);
-  // @@protoc_insertion_point(field_add:CMsgSteamLearnMatchHero.enemy_hero_ids)
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-CMsgSteamLearnMatchHero::_internal_enemy_hero_ids() const {
-  return _impl_.enemy_hero_ids_;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-CMsgSteamLearnMatchHero::enemy_hero_ids() const {
-  // @@protoc_insertion_point(field_list:CMsgSteamLearnMatchHero.enemy_hero_ids)
-  return _internal_enemy_hero_ids();
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-CMsgSteamLearnMatchHero::_internal_mutable_enemy_hero_ids() {
-  return &_impl_.enemy_hero_ids_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-CMsgSteamLearnMatchHero::mutable_enemy_hero_ids() {
-  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearnMatchHero.enemy_hero_ids)
-  return _internal_mutable_enemy_hero_ids();
-}
-
-// -------------------------------------------------------------------
-
-// CMsgSteamLearnMatchState_PlayerState
-
-// optional uint32 hero_id = 1;
-inline bool CMsgSteamLearnMatchState_PlayerState::_internal_has_hero_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool CMsgSteamLearnMatchState_PlayerState::has_hero_id() const {
-  return _internal_has_hero_id();
-}
-inline void CMsgSteamLearnMatchState_PlayerState::clear_hero_id() {
-  _impl_.hero_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000001u;
-}
-inline uint32_t CMsgSteamLearnMatchState_PlayerState::_internal_hero_id() const {
-  return _impl_.hero_id_;
-}
-inline uint32_t CMsgSteamLearnMatchState_PlayerState::hero_id() const {
-  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchState.PlayerState.hero_id)
-  return _internal_hero_id();
-}
-inline void CMsgSteamLearnMatchState_PlayerState::_internal_set_hero_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  _impl_.hero_id_ = value;
-}
-inline void CMsgSteamLearnMatchState_PlayerState::set_hero_id(uint32_t value) {
-  _internal_set_hero_id(value);
-  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchState.PlayerState.hero_id)
-}
-
-// optional uint32 net_worth = 2;
-inline bool CMsgSteamLearnMatchState_PlayerState::_internal_has_net_worth() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
-  return value;
-}
-inline bool CMsgSteamLearnMatchState_PlayerState::has_net_worth() const {
-  return _internal_has_net_worth();
-}
-inline void CMsgSteamLearnMatchState_PlayerState::clear_net_worth() {
-  _impl_.net_worth_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
-}
-inline uint32_t CMsgSteamLearnMatchState_PlayerState::_internal_net_worth() const {
-  return _impl_.net_worth_;
-}
-inline uint32_t CMsgSteamLearnMatchState_PlayerState::net_worth() const {
-  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchState.PlayerState.net_worth)
-  return _internal_net_worth();
-}
-inline void CMsgSteamLearnMatchState_PlayerState::_internal_set_net_worth(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  _impl_.net_worth_ = value;
-}
-inline void CMsgSteamLearnMatchState_PlayerState::set_net_worth(uint32_t value) {
-  _internal_set_net_worth(value);
-  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchState.PlayerState.net_worth)
-}
-
-// optional uint32 level = 3;
-inline bool CMsgSteamLearnMatchState_PlayerState::_internal_has_level() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
-  return value;
-}
-inline bool CMsgSteamLearnMatchState_PlayerState::has_level() const {
-  return _internal_has_level();
-}
-inline void CMsgSteamLearnMatchState_PlayerState::clear_level() {
-  _impl_.level_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000004u;
-}
-inline uint32_t CMsgSteamLearnMatchState_PlayerState::_internal_level() const {
-  return _impl_.level_;
-}
-inline uint32_t CMsgSteamLearnMatchState_PlayerState::level() const {
-  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchState.PlayerState.level)
-  return _internal_level();
-}
-inline void CMsgSteamLearnMatchState_PlayerState::_internal_set_level(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
-  _impl_.level_ = value;
-}
-inline void CMsgSteamLearnMatchState_PlayerState::set_level(uint32_t value) {
-  _internal_set_level(value);
-  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchState.PlayerState.level)
-}
-
-// optional uint32 deaths = 4;
-inline bool CMsgSteamLearnMatchState_PlayerState::_internal_has_deaths() const {
+// optional uint32 position = 8;
+inline bool CMsgSteamLearnMatchHeroV3::_internal_has_position() const {
   bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
-inline bool CMsgSteamLearnMatchState_PlayerState::has_deaths() const {
-  return _internal_has_deaths();
+inline bool CMsgSteamLearnMatchHeroV3::has_position() const {
+  return _internal_has_position();
 }
-inline void CMsgSteamLearnMatchState_PlayerState::clear_deaths() {
-  _impl_.deaths_ = 0u;
+inline void CMsgSteamLearnMatchHeroV3::clear_position() {
+  _impl_.position_ = 0u;
   _impl_._has_bits_[0] &= ~0x00000008u;
 }
-inline uint32_t CMsgSteamLearnMatchState_PlayerState::_internal_deaths() const {
-  return _impl_.deaths_;
+inline uint32_t CMsgSteamLearnMatchHeroV3::_internal_position() const {
+  return _impl_.position_;
 }
-inline uint32_t CMsgSteamLearnMatchState_PlayerState::deaths() const {
-  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchState.PlayerState.deaths)
-  return _internal_deaths();
+inline uint32_t CMsgSteamLearnMatchHeroV3::position() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchHeroV3.position)
+  return _internal_position();
 }
-inline void CMsgSteamLearnMatchState_PlayerState::_internal_set_deaths(uint32_t value) {
+inline void CMsgSteamLearnMatchHeroV3::_internal_set_position(uint32_t value) {
   _impl_._has_bits_[0] |= 0x00000008u;
-  _impl_.deaths_ = value;
+  _impl_.position_ = value;
 }
-inline void CMsgSteamLearnMatchState_PlayerState::set_deaths(uint32_t value) {
-  _internal_set_deaths(value);
-  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchState.PlayerState.deaths)
-}
-
-// optional uint32 respawn_time = 5;
-inline bool CMsgSteamLearnMatchState_PlayerState::_internal_has_respawn_time() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
-  return value;
-}
-inline bool CMsgSteamLearnMatchState_PlayerState::has_respawn_time() const {
-  return _internal_has_respawn_time();
-}
-inline void CMsgSteamLearnMatchState_PlayerState::clear_respawn_time() {
-  _impl_.respawn_time_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000010u;
-}
-inline uint32_t CMsgSteamLearnMatchState_PlayerState::_internal_respawn_time() const {
-  return _impl_.respawn_time_;
-}
-inline uint32_t CMsgSteamLearnMatchState_PlayerState::respawn_time() const {
-  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchState.PlayerState.respawn_time)
-  return _internal_respawn_time();
-}
-inline void CMsgSteamLearnMatchState_PlayerState::_internal_set_respawn_time(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
-  _impl_.respawn_time_ = value;
-}
-inline void CMsgSteamLearnMatchState_PlayerState::set_respawn_time(uint32_t value) {
-  _internal_set_respawn_time(value);
-  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchState.PlayerState.respawn_time)
+inline void CMsgSteamLearnMatchHeroV3::set_position(uint32_t value) {
+  _internal_set_position(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchHeroV3.position)
 }
 
-// optional bool has_buyback = 6;
-inline bool CMsgSteamLearnMatchState_PlayerState::_internal_has_has_buyback() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
-  return value;
+// repeated int32 allied_hero_ids = 3 [(.steamlearn_count) = 4];
+inline int CMsgSteamLearnMatchHeroV3::_internal_allied_hero_ids_size() const {
+  return _impl_.allied_hero_ids_.size();
 }
-inline bool CMsgSteamLearnMatchState_PlayerState::has_has_buyback() const {
-  return _internal_has_has_buyback();
+inline int CMsgSteamLearnMatchHeroV3::allied_hero_ids_size() const {
+  return _internal_allied_hero_ids_size();
 }
-inline void CMsgSteamLearnMatchState_PlayerState::clear_has_buyback() {
-  _impl_.has_buyback_ = false;
-  _impl_._has_bits_[0] &= ~0x00000020u;
+inline void CMsgSteamLearnMatchHeroV3::clear_allied_hero_ids() {
+  _impl_.allied_hero_ids_.Clear();
 }
-inline bool CMsgSteamLearnMatchState_PlayerState::_internal_has_buyback() const {
-  return _impl_.has_buyback_;
+inline int32_t CMsgSteamLearnMatchHeroV3::_internal_allied_hero_ids(int index) const {
+  return _impl_.allied_hero_ids_.Get(index);
 }
-inline bool CMsgSteamLearnMatchState_PlayerState::has_buyback() const {
-  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchState.PlayerState.has_buyback)
-  return _internal_has_buyback();
+inline int32_t CMsgSteamLearnMatchHeroV3::allied_hero_ids(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchHeroV3.allied_hero_ids)
+  return _internal_allied_hero_ids(index);
 }
-inline void CMsgSteamLearnMatchState_PlayerState::_internal_set_has_buyback(bool value) {
-  _impl_._has_bits_[0] |= 0x00000020u;
-  _impl_.has_buyback_ = value;
+inline void CMsgSteamLearnMatchHeroV3::set_allied_hero_ids(int index, int32_t value) {
+  _impl_.allied_hero_ids_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchHeroV3.allied_hero_ids)
 }
-inline void CMsgSteamLearnMatchState_PlayerState::set_has_buyback(bool value) {
-  _internal_set_has_buyback(value);
-  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchState.PlayerState.has_buyback)
+inline void CMsgSteamLearnMatchHeroV3::_internal_add_allied_hero_ids(int32_t value) {
+  _impl_.allied_hero_ids_.Add(value);
 }
-
-// optional bool has_aegis = 7;
-inline bool CMsgSteamLearnMatchState_PlayerState::_internal_has_has_aegis() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
-  return value;
+inline void CMsgSteamLearnMatchHeroV3::add_allied_hero_ids(int32_t value) {
+  _internal_add_allied_hero_ids(value);
+  // @@protoc_insertion_point(field_add:CMsgSteamLearnMatchHeroV3.allied_hero_ids)
 }
-inline bool CMsgSteamLearnMatchState_PlayerState::has_has_aegis() const {
-  return _internal_has_has_aegis();
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+CMsgSteamLearnMatchHeroV3::_internal_allied_hero_ids() const {
+  return _impl_.allied_hero_ids_;
 }
-inline void CMsgSteamLearnMatchState_PlayerState::clear_has_aegis() {
-  _impl_.has_aegis_ = false;
-  _impl_._has_bits_[0] &= ~0x00000040u;
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+CMsgSteamLearnMatchHeroV3::allied_hero_ids() const {
+  // @@protoc_insertion_point(field_list:CMsgSteamLearnMatchHeroV3.allied_hero_ids)
+  return _internal_allied_hero_ids();
 }
-inline bool CMsgSteamLearnMatchState_PlayerState::_internal_has_aegis() const {
-  return _impl_.has_aegis_;
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+CMsgSteamLearnMatchHeroV3::_internal_mutable_allied_hero_ids() {
+  return &_impl_.allied_hero_ids_;
 }
-inline bool CMsgSteamLearnMatchState_PlayerState::has_aegis() const {
-  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchState.PlayerState.has_aegis)
-  return _internal_has_aegis();
-}
-inline void CMsgSteamLearnMatchState_PlayerState::_internal_set_has_aegis(bool value) {
-  _impl_._has_bits_[0] |= 0x00000040u;
-  _impl_.has_aegis_ = value;
-}
-inline void CMsgSteamLearnMatchState_PlayerState::set_has_aegis(bool value) {
-  _internal_set_has_aegis(value);
-  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchState.PlayerState.has_aegis)
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+CMsgSteamLearnMatchHeroV3::mutable_allied_hero_ids() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearnMatchHeroV3.allied_hero_ids)
+  return _internal_mutable_allied_hero_ids();
 }
 
-// optional bool has_rapier = 8;
-inline bool CMsgSteamLearnMatchState_PlayerState::_internal_has_has_rapier() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
-  return value;
+// repeated int32 enemy_hero_ids = 4 [(.steamlearn_count) = 5];
+inline int CMsgSteamLearnMatchHeroV3::_internal_enemy_hero_ids_size() const {
+  return _impl_.enemy_hero_ids_.size();
 }
-inline bool CMsgSteamLearnMatchState_PlayerState::has_has_rapier() const {
-  return _internal_has_has_rapier();
+inline int CMsgSteamLearnMatchHeroV3::enemy_hero_ids_size() const {
+  return _internal_enemy_hero_ids_size();
 }
-inline void CMsgSteamLearnMatchState_PlayerState::clear_has_rapier() {
-  _impl_.has_rapier_ = false;
-  _impl_._has_bits_[0] &= ~0x00000080u;
+inline void CMsgSteamLearnMatchHeroV3::clear_enemy_hero_ids() {
+  _impl_.enemy_hero_ids_.Clear();
 }
-inline bool CMsgSteamLearnMatchState_PlayerState::_internal_has_rapier() const {
-  return _impl_.has_rapier_;
+inline int32_t CMsgSteamLearnMatchHeroV3::_internal_enemy_hero_ids(int index) const {
+  return _impl_.enemy_hero_ids_.Get(index);
 }
-inline bool CMsgSteamLearnMatchState_PlayerState::has_rapier() const {
-  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchState.PlayerState.has_rapier)
-  return _internal_has_rapier();
+inline int32_t CMsgSteamLearnMatchHeroV3::enemy_hero_ids(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchHeroV3.enemy_hero_ids)
+  return _internal_enemy_hero_ids(index);
 }
-inline void CMsgSteamLearnMatchState_PlayerState::_internal_set_has_rapier(bool value) {
-  _impl_._has_bits_[0] |= 0x00000080u;
-  _impl_.has_rapier_ = value;
+inline void CMsgSteamLearnMatchHeroV3::set_enemy_hero_ids(int index, int32_t value) {
+  _impl_.enemy_hero_ids_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchHeroV3.enemy_hero_ids)
 }
-inline void CMsgSteamLearnMatchState_PlayerState::set_has_rapier(bool value) {
-  _internal_set_has_rapier(value);
-  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchState.PlayerState.has_rapier)
+inline void CMsgSteamLearnMatchHeroV3::_internal_add_enemy_hero_ids(int32_t value) {
+  _impl_.enemy_hero_ids_.Add(value);
+}
+inline void CMsgSteamLearnMatchHeroV3::add_enemy_hero_ids(int32_t value) {
+  _internal_add_enemy_hero_ids(value);
+  // @@protoc_insertion_point(field_add:CMsgSteamLearnMatchHeroV3.enemy_hero_ids)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+CMsgSteamLearnMatchHeroV3::_internal_enemy_hero_ids() const {
+  return _impl_.enemy_hero_ids_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+CMsgSteamLearnMatchHeroV3::enemy_hero_ids() const {
+  // @@protoc_insertion_point(field_list:CMsgSteamLearnMatchHeroV3.enemy_hero_ids)
+  return _internal_enemy_hero_ids();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+CMsgSteamLearnMatchHeroV3::_internal_mutable_enemy_hero_ids() {
+  return &_impl_.enemy_hero_ids_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+CMsgSteamLearnMatchHeroV3::mutable_enemy_hero_ids() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearnMatchHeroV3.enemy_hero_ids)
+  return _internal_mutable_enemy_hero_ids();
 }
 
-// optional uint32 distance = 9;
-inline bool CMsgSteamLearnMatchState_PlayerState::_internal_has_distance() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000100u) != 0;
+// optional uint32 hero_facet = 5;
+inline bool CMsgSteamLearnMatchHeroV3::_internal_has_hero_facet() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
-inline bool CMsgSteamLearnMatchState_PlayerState::has_distance() const {
-  return _internal_has_distance();
+inline bool CMsgSteamLearnMatchHeroV3::has_hero_facet() const {
+  return _internal_has_hero_facet();
 }
-inline void CMsgSteamLearnMatchState_PlayerState::clear_distance() {
-  _impl_.distance_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000100u;
+inline void CMsgSteamLearnMatchHeroV3::clear_hero_facet() {
+  _impl_.hero_facet_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
-inline uint32_t CMsgSteamLearnMatchState_PlayerState::_internal_distance() const {
-  return _impl_.distance_;
+inline uint32_t CMsgSteamLearnMatchHeroV3::_internal_hero_facet() const {
+  return _impl_.hero_facet_;
 }
-inline uint32_t CMsgSteamLearnMatchState_PlayerState::distance() const {
-  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchState.PlayerState.distance)
-  return _internal_distance();
+inline uint32_t CMsgSteamLearnMatchHeroV3::hero_facet() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchHeroV3.hero_facet)
+  return _internal_hero_facet();
 }
-inline void CMsgSteamLearnMatchState_PlayerState::_internal_set_distance(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000100u;
-  _impl_.distance_ = value;
+inline void CMsgSteamLearnMatchHeroV3::_internal_set_hero_facet(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.hero_facet_ = value;
 }
-inline void CMsgSteamLearnMatchState_PlayerState::set_distance(uint32_t value) {
-  _internal_set_distance(value);
-  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchState.PlayerState.distance)
+inline void CMsgSteamLearnMatchHeroV3::set_hero_facet(uint32_t value) {
+  _internal_set_hero_facet(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchHeroV3.hero_facet)
+}
+
+// repeated uint32 allied_hero_facets = 6 [(.steamlearn_count) = 4];
+inline int CMsgSteamLearnMatchHeroV3::_internal_allied_hero_facets_size() const {
+  return _impl_.allied_hero_facets_.size();
+}
+inline int CMsgSteamLearnMatchHeroV3::allied_hero_facets_size() const {
+  return _internal_allied_hero_facets_size();
+}
+inline void CMsgSteamLearnMatchHeroV3::clear_allied_hero_facets() {
+  _impl_.allied_hero_facets_.Clear();
+}
+inline uint32_t CMsgSteamLearnMatchHeroV3::_internal_allied_hero_facets(int index) const {
+  return _impl_.allied_hero_facets_.Get(index);
+}
+inline uint32_t CMsgSteamLearnMatchHeroV3::allied_hero_facets(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchHeroV3.allied_hero_facets)
+  return _internal_allied_hero_facets(index);
+}
+inline void CMsgSteamLearnMatchHeroV3::set_allied_hero_facets(int index, uint32_t value) {
+  _impl_.allied_hero_facets_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchHeroV3.allied_hero_facets)
+}
+inline void CMsgSteamLearnMatchHeroV3::_internal_add_allied_hero_facets(uint32_t value) {
+  _impl_.allied_hero_facets_.Add(value);
+}
+inline void CMsgSteamLearnMatchHeroV3::add_allied_hero_facets(uint32_t value) {
+  _internal_add_allied_hero_facets(value);
+  // @@protoc_insertion_point(field_add:CMsgSteamLearnMatchHeroV3.allied_hero_facets)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+CMsgSteamLearnMatchHeroV3::_internal_allied_hero_facets() const {
+  return _impl_.allied_hero_facets_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+CMsgSteamLearnMatchHeroV3::allied_hero_facets() const {
+  // @@protoc_insertion_point(field_list:CMsgSteamLearnMatchHeroV3.allied_hero_facets)
+  return _internal_allied_hero_facets();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+CMsgSteamLearnMatchHeroV3::_internal_mutable_allied_hero_facets() {
+  return &_impl_.allied_hero_facets_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+CMsgSteamLearnMatchHeroV3::mutable_allied_hero_facets() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearnMatchHeroV3.allied_hero_facets)
+  return _internal_mutable_allied_hero_facets();
+}
+
+// repeated uint32 enemy_herofacets = 7 [(.steamlearn_count) = 5];
+inline int CMsgSteamLearnMatchHeroV3::_internal_enemy_herofacets_size() const {
+  return _impl_.enemy_herofacets_.size();
+}
+inline int CMsgSteamLearnMatchHeroV3::enemy_herofacets_size() const {
+  return _internal_enemy_herofacets_size();
+}
+inline void CMsgSteamLearnMatchHeroV3::clear_enemy_herofacets() {
+  _impl_.enemy_herofacets_.Clear();
+}
+inline uint32_t CMsgSteamLearnMatchHeroV3::_internal_enemy_herofacets(int index) const {
+  return _impl_.enemy_herofacets_.Get(index);
+}
+inline uint32_t CMsgSteamLearnMatchHeroV3::enemy_herofacets(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchHeroV3.enemy_herofacets)
+  return _internal_enemy_herofacets(index);
+}
+inline void CMsgSteamLearnMatchHeroV3::set_enemy_herofacets(int index, uint32_t value) {
+  _impl_.enemy_herofacets_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchHeroV3.enemy_herofacets)
+}
+inline void CMsgSteamLearnMatchHeroV3::_internal_add_enemy_herofacets(uint32_t value) {
+  _impl_.enemy_herofacets_.Add(value);
+}
+inline void CMsgSteamLearnMatchHeroV3::add_enemy_herofacets(uint32_t value) {
+  _internal_add_enemy_herofacets(value);
+  // @@protoc_insertion_point(field_add:CMsgSteamLearnMatchHeroV3.enemy_herofacets)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+CMsgSteamLearnMatchHeroV3::_internal_enemy_herofacets() const {
+  return _impl_.enemy_herofacets_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+CMsgSteamLearnMatchHeroV3::enemy_herofacets() const {
+  // @@protoc_insertion_point(field_list:CMsgSteamLearnMatchHeroV3.enemy_herofacets)
+  return _internal_enemy_herofacets();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+CMsgSteamLearnMatchHeroV3::_internal_mutable_enemy_herofacets() {
+  return &_impl_.enemy_herofacets_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+CMsgSteamLearnMatchHeroV3::mutable_enemy_herofacets() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearnMatchHeroV3.enemy_herofacets)
+  return _internal_mutable_enemy_herofacets();
 }
 
 // -------------------------------------------------------------------
 
-// CMsgSteamLearnMatchState_TeamState
+// CMsgSteamLearnPlayerTimedStats_StatBucket
 
-// optional uint32 team = 1;
-inline bool CMsgSteamLearnMatchState_TeamState::_internal_has_team() const {
+// optional float game_time = 1;
+inline bool CMsgSteamLearnPlayerTimedStats_StatBucket::_internal_has_game_time() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
-inline bool CMsgSteamLearnMatchState_TeamState::has_team() const {
+inline bool CMsgSteamLearnPlayerTimedStats_StatBucket::has_game_time() const {
+  return _internal_has_game_time();
+}
+inline void CMsgSteamLearnPlayerTimedStats_StatBucket::clear_game_time() {
+  _impl_.game_time_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline float CMsgSteamLearnPlayerTimedStats_StatBucket::_internal_game_time() const {
+  return _impl_.game_time_;
+}
+inline float CMsgSteamLearnPlayerTimedStats_StatBucket::game_time() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnPlayerTimedStats.StatBucket.game_time)
+  return _internal_game_time();
+}
+inline void CMsgSteamLearnPlayerTimedStats_StatBucket::_internal_set_game_time(float value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.game_time_ = value;
+}
+inline void CMsgSteamLearnPlayerTimedStats_StatBucket::set_game_time(float value) {
+  _internal_set_game_time(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnPlayerTimedStats.StatBucket.game_time)
+}
+
+// optional uint32 kills = 2;
+inline bool CMsgSteamLearnPlayerTimedStats_StatBucket::_internal_has_kills() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearnPlayerTimedStats_StatBucket::has_kills() const {
+  return _internal_has_kills();
+}
+inline void CMsgSteamLearnPlayerTimedStats_StatBucket::clear_kills() {
+  _impl_.kills_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline uint32_t CMsgSteamLearnPlayerTimedStats_StatBucket::_internal_kills() const {
+  return _impl_.kills_;
+}
+inline uint32_t CMsgSteamLearnPlayerTimedStats_StatBucket::kills() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnPlayerTimedStats.StatBucket.kills)
+  return _internal_kills();
+}
+inline void CMsgSteamLearnPlayerTimedStats_StatBucket::_internal_set_kills(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.kills_ = value;
+}
+inline void CMsgSteamLearnPlayerTimedStats_StatBucket::set_kills(uint32_t value) {
+  _internal_set_kills(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnPlayerTimedStats.StatBucket.kills)
+}
+
+// optional uint32 deaths = 3;
+inline bool CMsgSteamLearnPlayerTimedStats_StatBucket::_internal_has_deaths() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearnPlayerTimedStats_StatBucket::has_deaths() const {
+  return _internal_has_deaths();
+}
+inline void CMsgSteamLearnPlayerTimedStats_StatBucket::clear_deaths() {
+  _impl_.deaths_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline uint32_t CMsgSteamLearnPlayerTimedStats_StatBucket::_internal_deaths() const {
+  return _impl_.deaths_;
+}
+inline uint32_t CMsgSteamLearnPlayerTimedStats_StatBucket::deaths() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnPlayerTimedStats.StatBucket.deaths)
+  return _internal_deaths();
+}
+inline void CMsgSteamLearnPlayerTimedStats_StatBucket::_internal_set_deaths(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.deaths_ = value;
+}
+inline void CMsgSteamLearnPlayerTimedStats_StatBucket::set_deaths(uint32_t value) {
+  _internal_set_deaths(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnPlayerTimedStats.StatBucket.deaths)
+}
+
+// optional uint32 assists = 4;
+inline bool CMsgSteamLearnPlayerTimedStats_StatBucket::_internal_has_assists() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearnPlayerTimedStats_StatBucket::has_assists() const {
+  return _internal_has_assists();
+}
+inline void CMsgSteamLearnPlayerTimedStats_StatBucket::clear_assists() {
+  _impl_.assists_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
+}
+inline uint32_t CMsgSteamLearnPlayerTimedStats_StatBucket::_internal_assists() const {
+  return _impl_.assists_;
+}
+inline uint32_t CMsgSteamLearnPlayerTimedStats_StatBucket::assists() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnPlayerTimedStats.StatBucket.assists)
+  return _internal_assists();
+}
+inline void CMsgSteamLearnPlayerTimedStats_StatBucket::_internal_set_assists(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_.assists_ = value;
+}
+inline void CMsgSteamLearnPlayerTimedStats_StatBucket::set_assists(uint32_t value) {
+  _internal_set_assists(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnPlayerTimedStats.StatBucket.assists)
+}
+
+// optional uint32 experience = 5;
+inline bool CMsgSteamLearnPlayerTimedStats_StatBucket::_internal_has_experience() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearnPlayerTimedStats_StatBucket::has_experience() const {
+  return _internal_has_experience();
+}
+inline void CMsgSteamLearnPlayerTimedStats_StatBucket::clear_experience() {
+  _impl_.experience_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000010u;
+}
+inline uint32_t CMsgSteamLearnPlayerTimedStats_StatBucket::_internal_experience() const {
+  return _impl_.experience_;
+}
+inline uint32_t CMsgSteamLearnPlayerTimedStats_StatBucket::experience() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnPlayerTimedStats.StatBucket.experience)
+  return _internal_experience();
+}
+inline void CMsgSteamLearnPlayerTimedStats_StatBucket::_internal_set_experience(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_.experience_ = value;
+}
+inline void CMsgSteamLearnPlayerTimedStats_StatBucket::set_experience(uint32_t value) {
+  _internal_set_experience(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnPlayerTimedStats.StatBucket.experience)
+}
+
+// optional uint32 last_hits = 6;
+inline bool CMsgSteamLearnPlayerTimedStats_StatBucket::_internal_has_last_hits() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearnPlayerTimedStats_StatBucket::has_last_hits() const {
+  return _internal_has_last_hits();
+}
+inline void CMsgSteamLearnPlayerTimedStats_StatBucket::clear_last_hits() {
+  _impl_.last_hits_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000020u;
+}
+inline uint32_t CMsgSteamLearnPlayerTimedStats_StatBucket::_internal_last_hits() const {
+  return _impl_.last_hits_;
+}
+inline uint32_t CMsgSteamLearnPlayerTimedStats_StatBucket::last_hits() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnPlayerTimedStats.StatBucket.last_hits)
+  return _internal_last_hits();
+}
+inline void CMsgSteamLearnPlayerTimedStats_StatBucket::_internal_set_last_hits(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_.last_hits_ = value;
+}
+inline void CMsgSteamLearnPlayerTimedStats_StatBucket::set_last_hits(uint32_t value) {
+  _internal_set_last_hits(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnPlayerTimedStats.StatBucket.last_hits)
+}
+
+// optional uint32 denies = 7;
+inline bool CMsgSteamLearnPlayerTimedStats_StatBucket::_internal_has_denies() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearnPlayerTimedStats_StatBucket::has_denies() const {
+  return _internal_has_denies();
+}
+inline void CMsgSteamLearnPlayerTimedStats_StatBucket::clear_denies() {
+  _impl_.denies_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000040u;
+}
+inline uint32_t CMsgSteamLearnPlayerTimedStats_StatBucket::_internal_denies() const {
+  return _impl_.denies_;
+}
+inline uint32_t CMsgSteamLearnPlayerTimedStats_StatBucket::denies() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnPlayerTimedStats.StatBucket.denies)
+  return _internal_denies();
+}
+inline void CMsgSteamLearnPlayerTimedStats_StatBucket::_internal_set_denies(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000040u;
+  _impl_.denies_ = value;
+}
+inline void CMsgSteamLearnPlayerTimedStats_StatBucket::set_denies(uint32_t value) {
+  _internal_set_denies(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnPlayerTimedStats.StatBucket.denies)
+}
+
+// optional uint32 net_worth = 8;
+inline bool CMsgSteamLearnPlayerTimedStats_StatBucket::_internal_has_net_worth() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearnPlayerTimedStats_StatBucket::has_net_worth() const {
+  return _internal_has_net_worth();
+}
+inline void CMsgSteamLearnPlayerTimedStats_StatBucket::clear_net_worth() {
+  _impl_.net_worth_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000080u;
+}
+inline uint32_t CMsgSteamLearnPlayerTimedStats_StatBucket::_internal_net_worth() const {
+  return _impl_.net_worth_;
+}
+inline uint32_t CMsgSteamLearnPlayerTimedStats_StatBucket::net_worth() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnPlayerTimedStats.StatBucket.net_worth)
+  return _internal_net_worth();
+}
+inline void CMsgSteamLearnPlayerTimedStats_StatBucket::_internal_set_net_worth(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000080u;
+  _impl_.net_worth_ = value;
+}
+inline void CMsgSteamLearnPlayerTimedStats_StatBucket::set_net_worth(uint32_t value) {
+  _internal_set_net_worth(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnPlayerTimedStats.StatBucket.net_worth)
+}
+
+// optional float idle_time = 9;
+inline bool CMsgSteamLearnPlayerTimedStats_StatBucket::_internal_has_idle_time() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000100u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearnPlayerTimedStats_StatBucket::has_idle_time() const {
+  return _internal_has_idle_time();
+}
+inline void CMsgSteamLearnPlayerTimedStats_StatBucket::clear_idle_time() {
+  _impl_.idle_time_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000100u;
+}
+inline float CMsgSteamLearnPlayerTimedStats_StatBucket::_internal_idle_time() const {
+  return _impl_.idle_time_;
+}
+inline float CMsgSteamLearnPlayerTimedStats_StatBucket::idle_time() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnPlayerTimedStats.StatBucket.idle_time)
+  return _internal_idle_time();
+}
+inline void CMsgSteamLearnPlayerTimedStats_StatBucket::_internal_set_idle_time(float value) {
+  _impl_._has_bits_[0] |= 0x00000100u;
+  _impl_.idle_time_ = value;
+}
+inline void CMsgSteamLearnPlayerTimedStats_StatBucket::set_idle_time(float value) {
+  _internal_set_idle_time(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnPlayerTimedStats.StatBucket.idle_time)
+}
+
+// optional uint32 commands_issued = 10;
+inline bool CMsgSteamLearnPlayerTimedStats_StatBucket::_internal_has_commands_issued() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000200u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearnPlayerTimedStats_StatBucket::has_commands_issued() const {
+  return _internal_has_commands_issued();
+}
+inline void CMsgSteamLearnPlayerTimedStats_StatBucket::clear_commands_issued() {
+  _impl_.commands_issued_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000200u;
+}
+inline uint32_t CMsgSteamLearnPlayerTimedStats_StatBucket::_internal_commands_issued() const {
+  return _impl_.commands_issued_;
+}
+inline uint32_t CMsgSteamLearnPlayerTimedStats_StatBucket::commands_issued() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnPlayerTimedStats.StatBucket.commands_issued)
+  return _internal_commands_issued();
+}
+inline void CMsgSteamLearnPlayerTimedStats_StatBucket::_internal_set_commands_issued(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000200u;
+  _impl_.commands_issued_ = value;
+}
+inline void CMsgSteamLearnPlayerTimedStats_StatBucket::set_commands_issued(uint32_t value) {
+  _internal_set_commands_issued(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnPlayerTimedStats.StatBucket.commands_issued)
+}
+
+// optional uint32 sentry_wards_placed = 11;
+inline bool CMsgSteamLearnPlayerTimedStats_StatBucket::_internal_has_sentry_wards_placed() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000400u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearnPlayerTimedStats_StatBucket::has_sentry_wards_placed() const {
+  return _internal_has_sentry_wards_placed();
+}
+inline void CMsgSteamLearnPlayerTimedStats_StatBucket::clear_sentry_wards_placed() {
+  _impl_.sentry_wards_placed_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000400u;
+}
+inline uint32_t CMsgSteamLearnPlayerTimedStats_StatBucket::_internal_sentry_wards_placed() const {
+  return _impl_.sentry_wards_placed_;
+}
+inline uint32_t CMsgSteamLearnPlayerTimedStats_StatBucket::sentry_wards_placed() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnPlayerTimedStats.StatBucket.sentry_wards_placed)
+  return _internal_sentry_wards_placed();
+}
+inline void CMsgSteamLearnPlayerTimedStats_StatBucket::_internal_set_sentry_wards_placed(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000400u;
+  _impl_.sentry_wards_placed_ = value;
+}
+inline void CMsgSteamLearnPlayerTimedStats_StatBucket::set_sentry_wards_placed(uint32_t value) {
+  _internal_set_sentry_wards_placed(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnPlayerTimedStats.StatBucket.sentry_wards_placed)
+}
+
+// optional uint32 observer_wards_placed = 12;
+inline bool CMsgSteamLearnPlayerTimedStats_StatBucket::_internal_has_observer_wards_placed() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000800u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearnPlayerTimedStats_StatBucket::has_observer_wards_placed() const {
+  return _internal_has_observer_wards_placed();
+}
+inline void CMsgSteamLearnPlayerTimedStats_StatBucket::clear_observer_wards_placed() {
+  _impl_.observer_wards_placed_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000800u;
+}
+inline uint32_t CMsgSteamLearnPlayerTimedStats_StatBucket::_internal_observer_wards_placed() const {
+  return _impl_.observer_wards_placed_;
+}
+inline uint32_t CMsgSteamLearnPlayerTimedStats_StatBucket::observer_wards_placed() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnPlayerTimedStats.StatBucket.observer_wards_placed)
+  return _internal_observer_wards_placed();
+}
+inline void CMsgSteamLearnPlayerTimedStats_StatBucket::_internal_set_observer_wards_placed(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000800u;
+  _impl_.observer_wards_placed_ = value;
+}
+inline void CMsgSteamLearnPlayerTimedStats_StatBucket::set_observer_wards_placed(uint32_t value) {
+  _internal_set_observer_wards_placed(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnPlayerTimedStats.StatBucket.observer_wards_placed)
+}
+
+// -------------------------------------------------------------------
+
+// CMsgSteamLearnPlayerTimedStats
+
+// repeated .CMsgSteamLearnPlayerTimedStats.StatBucket stat_buckets = 1 [(.steamlearn_count) = 90];
+inline int CMsgSteamLearnPlayerTimedStats::_internal_stat_buckets_size() const {
+  return _impl_.stat_buckets_.size();
+}
+inline int CMsgSteamLearnPlayerTimedStats::stat_buckets_size() const {
+  return _internal_stat_buckets_size();
+}
+inline void CMsgSteamLearnPlayerTimedStats::clear_stat_buckets() {
+  _impl_.stat_buckets_.Clear();
+}
+inline ::CMsgSteamLearnPlayerTimedStats_StatBucket* CMsgSteamLearnPlayerTimedStats::mutable_stat_buckets(int index) {
+  // @@protoc_insertion_point(field_mutable:CMsgSteamLearnPlayerTimedStats.stat_buckets)
+  return _impl_.stat_buckets_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearnPlayerTimedStats_StatBucket >*
+CMsgSteamLearnPlayerTimedStats::mutable_stat_buckets() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearnPlayerTimedStats.stat_buckets)
+  return &_impl_.stat_buckets_;
+}
+inline const ::CMsgSteamLearnPlayerTimedStats_StatBucket& CMsgSteamLearnPlayerTimedStats::_internal_stat_buckets(int index) const {
+  return _impl_.stat_buckets_.Get(index);
+}
+inline const ::CMsgSteamLearnPlayerTimedStats_StatBucket& CMsgSteamLearnPlayerTimedStats::stat_buckets(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnPlayerTimedStats.stat_buckets)
+  return _internal_stat_buckets(index);
+}
+inline ::CMsgSteamLearnPlayerTimedStats_StatBucket* CMsgSteamLearnPlayerTimedStats::_internal_add_stat_buckets() {
+  return _impl_.stat_buckets_.Add();
+}
+inline ::CMsgSteamLearnPlayerTimedStats_StatBucket* CMsgSteamLearnPlayerTimedStats::add_stat_buckets() {
+  ::CMsgSteamLearnPlayerTimedStats_StatBucket* _add = _internal_add_stat_buckets();
+  // @@protoc_insertion_point(field_add:CMsgSteamLearnPlayerTimedStats.stat_buckets)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearnPlayerTimedStats_StatBucket >&
+CMsgSteamLearnPlayerTimedStats::stat_buckets() const {
+  // @@protoc_insertion_point(field_list:CMsgSteamLearnPlayerTimedStats.stat_buckets)
+  return _impl_.stat_buckets_;
+}
+
+// -------------------------------------------------------------------
+
+// CMsgSteamLearnMatchStateV5_PlayerState
+
+// optional int32 hero_id = 1;
+inline bool CMsgSteamLearnMatchStateV5_PlayerState::_internal_has_hero_id() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearnMatchStateV5_PlayerState::has_hero_id() const {
+  return _internal_has_hero_id();
+}
+inline void CMsgSteamLearnMatchStateV5_PlayerState::clear_hero_id() {
+  _impl_.hero_id_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline int32_t CMsgSteamLearnMatchStateV5_PlayerState::_internal_hero_id() const {
+  return _impl_.hero_id_;
+}
+inline int32_t CMsgSteamLearnMatchStateV5_PlayerState::hero_id() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchStateV5.PlayerState.hero_id)
+  return _internal_hero_id();
+}
+inline void CMsgSteamLearnMatchStateV5_PlayerState::_internal_set_hero_id(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.hero_id_ = value;
+}
+inline void CMsgSteamLearnMatchStateV5_PlayerState::set_hero_id(int32_t value) {
+  _internal_set_hero_id(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchStateV5.PlayerState.hero_id)
+}
+
+// optional uint32 net_worth = 2;
+inline bool CMsgSteamLearnMatchStateV5_PlayerState::_internal_has_net_worth() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearnMatchStateV5_PlayerState::has_net_worth() const {
+  return _internal_has_net_worth();
+}
+inline void CMsgSteamLearnMatchStateV5_PlayerState::clear_net_worth() {
+  _impl_.net_worth_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline uint32_t CMsgSteamLearnMatchStateV5_PlayerState::_internal_net_worth() const {
+  return _impl_.net_worth_;
+}
+inline uint32_t CMsgSteamLearnMatchStateV5_PlayerState::net_worth() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchStateV5.PlayerState.net_worth)
+  return _internal_net_worth();
+}
+inline void CMsgSteamLearnMatchStateV5_PlayerState::_internal_set_net_worth(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.net_worth_ = value;
+}
+inline void CMsgSteamLearnMatchStateV5_PlayerState::set_net_worth(uint32_t value) {
+  _internal_set_net_worth(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchStateV5.PlayerState.net_worth)
+}
+
+// optional uint32 level = 3;
+inline bool CMsgSteamLearnMatchStateV5_PlayerState::_internal_has_level() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearnMatchStateV5_PlayerState::has_level() const {
+  return _internal_has_level();
+}
+inline void CMsgSteamLearnMatchStateV5_PlayerState::clear_level() {
+  _impl_.level_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline uint32_t CMsgSteamLearnMatchStateV5_PlayerState::_internal_level() const {
+  return _impl_.level_;
+}
+inline uint32_t CMsgSteamLearnMatchStateV5_PlayerState::level() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchStateV5.PlayerState.level)
+  return _internal_level();
+}
+inline void CMsgSteamLearnMatchStateV5_PlayerState::_internal_set_level(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.level_ = value;
+}
+inline void CMsgSteamLearnMatchStateV5_PlayerState::set_level(uint32_t value) {
+  _internal_set_level(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchStateV5.PlayerState.level)
+}
+
+// optional uint32 deaths = 4;
+inline bool CMsgSteamLearnMatchStateV5_PlayerState::_internal_has_deaths() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearnMatchStateV5_PlayerState::has_deaths() const {
+  return _internal_has_deaths();
+}
+inline void CMsgSteamLearnMatchStateV5_PlayerState::clear_deaths() {
+  _impl_.deaths_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
+}
+inline uint32_t CMsgSteamLearnMatchStateV5_PlayerState::_internal_deaths() const {
+  return _impl_.deaths_;
+}
+inline uint32_t CMsgSteamLearnMatchStateV5_PlayerState::deaths() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchStateV5.PlayerState.deaths)
+  return _internal_deaths();
+}
+inline void CMsgSteamLearnMatchStateV5_PlayerState::_internal_set_deaths(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_.deaths_ = value;
+}
+inline void CMsgSteamLearnMatchStateV5_PlayerState::set_deaths(uint32_t value) {
+  _internal_set_deaths(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchStateV5.PlayerState.deaths)
+}
+
+// optional uint32 respawn_time = 5;
+inline bool CMsgSteamLearnMatchStateV5_PlayerState::_internal_has_respawn_time() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearnMatchStateV5_PlayerState::has_respawn_time() const {
+  return _internal_has_respawn_time();
+}
+inline void CMsgSteamLearnMatchStateV5_PlayerState::clear_respawn_time() {
+  _impl_.respawn_time_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000010u;
+}
+inline uint32_t CMsgSteamLearnMatchStateV5_PlayerState::_internal_respawn_time() const {
+  return _impl_.respawn_time_;
+}
+inline uint32_t CMsgSteamLearnMatchStateV5_PlayerState::respawn_time() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchStateV5.PlayerState.respawn_time)
+  return _internal_respawn_time();
+}
+inline void CMsgSteamLearnMatchStateV5_PlayerState::_internal_set_respawn_time(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_.respawn_time_ = value;
+}
+inline void CMsgSteamLearnMatchStateV5_PlayerState::set_respawn_time(uint32_t value) {
+  _internal_set_respawn_time(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchStateV5.PlayerState.respawn_time)
+}
+
+// optional bool has_buyback = 6;
+inline bool CMsgSteamLearnMatchStateV5_PlayerState::_internal_has_has_buyback() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearnMatchStateV5_PlayerState::has_has_buyback() const {
+  return _internal_has_has_buyback();
+}
+inline void CMsgSteamLearnMatchStateV5_PlayerState::clear_has_buyback() {
+  _impl_.has_buyback_ = false;
+  _impl_._has_bits_[0] &= ~0x00000020u;
+}
+inline bool CMsgSteamLearnMatchStateV5_PlayerState::_internal_has_buyback() const {
+  return _impl_.has_buyback_;
+}
+inline bool CMsgSteamLearnMatchStateV5_PlayerState::has_buyback() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchStateV5.PlayerState.has_buyback)
+  return _internal_has_buyback();
+}
+inline void CMsgSteamLearnMatchStateV5_PlayerState::_internal_set_has_buyback(bool value) {
+  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_.has_buyback_ = value;
+}
+inline void CMsgSteamLearnMatchStateV5_PlayerState::set_has_buyback(bool value) {
+  _internal_set_has_buyback(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchStateV5.PlayerState.has_buyback)
+}
+
+// optional bool has_aegis = 7;
+inline bool CMsgSteamLearnMatchStateV5_PlayerState::_internal_has_has_aegis() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearnMatchStateV5_PlayerState::has_has_aegis() const {
+  return _internal_has_has_aegis();
+}
+inline void CMsgSteamLearnMatchStateV5_PlayerState::clear_has_aegis() {
+  _impl_.has_aegis_ = false;
+  _impl_._has_bits_[0] &= ~0x00000040u;
+}
+inline bool CMsgSteamLearnMatchStateV5_PlayerState::_internal_has_aegis() const {
+  return _impl_.has_aegis_;
+}
+inline bool CMsgSteamLearnMatchStateV5_PlayerState::has_aegis() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchStateV5.PlayerState.has_aegis)
+  return _internal_has_aegis();
+}
+inline void CMsgSteamLearnMatchStateV5_PlayerState::_internal_set_has_aegis(bool value) {
+  _impl_._has_bits_[0] |= 0x00000040u;
+  _impl_.has_aegis_ = value;
+}
+inline void CMsgSteamLearnMatchStateV5_PlayerState::set_has_aegis(bool value) {
+  _internal_set_has_aegis(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchStateV5.PlayerState.has_aegis)
+}
+
+// optional bool has_rapier = 8;
+inline bool CMsgSteamLearnMatchStateV5_PlayerState::_internal_has_has_rapier() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearnMatchStateV5_PlayerState::has_has_rapier() const {
+  return _internal_has_has_rapier();
+}
+inline void CMsgSteamLearnMatchStateV5_PlayerState::clear_has_rapier() {
+  _impl_.has_rapier_ = false;
+  _impl_._has_bits_[0] &= ~0x00000080u;
+}
+inline bool CMsgSteamLearnMatchStateV5_PlayerState::_internal_has_rapier() const {
+  return _impl_.has_rapier_;
+}
+inline bool CMsgSteamLearnMatchStateV5_PlayerState::has_rapier() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchStateV5.PlayerState.has_rapier)
+  return _internal_has_rapier();
+}
+inline void CMsgSteamLearnMatchStateV5_PlayerState::_internal_set_has_rapier(bool value) {
+  _impl_._has_bits_[0] |= 0x00000080u;
+  _impl_.has_rapier_ = value;
+}
+inline void CMsgSteamLearnMatchStateV5_PlayerState::set_has_rapier(bool value) {
+  _internal_set_has_rapier(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchStateV5.PlayerState.has_rapier)
+}
+
+// optional uint32 distance = 9;
+inline bool CMsgSteamLearnMatchStateV5_PlayerState::_internal_has_distance() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000100u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearnMatchStateV5_PlayerState::has_distance() const {
+  return _internal_has_distance();
+}
+inline void CMsgSteamLearnMatchStateV5_PlayerState::clear_distance() {
+  _impl_.distance_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000100u;
+}
+inline uint32_t CMsgSteamLearnMatchStateV5_PlayerState::_internal_distance() const {
+  return _impl_.distance_;
+}
+inline uint32_t CMsgSteamLearnMatchStateV5_PlayerState::distance() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchStateV5.PlayerState.distance)
+  return _internal_distance();
+}
+inline void CMsgSteamLearnMatchStateV5_PlayerState::_internal_set_distance(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000100u;
+  _impl_.distance_ = value;
+}
+inline void CMsgSteamLearnMatchStateV5_PlayerState::set_distance(uint32_t value) {
+  _internal_set_distance(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchStateV5.PlayerState.distance)
+}
+
+// optional uint32 hero_facet = 10;
+inline bool CMsgSteamLearnMatchStateV5_PlayerState::_internal_has_hero_facet() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000200u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearnMatchStateV5_PlayerState::has_hero_facet() const {
+  return _internal_has_hero_facet();
+}
+inline void CMsgSteamLearnMatchStateV5_PlayerState::clear_hero_facet() {
+  _impl_.hero_facet_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000200u;
+}
+inline uint32_t CMsgSteamLearnMatchStateV5_PlayerState::_internal_hero_facet() const {
+  return _impl_.hero_facet_;
+}
+inline uint32_t CMsgSteamLearnMatchStateV5_PlayerState::hero_facet() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchStateV5.PlayerState.hero_facet)
+  return _internal_hero_facet();
+}
+inline void CMsgSteamLearnMatchStateV5_PlayerState::_internal_set_hero_facet(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000200u;
+  _impl_.hero_facet_ = value;
+}
+inline void CMsgSteamLearnMatchStateV5_PlayerState::set_hero_facet(uint32_t value) {
+  _internal_set_hero_facet(value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchStateV5.PlayerState.hero_facet)
+}
+
+// -------------------------------------------------------------------
+
+// CMsgSteamLearnMatchStateV5_TeamState
+
+// optional uint32 team = 1;
+inline bool CMsgSteamLearnMatchStateV5_TeamState::_internal_has_team() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgSteamLearnMatchStateV5_TeamState::has_team() const {
   return _internal_has_team();
 }
-inline void CMsgSteamLearnMatchState_TeamState::clear_team() {
+inline void CMsgSteamLearnMatchStateV5_TeamState::clear_team() {
   _impl_.team_ = 0u;
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint32_t CMsgSteamLearnMatchState_TeamState::_internal_team() const {
+inline uint32_t CMsgSteamLearnMatchStateV5_TeamState::_internal_team() const {
   return _impl_.team_;
 }
-inline uint32_t CMsgSteamLearnMatchState_TeamState::team() const {
-  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchState.TeamState.team)
+inline uint32_t CMsgSteamLearnMatchStateV5_TeamState::team() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchStateV5.TeamState.team)
   return _internal_team();
 }
-inline void CMsgSteamLearnMatchState_TeamState::_internal_set_team(uint32_t value) {
+inline void CMsgSteamLearnMatchStateV5_TeamState::_internal_set_team(uint32_t value) {
   _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.team_ = value;
 }
-inline void CMsgSteamLearnMatchState_TeamState::set_team(uint32_t value) {
+inline void CMsgSteamLearnMatchStateV5_TeamState::set_team(uint32_t value) {
   _internal_set_team(value);
-  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchState.TeamState.team)
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchStateV5.TeamState.team)
 }
 
-// repeated .CMsgSteamLearnMatchState.PlayerState player_states = 2 [(.steamlearn_count) = 5];
-inline int CMsgSteamLearnMatchState_TeamState::_internal_player_states_size() const {
+// repeated .CMsgSteamLearnMatchStateV5.PlayerState player_states = 2 [(.steamlearn_count) = 5];
+inline int CMsgSteamLearnMatchStateV5_TeamState::_internal_player_states_size() const {
   return _impl_.player_states_.size();
 }
-inline int CMsgSteamLearnMatchState_TeamState::player_states_size() const {
+inline int CMsgSteamLearnMatchStateV5_TeamState::player_states_size() const {
   return _internal_player_states_size();
 }
-inline void CMsgSteamLearnMatchState_TeamState::clear_player_states() {
+inline void CMsgSteamLearnMatchStateV5_TeamState::clear_player_states() {
   _impl_.player_states_.Clear();
 }
-inline ::CMsgSteamLearnMatchState_PlayerState* CMsgSteamLearnMatchState_TeamState::mutable_player_states(int index) {
-  // @@protoc_insertion_point(field_mutable:CMsgSteamLearnMatchState.TeamState.player_states)
+inline ::CMsgSteamLearnMatchStateV5_PlayerState* CMsgSteamLearnMatchStateV5_TeamState::mutable_player_states(int index) {
+  // @@protoc_insertion_point(field_mutable:CMsgSteamLearnMatchStateV5.TeamState.player_states)
   return _impl_.player_states_.Mutable(index);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearnMatchState_PlayerState >*
-CMsgSteamLearnMatchState_TeamState::mutable_player_states() {
-  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearnMatchState.TeamState.player_states)
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearnMatchStateV5_PlayerState >*
+CMsgSteamLearnMatchStateV5_TeamState::mutable_player_states() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearnMatchStateV5.TeamState.player_states)
   return &_impl_.player_states_;
 }
-inline const ::CMsgSteamLearnMatchState_PlayerState& CMsgSteamLearnMatchState_TeamState::_internal_player_states(int index) const {
+inline const ::CMsgSteamLearnMatchStateV5_PlayerState& CMsgSteamLearnMatchStateV5_TeamState::_internal_player_states(int index) const {
   return _impl_.player_states_.Get(index);
 }
-inline const ::CMsgSteamLearnMatchState_PlayerState& CMsgSteamLearnMatchState_TeamState::player_states(int index) const {
-  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchState.TeamState.player_states)
+inline const ::CMsgSteamLearnMatchStateV5_PlayerState& CMsgSteamLearnMatchStateV5_TeamState::player_states(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchStateV5.TeamState.player_states)
   return _internal_player_states(index);
 }
-inline ::CMsgSteamLearnMatchState_PlayerState* CMsgSteamLearnMatchState_TeamState::_internal_add_player_states() {
+inline ::CMsgSteamLearnMatchStateV5_PlayerState* CMsgSteamLearnMatchStateV5_TeamState::_internal_add_player_states() {
   return _impl_.player_states_.Add();
 }
-inline ::CMsgSteamLearnMatchState_PlayerState* CMsgSteamLearnMatchState_TeamState::add_player_states() {
-  ::CMsgSteamLearnMatchState_PlayerState* _add = _internal_add_player_states();
-  // @@protoc_insertion_point(field_add:CMsgSteamLearnMatchState.TeamState.player_states)
+inline ::CMsgSteamLearnMatchStateV5_PlayerState* CMsgSteamLearnMatchStateV5_TeamState::add_player_states() {
+  ::CMsgSteamLearnMatchStateV5_PlayerState* _add = _internal_add_player_states();
+  // @@protoc_insertion_point(field_add:CMsgSteamLearnMatchStateV5.TeamState.player_states)
   return _add;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearnMatchState_PlayerState >&
-CMsgSteamLearnMatchState_TeamState::player_states() const {
-  // @@protoc_insertion_point(field_list:CMsgSteamLearnMatchState.TeamState.player_states)
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSteamLearnMatchStateV5_PlayerState >&
+CMsgSteamLearnMatchStateV5_TeamState::player_states() const {
+  // @@protoc_insertion_point(field_list:CMsgSteamLearnMatchStateV5.TeamState.player_states)
   return _impl_.player_states_;
 }
 
 // repeated uint32 tower_health_pct = 3 [(.steamlearn_count) = 11];
-inline int CMsgSteamLearnMatchState_TeamState::_internal_tower_health_pct_size() const {
+inline int CMsgSteamLearnMatchStateV5_TeamState::_internal_tower_health_pct_size() const {
   return _impl_.tower_health_pct_.size();
 }
-inline int CMsgSteamLearnMatchState_TeamState::tower_health_pct_size() const {
+inline int CMsgSteamLearnMatchStateV5_TeamState::tower_health_pct_size() const {
   return _internal_tower_health_pct_size();
 }
-inline void CMsgSteamLearnMatchState_TeamState::clear_tower_health_pct() {
+inline void CMsgSteamLearnMatchStateV5_TeamState::clear_tower_health_pct() {
   _impl_.tower_health_pct_.Clear();
 }
-inline uint32_t CMsgSteamLearnMatchState_TeamState::_internal_tower_health_pct(int index) const {
+inline uint32_t CMsgSteamLearnMatchStateV5_TeamState::_internal_tower_health_pct(int index) const {
   return _impl_.tower_health_pct_.Get(index);
 }
-inline uint32_t CMsgSteamLearnMatchState_TeamState::tower_health_pct(int index) const {
-  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchState.TeamState.tower_health_pct)
+inline uint32_t CMsgSteamLearnMatchStateV5_TeamState::tower_health_pct(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchStateV5.TeamState.tower_health_pct)
   return _internal_tower_health_pct(index);
 }
-inline void CMsgSteamLearnMatchState_TeamState::set_tower_health_pct(int index, uint32_t value) {
+inline void CMsgSteamLearnMatchStateV5_TeamState::set_tower_health_pct(int index, uint32_t value) {
   _impl_.tower_health_pct_.Set(index, value);
-  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchState.TeamState.tower_health_pct)
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchStateV5.TeamState.tower_health_pct)
 }
-inline void CMsgSteamLearnMatchState_TeamState::_internal_add_tower_health_pct(uint32_t value) {
+inline void CMsgSteamLearnMatchStateV5_TeamState::_internal_add_tower_health_pct(uint32_t value) {
   _impl_.tower_health_pct_.Add(value);
 }
-inline void CMsgSteamLearnMatchState_TeamState::add_tower_health_pct(uint32_t value) {
+inline void CMsgSteamLearnMatchStateV5_TeamState::add_tower_health_pct(uint32_t value) {
   _internal_add_tower_health_pct(value);
-  // @@protoc_insertion_point(field_add:CMsgSteamLearnMatchState.TeamState.tower_health_pct)
+  // @@protoc_insertion_point(field_add:CMsgSteamLearnMatchStateV5.TeamState.tower_health_pct)
 }
 inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-CMsgSteamLearnMatchState_TeamState::_internal_tower_health_pct() const {
+CMsgSteamLearnMatchStateV5_TeamState::_internal_tower_health_pct() const {
   return _impl_.tower_health_pct_;
 }
 inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-CMsgSteamLearnMatchState_TeamState::tower_health_pct() const {
-  // @@protoc_insertion_point(field_list:CMsgSteamLearnMatchState.TeamState.tower_health_pct)
+CMsgSteamLearnMatchStateV5_TeamState::tower_health_pct() const {
+  // @@protoc_insertion_point(field_list:CMsgSteamLearnMatchStateV5.TeamState.tower_health_pct)
   return _internal_tower_health_pct();
 }
 inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-CMsgSteamLearnMatchState_TeamState::_internal_mutable_tower_health_pct() {
+CMsgSteamLearnMatchStateV5_TeamState::_internal_mutable_tower_health_pct() {
   return &_impl_.tower_health_pct_;
 }
 inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-CMsgSteamLearnMatchState_TeamState::mutable_tower_health_pct() {
-  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearnMatchState.TeamState.tower_health_pct)
+CMsgSteamLearnMatchStateV5_TeamState::mutable_tower_health_pct() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearnMatchStateV5.TeamState.tower_health_pct)
   return _internal_mutable_tower_health_pct();
 }
 
 // repeated uint32 barracks_health_pct = 4 [(.steamlearn_count) = 6];
-inline int CMsgSteamLearnMatchState_TeamState::_internal_barracks_health_pct_size() const {
+inline int CMsgSteamLearnMatchStateV5_TeamState::_internal_barracks_health_pct_size() const {
   return _impl_.barracks_health_pct_.size();
 }
-inline int CMsgSteamLearnMatchState_TeamState::barracks_health_pct_size() const {
+inline int CMsgSteamLearnMatchStateV5_TeamState::barracks_health_pct_size() const {
   return _internal_barracks_health_pct_size();
 }
-inline void CMsgSteamLearnMatchState_TeamState::clear_barracks_health_pct() {
+inline void CMsgSteamLearnMatchStateV5_TeamState::clear_barracks_health_pct() {
   _impl_.barracks_health_pct_.Clear();
 }
-inline uint32_t CMsgSteamLearnMatchState_TeamState::_internal_barracks_health_pct(int index) const {
+inline uint32_t CMsgSteamLearnMatchStateV5_TeamState::_internal_barracks_health_pct(int index) const {
   return _impl_.barracks_health_pct_.Get(index);
 }
-inline uint32_t CMsgSteamLearnMatchState_TeamState::barracks_health_pct(int index) const {
-  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchState.TeamState.barracks_health_pct)
+inline uint32_t CMsgSteamLearnMatchStateV5_TeamState::barracks_health_pct(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchStateV5.TeamState.barracks_health_pct)
   return _internal_barracks_health_pct(index);
 }
-inline void CMsgSteamLearnMatchState_TeamState::set_barracks_health_pct(int index, uint32_t value) {
+inline void CMsgSteamLearnMatchStateV5_TeamState::set_barracks_health_pct(int index, uint32_t value) {
   _impl_.barracks_health_pct_.Set(index, value);
-  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchState.TeamState.barracks_health_pct)
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchStateV5.TeamState.barracks_health_pct)
 }
-inline void CMsgSteamLearnMatchState_TeamState::_internal_add_barracks_health_pct(uint32_t value) {
+inline void CMsgSteamLearnMatchStateV5_TeamState::_internal_add_barracks_health_pct(uint32_t value) {
   _impl_.barracks_health_pct_.Add(value);
 }
-inline void CMsgSteamLearnMatchState_TeamState::add_barracks_health_pct(uint32_t value) {
+inline void CMsgSteamLearnMatchStateV5_TeamState::add_barracks_health_pct(uint32_t value) {
   _internal_add_barracks_health_pct(value);
-  // @@protoc_insertion_point(field_add:CMsgSteamLearnMatchState.TeamState.barracks_health_pct)
+  // @@protoc_insertion_point(field_add:CMsgSteamLearnMatchStateV5.TeamState.barracks_health_pct)
 }
 inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-CMsgSteamLearnMatchState_TeamState::_internal_barracks_health_pct() const {
+CMsgSteamLearnMatchStateV5_TeamState::_internal_barracks_health_pct() const {
   return _impl_.barracks_health_pct_;
 }
 inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-CMsgSteamLearnMatchState_TeamState::barracks_health_pct() const {
-  // @@protoc_insertion_point(field_list:CMsgSteamLearnMatchState.TeamState.barracks_health_pct)
+CMsgSteamLearnMatchStateV5_TeamState::barracks_health_pct() const {
+  // @@protoc_insertion_point(field_list:CMsgSteamLearnMatchStateV5.TeamState.barracks_health_pct)
   return _internal_barracks_health_pct();
 }
 inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-CMsgSteamLearnMatchState_TeamState::_internal_mutable_barracks_health_pct() {
+CMsgSteamLearnMatchStateV5_TeamState::_internal_mutable_barracks_health_pct() {
   return &_impl_.barracks_health_pct_;
 }
 inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-CMsgSteamLearnMatchState_TeamState::mutable_barracks_health_pct() {
-  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearnMatchState.TeamState.barracks_health_pct)
+CMsgSteamLearnMatchStateV5_TeamState::mutable_barracks_health_pct() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearnMatchStateV5.TeamState.barracks_health_pct)
   return _internal_mutable_barracks_health_pct();
 }
 
 // optional uint32 ancient_health_pct = 5;
-inline bool CMsgSteamLearnMatchState_TeamState::_internal_has_ancient_health_pct() const {
+inline bool CMsgSteamLearnMatchStateV5_TeamState::_internal_has_ancient_health_pct() const {
   bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
-inline bool CMsgSteamLearnMatchState_TeamState::has_ancient_health_pct() const {
+inline bool CMsgSteamLearnMatchStateV5_TeamState::has_ancient_health_pct() const {
   return _internal_has_ancient_health_pct();
 }
-inline void CMsgSteamLearnMatchState_TeamState::clear_ancient_health_pct() {
+inline void CMsgSteamLearnMatchStateV5_TeamState::clear_ancient_health_pct() {
   _impl_.ancient_health_pct_ = 0u;
   _impl_._has_bits_[0] &= ~0x00000002u;
 }
-inline uint32_t CMsgSteamLearnMatchState_TeamState::_internal_ancient_health_pct() const {
+inline uint32_t CMsgSteamLearnMatchStateV5_TeamState::_internal_ancient_health_pct() const {
   return _impl_.ancient_health_pct_;
 }
-inline uint32_t CMsgSteamLearnMatchState_TeamState::ancient_health_pct() const {
-  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchState.TeamState.ancient_health_pct)
+inline uint32_t CMsgSteamLearnMatchStateV5_TeamState::ancient_health_pct() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchStateV5.TeamState.ancient_health_pct)
   return _internal_ancient_health_pct();
 }
-inline void CMsgSteamLearnMatchState_TeamState::_internal_set_ancient_health_pct(uint32_t value) {
+inline void CMsgSteamLearnMatchStateV5_TeamState::_internal_set_ancient_health_pct(uint32_t value) {
   _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.ancient_health_pct_ = value;
 }
-inline void CMsgSteamLearnMatchState_TeamState::set_ancient_health_pct(uint32_t value) {
+inline void CMsgSteamLearnMatchStateV5_TeamState::set_ancient_health_pct(uint32_t value) {
   _internal_set_ancient_health_pct(value);
-  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchState.TeamState.ancient_health_pct)
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchStateV5.TeamState.ancient_health_pct)
 }
 
 // optional uint32 glyph_cooldown = 6;
-inline bool CMsgSteamLearnMatchState_TeamState::_internal_has_glyph_cooldown() const {
+inline bool CMsgSteamLearnMatchStateV5_TeamState::_internal_has_glyph_cooldown() const {
   bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
-inline bool CMsgSteamLearnMatchState_TeamState::has_glyph_cooldown() const {
+inline bool CMsgSteamLearnMatchStateV5_TeamState::has_glyph_cooldown() const {
   return _internal_has_glyph_cooldown();
 }
-inline void CMsgSteamLearnMatchState_TeamState::clear_glyph_cooldown() {
+inline void CMsgSteamLearnMatchStateV5_TeamState::clear_glyph_cooldown() {
   _impl_.glyph_cooldown_ = 0u;
   _impl_._has_bits_[0] &= ~0x00000004u;
 }
-inline uint32_t CMsgSteamLearnMatchState_TeamState::_internal_glyph_cooldown() const {
+inline uint32_t CMsgSteamLearnMatchStateV5_TeamState::_internal_glyph_cooldown() const {
   return _impl_.glyph_cooldown_;
 }
-inline uint32_t CMsgSteamLearnMatchState_TeamState::glyph_cooldown() const {
-  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchState.TeamState.glyph_cooldown)
+inline uint32_t CMsgSteamLearnMatchStateV5_TeamState::glyph_cooldown() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchStateV5.TeamState.glyph_cooldown)
   return _internal_glyph_cooldown();
 }
-inline void CMsgSteamLearnMatchState_TeamState::_internal_set_glyph_cooldown(uint32_t value) {
+inline void CMsgSteamLearnMatchStateV5_TeamState::_internal_set_glyph_cooldown(uint32_t value) {
   _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.glyph_cooldown_ = value;
 }
-inline void CMsgSteamLearnMatchState_TeamState::set_glyph_cooldown(uint32_t value) {
+inline void CMsgSteamLearnMatchStateV5_TeamState::set_glyph_cooldown(uint32_t value) {
   _internal_set_glyph_cooldown(value);
-  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchState.TeamState.glyph_cooldown)
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchStateV5.TeamState.glyph_cooldown)
 }
 
 // optional uint32 kills = 7;
-inline bool CMsgSteamLearnMatchState_TeamState::_internal_has_kills() const {
+inline bool CMsgSteamLearnMatchStateV5_TeamState::_internal_has_kills() const {
   bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
-inline bool CMsgSteamLearnMatchState_TeamState::has_kills() const {
+inline bool CMsgSteamLearnMatchStateV5_TeamState::has_kills() const {
   return _internal_has_kills();
 }
-inline void CMsgSteamLearnMatchState_TeamState::clear_kills() {
+inline void CMsgSteamLearnMatchStateV5_TeamState::clear_kills() {
   _impl_.kills_ = 0u;
   _impl_._has_bits_[0] &= ~0x00000008u;
 }
-inline uint32_t CMsgSteamLearnMatchState_TeamState::_internal_kills() const {
+inline uint32_t CMsgSteamLearnMatchStateV5_TeamState::_internal_kills() const {
   return _impl_.kills_;
 }
-inline uint32_t CMsgSteamLearnMatchState_TeamState::kills() const {
-  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchState.TeamState.kills)
+inline uint32_t CMsgSteamLearnMatchStateV5_TeamState::kills() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchStateV5.TeamState.kills)
   return _internal_kills();
 }
-inline void CMsgSteamLearnMatchState_TeamState::_internal_set_kills(uint32_t value) {
+inline void CMsgSteamLearnMatchStateV5_TeamState::_internal_set_kills(uint32_t value) {
   _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.kills_ = value;
 }
-inline void CMsgSteamLearnMatchState_TeamState::set_kills(uint32_t value) {
+inline void CMsgSteamLearnMatchStateV5_TeamState::set_kills(uint32_t value) {
   _internal_set_kills(value);
-  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchState.TeamState.kills)
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchStateV5.TeamState.kills)
 }
 
 // optional uint32 creep_distance_safe = 8;
-inline bool CMsgSteamLearnMatchState_TeamState::_internal_has_creep_distance_safe() const {
+inline bool CMsgSteamLearnMatchStateV5_TeamState::_internal_has_creep_distance_safe() const {
   bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
-inline bool CMsgSteamLearnMatchState_TeamState::has_creep_distance_safe() const {
+inline bool CMsgSteamLearnMatchStateV5_TeamState::has_creep_distance_safe() const {
   return _internal_has_creep_distance_safe();
 }
-inline void CMsgSteamLearnMatchState_TeamState::clear_creep_distance_safe() {
+inline void CMsgSteamLearnMatchStateV5_TeamState::clear_creep_distance_safe() {
   _impl_.creep_distance_safe_ = 0u;
   _impl_._has_bits_[0] &= ~0x00000010u;
 }
-inline uint32_t CMsgSteamLearnMatchState_TeamState::_internal_creep_distance_safe() const {
+inline uint32_t CMsgSteamLearnMatchStateV5_TeamState::_internal_creep_distance_safe() const {
   return _impl_.creep_distance_safe_;
 }
-inline uint32_t CMsgSteamLearnMatchState_TeamState::creep_distance_safe() const {
-  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchState.TeamState.creep_distance_safe)
+inline uint32_t CMsgSteamLearnMatchStateV5_TeamState::creep_distance_safe() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchStateV5.TeamState.creep_distance_safe)
   return _internal_creep_distance_safe();
 }
-inline void CMsgSteamLearnMatchState_TeamState::_internal_set_creep_distance_safe(uint32_t value) {
+inline void CMsgSteamLearnMatchStateV5_TeamState::_internal_set_creep_distance_safe(uint32_t value) {
   _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.creep_distance_safe_ = value;
 }
-inline void CMsgSteamLearnMatchState_TeamState::set_creep_distance_safe(uint32_t value) {
+inline void CMsgSteamLearnMatchStateV5_TeamState::set_creep_distance_safe(uint32_t value) {
   _internal_set_creep_distance_safe(value);
-  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchState.TeamState.creep_distance_safe)
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchStateV5.TeamState.creep_distance_safe)
 }
 
 // optional uint32 creep_distance_mid = 9;
-inline bool CMsgSteamLearnMatchState_TeamState::_internal_has_creep_distance_mid() const {
+inline bool CMsgSteamLearnMatchStateV5_TeamState::_internal_has_creep_distance_mid() const {
   bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
-inline bool CMsgSteamLearnMatchState_TeamState::has_creep_distance_mid() const {
+inline bool CMsgSteamLearnMatchStateV5_TeamState::has_creep_distance_mid() const {
   return _internal_has_creep_distance_mid();
 }
-inline void CMsgSteamLearnMatchState_TeamState::clear_creep_distance_mid() {
+inline void CMsgSteamLearnMatchStateV5_TeamState::clear_creep_distance_mid() {
   _impl_.creep_distance_mid_ = 0u;
   _impl_._has_bits_[0] &= ~0x00000020u;
 }
-inline uint32_t CMsgSteamLearnMatchState_TeamState::_internal_creep_distance_mid() const {
+inline uint32_t CMsgSteamLearnMatchStateV5_TeamState::_internal_creep_distance_mid() const {
   return _impl_.creep_distance_mid_;
 }
-inline uint32_t CMsgSteamLearnMatchState_TeamState::creep_distance_mid() const {
-  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchState.TeamState.creep_distance_mid)
+inline uint32_t CMsgSteamLearnMatchStateV5_TeamState::creep_distance_mid() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchStateV5.TeamState.creep_distance_mid)
   return _internal_creep_distance_mid();
 }
-inline void CMsgSteamLearnMatchState_TeamState::_internal_set_creep_distance_mid(uint32_t value) {
+inline void CMsgSteamLearnMatchStateV5_TeamState::_internal_set_creep_distance_mid(uint32_t value) {
   _impl_._has_bits_[0] |= 0x00000020u;
   _impl_.creep_distance_mid_ = value;
 }
-inline void CMsgSteamLearnMatchState_TeamState::set_creep_distance_mid(uint32_t value) {
+inline void CMsgSteamLearnMatchStateV5_TeamState::set_creep_distance_mid(uint32_t value) {
   _internal_set_creep_distance_mid(value);
-  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchState.TeamState.creep_distance_mid)
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchStateV5.TeamState.creep_distance_mid)
 }
 
 // optional uint32 creep_distance_off = 10;
-inline bool CMsgSteamLearnMatchState_TeamState::_internal_has_creep_distance_off() const {
+inline bool CMsgSteamLearnMatchStateV5_TeamState::_internal_has_creep_distance_off() const {
   bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
   return value;
 }
-inline bool CMsgSteamLearnMatchState_TeamState::has_creep_distance_off() const {
+inline bool CMsgSteamLearnMatchStateV5_TeamState::has_creep_distance_off() const {
   return _internal_has_creep_distance_off();
 }
-inline void CMsgSteamLearnMatchState_TeamState::clear_creep_distance_off() {
+inline void CMsgSteamLearnMatchStateV5_TeamState::clear_creep_distance_off() {
   _impl_.creep_distance_off_ = 0u;
   _impl_._has_bits_[0] &= ~0x00000040u;
 }
-inline uint32_t CMsgSteamLearnMatchState_TeamState::_internal_creep_distance_off() const {
+inline uint32_t CMsgSteamLearnMatchStateV5_TeamState::_internal_creep_distance_off() const {
   return _impl_.creep_distance_off_;
 }
-inline uint32_t CMsgSteamLearnMatchState_TeamState::creep_distance_off() const {
-  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchState.TeamState.creep_distance_off)
+inline uint32_t CMsgSteamLearnMatchStateV5_TeamState::creep_distance_off() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchStateV5.TeamState.creep_distance_off)
   return _internal_creep_distance_off();
 }
-inline void CMsgSteamLearnMatchState_TeamState::_internal_set_creep_distance_off(uint32_t value) {
+inline void CMsgSteamLearnMatchStateV5_TeamState::_internal_set_creep_distance_off(uint32_t value) {
   _impl_._has_bits_[0] |= 0x00000040u;
   _impl_.creep_distance_off_ = value;
 }
-inline void CMsgSteamLearnMatchState_TeamState::set_creep_distance_off(uint32_t value) {
+inline void CMsgSteamLearnMatchStateV5_TeamState::set_creep_distance_off(uint32_t value) {
   _internal_set_creep_distance_off(value);
-  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchState.TeamState.creep_distance_off)
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchStateV5.TeamState.creep_distance_off)
 }
 
 // -------------------------------------------------------------------
 
-// CMsgSteamLearnMatchState
+// CMsgSteamLearnMatchStateV5
 
 // optional float game_time = 1;
-inline bool CMsgSteamLearnMatchState::_internal_has_game_time() const {
+inline bool CMsgSteamLearnMatchStateV5::_internal_has_game_time() const {
   bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
-inline bool CMsgSteamLearnMatchState::has_game_time() const {
+inline bool CMsgSteamLearnMatchStateV5::has_game_time() const {
   return _internal_has_game_time();
 }
-inline void CMsgSteamLearnMatchState::clear_game_time() {
+inline void CMsgSteamLearnMatchStateV5::clear_game_time() {
   _impl_.game_time_ = 0;
   _impl_._has_bits_[0] &= ~0x00000004u;
 }
-inline float CMsgSteamLearnMatchState::_internal_game_time() const {
+inline float CMsgSteamLearnMatchStateV5::_internal_game_time() const {
   return _impl_.game_time_;
 }
-inline float CMsgSteamLearnMatchState::game_time() const {
-  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchState.game_time)
+inline float CMsgSteamLearnMatchStateV5::game_time() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchStateV5.game_time)
   return _internal_game_time();
 }
-inline void CMsgSteamLearnMatchState::_internal_set_game_time(float value) {
+inline void CMsgSteamLearnMatchStateV5::_internal_set_game_time(float value) {
   _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.game_time_ = value;
 }
-inline void CMsgSteamLearnMatchState::set_game_time(float value) {
+inline void CMsgSteamLearnMatchStateV5::set_game_time(float value) {
   _internal_set_game_time(value);
-  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchState.game_time)
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnMatchStateV5.game_time)
 }
 
-// optional .CMsgSteamLearnMatchState.TeamState radiant_state = 2;
-inline bool CMsgSteamLearnMatchState::_internal_has_radiant_state() const {
+// optional .CMsgSteamLearnMatchStateV5.TeamState radiant_state = 2;
+inline bool CMsgSteamLearnMatchStateV5::_internal_has_radiant_state() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.radiant_state_ != nullptr);
   return value;
 }
-inline bool CMsgSteamLearnMatchState::has_radiant_state() const {
+inline bool CMsgSteamLearnMatchStateV5::has_radiant_state() const {
   return _internal_has_radiant_state();
 }
-inline void CMsgSteamLearnMatchState::clear_radiant_state() {
+inline void CMsgSteamLearnMatchStateV5::clear_radiant_state() {
   if (_impl_.radiant_state_ != nullptr) _impl_.radiant_state_->Clear();
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline const ::CMsgSteamLearnMatchState_TeamState& CMsgSteamLearnMatchState::_internal_radiant_state() const {
-  const ::CMsgSteamLearnMatchState_TeamState* p = _impl_.radiant_state_;
-  return p != nullptr ? *p : reinterpret_cast<const ::CMsgSteamLearnMatchState_TeamState&>(
-      ::_CMsgSteamLearnMatchState_TeamState_default_instance_);
+inline const ::CMsgSteamLearnMatchStateV5_TeamState& CMsgSteamLearnMatchStateV5::_internal_radiant_state() const {
+  const ::CMsgSteamLearnMatchStateV5_TeamState* p = _impl_.radiant_state_;
+  return p != nullptr ? *p : reinterpret_cast<const ::CMsgSteamLearnMatchStateV5_TeamState&>(
+      ::_CMsgSteamLearnMatchStateV5_TeamState_default_instance_);
 }
-inline const ::CMsgSteamLearnMatchState_TeamState& CMsgSteamLearnMatchState::radiant_state() const {
-  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchState.radiant_state)
+inline const ::CMsgSteamLearnMatchStateV5_TeamState& CMsgSteamLearnMatchStateV5::radiant_state() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchStateV5.radiant_state)
   return _internal_radiant_state();
 }
-inline void CMsgSteamLearnMatchState::unsafe_arena_set_allocated_radiant_state(
-    ::CMsgSteamLearnMatchState_TeamState* radiant_state) {
+inline void CMsgSteamLearnMatchStateV5::unsafe_arena_set_allocated_radiant_state(
+    ::CMsgSteamLearnMatchStateV5_TeamState* radiant_state) {
   if (GetArenaForAllocation() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.radiant_state_);
   }
@@ -70279,11 +71349,11 @@ inline void CMsgSteamLearnMatchState::unsafe_arena_set_allocated_radiant_state(
   } else {
     _impl_._has_bits_[0] &= ~0x00000001u;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CMsgSteamLearnMatchState.radiant_state)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CMsgSteamLearnMatchStateV5.radiant_state)
 }
-inline ::CMsgSteamLearnMatchState_TeamState* CMsgSteamLearnMatchState::release_radiant_state() {
+inline ::CMsgSteamLearnMatchStateV5_TeamState* CMsgSteamLearnMatchStateV5::release_radiant_state() {
   _impl_._has_bits_[0] &= ~0x00000001u;
-  ::CMsgSteamLearnMatchState_TeamState* temp = _impl_.radiant_state_;
+  ::CMsgSteamLearnMatchStateV5_TeamState* temp = _impl_.radiant_state_;
   _impl_.radiant_state_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
   auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
@@ -70296,27 +71366,27 @@ inline ::CMsgSteamLearnMatchState_TeamState* CMsgSteamLearnMatchState::release_r
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::CMsgSteamLearnMatchState_TeamState* CMsgSteamLearnMatchState::unsafe_arena_release_radiant_state() {
-  // @@protoc_insertion_point(field_release:CMsgSteamLearnMatchState.radiant_state)
+inline ::CMsgSteamLearnMatchStateV5_TeamState* CMsgSteamLearnMatchStateV5::unsafe_arena_release_radiant_state() {
+  // @@protoc_insertion_point(field_release:CMsgSteamLearnMatchStateV5.radiant_state)
   _impl_._has_bits_[0] &= ~0x00000001u;
-  ::CMsgSteamLearnMatchState_TeamState* temp = _impl_.radiant_state_;
+  ::CMsgSteamLearnMatchStateV5_TeamState* temp = _impl_.radiant_state_;
   _impl_.radiant_state_ = nullptr;
   return temp;
 }
-inline ::CMsgSteamLearnMatchState_TeamState* CMsgSteamLearnMatchState::_internal_mutable_radiant_state() {
+inline ::CMsgSteamLearnMatchStateV5_TeamState* CMsgSteamLearnMatchStateV5::_internal_mutable_radiant_state() {
   _impl_._has_bits_[0] |= 0x00000001u;
   if (_impl_.radiant_state_ == nullptr) {
-    auto* p = CreateMaybeMessage<::CMsgSteamLearnMatchState_TeamState>(GetArenaForAllocation());
+    auto* p = CreateMaybeMessage<::CMsgSteamLearnMatchStateV5_TeamState>(GetArenaForAllocation());
     _impl_.radiant_state_ = p;
   }
   return _impl_.radiant_state_;
 }
-inline ::CMsgSteamLearnMatchState_TeamState* CMsgSteamLearnMatchState::mutable_radiant_state() {
-  ::CMsgSteamLearnMatchState_TeamState* _msg = _internal_mutable_radiant_state();
-  // @@protoc_insertion_point(field_mutable:CMsgSteamLearnMatchState.radiant_state)
+inline ::CMsgSteamLearnMatchStateV5_TeamState* CMsgSteamLearnMatchStateV5::mutable_radiant_state() {
+  ::CMsgSteamLearnMatchStateV5_TeamState* _msg = _internal_mutable_radiant_state();
+  // @@protoc_insertion_point(field_mutable:CMsgSteamLearnMatchStateV5.radiant_state)
   return _msg;
 }
-inline void CMsgSteamLearnMatchState::set_allocated_radiant_state(::CMsgSteamLearnMatchState_TeamState* radiant_state) {
+inline void CMsgSteamLearnMatchStateV5::set_allocated_radiant_state(::CMsgSteamLearnMatchStateV5_TeamState* radiant_state) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete _impl_.radiant_state_;
@@ -70333,33 +71403,33 @@ inline void CMsgSteamLearnMatchState::set_allocated_radiant_state(::CMsgSteamLea
     _impl_._has_bits_[0] &= ~0x00000001u;
   }
   _impl_.radiant_state_ = radiant_state;
-  // @@protoc_insertion_point(field_set_allocated:CMsgSteamLearnMatchState.radiant_state)
+  // @@protoc_insertion_point(field_set_allocated:CMsgSteamLearnMatchStateV5.radiant_state)
 }
 
-// optional .CMsgSteamLearnMatchState.TeamState dire_state = 3;
-inline bool CMsgSteamLearnMatchState::_internal_has_dire_state() const {
+// optional .CMsgSteamLearnMatchStateV5.TeamState dire_state = 3;
+inline bool CMsgSteamLearnMatchStateV5::_internal_has_dire_state() const {
   bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.dire_state_ != nullptr);
   return value;
 }
-inline bool CMsgSteamLearnMatchState::has_dire_state() const {
+inline bool CMsgSteamLearnMatchStateV5::has_dire_state() const {
   return _internal_has_dire_state();
 }
-inline void CMsgSteamLearnMatchState::clear_dire_state() {
+inline void CMsgSteamLearnMatchStateV5::clear_dire_state() {
   if (_impl_.dire_state_ != nullptr) _impl_.dire_state_->Clear();
   _impl_._has_bits_[0] &= ~0x00000002u;
 }
-inline const ::CMsgSteamLearnMatchState_TeamState& CMsgSteamLearnMatchState::_internal_dire_state() const {
-  const ::CMsgSteamLearnMatchState_TeamState* p = _impl_.dire_state_;
-  return p != nullptr ? *p : reinterpret_cast<const ::CMsgSteamLearnMatchState_TeamState&>(
-      ::_CMsgSteamLearnMatchState_TeamState_default_instance_);
+inline const ::CMsgSteamLearnMatchStateV5_TeamState& CMsgSteamLearnMatchStateV5::_internal_dire_state() const {
+  const ::CMsgSteamLearnMatchStateV5_TeamState* p = _impl_.dire_state_;
+  return p != nullptr ? *p : reinterpret_cast<const ::CMsgSteamLearnMatchStateV5_TeamState&>(
+      ::_CMsgSteamLearnMatchStateV5_TeamState_default_instance_);
 }
-inline const ::CMsgSteamLearnMatchState_TeamState& CMsgSteamLearnMatchState::dire_state() const {
-  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchState.dire_state)
+inline const ::CMsgSteamLearnMatchStateV5_TeamState& CMsgSteamLearnMatchStateV5::dire_state() const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnMatchStateV5.dire_state)
   return _internal_dire_state();
 }
-inline void CMsgSteamLearnMatchState::unsafe_arena_set_allocated_dire_state(
-    ::CMsgSteamLearnMatchState_TeamState* dire_state) {
+inline void CMsgSteamLearnMatchStateV5::unsafe_arena_set_allocated_dire_state(
+    ::CMsgSteamLearnMatchStateV5_TeamState* dire_state) {
   if (GetArenaForAllocation() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.dire_state_);
   }
@@ -70369,11 +71439,11 @@ inline void CMsgSteamLearnMatchState::unsafe_arena_set_allocated_dire_state(
   } else {
     _impl_._has_bits_[0] &= ~0x00000002u;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CMsgSteamLearnMatchState.dire_state)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CMsgSteamLearnMatchStateV5.dire_state)
 }
-inline ::CMsgSteamLearnMatchState_TeamState* CMsgSteamLearnMatchState::release_dire_state() {
+inline ::CMsgSteamLearnMatchStateV5_TeamState* CMsgSteamLearnMatchStateV5::release_dire_state() {
   _impl_._has_bits_[0] &= ~0x00000002u;
-  ::CMsgSteamLearnMatchState_TeamState* temp = _impl_.dire_state_;
+  ::CMsgSteamLearnMatchStateV5_TeamState* temp = _impl_.dire_state_;
   _impl_.dire_state_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
   auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
@@ -70386,27 +71456,27 @@ inline ::CMsgSteamLearnMatchState_TeamState* CMsgSteamLearnMatchState::release_d
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::CMsgSteamLearnMatchState_TeamState* CMsgSteamLearnMatchState::unsafe_arena_release_dire_state() {
-  // @@protoc_insertion_point(field_release:CMsgSteamLearnMatchState.dire_state)
+inline ::CMsgSteamLearnMatchStateV5_TeamState* CMsgSteamLearnMatchStateV5::unsafe_arena_release_dire_state() {
+  // @@protoc_insertion_point(field_release:CMsgSteamLearnMatchStateV5.dire_state)
   _impl_._has_bits_[0] &= ~0x00000002u;
-  ::CMsgSteamLearnMatchState_TeamState* temp = _impl_.dire_state_;
+  ::CMsgSteamLearnMatchStateV5_TeamState* temp = _impl_.dire_state_;
   _impl_.dire_state_ = nullptr;
   return temp;
 }
-inline ::CMsgSteamLearnMatchState_TeamState* CMsgSteamLearnMatchState::_internal_mutable_dire_state() {
+inline ::CMsgSteamLearnMatchStateV5_TeamState* CMsgSteamLearnMatchStateV5::_internal_mutable_dire_state() {
   _impl_._has_bits_[0] |= 0x00000002u;
   if (_impl_.dire_state_ == nullptr) {
-    auto* p = CreateMaybeMessage<::CMsgSteamLearnMatchState_TeamState>(GetArenaForAllocation());
+    auto* p = CreateMaybeMessage<::CMsgSteamLearnMatchStateV5_TeamState>(GetArenaForAllocation());
     _impl_.dire_state_ = p;
   }
   return _impl_.dire_state_;
 }
-inline ::CMsgSteamLearnMatchState_TeamState* CMsgSteamLearnMatchState::mutable_dire_state() {
-  ::CMsgSteamLearnMatchState_TeamState* _msg = _internal_mutable_dire_state();
-  // @@protoc_insertion_point(field_mutable:CMsgSteamLearnMatchState.dire_state)
+inline ::CMsgSteamLearnMatchStateV5_TeamState* CMsgSteamLearnMatchStateV5::mutable_dire_state() {
+  ::CMsgSteamLearnMatchStateV5_TeamState* _msg = _internal_mutable_dire_state();
+  // @@protoc_insertion_point(field_mutable:CMsgSteamLearnMatchStateV5.dire_state)
   return _msg;
 }
-inline void CMsgSteamLearnMatchState::set_allocated_dire_state(::CMsgSteamLearnMatchState_TeamState* dire_state) {
+inline void CMsgSteamLearnMatchStateV5::set_allocated_dire_state(::CMsgSteamLearnMatchStateV5_TeamState* dire_state) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete _impl_.dire_state_;
@@ -70423,7 +71493,7 @@ inline void CMsgSteamLearnMatchState::set_allocated_dire_state(::CMsgSteamLearnM
     _impl_._has_bits_[0] &= ~0x00000002u;
   }
   _impl_.dire_state_ = dire_state;
-  // @@protoc_insertion_point(field_set_allocated:CMsgSteamLearnMatchState.dire_state)
+  // @@protoc_insertion_point(field_set_allocated:CMsgSteamLearnMatchStateV5.dire_state)
 }
 
 // -------------------------------------------------------------------
@@ -71052,6 +72122,304 @@ inline void CMsgSteamLearnAbilitySkill::set_is_using_dota_plus(bool value) {
 
 // -------------------------------------------------------------------
 
+// CMsgSteamLearnEarlyGameItemPurchases
+
+// repeated int32 item_ids = 1 [(.steamlearn_count) = 10];
+inline int CMsgSteamLearnEarlyGameItemPurchases::_internal_item_ids_size() const {
+  return _impl_.item_ids_.size();
+}
+inline int CMsgSteamLearnEarlyGameItemPurchases::item_ids_size() const {
+  return _internal_item_ids_size();
+}
+inline void CMsgSteamLearnEarlyGameItemPurchases::clear_item_ids() {
+  _impl_.item_ids_.Clear();
+}
+inline int32_t CMsgSteamLearnEarlyGameItemPurchases::_internal_item_ids(int index) const {
+  return _impl_.item_ids_.Get(index);
+}
+inline int32_t CMsgSteamLearnEarlyGameItemPurchases::item_ids(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnEarlyGameItemPurchases.item_ids)
+  return _internal_item_ids(index);
+}
+inline void CMsgSteamLearnEarlyGameItemPurchases::set_item_ids(int index, int32_t value) {
+  _impl_.item_ids_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnEarlyGameItemPurchases.item_ids)
+}
+inline void CMsgSteamLearnEarlyGameItemPurchases::_internal_add_item_ids(int32_t value) {
+  _impl_.item_ids_.Add(value);
+}
+inline void CMsgSteamLearnEarlyGameItemPurchases::add_item_ids(int32_t value) {
+  _internal_add_item_ids(value);
+  // @@protoc_insertion_point(field_add:CMsgSteamLearnEarlyGameItemPurchases.item_ids)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+CMsgSteamLearnEarlyGameItemPurchases::_internal_item_ids() const {
+  return _impl_.item_ids_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+CMsgSteamLearnEarlyGameItemPurchases::item_ids() const {
+  // @@protoc_insertion_point(field_list:CMsgSteamLearnEarlyGameItemPurchases.item_ids)
+  return _internal_item_ids();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+CMsgSteamLearnEarlyGameItemPurchases::_internal_mutable_item_ids() {
+  return &_impl_.item_ids_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+CMsgSteamLearnEarlyGameItemPurchases::mutable_item_ids() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearnEarlyGameItemPurchases.item_ids)
+  return _internal_mutable_item_ids();
+}
+
+// -------------------------------------------------------------------
+
+// CMsgSteamLearnEarlyGameItemPurchasesV2
+
+// repeated int32 item_ids = 1 [(.steamlearn_count) = 10];
+inline int CMsgSteamLearnEarlyGameItemPurchasesV2::_internal_item_ids_size() const {
+  return _impl_.item_ids_.size();
+}
+inline int CMsgSteamLearnEarlyGameItemPurchasesV2::item_ids_size() const {
+  return _internal_item_ids_size();
+}
+inline void CMsgSteamLearnEarlyGameItemPurchasesV2::clear_item_ids() {
+  _impl_.item_ids_.Clear();
+}
+inline int32_t CMsgSteamLearnEarlyGameItemPurchasesV2::_internal_item_ids(int index) const {
+  return _impl_.item_ids_.Get(index);
+}
+inline int32_t CMsgSteamLearnEarlyGameItemPurchasesV2::item_ids(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnEarlyGameItemPurchasesV2.item_ids)
+  return _internal_item_ids(index);
+}
+inline void CMsgSteamLearnEarlyGameItemPurchasesV2::set_item_ids(int index, int32_t value) {
+  _impl_.item_ids_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnEarlyGameItemPurchasesV2.item_ids)
+}
+inline void CMsgSteamLearnEarlyGameItemPurchasesV2::_internal_add_item_ids(int32_t value) {
+  _impl_.item_ids_.Add(value);
+}
+inline void CMsgSteamLearnEarlyGameItemPurchasesV2::add_item_ids(int32_t value) {
+  _internal_add_item_ids(value);
+  // @@protoc_insertion_point(field_add:CMsgSteamLearnEarlyGameItemPurchasesV2.item_ids)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+CMsgSteamLearnEarlyGameItemPurchasesV2::_internal_item_ids() const {
+  return _impl_.item_ids_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+CMsgSteamLearnEarlyGameItemPurchasesV2::item_ids() const {
+  // @@protoc_insertion_point(field_list:CMsgSteamLearnEarlyGameItemPurchasesV2.item_ids)
+  return _internal_item_ids();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+CMsgSteamLearnEarlyGameItemPurchasesV2::_internal_mutable_item_ids() {
+  return &_impl_.item_ids_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+CMsgSteamLearnEarlyGameItemPurchasesV2::mutable_item_ids() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearnEarlyGameItemPurchasesV2.item_ids)
+  return _internal_mutable_item_ids();
+}
+
+// repeated int32 other_item_ids = 2 [(.steamlearn_count) = 30];
+inline int CMsgSteamLearnEarlyGameItemPurchasesV2::_internal_other_item_ids_size() const {
+  return _impl_.other_item_ids_.size();
+}
+inline int CMsgSteamLearnEarlyGameItemPurchasesV2::other_item_ids_size() const {
+  return _internal_other_item_ids_size();
+}
+inline void CMsgSteamLearnEarlyGameItemPurchasesV2::clear_other_item_ids() {
+  _impl_.other_item_ids_.Clear();
+}
+inline int32_t CMsgSteamLearnEarlyGameItemPurchasesV2::_internal_other_item_ids(int index) const {
+  return _impl_.other_item_ids_.Get(index);
+}
+inline int32_t CMsgSteamLearnEarlyGameItemPurchasesV2::other_item_ids(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnEarlyGameItemPurchasesV2.other_item_ids)
+  return _internal_other_item_ids(index);
+}
+inline void CMsgSteamLearnEarlyGameItemPurchasesV2::set_other_item_ids(int index, int32_t value) {
+  _impl_.other_item_ids_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnEarlyGameItemPurchasesV2.other_item_ids)
+}
+inline void CMsgSteamLearnEarlyGameItemPurchasesV2::_internal_add_other_item_ids(int32_t value) {
+  _impl_.other_item_ids_.Add(value);
+}
+inline void CMsgSteamLearnEarlyGameItemPurchasesV2::add_other_item_ids(int32_t value) {
+  _internal_add_other_item_ids(value);
+  // @@protoc_insertion_point(field_add:CMsgSteamLearnEarlyGameItemPurchasesV2.other_item_ids)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+CMsgSteamLearnEarlyGameItemPurchasesV2::_internal_other_item_ids() const {
+  return _impl_.other_item_ids_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+CMsgSteamLearnEarlyGameItemPurchasesV2::other_item_ids() const {
+  // @@protoc_insertion_point(field_list:CMsgSteamLearnEarlyGameItemPurchasesV2.other_item_ids)
+  return _internal_other_item_ids();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+CMsgSteamLearnEarlyGameItemPurchasesV2::_internal_mutable_other_item_ids() {
+  return &_impl_.other_item_ids_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+CMsgSteamLearnEarlyGameItemPurchasesV2::mutable_other_item_ids() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearnEarlyGameItemPurchasesV2.other_item_ids)
+  return _internal_mutable_other_item_ids();
+}
+
+// -------------------------------------------------------------------
+
+// CMsgSteamLearnLateGameItemPurchases
+
+// repeated int32 item_ids = 1 [(.steamlearn_count) = 10];
+inline int CMsgSteamLearnLateGameItemPurchases::_internal_item_ids_size() const {
+  return _impl_.item_ids_.size();
+}
+inline int CMsgSteamLearnLateGameItemPurchases::item_ids_size() const {
+  return _internal_item_ids_size();
+}
+inline void CMsgSteamLearnLateGameItemPurchases::clear_item_ids() {
+  _impl_.item_ids_.Clear();
+}
+inline int32_t CMsgSteamLearnLateGameItemPurchases::_internal_item_ids(int index) const {
+  return _impl_.item_ids_.Get(index);
+}
+inline int32_t CMsgSteamLearnLateGameItemPurchases::item_ids(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnLateGameItemPurchases.item_ids)
+  return _internal_item_ids(index);
+}
+inline void CMsgSteamLearnLateGameItemPurchases::set_item_ids(int index, int32_t value) {
+  _impl_.item_ids_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnLateGameItemPurchases.item_ids)
+}
+inline void CMsgSteamLearnLateGameItemPurchases::_internal_add_item_ids(int32_t value) {
+  _impl_.item_ids_.Add(value);
+}
+inline void CMsgSteamLearnLateGameItemPurchases::add_item_ids(int32_t value) {
+  _internal_add_item_ids(value);
+  // @@protoc_insertion_point(field_add:CMsgSteamLearnLateGameItemPurchases.item_ids)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+CMsgSteamLearnLateGameItemPurchases::_internal_item_ids() const {
+  return _impl_.item_ids_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+CMsgSteamLearnLateGameItemPurchases::item_ids() const {
+  // @@protoc_insertion_point(field_list:CMsgSteamLearnLateGameItemPurchases.item_ids)
+  return _internal_item_ids();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+CMsgSteamLearnLateGameItemPurchases::_internal_mutable_item_ids() {
+  return &_impl_.item_ids_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+CMsgSteamLearnLateGameItemPurchases::mutable_item_ids() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearnLateGameItemPurchases.item_ids)
+  return _internal_mutable_item_ids();
+}
+
+// -------------------------------------------------------------------
+
+// CMsgSteamLearnLateGameItemPurchasesV2
+
+// repeated int32 item_ids = 1 [(.steamlearn_count) = 10];
+inline int CMsgSteamLearnLateGameItemPurchasesV2::_internal_item_ids_size() const {
+  return _impl_.item_ids_.size();
+}
+inline int CMsgSteamLearnLateGameItemPurchasesV2::item_ids_size() const {
+  return _internal_item_ids_size();
+}
+inline void CMsgSteamLearnLateGameItemPurchasesV2::clear_item_ids() {
+  _impl_.item_ids_.Clear();
+}
+inline int32_t CMsgSteamLearnLateGameItemPurchasesV2::_internal_item_ids(int index) const {
+  return _impl_.item_ids_.Get(index);
+}
+inline int32_t CMsgSteamLearnLateGameItemPurchasesV2::item_ids(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnLateGameItemPurchasesV2.item_ids)
+  return _internal_item_ids(index);
+}
+inline void CMsgSteamLearnLateGameItemPurchasesV2::set_item_ids(int index, int32_t value) {
+  _impl_.item_ids_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnLateGameItemPurchasesV2.item_ids)
+}
+inline void CMsgSteamLearnLateGameItemPurchasesV2::_internal_add_item_ids(int32_t value) {
+  _impl_.item_ids_.Add(value);
+}
+inline void CMsgSteamLearnLateGameItemPurchasesV2::add_item_ids(int32_t value) {
+  _internal_add_item_ids(value);
+  // @@protoc_insertion_point(field_add:CMsgSteamLearnLateGameItemPurchasesV2.item_ids)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+CMsgSteamLearnLateGameItemPurchasesV2::_internal_item_ids() const {
+  return _impl_.item_ids_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+CMsgSteamLearnLateGameItemPurchasesV2::item_ids() const {
+  // @@protoc_insertion_point(field_list:CMsgSteamLearnLateGameItemPurchasesV2.item_ids)
+  return _internal_item_ids();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+CMsgSteamLearnLateGameItemPurchasesV2::_internal_mutable_item_ids() {
+  return &_impl_.item_ids_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+CMsgSteamLearnLateGameItemPurchasesV2::mutable_item_ids() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearnLateGameItemPurchasesV2.item_ids)
+  return _internal_mutable_item_ids();
+}
+
+// repeated int32 other_item_ids = 2 [(.steamlearn_count) = 30];
+inline int CMsgSteamLearnLateGameItemPurchasesV2::_internal_other_item_ids_size() const {
+  return _impl_.other_item_ids_.size();
+}
+inline int CMsgSteamLearnLateGameItemPurchasesV2::other_item_ids_size() const {
+  return _internal_other_item_ids_size();
+}
+inline void CMsgSteamLearnLateGameItemPurchasesV2::clear_other_item_ids() {
+  _impl_.other_item_ids_.Clear();
+}
+inline int32_t CMsgSteamLearnLateGameItemPurchasesV2::_internal_other_item_ids(int index) const {
+  return _impl_.other_item_ids_.Get(index);
+}
+inline int32_t CMsgSteamLearnLateGameItemPurchasesV2::other_item_ids(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnLateGameItemPurchasesV2.other_item_ids)
+  return _internal_other_item_ids(index);
+}
+inline void CMsgSteamLearnLateGameItemPurchasesV2::set_other_item_ids(int index, int32_t value) {
+  _impl_.other_item_ids_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnLateGameItemPurchasesV2.other_item_ids)
+}
+inline void CMsgSteamLearnLateGameItemPurchasesV2::_internal_add_other_item_ids(int32_t value) {
+  _impl_.other_item_ids_.Add(value);
+}
+inline void CMsgSteamLearnLateGameItemPurchasesV2::add_other_item_ids(int32_t value) {
+  _internal_add_other_item_ids(value);
+  // @@protoc_insertion_point(field_add:CMsgSteamLearnLateGameItemPurchasesV2.other_item_ids)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+CMsgSteamLearnLateGameItemPurchasesV2::_internal_other_item_ids() const {
+  return _impl_.other_item_ids_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+CMsgSteamLearnLateGameItemPurchasesV2::other_item_ids() const {
+  // @@protoc_insertion_point(field_list:CMsgSteamLearnLateGameItemPurchasesV2.other_item_ids)
+  return _internal_other_item_ids();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+CMsgSteamLearnLateGameItemPurchasesV2::_internal_mutable_other_item_ids() {
+  return &_impl_.other_item_ids_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+CMsgSteamLearnLateGameItemPurchasesV2::mutable_other_item_ids() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearnLateGameItemPurchasesV2.other_item_ids)
+  return _internal_mutable_other_item_ids();
+}
+
+// -------------------------------------------------------------------
+
 // CMsgSteamLearnWardPlacement_Location
 
 // optional float x = 1;
@@ -71594,9 +72962,382 @@ inline void CMsgSignOutMapStats::set_allocated_global_stats(::CMsgMapStatsSnapsh
   // @@protoc_insertion_point(field_set_allocated:CMsgSignOutMapStats.global_stats)
 }
 
+// -------------------------------------------------------------------
+
+// CMsgServerToGCNewBloomGift
+
+// optional uint32 defindex = 1;
+inline bool CMsgServerToGCNewBloomGift::_internal_has_defindex() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgServerToGCNewBloomGift::has_defindex() const {
+  return _internal_has_defindex();
+}
+inline void CMsgServerToGCNewBloomGift::clear_defindex() {
+  _impl_.defindex_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline uint32_t CMsgServerToGCNewBloomGift::_internal_defindex() const {
+  return _impl_.defindex_;
+}
+inline uint32_t CMsgServerToGCNewBloomGift::defindex() const {
+  // @@protoc_insertion_point(field_get:CMsgServerToGCNewBloomGift.defindex)
+  return _internal_defindex();
+}
+inline void CMsgServerToGCNewBloomGift::_internal_set_defindex(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.defindex_ = value;
+}
+inline void CMsgServerToGCNewBloomGift::set_defindex(uint32_t value) {
+  _internal_set_defindex(value);
+  // @@protoc_insertion_point(field_set:CMsgServerToGCNewBloomGift.defindex)
+}
+
+// optional uint32 gifter_account_id = 2;
+inline bool CMsgServerToGCNewBloomGift::_internal_has_gifter_account_id() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMsgServerToGCNewBloomGift::has_gifter_account_id() const {
+  return _internal_has_gifter_account_id();
+}
+inline void CMsgServerToGCNewBloomGift::clear_gifter_account_id() {
+  _impl_.gifter_account_id_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline uint32_t CMsgServerToGCNewBloomGift::_internal_gifter_account_id() const {
+  return _impl_.gifter_account_id_;
+}
+inline uint32_t CMsgServerToGCNewBloomGift::gifter_account_id() const {
+  // @@protoc_insertion_point(field_get:CMsgServerToGCNewBloomGift.gifter_account_id)
+  return _internal_gifter_account_id();
+}
+inline void CMsgServerToGCNewBloomGift::_internal_set_gifter_account_id(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.gifter_account_id_ = value;
+}
+inline void CMsgServerToGCNewBloomGift::set_gifter_account_id(uint32_t value) {
+  _internal_set_gifter_account_id(value);
+  // @@protoc_insertion_point(field_set:CMsgServerToGCNewBloomGift.gifter_account_id)
+}
+
+// repeated uint32 target_account_ids = 3;
+inline int CMsgServerToGCNewBloomGift::_internal_target_account_ids_size() const {
+  return _impl_.target_account_ids_.size();
+}
+inline int CMsgServerToGCNewBloomGift::target_account_ids_size() const {
+  return _internal_target_account_ids_size();
+}
+inline void CMsgServerToGCNewBloomGift::clear_target_account_ids() {
+  _impl_.target_account_ids_.Clear();
+}
+inline uint32_t CMsgServerToGCNewBloomGift::_internal_target_account_ids(int index) const {
+  return _impl_.target_account_ids_.Get(index);
+}
+inline uint32_t CMsgServerToGCNewBloomGift::target_account_ids(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgServerToGCNewBloomGift.target_account_ids)
+  return _internal_target_account_ids(index);
+}
+inline void CMsgServerToGCNewBloomGift::set_target_account_ids(int index, uint32_t value) {
+  _impl_.target_account_ids_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CMsgServerToGCNewBloomGift.target_account_ids)
+}
+inline void CMsgServerToGCNewBloomGift::_internal_add_target_account_ids(uint32_t value) {
+  _impl_.target_account_ids_.Add(value);
+}
+inline void CMsgServerToGCNewBloomGift::add_target_account_ids(uint32_t value) {
+  _internal_add_target_account_ids(value);
+  // @@protoc_insertion_point(field_add:CMsgServerToGCNewBloomGift.target_account_ids)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+CMsgServerToGCNewBloomGift::_internal_target_account_ids() const {
+  return _impl_.target_account_ids_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+CMsgServerToGCNewBloomGift::target_account_ids() const {
+  // @@protoc_insertion_point(field_list:CMsgServerToGCNewBloomGift.target_account_ids)
+  return _internal_target_account_ids();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+CMsgServerToGCNewBloomGift::_internal_mutable_target_account_ids() {
+  return &_impl_.target_account_ids_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+CMsgServerToGCNewBloomGift::mutable_target_account_ids() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgServerToGCNewBloomGift.target_account_ids)
+  return _internal_mutable_target_account_ids();
+}
+
+// -------------------------------------------------------------------
+
+// CMsgServerToGCNewBloomGiftResponse
+
+// optional .ENewBloomGiftingResponse result = 1 [default = kENewBloomGifting_UnknownFailure];
+inline bool CMsgServerToGCNewBloomGiftResponse::_internal_has_result() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgServerToGCNewBloomGiftResponse::has_result() const {
+  return _internal_has_result();
+}
+inline void CMsgServerToGCNewBloomGiftResponse::clear_result() {
+  _impl_.result_ = 1;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline ::ENewBloomGiftingResponse CMsgServerToGCNewBloomGiftResponse::_internal_result() const {
+  return static_cast< ::ENewBloomGiftingResponse >(_impl_.result_);
+}
+inline ::ENewBloomGiftingResponse CMsgServerToGCNewBloomGiftResponse::result() const {
+  // @@protoc_insertion_point(field_get:CMsgServerToGCNewBloomGiftResponse.result)
+  return _internal_result();
+}
+inline void CMsgServerToGCNewBloomGiftResponse::_internal_set_result(::ENewBloomGiftingResponse value) {
+  assert(::ENewBloomGiftingResponse_IsValid(value));
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.result_ = value;
+}
+inline void CMsgServerToGCNewBloomGiftResponse::set_result(::ENewBloomGiftingResponse value) {
+  _internal_set_result(value);
+  // @@protoc_insertion_point(field_set:CMsgServerToGCNewBloomGiftResponse.result)
+}
+
+// repeated uint32 received_account_ids = 2;
+inline int CMsgServerToGCNewBloomGiftResponse::_internal_received_account_ids_size() const {
+  return _impl_.received_account_ids_.size();
+}
+inline int CMsgServerToGCNewBloomGiftResponse::received_account_ids_size() const {
+  return _internal_received_account_ids_size();
+}
+inline void CMsgServerToGCNewBloomGiftResponse::clear_received_account_ids() {
+  _impl_.received_account_ids_.Clear();
+}
+inline uint32_t CMsgServerToGCNewBloomGiftResponse::_internal_received_account_ids(int index) const {
+  return _impl_.received_account_ids_.Get(index);
+}
+inline uint32_t CMsgServerToGCNewBloomGiftResponse::received_account_ids(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgServerToGCNewBloomGiftResponse.received_account_ids)
+  return _internal_received_account_ids(index);
+}
+inline void CMsgServerToGCNewBloomGiftResponse::set_received_account_ids(int index, uint32_t value) {
+  _impl_.received_account_ids_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CMsgServerToGCNewBloomGiftResponse.received_account_ids)
+}
+inline void CMsgServerToGCNewBloomGiftResponse::_internal_add_received_account_ids(uint32_t value) {
+  _impl_.received_account_ids_.Add(value);
+}
+inline void CMsgServerToGCNewBloomGiftResponse::add_received_account_ids(uint32_t value) {
+  _internal_add_received_account_ids(value);
+  // @@protoc_insertion_point(field_add:CMsgServerToGCNewBloomGiftResponse.received_account_ids)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+CMsgServerToGCNewBloomGiftResponse::_internal_received_account_ids() const {
+  return _impl_.received_account_ids_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+CMsgServerToGCNewBloomGiftResponse::received_account_ids() const {
+  // @@protoc_insertion_point(field_list:CMsgServerToGCNewBloomGiftResponse.received_account_ids)
+  return _internal_received_account_ids();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+CMsgServerToGCNewBloomGiftResponse::_internal_mutable_received_account_ids() {
+  return &_impl_.received_account_ids_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+CMsgServerToGCNewBloomGiftResponse::mutable_received_account_ids() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgServerToGCNewBloomGiftResponse.received_account_ids)
+  return _internal_mutable_received_account_ids();
+}
+
+// -------------------------------------------------------------------
+
+// CMsgSignOutOverworld_Player
+
+// optional uint32 account_id = 1;
+inline bool CMsgSignOutOverworld_Player::_internal_has_account_id() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgSignOutOverworld_Player::has_account_id() const {
+  return _internal_has_account_id();
+}
+inline void CMsgSignOutOverworld_Player::clear_account_id() {
+  _impl_.account_id_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline uint32_t CMsgSignOutOverworld_Player::_internal_account_id() const {
+  return _impl_.account_id_;
+}
+inline uint32_t CMsgSignOutOverworld_Player::account_id() const {
+  // @@protoc_insertion_point(field_get:CMsgSignOutOverworld.Player.account_id)
+  return _internal_account_id();
+}
+inline void CMsgSignOutOverworld_Player::_internal_set_account_id(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.account_id_ = value;
+}
+inline void CMsgSignOutOverworld_Player::set_account_id(uint32_t value) {
+  _internal_set_account_id(value);
+  // @@protoc_insertion_point(field_set:CMsgSignOutOverworld.Player.account_id)
+}
+
+// optional uint32 overworld_id = 2;
+inline bool CMsgSignOutOverworld_Player::_internal_has_overworld_id() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMsgSignOutOverworld_Player::has_overworld_id() const {
+  return _internal_has_overworld_id();
+}
+inline void CMsgSignOutOverworld_Player::clear_overworld_id() {
+  _impl_.overworld_id_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline uint32_t CMsgSignOutOverworld_Player::_internal_overworld_id() const {
+  return _impl_.overworld_id_;
+}
+inline uint32_t CMsgSignOutOverworld_Player::overworld_id() const {
+  // @@protoc_insertion_point(field_get:CMsgSignOutOverworld.Player.overworld_id)
+  return _internal_overworld_id();
+}
+inline void CMsgSignOutOverworld_Player::_internal_set_overworld_id(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.overworld_id_ = value;
+}
+inline void CMsgSignOutOverworld_Player::set_overworld_id(uint32_t value) {
+  _internal_set_overworld_id(value);
+  // @@protoc_insertion_point(field_set:CMsgSignOutOverworld.Player.overworld_id)
+}
+
+// repeated uint32 desired_token_rewards = 3;
+inline int CMsgSignOutOverworld_Player::_internal_desired_token_rewards_size() const {
+  return _impl_.desired_token_rewards_.size();
+}
+inline int CMsgSignOutOverworld_Player::desired_token_rewards_size() const {
+  return _internal_desired_token_rewards_size();
+}
+inline void CMsgSignOutOverworld_Player::clear_desired_token_rewards() {
+  _impl_.desired_token_rewards_.Clear();
+}
+inline uint32_t CMsgSignOutOverworld_Player::_internal_desired_token_rewards(int index) const {
+  return _impl_.desired_token_rewards_.Get(index);
+}
+inline uint32_t CMsgSignOutOverworld_Player::desired_token_rewards(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgSignOutOverworld.Player.desired_token_rewards)
+  return _internal_desired_token_rewards(index);
+}
+inline void CMsgSignOutOverworld_Player::set_desired_token_rewards(int index, uint32_t value) {
+  _impl_.desired_token_rewards_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CMsgSignOutOverworld.Player.desired_token_rewards)
+}
+inline void CMsgSignOutOverworld_Player::_internal_add_desired_token_rewards(uint32_t value) {
+  _impl_.desired_token_rewards_.Add(value);
+}
+inline void CMsgSignOutOverworld_Player::add_desired_token_rewards(uint32_t value) {
+  _internal_add_desired_token_rewards(value);
+  // @@protoc_insertion_point(field_add:CMsgSignOutOverworld.Player.desired_token_rewards)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+CMsgSignOutOverworld_Player::_internal_desired_token_rewards() const {
+  return _impl_.desired_token_rewards_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+CMsgSignOutOverworld_Player::desired_token_rewards() const {
+  // @@protoc_insertion_point(field_list:CMsgSignOutOverworld.Player.desired_token_rewards)
+  return _internal_desired_token_rewards();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+CMsgSignOutOverworld_Player::_internal_mutable_desired_token_rewards() {
+  return &_impl_.desired_token_rewards_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+CMsgSignOutOverworld_Player::mutable_desired_token_rewards() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgSignOutOverworld.Player.desired_token_rewards)
+  return _internal_mutable_desired_token_rewards();
+}
+
+// -------------------------------------------------------------------
+
+// CMsgSignOutOverworld
+
+// repeated .CMsgSignOutOverworld.Player players = 1;
+inline int CMsgSignOutOverworld::_internal_players_size() const {
+  return _impl_.players_.size();
+}
+inline int CMsgSignOutOverworld::players_size() const {
+  return _internal_players_size();
+}
+inline void CMsgSignOutOverworld::clear_players() {
+  _impl_.players_.Clear();
+}
+inline ::CMsgSignOutOverworld_Player* CMsgSignOutOverworld::mutable_players(int index) {
+  // @@protoc_insertion_point(field_mutable:CMsgSignOutOverworld.players)
+  return _impl_.players_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSignOutOverworld_Player >*
+CMsgSignOutOverworld::mutable_players() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgSignOutOverworld.players)
+  return &_impl_.players_;
+}
+inline const ::CMsgSignOutOverworld_Player& CMsgSignOutOverworld::_internal_players(int index) const {
+  return _impl_.players_.Get(index);
+}
+inline const ::CMsgSignOutOverworld_Player& CMsgSignOutOverworld::players(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgSignOutOverworld.players)
+  return _internal_players(index);
+}
+inline ::CMsgSignOutOverworld_Player* CMsgSignOutOverworld::_internal_add_players() {
+  return _impl_.players_.Add();
+}
+inline ::CMsgSignOutOverworld_Player* CMsgSignOutOverworld::add_players() {
+  ::CMsgSignOutOverworld_Player* _add = _internal_add_players();
+  // @@protoc_insertion_point(field_add:CMsgSignOutOverworld.players)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgSignOutOverworld_Player >&
+CMsgSignOutOverworld::players() const {
+  // @@protoc_insertion_point(field_list:CMsgSignOutOverworld.players)
+  return _impl_.players_;
+}
+
+// optional .EEvent event_id = 2 [default = EVENT_ID_NONE];
+inline bool CMsgSignOutOverworld::_internal_has_event_id() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgSignOutOverworld::has_event_id() const {
+  return _internal_has_event_id();
+}
+inline void CMsgSignOutOverworld::clear_event_id() {
+  _impl_.event_id_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline ::EEvent CMsgSignOutOverworld::_internal_event_id() const {
+  return static_cast< ::EEvent >(_impl_.event_id_);
+}
+inline ::EEvent CMsgSignOutOverworld::event_id() const {
+  // @@protoc_insertion_point(field_get:CMsgSignOutOverworld.event_id)
+  return _internal_event_id();
+}
+inline void CMsgSignOutOverworld::_internal_set_event_id(::EEvent value) {
+  assert(::EEvent_IsValid(value));
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.event_id_ = value;
+}
+inline void CMsgSignOutOverworld::set_event_id(::EEvent value) {
+  _internal_set_event_id(value);
+  // @@protoc_insertion_point(field_set:CMsgSignOutOverworld.event_id)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
@@ -71981,16 +73722,6 @@ template <> struct is_proto_enum< ::CMsgDOTALiveScoreboardUpdate_Team_Player_DOT
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::CMsgDOTALiveScoreboardUpdate_Team_Player_DOTAUltimateState>() {
   return ::CMsgDOTALiveScoreboardUpdate_Team_Player_DOTAUltimateState_descriptor();
-}
-template <> struct is_proto_enum< ::CMsgGameServerSaveGameResult_Result> : ::std::true_type {};
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::CMsgGameServerSaveGameResult_Result>() {
-  return ::CMsgGameServerSaveGameResult_Result_descriptor();
-}
-template <> struct is_proto_enum< ::CMsgGCToServerPredictionResult_Prediction_EResult> : ::std::true_type {};
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::CMsgGCToServerPredictionResult_Prediction_EResult>() {
-  return ::CMsgGCToServerPredictionResult_Prediction_EResult_descriptor();
 }
 template <> struct is_proto_enum< ::EPoorNetworkConditionsType> : ::std::true_type {};
 template <>

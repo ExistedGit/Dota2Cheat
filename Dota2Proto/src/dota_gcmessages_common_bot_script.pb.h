@@ -546,17 +546,17 @@ class CMsgBotWorldState_Player final :
   void _internal_set_player_id(int32_t value);
   public:
 
-  // optional uint32 hero_id = 2;
+  // optional int32 hero_id = 2;
   bool has_hero_id() const;
   private:
   bool _internal_has_hero_id() const;
   public:
   void clear_hero_id();
-  uint32_t hero_id() const;
-  void set_hero_id(uint32_t value);
+  int32_t hero_id() const;
+  void set_hero_id(int32_t value);
   private:
-  uint32_t _internal_hero_id() const;
-  void _internal_set_hero_id(uint32_t value);
+  int32_t _internal_hero_id() const;
+  void _internal_set_hero_id(int32_t value);
   public:
 
   // optional bool is_alive = 3;
@@ -675,7 +675,7 @@ class CMsgBotWorldState_Player final :
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::CMsgBotWorldState_Vector* location_;
     int32_t player_id_;
-    uint32_t hero_id_;
+    int32_t hero_id_;
     bool is_alive_;
     float respawn_time_;
     uint32_t kills_;
@@ -6412,7 +6412,7 @@ inline void CMsgBotWorldState_Player::set_player_id(int32_t value) {
   // @@protoc_insertion_point(field_set:CMsgBotWorldState.Player.player_id)
 }
 
-// optional uint32 hero_id = 2;
+// optional int32 hero_id = 2;
 inline bool CMsgBotWorldState_Player::_internal_has_hero_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -6421,21 +6421,21 @@ inline bool CMsgBotWorldState_Player::has_hero_id() const {
   return _internal_has_hero_id();
 }
 inline void CMsgBotWorldState_Player::clear_hero_id() {
-  _impl_.hero_id_ = 0u;
+  _impl_.hero_id_ = 0;
   _impl_._has_bits_[0] &= ~0x00000004u;
 }
-inline uint32_t CMsgBotWorldState_Player::_internal_hero_id() const {
+inline int32_t CMsgBotWorldState_Player::_internal_hero_id() const {
   return _impl_.hero_id_;
 }
-inline uint32_t CMsgBotWorldState_Player::hero_id() const {
+inline int32_t CMsgBotWorldState_Player::hero_id() const {
   // @@protoc_insertion_point(field_get:CMsgBotWorldState.Player.hero_id)
   return _internal_hero_id();
 }
-inline void CMsgBotWorldState_Player::_internal_set_hero_id(uint32_t value) {
+inline void CMsgBotWorldState_Player::_internal_set_hero_id(int32_t value) {
   _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.hero_id_ = value;
 }
-inline void CMsgBotWorldState_Player::set_hero_id(uint32_t value) {
+inline void CMsgBotWorldState_Player::set_hero_id(int32_t value) {
   _internal_set_hero_id(value);
   // @@protoc_insertion_point(field_set:CMsgBotWorldState.Player.hero_id)
 }

@@ -25,7 +25,9 @@ PROTOBUF_CONSTEXPR CSourceTVGameSmall_Player::CSourceTVGameSmall_Player(
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.account_id_)*/0u
-  , /*decltype(_impl_.hero_id_)*/0u} {}
+  , /*decltype(_impl_.hero_id_)*/0
+  , /*decltype(_impl_.team_slot_)*/0u
+  , /*decltype(_impl_.team_)*/0u} {}
 struct CSourceTVGameSmall_PlayerDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CSourceTVGameSmall_PlayerDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -86,7 +88,7 @@ PROTOBUF_CONSTEXPR CMsgClientToGCFindTopSourceTVGames::CMsgClientToGCFindTopSour
   , /*decltype(_impl_.lobby_ids_)*/{}
   , /*decltype(_impl_.search_key_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.league_id_)*/0u
-  , /*decltype(_impl_.hero_id_)*/0u
+  , /*decltype(_impl_.hero_id_)*/0
   , /*decltype(_impl_.start_game_)*/0u
   , /*decltype(_impl_.game_list_index_)*/0u} {}
 struct CMsgClientToGCFindTopSourceTVGamesDefaultTypeInternal {
@@ -106,7 +108,7 @@ PROTOBUF_CONSTEXPR CMsgGCToClientFindTopSourceTVGamesResponse::CMsgGCToClientFin
   , /*decltype(_impl_.search_key_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.bot_game_)*/nullptr
   , /*decltype(_impl_.league_id_)*/0u
-  , /*decltype(_impl_.hero_id_)*/0u
+  , /*decltype(_impl_.hero_id_)*/0
   , /*decltype(_impl_.start_game_)*/0u
   , /*decltype(_impl_.num_games_)*/0u
   , /*decltype(_impl_.game_list_index_)*/0u
@@ -426,8 +428,12 @@ const uint32_t TableStruct_dota_5fgcmessages_5fclient_5fwatch_2eproto::offsets[]
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::CSourceTVGameSmall_Player, _impl_.account_id_),
   PROTOBUF_FIELD_OFFSET(::CSourceTVGameSmall_Player, _impl_.hero_id_),
+  PROTOBUF_FIELD_OFFSET(::CSourceTVGameSmall_Player, _impl_.team_slot_),
+  PROTOBUF_FIELD_OFFSET(::CSourceTVGameSmall_Player, _impl_.team_),
   0,
   1,
+  2,
+  3,
   PROTOBUF_FIELD_OFFSET(::CSourceTVGameSmall, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CSourceTVGameSmall, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -762,29 +768,29 @@ const uint32_t TableStruct_dota_5fgcmessages_5fclient_5fwatch_2eproto::offsets[]
   2,
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, 8, -1, sizeof(::CSourceTVGameSmall_Player)},
-  { 10, 47, -1, sizeof(::CSourceTVGameSmall)},
-  { 78, 90, -1, sizeof(::CMsgClientToGCFindTopSourceTVGames)},
-  { 96, 111, -1, sizeof(::CMsgGCToClientFindTopSourceTVGamesResponse)},
-  { 120, -1, -1, sizeof(::CMsgGCToClientTopWeekendTourneyGames)},
-  { 127, -1, -1, sizeof(::CMsgClientToGCTopLeagueMatchesRequest)},
-  { 133, -1, -1, sizeof(::CMsgClientToGCTopFriendMatchesRequest)},
-  { 139, -1, -1, sizeof(::CMsgClientToGCMatchesMinimalRequest)},
-  { 146, 154, -1, sizeof(::CMsgClientToGCMatchesMinimalResponse)},
-  { 156, -1, -1, sizeof(::CMsgGCToClientTopLeagueMatchesResponse)},
-  { 163, -1, -1, sizeof(::CMsgGCToClientTopFriendMatchesResponse)},
-  { 170, 178, -1, sizeof(::CMsgSpectateFriendGame)},
-  { 180, 188, -1, sizeof(::CMsgSpectateFriendGameResponse)},
-  { 190, 198, -1, sizeof(::CDOTAReplayDownloadInfo_Highlight)},
-  { 200, 212, -1, sizeof(::CDOTAReplayDownloadInfo)},
-  { 218, 229, -1, sizeof(::CMsgWatchGame)},
-  { 234, -1, -1, sizeof(::CMsgCancelWatchGame)},
-  { 240, 253, -1, sizeof(::CMsgWatchGameResponse)},
-  { 260, 267, -1, sizeof(::CMsgPartyLeaderWatchGamePrompt)},
-  { 268, 284, -1, sizeof(::CDOTABroadcasterInfo)},
-  { 294, 304, -1, sizeof(::CMsgDOTASeries_TeamInfo)},
-  { 308, 319, -1, sizeof(::CMsgDOTASeries_LiveGame)},
-  { 324, 336, -1, sizeof(::CMsgDOTASeries)},
+  { 0, 10, -1, sizeof(::CSourceTVGameSmall_Player)},
+  { 14, 51, -1, sizeof(::CSourceTVGameSmall)},
+  { 82, 94, -1, sizeof(::CMsgClientToGCFindTopSourceTVGames)},
+  { 100, 115, -1, sizeof(::CMsgGCToClientFindTopSourceTVGamesResponse)},
+  { 124, -1, -1, sizeof(::CMsgGCToClientTopWeekendTourneyGames)},
+  { 131, -1, -1, sizeof(::CMsgClientToGCTopLeagueMatchesRequest)},
+  { 137, -1, -1, sizeof(::CMsgClientToGCTopFriendMatchesRequest)},
+  { 143, -1, -1, sizeof(::CMsgClientToGCMatchesMinimalRequest)},
+  { 150, 158, -1, sizeof(::CMsgClientToGCMatchesMinimalResponse)},
+  { 160, -1, -1, sizeof(::CMsgGCToClientTopLeagueMatchesResponse)},
+  { 167, -1, -1, sizeof(::CMsgGCToClientTopFriendMatchesResponse)},
+  { 174, 182, -1, sizeof(::CMsgSpectateFriendGame)},
+  { 184, 192, -1, sizeof(::CMsgSpectateFriendGameResponse)},
+  { 194, 202, -1, sizeof(::CDOTAReplayDownloadInfo_Highlight)},
+  { 204, 216, -1, sizeof(::CDOTAReplayDownloadInfo)},
+  { 222, 233, -1, sizeof(::CMsgWatchGame)},
+  { 238, -1, -1, sizeof(::CMsgCancelWatchGame)},
+  { 244, 257, -1, sizeof(::CMsgWatchGameResponse)},
+  { 264, 271, -1, sizeof(::CMsgPartyLeaderWatchGamePrompt)},
+  { 272, 288, -1, sizeof(::CDOTABroadcasterInfo)},
+  { 298, 308, -1, sizeof(::CMsgDOTASeries_TeamInfo)},
+  { 312, 323, -1, sizeof(::CMsgDOTASeries_LiveGame)},
+  { 328, 340, -1, sizeof(::CMsgDOTASeries)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -815,7 +821,7 @@ static const ::_pb::Message* const file_default_instances[] = {
 
 const char descriptor_table_protodef_dota_5fgcmessages_5fclient_5fwatch_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\"dota_gcmessages_client_watch.proto\032\034do"
-  "ta_gcmessages_common.proto\"\306\006\n\022CSourceTV"
+  "ta_gcmessages_common.proto\"\347\006\n\022CSourceTV"
   "GameSmall\022\025\n\ractivate_time\030\001 \001(\r\022\027\n\017deac"
   "tivate_time\030\002 \001(\r\022\027\n\017server_steam_id\030\003 \001"
   "(\004\022\020\n\010lobby_id\030\004 \001(\004\022\021\n\tleague_id\030\005 \001(\r\022"
@@ -835,95 +841,96 @@ const char descriptor_table_protodef_dota_5fgcmessages_5fclient_5fwatch_2eproto[
   "\n\030weekend_tourney_division\030\033 \001(\r\022#\n\033week"
   "end_tourney_skill_level\030\034 \001(\r\022%\n\035weekend"
   "_tourney_bracket_round\030\035 \001(\r\022\036\n\026custom_g"
-  "ame_difficulty\030  \001(\r\032-\n\006Player\022\022\n\naccoun"
-  "t_id\030\001 \001(\r\022\017\n\007hero_id\030\002 \001(\r\"\234\001\n\"CMsgClie"
-  "ntToGCFindTopSourceTVGames\022\022\n\nsearch_key"
+  "ame_difficulty\030  \001(\r\032N\n\006Player\022\022\n\naccoun"
+  "t_id\030\001 \001(\r\022\017\n\007hero_id\030\002 \001(\005\022\021\n\tteam_slot"
+  "\030\003 \001(\r\022\014\n\004team\030\004 \001(\r\"\234\001\n\"CMsgClientToGCF"
+  "indTopSourceTVGames\022\022\n\nsearch_key\030\001 \001(\t\022"
+  "\021\n\tleague_id\030\002 \001(\r\022\017\n\007hero_id\030\003 \001(\005\022\022\n\ns"
+  "tart_game\030\004 \001(\r\022\027\n\017game_list_index\030\005 \001(\r"
+  "\022\021\n\tlobby_ids\030\006 \003(\004\"\213\002\n*CMsgGCToClientFi"
+  "ndTopSourceTVGamesResponse\022\022\n\nsearch_key"
   "\030\001 \001(\t\022\021\n\tleague_id\030\002 \001(\r\022\017\n\007hero_id\030\003 \001"
-  "(\r\022\022\n\nstart_game\030\004 \001(\r\022\027\n\017game_list_inde"
-  "x\030\005 \001(\r\022\021\n\tlobby_ids\030\006 \003(\004\"\213\002\n*CMsgGCToC"
-  "lientFindTopSourceTVGamesResponse\022\022\n\nsea"
-  "rch_key\030\001 \001(\t\022\021\n\tleague_id\030\002 \001(\r\022\017\n\007hero"
-  "_id\030\003 \001(\r\022\022\n\nstart_game\030\004 \001(\r\022\021\n\tnum_gam"
-  "es\030\005 \001(\r\022\027\n\017game_list_index\030\006 \001(\r\022&\n\tgam"
-  "e_list\030\007 \003(\0132\023.CSourceTVGameSmall\022\026\n\016spe"
-  "cific_games\030\010 \001(\010\022%\n\010bot_game\030\t \001(\0132\023.CS"
-  "ourceTVGameSmall\"O\n$CMsgGCToClientTopWee"
-  "kendTourneyGames\022\'\n\nlive_games\030\001 \003(\0132\023.C"
-  "SourceTVGameSmall\"\'\n%CMsgClientToGCTopLe"
-  "agueMatchesRequest\"\'\n%CMsgClientToGCTopF"
-  "riendMatchesRequest\"8\n#CMsgClientToGCMat"
-  "chesMinimalRequest\022\021\n\tmatch_ids\030\001 \003(\004\"b\n"
-  "$CMsgClientToGCMatchesMinimalResponse\022&\n"
-  "\007matches\030\001 \003(\0132\025.CMsgDOTAMatchMinimal\022\022\n"
-  "\nlast_match\030\002 \001(\010\"P\n&CMsgGCToClientTopLe"
-  "agueMatchesResponse\022&\n\007matches\030\002 \003(\0132\025.C"
-  "MsgDOTAMatchMinimal\"P\n&CMsgGCToClientTop"
-  "FriendMatchesResponse\022&\n\007matches\030\001 \003(\0132\025"
-  ".CMsgDOTAMatchMinimal\"8\n\026CMsgSpectateFri"
-  "endGame\022\020\n\010steam_id\030\001 \001(\006\022\014\n\004live\030\002 \001(\010\""
-  "\270\004\n\036CMsgSpectateFriendGameResponse\022\026\n\016se"
-  "rver_steamid\030\004 \001(\006\022T\n\021watch_live_result\030"
-  "\005 \001(\01620.CMsgSpectateFriendGameResponse.E"
-  "WatchLiveResult:\007SUCCESS\"\247\003\n\020EWatchLiveR"
-  "esult\022\013\n\007SUCCESS\020\000\022\021\n\rERROR_GENERIC\020\001\022\021\n"
-  "\rERROR_NO_PLUS\020\002\022\025\n\021ERROR_NOT_FRIENDS\020\003\022"
-  "\031\n\025ERROR_LOBBY_NOT_FOUND\020\004\022\036\n\032ERROR_SPEC"
-  "TATOR_IN_A_LOBBY\020\005\022\026\n\022ERROR_LOBBY_IS_LAN"
-  "\020\006\022\032\n\026ERROR_WRONG_LOBBY_TYPE\020\007\022\033\n\027ERROR_"
-  "WRONG_LOBBY_STATE\020\010\022\033\n\027ERROR_PLAYER_NOT_"
-  "PLAYER\020\t\022\035\n\031ERROR_TOO_MANY_SPECTATORS\020\n\022"
-  "\"\n\036ERROR_SPECTATOR_SWITCHED_TEAMS\020\013\022\037\n\033E"
-  "RROR_FRIENDS_ON_BOTH_SIDES\020\014\022!\n\035ERROR_SP"
-  "ECTATOR_IN_THIS_LOBBY\020\r\022\031\n\025ERROR_LOBBY_I"
-  "S_LEAGUE\020\016\"\314\001\n\027CDOTAReplayDownloadInfo\022$"
-  "\n\005match\030\001 \001(\0132\025.CMsgDOTAMatchMinimal\022\r\n\005"
-  "title\030\002 \001(\t\022\023\n\013description\030\003 \001(\t\022\014\n\004size"
-  "\030\004 \001(\r\022\014\n\004tags\030\005 \003(\t\022\026\n\016exists_on_disk\030\006"
-  " \001(\010\0323\n\tHighlight\022\021\n\ttimestamp\030\001 \001(\r\022\023\n\013"
-  "description\030\002 \001(\t\"\200\001\n\rCMsgWatchGame\022\026\n\016s"
-  "erver_steamid\030\001 \001(\006\022\026\n\016client_version\030\002 "
-  "\001(\r\022\034\n\024watch_server_steamid\030\003 \001(\006\022\020\n\010lob"
-  "by_id\030\004 \001(\004\022\017\n\007regions\030\005 \003(\r\"\025\n\023CMsgCanc"
-  "elWatchGame\"\311\003\n\025CMsgWatchGameResponse\022J\n"
-  "\021watch_game_result\030\001 \001(\0162&.CMsgWatchGame"
-  "Response.WatchGameResult:\007PENDING\022\035\n\025sou"
-  "rce_tv_public_addr\030\002 \001(\r\022\036\n\026source_tv_pr"
-  "ivate_addr\030\003 \001(\r\022\026\n\016source_tv_port\030\004 \001(\r"
-  "\022\033\n\023game_server_steamid\030\005 \001(\006\022\034\n\024watch_s"
-  "erver_steamid\030\006 \001(\006\022#\n\033watch_tv_unique_s"
-  "ecret_code\030\007 \001(\006\"\254\001\n\017WatchGameResult\022\013\n\007"
-  "PENDING\020\000\022\t\n\005READY\020\001\022\026\n\022GAMESERVERNOTFOU"
-  "ND\020\002\022\017\n\013UNAVAILABLE\020\003\022\r\n\tCANCELLED\020\004\022\027\n\023"
-  "INCOMPATIBLEVERSION\020\005\022\035\n\031MISSINGLEAGUESU"
-  "BSCRIPTION\020\006\022\021\n\rLOBBYNOTFOUND\020\007\"=\n\036CMsgP"
-  "artyLeaderWatchGamePrompt\022\033\n\023game_server"
-  "_steamid\030\005 \001(\006\"\377\001\n\024CDOTABroadcasterInfo\022"
-  "\022\n\naccount_id\030\001 \001(\r\022\027\n\017server_steam_id\030\002"
-  " \001(\006\022\014\n\004live\030\003 \001(\010\022\031\n\021team_name_radiant\030"
-  "\004 \001(\t\022\026\n\016team_name_dire\030\005 \001(\t\022\023\n\013series_"
-  "game\030\007 \001(\r\022$\n\034upcoming_broadcast_timesta"
-  "mp\030\t \001(\r\022\030\n\020allow_live_video\030\n \001(\010\022\021\n\tno"
-  "de_type\030\013 \001(\r\022\021\n\tnode_name\030\014 \001(\t\"\373\003\n\016CMs"
-  "gDOTASeries\022\021\n\tseries_id\030\001 \001(\r\022\023\n\013series"
-  "_type\030\002 \001(\r\022(\n\006team_1\030\003 \001(\0132\030.CMsgDOTASe"
-  "ries.TeamInfo\022(\n\006team_2\030\004 \001(\0132\030.CMsgDOTA"
-  "Series.TeamInfo\022,\n\rmatch_minimal\030\005 \003(\0132\025"
-  ".CMsgDOTAMatchMinimal\022+\n\tlive_game\030\006 \001(\013"
-  "2\030.CMsgDOTASeries.LiveGame\032Z\n\010TeamInfo\022\017"
-  "\n\007team_id\030\001 \001(\r\022\021\n\tteam_name\030\002 \001(\t\022\025\n\rte"
-  "am_logo_url\030\003 \001(\t\022\023\n\013wager_count\030\004 \001(\r\032\265"
-  "\001\n\010LiveGame\022\027\n\017server_steam_id\030\001 \001(\006\022.\n\014"
-  "team_radiant\030\002 \001(\0132\030.CMsgDOTASeries.Team"
-  "Info\022+\n\tteam_dire\030\003 \001(\0132\030.CMsgDOTASeries"
-  ".TeamInfo\022\032\n\022team_radiant_score\030\004 \001(\r\022\027\n"
-  "\017team_dire_score\030\005 \001(\r"
+  "(\005\022\022\n\nstart_game\030\004 \001(\r\022\021\n\tnum_games\030\005 \001("
+  "\r\022\027\n\017game_list_index\030\006 \001(\r\022&\n\tgame_list\030"
+  "\007 \003(\0132\023.CSourceTVGameSmall\022\026\n\016specific_g"
+  "ames\030\010 \001(\010\022%\n\010bot_game\030\t \001(\0132\023.CSourceTV"
+  "GameSmall\"O\n$CMsgGCToClientTopWeekendTou"
+  "rneyGames\022\'\n\nlive_games\030\001 \003(\0132\023.CSourceT"
+  "VGameSmall\"\'\n%CMsgClientToGCTopLeagueMat"
+  "chesRequest\"\'\n%CMsgClientToGCTopFriendMa"
+  "tchesRequest\"8\n#CMsgClientToGCMatchesMin"
+  "imalRequest\022\021\n\tmatch_ids\030\001 \003(\004\"b\n$CMsgCl"
+  "ientToGCMatchesMinimalResponse\022&\n\007matche"
+  "s\030\001 \003(\0132\025.CMsgDOTAMatchMinimal\022\022\n\nlast_m"
+  "atch\030\002 \001(\010\"P\n&CMsgGCToClientTopLeagueMat"
+  "chesResponse\022&\n\007matches\030\002 \003(\0132\025.CMsgDOTA"
+  "MatchMinimal\"P\n&CMsgGCToClientTopFriendM"
+  "atchesResponse\022&\n\007matches\030\001 \003(\0132\025.CMsgDO"
+  "TAMatchMinimal\"8\n\026CMsgSpectateFriendGame"
+  "\022\020\n\010steam_id\030\001 \001(\006\022\014\n\004live\030\002 \001(\010\"\270\004\n\036CMs"
+  "gSpectateFriendGameResponse\022\026\n\016server_st"
+  "eamid\030\004 \001(\006\022T\n\021watch_live_result\030\005 \001(\01620"
+  ".CMsgSpectateFriendGameResponse.EWatchLi"
+  "veResult:\007SUCCESS\"\247\003\n\020EWatchLiveResult\022\013"
+  "\n\007SUCCESS\020\000\022\021\n\rERROR_GENERIC\020\001\022\021\n\rERROR_"
+  "NO_PLUS\020\002\022\025\n\021ERROR_NOT_FRIENDS\020\003\022\031\n\025ERRO"
+  "R_LOBBY_NOT_FOUND\020\004\022\036\n\032ERROR_SPECTATOR_I"
+  "N_A_LOBBY\020\005\022\026\n\022ERROR_LOBBY_IS_LAN\020\006\022\032\n\026E"
+  "RROR_WRONG_LOBBY_TYPE\020\007\022\033\n\027ERROR_WRONG_L"
+  "OBBY_STATE\020\010\022\033\n\027ERROR_PLAYER_NOT_PLAYER\020"
+  "\t\022\035\n\031ERROR_TOO_MANY_SPECTATORS\020\n\022\"\n\036ERRO"
+  "R_SPECTATOR_SWITCHED_TEAMS\020\013\022\037\n\033ERROR_FR"
+  "IENDS_ON_BOTH_SIDES\020\014\022!\n\035ERROR_SPECTATOR"
+  "_IN_THIS_LOBBY\020\r\022\031\n\025ERROR_LOBBY_IS_LEAGU"
+  "E\020\016\"\314\001\n\027CDOTAReplayDownloadInfo\022$\n\005match"
+  "\030\001 \001(\0132\025.CMsgDOTAMatchMinimal\022\r\n\005title\030\002"
+  " \001(\t\022\023\n\013description\030\003 \001(\t\022\014\n\004size\030\004 \001(\r\022"
+  "\014\n\004tags\030\005 \003(\t\022\026\n\016exists_on_disk\030\006 \001(\010\0323\n"
+  "\tHighlight\022\021\n\ttimestamp\030\001 \001(\r\022\023\n\013descrip"
+  "tion\030\002 \001(\t\"\200\001\n\rCMsgWatchGame\022\026\n\016server_s"
+  "teamid\030\001 \001(\006\022\026\n\016client_version\030\002 \001(\r\022\034\n\024"
+  "watch_server_steamid\030\003 \001(\006\022\020\n\010lobby_id\030\004"
+  " \001(\004\022\017\n\007regions\030\005 \003(\r\"\025\n\023CMsgCancelWatch"
+  "Game\"\311\003\n\025CMsgWatchGameResponse\022J\n\021watch_"
+  "game_result\030\001 \001(\0162&.CMsgWatchGameRespons"
+  "e.WatchGameResult:\007PENDING\022\035\n\025source_tv_"
+  "public_addr\030\002 \001(\r\022\036\n\026source_tv_private_a"
+  "ddr\030\003 \001(\r\022\026\n\016source_tv_port\030\004 \001(\r\022\033\n\023gam"
+  "e_server_steamid\030\005 \001(\006\022\034\n\024watch_server_s"
+  "teamid\030\006 \001(\006\022#\n\033watch_tv_unique_secret_c"
+  "ode\030\007 \001(\006\"\254\001\n\017WatchGameResult\022\013\n\007PENDING"
+  "\020\000\022\t\n\005READY\020\001\022\026\n\022GAMESERVERNOTFOUND\020\002\022\017\n"
+  "\013UNAVAILABLE\020\003\022\r\n\tCANCELLED\020\004\022\027\n\023INCOMPA"
+  "TIBLEVERSION\020\005\022\035\n\031MISSINGLEAGUESUBSCRIPT"
+  "ION\020\006\022\021\n\rLOBBYNOTFOUND\020\007\"=\n\036CMsgPartyLea"
+  "derWatchGamePrompt\022\033\n\023game_server_steami"
+  "d\030\005 \001(\006\"\377\001\n\024CDOTABroadcasterInfo\022\022\n\nacco"
+  "unt_id\030\001 \001(\r\022\027\n\017server_steam_id\030\002 \001(\006\022\014\n"
+  "\004live\030\003 \001(\010\022\031\n\021team_name_radiant\030\004 \001(\t\022\026"
+  "\n\016team_name_dire\030\005 \001(\t\022\023\n\013series_game\030\007 "
+  "\001(\r\022$\n\034upcoming_broadcast_timestamp\030\t \001("
+  "\r\022\030\n\020allow_live_video\030\n \001(\010\022\021\n\tnode_type"
+  "\030\013 \001(\r\022\021\n\tnode_name\030\014 \001(\t\"\373\003\n\016CMsgDOTASe"
+  "ries\022\021\n\tseries_id\030\001 \001(\r\022\023\n\013series_type\030\002"
+  " \001(\r\022(\n\006team_1\030\003 \001(\0132\030.CMsgDOTASeries.Te"
+  "amInfo\022(\n\006team_2\030\004 \001(\0132\030.CMsgDOTASeries."
+  "TeamInfo\022,\n\rmatch_minimal\030\005 \003(\0132\025.CMsgDO"
+  "TAMatchMinimal\022+\n\tlive_game\030\006 \001(\0132\030.CMsg"
+  "DOTASeries.LiveGame\032Z\n\010TeamInfo\022\017\n\007team_"
+  "id\030\001 \001(\r\022\021\n\tteam_name\030\002 \001(\t\022\025\n\rteam_logo"
+  "_url\030\003 \001(\t\022\023\n\013wager_count\030\004 \001(\r\032\265\001\n\010Live"
+  "Game\022\027\n\017server_steam_id\030\001 \001(\006\022.\n\014team_ra"
+  "diant\030\002 \001(\0132\030.CMsgDOTASeries.TeamInfo\022+\n"
+  "\tteam_dire\030\003 \001(\0132\030.CMsgDOTASeries.TeamIn"
+  "fo\022\032\n\022team_radiant_score\030\004 \001(\r\022\027\n\017team_d"
+  "ire_score\030\005 \001(\r"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_dota_5fgcmessages_5fclient_5fwatch_2eproto_deps[1] = {
   &::descriptor_table_dota_5fgcmessages_5fcommon_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_dota_5fgcmessages_5fclient_5fwatch_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_dota_5fgcmessages_5fclient_5fwatch_2eproto = {
-    false, false, 4102, descriptor_table_protodef_dota_5fgcmessages_5fclient_5fwatch_2eproto,
+    false, false, 4135, descriptor_table_protodef_dota_5fgcmessages_5fclient_5fwatch_2eproto,
     "dota_gcmessages_client_watch.proto",
     &descriptor_table_dota_5fgcmessages_5fclient_5fwatch_2eproto_once, descriptor_table_dota_5fgcmessages_5fclient_5fwatch_2eproto_deps, 1, 23,
     schemas, file_default_instances, TableStruct_dota_5fgcmessages_5fclient_5fwatch_2eproto::offsets,
@@ -1028,6 +1035,12 @@ class CSourceTVGameSmall_Player::_Internal {
   static void set_has_hero_id(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
   }
+  static void set_has_team_slot(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+  static void set_has_team(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
+  }
 };
 
 CSourceTVGameSmall_Player::CSourceTVGameSmall_Player(::PROTOBUF_NAMESPACE_ID::Arena* arena,
@@ -1043,12 +1056,14 @@ CSourceTVGameSmall_Player::CSourceTVGameSmall_Player(const CSourceTVGameSmall_Pl
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.account_id_){}
-    , decltype(_impl_.hero_id_){}};
+    , decltype(_impl_.hero_id_){}
+    , decltype(_impl_.team_slot_){}
+    , decltype(_impl_.team_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&_impl_.account_id_, &from._impl_.account_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.hero_id_) -
-    reinterpret_cast<char*>(&_impl_.account_id_)) + sizeof(_impl_.hero_id_));
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.team_) -
+    reinterpret_cast<char*>(&_impl_.account_id_)) + sizeof(_impl_.team_));
   // @@protoc_insertion_point(copy_constructor:CSourceTVGameSmall.Player)
 }
 
@@ -1060,7 +1075,9 @@ inline void CSourceTVGameSmall_Player::SharedCtor(
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.account_id_){0u}
-    , decltype(_impl_.hero_id_){0u}
+    , decltype(_impl_.hero_id_){0}
+    , decltype(_impl_.team_slot_){0u}
+    , decltype(_impl_.team_){0u}
   };
 }
 
@@ -1088,10 +1105,10 @@ void CSourceTVGameSmall_Player::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
+  if (cached_has_bits & 0x0000000fu) {
     ::memset(&_impl_.account_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.hero_id_) -
-        reinterpret_cast<char*>(&_impl_.account_id_)) + sizeof(_impl_.hero_id_));
+        reinterpret_cast<char*>(&_impl_.team_) -
+        reinterpret_cast<char*>(&_impl_.account_id_)) + sizeof(_impl_.team_));
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -1113,11 +1130,29 @@ const char* CSourceTVGameSmall_Player::_InternalParse(const char* ptr, ::_pbi::P
         } else
           goto handle_unusual;
         continue;
-      // optional uint32 hero_id = 2;
+      // optional int32 hero_id = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _Internal::set_has_hero_id(&has_bits);
           _impl_.hero_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 team_slot = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _Internal::set_has_team_slot(&has_bits);
+          _impl_.team_slot_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 team = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
+          _Internal::set_has_team(&has_bits);
+          _impl_.team_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -1159,10 +1194,22 @@ uint8_t* CSourceTVGameSmall_Player::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_account_id(), target);
   }
 
-  // optional uint32 hero_id = 2;
+  // optional int32 hero_id = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_hero_id(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_hero_id(), target);
+  }
+
+  // optional uint32 team_slot = 3;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_team_slot(), target);
+  }
+
+  // optional uint32 team = 4;
+  if (cached_has_bits & 0x00000008u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(4, this->_internal_team(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -1182,15 +1229,25 @@ size_t CSourceTVGameSmall_Player::ByteSizeLong() const {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
+  if (cached_has_bits & 0x0000000fu) {
     // optional uint32 account_id = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_account_id());
     }
 
-    // optional uint32 hero_id = 2;
+    // optional int32 hero_id = 2;
     if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_hero_id());
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_hero_id());
+    }
+
+    // optional uint32 team_slot = 3;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_team_slot());
+    }
+
+    // optional uint32 team = 4;
+    if (cached_has_bits & 0x00000008u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_team());
     }
 
   }
@@ -1213,12 +1270,18 @@ void CSourceTVGameSmall_Player::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_m
   (void) cached_has_bits;
 
   cached_has_bits = from._impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
+  if (cached_has_bits & 0x0000000fu) {
     if (cached_has_bits & 0x00000001u) {
       _this->_impl_.account_id_ = from._impl_.account_id_;
     }
     if (cached_has_bits & 0x00000002u) {
       _this->_impl_.hero_id_ = from._impl_.hero_id_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _this->_impl_.team_slot_ = from._impl_.team_slot_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      _this->_impl_.team_ = from._impl_.team_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -1241,8 +1304,8 @@ void CSourceTVGameSmall_Player::InternalSwap(CSourceTVGameSmall_Player* other) {
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CSourceTVGameSmall_Player, _impl_.hero_id_)
-      + sizeof(CSourceTVGameSmall_Player::_impl_.hero_id_)
+      PROTOBUF_FIELD_OFFSET(CSourceTVGameSmall_Player, _impl_.team_)
+      + sizeof(CSourceTVGameSmall_Player::_impl_.team_)
       - PROTOBUF_FIELD_OFFSET(CSourceTVGameSmall_Player, _impl_.account_id_)>(
           reinterpret_cast<char*>(&_impl_.account_id_),
           reinterpret_cast<char*>(&other->_impl_.account_id_));
@@ -2489,7 +2552,7 @@ inline void CMsgClientToGCFindTopSourceTVGames::SharedCtor(
     , decltype(_impl_.lobby_ids_){arena}
     , decltype(_impl_.search_key_){}
     , decltype(_impl_.league_id_){0u}
-    , decltype(_impl_.hero_id_){0u}
+    , decltype(_impl_.hero_id_){0}
     , decltype(_impl_.start_game_){0u}
     , decltype(_impl_.game_list_index_){0u}
   };
@@ -2566,7 +2629,7 @@ const char* CMsgClientToGCFindTopSourceTVGames::_InternalParse(const char* ptr, 
         } else
           goto handle_unusual;
         continue;
-      // optional uint32 hero_id = 3;
+      // optional int32 hero_id = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
           _Internal::set_has_hero_id(&has_bits);
@@ -2656,10 +2719,10 @@ uint8_t* CMsgClientToGCFindTopSourceTVGames::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_league_id(), target);
   }
 
-  // optional uint32 hero_id = 3;
+  // optional int32 hero_id = 3;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_hero_id(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(3, this->_internal_hero_id(), target);
   }
 
   // optional uint32 start_game = 4;
@@ -2719,9 +2782,9 @@ size_t CMsgClientToGCFindTopSourceTVGames::ByteSizeLong() const {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_league_id());
     }
 
-    // optional uint32 hero_id = 3;
+    // optional int32 hero_id = 3;
     if (cached_has_bits & 0x00000004u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_hero_id());
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_hero_id());
     }
 
     // optional uint32 start_game = 4;
@@ -2899,7 +2962,7 @@ inline void CMsgGCToClientFindTopSourceTVGamesResponse::SharedCtor(
     , decltype(_impl_.search_key_){}
     , decltype(_impl_.bot_game_){nullptr}
     , decltype(_impl_.league_id_){0u}
-    , decltype(_impl_.hero_id_){0u}
+    , decltype(_impl_.hero_id_){0}
     , decltype(_impl_.start_game_){0u}
     , decltype(_impl_.num_games_){0u}
     , decltype(_impl_.game_list_index_){0u}
@@ -2985,7 +3048,7 @@ const char* CMsgGCToClientFindTopSourceTVGamesResponse::_InternalParse(const cha
         } else
           goto handle_unusual;
         continue;
-      // optional uint32 hero_id = 3;
+      // optional int32 hero_id = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
           _Internal::set_has_hero_id(&has_bits);
@@ -3098,10 +3161,10 @@ uint8_t* CMsgGCToClientFindTopSourceTVGamesResponse::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_league_id(), target);
   }
 
-  // optional uint32 hero_id = 3;
+  // optional int32 hero_id = 3;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_hero_id(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(3, this->_internal_hero_id(), target);
   }
 
   // optional uint32 start_game = 4;
@@ -3187,9 +3250,9 @@ size_t CMsgGCToClientFindTopSourceTVGamesResponse::ByteSizeLong() const {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_league_id());
     }
 
-    // optional uint32 hero_id = 3;
+    // optional int32 hero_id = 3;
     if (cached_has_bits & 0x00000008u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_hero_id());
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_hero_id());
     }
 
     // optional uint32 start_game = 4;

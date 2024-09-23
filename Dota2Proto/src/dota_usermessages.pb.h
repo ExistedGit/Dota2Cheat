@@ -202,6 +202,9 @@ extern CDOTAUserMsg_EmptyTeleportAlertDefaultTypeInternal _CDOTAUserMsg_EmptyTel
 class CDOTAUserMsg_EnemyItemAlert;
 struct CDOTAUserMsg_EnemyItemAlertDefaultTypeInternal;
 extern CDOTAUserMsg_EnemyItemAlertDefaultTypeInternal _CDOTAUserMsg_EnemyItemAlert_default_instance_;
+class CDOTAUserMsg_FacetPing;
+struct CDOTAUserMsg_FacetPingDefaultTypeInternal;
+extern CDOTAUserMsg_FacetPingDefaultTypeInternal _CDOTAUserMsg_FacetPing_default_instance_;
 class CDOTAUserMsg_FlipCoinResult;
 struct CDOTAUserMsg_FlipCoinResultDefaultTypeInternal;
 extern CDOTAUserMsg_FlipCoinResultDefaultTypeInternal _CDOTAUserMsg_FlipCoinResult_default_instance_;
@@ -211,6 +214,9 @@ extern CDOTAUserMsg_FoundNeutralItemDefaultTypeInternal _CDOTAUserMsg_FoundNeutr
 class CDOTAUserMsg_GamerulesStateChanged;
 struct CDOTAUserMsg_GamerulesStateChangedDefaultTypeInternal;
 extern CDOTAUserMsg_GamerulesStateChangedDefaultTypeInternal _CDOTAUserMsg_GamerulesStateChanged_default_instance_;
+class CDOTAUserMsg_GiftPlayer;
+struct CDOTAUserMsg_GiftPlayerDefaultTypeInternal;
+extern CDOTAUserMsg_GiftPlayerDefaultTypeInternal _CDOTAUserMsg_GiftPlayer_default_instance_;
 class CDOTAUserMsg_GlobalLightColor;
 struct CDOTAUserMsg_GlobalLightColorDefaultTypeInternal;
 extern CDOTAUserMsg_GlobalLightColorDefaultTypeInternal _CDOTAUserMsg_GlobalLightColor_default_instance_;
@@ -250,6 +256,9 @@ extern CDOTAUserMsg_HotPotato_ExplodedDefaultTypeInternal _CDOTAUserMsg_HotPotat
 class CDOTAUserMsg_HudError;
 struct CDOTAUserMsg_HudErrorDefaultTypeInternal;
 extern CDOTAUserMsg_HudErrorDefaultTypeInternal _CDOTAUserMsg_HudError_default_instance_;
+class CDOTAUserMsg_InnatePing;
+struct CDOTAUserMsg_InnatePingDefaultTypeInternal;
+extern CDOTAUserMsg_InnatePingDefaultTypeInternal _CDOTAUserMsg_InnatePing_default_instance_;
 class CDOTAUserMsg_InvalidCommand;
 struct CDOTAUserMsg_InvalidCommandDefaultTypeInternal;
 extern CDOTAUserMsg_InvalidCommandDefaultTypeInternal _CDOTAUserMsg_InvalidCommand_default_instance_;
@@ -343,15 +352,6 @@ extern CDOTAUserMsg_PlayerDraftPickDefaultTypeInternal _CDOTAUserMsg_PlayerDraft
 class CDOTAUserMsg_PlayerDraftSuggestPick;
 struct CDOTAUserMsg_PlayerDraftSuggestPickDefaultTypeInternal;
 extern CDOTAUserMsg_PlayerDraftSuggestPickDefaultTypeInternal _CDOTAUserMsg_PlayerDraftSuggestPick_default_instance_;
-class CDOTAUserMsg_PlayerMMR;
-struct CDOTAUserMsg_PlayerMMRDefaultTypeInternal;
-extern CDOTAUserMsg_PlayerMMRDefaultTypeInternal _CDOTAUserMsg_PlayerMMR_default_instance_;
-class CDOTAUserMsg_PredictionResult;
-struct CDOTAUserMsg_PredictionResultDefaultTypeInternal;
-extern CDOTAUserMsg_PredictionResultDefaultTypeInternal _CDOTAUserMsg_PredictionResult_default_instance_;
-class CDOTAUserMsg_PredictionResult_Prediction;
-struct CDOTAUserMsg_PredictionResult_PredictionDefaultTypeInternal;
-extern CDOTAUserMsg_PredictionResult_PredictionDefaultTypeInternal _CDOTAUserMsg_PredictionResult_Prediction_default_instance_;
 class CDOTAUserMsg_ProjectileParticleCPData;
 struct CDOTAUserMsg_ProjectileParticleCPDataDefaultTypeInternal;
 extern CDOTAUserMsg_ProjectileParticleCPDataDefaultTypeInternal _CDOTAUserMsg_ProjectileParticleCPData_default_instance_;
@@ -391,6 +391,9 @@ extern CDOTAUserMsg_RockPaperScissorsStartedDefaultTypeInternal _CDOTAUserMsg_Ro
 class CDOTAUserMsg_RollDiceResult;
 struct CDOTAUserMsg_RollDiceResultDefaultTypeInternal;
 extern CDOTAUserMsg_RollDiceResultDefaultTypeInternal _CDOTAUserMsg_RollDiceResult_default_instance_;
+class CDOTAUserMsg_RoshanTimer;
+struct CDOTAUserMsg_RoshanTimerDefaultTypeInternal;
+extern CDOTAUserMsg_RoshanTimerDefaultTypeInternal _CDOTAUserMsg_RoshanTimer_default_instance_;
 class CDOTAUserMsg_SalutePlayer;
 struct CDOTAUserMsg_SalutePlayerDefaultTypeInternal;
 extern CDOTAUserMsg_SalutePlayerDefaultTypeInternal _CDOTAUserMsg_SalutePlayer_default_instance_;
@@ -544,6 +547,9 @@ extern CDOTAUserMsg_UnitEvent_SpeechDefaultTypeInternal _CDOTAUserMsg_UnitEvent_
 class CDOTAUserMsg_UnitEvent_SpeechMute;
 struct CDOTAUserMsg_UnitEvent_SpeechMuteDefaultTypeInternal;
 extern CDOTAUserMsg_UnitEvent_SpeechMuteDefaultTypeInternal _CDOTAUserMsg_UnitEvent_SpeechMute_default_instance_;
+class CDOTAUserMsg_UpdateLinearProjectileCPData;
+struct CDOTAUserMsg_UpdateLinearProjectileCPDataDefaultTypeInternal;
+extern CDOTAUserMsg_UpdateLinearProjectileCPDataDefaultTypeInternal _CDOTAUserMsg_UpdateLinearProjectileCPData_default_instance_;
 class CDOTAUserMsg_UpdateQuestProgress;
 struct CDOTAUserMsg_UpdateQuestProgressDefaultTypeInternal;
 extern CDOTAUserMsg_UpdateQuestProgressDefaultTypeInternal _CDOTAUserMsg_UpdateQuestProgress_default_instance_;
@@ -641,9 +647,11 @@ template<> ::CDOTAUserMsg_ESArcanaComboSummary* Arena::CreateMaybeMessage<::CDOT
 template<> ::CDOTAUserMsg_EmptyItemSlotAlert* Arena::CreateMaybeMessage<::CDOTAUserMsg_EmptyItemSlotAlert>(Arena*);
 template<> ::CDOTAUserMsg_EmptyTeleportAlert* Arena::CreateMaybeMessage<::CDOTAUserMsg_EmptyTeleportAlert>(Arena*);
 template<> ::CDOTAUserMsg_EnemyItemAlert* Arena::CreateMaybeMessage<::CDOTAUserMsg_EnemyItemAlert>(Arena*);
+template<> ::CDOTAUserMsg_FacetPing* Arena::CreateMaybeMessage<::CDOTAUserMsg_FacetPing>(Arena*);
 template<> ::CDOTAUserMsg_FlipCoinResult* Arena::CreateMaybeMessage<::CDOTAUserMsg_FlipCoinResult>(Arena*);
 template<> ::CDOTAUserMsg_FoundNeutralItem* Arena::CreateMaybeMessage<::CDOTAUserMsg_FoundNeutralItem>(Arena*);
 template<> ::CDOTAUserMsg_GamerulesStateChanged* Arena::CreateMaybeMessage<::CDOTAUserMsg_GamerulesStateChanged>(Arena*);
+template<> ::CDOTAUserMsg_GiftPlayer* Arena::CreateMaybeMessage<::CDOTAUserMsg_GiftPlayer>(Arena*);
 template<> ::CDOTAUserMsg_GlobalLightColor* Arena::CreateMaybeMessage<::CDOTAUserMsg_GlobalLightColor>(Arena*);
 template<> ::CDOTAUserMsg_GlobalLightDirection* Arena::CreateMaybeMessage<::CDOTAUserMsg_GlobalLightDirection>(Arena*);
 template<> ::CDOTAUserMsg_GlyphAlert* Arena::CreateMaybeMessage<::CDOTAUserMsg_GlyphAlert>(Arena*);
@@ -657,6 +665,7 @@ template<> ::CDOTAUserMsg_HighFiveLeftHanging* Arena::CreateMaybeMessage<::CDOTA
 template<> ::CDOTAUserMsg_HotPotato_Created* Arena::CreateMaybeMessage<::CDOTAUserMsg_HotPotato_Created>(Arena*);
 template<> ::CDOTAUserMsg_HotPotato_Exploded* Arena::CreateMaybeMessage<::CDOTAUserMsg_HotPotato_Exploded>(Arena*);
 template<> ::CDOTAUserMsg_HudError* Arena::CreateMaybeMessage<::CDOTAUserMsg_HudError>(Arena*);
+template<> ::CDOTAUserMsg_InnatePing* Arena::CreateMaybeMessage<::CDOTAUserMsg_InnatePing>(Arena*);
 template<> ::CDOTAUserMsg_InvalidCommand* Arena::CreateMaybeMessage<::CDOTAUserMsg_InvalidCommand>(Arena*);
 template<> ::CDOTAUserMsg_ItemAlert* Arena::CreateMaybeMessage<::CDOTAUserMsg_ItemAlert>(Arena*);
 template<> ::CDOTAUserMsg_ItemFound* Arena::CreateMaybeMessage<::CDOTAUserMsg_ItemFound>(Arena*);
@@ -688,9 +697,6 @@ template<> ::CDOTAUserMsg_Ping* Arena::CreateMaybeMessage<::CDOTAUserMsg_Ping>(A
 template<> ::CDOTAUserMsg_PingConfirmation* Arena::CreateMaybeMessage<::CDOTAUserMsg_PingConfirmation>(Arena*);
 template<> ::CDOTAUserMsg_PlayerDraftPick* Arena::CreateMaybeMessage<::CDOTAUserMsg_PlayerDraftPick>(Arena*);
 template<> ::CDOTAUserMsg_PlayerDraftSuggestPick* Arena::CreateMaybeMessage<::CDOTAUserMsg_PlayerDraftSuggestPick>(Arena*);
-template<> ::CDOTAUserMsg_PlayerMMR* Arena::CreateMaybeMessage<::CDOTAUserMsg_PlayerMMR>(Arena*);
-template<> ::CDOTAUserMsg_PredictionResult* Arena::CreateMaybeMessage<::CDOTAUserMsg_PredictionResult>(Arena*);
-template<> ::CDOTAUserMsg_PredictionResult_Prediction* Arena::CreateMaybeMessage<::CDOTAUserMsg_PredictionResult_Prediction>(Arena*);
 template<> ::CDOTAUserMsg_ProjectileParticleCPData* Arena::CreateMaybeMessage<::CDOTAUserMsg_ProjectileParticleCPData>(Arena*);
 template<> ::CDOTAUserMsg_ProjectionAbility* Arena::CreateMaybeMessage<::CDOTAUserMsg_ProjectionAbility>(Arena*);
 template<> ::CDOTAUserMsg_ProjectionEvent* Arena::CreateMaybeMessage<::CDOTAUserMsg_ProjectionEvent>(Arena*);
@@ -704,6 +710,7 @@ template<> ::CDOTAUserMsg_ReplaceQueryUnit* Arena::CreateMaybeMessage<::CDOTAUse
 template<> ::CDOTAUserMsg_RockPaperScissorsFinished* Arena::CreateMaybeMessage<::CDOTAUserMsg_RockPaperScissorsFinished>(Arena*);
 template<> ::CDOTAUserMsg_RockPaperScissorsStarted* Arena::CreateMaybeMessage<::CDOTAUserMsg_RockPaperScissorsStarted>(Arena*);
 template<> ::CDOTAUserMsg_RollDiceResult* Arena::CreateMaybeMessage<::CDOTAUserMsg_RollDiceResult>(Arena*);
+template<> ::CDOTAUserMsg_RoshanTimer* Arena::CreateMaybeMessage<::CDOTAUserMsg_RoshanTimer>(Arena*);
 template<> ::CDOTAUserMsg_SalutePlayer* Arena::CreateMaybeMessage<::CDOTAUserMsg_SalutePlayer>(Arena*);
 template<> ::CDOTAUserMsg_SelectPenaltyGold* Arena::CreateMaybeMessage<::CDOTAUserMsg_SelectPenaltyGold>(Arena*);
 template<> ::CDOTAUserMsg_SendFinalGold* Arena::CreateMaybeMessage<::CDOTAUserMsg_SendFinalGold>(Arena*);
@@ -755,6 +762,7 @@ template<> ::CDOTAUserMsg_UnitEvent_Interval* Arena::CreateMaybeMessage<::CDOTAU
 template<> ::CDOTAUserMsg_UnitEvent_RemoveGesture* Arena::CreateMaybeMessage<::CDOTAUserMsg_UnitEvent_RemoveGesture>(Arena*);
 template<> ::CDOTAUserMsg_UnitEvent_Speech* Arena::CreateMaybeMessage<::CDOTAUserMsg_UnitEvent_Speech>(Arena*);
 template<> ::CDOTAUserMsg_UnitEvent_SpeechMute* Arena::CreateMaybeMessage<::CDOTAUserMsg_UnitEvent_SpeechMute>(Arena*);
+template<> ::CDOTAUserMsg_UpdateLinearProjectileCPData* Arena::CreateMaybeMessage<::CDOTAUserMsg_UpdateLinearProjectileCPData>(Arena*);
 template<> ::CDOTAUserMsg_UpdateQuestProgress* Arena::CreateMaybeMessage<::CDOTAUserMsg_UpdateQuestProgress>(Arena*);
 template<> ::CDOTAUserMsg_UpdateSharedContent* Arena::CreateMaybeMessage<::CDOTAUserMsg_UpdateSharedContent>(Arena*);
 template<> ::CDOTAUserMsg_VersusScene_PlayerBehavior* Arena::CreateMaybeMessage<::CDOTAUserMsg_VersusScene_PlayerBehavior>(Arena*);
@@ -772,29 +780,6 @@ template<> ::CMsgCombatAnalyzerStats* Arena::CreateMaybeMessage<::CMsgCombatAnal
 template<> ::CMsgHeroAbilityStat* Arena::CreateMaybeMessage<::CMsgHeroAbilityStat>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 
-enum CDOTAUserMsg_PredictionResult_Prediction_EResult : int {
-  CDOTAUserMsg_PredictionResult_Prediction_EResult_k_eResult_ItemGranted = 1,
-  CDOTAUserMsg_PredictionResult_Prediction_EResult_k_eResult_Destroyed = 2
-};
-bool CDOTAUserMsg_PredictionResult_Prediction_EResult_IsValid(int value);
-constexpr CDOTAUserMsg_PredictionResult_Prediction_EResult CDOTAUserMsg_PredictionResult_Prediction_EResult_EResult_MIN = CDOTAUserMsg_PredictionResult_Prediction_EResult_k_eResult_ItemGranted;
-constexpr CDOTAUserMsg_PredictionResult_Prediction_EResult CDOTAUserMsg_PredictionResult_Prediction_EResult_EResult_MAX = CDOTAUserMsg_PredictionResult_Prediction_EResult_k_eResult_Destroyed;
-constexpr int CDOTAUserMsg_PredictionResult_Prediction_EResult_EResult_ARRAYSIZE = CDOTAUserMsg_PredictionResult_Prediction_EResult_EResult_MAX + 1;
-
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CDOTAUserMsg_PredictionResult_Prediction_EResult_descriptor();
-template<typename T>
-inline const std::string& CDOTAUserMsg_PredictionResult_Prediction_EResult_Name(T enum_t_value) {
-  static_assert(::std::is_same<T, CDOTAUserMsg_PredictionResult_Prediction_EResult>::value ||
-    ::std::is_integral<T>::value,
-    "Incorrect type passed to function CDOTAUserMsg_PredictionResult_Prediction_EResult_Name.");
-  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    CDOTAUserMsg_PredictionResult_Prediction_EResult_descriptor(), enum_t_value);
-}
-inline bool CDOTAUserMsg_PredictionResult_Prediction_EResult_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, CDOTAUserMsg_PredictionResult_Prediction_EResult* value) {
-  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<CDOTAUserMsg_PredictionResult_Prediction_EResult>(
-    CDOTAUserMsg_PredictionResult_Prediction_EResult_descriptor(), name, value);
-}
 enum CDOTAResponseQuerySerialized_Fact_ValueType : int {
   CDOTAResponseQuerySerialized_Fact_ValueType_NUMERIC = 1,
   CDOTAResponseQuerySerialized_Fact_ValueType_STRING = 2,
@@ -911,7 +896,6 @@ enum EDotaUserMessages : int {
   DOTA_UM_BoosterState = 528,
   DOTA_UM_WillPurchaseAlert = 529,
   DOTA_UM_TutorialMinimapPosition = 530,
-  DOTA_UM_PlayerMMR = 531,
   DOTA_UM_AbilitySteal = 532,
   DOTA_UM_CourierKilledAlert = 533,
   DOTA_UM_EnemyItemAlert = 534,
@@ -1000,11 +984,16 @@ enum EDotaUserMessages : int {
   DOTA_UM_DuelRequested = 618,
   DOTA_UM_MuertaReleaseEvent_AssignedTargetKilled = 619,
   DOTA_UM_PlayerDraftSuggestPick = 620,
-  DOTA_UM_PlayerDraftPick = 621
+  DOTA_UM_PlayerDraftPick = 621,
+  DOTA_UM_UpdateLinearProjectileCPData = 622,
+  DOTA_UM_GiftPlayer = 623,
+  DOTA_UM_FacetPing = 624,
+  DOTA_UM_InnatePing = 625,
+  DOTA_UM_RoshanTimer = 626
 };
 bool EDotaUserMessages_IsValid(int value);
 constexpr EDotaUserMessages EDotaUserMessages_MIN = DOTA_UM_AddUnitToSelection;
-constexpr EDotaUserMessages EDotaUserMessages_MAX = DOTA_UM_PlayerDraftPick;
+constexpr EDotaUserMessages EDotaUserMessages_MAX = DOTA_UM_RoshanTimer;
 constexpr int EDotaUserMessages_ARRAYSIZE = EDotaUserMessages_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EDotaUserMessages_descriptor();
@@ -1321,11 +1310,12 @@ enum DOTA_OVERHEAD_ALERT : int {
   OVERHEAD_ALERT_BLOCKED = 21,
   OVERHEAD_ALERT_ITEM_RECEIVED = 22,
   OVERHEAD_ALERT_SHARD = 23,
-  OVERHEAD_ALERT_DEADLY_BLOW = 24
+  OVERHEAD_ALERT_DEADLY_BLOW = 24,
+  OVERHEAD_ALERT_FORCE_MISS = 25
 };
 bool DOTA_OVERHEAD_ALERT_IsValid(int value);
 constexpr DOTA_OVERHEAD_ALERT DOTA_OVERHEAD_ALERT_MIN = OVERHEAD_ALERT_GOLD;
-constexpr DOTA_OVERHEAD_ALERT DOTA_OVERHEAD_ALERT_MAX = OVERHEAD_ALERT_DEADLY_BLOW;
+constexpr DOTA_OVERHEAD_ALERT DOTA_OVERHEAD_ALERT_MAX = OVERHEAD_ALERT_FORCE_MISS;
 constexpr int DOTA_OVERHEAD_ALERT_ARRAYSIZE = DOTA_OVERHEAD_ALERT_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* DOTA_OVERHEAD_ALERT_descriptor();
@@ -3164,6 +3154,201 @@ class CDOTAUserMsg_ProjectileParticleCPData final :
 };
 // -------------------------------------------------------------------
 
+class CDOTAUserMsg_UpdateLinearProjectileCPData final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CDOTAUserMsg_UpdateLinearProjectileCPData) */ {
+ public:
+  inline CDOTAUserMsg_UpdateLinearProjectileCPData() : CDOTAUserMsg_UpdateLinearProjectileCPData(nullptr) {}
+  ~CDOTAUserMsg_UpdateLinearProjectileCPData() override;
+  explicit PROTOBUF_CONSTEXPR CDOTAUserMsg_UpdateLinearProjectileCPData(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CDOTAUserMsg_UpdateLinearProjectileCPData(const CDOTAUserMsg_UpdateLinearProjectileCPData& from);
+  CDOTAUserMsg_UpdateLinearProjectileCPData(CDOTAUserMsg_UpdateLinearProjectileCPData&& from) noexcept
+    : CDOTAUserMsg_UpdateLinearProjectileCPData() {
+    *this = ::std::move(from);
+  }
+
+  inline CDOTAUserMsg_UpdateLinearProjectileCPData& operator=(const CDOTAUserMsg_UpdateLinearProjectileCPData& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CDOTAUserMsg_UpdateLinearProjectileCPData& operator=(CDOTAUserMsg_UpdateLinearProjectileCPData&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CDOTAUserMsg_UpdateLinearProjectileCPData& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CDOTAUserMsg_UpdateLinearProjectileCPData* internal_default_instance() {
+    return reinterpret_cast<const CDOTAUserMsg_UpdateLinearProjectileCPData*>(
+               &_CDOTAUserMsg_UpdateLinearProjectileCPData_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    8;
+
+  friend void swap(CDOTAUserMsg_UpdateLinearProjectileCPData& a, CDOTAUserMsg_UpdateLinearProjectileCPData& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CDOTAUserMsg_UpdateLinearProjectileCPData* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CDOTAUserMsg_UpdateLinearProjectileCPData* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CDOTAUserMsg_UpdateLinearProjectileCPData* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CDOTAUserMsg_UpdateLinearProjectileCPData>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CDOTAUserMsg_UpdateLinearProjectileCPData& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CDOTAUserMsg_UpdateLinearProjectileCPData& from) {
+    CDOTAUserMsg_UpdateLinearProjectileCPData::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CDOTAUserMsg_UpdateLinearProjectileCPData* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CDOTAUserMsg_UpdateLinearProjectileCPData";
+  }
+  protected:
+  explicit CDOTAUserMsg_UpdateLinearProjectileCPData(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kVectorFieldNumber = 3,
+    kHandleFieldNumber = 1,
+    kControlPointFieldNumber = 2,
+  };
+  // optional .CMsgVector vector = 3;
+  bool has_vector() const;
+  private:
+  bool _internal_has_vector() const;
+  public:
+  void clear_vector();
+  const ::CMsgVector& vector() const;
+  PROTOBUF_NODISCARD ::CMsgVector* release_vector();
+  ::CMsgVector* mutable_vector();
+  void set_allocated_vector(::CMsgVector* vector);
+  private:
+  const ::CMsgVector& _internal_vector() const;
+  ::CMsgVector* _internal_mutable_vector();
+  public:
+  void unsafe_arena_set_allocated_vector(
+      ::CMsgVector* vector);
+  ::CMsgVector* unsafe_arena_release_vector();
+
+  // optional int32 handle = 1;
+  bool has_handle() const;
+  private:
+  bool _internal_has_handle() const;
+  public:
+  void clear_handle();
+  int32_t handle() const;
+  void set_handle(int32_t value);
+  private:
+  int32_t _internal_handle() const;
+  void _internal_set_handle(int32_t value);
+  public:
+
+  // optional int32 control_point = 2;
+  bool has_control_point() const;
+  private:
+  bool _internal_has_control_point() const;
+  public:
+  void clear_control_point();
+  int32_t control_point() const;
+  void set_control_point(int32_t value);
+  private:
+  int32_t _internal_control_point() const;
+  void _internal_set_control_point(int32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CDOTAUserMsg_UpdateLinearProjectileCPData)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::CMsgVector* vector_;
+    int32_t handle_;
+    int32_t control_point_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_dota_5fusermessages_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CDOTAUserMsg_MiniKillCamInfo.Attacker.Ability) */ {
  public:
@@ -3219,7 +3404,7 @@ class CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability final :
                &_CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    9;
 
   friend void swap(CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability& a, CDOTAUserMsg_MiniKillCamInfo_Attacker_Ability& b) {
     a.Swap(&b);
@@ -3394,7 +3579,7 @@ class CDOTAUserMsg_MiniKillCamInfo_Attacker final :
                &_CDOTAUserMsg_MiniKillCamInfo_Attacker_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    10;
 
   friend void swap(CDOTAUserMsg_MiniKillCamInfo_Attacker& a, CDOTAUserMsg_MiniKillCamInfo_Attacker& b) {
     a.Swap(&b);
@@ -3611,7 +3796,7 @@ class CDOTAUserMsg_MiniKillCamInfo final :
                &_CDOTAUserMsg_MiniKillCamInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    11;
 
   friend void swap(CDOTAUserMsg_MiniKillCamInfo& a, CDOTAUserMsg_MiniKillCamInfo& b) {
     a.Swap(&b);
@@ -3777,7 +3962,7 @@ class CDOTAUserMsg_GlobalLightColor final :
                &_CDOTAUserMsg_GlobalLightColor_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    12;
 
   friend void swap(CDOTAUserMsg_GlobalLightColor& a, CDOTAUserMsg_GlobalLightColor& b) {
     a.Swap(&b);
@@ -3952,7 +4137,7 @@ class CDOTAUserMsg_GlobalLightDirection final :
                &_CDOTAUserMsg_GlobalLightDirection_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    13;
 
   friend void swap(CDOTAUserMsg_GlobalLightDirection& a, CDOTAUserMsg_GlobalLightDirection& b) {
     a.Swap(&b);
@@ -4132,7 +4317,7 @@ class CDOTAUserMsg_LocationPing final :
                &_CDOTAUserMsg_LocationPing_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    14;
 
   friend void swap(CDOTAUserMsg_LocationPing& a, CDOTAUserMsg_LocationPing& b) {
     a.Swap(&b);
@@ -4312,7 +4497,7 @@ class CDOTAUserMsg_PingConfirmation final :
                &_CDOTAUserMsg_PingConfirmation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    15;
 
   friend void swap(CDOTAUserMsg_PingConfirmation& a, CDOTAUserMsg_PingConfirmation& b) {
     a.Swap(&b);
@@ -4522,7 +4707,7 @@ class CDOTAUserMsg_ItemAlert final :
                &_CDOTAUserMsg_ItemAlert_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    16;
 
   friend void swap(CDOTAUserMsg_ItemAlert& a, CDOTAUserMsg_ItemAlert& b) {
     a.Swap(&b);
@@ -4702,7 +4887,7 @@ class CDOTAUserMsg_EnemyItemAlert final :
                &_CDOTAUserMsg_EnemyItemAlert_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    17;
 
   friend void swap(CDOTAUserMsg_EnemyItemAlert& a, CDOTAUserMsg_EnemyItemAlert& b) {
     a.Swap(&b);
@@ -4967,7 +5152,7 @@ class CDOTAUserMsg_ModifierAlert final :
                &_CDOTAUserMsg_ModifierAlert_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    18;
 
   friend void swap(CDOTAUserMsg_ModifierAlert& a, CDOTAUserMsg_ModifierAlert& b) {
     a.Swap(&b);
@@ -5207,7 +5392,7 @@ class CDOTAUserMsg_HPManaAlert final :
                &_CDOTAUserMsg_HPManaAlert_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    19;
 
   friend void swap(CDOTAUserMsg_HPManaAlert& a, CDOTAUserMsg_HPManaAlert& b) {
     a.Swap(&b);
@@ -5397,7 +5582,7 @@ class CDOTAUserMsg_NeutralCampAlert final :
                &_CDOTAUserMsg_NeutralCampAlert_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    20;
 
   friend void swap(CDOTAUserMsg_NeutralCampAlert& a, CDOTAUserMsg_NeutralCampAlert& b) {
     a.Swap(&b);
@@ -5647,7 +5832,7 @@ class CDOTAUserMsg_GlyphAlert final :
                &_CDOTAUserMsg_GlyphAlert_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    21;
 
   friend void swap(CDOTAUserMsg_GlyphAlert& a, CDOTAUserMsg_GlyphAlert& b) {
     a.Swap(&b);
@@ -5822,7 +6007,7 @@ class CDOTAUserMsg_RadarAlert final :
                &_CDOTAUserMsg_RadarAlert_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    22;
 
   friend void swap(CDOTAUserMsg_RadarAlert& a, CDOTAUserMsg_RadarAlert& b) {
     a.Swap(&b);
@@ -5942,6 +6127,181 @@ class CDOTAUserMsg_RadarAlert final :
 };
 // -------------------------------------------------------------------
 
+class CDOTAUserMsg_RoshanTimer final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CDOTAUserMsg_RoshanTimer) */ {
+ public:
+  inline CDOTAUserMsg_RoshanTimer() : CDOTAUserMsg_RoshanTimer(nullptr) {}
+  ~CDOTAUserMsg_RoshanTimer() override;
+  explicit PROTOBUF_CONSTEXPR CDOTAUserMsg_RoshanTimer(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CDOTAUserMsg_RoshanTimer(const CDOTAUserMsg_RoshanTimer& from);
+  CDOTAUserMsg_RoshanTimer(CDOTAUserMsg_RoshanTimer&& from) noexcept
+    : CDOTAUserMsg_RoshanTimer() {
+    *this = ::std::move(from);
+  }
+
+  inline CDOTAUserMsg_RoshanTimer& operator=(const CDOTAUserMsg_RoshanTimer& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CDOTAUserMsg_RoshanTimer& operator=(CDOTAUserMsg_RoshanTimer&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CDOTAUserMsg_RoshanTimer& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CDOTAUserMsg_RoshanTimer* internal_default_instance() {
+    return reinterpret_cast<const CDOTAUserMsg_RoshanTimer*>(
+               &_CDOTAUserMsg_RoshanTimer_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    23;
+
+  friend void swap(CDOTAUserMsg_RoshanTimer& a, CDOTAUserMsg_RoshanTimer& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CDOTAUserMsg_RoshanTimer* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CDOTAUserMsg_RoshanTimer* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CDOTAUserMsg_RoshanTimer* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CDOTAUserMsg_RoshanTimer>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CDOTAUserMsg_RoshanTimer& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CDOTAUserMsg_RoshanTimer& from) {
+    CDOTAUserMsg_RoshanTimer::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CDOTAUserMsg_RoshanTimer* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CDOTAUserMsg_RoshanTimer";
+  }
+  protected:
+  explicit CDOTAUserMsg_RoshanTimer(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kNegativeFieldNumber = 2,
+    kPlayerIdFieldNumber = 1,
+  };
+  // optional bool negative = 2;
+  bool has_negative() const;
+  private:
+  bool _internal_has_negative() const;
+  public:
+  void clear_negative();
+  bool negative() const;
+  void set_negative(bool value);
+  private:
+  bool _internal_negative() const;
+  void _internal_set_negative(bool value);
+  public:
+
+  // optional int32 player_id = 1 [default = -1];
+  bool has_player_id() const;
+  private:
+  bool _internal_has_player_id() const;
+  public:
+  void clear_player_id();
+  int32_t player_id() const;
+  void set_player_id(int32_t value);
+  private:
+  int32_t _internal_player_id() const;
+  void _internal_set_player_id(int32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CDOTAUserMsg_RoshanTimer)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    bool negative_;
+    int32_t player_id_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_dota_5fusermessages_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CDOTAUserMsg_WillPurchaseAlert final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CDOTAUserMsg_WillPurchaseAlert) */ {
  public:
@@ -5997,7 +6357,7 @@ class CDOTAUserMsg_WillPurchaseAlert final :
                &_CDOTAUserMsg_WillPurchaseAlert_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    24;
 
   friend void swap(CDOTAUserMsg_WillPurchaseAlert& a, CDOTAUserMsg_WillPurchaseAlert& b) {
     a.Swap(&b);
@@ -6202,7 +6562,7 @@ class CDOTAUserMsg_EmptyTeleportAlert final :
                &_CDOTAUserMsg_EmptyTeleportAlert_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    25;
 
   friend void swap(CDOTAUserMsg_EmptyTeleportAlert& a, CDOTAUserMsg_EmptyTeleportAlert& b) {
     a.Swap(&b);
@@ -6392,7 +6752,7 @@ class CDOTAUserMsg_MarsArenaOfBloodAttack final :
                &_CDOTAUserMsg_MarsArenaOfBloodAttack_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    26;
 
   friend void swap(CDOTAUserMsg_MarsArenaOfBloodAttack& a, CDOTAUserMsg_MarsArenaOfBloodAttack& b) {
     a.Swap(&b);
@@ -6582,7 +6942,7 @@ class CDOTAEntityMsg_InvokerSpellCast final :
                &_CDOTAEntityMsg_InvokerSpellCast_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    27;
 
   friend void swap(CDOTAEntityMsg_InvokerSpellCast& a, CDOTAEntityMsg_InvokerSpellCast& b) {
     a.Swap(&b);
@@ -6762,7 +7122,7 @@ class CDOTAUserMsg_BuyBackStateAlert final :
                &_CDOTAUserMsg_BuyBackStateAlert_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    26;
+    28;
 
   friend void swap(CDOTAUserMsg_BuyBackStateAlert& a, CDOTAUserMsg_BuyBackStateAlert& b) {
     a.Swap(&b);
@@ -6922,7 +7282,7 @@ class CDOTAUserMsg_QuickBuyAlert final :
                &_CDOTAUserMsg_QuickBuyAlert_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    27;
+    29;
 
   friend void swap(CDOTAUserMsg_QuickBuyAlert& a, CDOTAUserMsg_QuickBuyAlert& b) {
     a.Swap(&b);
@@ -7142,7 +7502,7 @@ class CDOTAUserMsg_CourierKilledAlert_LostItem final :
                &_CDOTAUserMsg_CourierKilledAlert_LostItem_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    28;
+    30;
 
   friend void swap(CDOTAUserMsg_CourierKilledAlert_LostItem& a, CDOTAUserMsg_CourierKilledAlert_LostItem& b) {
     a.Swap(&b);
@@ -7317,7 +7677,7 @@ class CDOTAUserMsg_CourierKilledAlert final :
                &_CDOTAUserMsg_CourierKilledAlert_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    29;
+    31;
 
   friend void swap(CDOTAUserMsg_CourierKilledAlert& a, CDOTAUserMsg_CourierKilledAlert& b) {
     a.Swap(&b);
@@ -7574,7 +7934,7 @@ class CDOTAUserMsg_MinimapEvent final :
                &_CDOTAUserMsg_MinimapEvent_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    30;
+    32;
 
   friend void swap(CDOTAUserMsg_MinimapEvent& a, CDOTAUserMsg_MinimapEvent& b) {
     a.Swap(&b);
@@ -7809,7 +8169,7 @@ class CDOTAUserMsg_MapLine final :
                &_CDOTAUserMsg_MapLine_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    31;
+    33;
 
   friend void swap(CDOTAUserMsg_MapLine& a, CDOTAUserMsg_MapLine& b) {
     a.Swap(&b);
@@ -7989,7 +8349,7 @@ class CDOTAUserMsg_MinimapDebugPoint final :
                &_CDOTAUserMsg_MinimapDebugPoint_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    32;
+    34;
 
   friend void swap(CDOTAUserMsg_MinimapDebugPoint& a, CDOTAUserMsg_MinimapDebugPoint& b) {
     a.Swap(&b);
@@ -8214,7 +8574,7 @@ class CDOTAUserMsg_CreateLinearProjectile final :
                &_CDOTAUserMsg_CreateLinearProjectile_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    33;
+    35;
 
   friend void swap(CDOTAUserMsg_CreateLinearProjectile& a, CDOTAUserMsg_CreateLinearProjectile& b) {
     a.Swap(&b);
@@ -8559,7 +8919,7 @@ class CDOTAUserMsg_DestroyLinearProjectile final :
                &_CDOTAUserMsg_DestroyLinearProjectile_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    34;
+    36;
 
   friend void swap(CDOTAUserMsg_DestroyLinearProjectile& a, CDOTAUserMsg_DestroyLinearProjectile& b) {
     a.Swap(&b);
@@ -8719,7 +9079,7 @@ class CDOTAUserMsg_DodgeTrackingProjectiles final :
                &_CDOTAUserMsg_DodgeTrackingProjectiles_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    35;
+    37;
 
   friend void swap(CDOTAUserMsg_DodgeTrackingProjectiles& a, CDOTAUserMsg_DodgeTrackingProjectiles& b) {
     a.Swap(&b);
@@ -8894,7 +9254,7 @@ class CDOTAUserMsg_SpectatorPlayerClick final :
                &_CDOTAUserMsg_SpectatorPlayerClick_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    36;
+    38;
 
   friend void swap(CDOTAUserMsg_SpectatorPlayerClick& a, CDOTAUserMsg_SpectatorPlayerClick& b) {
     a.Swap(&b);
@@ -9084,7 +9444,7 @@ class CDOTAUserMsg_SpectatorPlayerUnitOrders final :
                &_CDOTAUserMsg_SpectatorPlayerUnitOrders_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    37;
+    39;
 
   friend void swap(CDOTAUserMsg_SpectatorPlayerUnitOrders& a, CDOTAUserMsg_SpectatorPlayerUnitOrders& b) {
     a.Swap(&b);
@@ -9378,7 +9738,7 @@ class CDOTAUserMsg_NevermoreRequiem final :
                &_CDOTAUserMsg_NevermoreRequiem_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    38;
+    40;
 
   friend void swap(CDOTAUserMsg_NevermoreRequiem& a, CDOTAUserMsg_NevermoreRequiem& b) {
     a.Swap(&b);
@@ -9588,7 +9948,7 @@ class CDOTAUserMsg_InvalidCommand final :
                &_CDOTAUserMsg_InvalidCommand_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    39;
+    41;
 
   friend void swap(CDOTAUserMsg_InvalidCommand& a, CDOTAUserMsg_InvalidCommand& b) {
     a.Swap(&b);
@@ -9768,7 +10128,7 @@ class CDOTAUserMsg_HudError final :
                &_CDOTAUserMsg_HudError_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    40;
+    42;
 
   friend void swap(CDOTAUserMsg_HudError& a, CDOTAUserMsg_HudError& b) {
     a.Swap(&b);
@@ -9943,7 +10303,7 @@ class CDOTAUserMsg_SharedCooldown final :
                &_CDOTAUserMsg_SharedCooldown_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    41;
+    43;
 
   friend void swap(CDOTAUserMsg_SharedCooldown& a, CDOTAUserMsg_SharedCooldown& b) {
     a.Swap(&b);
@@ -10153,7 +10513,7 @@ class CDOTAUserMsg_SetNextAutobuyItem final :
                &_CDOTAUserMsg_SetNextAutobuyItem_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    42;
+    44;
 
   friend void swap(CDOTAUserMsg_SetNextAutobuyItem& a, CDOTAUserMsg_SetNextAutobuyItem& b) {
     a.Swap(&b);
@@ -10318,7 +10678,7 @@ class CDOTAUserMsg_HalloweenDrops final :
                &_CDOTAUserMsg_HalloweenDrops_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    43;
+    45;
 
   friend void swap(CDOTAUserMsg_HalloweenDrops& a, CDOTAUserMsg_HalloweenDrops& b) {
     a.Swap(&b);
@@ -10465,477 +10825,6 @@ class CDOTAUserMsg_HalloweenDrops final :
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > item_defs_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > player_ids_;
     uint32_t prize_list_;
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_dota_5fusermessages_2eproto;
-};
-// -------------------------------------------------------------------
-
-class CDOTAUserMsg_PredictionResult_Prediction final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CDOTAUserMsg_PredictionResult.Prediction) */ {
- public:
-  inline CDOTAUserMsg_PredictionResult_Prediction() : CDOTAUserMsg_PredictionResult_Prediction(nullptr) {}
-  ~CDOTAUserMsg_PredictionResult_Prediction() override;
-  explicit PROTOBUF_CONSTEXPR CDOTAUserMsg_PredictionResult_Prediction(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  CDOTAUserMsg_PredictionResult_Prediction(const CDOTAUserMsg_PredictionResult_Prediction& from);
-  CDOTAUserMsg_PredictionResult_Prediction(CDOTAUserMsg_PredictionResult_Prediction&& from) noexcept
-    : CDOTAUserMsg_PredictionResult_Prediction() {
-    *this = ::std::move(from);
-  }
-
-  inline CDOTAUserMsg_PredictionResult_Prediction& operator=(const CDOTAUserMsg_PredictionResult_Prediction& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CDOTAUserMsg_PredictionResult_Prediction& operator=(CDOTAUserMsg_PredictionResult_Prediction&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const CDOTAUserMsg_PredictionResult_Prediction& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const CDOTAUserMsg_PredictionResult_Prediction* internal_default_instance() {
-    return reinterpret_cast<const CDOTAUserMsg_PredictionResult_Prediction*>(
-               &_CDOTAUserMsg_PredictionResult_Prediction_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    44;
-
-  friend void swap(CDOTAUserMsg_PredictionResult_Prediction& a, CDOTAUserMsg_PredictionResult_Prediction& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CDOTAUserMsg_PredictionResult_Prediction* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CDOTAUserMsg_PredictionResult_Prediction* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  CDOTAUserMsg_PredictionResult_Prediction* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<CDOTAUserMsg_PredictionResult_Prediction>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const CDOTAUserMsg_PredictionResult_Prediction& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const CDOTAUserMsg_PredictionResult_Prediction& from) {
-    CDOTAUserMsg_PredictionResult_Prediction::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CDOTAUserMsg_PredictionResult_Prediction* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CDOTAUserMsg_PredictionResult.Prediction";
-  }
-  protected:
-  explicit CDOTAUserMsg_PredictionResult_Prediction(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  typedef CDOTAUserMsg_PredictionResult_Prediction_EResult EResult;
-  static constexpr EResult k_eResult_ItemGranted =
-    CDOTAUserMsg_PredictionResult_Prediction_EResult_k_eResult_ItemGranted;
-  static constexpr EResult k_eResult_Destroyed =
-    CDOTAUserMsg_PredictionResult_Prediction_EResult_k_eResult_Destroyed;
-  static inline bool EResult_IsValid(int value) {
-    return CDOTAUserMsg_PredictionResult_Prediction_EResult_IsValid(value);
-  }
-  static constexpr EResult EResult_MIN =
-    CDOTAUserMsg_PredictionResult_Prediction_EResult_EResult_MIN;
-  static constexpr EResult EResult_MAX =
-    CDOTAUserMsg_PredictionResult_Prediction_EResult_EResult_MAX;
-  static constexpr int EResult_ARRAYSIZE =
-    CDOTAUserMsg_PredictionResult_Prediction_EResult_EResult_ARRAYSIZE;
-  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
-  EResult_descriptor() {
-    return CDOTAUserMsg_PredictionResult_Prediction_EResult_descriptor();
-  }
-  template<typename T>
-  static inline const std::string& EResult_Name(T enum_t_value) {
-    static_assert(::std::is_same<T, EResult>::value ||
-      ::std::is_integral<T>::value,
-      "Incorrect type passed to function EResult_Name.");
-    return CDOTAUserMsg_PredictionResult_Prediction_EResult_Name(enum_t_value);
-  }
-  static inline bool EResult_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
-      EResult* value) {
-    return CDOTAUserMsg_PredictionResult_Prediction_EResult_Parse(name, value);
-  }
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kGrantedItemDefsFieldNumber = 6,
-    kItemDefFieldNumber = 1,
-    kNumCorrectFieldNumber = 2,
-    kNumFailsFieldNumber = 3,
-    kResultFieldNumber = 4,
-  };
-  // repeated uint32 granted_item_defs = 6;
-  int granted_item_defs_size() const;
-  private:
-  int _internal_granted_item_defs_size() const;
-  public:
-  void clear_granted_item_defs();
-  private:
-  uint32_t _internal_granted_item_defs(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-      _internal_granted_item_defs() const;
-  void _internal_add_granted_item_defs(uint32_t value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-      _internal_mutable_granted_item_defs();
-  public:
-  uint32_t granted_item_defs(int index) const;
-  void set_granted_item_defs(int index, uint32_t value);
-  void add_granted_item_defs(uint32_t value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-      granted_item_defs() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-      mutable_granted_item_defs();
-
-  // optional uint32 item_def = 1;
-  bool has_item_def() const;
-  private:
-  bool _internal_has_item_def() const;
-  public:
-  void clear_item_def();
-  uint32_t item_def() const;
-  void set_item_def(uint32_t value);
-  private:
-  uint32_t _internal_item_def() const;
-  void _internal_set_item_def(uint32_t value);
-  public:
-
-  // optional uint32 num_correct = 2;
-  bool has_num_correct() const;
-  private:
-  bool _internal_has_num_correct() const;
-  public:
-  void clear_num_correct();
-  uint32_t num_correct() const;
-  void set_num_correct(uint32_t value);
-  private:
-  uint32_t _internal_num_correct() const;
-  void _internal_set_num_correct(uint32_t value);
-  public:
-
-  // optional uint32 num_fails = 3;
-  bool has_num_fails() const;
-  private:
-  bool _internal_has_num_fails() const;
-  public:
-  void clear_num_fails();
-  uint32_t num_fails() const;
-  void set_num_fails(uint32_t value);
-  private:
-  uint32_t _internal_num_fails() const;
-  void _internal_set_num_fails(uint32_t value);
-  public:
-
-  // optional .CDOTAUserMsg_PredictionResult.Prediction.EResult result = 4 [default = k_eResult_ItemGranted];
-  bool has_result() const;
-  private:
-  bool _internal_has_result() const;
-  public:
-  void clear_result();
-  ::CDOTAUserMsg_PredictionResult_Prediction_EResult result() const;
-  void set_result(::CDOTAUserMsg_PredictionResult_Prediction_EResult value);
-  private:
-  ::CDOTAUserMsg_PredictionResult_Prediction_EResult _internal_result() const;
-  void _internal_set_result(::CDOTAUserMsg_PredictionResult_Prediction_EResult value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:CDOTAUserMsg_PredictionResult.Prediction)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > granted_item_defs_;
-    uint32_t item_def_;
-    uint32_t num_correct_;
-    uint32_t num_fails_;
-    int result_;
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_dota_5fusermessages_2eproto;
-};
-// -------------------------------------------------------------------
-
-class CDOTAUserMsg_PredictionResult final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CDOTAUserMsg_PredictionResult) */ {
- public:
-  inline CDOTAUserMsg_PredictionResult() : CDOTAUserMsg_PredictionResult(nullptr) {}
-  ~CDOTAUserMsg_PredictionResult() override;
-  explicit PROTOBUF_CONSTEXPR CDOTAUserMsg_PredictionResult(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  CDOTAUserMsg_PredictionResult(const CDOTAUserMsg_PredictionResult& from);
-  CDOTAUserMsg_PredictionResult(CDOTAUserMsg_PredictionResult&& from) noexcept
-    : CDOTAUserMsg_PredictionResult() {
-    *this = ::std::move(from);
-  }
-
-  inline CDOTAUserMsg_PredictionResult& operator=(const CDOTAUserMsg_PredictionResult& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CDOTAUserMsg_PredictionResult& operator=(CDOTAUserMsg_PredictionResult&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const CDOTAUserMsg_PredictionResult& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const CDOTAUserMsg_PredictionResult* internal_default_instance() {
-    return reinterpret_cast<const CDOTAUserMsg_PredictionResult*>(
-               &_CDOTAUserMsg_PredictionResult_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    45;
-
-  friend void swap(CDOTAUserMsg_PredictionResult& a, CDOTAUserMsg_PredictionResult& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CDOTAUserMsg_PredictionResult* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CDOTAUserMsg_PredictionResult* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  CDOTAUserMsg_PredictionResult* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<CDOTAUserMsg_PredictionResult>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const CDOTAUserMsg_PredictionResult& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const CDOTAUserMsg_PredictionResult& from) {
-    CDOTAUserMsg_PredictionResult::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CDOTAUserMsg_PredictionResult* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CDOTAUserMsg_PredictionResult";
-  }
-  protected:
-  explicit CDOTAUserMsg_PredictionResult(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  typedef CDOTAUserMsg_PredictionResult_Prediction Prediction;
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kPredictionsFieldNumber = 4,
-    kMatchIdFieldNumber = 2,
-    kAccountIdFieldNumber = 1,
-    kCorrectFieldNumber = 3,
-  };
-  // repeated .CDOTAUserMsg_PredictionResult.Prediction predictions = 4;
-  int predictions_size() const;
-  private:
-  int _internal_predictions_size() const;
-  public:
-  void clear_predictions();
-  ::CDOTAUserMsg_PredictionResult_Prediction* mutable_predictions(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CDOTAUserMsg_PredictionResult_Prediction >*
-      mutable_predictions();
-  private:
-  const ::CDOTAUserMsg_PredictionResult_Prediction& _internal_predictions(int index) const;
-  ::CDOTAUserMsg_PredictionResult_Prediction* _internal_add_predictions();
-  public:
-  const ::CDOTAUserMsg_PredictionResult_Prediction& predictions(int index) const;
-  ::CDOTAUserMsg_PredictionResult_Prediction* add_predictions();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CDOTAUserMsg_PredictionResult_Prediction >&
-      predictions() const;
-
-  // optional uint64 match_id = 2;
-  bool has_match_id() const;
-  private:
-  bool _internal_has_match_id() const;
-  public:
-  void clear_match_id();
-  uint64_t match_id() const;
-  void set_match_id(uint64_t value);
-  private:
-  uint64_t _internal_match_id() const;
-  void _internal_set_match_id(uint64_t value);
-  public:
-
-  // optional uint32 account_id = 1;
-  bool has_account_id() const;
-  private:
-  bool _internal_has_account_id() const;
-  public:
-  void clear_account_id();
-  uint32_t account_id() const;
-  void set_account_id(uint32_t value);
-  private:
-  uint32_t _internal_account_id() const;
-  void _internal_set_account_id(uint32_t value);
-  public:
-
-  // optional bool correct = 3;
-  bool has_correct() const;
-  private:
-  bool _internal_has_correct() const;
-  public:
-  void clear_correct();
-  bool correct() const;
-  void set_correct(bool value);
-  private:
-  bool _internal_correct() const;
-  void _internal_set_correct(bool value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:CDOTAUserMsg_PredictionResult)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CDOTAUserMsg_PredictionResult_Prediction > predictions_;
-    uint64_t match_id_;
-    uint32_t account_id_;
-    bool correct_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -15073,17 +14962,17 @@ class CDOTAUserMsg_ChatWheel final :
   void _internal_set_account_id(uint32_t value);
   public:
 
-  // optional uint32 param_hero_id = 4;
+  // optional int32 param_hero_id = 4;
   bool has_param_hero_id() const;
   private:
   bool _internal_has_param_hero_id() const;
   public:
   void clear_param_hero_id();
-  uint32_t param_hero_id() const;
-  void set_param_hero_id(uint32_t value);
+  int32_t param_hero_id() const;
+  void set_param_hero_id(int32_t value);
   private:
-  uint32_t _internal_param_hero_id() const;
-  void _internal_set_param_hero_id(uint32_t value);
+  int32_t _internal_param_hero_id() const;
+  void _internal_set_param_hero_id(int32_t value);
   public:
 
   // optional uint32 emoticon_id = 5;
@@ -15136,7 +15025,7 @@ class CDOTAUserMsg_ChatWheel final :
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t account_id_;
-    uint32_t param_hero_id_;
+    int32_t param_hero_id_;
     uint32_t emoticon_id_;
     uint32_t chat_message_id_;
     int32_t player_id_;
@@ -15538,17 +15427,17 @@ class CDOTAUserMsg_ShowSurvey final :
   void _internal_set_survey_id(int32_t value);
   public:
 
-  // optional uint32 teammate_hero_id = 4;
+  // optional int32 teammate_hero_id = 4;
   bool has_teammate_hero_id() const;
   private:
   bool _internal_has_teammate_hero_id() const;
   public:
   void clear_teammate_hero_id();
-  uint32_t teammate_hero_id() const;
-  void set_teammate_hero_id(uint32_t value);
+  int32_t teammate_hero_id() const;
+  void set_teammate_hero_id(int32_t value);
   private:
-  uint32_t _internal_teammate_hero_id() const;
-  void _internal_set_teammate_hero_id(uint32_t value);
+  int32_t _internal_teammate_hero_id() const;
+  void _internal_set_teammate_hero_id(int32_t value);
   public:
 
   // optional uint32 teammate_account_id = 6;
@@ -15578,7 +15467,7 @@ class CDOTAUserMsg_ShowSurvey final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr teammate_name_;
     uint64_t match_id_;
     int32_t survey_id_;
-    uint32_t teammate_hero_id_;
+    int32_t teammate_hero_id_;
     uint32_t teammate_account_id_;
   };
   union { Impl_ _impl_; };
@@ -19310,9 +19199,10 @@ class CDOTAUserMsg_AbilityPing final :
     kCtrlHeldFieldNumber = 12,
     kSecondaryChargesFieldNumber = 10,
     kReclaimTimeFieldNumber = 13,
-    kTypeFieldNumber = 3,
     kPlayerIdFieldNumber = 1,
     kAbilityIdFieldNumber = 2,
+    kTypeFieldNumber = 3,
+    kOwnerEntityFieldNumber = 14,
   };
   // optional uint32 cooldown_seconds = 4;
   bool has_cooldown_seconds() const;
@@ -19431,19 +19321,6 @@ class CDOTAUserMsg_AbilityPing final :
   void _internal_set_reclaim_time(float value);
   public:
 
-  // optional .DOTA_ABILITY_PING_TYPE type = 3 [default = ABILITY_PING_READY];
-  bool has_type() const;
-  private:
-  bool _internal_has_type() const;
-  public:
-  void clear_type();
-  ::DOTA_ABILITY_PING_TYPE type() const;
-  void set_type(::DOTA_ABILITY_PING_TYPE value);
-  private:
-  ::DOTA_ABILITY_PING_TYPE _internal_type() const;
-  void _internal_set_type(::DOTA_ABILITY_PING_TYPE value);
-  public:
-
   // optional int32 player_id = 1 [default = -1];
   bool has_player_id() const;
   private:
@@ -19470,6 +19347,32 @@ class CDOTAUserMsg_AbilityPing final :
   void _internal_set_ability_id(int32_t value);
   public:
 
+  // optional .DOTA_ABILITY_PING_TYPE type = 3 [default = ABILITY_PING_READY];
+  bool has_type() const;
+  private:
+  bool _internal_has_type() const;
+  public:
+  void clear_type();
+  ::DOTA_ABILITY_PING_TYPE type() const;
+  void set_type(::DOTA_ABILITY_PING_TYPE value);
+  private:
+  ::DOTA_ABILITY_PING_TYPE _internal_type() const;
+  void _internal_set_type(::DOTA_ABILITY_PING_TYPE value);
+  public:
+
+  // optional int32 owner_entity = 14 [default = -1];
+  bool has_owner_entity() const;
+  private:
+  bool _internal_has_owner_entity() const;
+  public:
+  void clear_owner_entity();
+  int32_t owner_entity() const;
+  void set_owner_entity(int32_t value);
+  private:
+  int32_t _internal_owner_entity() const;
+  void _internal_set_owner_entity(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CDOTAUserMsg_AbilityPing)
  private:
   class _Internal;
@@ -19489,9 +19392,10 @@ class CDOTAUserMsg_AbilityPing final :
     bool ctrl_held_;
     int32_t secondary_charges_;
     float reclaim_time_;
-    int type_;
     int32_t player_id_;
     int32_t ability_id_;
+    int type_;
+    int32_t owner_entity_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
@@ -21114,175 +21018,6 @@ class CDOTAUserMsg_BoosterState final :
 };
 // -------------------------------------------------------------------
 
-class CDOTAUserMsg_PlayerMMR final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CDOTAUserMsg_PlayerMMR) */ {
- public:
-  inline CDOTAUserMsg_PlayerMMR() : CDOTAUserMsg_PlayerMMR(nullptr) {}
-  ~CDOTAUserMsg_PlayerMMR() override;
-  explicit PROTOBUF_CONSTEXPR CDOTAUserMsg_PlayerMMR(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  CDOTAUserMsg_PlayerMMR(const CDOTAUserMsg_PlayerMMR& from);
-  CDOTAUserMsg_PlayerMMR(CDOTAUserMsg_PlayerMMR&& from) noexcept
-    : CDOTAUserMsg_PlayerMMR() {
-    *this = ::std::move(from);
-  }
-
-  inline CDOTAUserMsg_PlayerMMR& operator=(const CDOTAUserMsg_PlayerMMR& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CDOTAUserMsg_PlayerMMR& operator=(CDOTAUserMsg_PlayerMMR&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const CDOTAUserMsg_PlayerMMR& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const CDOTAUserMsg_PlayerMMR* internal_default_instance() {
-    return reinterpret_cast<const CDOTAUserMsg_PlayerMMR*>(
-               &_CDOTAUserMsg_PlayerMMR_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    96;
-
-  friend void swap(CDOTAUserMsg_PlayerMMR& a, CDOTAUserMsg_PlayerMMR& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CDOTAUserMsg_PlayerMMR* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CDOTAUserMsg_PlayerMMR* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  CDOTAUserMsg_PlayerMMR* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<CDOTAUserMsg_PlayerMMR>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const CDOTAUserMsg_PlayerMMR& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const CDOTAUserMsg_PlayerMMR& from) {
-    CDOTAUserMsg_PlayerMMR::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CDOTAUserMsg_PlayerMMR* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CDOTAUserMsg_PlayerMMR";
-  }
-  protected:
-  explicit CDOTAUserMsg_PlayerMMR(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kMmrFieldNumber = 1,
-  };
-  // repeated sint32 mmr = 1 [packed = true];
-  int mmr_size() const;
-  private:
-  int _internal_mmr_size() const;
-  public:
-  void clear_mmr();
-  private:
-  int32_t _internal_mmr(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
-      _internal_mmr() const;
-  void _internal_add_mmr(int32_t value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
-      _internal_mutable_mmr();
-  public:
-  int32_t mmr(int index) const;
-  void set_mmr(int index, int32_t value);
-  void add_mmr(int32_t value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
-      mmr() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
-      mutable_mmr();
-
-  // @@protoc_insertion_point(class_scope:CDOTAUserMsg_PlayerMMR)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > mmr_;
-    mutable std::atomic<int> _mmr_cached_byte_size_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_dota_5fusermessages_2eproto;
-};
-// -------------------------------------------------------------------
-
 class CDOTAUserMsg_AbilitySteal final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CDOTAUserMsg_AbilitySteal) */ {
  public:
@@ -21338,7 +21073,7 @@ class CDOTAUserMsg_AbilitySteal final :
                &_CDOTAUserMsg_AbilitySteal_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    97;
+    96;
 
   friend void swap(CDOTAUserMsg_AbilitySteal& a, CDOTAUserMsg_AbilitySteal& b) {
     a.Swap(&b);
@@ -21528,7 +21263,7 @@ class CDOTAUserMsg_StatsHeroLookup final :
                &_CDOTAUserMsg_StatsHeroLookup_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    98;
+    97;
 
   friend void swap(CDOTAUserMsg_StatsHeroLookup& a, CDOTAUserMsg_StatsHeroLookup& b) {
     a.Swap(&b);
@@ -21743,7 +21478,7 @@ class CDOTAUserMsg_StatsHeroPositionInfo_PositionPair final :
                &_CDOTAUserMsg_StatsHeroPositionInfo_PositionPair_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    99;
+    98;
 
   friend void swap(CDOTAUserMsg_StatsHeroPositionInfo_PositionPair& a, CDOTAUserMsg_StatsHeroPositionInfo_PositionPair& b) {
     a.Swap(&b);
@@ -21918,7 +21653,7 @@ class CDOTAUserMsg_StatsHeroPositionInfo final :
                &_CDOTAUserMsg_StatsHeroPositionInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    100;
+    99;
 
   friend void swap(CDOTAUserMsg_StatsHeroPositionInfo& a, CDOTAUserMsg_StatsHeroPositionInfo& b) {
     a.Swap(&b);
@@ -22100,7 +21835,7 @@ class CDOTAUserMsg_StatsHeroMinuteDetails final :
                &_CDOTAUserMsg_StatsHeroMinuteDetails_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    101;
+    100;
 
   friend void swap(CDOTAUserMsg_StatsHeroMinuteDetails& a, CDOTAUserMsg_StatsHeroMinuteDetails& b) {
     a.Swap(&b);
@@ -22502,7 +22237,7 @@ class CDOTAUserMsg_StatsTeamMinuteDetails_LocationPerformance final :
                &_CDOTAUserMsg_StatsTeamMinuteDetails_LocationPerformance_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    102;
+    101;
 
   friend void swap(CDOTAUserMsg_StatsTeamMinuteDetails_LocationPerformance& a, CDOTAUserMsg_StatsTeamMinuteDetails_LocationPerformance& b) {
     a.Swap(&b);
@@ -22692,7 +22427,7 @@ class CDOTAUserMsg_StatsTeamMinuteDetails final :
                &_CDOTAUserMsg_StatsTeamMinuteDetails_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    103;
+    102;
 
   friend void swap(CDOTAUserMsg_StatsTeamMinuteDetails& a, CDOTAUserMsg_StatsTeamMinuteDetails& b) {
     a.Swap(&b);
@@ -22999,7 +22734,7 @@ class CDOTAUserMsg_StatsPlayerKillShare final :
                &_CDOTAUserMsg_StatsPlayerKillShare_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    104;
+    103;
 
   friend void swap(CDOTAUserMsg_StatsPlayerKillShare& a, CDOTAUserMsg_StatsPlayerKillShare& b) {
     a.Swap(&b);
@@ -23234,7 +22969,7 @@ class CDOTAUserMsg_StatsKillDetails final :
                &_CDOTAUserMsg_StatsKillDetails_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    105;
+    104;
 
   friend void swap(CDOTAUserMsg_StatsKillDetails& a, CDOTAUserMsg_StatsKillDetails& b) {
     a.Swap(&b);
@@ -23474,7 +23209,7 @@ class CDOTAUserMsg_StatsMatchDetails_CDOTAUserMsg_StatsFightTeamDetails final :
                &_CDOTAUserMsg_StatsMatchDetails_CDOTAUserMsg_StatsFightTeamDetails_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    106;
+    105;
 
   friend void swap(CDOTAUserMsg_StatsMatchDetails_CDOTAUserMsg_StatsFightTeamDetails& a, CDOTAUserMsg_StatsMatchDetails_CDOTAUserMsg_StatsFightTeamDetails& b) {
     a.Swap(&b);
@@ -23697,7 +23432,7 @@ class CDOTAUserMsg_StatsMatchDetails_CDOTAUserMsg_StatsFightDetails final :
                &_CDOTAUserMsg_StatsMatchDetails_CDOTAUserMsg_StatsFightDetails_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    107;
+    106;
 
   friend void swap(CDOTAUserMsg_StatsMatchDetails_CDOTAUserMsg_StatsFightDetails& a, CDOTAUserMsg_StatsMatchDetails_CDOTAUserMsg_StatsFightDetails& b) {
     a.Swap(&b);
@@ -23912,7 +23647,7 @@ class CDOTAUserMsg_StatsMatchDetails final :
                &_CDOTAUserMsg_StatsMatchDetails_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    108;
+    107;
 
   friend void swap(CDOTAUserMsg_StatsMatchDetails& a, CDOTAUserMsg_StatsMatchDetails& b) {
     a.Swap(&b);
@@ -24179,7 +23914,7 @@ class CDOTAUserMsg_MiniTaunt final :
                &_CDOTAUserMsg_MiniTaunt_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    109;
+    108;
 
   friend void swap(CDOTAUserMsg_MiniTaunt& a, CDOTAUserMsg_MiniTaunt& b) {
     a.Swap(&b);
@@ -24339,7 +24074,7 @@ class CDOTAUserMsg_SpeechBubble final :
                &_CDOTAUserMsg_SpeechBubble_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    110;
+    109;
 
   friend void swap(CDOTAUserMsg_SpeechBubble& a, CDOTAUserMsg_SpeechBubble& b) {
     a.Swap(&b);
@@ -24499,7 +24234,7 @@ class CDOTAUserMsg_CustomHeaderMessage final :
                &_CDOTAUserMsg_CustomHeaderMessage_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    111;
+    110;
 
   friend void swap(CDOTAUserMsg_CustomHeaderMessage& a, CDOTAUserMsg_CustomHeaderMessage& b) {
     a.Swap(&b);
@@ -24709,7 +24444,7 @@ class CMsgHeroAbilityStat final :
                &_CMsgHeroAbilityStat_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    112;
+    111;
 
   friend void swap(CMsgHeroAbilityStat& a, CMsgHeroAbilityStat& b) {
     a.Swap(&b);
@@ -24899,7 +24634,7 @@ class CMsgCombatAnalyzerPlayerStat final :
                &_CMsgCombatAnalyzerPlayerStat_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    113;
+    112;
 
   friend void swap(CMsgCombatAnalyzerPlayerStat& a, CMsgCombatAnalyzerPlayerStat& b) {
     a.Swap(&b);
@@ -25079,7 +24814,7 @@ class CMsgCombatAnalyzerStats final :
                &_CMsgCombatAnalyzerStats_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    114;
+    113;
 
   friend void swap(CMsgCombatAnalyzerStats& a, CMsgCombatAnalyzerStats& b) {
     a.Swap(&b);
@@ -25259,7 +24994,7 @@ class CDOTAUserMsg_BeastChat final :
                &_CDOTAUserMsg_BeastChat_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    115;
+    114;
 
   friend void swap(CDOTAUserMsg_BeastChat& a, CDOTAUserMsg_BeastChat& b) {
     a.Swap(&b);
@@ -25479,7 +25214,7 @@ class CDOTAUserMsg_CustomHudElement_Create final :
                &_CDOTAUserMsg_CustomHudElement_Create_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    116;
+    115;
 
   friend void swap(CDOTAUserMsg_CustomHudElement_Create& a, CDOTAUserMsg_CustomHudElement_Create& b) {
     a.Swap(&b);
@@ -25684,7 +25419,7 @@ class CDOTAUserMsg_CustomHudElement_Modify final :
                &_CDOTAUserMsg_CustomHudElement_Modify_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    117;
+    116;
 
   friend void swap(CDOTAUserMsg_CustomHudElement_Modify& a, CDOTAUserMsg_CustomHudElement_Modify& b) {
     a.Swap(&b);
@@ -25884,7 +25619,7 @@ class CDOTAUserMsg_CustomHudElement_Destroy final :
                &_CDOTAUserMsg_CustomHudElement_Destroy_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    118;
+    117;
 
   friend void swap(CDOTAUserMsg_CustomHudElement_Destroy& a, CDOTAUserMsg_CustomHudElement_Destroy& b) {
     a.Swap(&b);
@@ -26049,7 +25784,7 @@ class CDOTAUserMsg_CompendiumStatePlayer final :
                &_CDOTAUserMsg_CompendiumStatePlayer_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    119;
+    118;
 
   friend void swap(CDOTAUserMsg_CompendiumStatePlayer& a, CDOTAUserMsg_CompendiumStatePlayer& b) {
     a.Swap(&b);
@@ -26224,7 +25959,7 @@ class CDOTAUserMsg_CompendiumState final :
                &_CDOTAUserMsg_CompendiumState_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    120;
+    119;
 
   friend void swap(CDOTAUserMsg_CompendiumState& a, CDOTAUserMsg_CompendiumState& b) {
     a.Swap(&b);
@@ -26388,7 +26123,7 @@ class CDOTAUserMsg_ProjectionAbility final :
                &_CDOTAUserMsg_ProjectionAbility_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    121;
+    120;
 
   friend void swap(CDOTAUserMsg_ProjectionAbility& a, CDOTAUserMsg_ProjectionAbility& b) {
     a.Swap(&b);
@@ -26658,7 +26393,7 @@ class CDOTAUserMsg_ProjectionEvent final :
                &_CDOTAUserMsg_ProjectionEvent_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    122;
+    121;
 
   friend void swap(CDOTAUserMsg_ProjectionEvent& a, CDOTAUserMsg_ProjectionEvent& b) {
     a.Swap(&b);
@@ -26833,7 +26568,7 @@ class CDOTAUserMsg_XPAlert final :
                &_CDOTAUserMsg_XPAlert_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    123;
+    122;
 
   friend void swap(CDOTAUserMsg_XPAlert& a, CDOTAUserMsg_XPAlert& b) {
     a.Swap(&b);
@@ -27008,7 +26743,7 @@ class CDOTAUserMsg_TalentTreeAlert final :
                &_CDOTAUserMsg_TalentTreeAlert_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    124;
+    123;
 
   friend void swap(CDOTAUserMsg_TalentTreeAlert& a, CDOTAUserMsg_TalentTreeAlert& b) {
     a.Swap(&b);
@@ -27227,7 +26962,7 @@ class CDOTAUserMsg_UpdateQuestProgress final :
                &_CDOTAUserMsg_UpdateQuestProgress_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    125;
+    124;
 
   friend void swap(CDOTAUserMsg_UpdateQuestProgress& a, CDOTAUserMsg_UpdateQuestProgress& b) {
     a.Swap(&b);
@@ -27353,7 +27088,7 @@ class CDOTAUserMsg_QuestStatus final :
                &_CDOTAUserMsg_QuestStatus_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    126;
+    125;
 
   friend void swap(CDOTAUserMsg_QuestStatus& a, CDOTAUserMsg_QuestStatus& b) {
     a.Swap(&b);
@@ -27618,7 +27353,7 @@ class CDOTAUserMsg_SuggestHeroPick final :
                &_CDOTAUserMsg_SuggestHeroPick_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    127;
+    126;
 
   friend void swap(CDOTAUserMsg_SuggestHeroPick& a, CDOTAUserMsg_SuggestHeroPick& b) {
     a.Swap(&b);
@@ -27693,19 +27428,20 @@ class CDOTAUserMsg_SuggestHeroPick final :
   enum : int {
     kHeroIdFieldNumber = 2,
     kBanFieldNumber = 3,
+    kFacetIdFieldNumber = 4,
     kPlayerIdFieldNumber = 1,
   };
-  // optional uint32 hero_id = 2;
+  // optional int32 hero_id = 2;
   bool has_hero_id() const;
   private:
   bool _internal_has_hero_id() const;
   public:
   void clear_hero_id();
-  uint32_t hero_id() const;
-  void set_hero_id(uint32_t value);
+  int32_t hero_id() const;
+  void set_hero_id(int32_t value);
   private:
-  uint32_t _internal_hero_id() const;
-  void _internal_set_hero_id(uint32_t value);
+  int32_t _internal_hero_id() const;
+  void _internal_set_hero_id(int32_t value);
   public:
 
   // optional bool ban = 3;
@@ -27719,6 +27455,19 @@ class CDOTAUserMsg_SuggestHeroPick final :
   private:
   bool _internal_ban() const;
   void _internal_set_ban(bool value);
+  public:
+
+  // optional uint32 facet_id = 4;
+  bool has_facet_id() const;
+  private:
+  bool _internal_has_facet_id() const;
+  public:
+  void clear_facet_id();
+  uint32_t facet_id() const;
+  void set_facet_id(uint32_t value);
+  private:
+  uint32_t _internal_facet_id() const;
+  void _internal_set_facet_id(uint32_t value);
   public:
 
   // required int32 player_id = 1 [default = -1];
@@ -27744,8 +27493,9 @@ class CDOTAUserMsg_SuggestHeroPick final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    uint32_t hero_id_;
+    int32_t hero_id_;
     bool ban_;
+    uint32_t facet_id_;
     int32_t player_id_;
   };
   union { Impl_ _impl_; };
@@ -27808,7 +27558,7 @@ class CDOTAUserMsg_SuggestHeroRole final :
                &_CDOTAUserMsg_SuggestHeroRole_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    128;
+    127;
 
   friend void swap(CDOTAUserMsg_SuggestHeroRole& a, CDOTAUserMsg_SuggestHeroRole& b) {
     a.Swap(&b);
@@ -27988,7 +27738,7 @@ class CDOTAUserMsg_KillcamDamageTaken final :
                &_CDOTAUserMsg_KillcamDamageTaken_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    129;
+    128;
 
   friend void swap(CDOTAUserMsg_KillcamDamageTaken& a, CDOTAUserMsg_KillcamDamageTaken& b) {
     a.Swap(&b);
@@ -28233,7 +27983,7 @@ class CDOTAUserMsg_SelectPenaltyGold final :
                &_CDOTAUserMsg_SelectPenaltyGold_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    130;
+    129;
 
   friend void swap(CDOTAUserMsg_SelectPenaltyGold& a, CDOTAUserMsg_SelectPenaltyGold& b) {
     a.Swap(&b);
@@ -28408,7 +28158,7 @@ class CDOTAUserMsg_RollDiceResult final :
                &_CDOTAUserMsg_RollDiceResult_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    131;
+    130;
 
   friend void swap(CDOTAUserMsg_RollDiceResult& a, CDOTAUserMsg_RollDiceResult& b) {
     a.Swap(&b);
@@ -28628,7 +28378,7 @@ class CDOTAUserMsg_FlipCoinResult final :
                &_CDOTAUserMsg_FlipCoinResult_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    132;
+    131;
 
   friend void swap(CDOTAUserMsg_FlipCoinResult& a, CDOTAUserMsg_FlipCoinResult& b) {
     a.Swap(&b);
@@ -28818,7 +28568,7 @@ class CDOTAUserMessage_RequestItemSuggestions final :
                &_CDOTAUserMessage_RequestItemSuggestions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    133;
+    132;
 
   friend void swap(CDOTAUserMessage_RequestItemSuggestions& a, CDOTAUserMessage_RequestItemSuggestions& b) {
     a.Swap(&b);
@@ -28978,7 +28728,7 @@ class CDOTAUserMessage_TeamCaptainChanged final :
                &_CDOTAUserMessage_TeamCaptainChanged_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    134;
+    133;
 
   friend void swap(CDOTAUserMessage_TeamCaptainChanged& a, CDOTAUserMessage_TeamCaptainChanged& b) {
     a.Swap(&b);
@@ -29153,7 +28903,7 @@ class CDOTAUserMsg_ChatWheelCooldown final :
                &_CDOTAUserMsg_ChatWheelCooldown_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    135;
+    134;
 
   friend void swap(CDOTAUserMsg_ChatWheelCooldown& a, CDOTAUserMsg_ChatWheelCooldown& b) {
     a.Swap(&b);
@@ -29328,7 +29078,7 @@ class CDOTAUserMsg_HeroRelicProgress final :
                &_CDOTAUserMsg_HeroRelicProgress_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    136;
+    135;
 
   friend void swap(CDOTAUserMsg_HeroRelicProgress& a, CDOTAUserMsg_HeroRelicProgress& b) {
     a.Swap(&b);
@@ -29548,7 +29298,7 @@ class CDOTAUserMsg_AbilityDraftRequestAbility final :
                &_CDOTAUserMsg_AbilityDraftRequestAbility_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    137;
+    136;
 
   friend void swap(CDOTAUserMsg_AbilityDraftRequestAbility& a, CDOTAUserMsg_AbilityDraftRequestAbility& b) {
     a.Swap(&b);
@@ -29738,7 +29488,7 @@ class CDOTAUserMsg_DamageReport final :
                &_CDOTAUserMsg_DamageReport_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    138;
+    137;
 
   friend void swap(CDOTAUserMsg_DamageReport& a, CDOTAUserMsg_DamageReport& b) {
     a.Swap(&b);
@@ -29817,30 +29567,30 @@ class CDOTAUserMsg_DamageReport final :
     kBroadcastFieldNumber = 5,
     kPlayerIdFieldNumber = 1,
   };
-  // optional uint32 target_hero_id = 2;
+  // optional int32 target_hero_id = 2;
   bool has_target_hero_id() const;
   private:
   bool _internal_has_target_hero_id() const;
   public:
   void clear_target_hero_id();
-  uint32_t target_hero_id() const;
-  void set_target_hero_id(uint32_t value);
+  int32_t target_hero_id() const;
+  void set_target_hero_id(int32_t value);
   private:
-  uint32_t _internal_target_hero_id() const;
-  void _internal_set_target_hero_id(uint32_t value);
+  int32_t _internal_target_hero_id() const;
+  void _internal_set_target_hero_id(int32_t value);
   public:
 
-  // optional uint32 source_hero_id = 3;
+  // optional int32 source_hero_id = 3;
   bool has_source_hero_id() const;
   private:
   bool _internal_has_source_hero_id() const;
   public:
   void clear_source_hero_id();
-  uint32_t source_hero_id() const;
-  void set_source_hero_id(uint32_t value);
+  int32_t source_hero_id() const;
+  void set_source_hero_id(int32_t value);
   private:
-  uint32_t _internal_source_hero_id() const;
-  void _internal_set_source_hero_id(uint32_t value);
+  int32_t _internal_source_hero_id() const;
+  void _internal_set_source_hero_id(int32_t value);
   public:
 
   // optional int32 damage_amount = 4;
@@ -29892,8 +29642,8 @@ class CDOTAUserMsg_DamageReport final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    uint32_t target_hero_id_;
-    uint32_t source_hero_id_;
+    int32_t target_hero_id_;
+    int32_t source_hero_id_;
     int32_t damage_amount_;
     bool broadcast_;
     int32_t player_id_;
@@ -29958,7 +29708,7 @@ class CDOTAUserMsg_SalutePlayer final :
                &_CDOTAUserMsg_SalutePlayer_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    139;
+    138;
 
   friend void swap(CDOTAUserMsg_SalutePlayer& a, CDOTAUserMsg_SalutePlayer& b) {
     a.Swap(&b);
@@ -30135,6 +29885,196 @@ class CDOTAUserMsg_SalutePlayer final :
     uint32_t tip_amount_;
     uint32_t event_id_;
     uint32_t num_recent_tips_;
+    int32_t source_player_id_;
+    int32_t target_player_id_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_dota_5fusermessages_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CDOTAUserMsg_GiftPlayer final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CDOTAUserMsg_GiftPlayer) */ {
+ public:
+  inline CDOTAUserMsg_GiftPlayer() : CDOTAUserMsg_GiftPlayer(nullptr) {}
+  ~CDOTAUserMsg_GiftPlayer() override;
+  explicit PROTOBUF_CONSTEXPR CDOTAUserMsg_GiftPlayer(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CDOTAUserMsg_GiftPlayer(const CDOTAUserMsg_GiftPlayer& from);
+  CDOTAUserMsg_GiftPlayer(CDOTAUserMsg_GiftPlayer&& from) noexcept
+    : CDOTAUserMsg_GiftPlayer() {
+    *this = ::std::move(from);
+  }
+
+  inline CDOTAUserMsg_GiftPlayer& operator=(const CDOTAUserMsg_GiftPlayer& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CDOTAUserMsg_GiftPlayer& operator=(CDOTAUserMsg_GiftPlayer&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CDOTAUserMsg_GiftPlayer& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CDOTAUserMsg_GiftPlayer* internal_default_instance() {
+    return reinterpret_cast<const CDOTAUserMsg_GiftPlayer*>(
+               &_CDOTAUserMsg_GiftPlayer_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    139;
+
+  friend void swap(CDOTAUserMsg_GiftPlayer& a, CDOTAUserMsg_GiftPlayer& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CDOTAUserMsg_GiftPlayer* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CDOTAUserMsg_GiftPlayer* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CDOTAUserMsg_GiftPlayer* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CDOTAUserMsg_GiftPlayer>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CDOTAUserMsg_GiftPlayer& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CDOTAUserMsg_GiftPlayer& from) {
+    CDOTAUserMsg_GiftPlayer::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CDOTAUserMsg_GiftPlayer* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CDOTAUserMsg_GiftPlayer";
+  }
+  protected:
+  explicit CDOTAUserMsg_GiftPlayer(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kGiftItemDefIndexFieldNumber = 3,
+    kSourcePlayerIdFieldNumber = 1,
+    kTargetPlayerIdFieldNumber = 2,
+  };
+  // optional uint32 gift_item_def_index = 3;
+  bool has_gift_item_def_index() const;
+  private:
+  bool _internal_has_gift_item_def_index() const;
+  public:
+  void clear_gift_item_def_index();
+  uint32_t gift_item_def_index() const;
+  void set_gift_item_def_index(uint32_t value);
+  private:
+  uint32_t _internal_gift_item_def_index() const;
+  void _internal_set_gift_item_def_index(uint32_t value);
+  public:
+
+  // optional int32 source_player_id = 1 [default = -1];
+  bool has_source_player_id() const;
+  private:
+  bool _internal_has_source_player_id() const;
+  public:
+  void clear_source_player_id();
+  int32_t source_player_id() const;
+  void set_source_player_id(int32_t value);
+  private:
+  int32_t _internal_source_player_id() const;
+  void _internal_set_source_player_id(int32_t value);
+  public:
+
+  // optional int32 target_player_id = 2 [default = -1];
+  bool has_target_player_id() const;
+  private:
+  bool _internal_has_target_player_id() const;
+  public:
+  void clear_target_player_id();
+  int32_t target_player_id() const;
+  void set_target_player_id(int32_t value);
+  private:
+  int32_t _internal_target_player_id() const;
+  void _internal_set_target_player_id(int32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CDOTAUserMsg_GiftPlayer)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    uint32_t gift_item_def_index_;
     int32_t source_player_id_;
     int32_t target_player_id_;
   };
@@ -34487,17 +34427,17 @@ class CDOTAUserMsg_WK_Arcana_Progress final :
   void _internal_set_arcana_level(uint32_t value);
   public:
 
-  // optional uint32 hero_id = 3;
+  // optional int32 hero_id = 3;
   bool has_hero_id() const;
   private:
   bool _internal_has_hero_id() const;
   public:
   void clear_hero_id();
-  uint32_t hero_id() const;
-  void set_hero_id(uint32_t value);
+  int32_t hero_id() const;
+  void set_hero_id(int32_t value);
   private:
-  uint32_t _internal_hero_id() const;
-  void _internal_set_hero_id(uint32_t value);
+  int32_t _internal_hero_id() const;
+  void _internal_set_hero_id(int32_t value);
   public:
 
   // optional uint32 ehandle = 1 [default = 16777215];
@@ -34524,7 +34464,7 @@ class CDOTAUserMsg_WK_Arcana_Progress final :
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t arcana_level_;
-    uint32_t hero_id_;
+    int32_t hero_id_;
     uint32_t ehandle_;
   };
   union { Impl_ _impl_; };
@@ -38242,6 +38182,401 @@ class CDOTAUserMsg_PlayerDraftPick final :
   union { Impl_ _impl_; };
   friend struct ::TableStruct_dota_5fusermessages_2eproto;
 };
+// -------------------------------------------------------------------
+
+class CDOTAUserMsg_FacetPing final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CDOTAUserMsg_FacetPing) */ {
+ public:
+  inline CDOTAUserMsg_FacetPing() : CDOTAUserMsg_FacetPing(nullptr) {}
+  ~CDOTAUserMsg_FacetPing() override;
+  explicit PROTOBUF_CONSTEXPR CDOTAUserMsg_FacetPing(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CDOTAUserMsg_FacetPing(const CDOTAUserMsg_FacetPing& from);
+  CDOTAUserMsg_FacetPing(CDOTAUserMsg_FacetPing&& from) noexcept
+    : CDOTAUserMsg_FacetPing() {
+    *this = ::std::move(from);
+  }
+
+  inline CDOTAUserMsg_FacetPing& operator=(const CDOTAUserMsg_FacetPing& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CDOTAUserMsg_FacetPing& operator=(CDOTAUserMsg_FacetPing&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CDOTAUserMsg_FacetPing& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CDOTAUserMsg_FacetPing* internal_default_instance() {
+    return reinterpret_cast<const CDOTAUserMsg_FacetPing*>(
+               &_CDOTAUserMsg_FacetPing_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    180;
+
+  friend void swap(CDOTAUserMsg_FacetPing& a, CDOTAUserMsg_FacetPing& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CDOTAUserMsg_FacetPing* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CDOTAUserMsg_FacetPing* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CDOTAUserMsg_FacetPing* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CDOTAUserMsg_FacetPing>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CDOTAUserMsg_FacetPing& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CDOTAUserMsg_FacetPing& from) {
+    CDOTAUserMsg_FacetPing::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CDOTAUserMsg_FacetPing* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CDOTAUserMsg_FacetPing";
+  }
+  protected:
+  explicit CDOTAUserMsg_FacetPing(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kFacetStrhashFieldNumber = 2,
+    kEntityIdFieldNumber = 3,
+    kAllChatFieldNumber = 4,
+    kPlayerIdFieldNumber = 1,
+  };
+  // optional uint32 facet_strhash = 2;
+  bool has_facet_strhash() const;
+  private:
+  bool _internal_has_facet_strhash() const;
+  public:
+  void clear_facet_strhash();
+  uint32_t facet_strhash() const;
+  void set_facet_strhash(uint32_t value);
+  private:
+  uint32_t _internal_facet_strhash() const;
+  void _internal_set_facet_strhash(uint32_t value);
+  public:
+
+  // optional uint32 entity_id = 3;
+  bool has_entity_id() const;
+  private:
+  bool _internal_has_entity_id() const;
+  public:
+  void clear_entity_id();
+  uint32_t entity_id() const;
+  void set_entity_id(uint32_t value);
+  private:
+  uint32_t _internal_entity_id() const;
+  void _internal_set_entity_id(uint32_t value);
+  public:
+
+  // optional bool all_chat = 4;
+  bool has_all_chat() const;
+  private:
+  bool _internal_has_all_chat() const;
+  public:
+  void clear_all_chat();
+  bool all_chat() const;
+  void set_all_chat(bool value);
+  private:
+  bool _internal_all_chat() const;
+  void _internal_set_all_chat(bool value);
+  public:
+
+  // optional int32 player_id = 1 [default = -1];
+  bool has_player_id() const;
+  private:
+  bool _internal_has_player_id() const;
+  public:
+  void clear_player_id();
+  int32_t player_id() const;
+  void set_player_id(int32_t value);
+  private:
+  int32_t _internal_player_id() const;
+  void _internal_set_player_id(int32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CDOTAUserMsg_FacetPing)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    uint32_t facet_strhash_;
+    uint32_t entity_id_;
+    bool all_chat_;
+    int32_t player_id_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_dota_5fusermessages_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CDOTAUserMsg_InnatePing final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CDOTAUserMsg_InnatePing) */ {
+ public:
+  inline CDOTAUserMsg_InnatePing() : CDOTAUserMsg_InnatePing(nullptr) {}
+  ~CDOTAUserMsg_InnatePing() override;
+  explicit PROTOBUF_CONSTEXPR CDOTAUserMsg_InnatePing(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CDOTAUserMsg_InnatePing(const CDOTAUserMsg_InnatePing& from);
+  CDOTAUserMsg_InnatePing(CDOTAUserMsg_InnatePing&& from) noexcept
+    : CDOTAUserMsg_InnatePing() {
+    *this = ::std::move(from);
+  }
+
+  inline CDOTAUserMsg_InnatePing& operator=(const CDOTAUserMsg_InnatePing& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CDOTAUserMsg_InnatePing& operator=(CDOTAUserMsg_InnatePing&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CDOTAUserMsg_InnatePing& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CDOTAUserMsg_InnatePing* internal_default_instance() {
+    return reinterpret_cast<const CDOTAUserMsg_InnatePing*>(
+               &_CDOTAUserMsg_InnatePing_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    181;
+
+  friend void swap(CDOTAUserMsg_InnatePing& a, CDOTAUserMsg_InnatePing& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CDOTAUserMsg_InnatePing* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CDOTAUserMsg_InnatePing* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CDOTAUserMsg_InnatePing* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CDOTAUserMsg_InnatePing>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CDOTAUserMsg_InnatePing& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CDOTAUserMsg_InnatePing& from) {
+    CDOTAUserMsg_InnatePing::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CDOTAUserMsg_InnatePing* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CDOTAUserMsg_InnatePing";
+  }
+  protected:
+  explicit CDOTAUserMsg_InnatePing(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kEntityIdFieldNumber = 2,
+    kAllChatFieldNumber = 3,
+    kPlayerIdFieldNumber = 1,
+  };
+  // optional uint32 entity_id = 2;
+  bool has_entity_id() const;
+  private:
+  bool _internal_has_entity_id() const;
+  public:
+  void clear_entity_id();
+  uint32_t entity_id() const;
+  void set_entity_id(uint32_t value);
+  private:
+  uint32_t _internal_entity_id() const;
+  void _internal_set_entity_id(uint32_t value);
+  public:
+
+  // optional bool all_chat = 3;
+  bool has_all_chat() const;
+  private:
+  bool _internal_has_all_chat() const;
+  public:
+  void clear_all_chat();
+  bool all_chat() const;
+  void set_all_chat(bool value);
+  private:
+  bool _internal_all_chat() const;
+  void _internal_set_all_chat(bool value);
+  public:
+
+  // optional int32 player_id = 1 [default = -1];
+  bool has_player_id() const;
+  private:
+  bool _internal_has_player_id() const;
+  public:
+  void clear_player_id();
+  int32_t player_id() const;
+  void set_player_id(int32_t value);
+  private:
+  int32_t _internal_player_id() const;
+  void _internal_set_player_id(int32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CDOTAUserMsg_InnatePing)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    uint32_t entity_id_;
+    bool all_chat_;
+    int32_t player_id_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_dota_5fusermessages_2eproto;
+};
 // ===================================================================
 
 
@@ -39339,6 +39674,153 @@ inline void CDOTAUserMsg_ProjectileParticleCPData::set_allocated_vector(::CMsgVe
   }
   _impl_.vector_ = vector;
   // @@protoc_insertion_point(field_set_allocated:CDOTAUserMsg_ProjectileParticleCPData.vector)
+}
+
+// -------------------------------------------------------------------
+
+// CDOTAUserMsg_UpdateLinearProjectileCPData
+
+// optional int32 handle = 1;
+inline bool CDOTAUserMsg_UpdateLinearProjectileCPData::_internal_has_handle() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CDOTAUserMsg_UpdateLinearProjectileCPData::has_handle() const {
+  return _internal_has_handle();
+}
+inline void CDOTAUserMsg_UpdateLinearProjectileCPData::clear_handle() {
+  _impl_.handle_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline int32_t CDOTAUserMsg_UpdateLinearProjectileCPData::_internal_handle() const {
+  return _impl_.handle_;
+}
+inline int32_t CDOTAUserMsg_UpdateLinearProjectileCPData::handle() const {
+  // @@protoc_insertion_point(field_get:CDOTAUserMsg_UpdateLinearProjectileCPData.handle)
+  return _internal_handle();
+}
+inline void CDOTAUserMsg_UpdateLinearProjectileCPData::_internal_set_handle(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.handle_ = value;
+}
+inline void CDOTAUserMsg_UpdateLinearProjectileCPData::set_handle(int32_t value) {
+  _internal_set_handle(value);
+  // @@protoc_insertion_point(field_set:CDOTAUserMsg_UpdateLinearProjectileCPData.handle)
+}
+
+// optional int32 control_point = 2;
+inline bool CDOTAUserMsg_UpdateLinearProjectileCPData::_internal_has_control_point() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CDOTAUserMsg_UpdateLinearProjectileCPData::has_control_point() const {
+  return _internal_has_control_point();
+}
+inline void CDOTAUserMsg_UpdateLinearProjectileCPData::clear_control_point() {
+  _impl_.control_point_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline int32_t CDOTAUserMsg_UpdateLinearProjectileCPData::_internal_control_point() const {
+  return _impl_.control_point_;
+}
+inline int32_t CDOTAUserMsg_UpdateLinearProjectileCPData::control_point() const {
+  // @@protoc_insertion_point(field_get:CDOTAUserMsg_UpdateLinearProjectileCPData.control_point)
+  return _internal_control_point();
+}
+inline void CDOTAUserMsg_UpdateLinearProjectileCPData::_internal_set_control_point(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.control_point_ = value;
+}
+inline void CDOTAUserMsg_UpdateLinearProjectileCPData::set_control_point(int32_t value) {
+  _internal_set_control_point(value);
+  // @@protoc_insertion_point(field_set:CDOTAUserMsg_UpdateLinearProjectileCPData.control_point)
+}
+
+// optional .CMsgVector vector = 3;
+inline bool CDOTAUserMsg_UpdateLinearProjectileCPData::_internal_has_vector() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.vector_ != nullptr);
+  return value;
+}
+inline bool CDOTAUserMsg_UpdateLinearProjectileCPData::has_vector() const {
+  return _internal_has_vector();
+}
+inline const ::CMsgVector& CDOTAUserMsg_UpdateLinearProjectileCPData::_internal_vector() const {
+  const ::CMsgVector* p = _impl_.vector_;
+  return p != nullptr ? *p : reinterpret_cast<const ::CMsgVector&>(
+      ::_CMsgVector_default_instance_);
+}
+inline const ::CMsgVector& CDOTAUserMsg_UpdateLinearProjectileCPData::vector() const {
+  // @@protoc_insertion_point(field_get:CDOTAUserMsg_UpdateLinearProjectileCPData.vector)
+  return _internal_vector();
+}
+inline void CDOTAUserMsg_UpdateLinearProjectileCPData::unsafe_arena_set_allocated_vector(
+    ::CMsgVector* vector) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.vector_);
+  }
+  _impl_.vector_ = vector;
+  if (vector) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CDOTAUserMsg_UpdateLinearProjectileCPData.vector)
+}
+inline ::CMsgVector* CDOTAUserMsg_UpdateLinearProjectileCPData::release_vector() {
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::CMsgVector* temp = _impl_.vector_;
+  _impl_.vector_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::CMsgVector* CDOTAUserMsg_UpdateLinearProjectileCPData::unsafe_arena_release_vector() {
+  // @@protoc_insertion_point(field_release:CDOTAUserMsg_UpdateLinearProjectileCPData.vector)
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::CMsgVector* temp = _impl_.vector_;
+  _impl_.vector_ = nullptr;
+  return temp;
+}
+inline ::CMsgVector* CDOTAUserMsg_UpdateLinearProjectileCPData::_internal_mutable_vector() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  if (_impl_.vector_ == nullptr) {
+    auto* p = CreateMaybeMessage<::CMsgVector>(GetArenaForAllocation());
+    _impl_.vector_ = p;
+  }
+  return _impl_.vector_;
+}
+inline ::CMsgVector* CDOTAUserMsg_UpdateLinearProjectileCPData::mutable_vector() {
+  ::CMsgVector* _msg = _internal_mutable_vector();
+  // @@protoc_insertion_point(field_mutable:CDOTAUserMsg_UpdateLinearProjectileCPData.vector)
+  return _msg;
+}
+inline void CDOTAUserMsg_UpdateLinearProjectileCPData::set_allocated_vector(::CMsgVector* vector) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.vector_);
+  }
+  if (vector) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(vector));
+    if (message_arena != submessage_arena) {
+      vector = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, vector, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.vector_ = vector;
+  // @@protoc_insertion_point(field_set_allocated:CDOTAUserMsg_UpdateLinearProjectileCPData.vector)
 }
 
 // -------------------------------------------------------------------
@@ -41051,6 +41533,66 @@ inline void CDOTAUserMsg_RadarAlert::_internal_set_negative(bool value) {
 inline void CDOTAUserMsg_RadarAlert::set_negative(bool value) {
   _internal_set_negative(value);
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_RadarAlert.negative)
+}
+
+// -------------------------------------------------------------------
+
+// CDOTAUserMsg_RoshanTimer
+
+// optional int32 player_id = 1 [default = -1];
+inline bool CDOTAUserMsg_RoshanTimer::_internal_has_player_id() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CDOTAUserMsg_RoshanTimer::has_player_id() const {
+  return _internal_has_player_id();
+}
+inline void CDOTAUserMsg_RoshanTimer::clear_player_id() {
+  _impl_.player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline int32_t CDOTAUserMsg_RoshanTimer::_internal_player_id() const {
+  return _impl_.player_id_;
+}
+inline int32_t CDOTAUserMsg_RoshanTimer::player_id() const {
+  // @@protoc_insertion_point(field_get:CDOTAUserMsg_RoshanTimer.player_id)
+  return _internal_player_id();
+}
+inline void CDOTAUserMsg_RoshanTimer::_internal_set_player_id(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.player_id_ = value;
+}
+inline void CDOTAUserMsg_RoshanTimer::set_player_id(int32_t value) {
+  _internal_set_player_id(value);
+  // @@protoc_insertion_point(field_set:CDOTAUserMsg_RoshanTimer.player_id)
+}
+
+// optional bool negative = 2;
+inline bool CDOTAUserMsg_RoshanTimer::_internal_has_negative() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CDOTAUserMsg_RoshanTimer::has_negative() const {
+  return _internal_has_negative();
+}
+inline void CDOTAUserMsg_RoshanTimer::clear_negative() {
+  _impl_.negative_ = false;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline bool CDOTAUserMsg_RoshanTimer::_internal_negative() const {
+  return _impl_.negative_;
+}
+inline bool CDOTAUserMsg_RoshanTimer::negative() const {
+  // @@protoc_insertion_point(field_get:CDOTAUserMsg_RoshanTimer.negative)
+  return _internal_negative();
+}
+inline void CDOTAUserMsg_RoshanTimer::_internal_set_negative(bool value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.negative_ = value;
+}
+inline void CDOTAUserMsg_RoshanTimer::set_negative(bool value) {
+  _internal_set_negative(value);
+  // @@protoc_insertion_point(field_set:CDOTAUserMsg_RoshanTimer.negative)
 }
 
 // -------------------------------------------------------------------
@@ -44140,298 +44682,6 @@ inline void CDOTAUserMsg_HalloweenDrops::set_prize_list(uint32_t value) {
 
 // -------------------------------------------------------------------
 
-// CDOTAUserMsg_PredictionResult_Prediction
-
-// optional uint32 item_def = 1;
-inline bool CDOTAUserMsg_PredictionResult_Prediction::_internal_has_item_def() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool CDOTAUserMsg_PredictionResult_Prediction::has_item_def() const {
-  return _internal_has_item_def();
-}
-inline void CDOTAUserMsg_PredictionResult_Prediction::clear_item_def() {
-  _impl_.item_def_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000001u;
-}
-inline uint32_t CDOTAUserMsg_PredictionResult_Prediction::_internal_item_def() const {
-  return _impl_.item_def_;
-}
-inline uint32_t CDOTAUserMsg_PredictionResult_Prediction::item_def() const {
-  // @@protoc_insertion_point(field_get:CDOTAUserMsg_PredictionResult.Prediction.item_def)
-  return _internal_item_def();
-}
-inline void CDOTAUserMsg_PredictionResult_Prediction::_internal_set_item_def(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  _impl_.item_def_ = value;
-}
-inline void CDOTAUserMsg_PredictionResult_Prediction::set_item_def(uint32_t value) {
-  _internal_set_item_def(value);
-  // @@protoc_insertion_point(field_set:CDOTAUserMsg_PredictionResult.Prediction.item_def)
-}
-
-// optional uint32 num_correct = 2;
-inline bool CDOTAUserMsg_PredictionResult_Prediction::_internal_has_num_correct() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
-  return value;
-}
-inline bool CDOTAUserMsg_PredictionResult_Prediction::has_num_correct() const {
-  return _internal_has_num_correct();
-}
-inline void CDOTAUserMsg_PredictionResult_Prediction::clear_num_correct() {
-  _impl_.num_correct_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
-}
-inline uint32_t CDOTAUserMsg_PredictionResult_Prediction::_internal_num_correct() const {
-  return _impl_.num_correct_;
-}
-inline uint32_t CDOTAUserMsg_PredictionResult_Prediction::num_correct() const {
-  // @@protoc_insertion_point(field_get:CDOTAUserMsg_PredictionResult.Prediction.num_correct)
-  return _internal_num_correct();
-}
-inline void CDOTAUserMsg_PredictionResult_Prediction::_internal_set_num_correct(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  _impl_.num_correct_ = value;
-}
-inline void CDOTAUserMsg_PredictionResult_Prediction::set_num_correct(uint32_t value) {
-  _internal_set_num_correct(value);
-  // @@protoc_insertion_point(field_set:CDOTAUserMsg_PredictionResult.Prediction.num_correct)
-}
-
-// optional uint32 num_fails = 3;
-inline bool CDOTAUserMsg_PredictionResult_Prediction::_internal_has_num_fails() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
-  return value;
-}
-inline bool CDOTAUserMsg_PredictionResult_Prediction::has_num_fails() const {
-  return _internal_has_num_fails();
-}
-inline void CDOTAUserMsg_PredictionResult_Prediction::clear_num_fails() {
-  _impl_.num_fails_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000004u;
-}
-inline uint32_t CDOTAUserMsg_PredictionResult_Prediction::_internal_num_fails() const {
-  return _impl_.num_fails_;
-}
-inline uint32_t CDOTAUserMsg_PredictionResult_Prediction::num_fails() const {
-  // @@protoc_insertion_point(field_get:CDOTAUserMsg_PredictionResult.Prediction.num_fails)
-  return _internal_num_fails();
-}
-inline void CDOTAUserMsg_PredictionResult_Prediction::_internal_set_num_fails(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
-  _impl_.num_fails_ = value;
-}
-inline void CDOTAUserMsg_PredictionResult_Prediction::set_num_fails(uint32_t value) {
-  _internal_set_num_fails(value);
-  // @@protoc_insertion_point(field_set:CDOTAUserMsg_PredictionResult.Prediction.num_fails)
-}
-
-// optional .CDOTAUserMsg_PredictionResult.Prediction.EResult result = 4 [default = k_eResult_ItemGranted];
-inline bool CDOTAUserMsg_PredictionResult_Prediction::_internal_has_result() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
-  return value;
-}
-inline bool CDOTAUserMsg_PredictionResult_Prediction::has_result() const {
-  return _internal_has_result();
-}
-inline void CDOTAUserMsg_PredictionResult_Prediction::clear_result() {
-  _impl_.result_ = 1;
-  _impl_._has_bits_[0] &= ~0x00000008u;
-}
-inline ::CDOTAUserMsg_PredictionResult_Prediction_EResult CDOTAUserMsg_PredictionResult_Prediction::_internal_result() const {
-  return static_cast< ::CDOTAUserMsg_PredictionResult_Prediction_EResult >(_impl_.result_);
-}
-inline ::CDOTAUserMsg_PredictionResult_Prediction_EResult CDOTAUserMsg_PredictionResult_Prediction::result() const {
-  // @@protoc_insertion_point(field_get:CDOTAUserMsg_PredictionResult.Prediction.result)
-  return _internal_result();
-}
-inline void CDOTAUserMsg_PredictionResult_Prediction::_internal_set_result(::CDOTAUserMsg_PredictionResult_Prediction_EResult value) {
-  assert(::CDOTAUserMsg_PredictionResult_Prediction_EResult_IsValid(value));
-  _impl_._has_bits_[0] |= 0x00000008u;
-  _impl_.result_ = value;
-}
-inline void CDOTAUserMsg_PredictionResult_Prediction::set_result(::CDOTAUserMsg_PredictionResult_Prediction_EResult value) {
-  _internal_set_result(value);
-  // @@protoc_insertion_point(field_set:CDOTAUserMsg_PredictionResult.Prediction.result)
-}
-
-// repeated uint32 granted_item_defs = 6;
-inline int CDOTAUserMsg_PredictionResult_Prediction::_internal_granted_item_defs_size() const {
-  return _impl_.granted_item_defs_.size();
-}
-inline int CDOTAUserMsg_PredictionResult_Prediction::granted_item_defs_size() const {
-  return _internal_granted_item_defs_size();
-}
-inline void CDOTAUserMsg_PredictionResult_Prediction::clear_granted_item_defs() {
-  _impl_.granted_item_defs_.Clear();
-}
-inline uint32_t CDOTAUserMsg_PredictionResult_Prediction::_internal_granted_item_defs(int index) const {
-  return _impl_.granted_item_defs_.Get(index);
-}
-inline uint32_t CDOTAUserMsg_PredictionResult_Prediction::granted_item_defs(int index) const {
-  // @@protoc_insertion_point(field_get:CDOTAUserMsg_PredictionResult.Prediction.granted_item_defs)
-  return _internal_granted_item_defs(index);
-}
-inline void CDOTAUserMsg_PredictionResult_Prediction::set_granted_item_defs(int index, uint32_t value) {
-  _impl_.granted_item_defs_.Set(index, value);
-  // @@protoc_insertion_point(field_set:CDOTAUserMsg_PredictionResult.Prediction.granted_item_defs)
-}
-inline void CDOTAUserMsg_PredictionResult_Prediction::_internal_add_granted_item_defs(uint32_t value) {
-  _impl_.granted_item_defs_.Add(value);
-}
-inline void CDOTAUserMsg_PredictionResult_Prediction::add_granted_item_defs(uint32_t value) {
-  _internal_add_granted_item_defs(value);
-  // @@protoc_insertion_point(field_add:CDOTAUserMsg_PredictionResult.Prediction.granted_item_defs)
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-CDOTAUserMsg_PredictionResult_Prediction::_internal_granted_item_defs() const {
-  return _impl_.granted_item_defs_;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
-CDOTAUserMsg_PredictionResult_Prediction::granted_item_defs() const {
-  // @@protoc_insertion_point(field_list:CDOTAUserMsg_PredictionResult.Prediction.granted_item_defs)
-  return _internal_granted_item_defs();
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-CDOTAUserMsg_PredictionResult_Prediction::_internal_mutable_granted_item_defs() {
-  return &_impl_.granted_item_defs_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
-CDOTAUserMsg_PredictionResult_Prediction::mutable_granted_item_defs() {
-  // @@protoc_insertion_point(field_mutable_list:CDOTAUserMsg_PredictionResult.Prediction.granted_item_defs)
-  return _internal_mutable_granted_item_defs();
-}
-
-// -------------------------------------------------------------------
-
-// CDOTAUserMsg_PredictionResult
-
-// optional uint32 account_id = 1;
-inline bool CDOTAUserMsg_PredictionResult::_internal_has_account_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
-  return value;
-}
-inline bool CDOTAUserMsg_PredictionResult::has_account_id() const {
-  return _internal_has_account_id();
-}
-inline void CDOTAUserMsg_PredictionResult::clear_account_id() {
-  _impl_.account_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
-}
-inline uint32_t CDOTAUserMsg_PredictionResult::_internal_account_id() const {
-  return _impl_.account_id_;
-}
-inline uint32_t CDOTAUserMsg_PredictionResult::account_id() const {
-  // @@protoc_insertion_point(field_get:CDOTAUserMsg_PredictionResult.account_id)
-  return _internal_account_id();
-}
-inline void CDOTAUserMsg_PredictionResult::_internal_set_account_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  _impl_.account_id_ = value;
-}
-inline void CDOTAUserMsg_PredictionResult::set_account_id(uint32_t value) {
-  _internal_set_account_id(value);
-  // @@protoc_insertion_point(field_set:CDOTAUserMsg_PredictionResult.account_id)
-}
-
-// optional uint64 match_id = 2;
-inline bool CDOTAUserMsg_PredictionResult::_internal_has_match_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool CDOTAUserMsg_PredictionResult::has_match_id() const {
-  return _internal_has_match_id();
-}
-inline void CDOTAUserMsg_PredictionResult::clear_match_id() {
-  _impl_.match_id_ = uint64_t{0u};
-  _impl_._has_bits_[0] &= ~0x00000001u;
-}
-inline uint64_t CDOTAUserMsg_PredictionResult::_internal_match_id() const {
-  return _impl_.match_id_;
-}
-inline uint64_t CDOTAUserMsg_PredictionResult::match_id() const {
-  // @@protoc_insertion_point(field_get:CDOTAUserMsg_PredictionResult.match_id)
-  return _internal_match_id();
-}
-inline void CDOTAUserMsg_PredictionResult::_internal_set_match_id(uint64_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  _impl_.match_id_ = value;
-}
-inline void CDOTAUserMsg_PredictionResult::set_match_id(uint64_t value) {
-  _internal_set_match_id(value);
-  // @@protoc_insertion_point(field_set:CDOTAUserMsg_PredictionResult.match_id)
-}
-
-// optional bool correct = 3;
-inline bool CDOTAUserMsg_PredictionResult::_internal_has_correct() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
-  return value;
-}
-inline bool CDOTAUserMsg_PredictionResult::has_correct() const {
-  return _internal_has_correct();
-}
-inline void CDOTAUserMsg_PredictionResult::clear_correct() {
-  _impl_.correct_ = false;
-  _impl_._has_bits_[0] &= ~0x00000004u;
-}
-inline bool CDOTAUserMsg_PredictionResult::_internal_correct() const {
-  return _impl_.correct_;
-}
-inline bool CDOTAUserMsg_PredictionResult::correct() const {
-  // @@protoc_insertion_point(field_get:CDOTAUserMsg_PredictionResult.correct)
-  return _internal_correct();
-}
-inline void CDOTAUserMsg_PredictionResult::_internal_set_correct(bool value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
-  _impl_.correct_ = value;
-}
-inline void CDOTAUserMsg_PredictionResult::set_correct(bool value) {
-  _internal_set_correct(value);
-  // @@protoc_insertion_point(field_set:CDOTAUserMsg_PredictionResult.correct)
-}
-
-// repeated .CDOTAUserMsg_PredictionResult.Prediction predictions = 4;
-inline int CDOTAUserMsg_PredictionResult::_internal_predictions_size() const {
-  return _impl_.predictions_.size();
-}
-inline int CDOTAUserMsg_PredictionResult::predictions_size() const {
-  return _internal_predictions_size();
-}
-inline void CDOTAUserMsg_PredictionResult::clear_predictions() {
-  _impl_.predictions_.Clear();
-}
-inline ::CDOTAUserMsg_PredictionResult_Prediction* CDOTAUserMsg_PredictionResult::mutable_predictions(int index) {
-  // @@protoc_insertion_point(field_mutable:CDOTAUserMsg_PredictionResult.predictions)
-  return _impl_.predictions_.Mutable(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CDOTAUserMsg_PredictionResult_Prediction >*
-CDOTAUserMsg_PredictionResult::mutable_predictions() {
-  // @@protoc_insertion_point(field_mutable_list:CDOTAUserMsg_PredictionResult.predictions)
-  return &_impl_.predictions_;
-}
-inline const ::CDOTAUserMsg_PredictionResult_Prediction& CDOTAUserMsg_PredictionResult::_internal_predictions(int index) const {
-  return _impl_.predictions_.Get(index);
-}
-inline const ::CDOTAUserMsg_PredictionResult_Prediction& CDOTAUserMsg_PredictionResult::predictions(int index) const {
-  // @@protoc_insertion_point(field_get:CDOTAUserMsg_PredictionResult.predictions)
-  return _internal_predictions(index);
-}
-inline ::CDOTAUserMsg_PredictionResult_Prediction* CDOTAUserMsg_PredictionResult::_internal_add_predictions() {
-  return _impl_.predictions_.Add();
-}
-inline ::CDOTAUserMsg_PredictionResult_Prediction* CDOTAUserMsg_PredictionResult::add_predictions() {
-  ::CDOTAUserMsg_PredictionResult_Prediction* _add = _internal_add_predictions();
-  // @@protoc_insertion_point(field_add:CDOTAUserMsg_PredictionResult.predictions)
-  return _add;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CDOTAUserMsg_PredictionResult_Prediction >&
-CDOTAUserMsg_PredictionResult::predictions() const {
-  // @@protoc_insertion_point(field_list:CDOTAUserMsg_PredictionResult.predictions)
-  return _impl_.predictions_;
-}
-
-// -------------------------------------------------------------------
-
 // CDOTAResponseQuerySerialized_Fact
 
 // required int32 key = 1;
@@ -47342,7 +47592,7 @@ inline void CDOTAUserMsg_ChatWheel::set_account_id(uint32_t value) {
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_ChatWheel.account_id)
 }
 
-// optional uint32 param_hero_id = 4;
+// optional int32 param_hero_id = 4;
 inline bool CDOTAUserMsg_ChatWheel::_internal_has_param_hero_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -47351,21 +47601,21 @@ inline bool CDOTAUserMsg_ChatWheel::has_param_hero_id() const {
   return _internal_has_param_hero_id();
 }
 inline void CDOTAUserMsg_ChatWheel::clear_param_hero_id() {
-  _impl_.param_hero_id_ = 0u;
+  _impl_.param_hero_id_ = 0;
   _impl_._has_bits_[0] &= ~0x00000002u;
 }
-inline uint32_t CDOTAUserMsg_ChatWheel::_internal_param_hero_id() const {
+inline int32_t CDOTAUserMsg_ChatWheel::_internal_param_hero_id() const {
   return _impl_.param_hero_id_;
 }
-inline uint32_t CDOTAUserMsg_ChatWheel::param_hero_id() const {
+inline int32_t CDOTAUserMsg_ChatWheel::param_hero_id() const {
   // @@protoc_insertion_point(field_get:CDOTAUserMsg_ChatWheel.param_hero_id)
   return _internal_param_hero_id();
 }
-inline void CDOTAUserMsg_ChatWheel::_internal_set_param_hero_id(uint32_t value) {
+inline void CDOTAUserMsg_ChatWheel::_internal_set_param_hero_id(int32_t value) {
   _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.param_hero_id_ = value;
 }
-inline void CDOTAUserMsg_ChatWheel::set_param_hero_id(uint32_t value) {
+inline void CDOTAUserMsg_ChatWheel::set_param_hero_id(int32_t value) {
   _internal_set_param_hero_id(value);
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_ChatWheel.param_hero_id)
 }
@@ -47654,7 +47904,7 @@ inline void CDOTAUserMsg_ShowSurvey::set_allocated_response_style(std::string* r
   // @@protoc_insertion_point(field_set_allocated:CDOTAUserMsg_ShowSurvey.response_style)
 }
 
-// optional uint32 teammate_hero_id = 4;
+// optional int32 teammate_hero_id = 4;
 inline bool CDOTAUserMsg_ShowSurvey::_internal_has_teammate_hero_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -47663,21 +47913,21 @@ inline bool CDOTAUserMsg_ShowSurvey::has_teammate_hero_id() const {
   return _internal_has_teammate_hero_id();
 }
 inline void CDOTAUserMsg_ShowSurvey::clear_teammate_hero_id() {
-  _impl_.teammate_hero_id_ = 0u;
+  _impl_.teammate_hero_id_ = 0;
   _impl_._has_bits_[0] &= ~0x00000010u;
 }
-inline uint32_t CDOTAUserMsg_ShowSurvey::_internal_teammate_hero_id() const {
+inline int32_t CDOTAUserMsg_ShowSurvey::_internal_teammate_hero_id() const {
   return _impl_.teammate_hero_id_;
 }
-inline uint32_t CDOTAUserMsg_ShowSurvey::teammate_hero_id() const {
+inline int32_t CDOTAUserMsg_ShowSurvey::teammate_hero_id() const {
   // @@protoc_insertion_point(field_get:CDOTAUserMsg_ShowSurvey.teammate_hero_id)
   return _internal_teammate_hero_id();
 }
-inline void CDOTAUserMsg_ShowSurvey::_internal_set_teammate_hero_id(uint32_t value) {
+inline void CDOTAUserMsg_ShowSurvey::_internal_set_teammate_hero_id(int32_t value) {
   _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.teammate_hero_id_ = value;
 }
-inline void CDOTAUserMsg_ShowSurvey::set_teammate_hero_id(uint32_t value) {
+inline void CDOTAUserMsg_ShowSurvey::set_teammate_hero_id(int32_t value) {
   _internal_set_teammate_hero_id(value);
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_ShowSurvey.teammate_hero_id)
 }
@@ -50157,7 +50407,7 @@ inline void CDOTAUserMsg_TE_DotaBloodImpact::set_ynormal(float value) {
 
 // optional int32 player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_AbilityPing::_internal_has_player_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000400u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000200u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_AbilityPing::has_player_id() const {
@@ -50165,7 +50415,7 @@ inline bool CDOTAUserMsg_AbilityPing::has_player_id() const {
 }
 inline void CDOTAUserMsg_AbilityPing::clear_player_id() {
   _impl_.player_id_ = -1;
-  _impl_._has_bits_[0] &= ~0x00000400u;
+  _impl_._has_bits_[0] &= ~0x00000200u;
 }
 inline int32_t CDOTAUserMsg_AbilityPing::_internal_player_id() const {
   return _impl_.player_id_;
@@ -50175,7 +50425,7 @@ inline int32_t CDOTAUserMsg_AbilityPing::player_id() const {
   return _internal_player_id();
 }
 inline void CDOTAUserMsg_AbilityPing::_internal_set_player_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000400u;
+  _impl_._has_bits_[0] |= 0x00000200u;
   _impl_.player_id_ = value;
 }
 inline void CDOTAUserMsg_AbilityPing::set_player_id(int32_t value) {
@@ -50185,7 +50435,7 @@ inline void CDOTAUserMsg_AbilityPing::set_player_id(int32_t value) {
 
 // optional int32 ability_id = 2 [default = -1];
 inline bool CDOTAUserMsg_AbilityPing::_internal_has_ability_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000800u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000400u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_AbilityPing::has_ability_id() const {
@@ -50193,7 +50443,7 @@ inline bool CDOTAUserMsg_AbilityPing::has_ability_id() const {
 }
 inline void CDOTAUserMsg_AbilityPing::clear_ability_id() {
   _impl_.ability_id_ = -1;
-  _impl_._has_bits_[0] &= ~0x00000800u;
+  _impl_._has_bits_[0] &= ~0x00000400u;
 }
 inline int32_t CDOTAUserMsg_AbilityPing::_internal_ability_id() const {
   return _impl_.ability_id_;
@@ -50203,7 +50453,7 @@ inline int32_t CDOTAUserMsg_AbilityPing::ability_id() const {
   return _internal_ability_id();
 }
 inline void CDOTAUserMsg_AbilityPing::_internal_set_ability_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000800u;
+  _impl_._has_bits_[0] |= 0x00000400u;
   _impl_.ability_id_ = value;
 }
 inline void CDOTAUserMsg_AbilityPing::set_ability_id(int32_t value) {
@@ -50213,7 +50463,7 @@ inline void CDOTAUserMsg_AbilityPing::set_ability_id(int32_t value) {
 
 // optional .DOTA_ABILITY_PING_TYPE type = 3 [default = ABILITY_PING_READY];
 inline bool CDOTAUserMsg_AbilityPing::_internal_has_type() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000200u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000800u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_AbilityPing::has_type() const {
@@ -50221,7 +50471,7 @@ inline bool CDOTAUserMsg_AbilityPing::has_type() const {
 }
 inline void CDOTAUserMsg_AbilityPing::clear_type() {
   _impl_.type_ = 1;
-  _impl_._has_bits_[0] &= ~0x00000200u;
+  _impl_._has_bits_[0] &= ~0x00000800u;
 }
 inline ::DOTA_ABILITY_PING_TYPE CDOTAUserMsg_AbilityPing::_internal_type() const {
   return static_cast< ::DOTA_ABILITY_PING_TYPE >(_impl_.type_);
@@ -50232,7 +50482,7 @@ inline ::DOTA_ABILITY_PING_TYPE CDOTAUserMsg_AbilityPing::type() const {
 }
 inline void CDOTAUserMsg_AbilityPing::_internal_set_type(::DOTA_ABILITY_PING_TYPE value) {
   assert(::DOTA_ABILITY_PING_TYPE_IsValid(value));
-  _impl_._has_bits_[0] |= 0x00000200u;
+  _impl_._has_bits_[0] |= 0x00000800u;
   _impl_.type_ = value;
 }
 inline void CDOTAUserMsg_AbilityPing::set_type(::DOTA_ABILITY_PING_TYPE value) {
@@ -50490,6 +50740,34 @@ inline void CDOTAUserMsg_AbilityPing::_internal_set_reclaim_time(float value) {
 inline void CDOTAUserMsg_AbilityPing::set_reclaim_time(float value) {
   _internal_set_reclaim_time(value);
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_AbilityPing.reclaim_time)
+}
+
+// optional int32 owner_entity = 14 [default = -1];
+inline bool CDOTAUserMsg_AbilityPing::_internal_has_owner_entity() const {
+  bool value = (_impl_._has_bits_[0] & 0x00001000u) != 0;
+  return value;
+}
+inline bool CDOTAUserMsg_AbilityPing::has_owner_entity() const {
+  return _internal_has_owner_entity();
+}
+inline void CDOTAUserMsg_AbilityPing::clear_owner_entity() {
+  _impl_.owner_entity_ = -1;
+  _impl_._has_bits_[0] &= ~0x00001000u;
+}
+inline int32_t CDOTAUserMsg_AbilityPing::_internal_owner_entity() const {
+  return _impl_.owner_entity_;
+}
+inline int32_t CDOTAUserMsg_AbilityPing::owner_entity() const {
+  // @@protoc_insertion_point(field_get:CDOTAUserMsg_AbilityPing.owner_entity)
+  return _internal_owner_entity();
+}
+inline void CDOTAUserMsg_AbilityPing::_internal_set_owner_entity(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00001000u;
+  _impl_.owner_entity_ = value;
+}
+inline void CDOTAUserMsg_AbilityPing::set_owner_entity(int32_t value) {
+  _internal_set_owner_entity(value);
+  // @@protoc_insertion_point(field_set:CDOTAUserMsg_AbilityPing.owner_entity)
 }
 
 // -------------------------------------------------------------------
@@ -51556,57 +51834,6 @@ inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CDOTAUserMsg_BoosterSt
 CDOTAUserMsg_BoosterState::boosted_players() const {
   // @@protoc_insertion_point(field_list:CDOTAUserMsg_BoosterState.boosted_players)
   return _impl_.boosted_players_;
-}
-
-// -------------------------------------------------------------------
-
-// CDOTAUserMsg_PlayerMMR
-
-// repeated sint32 mmr = 1 [packed = true];
-inline int CDOTAUserMsg_PlayerMMR::_internal_mmr_size() const {
-  return _impl_.mmr_.size();
-}
-inline int CDOTAUserMsg_PlayerMMR::mmr_size() const {
-  return _internal_mmr_size();
-}
-inline void CDOTAUserMsg_PlayerMMR::clear_mmr() {
-  _impl_.mmr_.Clear();
-}
-inline int32_t CDOTAUserMsg_PlayerMMR::_internal_mmr(int index) const {
-  return _impl_.mmr_.Get(index);
-}
-inline int32_t CDOTAUserMsg_PlayerMMR::mmr(int index) const {
-  // @@protoc_insertion_point(field_get:CDOTAUserMsg_PlayerMMR.mmr)
-  return _internal_mmr(index);
-}
-inline void CDOTAUserMsg_PlayerMMR::set_mmr(int index, int32_t value) {
-  _impl_.mmr_.Set(index, value);
-  // @@protoc_insertion_point(field_set:CDOTAUserMsg_PlayerMMR.mmr)
-}
-inline void CDOTAUserMsg_PlayerMMR::_internal_add_mmr(int32_t value) {
-  _impl_.mmr_.Add(value);
-}
-inline void CDOTAUserMsg_PlayerMMR::add_mmr(int32_t value) {
-  _internal_add_mmr(value);
-  // @@protoc_insertion_point(field_add:CDOTAUserMsg_PlayerMMR.mmr)
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
-CDOTAUserMsg_PlayerMMR::_internal_mmr() const {
-  return _impl_.mmr_;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
-CDOTAUserMsg_PlayerMMR::mmr() const {
-  // @@protoc_insertion_point(field_list:CDOTAUserMsg_PlayerMMR.mmr)
-  return _internal_mmr();
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
-CDOTAUserMsg_PlayerMMR::_internal_mutable_mmr() {
-  return &_impl_.mmr_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
-CDOTAUserMsg_PlayerMMR::mutable_mmr() {
-  // @@protoc_insertion_point(field_mutable_list:CDOTAUserMsg_PlayerMMR.mmr)
-  return _internal_mutable_mmr();
 }
 
 // -------------------------------------------------------------------
@@ -55990,7 +56217,7 @@ inline void CDOTAUserMsg_QuestStatus::set_item_ability_id(int32_t value) {
 
 // required int32 player_id = 1 [default = -1];
 inline bool CDOTAUserMsg_SuggestHeroPick::_internal_has_player_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool CDOTAUserMsg_SuggestHeroPick::has_player_id() const {
@@ -55998,7 +56225,7 @@ inline bool CDOTAUserMsg_SuggestHeroPick::has_player_id() const {
 }
 inline void CDOTAUserMsg_SuggestHeroPick::clear_player_id() {
   _impl_.player_id_ = -1;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline int32_t CDOTAUserMsg_SuggestHeroPick::_internal_player_id() const {
   return _impl_.player_id_;
@@ -56008,7 +56235,7 @@ inline int32_t CDOTAUserMsg_SuggestHeroPick::player_id() const {
   return _internal_player_id();
 }
 inline void CDOTAUserMsg_SuggestHeroPick::_internal_set_player_id(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.player_id_ = value;
 }
 inline void CDOTAUserMsg_SuggestHeroPick::set_player_id(int32_t value) {
@@ -56016,7 +56243,7 @@ inline void CDOTAUserMsg_SuggestHeroPick::set_player_id(int32_t value) {
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_SuggestHeroPick.player_id)
 }
 
-// optional uint32 hero_id = 2;
+// optional int32 hero_id = 2;
 inline bool CDOTAUserMsg_SuggestHeroPick::_internal_has_hero_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -56025,21 +56252,21 @@ inline bool CDOTAUserMsg_SuggestHeroPick::has_hero_id() const {
   return _internal_has_hero_id();
 }
 inline void CDOTAUserMsg_SuggestHeroPick::clear_hero_id() {
-  _impl_.hero_id_ = 0u;
+  _impl_.hero_id_ = 0;
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint32_t CDOTAUserMsg_SuggestHeroPick::_internal_hero_id() const {
+inline int32_t CDOTAUserMsg_SuggestHeroPick::_internal_hero_id() const {
   return _impl_.hero_id_;
 }
-inline uint32_t CDOTAUserMsg_SuggestHeroPick::hero_id() const {
+inline int32_t CDOTAUserMsg_SuggestHeroPick::hero_id() const {
   // @@protoc_insertion_point(field_get:CDOTAUserMsg_SuggestHeroPick.hero_id)
   return _internal_hero_id();
 }
-inline void CDOTAUserMsg_SuggestHeroPick::_internal_set_hero_id(uint32_t value) {
+inline void CDOTAUserMsg_SuggestHeroPick::_internal_set_hero_id(int32_t value) {
   _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.hero_id_ = value;
 }
-inline void CDOTAUserMsg_SuggestHeroPick::set_hero_id(uint32_t value) {
+inline void CDOTAUserMsg_SuggestHeroPick::set_hero_id(int32_t value) {
   _internal_set_hero_id(value);
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_SuggestHeroPick.hero_id)
 }
@@ -56070,6 +56297,34 @@ inline void CDOTAUserMsg_SuggestHeroPick::_internal_set_ban(bool value) {
 inline void CDOTAUserMsg_SuggestHeroPick::set_ban(bool value) {
   _internal_set_ban(value);
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_SuggestHeroPick.ban)
+}
+
+// optional uint32 facet_id = 4;
+inline bool CDOTAUserMsg_SuggestHeroPick::_internal_has_facet_id() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CDOTAUserMsg_SuggestHeroPick::has_facet_id() const {
+  return _internal_has_facet_id();
+}
+inline void CDOTAUserMsg_SuggestHeroPick::clear_facet_id() {
+  _impl_.facet_id_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline uint32_t CDOTAUserMsg_SuggestHeroPick::_internal_facet_id() const {
+  return _impl_.facet_id_;
+}
+inline uint32_t CDOTAUserMsg_SuggestHeroPick::facet_id() const {
+  // @@protoc_insertion_point(field_get:CDOTAUserMsg_SuggestHeroPick.facet_id)
+  return _internal_facet_id();
+}
+inline void CDOTAUserMsg_SuggestHeroPick::_internal_set_facet_id(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.facet_id_ = value;
+}
+inline void CDOTAUserMsg_SuggestHeroPick::set_facet_id(uint32_t value) {
+  _internal_set_facet_id(value);
+  // @@protoc_insertion_point(field_set:CDOTAUserMsg_SuggestHeroPick.facet_id)
 }
 
 // -------------------------------------------------------------------
@@ -57132,7 +57387,7 @@ inline void CDOTAUserMsg_DamageReport::set_player_id(int32_t value) {
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_DamageReport.player_id)
 }
 
-// optional uint32 target_hero_id = 2;
+// optional int32 target_hero_id = 2;
 inline bool CDOTAUserMsg_DamageReport::_internal_has_target_hero_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -57141,26 +57396,26 @@ inline bool CDOTAUserMsg_DamageReport::has_target_hero_id() const {
   return _internal_has_target_hero_id();
 }
 inline void CDOTAUserMsg_DamageReport::clear_target_hero_id() {
-  _impl_.target_hero_id_ = 0u;
+  _impl_.target_hero_id_ = 0;
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline uint32_t CDOTAUserMsg_DamageReport::_internal_target_hero_id() const {
+inline int32_t CDOTAUserMsg_DamageReport::_internal_target_hero_id() const {
   return _impl_.target_hero_id_;
 }
-inline uint32_t CDOTAUserMsg_DamageReport::target_hero_id() const {
+inline int32_t CDOTAUserMsg_DamageReport::target_hero_id() const {
   // @@protoc_insertion_point(field_get:CDOTAUserMsg_DamageReport.target_hero_id)
   return _internal_target_hero_id();
 }
-inline void CDOTAUserMsg_DamageReport::_internal_set_target_hero_id(uint32_t value) {
+inline void CDOTAUserMsg_DamageReport::_internal_set_target_hero_id(int32_t value) {
   _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.target_hero_id_ = value;
 }
-inline void CDOTAUserMsg_DamageReport::set_target_hero_id(uint32_t value) {
+inline void CDOTAUserMsg_DamageReport::set_target_hero_id(int32_t value) {
   _internal_set_target_hero_id(value);
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_DamageReport.target_hero_id)
 }
 
-// optional uint32 source_hero_id = 3;
+// optional int32 source_hero_id = 3;
 inline bool CDOTAUserMsg_DamageReport::_internal_has_source_hero_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -57169,21 +57424,21 @@ inline bool CDOTAUserMsg_DamageReport::has_source_hero_id() const {
   return _internal_has_source_hero_id();
 }
 inline void CDOTAUserMsg_DamageReport::clear_source_hero_id() {
-  _impl_.source_hero_id_ = 0u;
+  _impl_.source_hero_id_ = 0;
   _impl_._has_bits_[0] &= ~0x00000002u;
 }
-inline uint32_t CDOTAUserMsg_DamageReport::_internal_source_hero_id() const {
+inline int32_t CDOTAUserMsg_DamageReport::_internal_source_hero_id() const {
   return _impl_.source_hero_id_;
 }
-inline uint32_t CDOTAUserMsg_DamageReport::source_hero_id() const {
+inline int32_t CDOTAUserMsg_DamageReport::source_hero_id() const {
   // @@protoc_insertion_point(field_get:CDOTAUserMsg_DamageReport.source_hero_id)
   return _internal_source_hero_id();
 }
-inline void CDOTAUserMsg_DamageReport::_internal_set_source_hero_id(uint32_t value) {
+inline void CDOTAUserMsg_DamageReport::_internal_set_source_hero_id(int32_t value) {
   _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.source_hero_id_ = value;
 }
-inline void CDOTAUserMsg_DamageReport::set_source_hero_id(uint32_t value) {
+inline void CDOTAUserMsg_DamageReport::set_source_hero_id(int32_t value) {
   _internal_set_source_hero_id(value);
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_DamageReport.source_hero_id)
 }
@@ -57454,6 +57709,94 @@ inline void CDOTAUserMsg_SalutePlayer::_internal_set_num_recent_tips(uint32_t va
 inline void CDOTAUserMsg_SalutePlayer::set_num_recent_tips(uint32_t value) {
   _internal_set_num_recent_tips(value);
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_SalutePlayer.num_recent_tips)
+}
+
+// -------------------------------------------------------------------
+
+// CDOTAUserMsg_GiftPlayer
+
+// optional int32 source_player_id = 1 [default = -1];
+inline bool CDOTAUserMsg_GiftPlayer::_internal_has_source_player_id() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CDOTAUserMsg_GiftPlayer::has_source_player_id() const {
+  return _internal_has_source_player_id();
+}
+inline void CDOTAUserMsg_GiftPlayer::clear_source_player_id() {
+  _impl_.source_player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline int32_t CDOTAUserMsg_GiftPlayer::_internal_source_player_id() const {
+  return _impl_.source_player_id_;
+}
+inline int32_t CDOTAUserMsg_GiftPlayer::source_player_id() const {
+  // @@protoc_insertion_point(field_get:CDOTAUserMsg_GiftPlayer.source_player_id)
+  return _internal_source_player_id();
+}
+inline void CDOTAUserMsg_GiftPlayer::_internal_set_source_player_id(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.source_player_id_ = value;
+}
+inline void CDOTAUserMsg_GiftPlayer::set_source_player_id(int32_t value) {
+  _internal_set_source_player_id(value);
+  // @@protoc_insertion_point(field_set:CDOTAUserMsg_GiftPlayer.source_player_id)
+}
+
+// optional int32 target_player_id = 2 [default = -1];
+inline bool CDOTAUserMsg_GiftPlayer::_internal_has_target_player_id() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CDOTAUserMsg_GiftPlayer::has_target_player_id() const {
+  return _internal_has_target_player_id();
+}
+inline void CDOTAUserMsg_GiftPlayer::clear_target_player_id() {
+  _impl_.target_player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline int32_t CDOTAUserMsg_GiftPlayer::_internal_target_player_id() const {
+  return _impl_.target_player_id_;
+}
+inline int32_t CDOTAUserMsg_GiftPlayer::target_player_id() const {
+  // @@protoc_insertion_point(field_get:CDOTAUserMsg_GiftPlayer.target_player_id)
+  return _internal_target_player_id();
+}
+inline void CDOTAUserMsg_GiftPlayer::_internal_set_target_player_id(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.target_player_id_ = value;
+}
+inline void CDOTAUserMsg_GiftPlayer::set_target_player_id(int32_t value) {
+  _internal_set_target_player_id(value);
+  // @@protoc_insertion_point(field_set:CDOTAUserMsg_GiftPlayer.target_player_id)
+}
+
+// optional uint32 gift_item_def_index = 3;
+inline bool CDOTAUserMsg_GiftPlayer::_internal_has_gift_item_def_index() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CDOTAUserMsg_GiftPlayer::has_gift_item_def_index() const {
+  return _internal_has_gift_item_def_index();
+}
+inline void CDOTAUserMsg_GiftPlayer::clear_gift_item_def_index() {
+  _impl_.gift_item_def_index_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline uint32_t CDOTAUserMsg_GiftPlayer::_internal_gift_item_def_index() const {
+  return _impl_.gift_item_def_index_;
+}
+inline uint32_t CDOTAUserMsg_GiftPlayer::gift_item_def_index() const {
+  // @@protoc_insertion_point(field_get:CDOTAUserMsg_GiftPlayer.gift_item_def_index)
+  return _internal_gift_item_def_index();
+}
+inline void CDOTAUserMsg_GiftPlayer::_internal_set_gift_item_def_index(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.gift_item_def_index_ = value;
+}
+inline void CDOTAUserMsg_GiftPlayer::set_gift_item_def_index(uint32_t value) {
+  _internal_set_gift_item_def_index(value);
+  // @@protoc_insertion_point(field_set:CDOTAUserMsg_GiftPlayer.gift_item_def_index)
 }
 
 // -------------------------------------------------------------------
@@ -59697,7 +60040,7 @@ inline void CDOTAUserMsg_WK_Arcana_Progress::set_arcana_level(uint32_t value) {
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_WK_Arcana_Progress.arcana_level)
 }
 
-// optional uint32 hero_id = 3;
+// optional int32 hero_id = 3;
 inline bool CDOTAUserMsg_WK_Arcana_Progress::_internal_has_hero_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -59706,21 +60049,21 @@ inline bool CDOTAUserMsg_WK_Arcana_Progress::has_hero_id() const {
   return _internal_has_hero_id();
 }
 inline void CDOTAUserMsg_WK_Arcana_Progress::clear_hero_id() {
-  _impl_.hero_id_ = 0u;
+  _impl_.hero_id_ = 0;
   _impl_._has_bits_[0] &= ~0x00000002u;
 }
-inline uint32_t CDOTAUserMsg_WK_Arcana_Progress::_internal_hero_id() const {
+inline int32_t CDOTAUserMsg_WK_Arcana_Progress::_internal_hero_id() const {
   return _impl_.hero_id_;
 }
-inline uint32_t CDOTAUserMsg_WK_Arcana_Progress::hero_id() const {
+inline int32_t CDOTAUserMsg_WK_Arcana_Progress::hero_id() const {
   // @@protoc_insertion_point(field_get:CDOTAUserMsg_WK_Arcana_Progress.hero_id)
   return _internal_hero_id();
 }
-inline void CDOTAUserMsg_WK_Arcana_Progress::_internal_set_hero_id(uint32_t value) {
+inline void CDOTAUserMsg_WK_Arcana_Progress::_internal_set_hero_id(int32_t value) {
   _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.hero_id_ = value;
 }
-inline void CDOTAUserMsg_WK_Arcana_Progress::set_hero_id(uint32_t value) {
+inline void CDOTAUserMsg_WK_Arcana_Progress::set_hero_id(int32_t value) {
   _internal_set_hero_id(value);
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_WK_Arcana_Progress.hero_id)
 }
@@ -62325,9 +62668,217 @@ inline void CDOTAUserMsg_PlayerDraftPick::set_team(int32_t value) {
   // @@protoc_insertion_point(field_set:CDOTAUserMsg_PlayerDraftPick.team)
 }
 
+// -------------------------------------------------------------------
+
+// CDOTAUserMsg_FacetPing
+
+// optional int32 player_id = 1 [default = -1];
+inline bool CDOTAUserMsg_FacetPing::_internal_has_player_id() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool CDOTAUserMsg_FacetPing::has_player_id() const {
+  return _internal_has_player_id();
+}
+inline void CDOTAUserMsg_FacetPing::clear_player_id() {
+  _impl_.player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000008u;
+}
+inline int32_t CDOTAUserMsg_FacetPing::_internal_player_id() const {
+  return _impl_.player_id_;
+}
+inline int32_t CDOTAUserMsg_FacetPing::player_id() const {
+  // @@protoc_insertion_point(field_get:CDOTAUserMsg_FacetPing.player_id)
+  return _internal_player_id();
+}
+inline void CDOTAUserMsg_FacetPing::_internal_set_player_id(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_.player_id_ = value;
+}
+inline void CDOTAUserMsg_FacetPing::set_player_id(int32_t value) {
+  _internal_set_player_id(value);
+  // @@protoc_insertion_point(field_set:CDOTAUserMsg_FacetPing.player_id)
+}
+
+// optional uint32 facet_strhash = 2;
+inline bool CDOTAUserMsg_FacetPing::_internal_has_facet_strhash() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CDOTAUserMsg_FacetPing::has_facet_strhash() const {
+  return _internal_has_facet_strhash();
+}
+inline void CDOTAUserMsg_FacetPing::clear_facet_strhash() {
+  _impl_.facet_strhash_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline uint32_t CDOTAUserMsg_FacetPing::_internal_facet_strhash() const {
+  return _impl_.facet_strhash_;
+}
+inline uint32_t CDOTAUserMsg_FacetPing::facet_strhash() const {
+  // @@protoc_insertion_point(field_get:CDOTAUserMsg_FacetPing.facet_strhash)
+  return _internal_facet_strhash();
+}
+inline void CDOTAUserMsg_FacetPing::_internal_set_facet_strhash(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.facet_strhash_ = value;
+}
+inline void CDOTAUserMsg_FacetPing::set_facet_strhash(uint32_t value) {
+  _internal_set_facet_strhash(value);
+  // @@protoc_insertion_point(field_set:CDOTAUserMsg_FacetPing.facet_strhash)
+}
+
+// optional uint32 entity_id = 3;
+inline bool CDOTAUserMsg_FacetPing::_internal_has_entity_id() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CDOTAUserMsg_FacetPing::has_entity_id() const {
+  return _internal_has_entity_id();
+}
+inline void CDOTAUserMsg_FacetPing::clear_entity_id() {
+  _impl_.entity_id_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline uint32_t CDOTAUserMsg_FacetPing::_internal_entity_id() const {
+  return _impl_.entity_id_;
+}
+inline uint32_t CDOTAUserMsg_FacetPing::entity_id() const {
+  // @@protoc_insertion_point(field_get:CDOTAUserMsg_FacetPing.entity_id)
+  return _internal_entity_id();
+}
+inline void CDOTAUserMsg_FacetPing::_internal_set_entity_id(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.entity_id_ = value;
+}
+inline void CDOTAUserMsg_FacetPing::set_entity_id(uint32_t value) {
+  _internal_set_entity_id(value);
+  // @@protoc_insertion_point(field_set:CDOTAUserMsg_FacetPing.entity_id)
+}
+
+// optional bool all_chat = 4;
+inline bool CDOTAUserMsg_FacetPing::_internal_has_all_chat() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CDOTAUserMsg_FacetPing::has_all_chat() const {
+  return _internal_has_all_chat();
+}
+inline void CDOTAUserMsg_FacetPing::clear_all_chat() {
+  _impl_.all_chat_ = false;
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline bool CDOTAUserMsg_FacetPing::_internal_all_chat() const {
+  return _impl_.all_chat_;
+}
+inline bool CDOTAUserMsg_FacetPing::all_chat() const {
+  // @@protoc_insertion_point(field_get:CDOTAUserMsg_FacetPing.all_chat)
+  return _internal_all_chat();
+}
+inline void CDOTAUserMsg_FacetPing::_internal_set_all_chat(bool value) {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.all_chat_ = value;
+}
+inline void CDOTAUserMsg_FacetPing::set_all_chat(bool value) {
+  _internal_set_all_chat(value);
+  // @@protoc_insertion_point(field_set:CDOTAUserMsg_FacetPing.all_chat)
+}
+
+// -------------------------------------------------------------------
+
+// CDOTAUserMsg_InnatePing
+
+// optional int32 player_id = 1 [default = -1];
+inline bool CDOTAUserMsg_InnatePing::_internal_has_player_id() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CDOTAUserMsg_InnatePing::has_player_id() const {
+  return _internal_has_player_id();
+}
+inline void CDOTAUserMsg_InnatePing::clear_player_id() {
+  _impl_.player_id_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline int32_t CDOTAUserMsg_InnatePing::_internal_player_id() const {
+  return _impl_.player_id_;
+}
+inline int32_t CDOTAUserMsg_InnatePing::player_id() const {
+  // @@protoc_insertion_point(field_get:CDOTAUserMsg_InnatePing.player_id)
+  return _internal_player_id();
+}
+inline void CDOTAUserMsg_InnatePing::_internal_set_player_id(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.player_id_ = value;
+}
+inline void CDOTAUserMsg_InnatePing::set_player_id(int32_t value) {
+  _internal_set_player_id(value);
+  // @@protoc_insertion_point(field_set:CDOTAUserMsg_InnatePing.player_id)
+}
+
+// optional uint32 entity_id = 2;
+inline bool CDOTAUserMsg_InnatePing::_internal_has_entity_id() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CDOTAUserMsg_InnatePing::has_entity_id() const {
+  return _internal_has_entity_id();
+}
+inline void CDOTAUserMsg_InnatePing::clear_entity_id() {
+  _impl_.entity_id_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline uint32_t CDOTAUserMsg_InnatePing::_internal_entity_id() const {
+  return _impl_.entity_id_;
+}
+inline uint32_t CDOTAUserMsg_InnatePing::entity_id() const {
+  // @@protoc_insertion_point(field_get:CDOTAUserMsg_InnatePing.entity_id)
+  return _internal_entity_id();
+}
+inline void CDOTAUserMsg_InnatePing::_internal_set_entity_id(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.entity_id_ = value;
+}
+inline void CDOTAUserMsg_InnatePing::set_entity_id(uint32_t value) {
+  _internal_set_entity_id(value);
+  // @@protoc_insertion_point(field_set:CDOTAUserMsg_InnatePing.entity_id)
+}
+
+// optional bool all_chat = 3;
+inline bool CDOTAUserMsg_InnatePing::_internal_has_all_chat() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CDOTAUserMsg_InnatePing::has_all_chat() const {
+  return _internal_has_all_chat();
+}
+inline void CDOTAUserMsg_InnatePing::clear_all_chat() {
+  _impl_.all_chat_ = false;
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline bool CDOTAUserMsg_InnatePing::_internal_all_chat() const {
+  return _impl_.all_chat_;
+}
+inline bool CDOTAUserMsg_InnatePing::all_chat() const {
+  // @@protoc_insertion_point(field_get:CDOTAUserMsg_InnatePing.all_chat)
+  return _internal_all_chat();
+}
+inline void CDOTAUserMsg_InnatePing::_internal_set_all_chat(bool value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.all_chat_ = value;
+}
+inline void CDOTAUserMsg_InnatePing::set_all_chat(bool value) {
+  _internal_set_all_chat(value);
+  // @@protoc_insertion_point(field_set:CDOTAUserMsg_InnatePing.all_chat)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
@@ -62692,11 +63243,6 @@ inline void CDOTAUserMsg_PlayerDraftPick::set_team(int32_t value) {
 
 PROTOBUF_NAMESPACE_OPEN
 
-template <> struct is_proto_enum< ::CDOTAUserMsg_PredictionResult_Prediction_EResult> : ::std::true_type {};
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::CDOTAUserMsg_PredictionResult_Prediction_EResult>() {
-  return ::CDOTAUserMsg_PredictionResult_Prediction_EResult_descriptor();
-}
 template <> struct is_proto_enum< ::CDOTAResponseQuerySerialized_Fact_ValueType> : ::std::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::CDOTAResponseQuerySerialized_Fact_ValueType>() {
