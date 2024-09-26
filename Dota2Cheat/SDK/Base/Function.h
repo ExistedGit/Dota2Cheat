@@ -17,13 +17,13 @@ struct Function {
 	}
 
 	template<typename ...Args>
-	void* __fastcall operator()(Args&&... t) {
+	void* __fastcall operator()(Args... t) {
 		return ((void* (__fastcall*)(Args...))ptr)(std::forward<Args>(t)...);
 	}
 
 	// Used to specify the return type(e. g. in case of a floating-point value)
 	template<typename R, typename ...Args>
-	R __fastcall Call(Args&&... t) {
+	R __fastcall Call(Args... t) {
 		return ((R(__fastcall*)(Args...))ptr)(std::forward<Args>(t)...);
 	}
 };
@@ -44,13 +44,13 @@ public:
 	}
 
 	template<typename ...Args>
-	void* __fastcall operator()(Args&&... t) {
+	void* __fastcall operator()(Args... t) {
 		return ((void* (__fastcall*)(void*, Args...))ptr)(thisptr, std::forward<Args>(t)...);
 	}
 
 	// Used to specify the return type(e. g. in case of a floating-point value)
 	template<typename R, typename ...Args>
-	R __fastcall Call(Args&&... t) {
+	R __fastcall Call(Args... t) {
 		return ((R(__fastcall*)(void*, Args...))ptr)(thisptr, std::forward<Args>(t)...);
 	}
 };

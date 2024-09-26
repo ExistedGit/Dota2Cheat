@@ -15,19 +15,20 @@
 #include "GameSystems/CDOTA_PanoramaMinimapRenderer.h"
 #include "GameSystems/CRenderGameSystem.h"
 
+
+struct IGameSystemFactory : public VClass {
+	IGameSystemFactory* m_pNext;
+	const char* m_szName;
+	void** GameSystem;
+
+	VGETTER(void*, GetGameSystem, 9);
+
+	static IGameSystemFactory* GetInstance();
+};
+
 namespace GameSystems {
-	struct IGameSystemFactory : public VClass {
-		IGameSystemFactory* m_pNext;
-		const char* m_szName;
-		void** GameSystem;
-
-		VGETTER(void*, GetGameSystem, 9);
-	};
-	inline IGameSystemFactory* GameSystemFactory{};
-
 	inline CDOTAPanoramaMinimapRenderer* MinimapRenderer{};
 	inline CDOTA_BinaryObjectSystem* BinaryObjectSystem{};
-	void InitMinimapRenderer();
 
 	inline CDOTAGCClientSystem* GCClientSystem{};
 	inline VClass* InventoryManager{};
@@ -45,33 +46,9 @@ namespace GameSystems {
 	REALLOCATING_SYSTEM(CGameEventManager, GameEventManager);
 	REALLOCATING_SYSTEM(C_DOTA_ProjectileManager, ProjectileManager);
 	REALLOCATING_SYSTEM(C_DOTA_PlayerResource, PlayerResource);
-	REALLOCATING_SYSTEM(CRenderGameSystem, RenderGameSystem);
 
 #undef REALLOCATING_SYSTEM
 
-	inline Address FindStaticGameSystem(std::string_view name) {
-		auto pFactory = GameSystemFactory;
-		while (pFactory) {
-			if (pFactory->m_szName && pFactory->m_szName == name)
-				return pFactory->GetGameSystem();
-
-			pFactory = pFactory->m_pNext;
-		}
-
-		return nullptr;
-	}
-
-	inline Address FindReallocatingGameSystem(std::string_view name) {
-		auto pFactory = GameSystemFactory;
-		while (pFactory) {
-			if (pFactory->m_szName && pFactory->m_szName == name)
-				return pFactory->GameSystem;
-
-			pFactory = pFactory->m_pNext;
-		}
-
-		return nullptr;
-	}
-
+	void InitMinimapRenderer();
 	void FindGameSystems();
 }

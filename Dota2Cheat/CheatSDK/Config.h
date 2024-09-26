@@ -19,8 +19,8 @@ namespace Config {
 			void* val;
 			ConfigVarType type;
 		};
-		std::unordered_map<std::string, ConfigVar> vars;
 
+		std::unordered_map<std::string, ConfigVar> vars;
 
 		template<typename T>
 		void AddVar(ConfigVarType type, T* var, T value, const std::string& name) {
@@ -90,7 +90,6 @@ namespace Config {
 	}
 
 	namespace Bars {
-		inline bool ManaBars;
 		inline bool HPNumbers;
 	}
 

@@ -9,10 +9,6 @@ inline bool IsKeyPressed(int key) {
 	return GetAsyncKeyState(key) & 1;
 }
 
-inline ImVec2 ImVecFromVec2D(const Vector2D& vec) {
-	return ImVec2{ vec.x,vec.y };
-}
-
 inline void PlayUISoundScript(std::string_view name) {
 	void* p;
 	Interfaces::SoundOpSystem->StartSoundEvent(&p, name.data(), static_cast<uint32_t>(-1), 1);
@@ -30,8 +26,8 @@ inline void ShowHUDError(std::string_view caption, std::string_view sound) {
 inline ImVec2 WorldToScreen(const Vector& pos) {
 	Vector2D xy{};
 
-	if (*GameSystems::RenderGameSystemPtr)
-		(*GameSystems::RenderGameSystemPtr)->GetVectorInScreenSpace(pos, xy);
+	if (CRenderGameSystem::Get())
+		CRenderGameSystem::Get()->GetVectorInScreenSpace(pos, xy);
 
 	return ImVecFromVec2D(xy);
 }

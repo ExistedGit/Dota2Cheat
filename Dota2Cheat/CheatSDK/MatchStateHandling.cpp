@@ -27,7 +27,7 @@ void CMatchStateManager::EnteredPreGame() {
 
 	DereferenceReallocatingSystem(GameEventManager);
 	DereferenceReallocatingSystem(ProjectileManager);
-	DereferenceReallocatingSystem(RenderGameSystem);
+	//DereferenceReallocatingSystem(RenderGameSystem);
 
 	GameSystems::ParticleManager = GameSystems::ParticleManagerSystem->GetParticleManager();
 	LogFD("ParticleManager: {} / CreateParticle: {}", (void*)GameSystems::ParticleManager, (void*)GameSystems::ParticleManager->GetVFunc(VMI::CDOTAParticleManager::CreateParticle));

@@ -14,6 +14,11 @@
 
 #pragma once
 
+#include <Base/Vector.h>
+#define IM_VEC2_CLASS_EXTRA                                                     \
+        constexpr ImVec2(const Vector2D& f) : x(f.x), y(f.y) {}                   \
+        operator Vector2D() const { return Vector2D(x, y); }
+
 //---- Define assertion handler. Defaults to calling assert().
 // If your macro uses multiple statements, make sure is enclosed in a 'do { .. } while (0)' block so it can be used as a single statement.
 //#define IM_ASSERT(_EXPR)  MyAssert(_EXPR)

@@ -36,7 +36,7 @@ WARNING! Legit features ahead, no scripts that play the game for you!
     - Particle MapHack — shows particles in FoW and identifies their source()
   - AbilityESP™(abilities & items)
   - Bars:
-    - Manabars
+    - ~~Manabars~~ RIP 7.36
     - HP amount displayed on healthbar
   - Indicators
     - Speed indicator — shows whether you are faster or slower than the enemy

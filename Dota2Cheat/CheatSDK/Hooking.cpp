@@ -15,15 +15,10 @@ void Hooks::InstallHooks() {
 	//HOOKFUNC_SIGNATURES(SaveSerializedSOCache);
 #endif // _DEBUG
 
-#ifdef _TESTING
-	{
-	}
-#endif
-
 	{
 		// NetChan constructor
 		// vtable ptr at 0x15
-		uintptr_t** vtable = SignatureDB::FindSignature("CNetChan::vftable");
+		//uintptr_t** vtable = SignatureDB::FindSignature("CNetChan::vftable");
 		// They inlined the call to PostReceived so we have to make do with this 
 		uintptr_t* PostReceivedNetMessage = SignatureDB::FindSignature("CTSQueuePush"); // vtable[VMI::CNetChan::PostReceivedNetMessage],
 		//* SendNetMessage = vtable[VMI::CNetChan::SendNetMessage];

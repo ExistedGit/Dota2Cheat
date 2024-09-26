@@ -350,7 +350,7 @@ void Modules::M_AbilityESP::DrawItemGrids() {
 void Modules::M_AbilityESP::DrawItemIcon(std::map<int, AbilityData>& inv, int slot, const ImVec2& pos, const ImVec2& size) {
 	auto DrawList = ImGui::GetForegroundDrawList();
 	// used to convert native rectangular item images to SQUARES
-	constexpr float aspectRatio = (1 - 64. / 88) / 2;
+	constexpr float aspectRatio = (1 - 64.f / 88) / 2;
 	const float rounding = Config::AbilityESP::Rounding / 100.f * size.x / 2;
 
 	auto& itemData = inv[slot];
@@ -541,6 +541,9 @@ void Modules::M_AbilityESP::UpdateAbilities(CDOTABaseNPC_Hero* hero) {
 	int validAbilities = 0;
 	for (int i = 0; i < abilityList.size() && validAbilities != 6; ++i) {
 		auto ability = abilityList[i];
+		if (!ability.IsValid()) 
+			continue;
+
 		auto& heroAbilities = EnemyAbilities[hero];
 
 		if (!heroAbilities[validAbilities].ability)

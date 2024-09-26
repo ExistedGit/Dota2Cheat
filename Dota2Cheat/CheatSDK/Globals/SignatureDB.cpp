@@ -3,29 +3,25 @@
 #include <Base/Logging.h>
 #include <fstream>
 
-Address SignatureDB::FindSignature(std::string_view sigName) {
-	enum SignatureAction {
-		GetAbsoluteAddress,
-		Offset
-	};
-
+Address SignatureDB::FindSignature(const std::string& sigName) {
 	if (!Data.contains(sigName))
 		return nullptr;
 
 	auto& info = Data[sigName];
-	std::string sigStr = info["signature"], sigModule = info["module"];
 
-	auto res = Memory::Scan(sigStr, sigModule);
+	auto res = Memory::ScanBinary(info.data, info.dll);
 	if (!res)
 		return nullptr;
 
-	if (info.contains("steps")) {
-		for (auto& pair : info["steps"].items()) {
-			SignatureAction type = pair.value()[0];
-			int value = pair.value()[1];
-			switch (type) {
-			case GetAbsoluteAddress: res = res.GetAbsoluteAddress(value); break;
-			case Offset: res = res.Offset(value); break;
+	// Implicitly dereferencing call opcodes
+	if (info.data[0] == '\xE8')
+		res = res.GetAbsoluteAddress(1);
+
+	if (info.steps.size()) {
+		for (const auto& step : info.steps) {
+			switch (step.action) {
+			case Signature::Action::GetAbsoluteAddress: res = res.GetAbsoluteAddress(step.parameter); break;
+			case Signature::Action::Offset: res = res.Offset(step.parameter); break;
 			}
 		}
 	}
@@ -37,26 +33,44 @@ Address SignatureDB::FindSignature(std::string_view sigName) {
 
 void SignatureDB::ParseSignatures(const std::map<std::string, void**>& signatureMap) {
 	bool brokenSig = false;
-	for (auto& [sigName, sigVar] : signatureMap) {
+	for (const auto& [sigName, sigVar] : signatureMap) {
 		*sigVar = FindSignature(sigName);
-
-		if (*sigVar) {
-			LogFD("{}: {}", sigName, *sigVar);
-		}
-		else {
-			brokenSig = true;
-			LogFE("! {}: {}", sigName, "NOT FOUND!");
-		}
 	}
-
-	if (brokenSig)
-		system("pause");
 }
 
 void SignatureDB::LoadSignaturesFromFile(const std::string& url) {
-	if (std::ifstream fin(url); fin.is_open()) {
-		LogFI("Loading signatures from {}\n", url);
-		Data = nlohmann::json::parse(fin);
-		fin.close();
+	std::ifstream fin(url);
+	if (!fin.is_open())
+		return;
+
+	auto data = nlohmann::json::parse(fin);
+	for (const auto& [moduleName, sigBlock] : data.items()) {
+		for (const auto& [sigName, sigData] : sigBlock.items()) {
+
+			std::string signature = sigData.type() == nlohmann::json::value_t::string ? sigData : sigData["signature"];
+
+			std::vector<Signature::Step> steps;
+
+			if (sigData.contains("steps")) {
+				steps.reserve(sigData["steps"].size());
+				for (const auto& step : sigData["steps"].items()) {
+					steps.push_back(
+						Signature::Step{
+							.action = step.value()[0],
+							.parameter = step.value()[1]
+						}
+					);
+				}
+			}
+
+			Data[sigName] = Signature{
+				.data = IDAtoBinary(signature),
+				.dll = moduleName,
+				.steps = steps
+			};
+		}
 	}
+
+	fin.close();
+
 }

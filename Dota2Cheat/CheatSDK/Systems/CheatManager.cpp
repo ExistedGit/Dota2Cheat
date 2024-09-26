@@ -20,16 +20,19 @@ void CCheatManager::LoadGameSpecific() {
 	//if (auto gi = Memory::Scan("74 ? 84 C9 75 ? 83 BF", "client.dll"))
 	//	Memory::Patch(gi, { 0xEB });
 
+	LogFI("Loading VM indices from {}", cheatFolderPath + "\\vmt.json");
 	VMDB::LoadFromFile(cheatFolderPath + "\\vmt.json");
 	VMDB::ParseMap(VMI::vmTables);
 
+	LogFI("Loading signatures from {}", cheatFolderPath + "\\signatures.json");
 	SignatureDB::LoadSignaturesFromFile(cheatFolderPath + "\\signatures.json");
 	Signatures::FindSignatures();
 
 	// Disables gameoverlayrenderer64's WINAPI hook checks
-	if (auto enableVACHooks = Memory::Scan("75 04 84 DB", "gameoverlayrenderer64.dll"))
-		enableVACHooks
-		.Offset(6)
+	// e. g. they track the use of VirtualProtect(Ex) with PAGE_EXECUTE_READWRITE specifically
+	if (auto enableWinAPIHooks = Memory::Scan("76 0A 45 84 FF", "gameoverlayrenderer64.dll"))
+		enableWinAPIHooks
+		.Offset(0xC)
 		.GetAbsoluteAddress(2, 7)
 		.Set(false);
 
@@ -50,7 +53,6 @@ void CCheatManager::LoadGameSpecific() {
 	//);
 
 	Interfaces::CVar->CVars["dota_hud_chat_enable_all_emoticons"].m_pVar->value.boolean = Config::Changer::UnlockEmoticons;
-
 
 	GameSystems::FindGameSystems();
 

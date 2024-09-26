@@ -40,49 +40,59 @@ enum LogPrefix {
 	LP_DATA
 };
 
+inline void SetLogColor(LogPrefix prefix) {
+	switch (prefix)
+	{
+	case LP_WARNING: SetConsoleColor(ConColor::LightYellow); break;
+	case LP_INFO: SetConsoleColor(ConColor::LightTeal); break;
+	case LP_ERROR: SetConsoleColor(ConColor::LightRed); break;
+	case LP_DATA: SetConsoleColor(ConColor::LightGreen); break;
+	default: SetConsoleColor(); break;
+	}
+}
+
 inline const char* GetLogPrefix(LogPrefix prefixType) {
 	switch (prefixType)
 	{
 	case LP_WARNING:
-		SetConsoleColor(ConColor::LightYellow);
 		return "[WARNING] ";
 	case LP_INFO:
-		SetConsoleColor(ConColor::LightTeal);
 		return "[INFO] ";
 	case LP_ERROR:
-		SetConsoleColor(ConColor::LightRed);
 		return "[ERROR] ";
 	case LP_DATA:
-		SetConsoleColor(ConColor::LightGreen);
 		return "[DATA] ";
 	}
 	return "";
 }
 
-template<LogPrefix prefixType = LogPrefix::LP_NONE, typename ...Args>
-void Log(Args&&... args) {
+template<typename ...Args>
+void Log(LogPrefix prefixType, Args&&... args) {
 	std::lock_guard<std::mutex> lk(mLogging);
-	((std::cout << GetLogPrefix(prefixType)) << ... << std::forward<Args>(args)) << '\n';
+	SetLogColor(prefixType);
+	((std::cout << GetLogPrefix(prefixType)) << ... << std::forward<Args>(args)) << std::endl;
 	SetConsoleColor();
 }
 
 // Formatted logging
-template<LogPrefix prefixType = LogPrefix::LP_NONE, typename ...Args>
-void LogF(std::string_view fmtString, Args&&... args) {
+template<typename ...Args>
+void LogF(LogPrefix prefixType, std::string_view fmtString, Args&&... args) {
 	std::lock_guard<std::mutex> lk(mLogging);
-	std::cout << GetLogPrefix(prefixType) << std::vformat(fmtString, std::make_format_args(std::forward<Args>(args)...)) << '\n';
+	SetLogColor(prefixType);
+	std::cout << GetLogPrefix(prefixType) << std::vformat(fmtString, std::make_format_args(std::forward<Args>(args)...)) << std::endl;
 	SetConsoleColor();
 }
 
+#define ADHOC_LOG(name, type) template<typename... Args> void name(Args&&... args) { Log(type, std::forward<Args>(args)...); };
+#define ADHOC_LOGF(name, type) template<typename... Args> void name(std::string_view fmtString, Args&&... args) { LogF(type, fmtString, std::forward<Args>(args)...); };
 
-#define ADHOC_LOG(name, type) template<typename... Args> void name(Args&&... args) { Log<type>(std::forward<Args>(args)...); };
-#define ADHOC_LOGF(name, type) template<typename... Args> void name(std::string_view fmtString, Args&&... args) { LogF<type>(fmtString, std::forward<Args>(args)...); };
-
+ADHOC_LOG(Log, LP_NONE);
 ADHOC_LOG(LogI, LP_INFO);
 ADHOC_LOG(LogE, LP_ERROR);
 ADHOC_LOG(LogD, LP_DATA);
 ADHOC_LOG(LogW, LP_WARNING);
 
+ADHOC_LOGF(LogF, LP_NONE);
 ADHOC_LOGF(LogFI, LP_INFO);
 ADHOC_LOGF(LogFE, LP_ERROR);
 ADHOC_LOGF(LogFD, LP_DATA);

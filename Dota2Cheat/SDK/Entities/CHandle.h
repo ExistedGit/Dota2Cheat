@@ -7,12 +7,15 @@ struct CHandle {
 	constexpr static uint32_t INVALID_HANDLE = 0XFFFFFFFF;
 
 	uint32_t val = INVALID_HANDLE;
-	operator uint32_t() const {
-		return val;
-	}
+
 	uint32_t Index() const {
 		return val & 0x7fff;
 	}
+
+	operator uint32_t() const {
+		return val;
+	}
+
 	T* Entity() const {
 		return Interfaces::EntitySystem->GetEntity<T>(Index());
 	}
@@ -43,3 +46,7 @@ struct CHandle {
 	}
 };
 
+template<typename T>
+std::ostream& operator<<(std::ostream& os, CHandle<T> h) {
+	return os << "H[" << (*h) << "]";
+}

@@ -1,47 +1,39 @@
 #include "Interfaces.h"
 #include <tuple>
+#include <iomanip>
 
 template<typename T>
-void InitInterface(T** var, std::string_view dllName, std::string_view interfaceName, std::optional<int> vmCount = std::nullopt) {
-	T* instance = *var = Memory::GetInterfaceBySubstr<T>(dllName, interfaceName);
-	if (!instance)
-		return LogFE("{}: {}", interfaceName, (void*)instance);
-
-	int countedVMs = CountVMs(instance);
-
-	std::string vmInfo = " | VMs: " + std::to_string(countedVMs);
-
-	if (vmCount.has_value() && countedVMs != vmCount) {
-		vmInfo = std::format(" | VM count mismatch! Current: {}, Expected: {}", countedVMs, *vmCount);
-		return LogFW("{}: {}{}", interfaceName, (void*)instance, vmInfo);
-	}
-
-	LogFD("{}: {}{}", interfaceName, (void*)instance, vmInfo);
+void InitInterface(T*& var, std::string_view dllName, std::string_view interfaceName) {
+	var = Memory::GetInterfaceBySubstr(dllName, interfaceName);
 }
 
 void Interfaces::FindInterfaces() {
-	Log(LP_NONE, "");
+	LogI("[ INTERFACES ]");
 
-	LogI("[INTERFACES]");
-	InitInterface(&Engine, "engine2.dll", "Source2EngineToClient0", 177);
-	InitInterface(&Client, "client.dll", "Source2Client0");
-	InitInterface(&CVar, "tier0.dll", "VEngineCvar", 42);
-	InitInterface(&ResourceSystem, "resourcesystem.dll", "ResourceSystem", 78);
-	InitInterface(&SteamClient, "steamclient64.dll", "SteamClient017");
-	InitInterface(&FileSystem, "filesystem_stdio.dll", "VFileSystem", 136);
+	InitInterface(Client, "client.dll", "Source2Client0");
+	InitInterface(GCClient, "client.dll", "DOTA_CLIENT_GCCLIENT");
+	InitInterface(GameUI, "client.dll", "GameUI0");
 
-	InitInterface(&Panorama, "panorama.dll", "PanoramaUIEngine");
+	InitInterface(Engine, "engine2.dll", "Source2EngineToClient0");
+	InitInterface(InputService, "engine2.dll", "InputService");
+	InitInterface(NetworkClientService, "engine2.dll", "NetworkClientService");
 
-	InitInterface(&GCClient, "client.dll", "DOTA_CLIENT_GCCLIENT");
-	InitInterface(&GameUI, "client.dll", "GameUI0");
-	InitInterface(&Schema, "schemasystem.dll", "SchemaSystem", 38);
-	InitInterface(&ParticleMgrSystem, "particles.dll", "ParticleSystemMgr");
-	InitInterface(&SoundOpSystem, "soundsystem.dll", "SoundOpSystem");
-	InitInterface(&InputService, "engine2.dll", "InputService", 64);
-	InitInterface(&NetworkClientService, "engine2.dll", "NetworkClientService");
-	InitInterface(&NetworkMessages, "networksystem.dll", "NetworkMessages", 36);
-	InitInterface(&FlattenedSerializers, "networksystem.dll", "FlattenedSerializers");
-	// InitInterface(&NetworkSystem, "networksystem.dll", "NetworkSystem", 62);
+	InitInterface(NetworkMessages, "networksystem.dll", "NetworkMessages");
+	InitInterface(FlattenedSerializers, "networksystem.dll", "FlattenedSerializers");
+
+	InitInterface(CVar, "tier0.dll", "VEngineCvar");
+	InitInterface(ResourceSystem, "resourcesystem.dll", "ResourceSystem");
+
+	SteamClient = Memory::GetInterface("steamclient64.dll", "SteamClient021");
+	//SteamClient = Memory::GetExport("steam_api64.dll", "SteamInternal_CreateInterface").Call<ISteamClient*>("SteamClient021");
+
+	InitInterface(FileSystem, "filesystem_stdio.dll", "VFileSystem");
+	InitInterface(Panorama, "panorama.dll", "PanoramaUIEngine");
+	InitInterface(Schema, "schemasystem.dll", "SchemaSystem");
+	InitInterface(ParticleMgrSystem, "particles.dll", "ParticleSystemMgr");
+	InitInterface(SoundOpSystem, "soundsystem.dll", "SoundOpSystem");
+
+	// InitInterface(&NetworkSystem, "networksystem.dll", "NetworkSystem");
 
 	EntitySystem =
 		*Address(Interfaces::Client->GetVFunc(VMI::CSource2Client::GetNetworkFieldChangeCallbackQueue))
@@ -49,14 +41,62 @@ void Interfaces::FindInterfaces() {
 
 	UIEngine = Panorama->Member<CUIEngineSource2*>(0x28);
 
-	LogFD("UIEngine: {}", (void*)UIEngine);
-	LogFD("EntitySystem: {}", (void*)EntitySystem);
-
 	SteamGC = SteamClient->GetISteamGenericInterface(
-		Memory::GetExport("steam_api64.dll", "GetHSteamPipe")(),
-		Memory::GetExport("steam_api64.dll", "GetHSteamUser")(),
+		Memory::GetExport("steam_api64.dll", "GetHSteamUser").Call<HSteamUser>(),
+		Memory::GetExport("steam_api64.dll", "GetHSteamPipe").Call<HSteamPipe>(),
 		"SteamGameCoordinator001"
 	);
 
-	Log(LP_NONE, "");
+	struct LogPtrBinding {
+		std::string name;
+		void* value;
+
+		LogPtrBinding(std::string name, void* value) : value(value) {
+			this->name = std::move(name);
+		}
+	};
+
+	std::vector<LogPtrBinding> loggingScheme = {
+		{ "CEngineClient", Engine },
+		{ "CSource2Client", Client },
+		{ "CCVar", CVar },
+		{ "CResourceSystem", ResourceSystem },
+		{ "CBaseFileSystem", FileSystem },
+		{ "CGameUI", GameUI },
+		{ "CSoundOpSystem", SoundOpSystem},
+		{ "CInputService", InputService},
+		{ "CDOTAParticleSystemMgr", ParticleMgrSystem},
+		{ "CGameEntitySystem", EntitySystem},
+
+		{ "CUIEngine", Panorama},
+		{ "CUIEngineSource2", UIEngine},
+
+		{ "INetworkClientService", NetworkClientService},
+		{ "CNetworkMessages", NetworkMessages },
+		{ "CFlattenedSerializers", FlattenedSerializers },
+
+		{ "ISteamClient", SteamClient },
+		{ "ISteamGameCoordinator", SteamGC },
+	};
+
+	size_t padding = 0;
+	{
+		auto longestNameElem = std::max_element(loggingScheme.begin(), loggingScheme.end(),
+			[](const LogPtrBinding& a, const LogPtrBinding& b) {
+				return a.name.length() < b.name.length();
+			});
+		if (longestNameElem != loggingScheme.end()) padding = longestNameElem->name.size();
+	}
+
+	{
+		std::lock_guard lock(mLogging);
+		for (const auto& binding : loggingScheme) {
+			LogPrefix prefix = binding.value ? LP_DATA : LP_ERROR;
+			SetConsoleColor();
+			SetLogColor(prefix);
+
+			std::cout << std::left << std::setw(padding) << binding.name << " = " << std::hex << std::uppercase << binding.value << std::endl;
+		}
+	}
+
 }

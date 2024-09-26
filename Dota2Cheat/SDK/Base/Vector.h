@@ -103,8 +103,8 @@ public:
 	}
 	[[nodiscard]] bool IsZero(float tolerance = 0.01f) const
 	{
-		return (x > -tolerance && x < tolerance&&
-			y > -tolerance && y < tolerance&&
+		return (x > -tolerance && x < tolerance &&
+			y > -tolerance && y < tolerance &&
 			z > -tolerance && z < tolerance);
 	}
 	Vector	Normalize();
@@ -560,6 +560,7 @@ public:
 	// Construction/destruction
 	Vector2D(void);
 	Vector2D(float X, float Y);
+	explicit Vector2D(const Vector& v3) : x(v3.x), y(v3.y) {}
 	explicit Vector2D(const float* pFloat);
 
 	// Initialization
@@ -603,7 +604,7 @@ public:
 	// return true if this vector is (0,0) within tolerance
 	[[nodiscard]] bool IsZero(float tolerance = 0.01f) const
 	{
-		return (x > -tolerance && x < tolerance&&
+		return (x > -tolerance && x < tolerance &&
 			y > -tolerance && y < tolerance);
 	}
 
@@ -1228,8 +1229,8 @@ public:
 
 	[[nodiscard]] bool IsZero(float tolerance = 0.01f) const
 	{
-		return (x > -tolerance && x < tolerance&&
-			y > -tolerance && y < tolerance&&
+		return (x > -tolerance && x < tolerance &&
+			y > -tolerance && y < tolerance &&
 			z > -tolerance && z < tolerance);
 	}
 

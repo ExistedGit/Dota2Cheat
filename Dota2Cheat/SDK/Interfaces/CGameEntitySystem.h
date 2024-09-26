@@ -91,9 +91,9 @@ public:
 	// decompile it, there is a cycle using a variable initialized with the first function call
 	// that function will have the offset
 	// sig: "E8 ? ? ? ? 33 DB 44 8B E3"
-	GETTER(int, GetHighestEntityIndex, 0x1510);
+	GETTER(int, GetHighestEntityIndex, 0x1520);
 	// Iterated in OnAddEntity/OnRemoveEntity
 	// sig to jmp to opcode: "EB 1B 48 85 F6"
-	FIELD(CUtlVector<IEntityListener*>, GetListeners, 0x1548);
+	FIELD(CUtlVector<IEntityListener*>, GetListeners, 0x1558);
 };
 

@@ -1,6 +1,6 @@
 #include "BarAugmenter.h"
 
-bool Modules::BarAugmenter::CanDraw(CDOTABaseNPC_Hero* hero) {
+bool Modules::M_BarAugmenter::CanDraw(CDOTABaseNPC_Hero* hero) {
 	return hero
 		&& hero->GetIdentity()
 		&& !hero->GetIdentity()->IsDormant()

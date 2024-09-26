@@ -15,7 +15,7 @@ void LogEntities() {
 }
 
 void LogModifiers(CDOTABaseNPC* npc) {
-	Log("modifiers:");
+	Log("Modifiers:");
 	for (const auto& modifier : npc->GetModifierManager()->GetModifierList())
 		LogF("\t{} | {} | {}", (void*)modifier, (void*)modifier->GetAbility(), modifier->GetName());
 }
@@ -26,17 +26,18 @@ void LogInvAndAbilities(CDOTABaseNPC* npc) {
 
 	std::cout << std::dec;
 	std::cout << "abilities:" << '\n';
-	for (const auto& ability : npc->GetAbilities()) {
-		if (ability->GetIdentity()->GetName()) {
+	for (auto ability : npc->GetAbilities()) {
+		if (!ability || !ability->GetIdentity()->GetName())
+			continue;
 
-			std::cout << '\t' << ability->GetIdentity()->GetName() << " " << ability->GetIndex()
-				//<< " CD: " << ability.GetEnt()->GetCooldown() 
-				//<< ' ' << std::dec << ability.GetEnt()->GetEffectiveCastRange()
-				<< ' ' << ability;
+		std::cout << '\t' << ability->GetIdentity()->GetName() << " " << ability->GetIndex()
+			//<< " CD: " << ability.GetEnt()->GetCooldown() 
+			//<< ' ' << std::dec << ability.GetEnt()->GetEffectiveCastRange()
+			<< ' ' << ability;
 
-			std::cout << '\n';
+		std::cout << '\n';
 
-		}
+
 	}
 	std::cout << "inventory: " << '\n';
 	for (const auto& item : npc->GetItems()) {

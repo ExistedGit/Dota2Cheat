@@ -108,7 +108,6 @@ void Config::ConfigManager::SetupVars() {
 	CFG_VAR(AbilityESP::ShowAllies, true);
 	CFG_VAR(AbilityESP::ShowCooldownDecimals, false);
 
-	CFG_VAR(Bars::ManaBars, true);
 	CFG_VAR(Bars::HPNumbers, true);
 
 	CFG_VAR(Indicators::Speed, true);

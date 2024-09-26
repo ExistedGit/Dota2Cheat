@@ -1,7 +1,7 @@
 #include "CRenderGameSystem.h"
 #include "../../CheatSDK/include.h"
 
-bool CRenderGameSystem::GetVectorInScreenSpace(const Vector& point, Vector2D& screen)
+bool CRenderGameSystem::GetVectorInScreenSpace(const Vector& point, Vector2D& screen) const
 {
 	const float* worldToSurface = WorldToProjectionMatrix();
 
@@ -24,7 +24,7 @@ bool CRenderGameSystem::GetVectorInScreenSpace(const Vector& point, Vector2D& sc
 			return false;
 
 		// CEngineClient vfunc 49 GetScreenSize redirects to this
-		const static auto engineServiceMgr = Memory::GetInterfaceBySubstr<VClass>("engine2.dll", "EngineServiceMgr");
+		const static VClass* engineServiceMgr = Memory::GetInterfaceBySubstr("engine2.dll", "EngineServiceMgr");
 		// curiously, THIS index does not change
 		engineServiceMgr->GetVFunc(VMI::CEngineServiceMgr::GetScreenSize)(&resolut[0], &resolut[1]);
 	}

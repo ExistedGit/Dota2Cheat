@@ -20,6 +20,7 @@ public:
 };
 
 class CDOTAGameRules : public VClass {
+	static inline CDOTAGameRules* inst = nullptr; 
 public:
 	GETTER(DOTA_GameState, GetGameState, Netvars::C_DOTAGamerules::m_nGameState);
 	GETTER(DOTA_GameMode, GetGameMode, Netvars::C_DOTAGamerules::m_iGameMode);
@@ -30,8 +31,17 @@ public:
 	GETTER(float, GetGameStartTime, Netvars::C_DOTAGamerules::m_flGameStartTime);
 	GETTER(float, GetGameLoadTime, Netvars::C_DOTAGamerules::m_flGameLoadTime);
 	GETTER(float, GetGameEndTime, Netvars::C_DOTAGamerules::m_flGameEndTime);
+	GETTER(CUtlVector<ItemStockInfo>, GetItemStockInfo, Netvars::C_DOTAGamerules::m_vecItemStockInfo);
 
 	float GetGameTime();
 
-	GETTER(CUtlVector<ItemStockInfo>, GetItemStockInfo, Netvars::C_DOTAGamerules::m_vecItemStockInfo);
+	static void Set(CDOTAGameRules* inst) {
+		inst = inst;
+	}
+
+	static CDOTAGameRules* Get() {
+		return inst;
+	}
 };
+
+using CGameRules = CDOTAGameRules;

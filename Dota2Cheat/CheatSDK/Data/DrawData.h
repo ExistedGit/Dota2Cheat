@@ -1,11 +1,11 @@
 #pragma once
-#include <imgui/imgui.h>
 #include <string>
 #include <map>
 #include <Windows.h>
 #include <d3d11.h>
 #include <dxgi.h>
 #include <algorithm>
+#include <imgui/imgui.h>
 
 inline struct CDrawData {
 	bool Initialized = false;

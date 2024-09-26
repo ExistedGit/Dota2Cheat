@@ -42,7 +42,6 @@ void VMDB::ParseMap(const std::map<std::string, uint32_t*>& m) {
 
 void VMDB::LoadFromFile(const std::string& url) {
 	if (std::ifstream fin(url); fin.is_open()) {
-		LogFI("Loading VM indices from {}\n", url);
 		Data = nlohmann::json::parse(fin);
 		fin.close();
 	}

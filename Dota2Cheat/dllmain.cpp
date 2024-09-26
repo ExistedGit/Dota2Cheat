@@ -1,4 +1,4 @@
-#pragma once
+#pragma once	
 #include "CheatSDK/Hooking.h"
 
 #include "CheatSDK/include.h"

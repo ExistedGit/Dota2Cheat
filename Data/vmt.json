@@ -1,53 +1,45 @@
 {
-  "CEngineClient": {
-    "IsInGame": 31
-  },
-  "CBaseEntity": {
-    "GetSchemaBinding": 37
-  },
-  "CDOTABaseAbility": {
-    "GetEffectiveCastRange": 265
-  },
-  "CDOTABaseNPC": {
-    "GetAttackRange": 286,
-    "GetIdealSpeed": 241,
-    "GetMagicalArmorValue": 290,
-    "GetPhysicalArmorValue": 289,
-    "OnWearablesChanged": 266,
-    "IsRoshan": 61
-  },
-  "CDOTAParticleManager": {
-    "CreateParticle": 9
-  },
-  "CDOTA_Buff": {
-    "OnAddModifier": 42
-  },
-  "CEngineServiceMgr": {
-    "GetScreenSize": 45
-  },
-  "CGameSceneNode": {
-    "SetScale": 10
-  },
-  "CNetChan": {
-    "PostReceivedNetMessage": 71,
-    "SendNetMessage": 34
-  },
-  "CParticleCollection": {
-    "SetControlPoint": 16,
-    "SetRenderingEnabled": 94
-  },
-  "CRenderGameSystem": {
-    "WorldToProjectionMatrix": 57
-  },
-  "CSource2Client": {
-    "FrameStageNotify": 34,
-    "GetNetworkFieldChangeCallbackQueue": 27,
-    "NotifyDisconnect": 14,
-    "VoiceReliable": 112
-  },
-  "CUIEngineSource2": {
-    "IsValidPanelPointer": 33,
-    "RunFrame": 6,
-    "RunScript": 81
-  }
+    "CBaseEntity": {
+        "GetSchemaBinding": 40
+    },
+    "CDOTABaseAbility": {
+        "GetEffectiveCastRange": 276
+    },
+    "CDOTABaseNPC": {
+        "GetAttackRange": 297,
+        "GetIdealSpeed": 251,
+        "GetMagicalArmorValue": 301,
+        "GetPhysicalArmorValue": 300,
+        "OnWearablesChanged": 276
+    },
+    "CDOTAParticleManager": {
+        "CreateParticle": 9
+    },
+    "CDOTA_Buff": {
+        "OnAddModifier": 43
+    },
+    "CEngineServiceMgr": {
+        "GetScreenSize": 45
+    },
+    "CGameSceneNode": {
+        "SetScale": 10
+    },
+    "CParticleCollection": {
+        "SetControlPoint": 16,
+        "SetRenderingEnabled": 95
+    },
+    "CRenderGameSystem": {
+        "WorldToProjectionMatrix": 61
+    },
+    "CSource2Client": {
+        "FrameStageNotify": 36,
+        "GetNetworkFieldChangeCallbackQueue": 29,
+        "NotifyDisconnect": 14,
+        "VoiceReliable": 117
+    },
+    "CUIEngineSource2": {
+        "IsValidPanelPointer": 33,
+        "RunFrame": 6,
+        "RunScript": 81
+    }
 }

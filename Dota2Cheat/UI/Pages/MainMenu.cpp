@@ -83,7 +83,6 @@ void Pages::MainMenu::Draw() {
 	}
 
 	if (ImGui::TreeNode("Bars")) {
-		ImGui::Checkbox("Manabars", &Config::Bars::ManaBars);
 		ImGui::Checkbox("HP amount on healthbar", &Config::Bars::HPNumbers);
 		ImGui::TreePop();
 	}
@@ -169,7 +168,7 @@ void Pages::MainMenu::Draw() {
 		ImGui::SameLine(); HelpMarker(
 			"If your hero has a nuke spell, its icon will be displayed near the enemy's healthbar, signifying whether you can kill them with it. "
 			"If you can't, it shows how much health is left until you can kill them");
-		ImGui::SliderFloat("Kill indicator scale", &Config::Indicators::KillScale, 1, 1.4, "%.1f");
+		ImGui::SliderFloat("Kill indicator scale", &Config::Indicators::KillScale, 1, 1.4f, "%.1f");
 		ImGui::TreePop();
 	}
 	if (ImGui::TreeNode("UIOverhaul")) {

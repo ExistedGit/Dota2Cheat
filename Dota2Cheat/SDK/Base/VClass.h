@@ -29,7 +29,7 @@ public:
 	}
 
 	template<uint32_t index, typename R = void*, typename ...Args>
-	R CallVFunc(Args&&... t) {
+	R CallVFunc(Args... t) {
 		return GetVFunc(index).Call<R>(std::forward<Args>(t)...);
 	}
 };

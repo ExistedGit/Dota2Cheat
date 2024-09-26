@@ -42,7 +42,7 @@ public:
 			.Call<IVPBuffer*>(&buf, panel)->unk0 != 0xFFFFFFFF;
 	}
 	// Iterated in RunFrame
-	FIELD(CUtlVector<void(*)()>, GetListeners, 0xD0);
+	FIELD(CUtlVector<void(*)()>, Listeners, 0xD0);
 	// decompile xref: "CPanel2D::SetDialogVariable - char *"
 	// above it is a vfunc call by g_pUIEngine
 	VGETTER(CLocalization*, GetLocalization, 19);

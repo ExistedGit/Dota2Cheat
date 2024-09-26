@@ -24,21 +24,21 @@ public:
 			all;   // blocks all forms of damage
 	};
 
-	GETTER(BarrierData, GetBarriers, 0x1748);
+	GETTER(BarrierData, GetBarriers, 0x17E4);
 
 	// GETTER(CAssetModifierContainer*, GetAssetModifierContainer, 0xa20);
 
 	IGETTER(CDOTAModifierManager, GetModifierManager, Netvars::C_DOTA_BaseNPC::m_ModifierManager);
 
-	bool HasModifier(std::string_view name) {
+	bool HasModifier(std::string_view name) const {
 		return GetModifier(name) != nullptr;
 	}
 
-	float GetPhysicalArmorValue() {
+	float GetPhysicalArmorValue() const {
 		return GetVFunc(VMI::CDOTABaseNPC::GetPhysicalArmorValue).Call<float>(0ull);
 	}
 
-	float GetMagicalArmorValue() {
+	float GetMagicalArmorValue() const {
 		return GetVFunc(VMI::CDOTABaseNPC::GetMagicalArmorValue).Call<float>(0ull, 0ull);
 	}
 
@@ -63,7 +63,7 @@ public:
 			+ Member<int>(Netvars::C_DOTA_BaseNPC::m_iDamageBonus);
 	}
 
-	float GetAttackRange() {
+	float GetAttackRange() const {
 		return GetVFunc(VMI::CDOTABaseNPC::GetAttackRange).Call<float>(0, 1);
 	};
 
@@ -85,20 +85,87 @@ public:
 	FIELD(CUtlVector<CHandle<CEconWearable>>, Wearables, Netvars::C_BaseCombatCharacter::m_hMyWearables);
 	FIELD(CUtlVector<CHandle<CEconWearable>>, OldWearables, Netvars::C_DOTA_BaseNPC::m_hOldWearables);
 
-	[[nodiscard]]
-	std::vector<CDOTABaseAbility*> GetAbilities() {
-		std::vector<CDOTABaseAbility*> result{};
-		auto hAbilities = MemberInline<CHandle<CDOTABaseAbility>>(Netvars::C_DOTA_BaseNPC::m_hAbilities);
-		for (int j = 0; j < 35; j++) {
-			auto handle = hAbilities[j];
+	// STL container for which iteration only produces valid handles
+	template<typename HT>
+	class CEntHandleArray {
+		using ptr = const CHandle<HT>*;
+		const ptr _data;
+		const uint32_t _size;
+	public:
+		CEntHandleArray(ptr data, uint32_t size) : _data(data), _size(size) { }
 
-			if (handle)
-				result.push_back(handle);
+		struct Iterator {
+			ptr value;
+
+			HT& operator*() {
+				return *value;
+			}
+
+			// Skip to next valid target
+			Iterator& operator++() {
+				do { value++; } while (!value->IsValid());
+				return *this;
+			}
+		};
+
+		uint32_t size() const {
+			return _size;
 		}
-		return result;
+
+		ptr begin() const {
+			return _data;
+		}
+
+		ptr end() const {
+			return _data + _size;
+		}
+	};
+	
+
+	IGETTER(CDOTAUnitInventory, GetInventory, Netvars::C_DOTA_BaseNPC::m_Inventory);
+
+	// GetItems doesn't require a CEntHandleArray since there can be empty slots.
+
+	std::span<CHandle<CDOTAItem>, 19> GetItems() const {
+		return GetInventory()->GetItems();
 	}
 
-	CDOTABaseAbility* GetAbility(int index)
+
+	//template<typename _Container, typename HT>
+	//struct valid_handle_iterator
+	//{
+	//public:
+	//	using iterator_category = std::forward_iterator_tag;
+	//	using difference_type = std::ptrdiff_t;
+	//	using value_type = CHandle<HT>;
+	//	using pointer = CHandle<HT>*;  // or also value_type*
+	//	using reference = CHandle<HT>&;  // or also value_type&
+	//
+	//	valid_handle_iterator(const _Container& c) : m_ptr(c.begin()) {}
+
+	//	reference operator*() const { return *m_ptr; }
+	//	pointer operator->() { return m_ptr; }
+
+	//	// Prefix increment
+	//	valid_handle_iterator& operator++() { do { m_ptr++ } while(m_ptr); return *this; }
+
+	//	// Postfix increment
+	//	valid_handle_iterator operator++(int) { valid_handle_iterator tmp = *this; ++(*this); return tmp; }
+
+	//	friend bool operator== (const valid_handle_iterator& a, const valid_handle_iterator& b) { return a.m_ptr == b.m_ptr; };
+	//	friend bool operator!= (const valid_handle_iterator& a, const valid_handle_iterator& b) { return a.m_ptr != b.m_ptr; };
+	//private:
+	//	_Container::iterator m_ptr;
+	//};
+
+	[[nodiscard]]
+	std::span<CHandle<CDOTABaseAbility>, 35> GetAbilities() const {
+		auto hAbilities = MemberInline<CHandle<CDOTABaseAbility>>(Netvars::C_DOTA_BaseNPC::m_hAbilities);
+		return std::span<CHandle<CDOTABaseAbility>, 35>(hAbilities, 35);
+	}
+
+
+	CDOTABaseAbility* GetAbility(int index) const
 	{
 		if (index < 0 || index >= 35)
 			return nullptr;
@@ -106,7 +173,7 @@ public:
 		return MemberInline<CHandle<CDOTABaseAbility>>(Netvars::C_DOTA_BaseNPC::m_hAbilities)[index];
 	}
 
-	CDOTABaseAbility* GetAbility(std::string_view name)
+	CDOTABaseAbility* GetAbility(std::string_view name) const
 	{
 		auto abilities = GetAbilities();
 		auto ability = std::find_if(abilities.begin(), abilities.end(),
@@ -117,7 +184,7 @@ public:
 		return ability != abilities.end() ? *ability : nullptr;
 	}
 
-	CDOTAModifier* GetModifier(std::string_view name) {
+	CDOTAModifier* GetModifier(std::string_view name) const {
 		auto arr = GetModifierManager()->GetModifierList();
 		auto res = std::find_if(arr.begin(), arr.end(),
 			[name](auto x) {
@@ -127,7 +194,7 @@ public:
 		return res != arr.end() ? *res : nullptr;
 	}
 
-	CDOTAItem* FindItemBySubstring(const char* str) {
+	CDOTAItem* FindItemBySubstring(const char* str)  const {
 		for (const auto& item : GetItems())
 			if (
 				item
@@ -139,7 +206,7 @@ public:
 		return nullptr;
 	}
 
-	CDOTAItem* FindItem(std::string_view name) {
+	CDOTAItem* FindItem(std::string_view name) const {
 		auto items = GetItems();
 		auto item = std::find_if(items.begin(), items.end(),
 			[name](auto item) {
@@ -149,19 +216,13 @@ public:
 		return item != items.end() ? **item : nullptr;
 	}
 
-	IGETTER(CDOTAUnitInventory, GetInventory, Netvars::C_DOTA_BaseNPC::m_Inventory);
-
-	std::span<CHandle<CDOTAItem>, 19> GetItems() {
-		return GetInventory()->GetItems();
-	}
-
-	bool HasState(ModifierState state) {
+	bool HasState(ModifierState state) const {
 		auto unitState = Member<int64>(Netvars::C_DOTA_BaseNPC::m_nUnitState64);
 		return (unitState & (1Ui64 << (int)state));
 	}
 
 	// This checks for modifier states under which you cannot give orders to the hero
-	bool IsDisabled() {
+	bool IsDisabled() const {
 		return HasState(MODIFIER_STATE_FEARED)
 			|| HasState(MODIFIER_STATE_HEXED)
 			|| HasState(MODIFIER_STATE_MUTED)
@@ -172,7 +233,7 @@ public:
 			|| HasState(MODIFIER_STATE_TAUNTED);
 	}
 
-	bool CanUseAbility(CDOTABaseAbility* ability) {
+	bool CanUseAbility(CDOTABaseAbility* ability) const {
 		for (auto& ab : GetAbilities()) {
 			if (ab->Member<float>(Netvars::C_DOTABaseAbility::m_flChannelStartTime))
 				return false;
@@ -185,7 +246,7 @@ public:
 			&& !ability->IsInAbilityPhase();
 	}
 
-	Vector GetHealthBarPos() {
+	Vector GetHealthBarPos() const {
 		auto pos = GetPos();
 		pos.z += Member<int>(Netvars::C_DOTA_BaseNPC::m_iHealthBarOffset);
 		return pos;

@@ -111,7 +111,7 @@ public:
 		GetCallback(cvar->m_iCallbackIndex)(id, 0, &cvar->value, &cvar->value);
 	}
 
-	GETTER(uint32_t, GetCVarCount, 0xA0);
+	GETTER(uint32_t, GetCVarCount, 0x70);
 	GETTER(CVarNode*, GetCVarNodeList, 0x40);
 
 	// Removes "hidden" and "dev only" flags from convars

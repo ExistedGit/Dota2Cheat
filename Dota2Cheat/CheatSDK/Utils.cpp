@@ -19,4 +19,5 @@ ImVec2 WorldToMap(const Vector& EntityPos) {
 	auto PosOnMinimap = MinimapPosMin + (GameSystems::MinimapRenderer->MinimapBounds - Vector2D{ EntityPos.x, EntityPos.y }) / Scaler;
 
 	return ImVecFromVec2D(PosOnMinimap);
+	return PosOnMinimap;
 }
