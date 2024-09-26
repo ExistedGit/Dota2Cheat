@@ -9,13 +9,13 @@ void Modules::M_TargetedSpellHighlighter::Reset() {
 void Modules::M_TargetedSpellHighlighter::OnDisableTargetedSpells() {
 	for (auto& [_, pw] : TrackedModifiers)
 		if (HVALID(pw.handle))
-			GameSystems::ParticleManager->DestroyParticle(pw);
+			CParticleMgr::Get()->DestroyParticle(pw);
 	TrackedModifiers.clear();
 }
 
 void Modules::M_TargetedSpellHighlighter::OnDisableLinken() {
 	for (auto& [hero, _] : HeroesWithLinken)
-		GameSystems::ParticleManager->DestroyParticle(LinkenSphereParticles[hero]);
+		CParticleMgr::Get()->DestroyParticle(LinkenSphereParticles[hero]);
 
 	LinkenSphereParticles.clear();
 }
@@ -33,7 +33,7 @@ void Modules::M_TargetedSpellHighlighter::RemoveLinkenEffectFor(CBaseEntity* ent
 	if (!LinkenSphereParticles.count(ent))
 		return;
 
-	GameSystems::ParticleManager->DestroyParticle(LinkenSphereParticles[ent]);
+	CParticleMgr::Get()->DestroyParticle(LinkenSphereParticles[ent]);
 	LinkenSphereParticles.erase(ent);
 }
 
@@ -44,7 +44,7 @@ void Modules::M_TargetedSpellHighlighter::DrawLinkenEffectFor(CBaseEntity* ent) 
 	if (LinkenSphereParticles.count(ent))
 		return;
 
-	LinkenSphereParticles[ent] = GameSystems::ParticleManager->CreateParticle(
+	LinkenSphereParticles[ent] = CParticleMgr::Get()->CreateParticle(
 		"particles/items_fx/immunity_sphere_buff.vpcf",
 		PATTACH_ROOTBONE_FOLLOW,
 		ent
@@ -65,7 +65,7 @@ void Modules::M_TargetedSpellHighlighter::OnFrame() {
 void Modules::M_TargetedSpellHighlighter::OnModifierRemoved(CDOTAModifier* modifier) {
 	if (!TrackedModifiers.count(modifier))
 		return;
-	GameSystems::ParticleManager->DestroyParticle(TrackedModifiers[modifier]);
+	CParticleMgr::Get()->DestroyParticle(TrackedModifiers[modifier]);
 	TrackedModifiers.erase(modifier);
 }
 
@@ -83,7 +83,7 @@ void Modules::M_TargetedSpellHighlighter::OnModifierAdded(CDOTAModifier* modifie
 	if (AdditionalChecks.contains(buffName) && !AdditionalChecks[buffName](modifier))
 		return;
 
-	TrackedModifiers[modifier] = GameSystems::ParticleManager->CreateParticle(
+	TrackedModifiers[modifier] = CParticleMgr::Get()->CreateParticle(
 		entry.particleName,
 		PATTACH_OVERHEAD_FOLLOW,
 		modifier->GetOwner()

@@ -56,7 +56,7 @@ void InGameLogic() {
 	for (auto l : PassiveListeners)
 		l->OnFrame();
 
-	if (!GameSystems::GameRules->IsGamePaused()) {
+	if (!CGameRules::Get()->IsGamePaused()) {
 		static IFrameListener* ActiveListeners[] = {
 			&TPTracker,
 			&BlinkRevealer,

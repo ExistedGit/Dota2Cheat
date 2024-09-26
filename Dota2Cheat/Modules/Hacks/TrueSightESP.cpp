@@ -3,7 +3,7 @@
 void Modules::M_TrueSightESP::OnModifierRemoved(CDOTAModifier* modifier) {
 	if (!TrackedModifiers.contains(modifier))
 		return;
-	GameSystems::ParticleManager->DestroyParticle(TrackedModifiers[modifier]);
+	CParticleMgr::Get()->DestroyParticle(TrackedModifiers[modifier]);
 	TrackedModifiers.erase(modifier);
 }
 
@@ -20,7 +20,7 @@ void Modules::M_TrueSightESP::OnModifierAdded(CDOTAModifier* modifier) {
 	if (modifier->GetName() != "modifier_truesight"sv)
 		return;
 
-	TrackedModifiers[modifier] = GameSystems::ParticleManager->CreateParticle(
+	TrackedModifiers[modifier] = CParticleMgr::Get()->CreateParticle(
 		"particles/items2_fx/ward_true_sight_true_sight.vpcf",
 		PATTACH_OVERHEAD_FOLLOW,
 		modifier->GetOwner()

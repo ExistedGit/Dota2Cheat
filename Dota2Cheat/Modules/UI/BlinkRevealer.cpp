@@ -41,8 +41,8 @@ void Modules::M_BlinkRevealer::Draw() {
 void Modules::M_BlinkRevealer::OnFrame() {
 	MTM_LOCK;
 
-	auto timeDelta = GameSystems::GameRules->GetGameTime() - lastTime;
-	lastTime = GameSystems::GameRules->GetGameTime();
+	auto timeDelta = CGameRules::Get()->GetGameTime() - lastTime;
+	lastTime = CGameRules::Get()->GetGameTime();
 	for (auto it = Blinks.begin(); it != Blinks.end();) {
 		auto& data = it->second;
 		data.fadeCounter -= timeDelta;

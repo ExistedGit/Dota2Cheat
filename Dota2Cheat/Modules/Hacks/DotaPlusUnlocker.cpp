@@ -20,7 +20,7 @@ void Modules::M_DotaPlusManager::UpdateDotaPlusStatus() {
 
 		auto proto = (CSODOTAGameAccountPlus*)typeCache->GetProtobufSO()->GetPObject();
 
-		if (proto->plus_status() == Config::Changer::UnlockDotaPlus)
+		if ((bool)proto->plus_status() == Config::Changer::UnlockDotaPlus)
 			return;
 
 		proto->set_plus_flags(!Config::Changer::UnlockDotaPlus);

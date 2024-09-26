@@ -16,7 +16,7 @@ void Modules::M_TreeChanger::RestoreTreeModels() {
 	static void(*skeletonMeshGroupMaskChanged)(CBaseEntity::CModelState* mdl, CBaseEntity* owner, uint64_t* mask)
 		= Interfaces::NetworkMessages->FindCallback("skeletonMeshGroupMaskChanged");
 
-	auto trees = GameSystems::BinaryObjectSystem->GetTrees();
+	auto trees = CBinaryObjSys::Get()->GetTrees();
 
 	for (auto& [tree, mdlInfo] : originalTrees) {
 		if (!IsValidReadPtr(tree))
@@ -34,7 +34,7 @@ void Modules::M_TreeChanger::UpdateTreeModels() {
 	using namespace std::literals::string_view_literals;
 
 	if (needsUpdate) {
-		auto trees = GameSystems::BinaryObjectSystem->GetTrees();
+		auto trees = CBinaryObjSys::Get()->GetTrees();
 		bool shouldSaveOriginalTrees = originalTrees.empty();
 		// GG branch should be additionally colored via m_clrRender
 		bool isGGBranch = queuedModel.modelName== "models/props_tree/ti7/ggbranch.vmdl"sv;

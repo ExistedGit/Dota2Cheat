@@ -12,7 +12,7 @@ namespace Modules {
 
 		void OnDisabled() {
 			for (auto& [_, wrap] : TrackedModifiers) {
-				GameSystems::ParticleManager->DestroyParticle(wrap);
+				CParticleMgr::Get()->DestroyParticle(wrap);
 			}
 		}
 	} TrueSightESP{};

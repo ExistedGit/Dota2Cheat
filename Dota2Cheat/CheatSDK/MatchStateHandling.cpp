@@ -1,15 +1,7 @@
 #include "MatchStateHandling.h"
 
 void CMatchStateManager::EnteredPreGame() {
-#define DereferenceReallocatingSystem(global) if(!GameSystems::##global) { \
-												GameSystems::##global = *GameSystems::## global ##Ptr;\
-												LogFD("{}: {}", #global, (void*)GameSystems::global);\
-											  }
-
-	if (!GameSystems::PlayerResource)
-		DereferenceReallocatingSystem(PlayerResource);
-
-	if (!GameSystems::PlayerResource)
+	if (!CPlayerResource::Get())
 		return;
 
 	ctx.localPlayer = Signatures::GetPlayer(-1);
@@ -21,16 +13,11 @@ void CMatchStateManager::EnteredPreGame() {
 		LogFI("Player indices:\n\t+1: {}\n\tGetPlayer: {}\n\tPlayerResource: {}",
 			Interfaces::NetworkClientService->GetIGameClient()->GetLocalPlayerID() + 1,
 			Signatures::GetPlayer(-1)->GetIndex(),
-			H2IDX(GameSystems::PlayerResource->PlayerIDToHandle(Interfaces::NetworkClientService->GetIGameClient()->GetLocalPlayerID()))
+			H2IDX(CPlayerResource::Get()->PlayerIDToHandle(Interfaces::NetworkClientService->GetIGameClient()->GetLocalPlayerID()))
 			);
 	#endif
 
-	DereferenceReallocatingSystem(GameEventManager);
-	DereferenceReallocatingSystem(ProjectileManager);
-	//DereferenceReallocatingSystem(RenderGameSystem);
-
-	GameSystems::ParticleManager = GameSystems::ParticleManagerSystem->GetParticleManager();
-	LogFD("ParticleManager: {} / CreateParticle: {}", (void*)GameSystems::ParticleManager, (void*)GameSystems::ParticleManager->GetVFunc(VMI::CDOTAParticleManager::CreateParticle));
+	LogFD("ParticleManager: {} / CreateParticle: {}", (void*)CParticleMgr::Get(), (void*)CParticleMgr::Get()->GetVFunc(VMI::CDOTAParticleManager::CreateParticle));
 
 	ctx.gameStage = GameStage::PRE_GAME;
 
@@ -38,7 +25,7 @@ void CMatchStateManager::EnteredPreGame() {
 }
 
 void CMatchStateManager::EnteredInGame() {
-	//if (GameSystems::GameRules->GetGameMode() == DOTA_GAMEMODE_CUSTOM)
+	//if (CGameRules::Get()->GetGameMode() == DOTA_GAMEMODE_CUSTOM)
 	//	return;
 
 	LogI("GAME STAGE: INGAME");
@@ -51,7 +38,7 @@ void CMatchStateManager::EnteredInGame() {
 	Panorama::FindPanels();
 	Modules::UIOverhaul.QueueUpdateNetworthPanel();
 
-	//for (auto& data : GameSystems::PlayerResource->GetVecPlayerTeamData()) {
+	//for (auto& data : CPlayerResource::Get()->GetVecPlayerTeamData()) {
 	//	data.SelectedHeroBadgeXP() = 72050;
 	//}
 
@@ -65,8 +52,7 @@ void CMatchStateManager::EnteredInGame() {
 void CMatchStateManager::LeftMatch() {
 	ctx.gameStage = GameStage::NONE;
 
-
-	GameSystems::ParticleManager->OnExitMatch();
+	CParticleMgr::Get()->OnExitMatch();
 
 	Modules::TargetedSpellHighlighter.Reset();
 	Modules::AutoPick.Reset();
@@ -77,12 +63,8 @@ void CMatchStateManager::LeftMatch() {
 	Modules::TPTracker.Reset();
 	Modules::KillIndicator.Reset();
 
-	GameSystems::PlayerResource = nullptr;
-	GameSystems::GameRules = nullptr;
-	GameSystems::ParticleManager = nullptr;
-	GameSystems::ProjectileManager = nullptr;
+	CGameRules::Set(nullptr);
 	GameSystems::MinimapRenderer = nullptr;
-	GameSystems::GameEventManager = nullptr;
 
 	HeroData.clear();
 
@@ -101,7 +83,7 @@ void CMatchStateManager::CheckForOngoingGame() {
 
 	MatchStateManager.CacheAllEntities();
 
-	if (!GameSystems::GameRules)
+	if (!CGameRules::Get())
 		return;
 
 	MatchStateManager.EnteredPreGame();
@@ -109,8 +91,8 @@ void CMatchStateManager::CheckForOngoingGame() {
 	if (ctx.localPlayer)
 		MatchStateManager.OnUpdatedAssignedHero();
 
-	if (GameSystems::GameRules->GetGameState() == DOTA_GAMERULES_STATE_PRE_GAME ||
-		GameSystems::GameRules->GetGameState() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS) {
+	if (CGameRules::Get()->GetGameState() == DOTA_GAMERULES_STATE_PRE_GAME ||
+		CGameRules::Get()->GetGameState() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS) {
 
 		EnteredInGame();
 		if (ctx.localHero)

@@ -1,6 +1,7 @@
 #include "Interfaces.h"
 #include <tuple>
 #include <iomanip>
+#include "../Tables.h"
 
 template<typename T>
 void InitInterface(T*& var, std::string_view dllName, std::string_view interfaceName) {
@@ -24,8 +25,8 @@ void Interfaces::FindInterfaces() {
 	InitInterface(CVar, "tier0.dll", "VEngineCvar");
 	InitInterface(ResourceSystem, "resourcesystem.dll", "ResourceSystem");
 
-	SteamClient = Memory::GetInterface("steamclient64.dll", "SteamClient021");
-	//SteamClient = Memory::GetExport("steam_api64.dll", "SteamInternal_CreateInterface").Call<ISteamClient*>("SteamClient021");
+	// Current version can be found by searching for "SteamClient" in client.dll
+	InitInterface(SteamClient, "steamclient64.dll", "SteamClient021");
 
 	InitInterface(FileSystem, "filesystem_stdio.dll", "VFileSystem");
 	InitInterface(Panorama, "panorama.dll", "PanoramaUIEngine");
@@ -47,16 +48,7 @@ void Interfaces::FindInterfaces() {
 		"SteamGameCoordinator001"
 	);
 
-	struct LogPtrBinding {
-		std::string name;
-		void* value;
-
-		LogPtrBinding(std::string name, void* value) : value(value) {
-			this->name = std::move(name);
-		}
-	};
-
-	std::vector<LogPtrBinding> loggingScheme = {
+	tables::PrettyPrint({
 		{ "CEngineClient", Engine },
 		{ "CSource2Client", Client },
 		{ "CCVar", CVar },
@@ -77,26 +69,5 @@ void Interfaces::FindInterfaces() {
 
 		{ "ISteamClient", SteamClient },
 		{ "ISteamGameCoordinator", SteamGC },
-	};
-
-	size_t padding = 0;
-	{
-		auto longestNameElem = std::max_element(loggingScheme.begin(), loggingScheme.end(),
-			[](const LogPtrBinding& a, const LogPtrBinding& b) {
-				return a.name.length() < b.name.length();
-			});
-		if (longestNameElem != loggingScheme.end()) padding = longestNameElem->name.size();
-	}
-
-	{
-		std::lock_guard lock(mLogging);
-		for (const auto& binding : loggingScheme) {
-			LogPrefix prefix = binding.value ? LP_DATA : LP_ERROR;
-			SetConsoleColor();
-			SetLogColor(prefix);
-
-			std::cout << std::left << std::setw(padding) << binding.name << " = " << std::hex << std::uppercase << binding.value << std::endl;
-		}
-	}
-
+	});
 }

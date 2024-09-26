@@ -11,20 +11,20 @@ inline class CEventManager {
 public:
 	bool AddListener(IGameEventListener2* listener, const char* eventName) {
 		Listeners.insert(listener);
-		return (*GameSystems::GameEventManagerPtr)->AddListener(listener, eventName);
+		return CEventMgr::Get()->AddListener(listener, eventName);
 	}
 
 	void RemoveListener(IGameEventListener2* listener) {
-		(*GameSystems::GameEventManagerPtr)->RemoveListener(listener);
+		CEventMgr::Get()->RemoveListener(listener);
 	}
 
 #define EVENT_SUB(name) auto name = CMemAlloc::Instance()->AllocInit<name ## _l>(); \
-(*GameSystems::GameEventManagerPtr)->AddListener(name, #name); \
+CEventMgr::Get()->AddListener(name, #name); \
 Listeners.insert(name);
 
 #define LOG_EVENT(name) auto name##_logger = CMemAlloc::Instance()->AllocInit<event_func>(); \
 name##_logger->SetFunc([](CGameEvent* ev) { LogFI("[EVENT] {}", #name); }); \
-(*GameSystems::GameEventManagerPtr)->AddListener(name##_logger, #name); \
+CEventMgr::Get()->AddListener(name##_logger, #name); \
 Listeners.insert(name##_logger);
 
 	void InstallListeners() {
@@ -43,7 +43,7 @@ Listeners.insert(name##_logger);
 
 	void ClearListeners() {
 		for (auto& listener : Listeners)
-			(*GameSystems::GameEventManagerPtr)->RemoveListener(listener);
+			CEventMgr::Get()->RemoveListener(listener);
 		Listeners.clear();
 	}
 } EventManager;

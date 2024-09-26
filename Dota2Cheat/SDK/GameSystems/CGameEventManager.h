@@ -63,9 +63,7 @@ public:
 class IGameEventListener2
 {
 public:
-	virtual void DESTROY()
-	{
-	};
+	virtual void DESTROY() {};
 
 	virtual void FireGameEvent(CGameEvent* event) = 0;
 };
@@ -79,4 +77,10 @@ public:
 	virtual bool AddListener(IGameEventListener2* listener, const char* eventName, bool serverSide = false) = 0;
 	virtual bool FindListener(IGameEventListener2* listener, const char* eventName) = 0;
 	virtual void RemoveListener(IGameEventListener2* listener) = 0;
+
+	static CGameEventManager** GetPtr();
+
+	static CGameEventManager* Get() { return *GetPtr(); }
 };
+
+using CEventMgr = CGameEventManager;

@@ -19,7 +19,7 @@ inline void ShowHUDError(std::string_view caption) {
 }
 
 inline void ShowHUDError(std::string_view caption, std::string_view sound) {
-	Panorama::ErrorMessages->ShowErrorMessage(caption.data());
+	ShowHUDError(caption.data());
 	PlayUISoundScript(sound);
 }
 
@@ -29,7 +29,7 @@ inline ImVec2 WorldToScreen(const Vector& pos) {
 	if (CRenderGameSystem::Get())
 		CRenderGameSystem::Get()->GetVectorInScreenSpace(pos, xy);
 
-	return ImVecFromVec2D(xy);
+	return xy;
 }
 
 inline bool IsPointOnScreen(const ImVec2& pos) {

@@ -2,13 +2,13 @@
 
 void Modules::AutoDodge::OnFrame() {
 	if (!Config::AutoDodge::Enabled
-		|| !GameSystems::ProjectileManager)
+		|| !CProjectileMgr::Get())
 		return;
 
 	if (!HeroData[ctx.localHero].Items["manta"] && !HeroData[ctx.localHero].Items["bottle"])
 		return;
 
-	for (auto proj : GameSystems::ProjectileManager->m_pTrackingProjectiles) {
+	for (auto proj : CProjectileMgr::Get()->m_pTrackingProjectiles) {
 		if (!proj || proj->m_bIsAttack)
 			continue;
 

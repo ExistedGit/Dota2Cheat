@@ -35,8 +35,9 @@ public:
 
 	float GetGameTime();
 
+	// Instance initialization is deferred to game start
 	static void Set(CDOTAGameRules* inst) {
-		inst = inst;
+		CDOTAGameRules::inst = inst;
 	}
 
 	static CDOTAGameRules* Get() {

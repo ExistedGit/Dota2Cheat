@@ -20,7 +20,13 @@ public:
 	GETTER(CUtlVector<PlayerResourceTeamData_t>, GetVecPlayerTeamData, Netvars::C_DOTA_PlayerResource::m_vecPlayerTeamData);
 	IGETTER(CHandle<CDOTAPlayerController>, GetPlayerIDToPlayerTable, Netvars::C_DOTA_PlayerResource::m_playerIDToPlayer);
 
-	auto PlayerIDToHandle(int id) {
+	auto PlayerIDToHandle(int id) const {
 		return GetPlayerIDToPlayerTable()[id];
 	}
+
+	static C_DOTA_PlayerResource** GetPtr();
+	
+	static C_DOTA_PlayerResource* Get() { return *GetPtr(); }
 };
+
+using CPlayerResource = C_DOTA_PlayerResource;

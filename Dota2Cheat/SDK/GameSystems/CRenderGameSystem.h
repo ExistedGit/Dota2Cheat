@@ -14,8 +14,6 @@ public:
 	// Basically some complex math involving the world-to-projection matrix
 	bool GetVectorInScreenSpace(const Vector& point, Vector2D& screen) const;
 	
-	static CRenderGameSystem* Get() {
-		static CRenderGameSystem** ptr = FindReallocatingGameSystem("RenderGameSystem");
-		return *ptr;
-	}
+	static CRenderGameSystem** GetPtr();
+	static CRenderGameSystem* Get() { return *GetPtr(); };
 };

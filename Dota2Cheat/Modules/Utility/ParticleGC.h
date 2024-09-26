@@ -17,7 +17,7 @@ namespace Modules {
 			void SetDieTime(ParticleWrapper particle, float dieTime) {
 				gcInfo.push_back(
 					ParticleGCInfo{
-						.assignTime = GameSystems::GameRules->GetGameTime(),
+						.assignTime = CGameRules::Get()->GetGameTime(),
 						.dieTime = dieTime,
 						.particleWrap = particle
 					}

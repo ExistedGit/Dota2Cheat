@@ -1,7 +1,7 @@
 #include "EnemySpellHighlight.h"
 
 void Modules::EnemySpellHighlighter::DrawParticleAt(Vector pos, ParticleCreationInfo info) {
-	auto particleWrap = GameSystems::ParticleManager->CreateParticle(
+	auto particleWrap = CParticleMgr::Get()->CreateParticle(
 		info.particleName,
 		PATTACH_WORLDORIGIN,
 		nullptr);

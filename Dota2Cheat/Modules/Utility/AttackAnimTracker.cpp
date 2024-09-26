@@ -5,7 +5,7 @@ bool Utility::AttackAnimTracker::WillUnitAttack(CDOTABaseNPC* unit, CDOTABaseNPC
 	if (!animations.count(unit))
 		return false;
 	auto anim = animations[unit];
-	if (anim.startTime + anim.castPoint <= GameSystems::GameRules->GetGameTime() + timeDelta &&
+	if (anim.startTime + anim.castPoint <= CGameRules::Get()->GetGameTime() + timeDelta &&
 		target == Modules::AttackTargetFinder.GetAttackTarget(unit))
 		return true;
 
@@ -22,7 +22,7 @@ void Utility::AttackAnimTracker::ProcessAttackAnimMessage(NetMessageHandle_t* ms
 		auto npc = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC>(NH2IDX(animMsg->entity()));
 
 		animations[npc] = {
-			.startTime = GameSystems::GameRules->GetGameTime(),
+			.startTime = CGameRules::Get()->GetGameTime(),
 			.castPoint = animMsg->castpoint() * animMsg->playbackrate(),
 		};
 	}

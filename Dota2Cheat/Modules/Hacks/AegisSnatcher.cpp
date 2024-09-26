@@ -29,7 +29,7 @@ void Modules::AegisSnatcher::OnFrame() {
 	if (!IsWithinRadius(aegis->GetPos(), ctx.localHero->GetPos(), 130))
 		return;
 
-	auto gameTime = GameSystems::GameRules->GetGameTime();
+	auto gameTime = CGameRules::Get()->GetGameTime();
 	if (gameTime - lastPickupTime >= 0.2f) {
 
 		ctx.localPlayer->PrepareOrder(

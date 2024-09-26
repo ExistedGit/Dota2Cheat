@@ -24,7 +24,7 @@ namespace Modules {
 				// DOTATopBarPlayer is either RadiantPlayerN or DirePlayerN
 				std::string_view id = panel->GetParent()->GetParent()->GetId();
 				IsDire = id.starts_with("Dire");
-				imgPos = ImVecFromVec2D(panel->GetPanel2D()->GetPositionWithinWindow());
+				imgPos = panel->GetPanel2D()->GetPositionWithinWindow();
 			}
 		};
 

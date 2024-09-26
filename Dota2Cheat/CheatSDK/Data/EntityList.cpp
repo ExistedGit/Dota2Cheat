@@ -8,7 +8,7 @@ void CEntityList::OnEntityCreated(CBaseEntity* ent) {
 
 	std::string_view className = schemaBinding->binaryName;
 	if (className == "C_DOTAGamerulesProxy")
-		GameSystems::GameRules = ent->Member<CDOTAGameRules*>(Netvars::C_DOTAGamerulesProxy::m_pGameRules);
+		CGameRules::Set(ent->Member<CDOTAGameRules*>(Netvars::C_DOTAGamerulesProxy::m_pGameRules));
 
 	using enum EntityType;
 	EntityType entType = Undefined;

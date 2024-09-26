@@ -4,15 +4,15 @@ void Modules::M_AutoPing::OnFrame() {
 	if (!Config::AutoPingEnabled ||
 		!Config::AutoPingTarget ||
 		lastGameTime == 0) {
-		lastGameTime = GameSystems::GameRules->GetGameTime();
+		lastGameTime = CGameRules::Get()->GetGameTime();
 		return;
 	}
 
-	float delta = GameSystems::GameRules->GetGameTime() - lastGameTime;
+	float delta = CGameRules::Get()->GetGameTime() - lastGameTime;
 	if (delta < Config::AutoPingDelay)
 		return;
 
-	lastGameTime = GameSystems::GameRules->GetGameTime();
+	lastGameTime = CGameRules::Get()->GetGameTime();
 
 	CDOTAClientMsg_MapPing msg;
 	auto loc = msg.mutable_location_ping();

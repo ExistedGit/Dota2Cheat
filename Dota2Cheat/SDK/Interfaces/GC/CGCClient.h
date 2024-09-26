@@ -2,11 +2,11 @@
 #include "../../Base/VClass.h"
 #include "../../Base/CUtlVector.h"
 #include "../../Base/Definitions.h"
-#include <google/protobuf/message.h>
-#include <dota_gcmessages_msgid.pb.h>
 #include "../../Enums.h"
 #include "ISharedObjectListener.h"
 #include "CDOTAGCLobbyManager.h"
+#include <google/protobuf/message.h>
+#include <dota_gcmessages_msgid.pb.h>
 
 template<typename T = google::protobuf::Message>
 class CProtobufMsgBase : public VClass {
@@ -30,18 +30,12 @@ public:
 
 class CGCClientSharedObjectTypeCache : public VClass {
 public:
-	CProtobufSharedObjectBase* GetProtobufSO() {
-		return *Member< CProtobufSharedObjectBase**>(0x10);
+	CProtobufSharedObjectBase* GetProtobufSO() const {
+		return *Member<CProtobufSharedObjectBase**>(0x10);
 	}
 	GETTER(uint32_t, GetEconTypeID, 0x28);
 };
 
-class CDOTAGCClientSystem : public VClass {
-public:
-	void SaveSerializedSOCache() {
-		CallVFunc<2>();
-	}
-};
 
 class CGCClientSharedObjectCache : public VClass {
 public:
@@ -63,7 +57,8 @@ public:
 		for (auto& listener : listeners)
 			listener->SOUpdated(&soid, sharedObj, ev);
 	}
-	uint64_t GetReadyUpKey() {
+
+	uint64_t GetReadyUpKey() const {
 		auto lobbyId = ~GetLobbyManager()->FindLobby()->GetLobbyId();
 		uint32_t accId = GetSOListeners()[1]->GetSOCache()->GetOwner().m_unSteamID;
 		return lobbyId ^ (accId | ((uint64_t)accId << 32));

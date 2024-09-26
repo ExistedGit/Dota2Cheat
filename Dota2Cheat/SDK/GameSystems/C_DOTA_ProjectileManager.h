@@ -29,4 +29,14 @@ class C_DOTA_ProjectileManager : public VClass {
 public:
 	C_DOTA_TrackingProjectileInfo* m_pTrackingProjectiles[1024];
 	C_DOTA_LinearProjectileInfo* m_pLinearProjectiles[1024];
+
+	// Intended to check whether such a gamesystem even exists
+	static C_DOTA_ProjectileManager** GetPtr() {
+		static C_DOTA_ProjectileManager** ptr = FindReallocatingGameSystem("C_DOTA_ProjectileManager");
+		return ptr;
+	}
+
+	static C_DOTA_ProjectileManager* Get() { return *GetPtr(); }
 };
+
+using CProjectileMgr = C_DOTA_ProjectileManager;

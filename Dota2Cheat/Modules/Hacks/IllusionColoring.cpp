@@ -2,7 +2,7 @@
 #include <dota_modifiers.pb.h>
 
 void Modules::M_IllusionESP::AddIllusionModifier(CDOTABaseNPC_Hero* hero, const char* modifierName, const char* particle) {
-	//auto p = GameSystems::ParticleManager->CreateParticle(
+	//auto p = CParticleMgr::Get()->CreateParticle(
 	//	particle,
 	//	PATTACH_ABSORIGIN_FOLLOW,
 	//	hero

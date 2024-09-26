@@ -5,7 +5,7 @@
 // Returns the wrapper for the created particle
 
 ParticleWrapper Modules::M_LinearProjectileWarner::DrawTrajectory(const Vector& begin, const Vector& end) {
-	auto pw = GameSystems::ParticleManager->CreateParticle(
+	auto pw = CParticleMgr::Get()->CreateParticle(
 		"particles/ui_mouseactions/range_finder_tower_line.vpcf",
 		PATTACH_WORLDORIGIN,
 		nullptr
@@ -45,7 +45,7 @@ void Modules::M_LinearProjectileWarner::OnModifierAdded(CDOTAModifier* modifier)
 
 void Modules::M_LinearProjectileWarner::OnModifierRemoved(CDOTAModifier* modifier) {
 	if (EntityTrajectories.count(modifier)) {
-		GameSystems::ParticleManager->DestroyParticle(EntityTrajectories[modifier].particleWrap);
+		CParticleMgr::Get()->DestroyParticle(EntityTrajectories[modifier].particleWrap);
 		EntityTrajectories.erase(modifier);
 	}
 }
@@ -88,7 +88,7 @@ void Modules::M_LinearProjectileWarner::OnReceivedMsg(NetMessageHandle_t* msgHan
 		auto handle = linProjMsg->handle();
 		linearProjectiles.erase(handle);
 		if (TrackedProjectiles.count(handle)) {
-			GameSystems::ParticleManager->DestroyParticle(TrackedProjectiles[handle]);
+			CParticleMgr::Get()->DestroyParticle(TrackedProjectiles[handle]);
 			TrackedProjectiles.erase(handle);
 		}
 	}

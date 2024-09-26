@@ -5,11 +5,11 @@ void Modules::M_AutoBuyTome::Reset() {
 }
 
 void Modules::M_AutoBuyTome::Init() {
-	if (!GameSystems::GameRules ||
+	if (!CGameRules::Get() ||
 		!ctx.localHero)
 		return;
 
-	auto vec = GameSystems::GameRules->GetItemStockInfo();
+	auto vec = CGameRules::Get()->GetItemStockInfo();
 	for (auto& info : vec) {
 		if (info.iTeamNumber == ctx.localHero->GetTeam() &&
 			info.nItemAbilityID == 0x101) { // tome's id is 257

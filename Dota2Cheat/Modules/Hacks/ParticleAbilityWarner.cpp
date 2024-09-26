@@ -6,7 +6,7 @@
 // Returns the wrapper for the created particle
 
 ParticleWrapper Modules::ParticleAbilityWarner::DrawTrajectory(Vector begin, Vector end) {
-	auto pw = GameSystems::ParticleManager->CreateParticle(
+	auto pw = CParticleMgr::Get()->CreateParticle(
 		"particles/ui_mouseactions/range_finder_tower_line.vpcf",
 		PATTACH_WORLDORIGIN,
 		ctx.localHero
@@ -19,7 +19,7 @@ ParticleWrapper Modules::ParticleAbilityWarner::DrawTrajectory(Vector begin, Vec
 }
 
 ParticleWrapper Modules::ParticleAbilityWarner::DrawRadius(Vector pos, float radius) {
-	auto pw = GameSystems::ParticleManager->CreateParticle(
+	auto pw = CParticleMgr::Get()->CreateParticle(
 		"particles/units/heroes/hero_snapfire/hero_snapfire_range_finder_aoe.vpcf",
 		PATTACH_WORLDORIGIN,
 		ctx.localHero
@@ -158,8 +158,8 @@ void Modules::ParticleAbilityWarner::OnReceivedMsg(NetMessageHandle_t* msgHandle
 			Modules::ParticleGC.RemoveFromGC(data.trajectory);
 			Modules::ParticleGC.RemoveFromGC(data.aoe);
 
-			GameSystems::ParticleManager->DestroyParticle(data.trajectory);
-			GameSystems::ParticleManager->DestroyParticle(data.aoe);
+			CParticleMgr::Get()->DestroyParticle(data.trajectory);
+			CParticleMgr::Get()->DestroyParticle(data.aoe);
 
 			TrackedAbilityParticles.erase(msgIndex);
 		}

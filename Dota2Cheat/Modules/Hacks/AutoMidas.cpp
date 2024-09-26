@@ -5,7 +5,7 @@ void Modules::M_AutoMidas::OnFrame() {
 		return;
 
 	//if (lastPickupTime != 0 &&
-	//	GameSystems::GameRules->GetGameTime() - lastPickupTime < usePeriod)
+	//	CGameRules::Get()->GetGameTime() - lastPickupTime < usePeriod)
 	//	return;
 
 	auto midas = HeroData[ctx.localHero].Items["hand_of_midas"];
@@ -58,7 +58,7 @@ void Modules::M_AutoMidas::OnFrame() {
 				DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY,
 				ctx.localHero);
 
-			lastTime = GameSystems::GameRules->GetGameTime();
+			lastTime = CGameRules::Get()->GetGameTime();
 		}
 		});
 }

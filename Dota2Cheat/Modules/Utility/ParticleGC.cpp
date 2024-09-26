@@ -16,8 +16,8 @@ void Modules::M_ParticleGarbageCollector::OnFrame() {
 	{
 		if (HVALID(it->particleWrap.handle)) {
 			auto& info = *it;
-			if (info.assignTime + info.dieTime <= GameSystems::GameRules->GetGameTime())
-				GameSystems::ParticleManager->DestroyParticle(info.particleWrap);
+			if (info.assignTime + info.dieTime <= CGameRules::Get()->GetGameTime())
+				CParticleMgr::Get()->DestroyParticle(info.particleWrap);
 			++it;
 		} else if (!HVALID(it->particleWrap.handle)) {
 			it = gcInfo.erase(it);

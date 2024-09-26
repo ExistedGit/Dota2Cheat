@@ -162,5 +162,9 @@ public:
 	void DestroyParticle(ParticleWrapper& info);
 
 	void OnExitMatch();
+
+	static CDOTAParticleManager* Get();
 };
+
+using CParticleMgr = CDOTAParticleManager; 
 

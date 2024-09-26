@@ -17,20 +17,20 @@ void Modules::AutoPick::Reset() {
 void Modules::AutoPick::TryAutoBan() {
 	if (ctx.gameStage != GameStage::PRE_GAME ||
 		(!autoBanHero && !autoPickHero)
-		|| GameSystems::GameRules->GetGameState() != DOTA_GAMERULES_STATE_HERO_SELECTION
+		|| CGameRules::Get()->GetGameState() != DOTA_GAMERULES_STATE_HERO_SELECTION
 		)
 		return;
 
 	bool isBanPhase = false;
-	switch (GameSystems::GameRules->GetGameMode()) {
+	switch (CGameRules::Get()->GetGameMode()) {
 	case DOTA_GAMEMODE_ALL_DRAFT:
 	case DOTA_GAMEMODE_AP:
 	{
-		isBanPhase = GameSystems::GameRules->Member<int>(Netvars::C_DOTAGamerules::m_nAllDraftPhase) == 0;
+		isBanPhase = CGameRules::Get()->Member<int>(Netvars::C_DOTAGamerules::m_nAllDraftPhase) == 0;
 		break;
 	}
 	case DOTA_GAMEMODE_TURBO: {
-		isBanPhase = GameSystems::GameRules->Member<int>(Netvars::C_DOTAGamerules::m_BannedHeroes) == 0;
+		isBanPhase = CGameRules::Get()->Member<int>(Netvars::C_DOTAGamerules::m_BannedHeroes) == 0;
 		break;
 	}
 	};

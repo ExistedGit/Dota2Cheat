@@ -6,8 +6,8 @@
 void Modules::M_TPTracker::OnFrame() {
 	MTM_LOCK;
 
-	auto timeDelta = GameSystems::GameRules->GetGameTime() - lastTime;
-	lastTime = GameSystems::GameRules->GetGameTime();
+	auto timeDelta = CGameRules::Get()->GetGameTime() - lastTime;
+	lastTime = CGameRules::Get()->GetGameTime();
 	for (auto it = teleports.begin(); it != teleports.end();) {
 		auto& data = it->second;
 		if (!data.isFading) {

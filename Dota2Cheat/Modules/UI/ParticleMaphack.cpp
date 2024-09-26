@@ -83,8 +83,8 @@ void Modules::M_ParticleMaphack::Draw() {
 void Modules::M_ParticleMaphack::OnFrame() {
 	MTM_LOCK;
 
-	const float timeDelta = GameSystems::GameRules->GetGameTime() - lastTime;
-	lastTime = GameSystems::GameRules->GetGameTime();
+	const float timeDelta = CGameRules::Get()->GetGameTime() - lastTime;
+	lastTime = CGameRules::Get()->GetGameTime();
 	for (auto it = Appearances.begin(); it != Appearances.end();) {
 		auto& data = it->second;
 		data.fadeCounter -= timeDelta;

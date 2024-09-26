@@ -270,7 +270,7 @@ void Pages::MainMenu::Draw() {
 			Vector color = Config::CircleRGB * 255;
 			Vector radius{ static_cast<float>(Config::CircleRadius), 255, 0 };
 
-			auto particle = GameSystems::ParticleManager->CreateParticle(
+			auto particle = CParticleMgr::Get()->CreateParticle(
 				"particles/ui_mouseactions/selected_ring.vpcf",
 				PATTACH_ABSORIGIN_FOLLOW,
 				ctx.localHero

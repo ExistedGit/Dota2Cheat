@@ -3,6 +3,11 @@
 #include "../Base/NormalClass.h"
 #include "../Base/Definitions.h"
 
-class CDOTAInventoryManager : public VClass {
+// Currently there isn't much to say except that this exists.
 
+class CDOTAInventoryManager : public VClass {
+public:
+	static CDOTAInventoryManager* Get();
 };
+
+using CInvMgr = CDOTAInventoryManager;

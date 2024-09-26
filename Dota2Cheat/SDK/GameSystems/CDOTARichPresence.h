@@ -9,4 +9,6 @@ public:
 	void SetRPStatus(std::string_view status) {
 		SetRPStatusFunc(this, status.data(), 0, nullptr);
 	}
+
+	static CDOTARichPresence* Get();
 };

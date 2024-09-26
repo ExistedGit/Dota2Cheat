@@ -181,13 +181,13 @@ void Modules::M_AbilityESP::DrawAbilities() {
 				int fontSize = ScaleVar(18);
 
 				DrawTextForeground(DrawData.GetFont("Monofonto", fontSize),
-					std::format("{:.1f}", channelLength - (GameSystems::GameRules->GetGameTime() - channelTime)),
+					std::format("{:.1f}", channelLength - (CGameRules::Get()->GetGameTime() - channelTime)),
 					ImVec2(imgXY1.x + centeringOffset, imgXY1.y - fontSize - 2 - indicatorHeight),
 					fontSize,
 					ImVec4(1, 1, 1, 1),
 					true);
 
-				float indicatorWidth = abs(imgXY2.x - imgXY1.x) * (1 - ((GameSystems::GameRules->GetGameTime() - channelTime) / channelLength));
+				float indicatorWidth = abs(imgXY2.x - imgXY1.x) * (1 - ((CGameRules::Get()->GetGameTime() - channelTime) / channelLength));
 				DrawList->AddRectFilled(
 					ImVec2(imgXY1.x, imgXY1.y - indicatorHeight),
 					ImVec2(imgXY1.x + indicatorWidth, imgXY1.y), ImColor(1, 1, 1, 0.7), rounding);
@@ -197,10 +197,10 @@ void Modules::M_AbilityESP::DrawAbilities() {
 				float castPoint = data.ability->GetLevelSpecialValueFor("AbilityCastPoint"),
 					castStartTime = data.ability->Member<float>(Netvars::C_DOTABaseAbility::m_flCastStartTime);
 				int fontSize = ScaleVar(18);
-				float indicatorWidthFactor = abs(imgXY1.x - imgXY2.x) * ((GameSystems::GameRules->GetGameTime() - castStartTime) / castPoint);
+				float indicatorWidthFactor = abs(imgXY1.x - imgXY2.x) * ((CGameRules::Get()->GetGameTime() - castStartTime) / castPoint);
 				DrawList->AddRectFilled(imgXY1, ImVec2(imgXY1.x + indicatorWidthFactor, imgXY2.y), ImColor(0.f, 1.f, 0.f, 0.5f), rounding);
 				DrawTextForeground(DrawData.GetFont("Monofonto", fontSize),
-					std::format("{:.1f}", castPoint - (GameSystems::GameRules->GetGameTime() - castStartTime)),
+					std::format("{:.1f}", castPoint - (CGameRules::Get()->GetGameTime() - castStartTime)),
 					imgXY1 + ImVec2(centeringOffset, -fontSize - 2),
 					fontSize,
 					ImColor(0, 255, 60),

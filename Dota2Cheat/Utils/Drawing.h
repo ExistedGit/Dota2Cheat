@@ -9,6 +9,7 @@
 void DrawRect(const ImVec2& topLeft, const ImVec2& size, const ImVec4& color, float thickness = 1.0f);
 void DrawRectFilled(const ImVec2& topLeft, const ImVec2& size, const ImVec4& color);
 void HelpMarker(const char* desc);
-//credits to SMBB from UnknownCheats
-//https://www.unknowncheats.me/forum/direct3d/244074-imgui-d3d11-text-drawing.html
+
+// pasted from SMBB (UnknownCheats)
+// https://www.unknowncheats.me/forum/direct3d/244074-imgui-d3d11-text-drawing.html
 float DrawTextForeground(ImFont* pFont, const std::string& text, const ImVec2& pos, float size, const ImVec4& color, bool center, bool outline = true);
