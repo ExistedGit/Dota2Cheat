@@ -11,4 +11,6 @@ public:
 	auto GetISteamGenericInterface(HSteamUser hSteamUser, HSteamPipe hSteamPipe, const char* pchVersion) {
 		return CallVFunc<12, ISteamGameCoordinator*>(hSteamUser, hSteamPipe, pchVersion);
 	}
+
+	static ISteamClient* Get();
 };

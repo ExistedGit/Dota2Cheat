@@ -4,7 +4,7 @@
 
 class CResourceSystemResource : public NormalClass {
 public:
-    const char* GetName() {
+    const char* GetName() const {
         uintptr_t* Base = MemberInline<uintptr_t>(0x8);
         if (!Base)
             return nullptr;
@@ -25,4 +25,6 @@ public:
 
         return Resource->GetName();
     }
+
+    static CResourceSystem* Get();
 };

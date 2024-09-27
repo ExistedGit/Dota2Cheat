@@ -67,9 +67,11 @@ public:
 		CallVFunc<70>(unk);
 	}
 
-	void AddClass(const char* class_);
+	void RemoveClass(uint16_t class_) {
+		CallVFunc<138, void>(class_);
+	}
 
-	void RemoveClass(uint16_t class_);
+	void AddClass(const char* class_);
 
 	void RemoveClass(const char* class_);
 

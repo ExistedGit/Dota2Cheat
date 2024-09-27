@@ -61,7 +61,7 @@ namespace Modules {
 			}
 
 			void SOUpdated(CEconItem* item) {
-				auto inv = Interfaces::GCClient->GetSOListeners()[1];
+				auto inv = CGCClient::Get()->GetSOListeners()[1];
 				auto soid = inv->GetSOCache()->GetOwner();
 				inv->SOUpdated(&soid, item, eSOCacheEvent_Incremental);
 			}

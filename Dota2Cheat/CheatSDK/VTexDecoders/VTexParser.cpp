@@ -2,7 +2,7 @@
 
 VTexParser::ImageData VTexParser::Load(std::string_view filename) {
 	static auto mem = CMemAlloc::Instance();
-	static auto fs = Interfaces::FileSystem;
+	static auto fs = CFileSys::Get();
 	auto file = fs->OpenFile(filename.data(), "rb");
 	auto fileSize = fs->Size(file);
 

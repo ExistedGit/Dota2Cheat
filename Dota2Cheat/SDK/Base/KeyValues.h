@@ -1,6 +1,7 @@
 #pragma once
 #include "Memory.h"
 #include "MemAlloc.h"
+#include "../Interfaces/CBaseFileSystem.h"
 
 struct KeyValues {
 	// from TF2 source
@@ -32,7 +33,10 @@ struct KeyValues {
 		return kv;
 	}
 
-	bool LoadFromFile(const char* path);
+	bool LoadFromFile(const char* path) {
+		auto func = Memory::GetExport("tier0.dll", "?LoadFromFile@KeyValues@@QEAA_NPEAVIFileSystem@@PEBD1P6A_N1PEAX@Z21@Z");
+		return func.Call<bool>(this, CBaseFileSystem::Get(), path, "GAME", nullptr, nullptr, nullptr);
+	}
 
 	KeyValues* GetFirstSubKey() const {
 		static auto func = Memory::GetExport("tier0.dll", "?GetFirstSubKey@KeyValues@@QEBAPEAV1@XZ");

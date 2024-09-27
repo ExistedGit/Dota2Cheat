@@ -5,7 +5,7 @@ void Modules::M_ClaimTutorialRewards::ClaimEventAction(uint32_t event_id, uint32
 	msg.set_event_id(event_id);
 	msg.set_action_id(action_id);
 	msg.set_quantity(quantity);
-	Interfaces::SteamGC->SendMsg(msg, k_EMsgDOTAClaimEventAction);
+	ISteamGC::Get()->SendMsg(msg, k_EMsgDOTAClaimEventAction);
 }
 
 void Modules::M_ClaimTutorialRewards::ExecuteGCRequests() {

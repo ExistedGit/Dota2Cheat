@@ -1991,6 +1991,8 @@ struct NetMessageInfo_t
 class CNetworkMessages : VClass
 {
 public:
+    static CNetworkMessages* Get();
+
 	auto GetNetMessageInfo( NetMessageHandle_t* hnd ) {
 		return CallVFunc<11, NetMessageInfo_t*>( hnd );
 	}

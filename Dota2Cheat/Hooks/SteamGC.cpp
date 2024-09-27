@@ -86,7 +86,7 @@ EGCResults Hooks::hkRetrieveMessage(ISteamGameCoordinator* thisptr, uint32_t* pu
 	if (msg_id == k_EMsgGCReadyUpStatus) {
 		CMsgReadyUpStatus body;
 		if (body.ParsePartialFromArray(body_data, body_size)) {
-			static auto steamID = Interfaces::GCClient->GetSOListeners()[1]->GetSOCache()->GetOwner();
+			static auto steamID = CGCClient::Get()->GetSOListeners()[1]->GetSOCache()->GetOwner();
 			auto accepted = body.accepted_ids();
 			bool hasOwnId = false;
 			for (auto& id : accepted) {

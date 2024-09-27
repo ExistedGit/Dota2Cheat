@@ -118,7 +118,7 @@ void Modules::M_ParticleMaphack::OnReceivedMsg(NetMessageHandle_t* msgHandle, go
 
 		std::string_view particleName;
 		{
-			const auto szParticleName = Interfaces::ResourceSystem->GetResourceName(pmMsg->create_particle().particle_name_index());
+			const auto szParticleName = CResourceSystem::Get()->GetResourceName(pmMsg->create_particle().particle_name_index());
 			if (!szParticleName)
 				break;
 

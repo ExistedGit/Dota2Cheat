@@ -11,7 +11,7 @@ inline bool IsKeyPressed(int key) {
 
 inline void PlayUISoundScript(std::string_view name) {
 	void* p;
-	Interfaces::SoundOpSystem->StartSoundEvent(&p, name.data(), static_cast<uint32_t>(-1), 1);
+	CSoundOpSys::Get()->StartSoundEvent(&p, name.data(), static_cast<uint32_t>(-1), 1);
 }
 
 inline void ShowHUDError(std::string_view caption) {

@@ -18,7 +18,7 @@ bool Modules::M_OrderRouter::RouteOrder(NetMessageHandle_t* messageHandle, googl
 		targetIdx = order.target_index(),
 		flags = order.flags(),
 		seqNum = order.has_sequence_number();
-	auto issuer = Interfaces::EntitySystem->GetEntity(order.mutable_units()->at(0));
+	auto issuer = CEntSys::Get()->GetEntity(order.mutable_units()->at(0));
 
 	if (issuer->GetLifeState() != 0)
 		return false;

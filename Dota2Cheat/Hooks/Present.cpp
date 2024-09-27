@@ -109,7 +109,7 @@ long Hooks::hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT Flags)
 
 	ImGui::PushFont(DrawData.Fonts["MSTrebuchet"][24]);
 	if (
-		Interfaces::GameUI->GetUIState() == DOTA_GAME_UI_DOTA_INGAME
+		CGameUI::Get()->GetUIState() == DOTA_GAME_UI_DOTA_INGAME
 		&& ctx.gameStage == GameStage::IN_GAME
 		&& ctx.localHero
 		) {

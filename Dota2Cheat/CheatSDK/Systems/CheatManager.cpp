@@ -13,6 +13,7 @@
 #include "../../Modules/Utility/CVarSpoofer.h"
 #include "../../UI/Pages/AutoPickSelectionGrid.h"
 #include "../Globals/VMTDB.h"
+#include "../Tables.h"
 
 void CCheatManager::LoadGameSpecific() {
 	// Allows VPK mods
@@ -36,11 +37,37 @@ void CCheatManager::LoadGameSpecific() {
 		.GetAbsoluteAddress(2, 7)
 		.Set(false);
 
-	Interfaces::FindInterfaces();
+	LogI("[ INTERFACES ]");
 
-	Interfaces::CVar->DumpConVarsToMap();
+	tables::PrettyPrint({
+		{ "CSource2Client", CSource2Client::Get()},
+		{ "CGameEntitySystem", CEntSys::Get() },
+		{ "CGCClient", CGCClient::Get() },
+		{ "CCVar", CCVar::Get() },
+		{ "CResourceSystem", CResourceSystem::Get() },
+		{ "CBaseFileSystem", CFileSys::Get() },
+		{ "CGameUI", CGameUI::Get() },
+		{ "CSoundOpSystem", CSoundOpSys::Get() },
+		{ "CInputService", CInputService::Get() },
+
+		{ "CPanoramaUIEngine", CPanoramaUIEngine::Get() },
+		{ "CUIEngineSource2", CUIEngine::Get() },
+
+		{ "INetworkClientService", INetworkClientService::Get()},
+		{ "CNetworkMessages", CNetworkMessages::Get() },
+		{ "CFlattenedSerializers", CFlattenedSerializers::Get() },
+
+		{ "ISteamClient", ISteamClient::Get() },
+		{ "ISteamGameCoordinator", ISteamGC::Get() },
+
+		// Unused but pertinent interfaces
+		{ "CEngineClient", Memory::GetInterfaceBySubstr("engine2.dll", "Source2EngineToClient0") },
+		{ "CSchemaSystem", Memory::GetInterfaceBySubstr("schemasystem.dll", "SchemaSystem") },
+		});
+
+	CCVar::Get()->DumpConVarsToMap();
 #ifdef _DEBUG
-	Interfaces::CVar->UnlockHiddenConVars();
+	CCVar::Get()->UnlockHiddenConVars();
 #endif
 	//Modules::CVarSpoofer.SpoofVar("r_farz");
 	//Modules::CVarSpoofer.SpoofVars(
@@ -52,7 +79,7 @@ void CCheatManager::LoadGameSpecific() {
 	//	"dota_hud_chat_enable_all_emoticons"
 	//);
 
-	Interfaces::CVar->CVars["dota_hud_chat_enable_all_emoticons"].m_pVar->value.boolean = Config::Changer::UnlockEmoticons;
+	CCVar::Get()->CVars["dota_hud_chat_enable_all_emoticons"].m_pVar->value.boolean = Config::Changer::UnlockEmoticons;
 
 	GameSystems::FindGameSystems();
 
@@ -68,7 +95,7 @@ void CCheatManager::LoadGameSpecific() {
 
 	EntityList.AddListener(Modules::IllusionESP);
 
-	CBaseEntity::OnColorChanged = Interfaces::NetworkMessages->FindCallback("OnColorChanged");
+	CBaseEntity::OnColorChanged = CNetworkMessages::Get()->FindCallback("OnColorChanged");
 }
 
 void CCheatManager::LoadFiles() {

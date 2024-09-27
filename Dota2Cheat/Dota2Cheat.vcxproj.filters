@@ -32,7 +32,6 @@
     <ClCompile Include="Modules\Utility\AttackAnimTracker.cpp" />
     <ClCompile Include="Modules\Utility\AttackTargetFinder.cpp" />
     <ClCompile Include="Modules\Utility\ParticleGC.cpp" />
-    <ClCompile Include="SDK\Entities\CDOTABaseNPC.cpp" />
     <ClCompile Include="SDK\Entities\CDOTAPlayerController.cpp" />
     <ClCompile Include="SDK\Entities\CDOTAUnitInventory.cpp" />
     <ClCompile Include="SDK\GameSystems\CDOTAParticleManager.cpp" />
@@ -42,9 +41,7 @@
     <ClCompile Include="include\imgui\imgui_draw.cpp" />
     <ClCompile Include="include\imgui\imgui_tables.cpp" />
     <ClCompile Include="include\imgui\imgui_widgets.cpp" />
-    <ClCompile Include="SDK\GameSystems\C_DOTAGameRules.cpp" />
     <ClCompile Include="CheatSDK\Globals\GameSystems.cpp" />
-    <ClCompile Include="CheatSDK\Globals\Interfaces.cpp" />
     <ClCompile Include="CheatSDK\Globals\Signatures.cpp" />
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="UI\Pages\AutoPickSelectionGrid.cpp" />
@@ -71,7 +68,6 @@
     <ClCompile Include="CheatSDK\Systems\CheatManager.cpp" />
     <ClCompile Include="Hooks\Present.cpp" />
     <ClCompile Include="Modules\Hacks\ClaimTutorialRewards.cpp" />
-    <ClCompile Include="SDK\Base\KeyValues.cpp" />
     <ClCompile Include="SDK\Panorama\CUIPanel.cpp" />
     <ClCompile Include="CheatSDK\Data\EntityList.cpp" />
     <ClCompile Include="DebugFunctions.cpp" />
@@ -83,8 +79,9 @@
     <ClCompile Include="Modules\UI\AbilityESP.cpp" />
     <ClCompile Include="CheatSDK\Globals\VMTDB.cpp" />
     <ClCompile Include="CheatSDK\Globals\SignatureDB.cpp" />
-    <ClCompile Include="SDK\GameSystems\SingletonImpl.cpp" />
+    <ClCompile Include="CheatSDK\Globals\GameSystemSingletonImpl.cpp" />
     <ClCompile Include="CheatSDK\Tables.cpp" />
+    <ClCompile Include="CheatSDK\Globals\InterfaceSingletonImpl.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Modules\UI\UIOverhaul.h" />
@@ -117,7 +114,6 @@
     <ClInclude Include="SDK\Base\VClass.h" />
     <ClInclude Include="Modules\Hacks\CastRedirection.h" />
     <ClInclude Include="SDK\Base\Vector.h" />
-    <ClInclude Include="SDK\Base\VMT.h" />
     <ClInclude Include="SDK\Entities\CDOTABaseAbility.h" />
     <ClInclude Include="SDK\Entities\CDOTABaseNPCHero.h" />
     <ClInclude Include="SDK\Entities\CDOTAItem.h" />
@@ -255,6 +251,8 @@
     <ClInclude Include="SDK\VMI.h" />
     <ClInclude Include="SDK\GameSystems\CDOTAGCClientSystem.h" />
     <ClInclude Include="CheatSDK\Tables.h" />
+    <ClInclude Include="SDK\Interfaces\CSource2Client.h" />
+    <ClInclude Include="SDK\Interfaces\CPanoramaUIEngine.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />

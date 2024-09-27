@@ -10,7 +10,7 @@ namespace Panorama {
 
 	inline void FindPanels() {
 		// Panorama's HUD root
-		auto panels = Interfaces::UIEngine->GetPanelList<4096>();
+		auto panels = CUIEngine::Get()->GetPanelList<4096>();
 		DotaHud = (CDOTA_Hud*)std::find_if(
 			panels.begin(), panels.end(), 
 			[](const auto& node) { 

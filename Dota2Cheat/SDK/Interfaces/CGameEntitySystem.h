@@ -95,5 +95,7 @@ public:
 	// Iterated in OnAddEntity/OnRemoveEntity
 	// sig to jmp to opcode: "EB 1B 48 85 F6"
 	FIELD(CUtlVector<IEntityListener*>, GetListeners, 0x1558);
+
+	static CGameEntitySystem* Get();;
 };
 

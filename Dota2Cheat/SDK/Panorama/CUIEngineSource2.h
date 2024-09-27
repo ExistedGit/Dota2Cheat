@@ -33,7 +33,7 @@ public:
 		return result;
 	}
 
-	bool IsValidPanelPointer(CUIPanel* panel) {
+	bool IsValidPanelPointer(CUIPanel* panel) const {
 		struct  IVPBuffer {
 			uint32_t unk0, unk1;
 		} buf;
@@ -46,4 +46,6 @@ public:
 	// decompile xref: "CPanel2D::SetDialogVariable - char *"
 	// above it is a vfunc call by g_pUIEngine
 	VGETTER(CLocalization*, GetLocalization, 19);
+
+	static CUIEngineSource2* Get();
 };

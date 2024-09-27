@@ -24,7 +24,7 @@ bool Modules::BCP::M_BadCastPrevention::IsBadCast(dotaunitorder_t orderType, UIN
 	if (!Config::BadCastPrevention)
 		return false;
 
-	auto ability = Interfaces::EntitySystem->GetEntity<CDOTABaseAbility>(abilityIdx);
+	auto ability = CEntSys::Get()->GetEntity<CDOTABaseAbility>(abilityIdx);
 
 	if (!ability->GetIdentity()->GetName())
 		return false;
@@ -32,7 +32,7 @@ bool Modules::BCP::M_BadCastPrevention::IsBadCast(dotaunitorder_t orderType, UIN
 	std::string abilityName = ability->GetIdentity()->GetName();
 	if (orderType == DOTA_UNIT_ORDER_CAST_TARGET &&
 		castHandlers.contains(abilityName))
-		return !castHandlers.at(abilityName)(ability, (CDOTABaseNPC*)issuer, Interfaces::EntitySystem->GetEntity<CDOTABaseNPC>(targetIdx));
+		return !castHandlers.at(abilityName)(ability, (CDOTABaseNPC*)issuer, CEntSys::Get()->GetEntity<CDOTABaseNPC>(targetIdx));
 
 	if(pointAbilityNames.contains(abilityName))
 		return !AreEnemyHeroesInArea(*pos, ability->GetAOERadius());

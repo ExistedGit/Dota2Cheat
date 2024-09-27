@@ -19,7 +19,7 @@ CUIPanel* Modules::UIOverhaul::GetTopBarImgForHero(CDOTABaseNPC_Hero* hero) {
 }
 
 void Modules::UIOverhaul::UpdateHeroes() {
-	static auto classSym = Interfaces::UIEngine->MakeSymbol("TopBarHeroImage");
+	static auto classSym = CUIEngine::Get()->MakeSymbol("TopBarHeroImage");
 	topBar.clear();
 	auto topbarImages = Panorama::DotaHud->FindChildrenWithClassTraverse(classSym);
 	for (auto& panel : topbarImages) {
@@ -61,7 +61,7 @@ void Modules::UIOverhaul::DrawBars() {
 			hero->IsSameTeam(ctx.localHero) ||
 			!hero->IsTargetable())
 			continue;
-		if (!Interfaces::UIEngine->IsValidPanelPointer(data.panel))
+		if (!CUIEngine::Get()->IsValidPanelPointer(data.panel))
 			continue;
 
 		ImVec2 imgXY1 = data.imgPos;

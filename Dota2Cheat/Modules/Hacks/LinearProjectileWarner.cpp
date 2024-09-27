@@ -64,7 +64,7 @@ void Modules::M_LinearProjectileWarner::OnReceivedMsg(NetMessageHandle_t* msgHan
 		auto& newProj =
 			linearProjectiles[linProjMsg->handle()] =
 			LinearProjectile{
-			.source = Interfaces::EntitySystem->GetEntity(linProjMsg->entindex()),
+			.source = CEntSys::Get()->GetEntity(linProjMsg->entindex()),
 			.handle = linProjMsg->handle(),
 			.distance = linProjMsg->distance(),
 			.velocity = Vector2D(linProjMsg->velocity().x(), linProjMsg->velocity().y()),

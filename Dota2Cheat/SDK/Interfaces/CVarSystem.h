@@ -98,7 +98,6 @@ struct CVarID
 // tier0.dll
 class CCVar : public VClass {
 public:
-
 	static inline std::map<std::string, CVarID> CVars{};
 	using CVarCallbackFn = void* (*)(const CVarID& id, int unk1, const CVarValue* val, const CVarValue* old_val);
 
@@ -126,7 +125,7 @@ public:
 		}
 	}
 
-	void DumpConVarsToMap() {
+	void DumpConVarsToMap() const {
 		auto list = GetCVarNodeList();
 		auto size = GetCVarCount();
 		for (int i = 0; i < size; i++) {
@@ -141,7 +140,9 @@ public:
 		}
 	}
 
-	CVar* FindConVar(uint32_t id) {
+	CVar* FindConVar(uint32_t id) const {
 		return GetVFunc(37).Call<CVar*>(id);
 	}
+
+	static CCVar* Get();
 };

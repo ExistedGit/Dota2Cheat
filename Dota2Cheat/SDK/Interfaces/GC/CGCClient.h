@@ -63,4 +63,6 @@ public:
 		uint32_t accId = GetSOListeners()[1]->GetSOCache()->GetOwner().m_unSteamID;
 		return lobbyId ^ (accId | ((uint64_t)accId << 32));
 	}
+
+	static CGCClient* Get();
 };

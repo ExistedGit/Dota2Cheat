@@ -4,28 +4,28 @@
     "CreateEconItem": "48 83 EC ? B9 ? ? ? ? E8 ? ? ? ? 48 85 C0 74 ? 48 8D 0D",
     "SaveSerializedSOCache": "40 53 48 81 EC ? ? ? ? 48 8B D9 48 8D 0D",
     "CDOTARichPresence::SetRPStatus": "4C 89 4C 24 20 55 53 57 41 54",
-    "g_pGameSystemFactory": {
-      "signature": "E8 ? ? ? ? 84 C0 74 D3",
-      "steps": [
-        [1, 50],
-        [0, 3]
-      ]
-    },
-    "CDOTA_Buff::~CDOTA_Buff": "E8 ? ? ? ? 40 F6 C6 01 74 1A",
 
+    "CDOTA_Buff::~CDOTA_Buff": "E8 ? ? ? ? 40 F6 C6 01 74 1A",
     "WorldToScreen": "E8 ? ? ? ? 39 6C 24 68",
     "GetItemSchema": "E8 ? ? ? ? 8B 55 4C",
     "DispatchPacket": "E8 ? ? ? ? 39 6C 24 68",
     "BAsyncSendProto": "E8 ? ? ? ? 48 8B 4D 90 48 89 7C 24",
     "PrepareUnitOrders": "E8 ? ? ? ? F3 44 0F 11 53",
     "BIsEmoticonUnlocked": "E8 ? ? ? ? 84 C0 0F 84 ? ? ? ? 48 8B 45 08",
-
     "CDOTAParticleManager::DestroyParticle": "E8 ? ? ? ? 41 C7 85",
     "CDOTAGameRules::GetGameTime": "E8 ? ? ? ? 8B 04 2E",
     "CEconItem::DeserializeFromProtobufItem": "E8 ? ? ? ? 40 38 BD",
     "CEconItem::EnsureCustomDataExists": "E8 ? ? ? ? 4C 8B 7E 48",
     "CDOTABaseAbility::GetLevelSpecialValueFor": "E8 ? ? ? ? F3 0F 5A C0",
-    "CDOTABaseNPC::GetAttackSpeed": "E8 ? ? ? ? F3 0F 59 05 ? ? ? ? 0F 57 C9"
+    "CDOTABaseNPC::GetAttackSpeed": "E8 ? ? ? ? F3 0F 59 05 ? ? ? ? 0F 57 C9",
+
+    "g_pGameSystemFactory": {
+      "signature": "E8 ? ? ? ? 84 C0 74 D3",
+      "steps": [
+        [1, 50],
+        [0, 3]
+      ]
+    }
   },
   "gameoverlayrenderer64.dll": {
     "IDXGISwapChain::Present": "48 89 6C 24 ? 48 89 74 24 ? 41 56 48 83 EC 20 41 8B E8"
@@ -33,7 +33,6 @@
   "particles.dll": {
     "CParticleCollection::CParticleCollection": {
       "signature": "E8 ? ? ? ? 4C 8B E0 EB 03",
-      "module": "particles.dll",
       "steps": [
         [1, 12],
         [0, 3]
@@ -41,9 +40,9 @@
     }
   },
   "networksystem.dll": {
+    "CTSQueue::PushItem": "E8 ? ? ? ? 49 8B 8E ? ? ? ? 48 85 C9",
     "CNetChan::vftable": {
       "signature": "4C 89 69 18",
-      "module": "",
       "steps": [
         [1, 4],
         [0, 3]

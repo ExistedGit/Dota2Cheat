@@ -66,13 +66,13 @@ void Modules::M_BlinkRevealer::OnReceivedMsg(NetMessageHandle_t* msgHandle, goog
 		if (!particle.has_particle_name_index())
 			break;
 
-		const auto szParticleName = Interfaces::ResourceSystem->GetResourceName(particle.particle_name_index());
+		const auto szParticleName = CResourceSystem::Get()->GetResourceName(particle.particle_name_index());
 		if (!szParticleName)
 			break;
 
-		auto ent = Interfaces::EntitySystem->GetEntity(NH2IDX(particle.entity_handle()));
+		auto ent = CEntSys::Get()->GetEntity(NH2IDX(particle.entity_handle()));
 		if (!ent)
-			ent = Interfaces::EntitySystem->GetEntity(NH2IDX(particle.entity_handle_for_modifiers()));
+			ent = CEntSys::Get()->GetEntity(NH2IDX(particle.entity_handle_for_modifiers()));
 		if (!ent || ent->IsSameTeam(ctx.localHero))
 			break;
 
@@ -92,7 +92,7 @@ void Modules::M_BlinkRevealer::OnReceivedMsg(NetMessageHandle_t* msgHandle, goog
 
 		if (pmMsg->update_particle_ent().control_point() == 1) {
 			auto pos = pmMsg->update_particle_ent().fallback_position();
-			auto hero = Interfaces::EntitySystem->GetEntity(NH2IDX(pmMsg->update_particle_ent().entity_handle()));
+			auto hero = CEntSys::Get()->GetEntity(NH2IDX(pmMsg->update_particle_ent().entity_handle()));
 			if (Blinks.contains(hero))
 			{
 				auto& data = Blinks[hero];

@@ -27,4 +27,6 @@ public:
 	virtual EGCResults SendMessage_(uint32_t unMsgType, const void* pubData, uint32_t cubData) = 0;
 	virtual bool IsMessageAvailable(uint32_t* pcubMsgSize) = 0;
 	virtual EGCResults RetrieveMessage(uint32_t* punMsgType, void* pubDest, uint32_t cubDest, uint32_t* pcubMsgSize) = 0;
+
+	static ISteamGameCoordinator* Get();
 };

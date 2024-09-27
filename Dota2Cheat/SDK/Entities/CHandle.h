@@ -17,7 +17,7 @@ struct CHandle {
 	}
 
 	T* Entity() const {
-		return Interfaces::EntitySystem->GetEntity<T>(Index());
+		return CEntSys::Get()->GetEntity<T>(Index());
 	}
 
 	operator T* () const {

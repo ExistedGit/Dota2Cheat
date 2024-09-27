@@ -14,7 +14,7 @@ void Modules::M_TreeChanger::SetTreeModel(CBaseEntity* tree, const TreeModelInfo
 void Modules::M_TreeChanger::RestoreTreeModels() {
 
 	static void(*skeletonMeshGroupMaskChanged)(CBaseEntity::CModelState* mdl, CBaseEntity* owner, uint64_t* mask)
-		= Interfaces::NetworkMessages->FindCallback("skeletonMeshGroupMaskChanged");
+		= CNetworkMessages::Get()->FindCallback("skeletonMeshGroupMaskChanged");
 
 	auto trees = CBinaryObjSys::Get()->GetTrees();
 

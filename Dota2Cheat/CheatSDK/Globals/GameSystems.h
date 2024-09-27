@@ -9,6 +9,8 @@
 #include "GameSystems/CDOTARichPresence.h"
 #include "GameSystems/CDOTA_MinimapObjectManager.h"
 #include "GameSystems/CDOTA_PanoramaMinimapRenderer.h"
+#include "GameSystems/CGlobalVars.h"
+#include "GameSystems/CDOTAParticleManager.h"
 #include "GameSystems/CDOTA_BinaryObjectSystem.h"
 #include "GameSystems/C_DOTAGameRules.h"
 #include "GameSystems/CGameParticleManagerSystem.h"

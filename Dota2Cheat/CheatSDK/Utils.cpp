@@ -5,7 +5,7 @@ ImVec2 WorldToMap(const Vector& EntityPos) {
 
 	if (!mmr)
 		return { 0,0 };
-	static auto dota_hud_flip = Interfaces::CVar->CVars["dota_hud_flip"].m_pVar;
+	static auto dota_hud_flip = CCVar::Get()->CVars["dota_hud_flip"].m_pVar;
 	const auto ScreenSize = Panorama::DotaHud->GetScreenSize();
 
 	auto bounds = mmr->MinimapBounds;

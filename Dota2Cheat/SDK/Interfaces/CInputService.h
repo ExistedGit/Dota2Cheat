@@ -6,4 +6,9 @@ public:
 	void CmdCommand(std::string_view command) {
 		CallVFunc<25>(5, command.data(), 0);
 	}
+
+	static CInputService* Get() {
+		static CInputService* inst = Memory::GetInterfaceBySubstr("engine2.dll", "InputService");
+		return inst;
+	}
 };

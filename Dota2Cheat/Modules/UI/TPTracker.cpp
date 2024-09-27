@@ -84,13 +84,13 @@ void Modules::M_TPTracker::OnReceivedMsg(NetMessageHandle_t* msgHandle, google::
 
 		std::string_view particleName;
 		{
-			auto szParticleName = Interfaces::ResourceSystem->GetResourceName(particle.particle_name_index());
+			auto szParticleName = CResourceSystem::Get()->GetResourceName(particle.particle_name_index());
 			if (!szParticleName)
 				break;
 			particleName = szParticleName;
 		}
 
-		auto ent = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC>(NH2IDX(particle.entity_handle_for_modifiers()));
+		auto ent = CEntSys::Get()->GetEntity<CDOTABaseNPC>(NH2IDX(particle.entity_handle_for_modifiers()));
 		if (!ent || !ent->GetUnitName())
 			break;
 

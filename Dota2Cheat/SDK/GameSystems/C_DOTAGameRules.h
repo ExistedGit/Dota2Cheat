@@ -6,6 +6,8 @@
 #include "../Base/CUtlVector.h"
 #include "../Netvars.h"
 
+#include "CGlobalVars.h"
+
 class ItemStockInfo : VClass {
 private:
 	char pad[0x28];
@@ -33,7 +35,16 @@ public:
 	GETTER(float, GetGameEndTime, Netvars::C_DOTAGamerules::m_flGameEndTime);
 	GETTER(CUtlVector<ItemStockInfo>, GetItemStockInfo, Netvars::C_DOTAGamerules::m_vecItemStockInfo);
 
-	float GetGameTime();
+	// Suggested by og, reversed by Morphling and rewritten by ExistedDim4
+	float GetGameTime() const {
+		auto gpGlobals = CGlobalVars::Get();
+		float tickToSeconds = gpGlobals->Member<float>(68);
+		auto totalPausedTicks = Member<uint32_t>(Netvars::C_GameRules::m_nTotalPausedTicks);
+
+		if (IsGamePaused())
+			return (Member<int>(Netvars::C_GameRules::m_nPauseStartTick) - totalPausedTicks) * tickToSeconds;
+		return gpGlobals->Member<float>(44) - totalPausedTicks * tickToSeconds;
+	}
 
 	// Instance initialization is deferred to game start
 	static void Set(CDOTAGameRules* inst) {

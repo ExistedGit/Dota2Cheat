@@ -19,7 +19,7 @@ void Utility::AttackAnimTracker::ProcessAttackAnimMessage(NetMessageHandle_t* ms
 
 		if (animMsg->activity() != 1503)
 			return;
-		auto npc = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC>(NH2IDX(animMsg->entity()));
+		auto npc = CEntSys::Get()->GetEntity<CDOTABaseNPC>(NH2IDX(animMsg->entity()));
 
 		animations[npc] = {
 			.startTime = CGameRules::Get()->GetGameTime(),
@@ -28,7 +28,7 @@ void Utility::AttackAnimTracker::ProcessAttackAnimMessage(NetMessageHandle_t* ms
 	}
 	else if (msgHandle->messageID == 522) {
 		auto animMsg = (CDOTAUserMsg_TE_UnitAnimationEnd*)msg;
-		auto npc = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC>(NH2IDX(animMsg->entity()));
+		auto npc = CEntSys::Get()->GetEntity<CDOTABaseNPC>(NH2IDX(animMsg->entity()));
 		animations.erase(npc);
 	}
 

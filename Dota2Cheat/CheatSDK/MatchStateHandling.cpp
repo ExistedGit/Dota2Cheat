@@ -11,9 +11,9 @@ void CMatchStateManager::EnteredPreGame() {
 
 	#ifdef _DEBUG
 		LogFI("Player indices:\n\t+1: {}\n\tGetPlayer: {}\n\tPlayerResource: {}",
-			Interfaces::NetworkClientService->GetIGameClient()->GetLocalPlayerID() + 1,
+			INetworkClientService::Get()->GetIGameClient()->GetLocalPlayerID() + 1,
 			Signatures::GetPlayer(-1)->GetIndex(),
-			H2IDX(CPlayerResource::Get()->PlayerIDToHandle(Interfaces::NetworkClientService->GetIGameClient()->GetLocalPlayerID()))
+			H2IDX(CPlayerResource::Get()->PlayerIDToHandle(INetworkClientService::Get()->GetIGameClient()->GetLocalPlayerID()))
 			);
 	#endif
 
@@ -31,9 +31,9 @@ void CMatchStateManager::EnteredInGame() {
 	LogI("GAME STAGE: INGAME");
 	LogFD("Local Player: {}\n\tSTEAM ID: {}", (void*)ctx.localPlayer, ctx.localPlayer->GetSteamID());
 
-	// Interfaces::CVar->CVars["sv_cheats"].m_pVar->value.boolean = true;
-	Interfaces::CVar->CVars["r_farz"].m_pVar->value.flt = 10000.0f;
-	Interfaces::CVar->CVars["fog_enable"].m_pVar->value.boolean = false;
+	// CCVar::Get()->CVars["sv_cheats"].m_pVar->value.boolean = true;
+	CCVar::Get()->CVars["r_farz"].m_pVar->value.flt = 10000.0f;
+	CCVar::Get()->CVars["fog_enable"].m_pVar->value.boolean = false;
 
 	Panorama::FindPanels();
 	Modules::UIOverhaul.QueueUpdateNetworthPanel();
@@ -78,7 +78,7 @@ void CMatchStateManager::LeftMatch() {
 }
 
 void CMatchStateManager::CheckForOngoingGame() {
-	if (!Interfaces::NetworkClientService->GetIGameClient()->IsInGame())
+	if (!INetworkClientService::Get()->GetIGameClient()->IsInGame())
 		return;
 
 	MatchStateManager.CacheAllEntities();
@@ -105,8 +105,8 @@ void CMatchStateManager::CheckForOngoingGame() {
 
 
 void CMatchStateManager::CacheAllEntities() {
-	for (int i = 0; i <= Interfaces::EntitySystem->GetHighestEntityIndex(); i++) {
-		auto ent = Interfaces::EntitySystem->GetEntity(i);
+	for (int i = 0; i <= CEntSys::Get()->GetHighestEntityIndex(); i++) {
+		auto ent = CEntSys::Get()->GetEntity(i);
 		if (!IsValidReadPtr(ent) ||
 			!IsValidReadPtr(ent->SchemaBinding()->binaryName))
 			continue;

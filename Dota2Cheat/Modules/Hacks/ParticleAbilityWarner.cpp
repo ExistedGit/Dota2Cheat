@@ -52,7 +52,7 @@ void Modules::ParticleAbilityWarner::OnReceivedMsg(NetMessageHandle_t* msgHandle
 				break;
 			queuedParticleIndexes[msgIndex] = AbilityParticleInfo{
 				.nameIndex = (AbilityParticles)particle.particle_name_index(),
-				.owner = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC>(
+				.owner = CEntSys::Get()->GetEntity<CDOTABaseNPC>(
 					NH2IDX(particle.entity_handle_for_modifiers()))
 			};
 			break;
@@ -67,7 +67,7 @@ void Modules::ParticleAbilityWarner::OnReceivedMsg(NetMessageHandle_t* msgHandle
 			break;
 
 		auto updParticleEnt = pmMsg->update_particle_ent();
-		auto owner = Interfaces::EntitySystem->GetEntity(NH2IDX(updParticleEnt.entity_handle()));
+		auto owner = CEntSys::Get()->GetEntity(NH2IDX(updParticleEnt.entity_handle()));
 		// If they're not an enemy we dequeue the particle's index
 		if (!owner || owner->IsSameTeam(ctx.localHero)) {
 			queuedParticleIndexes.erase(msgIndex);

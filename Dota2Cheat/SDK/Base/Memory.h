@@ -151,13 +151,13 @@ public:
 
 	// In these methods we traverse the interface list ourselves
 
-	static Address GetInterface(std::string_view dllName, std::string_view interfaceName) {
-		static auto CreateInterface = GetExport(dllName, "CreateInterface");
-		return CreateInterface(interfaceName.data(), nullptr);
+	static Address GetInterface(const char* dllName, const char* interfaceName) {
+		auto CreateInterface = GetExport(dllName, "CreateInterface");
+		return CreateInterface(interfaceName, nullptr);
 	}
 
-	static Address GetInterfaceBySubstr(std::string_view dllName, std::string_view substr) {
-		auto pInterface = *GetExport<Address>(dllName, "CreateInterface").GetAbsoluteAddress<InterfaceInfo**>(3);
+	static Address GetInterfaceBySubstr(const char* dllName, const char* substr) {
+		auto pInterface = (const InterfaceInfo*)GetExport<Address>(dllName, "CreateInterface").GetAbsoluteAddress(3).Dereference();
 
 		while (pInterface) {
 			if (std::string_view(pInterface->m_szName).find(substr) != std::string_view::npos)

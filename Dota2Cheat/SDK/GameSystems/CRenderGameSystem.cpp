@@ -20,9 +20,6 @@ bool CRenderGameSystem::GetVectorInScreenSpace(const Vector& point, Vector2D& sc
 	static int resolut[2] = { 0 };
 	if (!resolut[0] || !resolut[1])
 	{
-		if (!Interfaces::Engine)
-			return false;
-
 		// CEngineClient vfunc 49 GetScreenSize redirects to this
 		const static VClass* engineServiceMgr = Memory::GetInterfaceBySubstr("engine2.dll", "EngineServiceMgr");
 		// curiously, THIS index does not change

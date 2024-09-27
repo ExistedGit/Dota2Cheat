@@ -15,39 +15,13 @@
 #include <Interfaces/ISteamClient.h>
 #include <Interfaces/ISteamGameCoordinator.h>
 #include <Interfaces/CGameUI.h>
-
+#include <Interfaces/CSource2Client.h>
+#include <Interfaces/CPanoramaUIEngine.h>
+#include <Interfaces/IEngineClient.h>
 #include <Panorama/CUIEngineSource2.h>
 
-#include <Base/Memory.h>
-#include <Base/Address.h>
-#include <Base/VMT.h>
-#include <Base/Logging.h>
-
-#include <format>
-
-namespace Interfaces {
-	inline CCVar* CVar{};
-	inline CEngineClient* Engine{};
-	inline CResourceSystem* ResourceSystem{};
-	inline VClass* Panorama{};
-	inline CUIEngineSource2* UIEngine{};
-	inline VClass* Client{}; // CSource2Client 
-	inline CGameEntitySystem* EntitySystem{};
-	inline ISteamClient* SteamClient{};
-	inline ISteamGameCoordinator* SteamGC{};
-	inline CFlattenedSerializers* FlattenedSerializers{};
-	inline CSoundOpSystem* SoundOpSystem{};
-	inline CGameUI* GameUI{};
-	inline CGCClient* GCClient{};
-
-	inline INetworkClientService* NetworkClientService{};
-	inline CNetworkMessages* NetworkMessages{};
-
-	inline CInputService* InputService{};
-	inline VClass* Schema{};
-	inline VClass* ParticleMgrSystem{};
-	inline CBaseFileSystem* FileSystem{};
-	// inline void* NetworkSystem;
-
-	void FindInterfaces();
-}
+using ISteamGC = ISteamGameCoordinator;
+using CEntSys = CGameEntitySystem;
+using CSoundOpSys = CSoundOpSystem;
+using CFileSys = CBaseFileSystem;
+using CUIEngine = CUIEngineSource2;

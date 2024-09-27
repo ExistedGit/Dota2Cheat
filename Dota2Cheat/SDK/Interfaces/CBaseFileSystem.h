@@ -37,4 +37,6 @@ public:
 	char* ReadLine(char* buffer, int size, CFileHandle handle) {
 		return CallVFunc<56, char*>(buffer, size, handle);
 	}
+
+	static CBaseFileSystem* Get();
 };

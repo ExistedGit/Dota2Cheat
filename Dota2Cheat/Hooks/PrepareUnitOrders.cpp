@@ -15,7 +15,7 @@ bool Hooks::hkPrepareUnitOrders(CDOTAPlayerController* player, dotaunitorder_t o
 		case DOTA_ORDER_ISSUER_CURRENT_UNIT_ONLY:
 		case DOTA_ORDER_ISSUER_SELECTED_UNITS:
 			if (ctx.localPlayer && !ctx.localPlayer->GetSelectedUnits().empty())
-				issuer = Interfaces::EntitySystem->GetEntity(ctx.localPlayer->GetSelectedUnits().first());
+				issuer = CEntSys::Get()->GetEntity(ctx.localPlayer->GetSelectedUnits().first());
 			break;
 		}
 	}
@@ -34,7 +34,7 @@ bool Hooks::hkPrepareUnitOrders(CDOTAPlayerController* player, dotaunitorder_t o
 		break;
 	}
 	case DOTA_UNIT_ORDER_CAST_NO_TARGET: {
-		Modules::ManaHPAbuse.PerformAbuse((CDOTABaseNPC*)issuer, Interfaces::EntitySystem->GetEntity<CDOTAItem>(abilityIndex));
+		Modules::ManaHPAbuse.PerformAbuse((CDOTABaseNPC*)issuer, CEntSys::Get()->GetEntity<CDOTAItem>(abilityIndex));
 		break;
 	}
 	}

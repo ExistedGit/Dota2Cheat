@@ -2,8 +2,8 @@
 
 void LogEntities() {
 	std::stringstream buf;
-	for (int idx = 0; idx <= Interfaces::EntitySystem->GetHighestEntityIndex(); ++idx) {
-		if (CBaseEntity* entity = Interfaces::EntitySystem->GetEntity(idx); (entity && IsValidReadPtr(entity))) {
+	for (int idx = 0; idx <= CEntSys::Get()->GetHighestEntityIndex(); ++idx) {
+		if (CBaseEntity* entity = CEntSys::Get()->GetEntity(idx); (entity && IsValidReadPtr(entity))) {
 			const auto schema_bind = entity->SchemaBinding();
 			if (entity->GetIdentity()->GetName() && schema_bind && schema_bind->binaryName) {
 				buf << (void*)entity << ", " << entity->GetIdentity()->GetName() << ", " << schema_bind->binaryName << std::endl;

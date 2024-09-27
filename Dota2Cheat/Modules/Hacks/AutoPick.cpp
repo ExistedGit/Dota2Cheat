@@ -2,12 +2,12 @@
 
 void Modules::AutoPick::BanHero(const char* name) {
 	auto command = std::format("dota_captain_ban_hero npc_dota_hero_{}", name);
-	Interfaces::InputService->CmdCommand(command.c_str());
+	CInputService::Get()->CmdCommand(command.c_str());
 }
 
 void Modules::AutoPick::PickHero(const char* name) {
 	auto command = std::format("dota_select_hero npc_dota_hero_{}", name);
-	Interfaces::InputService->CmdCommand(command.c_str());
+	CInputService::Get()->CmdCommand(command.c_str());
 }
 
 void Modules::AutoPick::Reset() {

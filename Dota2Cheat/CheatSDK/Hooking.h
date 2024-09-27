@@ -18,6 +18,6 @@ namespace Hooks {
 
 	// Removes any custom, non-MinHook hooks
 	inline void RemoveHooks() {
-		Interfaces::EntitySystem->GetListeners().remove_by_value(&EntityList);
+		CEntSys::Get()->GetListeners().remove_by_value(&EntityList);
 	}
 }

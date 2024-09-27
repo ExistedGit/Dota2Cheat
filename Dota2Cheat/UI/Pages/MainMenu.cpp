@@ -6,8 +6,8 @@
 void Pages::MainMenu::Draw() {
 	ImGui::Begin("Main", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
 
-	static auto& cl_particle_log_creates = Interfaces::CVar->CVars["cl_particle_log_creates"].m_pVar->value.boolean;
-	static auto net_showreliable = Interfaces::CVar->CVars["net_showreliable"].m_pVar;
+	static auto& cl_particle_log_creates = CCVar::Get()->CVars["cl_particle_log_creates"].m_pVar->value.boolean;
+	static auto net_showreliable = CCVar::Get()->CVars["net_showreliable"].m_pVar;
 	static bool net_showreliable_bool = strcmp(net_showreliable->value.str, "0");
 #if defined(_DEBUG) && !defined(_TESTING)
 	ImGui::Begin("Debug", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
@@ -29,13 +29,13 @@ void Pages::MainMenu::Draw() {
 
 	if (ImGui::Button("Log Inventory")) {
 		auto selected = ctx.localPlayer->GetSelectedUnits();
-		auto ent = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC>(selected[0]);
+		auto ent = CEntSys::Get()->GetEntity<CDOTABaseNPC>(selected[0]);
 		LogInvAndAbilities(ent);
 	}
 
 	if (ImGui::Button("Log Modifiers")) {
 		auto selected = ctx.localPlayer->GetSelectedUnits();
-		auto ent = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC>(selected[0]);
+		auto ent = CEntSys::Get()->GetEntity<CDOTABaseNPC>(selected[0]);
 		LogModifiers(ent);
 	}
 
@@ -116,7 +116,7 @@ void Pages::MainMenu::Draw() {
 			Modules::DotaPlusManager.QueueUpdate();
 		};
 		if (ImGui::Checkbox("Unlock emoticons", &Config::Changer::UnlockEmoticons)) {
-			static auto dota_hud_chat_enable_all_emoticons = Interfaces::CVar->CVars["dota_hud_chat_enable_all_emoticons"].m_pVar;
+			static auto dota_hud_chat_enable_all_emoticons = CCVar::Get()->CVars["dota_hud_chat_enable_all_emoticons"].m_pVar;
 			dota_hud_chat_enable_all_emoticons->value.boolean = Config::Changer::UnlockEmoticons;
 		};
 		// https://github.com/SK68-ph/Shadow-Dance-Menu

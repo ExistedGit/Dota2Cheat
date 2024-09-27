@@ -1,7 +1,7 @@
 #include "CVarSpoofer.h"
 
 void Modules::M_CVarSpoofer::SpoofVar(const char* varName) {
-	auto origVar = Interfaces::CVar->CVars[varName].m_pVar;
+	auto origVar = CCVar::Get()->CVars[varName].m_pVar;
 	if (spoofedVars.contains(origVar))
 		return;
 
@@ -21,7 +21,7 @@ void Modules::M_CVarSpoofer::SpoofVar(const char* varName) {
 	origVar->name = dummyName;
 
 	RegisterConVarInfo regInfo{ varName, dummyVar->desc, dummyVar->flags, info };
-	Interfaces::CVar->CallVFunc<35>(&regInfo, 8, &dummyId, (void*)((uintptr_t)&dummyId + 8));
+	CCVar::Get()->CallVFunc<35>(&regInfo, 8, &dummyId, (void*)((uintptr_t)&dummyId + 8));
 
 	spoofedVars[dummyVar] = {
 		.original = origVar,
@@ -32,6 +32,6 @@ void Modules::M_CVarSpoofer::SpoofVar(const char* varName) {
 void Modules::M_CVarSpoofer::RestoreVars() {
 	for (auto& [cvar, data] : spoofedVars) {
 		data.original->name = cvar->name;
-		Interfaces::CVar->CallVFunc<38>(data.impl);
+		CCVar::Get()->CallVFunc<38>(data.impl);
 	}
 }

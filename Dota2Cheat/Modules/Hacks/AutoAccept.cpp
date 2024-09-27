@@ -28,14 +28,14 @@
 void Modules::M_AutoAccept::RunAcceptTimer() {
 	std::this_thread::sleep_for(std::chrono::seconds(Config::AutoAccept::Delay));
 	// All that rebuilt from CDOTAGCClientSystem::SendReadyUpMessageForCurrentLobby(), see signatures.json
-	auto key = Interfaces::GCClient->GetReadyUpKey();
+	auto key = CGCClient::Get()->GetReadyUpKey();
 
 	CMsgReadyUp msg;
 	msg.set_ready_up_key(key);
 	LogI("Accepting match...");
 	msg.set_state(DOTALobbyReadyState_ACCEPTED);
 
-	Interfaces::SteamGC->SendMsg(msg, k_EMsgGCReadyUp);
+	ISteamGC::Get()->SendMsg(msg, k_EMsgGCReadyUp);
 
 	acceptingMatch = false;
 }

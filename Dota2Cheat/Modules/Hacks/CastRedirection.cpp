@@ -3,7 +3,7 @@
 bool Modules::M_CastRedirection::RedirectIfIllusionCast(uint32_t& targetIndex, CBaseEntity* issuer, uint32_t abilityIndex, bool& giveOrder) {
 	if (!Config::CastRedirection)
 		return false;
-	auto npc = Interfaces::EntitySystem->GetEntity<CDOTABaseNPC_Hero>(targetIndex);
+	auto npc = CEntSys::Get()->GetEntity<CDOTABaseNPC_Hero>(targetIndex);
 
 	if (!EntityList.IsHero(npc) ||
 		!npc->IsIllusion())
@@ -11,7 +11,7 @@ bool Modules::M_CastRedirection::RedirectIfIllusionCast(uint32_t& targetIndex, C
 
 	CDOTABaseNPC_Hero* illusionOwner = npc->GetOwnerEntityHandle().Entity()->GetAssignedHeroHandle();
 
-	auto range = Interfaces::EntitySystem->GetEntity<CDOTABaseAbility>(abilityIndex)->GetEffectiveCastRange();
+	auto range = CEntSys::Get()->GetEntity<CDOTABaseAbility>(abilityIndex)->GetEffectiveCastRange();
 	if (!illusionOwner->IsTargetable()) {
 		ShowHUDError("Cannot redirect cast: target missing", "General.InvalidTarget_Invulnerable");
 		giveOrder = false;

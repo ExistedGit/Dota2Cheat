@@ -22,7 +22,7 @@ void Modules::M_AutoPing::OnFrame() {
 	loc->set_direct_ping(false);
 	loc->set_type(0);
 	loc->set_ping_source(k_ePingSource_Default);
-	auto handle = Interfaces::NetworkMessages->FindNetworkMessage("CDOTAClientMsg_MapPing");
+	auto handle = CNetworkMessages::Get()->FindNetworkMessage("CDOTAClientMsg_MapPing");
 	//if (Hooks::NetChan)
 	//	Hooks::oSendNetMessage(Hooks::NetChan, handle, msg, BUF_DEFAULT);
 }

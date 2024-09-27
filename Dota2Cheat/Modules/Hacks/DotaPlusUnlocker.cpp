@@ -9,7 +9,7 @@ void Modules::M_DotaPlusManager::UpdateDotaPlusStatus() {
 	if (!updateSubscription)
 		return;
 
-	static auto inventory = Interfaces::GCClient->GetSOListeners()[1];
+	static auto inventory = CGCClient::Get()->GetSOListeners()[1];
 	static auto objCache = inventory->GetSOCache();
 
 	for (auto& typeCache : objCache->GetTypeCacheList()) {
@@ -25,7 +25,7 @@ void Modules::M_DotaPlusManager::UpdateDotaPlusStatus() {
 
 		proto->set_plus_flags(!Config::Changer::UnlockDotaPlus);
 		proto->set_plus_status(Config::Changer::UnlockDotaPlus);
-		Interfaces::GCClient->DispatchSOUpdated(objCache->GetOwner(), typeCache->GetProtobufSO(), eSOCacheEvent_Incremental);
+		CGCClient::Get()->DispatchSOUpdated(objCache->GetOwner(), typeCache->GetProtobufSO(), eSOCacheEvent_Incremental);
 
 		//for(int i = 1; i <= 124; i++)
 		//	SetHeroXP(i, 72050);

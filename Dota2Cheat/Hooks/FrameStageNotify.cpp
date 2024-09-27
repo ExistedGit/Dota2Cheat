@@ -30,7 +30,7 @@ void UpdateCameraDistance() {
 	static auto varInfo = CCVar::CVars["dota_camera_distance"];
 	if (Config::CameraDistance != varInfo.m_pVar->value.flt) {
 		varInfo.m_pVar->value.flt = Config::CameraDistance;
-		Interfaces::CVar->TriggerCallback(varInfo);
+		CCVar::Get()->TriggerCallback(varInfo);
 	}
 }
 
@@ -125,8 +125,7 @@ void Hooks::hkFrameStageNotify(void* thisptr, int stage) {
 	HeroData[hero].HealthbarW2S = WorldToScreen(hero->GetHealthBarPos());
 		});
 
-
-	if (Interfaces::NetworkClientService->GetIGameClient()->IsInGame() &&
+	if (INetworkClientService::Get()->GetIGameClient()->IsInGame() &&
 		ctx.localHero &&
 		ctx.gameStage == GameStage::IN_GAME)
 		InGameLogic();
