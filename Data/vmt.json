@@ -10,8 +10,19 @@
         "GetIdealSpeed": 251,
         "GetMagicalArmorValue": 301,
         "GetPhysicalArmorValue": 300,
-        "OnWearablesChanged": 276
+        "OnWearablesChanged": 276,
+		
+		"IsRoshan": 62
     },
+	"CPanel2D": {
+		"GetPositionWithinWindow": 45
+	},
+	"CUIPanel": {
+		"BHasClass": 96
+	},
+	"CNetworkGameClient": {
+		"GetLocalPlayer": 31
+	},
     "CDOTAParticleManager": {
         "CreateParticle": 9
     },
@@ -19,11 +30,14 @@
         "OnAddModifier": 43
     },
     "CEngineServiceMgr": {
-        "GetScreenSize": 45
+        "GetScreenSize": 24
     },
     "CGameSceneNode": {
         "SetScale": 10
     },
+	"CDOTAGameRules": {
+		"GetGameTime": 64
+	},
     "CParticleCollection": {
         "SetControlPoint": 16,
         "SetRenderingEnabled": 95
@@ -41,5 +55,8 @@
         "IsValidPanelPointer": 33,
         "RunFrame": 6,
         "RunScript": 81
-    }
+    },
+	"CNetworkMessages": {
+		"FindNetworkMessageByID": 31
+	}
 }

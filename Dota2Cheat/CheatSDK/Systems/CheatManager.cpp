@@ -1,6 +1,7 @@
 #include "CheatManager.h"
 
 #include <fstream>
+#include <MinHook.h>
 
 #include "../Config.h"
 #include "TextureManager.h"
@@ -15,19 +16,18 @@
 #include "../Globals/VMTDB.h"
 #include "../Tables.h"
 
-void CCheatManager::LoadGameSpecific() {
-	// Allows VPK mods
-	// IDK what became of that piece of code
-	//if (auto gi = Memory::Scan("74 ? 84 C9 75 ? 83 BF", "client.dll"))
-	//	Memory::Patch(gi, { 0xEB });
-
+void CCheatManager::LoadVMI() {
 	LogFI("Loading VM indices from {}", cheatFolderPath + "\\vmt.json");
 	VMDB::LoadFromFile(cheatFolderPath + "\\vmt.json");
-	VMDB::ParseMap(VMI::vmTables);
+	VMDB::ParseMap(VMI::bindings);
+}
 
+void CCheatManager::LoadGameSpecific() {
 	LogFI("Loading signatures from {}", cheatFolderPath + "\\signatures.json");
 	SignatureDB::LoadSignaturesFromFile(cheatFolderPath + "\\signatures.json");
 	Signatures::FindSignatures();
+
+	LoadVMI();
 
 	// Disables gameoverlayrenderer64's WINAPI hook checks
 	// e. g. they track the use of VirtualProtect(Ex) with PAGE_EXECUTE_READWRITE specifically
@@ -109,6 +109,9 @@ void CCheatManager::LoadFiles() {
 }
 
 void CCheatManager::Initialize(HMODULE hModule) {
+	// Initialize MinHook.
+	if (MH_Initialize() != MH_OK)
+		FreeLibrary(hModule);
 
 	this->hModule = hModule;
 	AllocConsole();

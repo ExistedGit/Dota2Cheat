@@ -18,6 +18,12 @@ void Modules::M_LastHitMarker::Draw() {
 
 	auto attackRange = ctx.localHero->GetAttackRange();
 	const auto DrawForCreep = [this, hasQBlade, attackRange](const auto& wrapper) {
+		if (
+			wrapper.creepType != CreepType::LaneMelee
+			&& wrapper.creepType != CreepType::LaneRanged
+			&& wrapper.creepType != CreepType::Siege
+			)
+			return;
 
 		auto creep = wrapper.As<CDOTABaseNPC>();
 		if (!creep

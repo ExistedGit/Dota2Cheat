@@ -18,7 +18,7 @@ void CEntityList::OnEntityCreated(CBaseEntity* ent) {
 		LogF("Hero: {}", (void*)ent);
 		entType = Hero;
 	}
-	else if (className.find("Creep") != -1)
+	else if (className.find("C_DOTA_BaseNPC_Creep") != -1)
 		entType = Creep;
 
 	if (entType == Undefined) {
@@ -43,8 +43,10 @@ void CEntityList::OnEntityCreated(CBaseEntity* ent) {
 				wrap.creepType = CreepType::LaneMelee;
 			else
 				wrap.creepType = CreepType::LaneRanged;
-		}
+		} else if(className == "C_DOTA_BaseNPC_Creep_Neutral")
+				wrap.creepType = CreepType::Neutral;
 	}
+
 	Entities[ent->GetIndex()] = wrap;
 	DispatchEntityAdded(wrap);
 }

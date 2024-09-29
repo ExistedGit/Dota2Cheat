@@ -83,15 +83,15 @@ void InGameLogic() {
 				l->OnFrame();
 		
 #ifdef _DEBUG
-		if (IsKeyPressed(VK_NUMPAD8)) {
-			auto& w = ctx.localHero->Wearables();
-			Log(LP_NONE, "Wearables:");
-			for (CEconWearable* h : w) {
-				Log(LP_NONE, (void*)h);
-			}
-			static Function apply = Memory::Scan("41 55 48 83 EC 70 4C 8B E9", "client.dll");
-			apply(ctx.localHero);
-		}
+		//if (IsKeyPressed(VK_NUMPAD8)) {
+		//	auto& w = ctx.localHero->Wearables();
+		//	Log(LP_NONE, "Wearables:");
+		//	for (CEconWearable* h : w) {
+		//		Log(LP_NONE, (void*)h);
+		//	}
+		//	static Function apply = Memory::Scan("41 55 48 83 EC 70 4C 8B E9", "client.dll");
+		//	apply(ctx.localHero);
+		//}
 #endif 
 	}
 }

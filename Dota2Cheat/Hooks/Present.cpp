@@ -12,7 +12,6 @@
 
 #include "../Modules/Hacks/SkinChanger.h"
 #include "../Modules/Hacks/LastHitMarker.h"
-#include "../UI/LoadingMenu.h"
 
 #include "../CheatSDK/VTexDecoders/VTexParser.h"
 
@@ -123,6 +122,8 @@ long Hooks::hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT Flags)
 		Modules::BarAugmenter.Draw();
 		Modules::SpeedIndicator.Draw();
 		Modules::KillIndicator.Draw();
+
+		ImGui::GetForegroundDrawList()->AddCircleFilled(WorldToMap(ctx.localHero->GetPos()), 5, ImColor{ 255, 0 ,0 });
 	}
 	ImGui::PopFont();
 

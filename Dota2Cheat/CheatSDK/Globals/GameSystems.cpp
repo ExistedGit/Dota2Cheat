@@ -29,8 +29,8 @@ Address FindReallocatingGameSystem(std::string_view name) {
 }
 
 void GameSystems::InitMinimapRenderer() {
-	while (!Panorama::DotaHud->FindChildByIdTraverse("minimap")) {};
 	auto minimap = Panorama::DotaHud->FindChildByIdTraverse("minimap");
+	while (!minimap) { minimap = Panorama::DotaHud->FindChildByIdTraverse("minimap"); };
 
 	MinimapRenderer = minimap->GetPanel2D()->Member<CDOTAPanoramaMinimapRenderer*>(0x28);
 }
@@ -44,8 +44,8 @@ void GameSystems::FindGameSystems() {
 
 	LogI("[ GAME SYSTEMS ]");
 	tables::PrettyPrint({
-		{ "CDOTARichPresence", CDOTARichPresence::Get()},
-		{ "CDOTAGCClientSystem", CDOTAGCClientSystem::Get() },
+		{ "CDOTARichPresence", CRichPresence::Get()},
+		{ "CDOTAGCClientSystem", CGCClientSys::Get() },
 		{ "CDOTA_MinimapObjectManager", CMinimapObjMgr::Get() },
 		{ "CDOTA_BinaryObjectSystem", CBinaryObjSys::Get() },
 		{ "CDOTAInventoryManager", CInvMgr::Get() },
@@ -55,7 +55,7 @@ void GameSystems::FindGameSystems() {
 		{ "C_DOTA_ProjectileManager*", CProjectileMgr::GetPtr() },
 		{ "CRenderGameSystem*", CRenderGameSystem::GetPtr() },
 		{ "CGameEventManager*", CEventMgr::GetPtr() },
-		{ "C_DOTA_PlayerResource*", C_DOTA_PlayerResource::GetPtr() },
+		{ "C_DOTA_PlayerResource*", CPlayerResource::GetPtr() },
 	});
 }
 

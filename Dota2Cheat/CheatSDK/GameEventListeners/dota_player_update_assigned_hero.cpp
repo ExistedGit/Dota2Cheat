@@ -1,4 +1,5 @@
 #include "dota_player_update_assigned_hero.h"
+#include "../MatchStateHandling.h"
 
 void dota_player_update_assigned_hero_l::FireGameEvent(CGameEvent* ev) {
 	if (!ctx.localPlayer)

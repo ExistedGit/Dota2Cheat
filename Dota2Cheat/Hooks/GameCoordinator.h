@@ -12,6 +12,12 @@ namespace Hooks {
 	inline Signatures::DispatchPacketFn oDispatchPacket = nullptr;
 	inline Signatures::BAsyncSendProtoFn oBAsyncSendProto = nullptr;
 
-	bool hkBAsyncSendProto(CProtobufMsgBase<>* protobufMsg, IProtoBufSendHandler* handler);
-	bool hkDispatchPacket(CGCClient* thisptr, IMsgNetPacket* netPacket);	
+	//inline bool hkBAsyncSendProto(CProtobufMsgBase<>* protobufMsg, IProtoBufSendHandler* handler) {
+	//	// there was item equipment logic
+	//	// now it's someplace else
+	//	return oBAsyncSendProto(protobufMsg, handler);
+	//}
+	//inline bool hkDispatchPacket(CGCClient* thisptr, IMsgNetPacket* netPacket) {
+	//	return oDispatchPacket(thisptr, netPacket);
+	//}
 }

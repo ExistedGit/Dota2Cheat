@@ -1,27 +1,36 @@
 #include "MatchStateHandling.h"
+#include "Tables.h"
 
 void CMatchStateManager::EnteredPreGame() {
 	if (!CPlayerResource::Get())
 		return;
 
 	ctx.localPlayer = Signatures::GetPlayer(-1);
-	
+
 	if (!ctx.localPlayer)
 		return;
 
-	#ifdef _DEBUG
-		LogFI("Player indices:\n\t+1: {}\n\tGetPlayer: {}\n\tPlayerResource: {}",
-			INetworkClientService::Get()->GetIGameClient()->GetLocalPlayerID() + 1,
-			Signatures::GetPlayer(-1)->GetIndex(),
-			H2IDX(CPlayerResource::Get()->PlayerIDToHandle(INetworkClientService::Get()->GetIGameClient()->GetLocalPlayerID()))
-			);
-	#endif
+	LogI("GAME STAGE: PRE-GAME");
 
-	LogFD("ParticleManager: {} / CreateParticle: {}", (void*)CParticleMgr::Get(), (void*)CParticleMgr::Get()->GetVFunc(VMI::CDOTAParticleManager::CreateParticle));
+#ifdef _DEBUG
+	LogFI("Player indices:\n\t+1: {}\n\tGetPlayer: {}\n\tPlayerResource: {}",
+		INetworkClientService::Get()->GetIGameClient()->GetLocalPlayerID() + 1,
+		Signatures::GetPlayer(-1)->GetIndex(),
+		CPlayerResource::Get()->PlayerIDToHandle(INetworkClientService::Get()->GetIGameClient()->GetLocalPlayerID()).Index()
+	);
+#endif
+
+	LogI("[ REALLOCATING GAME SYSTEMS ]");
+
+	tables::PrettyPrint({
+		{ "CDOTAParticleManager", CParticleMgr::Get() },
+		{ "C_DOTA_PlayerResource", CPlayerResource::Get() },
+		{ "CRenderGameSystem", CRenderSys::Get() },
+		{ "C_DOTA_ProjectileManager", CProjectileMgr::Get() },
+		{ "CGameEventManager", CEventMgr::Get() },
+		});
 
 	ctx.gameStage = GameStage::PRE_GAME;
-
-	LogI("GAME STAGE: PRE-GAME");
 }
 
 void CMatchStateManager::EnteredInGame() {

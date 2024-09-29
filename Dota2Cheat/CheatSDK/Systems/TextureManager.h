@@ -17,27 +17,29 @@
 // Texture management system
 // Caches loaded textures which you can get by the name identifier
 inline class TextureManager {
-	std::unordered_map<std::string, ID3D11ShaderResourceView*> namedTex;
-	std::map<std::string, ID3D11ShaderResourceView**> loadingQueue;
+	using tex_ptr = ID3D11ShaderResourceView*;
+
+	std::unordered_map<std::string, tex_ptr> namedTex;
+	std::map<std::string, tex_ptr*> loadingQueue;
 	bool requiresUnload = false;
 public:
-	ID3D11ShaderResourceView* GetNamedTexture(const std::string& name) {
+	tex_ptr GetNamedTexture(const std::string& name) {
 		return namedTex[name];
 	}
 
-	void InitDX11Texture(int image_width,
-		int image_height,
+	void InitDX11Texture(unsigned image_width,
+		unsigned image_height,
 		unsigned char* image_data,
-		ID3D11ShaderResourceView** out_srv);
+		tex_ptr* out_srv) const;
 
 	template<size_t size>
-	bool LoadTextureFromMemory(unsigned char const (&data)[size], ID3D11ShaderResourceView** tex) {
+	bool LoadTextureFromMemory(unsigned char const (&data)[size], tex_ptr* tex) {
 		return LoadTextureFromMemory(data, size, tex);
 	}
-	bool LoadTextureFromMemory(unsigned char* data, size_t size, ID3D11ShaderResourceView** tex);
+	bool LoadTextureFromMemory(unsigned char* data, size_t size, tex_ptr* tex);
 
-	bool LoadTextureFromFile(std::string_view filename, ID3D11ShaderResourceView** tex);
-	bool LoadTextureNamed(std::string_view filename, ID3D11ShaderResourceView** tex, const std::string& texName) {
+	bool LoadTextureFromFile(std::string_view filename, tex_ptr* tex);
+	bool LoadTextureNamed(std::string_view filename, tex_ptr* tex, const std::string& texName) {
 		auto result = LoadTextureFromFile(filename, tex);
 		namedTex[texName] = *tex;
 		return result;
@@ -50,8 +52,7 @@ public:
 
 	void ExecuteLoadCycle() {
 		for (auto& [path, tex] : loadingQueue) {
-			// LogFI("Loading image: {}", path);
-			LoadTextureFromFile(path.c_str(), tex);
+			LoadTextureFromFile(path, tex);
 		}
 
 		loadingQueue.clear();

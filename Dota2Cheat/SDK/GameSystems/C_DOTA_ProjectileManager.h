@@ -38,5 +38,3 @@ public:
 
 	static C_DOTA_ProjectileManager* Get() { return *GetPtr(); }
 };
-
-using CProjectileMgr = C_DOTA_ProjectileManager;

@@ -8,14 +8,26 @@
 #include "../Base/Definitions.h"
 #include "../Base/VClass.h"
 
-// defines from TF2 sources. All hail the Source Engine!
-#define FCVAR_CHEAT	(1<<14)
-
-#define FCVAR_UNREGISTERED		(1<<0)	// If this is set, don't add to linked list, etc.
-#define FCVAR_DEVELOPMENTONLY	(1<<1)	// Hidden in released products. Flag is removed automatically if ALLOW_DEVELOPMENT_CVARS is defined.
-#define FCVAR_GAMEDLL			(1<<2)	// defined by the game DLL
-#define FCVAR_CLIENTDLL			(1<<3)  // defined by the client DLL
-#define FCVAR_HIDDEN			(1<<4)	// Hidden. Doesn't appear in find or auto complete. Like DEVELOPMENTONLY, but can't be compiled out.
+// You will find these as strings in client.dll JS binding code
+// They're used as arguments to a function, immediately after the string is a pointer to the value
+enum CVarFlags : uint32_t {
+	FCVAR_NONE = 0,
+	FCVAR_DEVELOPMENTONLY = 2,
+	FCVAR_HIDDEN = 16,
+	FCVAR_PROTECTED = 32,
+	FCVAR_SPONLY = 64,
+	FCVAR_ARCHIVE = 0x80,
+	FCVAR_NOTIFY = 0x100,
+	FCVAR_USERINFO = 0x200,
+	FCVAR_UNLOGGED = 0x800,
+	FCVAR_REPLICATED = 0x2000,
+	FCVAR_CHEAT = 0x4000,
+	FCVAR_PER_USER = 0x8000,
+	FCVAR_DEMO = 0x10000,
+	FCVAR_DONTRECORD = 0x20000,
+	FCVAR_NOT_CONNECTED = 0x400000,
+	FCVAR_VCONSOLE_SET_FOCUS = 0x8000000
+};
 
 enum class EConvarType : std::uint8_t
 {
@@ -114,31 +126,9 @@ public:
 	GETTER(CVarNode*, GetCVarNodeList, 0x40);
 
 	// Removes "hidden" and "dev only" flags from convars
-	void UnlockHiddenConVars() {
-		auto list = GetCVarNodeList();
-		for (int i = 0; i < GetCVarCount(); i++) {
-			if (!list[i].var)
-				continue;
+	void UnlockHiddenConVars();
 
-			list[i].var->flags ^= FCVAR_HIDDEN;
-			list[i].var->flags ^= FCVAR_DEVELOPMENTONLY;
-		}
-	}
-
-	void DumpConVarsToMap() const {
-		auto list = GetCVarNodeList();
-		auto size = GetCVarCount();
-		for (int i = 0; i < size; i++) {
-			auto var = list[i].var;
-			if (!var || !var->name)
-				continue;
-
-			CVarID id;
-			id.m_pVar = var;
-			id.impl = static_cast<uint64_t>(i);
-			CVars[var->name] = id;
-		}
-	}
+	void DumpConVarsToMap() const;
 
 	CVar* FindConVar(uint32_t id) const {
 		return GetVFunc(37).Call<CVar*>(id);

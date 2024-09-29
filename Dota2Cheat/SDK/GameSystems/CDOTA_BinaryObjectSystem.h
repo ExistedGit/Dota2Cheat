@@ -10,5 +10,3 @@ public:
 
 	static CDOTA_BinaryObjectSystem* Get();
 };
-
-using CBinaryObjSys = CDOTA_BinaryObjectSystem;

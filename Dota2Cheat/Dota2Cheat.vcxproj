@@ -180,12 +180,13 @@
     <ClCompile Include="CheatSDK\GameEventListeners\dota_player_update_assigned_hero.cpp" />
     <ClCompile Include="CheatSDK\Globals\SignatureDB.cpp" />
     <ClCompile Include="CheatSDK\Globals\VMTDB.cpp" />
+    <ClCompile Include="CheatSDK\Systems\AssetManager.cpp" />
     <ClCompile Include="CheatSDK\Systems\CheatManager.cpp" />
     <ClCompile Include="CheatSDK\Systems\TextureManager.cpp" />
     <ClCompile Include="CheatSDK\Tables.cpp" />
     <ClCompile Include="CheatSDK\VTexDecoders\DXT5Decoder.cpp" />
     <ClCompile Include="CheatSDK\VTexDecoders\VTexParser.cpp" />
-    <ClCompile Include="DebugFunctions.cpp" />
+    <ClCompile Include="CheatSDK\Debug.cpp" />
     <ClCompile Include="Hooks\FrameStageNotify.cpp" />
     <ClCompile Include="Hooks\Present.cpp" />
     <ClCompile Include="Hooks\SteamGC.cpp" />
@@ -198,7 +199,6 @@
     <ClCompile Include="CheatSDK\Config.cpp" />
     <ClCompile Include="CheatSDK\Hooking.cpp" />
     <ClCompile Include="CheatSDK\Utils.cpp" />
-    <ClCompile Include="Hooks\GameCoordinator.cpp" />
     <ClCompile Include="Hooks\ModifierEvents.cpp" />
     <ClCompile Include="Hooks\NetChannel.cpp" />
     <ClCompile Include="Hooks\PrepareUnitOrders.cpp" />
@@ -237,6 +237,7 @@
     <ClCompile Include="Modules\Utility\AttackAnimTracker.cpp" />
     <ClCompile Include="Modules\Utility\AttackTargetFinder.cpp" />
     <ClCompile Include="Modules\Utility\ParticleGC.cpp" />
+    <ClCompile Include="SDK\Base\Bytehook.cpp" />
     <ClCompile Include="SDK\Entities\CDOTAPlayerController.cpp" />
     <ClCompile Include="SDK\Entities\CDOTAUnitInventory.cpp" />
     <ClCompile Include="SDK\GameSystems\CDOTAParticleManager.cpp" />
@@ -256,13 +257,16 @@
     </ClCompile>
     <ClCompile Include="CheatSDK\Globals\GameSystemSingletonImpl.cpp" />
     <ClCompile Include="CheatSDK\Globals\InterfaceSingletonImpl.cpp" />
+    <ClCompile Include="SDK\Interfaces\CVarSystem.cpp" />
+    <ClCompile Include="SDK\Interfaces\Network\CNetworkGameClient.cpp" />
     <ClCompile Include="SDK\Panorama\CUIPanel.cpp" />
-    <ClCompile Include="UI\LoadingMenu.cpp" />
     <ClCompile Include="UI\Pages\AutoPickSelectionGrid.cpp" />
+    <ClCompile Include="UI\Pages\DebugMenu.cpp" />
     <ClCompile Include="UI\Pages\MainMenu.cpp" />
     <ClCompile Include="Utils\Drawing.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CheatSDK\Aliases.h" />
     <ClInclude Include="CheatSDK\GameEventListeners\event_func.h" />
     <ClInclude Include="CheatSDK\Globals\include.h" />
     <ClInclude Include="CheatSDK\Globals\Panorama.h" />
@@ -297,8 +301,10 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="pch.h" />
+    <ClInclude Include="SDK\Base\CUtlAbstractDelegate.h" />
     <ClInclude Include="SDK\Base\KeyValues.h" />
     <ClInclude Include="SDK\Base\MurmurHash2.h" />
+    <ClInclude Include="SDK\Base\VMT.h" />
     <ClInclude Include="SDK\GameSystems\CDOTAGCClientSystem.h" />
     <ClInclude Include="SDK\GameSystems\CDOTAInventoryManager.h" />
     <ClInclude Include="SDK\GameSystems\CDOTA_BinaryObjectSystem.h" />
@@ -411,7 +417,7 @@
     <ClInclude Include="SDK\Interfaces\GC\CGCClient.h" />
     <ClInclude Include="SDK\Interfaces\CInputService.h" />
     <ClInclude Include="CheatSDK\Config.h" />
-    <ClInclude Include="DebugFunctions.h" />
+    <ClInclude Include="CheatSDK\Debug.h" />
     <ClInclude Include="SDK\Interfaces\CResourceSystem.h" />
     <ClInclude Include="SDK\Interfaces\GC\CDOTAGCLobbyManager.h" />
     <ClInclude Include="SDK\Interfaces\GC\ISharedObjectListener.h" />
@@ -427,8 +433,8 @@
     <ClInclude Include="SDK\Panorama\CUIPanel.h" />
     <ClInclude Include="CheatSDK\VTexDecoders\DXT5Decoder.h" />
     <ClInclude Include="CheatSDK\VTexDecoders\VTexParser.h" />
-    <ClInclude Include="UI\LoadingMenu.h" />
     <ClInclude Include="UI\Pages\AutoPickSelectionGrid.h" />
+    <ClInclude Include="UI\Pages\DebugMenu.h" />
     <ClInclude Include="Utils\Drawing.h" />
     <ClInclude Include="CheatSDK\Globals\Context.h" />
     <ClInclude Include="CheatSDK\Hooking.h" />

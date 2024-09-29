@@ -9,5 +9,3 @@ class CDOTAInventoryManager : public VClass {
 public:
 	static CDOTAInventoryManager* Get();
 };
-
-using CInvMgr = CDOTAInventoryManager;

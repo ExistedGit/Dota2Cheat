@@ -10,7 +10,7 @@ void Modules::M_AbilityESP::SubscribeHeroes() {
 		else ++it;
 	}
 
-	EntityList.ForEach<CDOTABaseNPC_Hero>([this](auto hero) {
+	EntityList.ForEach<CHero>([this](CHero* hero) {
 		if (!CanDraw(hero))
 			return;
 
@@ -48,7 +48,8 @@ void Modules::M_AbilityESP::UpdateHeroData() {
 
 bool Modules::M_AbilityESP::CanDraw(CDOTABaseNPC_Hero* hero) {
 	bool ret =
-		!hero->GetIdentity()->IsDormant()
+		hero
+		&& !hero->GetIdentity()->IsDormant()
 		&& !hero->IsIllusion()
 		&& hero != ctx.localHero
 		&& hero->GetLifeState() == 0
@@ -222,8 +223,7 @@ void Modules::M_AbilityESP::DrawAbilities() {
 void Modules::M_AbilityESP::LoadItemTexIfNeeded(AbilityData& data) {
 	if (
 		data.icon ||
-		!data.ability->GetIdentity()->GetName() ||
-		!data.icon
+		!data.ability->GetIdentity()->GetName()
 		)
 		return;
 
@@ -546,11 +546,11 @@ void Modules::M_AbilityESP::UpdateAbilities(CDOTABaseNPC_Hero* hero) {
 
 		auto& heroAbilities = EnemyAbilities[hero];
 
-		if (!heroAbilities[validAbilities].ability)
+		if (!ability)
 			continue;
 
 		//weird worldent thing
-		if (heroAbilities[validAbilities].ability->GetIndex() == 0)
+		if (ability->GetIndex() == 0)
 			continue;
 
 		if (heroAbilities[validAbilities].ability == ability) {
@@ -589,7 +589,7 @@ void Modules::M_AbilityESP::UpdateItems(CDOTABaseNPC_Hero* hero) {
 			entry.erase(i);
 			continue;
 		}
-
+		
 		if (entry[i].ability && entry[i].ability->GetIdentity() && entry[i].ability->GetHandle() == heroItems[i])
 			continue;
 

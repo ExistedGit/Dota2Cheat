@@ -20,4 +20,10 @@ namespace Hooks {
 	inline void RemoveHooks() {
 		CEntSys::Get()->GetListeners().remove_by_value(&EntityList);
 	}
+
+	// Reloads every hook
+	inline void Reload() {
+		hooks::UnhookAll();
+		InstallHooks();
+	}
 }

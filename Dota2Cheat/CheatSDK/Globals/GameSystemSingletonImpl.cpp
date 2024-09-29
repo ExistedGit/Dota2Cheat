@@ -4,14 +4,23 @@
 // Centralized file with singleton getter implementations
 
 C_DOTA_PlayerResource** C_DOTA_PlayerResource::GetPtr() {
-	static C_DOTA_PlayerResource** ptr = Address(CSource2Client::Get()->GetVFunc(VMI::CSource2Client::VoiceReliable)).Offset(4).GetAbsoluteAddress(3);
+	static C_DOTA_PlayerResource** ptr = 
+		Address(
+			CSource2Client::Get()->GetVFunc(VMI::CSource2Client::VoiceReliable)
+		)
+		.Offset(4)
+		.GetAbsoluteAddress(3);
+
 	return ptr;
 }
 
 CGameEventManager** CGameEventManager::GetPtr() {
 	// Also in CSource2Client::Init(), right after "g_GameEventManager.Init()":
 	// mov rcx, [XXXXXXXXX]
-	static CGameEventManager** ptr = Address(CSource2Client::Get()->GetVFunc(VMI::CSource2Client::NotifyDisconnect))
+	static CGameEventManager** ptr = 
+		Address(
+			CSource2Client::Get()->GetVFunc(VMI::CSource2Client::NotifyDisconnect)
+		)
 		.Offset(0x3E)
 		.GetAbsoluteAddress(3);
 

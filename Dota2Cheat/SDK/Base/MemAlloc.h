@@ -3,7 +3,7 @@
 
 // Valve's memory allocation manager
 struct CMemAlloc : public VClass {
-	static CMemAlloc* Instance() {
+	static CMemAlloc* Get() {
 		static CMemAlloc* g_pMemAlloc = *Memory::GetExport<CMemAlloc**>("tier0.dll", "g_pMemAlloc");
 		return g_pMemAlloc;
 	}

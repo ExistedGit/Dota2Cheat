@@ -21,6 +21,7 @@ ISteamClient* ISteamClient::Get() {
 	return inst;
 }
 
+
 CCVar* CCVar::Get() {
 	static CCVar* inst = Memory::GetInterfaceBySubstr("tier0.dll", "VEngineCvar");
 	return inst;

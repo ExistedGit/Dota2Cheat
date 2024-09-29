@@ -1,10 +1,6 @@
 #pragma once
-#include "CheatSDK/include.h"
-
-#ifdef _DEBUG
+#include "include.h"
 
 void LogEntities();
 void LogModifiers(CDOTABaseNPC* npc);
 void LogInvAndAbilities(CDOTABaseNPC* npc = nullptr);
-
-#endif // _DEBUG

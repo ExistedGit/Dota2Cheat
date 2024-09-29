@@ -18,11 +18,11 @@ public:
 		CEventMgr::Get()->RemoveListener(listener);
 	}
 
-#define EVENT_SUB(name) auto name = CMemAlloc::Instance()->AllocInit<name ## _l>(); \
+#define EVENT_SUB(name) auto name = CMemAlloc::Get()->AllocInit<name ## _l>(); \
 CEventMgr::Get()->AddListener(name, #name); \
 Listeners.insert(name);
 
-#define LOG_EVENT(name) auto name##_logger = CMemAlloc::Instance()->AllocInit<event_func>(); \
+#define LOG_EVENT(name) auto name##_logger = CMemAlloc::Get()->AllocInit<event_func>(); \
 name##_logger->SetFunc([](CGameEvent* ev) { LogFI("[EVENT] {}", #name); }); \
 CEventMgr::Get()->AddListener(name##_logger, #name); \
 Listeners.insert(name##_logger);
@@ -42,7 +42,7 @@ Listeners.insert(name##_logger);
 #undef EVENT_SUB
 
 	void ClearListeners() {
-		for (auto& listener : Listeners)
+		for (auto listener : Listeners)
 			CEventMgr::Get()->RemoveListener(listener);
 		Listeners.clear();
 	}

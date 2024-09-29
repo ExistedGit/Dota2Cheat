@@ -1,17 +1,19 @@
 #include "Hooking.h"
 #include <Base/VMT.h>
 
-#define HOOKFUNC_SIGNATURES(func) HookFunc(Signatures::##func, &hk##func, &o##func, #func)
+bool meme(void* rcx, const CNETMsg_Tick* msg) {
+	return 1;
+}
 
 void Hooks::InstallHooks() {
-	HOOKFUNC_SIGNATURES(PrepareUnitOrders);
+	hooks::Hook(Signatures::PrepareUnitOrders, &Hooks::hkPrepareUnitOrders, &Hooks::oPrepareUnitOrders, "CDOTAPlayerController::PrepareUnitOrders");
 
 #if defined(_DEBUG) && !defined(_TESTING)
 	{
 		auto SendMsg = VMT(ISteamGC::Get())[0];
 		auto RetrieveMessage = VMT(ISteamGC::Get())[2];
-		HookFunc(SendMsg, &Hooks::hkSendMessage, &Hooks::oSendMessage, "ISteamGameCoordinator::SendMessage");
-		HookFunc(RetrieveMessage, &Hooks::hkRetrieveMessage, &Hooks::oRetrieveMessage, "ISteamGameCoordinator::RetrieveMessage");
+		hooks::Hook(SendMsg, &Hooks::hkSendMessage, &Hooks::oSendMessage, "ISteamGameCoordinator::SendMessage");
+		hooks::Hook(RetrieveMessage, &Hooks::hkRetrieveMessage, &Hooks::oRetrieveMessage, "ISteamGameCoordinator::RetrieveMessage");
 	}
 	//HOOKFUNC_SIGNATURES(SaveSerializedSOCache);
 #endif // _DEBUG
@@ -21,9 +23,9 @@ void Hooks::InstallHooks() {
 		// vtable ptr at 0x15
 		//uintptr_t** vtable = SignatureDB::FindSignature("CNetChan::vftable");
 		// They inlined the call to PostReceived so we have to make do with this 
-		uintptr_t* PostReceivedNetMessage = SignatureDB::FindSignature("CTSQueue::PushItem"); // vtable[VMI::CNetChan::PostReceivedNetMessage],
+		//uintptr_t* PostReceivedNetMessage = SignatureDB::FindSignature("CTSQueue::PushItem"); // vtable[VMI::CNetChan::PostReceivedNetMessage],
 		//* SendNetMessage = vtable[VMI::CNetChan::SendNetMessage];
-		HOOKFUNC(PostReceivedNetMessage);
+		//HOOKFUNC(PostReceivedNetMessage);
 		// HOOKFUNC(SendNetMessage);
 	}
 	{
@@ -52,6 +54,18 @@ void Hooks::InstallHooks() {
 #endif
 
 	}
+
+	//{
+	//	auto client = INetworkClientService::Get()->GetIGameClient();
+	//	auto nc = client->GetNetChannel();
+	//	auto buf = ((VClass*)client)->MemberInline<void>(40);
+	//	
+	//	auto pbs = CNetworkMessages::Get()->FindNetworkMessageByID(4);
+	//	CUtlAbstractDelegate d(client, meme);
+	//	nc->StartRegisteringMessageHandlers();
+	//	nc->RegisterAbstractMessageHandler(buf, &d, 1, pbs, 0);
+	//	nc->FinishRegisteringMessageHandlers();
+	//}
 
 	CEntSys::Get()->GetListeners().push_back(&EntityList);
 

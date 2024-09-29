@@ -1,6 +1,10 @@
 #pragma once
 #include <cstdint>
 
+// The idea behind dynamically loading VMTs is that the cheat is easier to update and it doesn't require recompiling the SDK
+// Paired with an RTTI parser that generates the JSON, this system allows to maintain VM indices a lot easier
+// Thus there are a lot less footguns to disarm in the depths of the SDK
+
 // Virtual Method Index
 namespace VMI {
 #define Index inline uint32_t
@@ -8,6 +12,24 @@ namespace VMI {
 	// client.dll
 	namespace CBaseEntity {
 		Index GetSchemaBinding{};
+	}
+
+	// client.dll:C_DOTAGamerules
+	namespace CDOTAGameRules {
+		// JS func
+		Index GetGameTime{};
+	}
+
+	// client.dll
+	namespace CPanel2D {
+		// JS func
+		Index GetPositionWithinWindow{};
+	}
+
+	// panorama.dll
+	namespace CUIPanel {
+		// JS func in client.dll, refers to (a1 + 8) which is the CUIPanel
+		Index BHasClass{};
 	}
 
 	// engine2.dll
@@ -109,8 +131,18 @@ namespace VMI {
 		Index GetScreenSize{};
 	}
 
-#define TABLE_ENTRY(x) { #x, const_cast<uint32_t*>(&x) },
-	inline std::map<std::string, uint32_t*> vmTables = {
+	namespace CNetworkGameClient {
+		// 2 funcs below xrefs: "CL:  Loading groups %d\n", "%s:  Entity Group loaded\n"
+		Index GetLocalPlayer{};
+	}
+
+	namespace CNetworkMessages {
+		// directly below xref "Cannot register change callback priorities at this stage!"
+		Index FindNetworkMessageByID{};
+	}
+
+#define TABLE_ENTRY(x) { #x, &VMI::x },
+	static std::map<std::string, uint32_t*> bindings = {
 		TABLE_ENTRY(CBaseEntity::GetSchemaBinding)
 
 		TABLE_ENTRY(CSource2Client::FrameStageNotify)
@@ -133,22 +165,26 @@ namespace VMI {
 
 		TABLE_ENTRY(CDOTABaseAbility::GetEffectiveCastRange)
 
+		TABLE_ENTRY(CNetworkMessages::FindNetworkMessageByID)
+
+		TABLE_ENTRY(CDOTAGameRules::GetGameTime)
+
 		TABLE_ENTRY(CDOTAParticleManager::CreateParticle)
 
 		//TABLE_ENTRY(CEngineClient::IsInGame)
 
 		TABLE_ENTRY(CParticleCollection::SetControlPoint)
 		TABLE_ENTRY(CParticleCollection::SetRenderingEnabled)
-		
+
 		TABLE_ENTRY(CRenderGameSystem::WorldToProjectionMatrix)
-		
+
 		TABLE_ENTRY(CEngineServiceMgr::GetScreenSize)
 
-		// Unstable.
-		//TABLE_ENTRY(CNetChan::PostReceivedNetMessage)
-		//TABLE_ENTRY(CNetChan::SendNetMessage)
-	};
+		TABLE_ENTRY(CPanel2D::GetPositionWithinWindow)
+		TABLE_ENTRY(CUIPanel::BHasClass)
 
+		TABLE_ENTRY(CNetworkGameClient::GetLocalPlayer)
+	};
 #undef TABLE_ENTRY
 #undef Index
 }

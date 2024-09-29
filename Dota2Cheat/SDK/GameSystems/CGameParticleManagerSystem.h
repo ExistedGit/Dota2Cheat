@@ -11,5 +11,3 @@ public:
 
 	static CGameParticleManagerSystem* Get();
 };
-
-using CParticleMgrSys = CGameParticleManagerSystem;

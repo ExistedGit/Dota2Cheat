@@ -4,7 +4,8 @@
 #include "CDOTAUnitInventory.h"
 #include "CDOTAModifierManager.h"
 #include "../Enums.h"
-#include "../Interfaces/GC/CEconWearable.h"
+
+class CEconWearable;
 
 class CDOTABaseNPC : public CBaseEntity {
 public:
@@ -55,7 +56,7 @@ public:
 
 	// JS func, uses another vtable at offset
 	bool IsRoshan() const {
-		return MemberInline<VClass>(0xA10)->GetVFunc(VMI::CDOTABaseNPC::IsRoshan).Call<bool>();
+		return MemberInline<VClass>(0xA38)->GetVFunc(VMI::CDOTABaseNPC::IsRoshan).Call<bool>();
 	}
 
 	int GetAttackDamageMin() const {
@@ -85,85 +86,16 @@ public:
 	FIELD(CUtlVector<CHandle<CEconWearable>>, Wearables, Netvars::C_BaseCombatCharacter::m_hMyWearables);
 	FIELD(CUtlVector<CHandle<CEconWearable>>, OldWearables, Netvars::C_DOTA_BaseNPC::m_hOldWearables);
 
-	// STL container for which iteration only produces valid handles
-	template<typename HT>
-	class CEntHandleArray {
-		using ptr = const CHandle<HT>*;
-		const ptr _data;
-		const uint32_t _size;
-	public:
-		CEntHandleArray(ptr data, uint32_t size) : _data(data), _size(size) { }
-
-		struct Iterator {
-			ptr value;
-
-			HT& operator*() {
-				return *value;
-			}
-
-			// Skip to next valid target
-			Iterator& operator++() {
-				do { value++; } while (!value->IsValid());
-				return *this;
-			}
-		};
-
-		uint32_t size() const {
-			return _size;
-		}
-
-		ptr begin() const {
-			return _data;
-		}
-
-		ptr end() const {
-			return _data + _size;
-		}
-	};
-	
-
 	IGETTER(CDOTAUnitInventory, GetInventory, Netvars::C_DOTA_BaseNPC::m_Inventory);
-
-	// GetItems doesn't require a CEntHandleArray since there can be empty slots.
 
 	std::span<CHandle<CDOTAItem>, 19> GetItems() const {
 		return GetInventory()->GetItems();
 	}
 
-
-	//template<typename _Container, typename HT>
-	//struct valid_handle_iterator
-	//{
-	//public:
-	//	using iterator_category = std::forward_iterator_tag;
-	//	using difference_type = std::ptrdiff_t;
-	//	using value_type = CHandle<HT>;
-	//	using pointer = CHandle<HT>*;  // or also value_type*
-	//	using reference = CHandle<HT>&;  // or also value_type&
-	//
-	//	valid_handle_iterator(const _Container& c) : m_ptr(c.begin()) {}
-
-	//	reference operator*() const { return *m_ptr; }
-	//	pointer operator->() { return m_ptr; }
-
-	//	// Prefix increment
-	//	valid_handle_iterator& operator++() { do { m_ptr++ } while(m_ptr); return *this; }
-
-	//	// Postfix increment
-	//	valid_handle_iterator operator++(int) { valid_handle_iterator tmp = *this; ++(*this); return tmp; }
-
-	//	friend bool operator== (const valid_handle_iterator& a, const valid_handle_iterator& b) { return a.m_ptr == b.m_ptr; };
-	//	friend bool operator!= (const valid_handle_iterator& a, const valid_handle_iterator& b) { return a.m_ptr != b.m_ptr; };
-	//private:
-	//	_Container::iterator m_ptr;
-	//};
-
-	[[nodiscard]]
 	std::span<CHandle<CDOTABaseAbility>, 35> GetAbilities() const {
 		auto hAbilities = MemberInline<CHandle<CDOTABaseAbility>>(Netvars::C_DOTA_BaseNPC::m_hAbilities);
 		return std::span<CHandle<CDOTABaseAbility>, 35>(hAbilities, 35);
 	}
-
 
 	CDOTABaseAbility* GetAbility(int index) const
 	{
@@ -177,8 +109,8 @@ public:
 	{
 		auto abilities = GetAbilities();
 		auto ability = std::find_if(abilities.begin(), abilities.end(),
-			[name](auto item) {
-				return item && item->GetIdentity()->GetName() && item->GetIdentity()->GetName() == name;
+			[name](auto x) {
+				return x.IsValid() && x->GetIdentity()->GetName() && x->GetIdentity()->GetName() == name;
 			}
 		);
 		return ability != abilities.end() ? *ability : nullptr;
@@ -197,7 +129,7 @@ public:
 	CDOTAItem* FindItemBySubstring(const char* str)  const {
 		for (const auto& item : GetItems())
 			if (
-				item
+				item.IsValid()
 				&& item->GetIdentity()->GetName()
 				&& strstr(item->GetIdentity()->GetName(), str)
 				)
@@ -210,14 +142,14 @@ public:
 		auto items = GetItems();
 		auto item = std::find_if(items.begin(), items.end(),
 			[name](auto item) {
-				return item && item->GetIdentity()->GetName() && item->GetIdentity()->GetName() == name;
+				return item.IsValid() && item->GetIdentity()->GetName() && item->GetIdentity()->GetName() == name;
 			}
 		);
 		return item != items.end() ? **item : nullptr;
 	}
 
 	bool HasState(ModifierState state) const {
-		auto unitState = Member<int64>(Netvars::C_DOTA_BaseNPC::m_nUnitState64);
+		auto unitState = Member<uint64_t>(Netvars::C_DOTA_BaseNPC::m_nUnitState64);
 		return (unitState & (1Ui64 << (int)state));
 	}
 

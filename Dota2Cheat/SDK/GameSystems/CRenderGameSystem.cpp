@@ -24,6 +24,13 @@ bool CRenderGameSystem::GetVectorInScreenSpace(const Vector& point, Vector2D& sc
 		const static VClass* engineServiceMgr = Memory::GetInterfaceBySubstr("engine2.dll", "EngineServiceMgr");
 		// curiously, THIS index does not change
 		engineServiceMgr->GetVFunc(VMI::CEngineServiceMgr::GetScreenSize)(&resolut[0], &resolut[1]);
+
+		if (resolut[0] == 0 || resolut[1] == 0) {
+			static std::once_flag f;
+			auto fName = __FUNCTION__;
+			std::call_once(f, [fName] { LogFE("{}: {}", fName, "GetScreenSize returned incorrect data!"); });
+			return false;
+		}
 	}
 
 	screen.x = (resolut[0] + screen.x * resolut[0] + 1) / 2.f;

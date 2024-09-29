@@ -1,4 +1,4 @@
-#include "DebugFunctions.h"
+#include "Debug.h"
 
 void LogEntities() {
 	std::stringstream buf;
@@ -24,6 +24,8 @@ void LogInvAndAbilities(CDOTABaseNPC* npc) {
 	if (npc == nullptr)
 		npc = ctx.localHero;
 
+	std::lock_guard _lock(mLogging);
+
 	std::cout << std::dec;
 	std::cout << "abilities:" << '\n';
 	for (auto ability : npc->GetAbilities()) {
@@ -31,19 +33,14 @@ void LogInvAndAbilities(CDOTABaseNPC* npc) {
 			continue;
 
 		std::cout << '\t' << ability->GetIdentity()->GetName() << " " << ability->GetIndex()
-			//<< " CD: " << ability.GetEnt()->GetCooldown() 
-			//<< ' ' << std::dec << ability.GetEnt()->GetEffectiveCastRange()
-			<< ' ' << ability;
-
-		std::cout << '\n';
-
-
+			<< ' ' << ability << std::endl;
 	}
+
 	std::cout << "inventory: " << '\n';
 	for (const auto& item : npc->GetItems()) {
-		if (item->GetIdentity()->GetName())
+		if (item && item->GetIdentity()->GetName())
 			std::cout << '\t' << item->GetIdentity()->GetName() << " " << item->GetIndex()
 			<< ' ' << *item
-			<< '\n';
+			<< std::endl;
 	}
 }

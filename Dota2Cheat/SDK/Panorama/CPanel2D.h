@@ -16,11 +16,13 @@ public:
 	struct CImageProxySource : public VClass {
 		GETTER(CImageData*, GetImageData, 0x10);
 	};
-	Vector2D GetPositionWithinWindow() {
+
+	Vector2D GetPositionWithinWindow() const {
 		Vector2D result{ 0, 0 };
-		CallVFunc<44>(0, &result.x, &result.y);
+		GetVFunc(VMI::CPanel2D::GetPositionWithinWindow)(0, &result.x, &result.y);
 		return result;
 	}
+
 	GETTER(CUIPanel*, GetUIPanel, 0x8);
 	GETTER(CImageProxySource*, GetImageProxySource, 0xC8);
 };

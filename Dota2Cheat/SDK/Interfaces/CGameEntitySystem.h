@@ -99,3 +99,7 @@ public:
 	static CGameEntitySystem* Get();;
 };
 
+template<typename T>
+inline T* CHandle<T>::Entity() const {
+	return CGameEntitySystem::Get()->GetEntity<T>(Index());
+}

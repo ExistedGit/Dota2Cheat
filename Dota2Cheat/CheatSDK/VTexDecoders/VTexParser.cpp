@@ -1,9 +1,25 @@
 #include "VTexParser.h"
 
+#include "Base/MemAlloc.h"
+#include "Base/Logging.h"
+#include "Interfaces/CBaseFileSystem.h"
+
+#include "../Aliases.h"
+
+#include <stb_image.h>
+#include "vtex.h"
+#include "DXT5Decoder.h"
+
 VTexParser::ImageData VTexParser::Load(std::string_view filename) {
-	static auto mem = CMemAlloc::Instance();
+	static auto mem = CMemAlloc::Get();
 	static auto fs = CFileSys::Get();
 	auto file = fs->OpenFile(filename.data(), "rb");
+
+	if (!file) {
+		LogFW("Tried to load non-existent file '{}'", filename);
+		return ImageData{};
+	}
+
 	auto fileSize = fs->Size(file);
 
 	auto buffer = mem->Alloc<char>(fileSize);

@@ -9,6 +9,7 @@
 #include "../Base/Color.h"
 
 #include "../Netvars.h"
+#include "../VMI.h"
 
 #include "CEntityIdentity.h"
 

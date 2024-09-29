@@ -55,7 +55,6 @@
     <ClCompile Include="Modules\UI\BarAugmenter.cpp" />
     <ClCompile Include="Modules\Hacks\AutoAccept.cpp" />
     <ClCompile Include="UI\Pages\MainMenu.cpp" />
-    <ClCompile Include="Hooks\GameCoordinator.cpp" />
     <ClCompile Include="Modules\Hacks\ManaHPAbuse.cpp" />
     <ClCompile Include="SDK\GameSystems\CRenderGameSystem.cpp" />
     <ClCompile Include="Hooks\SteamGC.cpp" />
@@ -70,9 +69,8 @@
     <ClCompile Include="Modules\Hacks\ClaimTutorialRewards.cpp" />
     <ClCompile Include="SDK\Panorama\CUIPanel.cpp" />
     <ClCompile Include="CheatSDK\Data\EntityList.cpp" />
-    <ClCompile Include="DebugFunctions.cpp" />
+    <ClCompile Include="CheatSDK\Debug.cpp" />
     <ClCompile Include="Hooks\FrameStageNotify.cpp" />
-    <ClCompile Include="UI\LoadingMenu.cpp" />
     <ClCompile Include="CheatSDK\GameEventListeners\dota_player_update_assigned_hero.cpp" />
     <ClCompile Include="CheatSDK\VTexDecoders\DXT5Decoder.cpp" />
     <ClCompile Include="CheatSDK\VTexDecoders\VTexParser.cpp" />
@@ -82,6 +80,11 @@
     <ClCompile Include="CheatSDK\Globals\GameSystemSingletonImpl.cpp" />
     <ClCompile Include="CheatSDK\Tables.cpp" />
     <ClCompile Include="CheatSDK\Globals\InterfaceSingletonImpl.cpp" />
+    <ClCompile Include="CheatSDK\Systems\AssetManager.cpp" />
+    <ClCompile Include="SDK\Interfaces\CVarSystem.cpp" />
+    <ClCompile Include="SDK\Interfaces\Network\CNetworkGameClient.cpp" />
+    <ClCompile Include="UI\Pages\DebugMenu.cpp" />
+    <ClCompile Include="SDK\Base\Bytehook.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Modules\UI\UIOverhaul.h" />
@@ -135,7 +138,7 @@
     <ClInclude Include="SDK\Interfaces\GC\CGCClient.h" />
     <ClInclude Include="SDK\Interfaces\CInputService.h" />
     <ClInclude Include="CheatSDK\Config.h" />
-    <ClInclude Include="DebugFunctions.h" />
+    <ClInclude Include="CheatSDK\Debug.h" />
     <ClInclude Include="SDK\Interfaces\CResourceSystem.h" />
     <ClInclude Include="SDK\Interfaces\GC\ItemSchema.h" />
     <ClInclude Include="SDK\Interfaces\ISteamClient.h" />
@@ -238,7 +241,6 @@
     <ClInclude Include="SDK\Interfaces\CFlattenedSerializers.h" />
     <ClInclude Include="SDK\GameSystems\CDOTAInventoryManager.h" />
     <ClInclude Include="Hooks\FrameStageNotify.h" />
-    <ClInclude Include="UI\LoadingMenu.h" />
     <ClInclude Include="CheatSDK\GameEventListeners\event_func.h" />
     <ClInclude Include="CheatSDK\VTexDecoders\DXT5Decoder.h" />
     <ClInclude Include="CheatSDK\VTexDecoders\VTexParser.h" />
@@ -253,6 +255,10 @@
     <ClInclude Include="CheatSDK\Tables.h" />
     <ClInclude Include="SDK\Interfaces\CSource2Client.h" />
     <ClInclude Include="SDK\Interfaces\CPanoramaUIEngine.h" />
+    <ClInclude Include="SDK\Base\CUtlAbstractDelegate.h" />
+    <ClInclude Include="SDK\Base\VMT.h" />
+    <ClInclude Include="UI\Pages\DebugMenu.h" />
+    <ClInclude Include="CheatSDK\Aliases.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />

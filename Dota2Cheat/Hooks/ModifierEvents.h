@@ -11,20 +11,8 @@ namespace Hooks {
 	inline void* oOnRemoveModifier = nullptr;
 	inline void* oOnAddModifier = nullptr;
 
-	inline void CacheModifier(CDOTAModifier* modifier) {
-		auto owner = (CDOTABaseNPC_Hero*)modifier->GetOwner();
-		if (!EntityList.IsHero(owner))
-			return;
-
-		HeroData[owner].Modifiers[modifier->GetName()] = modifier;
-	}
-	inline void UncacheModifier(CDOTAModifier* modifier) {
-		auto owner = (CDOTABaseNPC_Hero*)modifier->GetOwner();
-		if (!EntityList.IsHero(owner))
-			return;
-
-		HeroData[owner].Modifiers.erase(modifier->GetName());
-	}
+	void CacheModifier(CDOTAModifier* modifier);
+	void UncacheModifier(CDOTAModifier* modifier);
 
 	void CacheIfItemModifier(CDOTAModifier* modifier);
 	void hkOnAddModifier(CDOTAModifier* modifier, int unk);

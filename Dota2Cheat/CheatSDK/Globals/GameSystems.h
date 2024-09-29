@@ -18,6 +18,8 @@
 #include "GameSystems/CDOTAInventoryManager.h"
 #include "GameSystems/CDOTAGCClientSystem.h"
 
+#include "../Aliases.h"
+
 struct IGameSystemFactory : public VClass {
 	IGameSystemFactory* m_pNext;
 	const char* m_szName;

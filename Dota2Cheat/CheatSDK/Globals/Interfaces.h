@@ -20,8 +20,4 @@
 #include <Interfaces/IEngineClient.h>
 #include <Panorama/CUIEngineSource2.h>
 
-using ISteamGC = ISteamGameCoordinator;
-using CEntSys = CGameEntitySystem;
-using CSoundOpSys = CSoundOpSystem;
-using CFileSys = CBaseFileSystem;
-using CUIEngine = CUIEngineSource2;
+#include "../Aliases.h"

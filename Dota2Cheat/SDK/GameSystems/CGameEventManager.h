@@ -82,5 +82,3 @@ public:
 
 	static CGameEventManager* Get() { return *GetPtr(); }
 };
-
-using CEventMgr = CGameEventManager;

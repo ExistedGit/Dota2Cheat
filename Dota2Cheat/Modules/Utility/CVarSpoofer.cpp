@@ -9,12 +9,12 @@ void Modules::M_CVarSpoofer::SpoofVar(const char* varName) {
 
 	info.m_pDefVal = origVar->defaultValue.i64;
 
-	auto dummyVar = CMemAlloc::Instance()->AllocInit<CVar>();
+	auto dummyVar = CMemAlloc::Get()->AllocInit<CVar>();
 
 	CVarID dummyId;
 	dummyId.m_pVar = dummyVar;
 
-	auto dummyName = CMemAlloc::Instance()->Alloc<char>(strlen(origVar->name) + 1 + 4);
+	auto dummyName = CMemAlloc::Get()->Alloc<char>(strlen(origVar->name) + 1 + 4);
 	sprintf(dummyName, "d2c_%s", origVar->name);
 
 	Memory::Copy(dummyVar, origVar);

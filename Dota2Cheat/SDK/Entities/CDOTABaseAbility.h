@@ -94,7 +94,7 @@ public:
 private:
 	[[maybe_unused]] uint8_t __pad009c[0x4]; // 0x9c
 public:
-	int32* m_pItemShopTagKeys; // 0xa0	
+	int32_t* m_pItemShopTagKeys; // 0xa0	
 	AbilityID_t m_nRecipeResultAbilityID; // 0xa8	
 private:
 	[[maybe_unused]] uint8_t __pad00ac[0x4]; // 0xac
@@ -192,16 +192,20 @@ public:
 	GETTER(bool, IsInAbilityPhase, Netvars::C_DOTABaseAbility::m_bInAbilityPhase);
 	GETTER(DOTAAbilityDefinition_t*, GetDefinition, 0x538);
 
-	int GetMaxLevel() {
+	int GetMaxLevel() const {
 		return GetDefinition()->m_iMaxLevel;
 	};
 
-#define SPECVAL_GETTER(type, name, val) type name() { return GetLevelSpecialValueFor<type>(val); }
+#define SPECVAL_GETTER(type, name, val) type name() const { return GetLevelSpecialValueFor<type>(val); }
 
 	SPECVAL_GETTER(int, GetCastRange, "AbilityCastRange");
 	SPECVAL_GETTER(int, GetAOERadius, "radius");
 
 #undef SPECVAL_GETTER
+
+	const char* GetAbilityTextureName(bool idk = true) const {
+		return GetVFunc(0x6F0 / 8).Call<const char*>(idk);
+	}
 
 	// JS Func
 	int GetEffectiveCastRange() const {

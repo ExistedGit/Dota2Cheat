@@ -59,7 +59,7 @@ void Modules::M_LinearProjectileWarner::OnFrame() {
 }
 
 void Modules::M_LinearProjectileWarner::OnReceivedMsg(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg) {
-	if (msgHandle->messageID == 471) {
+	if (msgHandle->messageID == DOTA_UM_CreateLinearProjectile) {
 		auto linProjMsg = reinterpret_cast<CDOTAUserMsg_CreateLinearProjectile*>(msg);
 		auto& newProj =
 			linearProjectiles[linProjMsg->handle()] =
@@ -83,7 +83,7 @@ void Modules::M_LinearProjectileWarner::OnReceivedMsg(NetMessageHandle_t* msgHan
 		endPoint.y += (newProj.velocity * ratio).y;
 		TrackedProjectiles[newProj.handle] = DrawTrajectory(newProj.origin, endPoint);
 
-	} else if (msgHandle->messageID == 472) {
+	} else if (msgHandle->messageID == DOTA_UM_DestroyLinearProjectile) {
 		auto linProjMsg = reinterpret_cast<CDOTAUserMsg_DestroyLinearProjectile*>(msg);
 		auto handle = linProjMsg->handle();
 		linearProjectiles.erase(handle);

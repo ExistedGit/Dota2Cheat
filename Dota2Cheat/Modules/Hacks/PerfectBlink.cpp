@@ -1,4 +1,5 @@
 #include "PerfectBlink.h"
+#include "../../CheatSDK/include.h"
 
 bool Modules::M_PerfectBlink::AdjustIfBlink(Vector* position, uint32_t abilityIndex, CBaseEntity* issuer) {
 	if (!Config::PerfectBlink)

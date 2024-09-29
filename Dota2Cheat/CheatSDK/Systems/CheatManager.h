@@ -16,6 +16,8 @@ public:
 
 	bool shouldUnload = false;
 
+	void LoadVMI();
+	
 	void LoadGameSpecific();
 	void LoadFiles();
 	

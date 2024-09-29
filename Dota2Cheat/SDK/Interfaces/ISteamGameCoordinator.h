@@ -9,7 +9,7 @@ public:
 	// Morphling technologies
 	bool SendMsg(const google::protobuf::Message& message, int message_id) {
 		constexpr int proto_size = 8; // sizeof( ProtoBufMsgHeader_t );
-		void* ptr = CMemAlloc::Instance()->Alloc<void>(message.ByteSizeLong() + proto_size);
+		void* ptr = CMemAlloc::Get()->Alloc<void>(message.ByteSizeLong() + proto_size);
 
 		uint32_t msgtype = message_id | (1 << 31);
 		memcpy(ptr, &msgtype, sizeof(uint32_t));
@@ -19,7 +19,7 @@ public:
 
 		bool res = SendMessage_(msgtype, ptr, message.ByteSizeLong() + 8) == k_EGCResultOK;
 
-		CMemAlloc::Instance()->Free(ptr);
+		CMemAlloc::Get()->Free(ptr);
 		
 		return res;
 	}

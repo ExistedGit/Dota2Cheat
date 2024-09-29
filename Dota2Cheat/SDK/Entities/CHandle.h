@@ -1,24 +1,30 @@
 #pragma once
 #include <cstdint>
-#include "../../CheatSDK/Globals/Interfaces.h"
+
+class CBaseEntity;
 
 template<typename T = CBaseEntity>
 struct CHandle {
 	constexpr static uint32_t INVALID_HANDLE = 0XFFFFFFFF;
 
-	uint32_t val = INVALID_HANDLE;
+	uint32_t val;
+
+	CHandle() : val(INVALID_HANDLE) {}
+	CHandle(uint32_t val) : val(val) {}
 
 	uint32_t Index() const {
 		return val & 0x7fff;
 	}
 
-	operator uint32_t() const {
+	explicit operator uint32_t() const {
 		return val;
 	}
 
-	T* Entity() const {
-		return CEntSys::Get()->GetEntity<T>(Index());
+	explicit operator bool() const {
+		return IsValid();
 	}
+
+	T* Entity() const;
 
 	operator T* () const {
 		return Entity();
@@ -38,11 +44,6 @@ struct CHandle {
 
 	bool operator==(const CHandle<T> other) const {
 		return other.val == val;
-	}
-
-	CHandle<T>& operator=(uint32_t val) {
-		this->val = val;
-		return *this;
 	}
 };
 

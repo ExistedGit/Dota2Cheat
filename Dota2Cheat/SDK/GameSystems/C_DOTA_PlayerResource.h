@@ -28,5 +28,3 @@ public:
 	
 	static C_DOTA_PlayerResource* Get() { return *GetPtr(); }
 };
-
-using CPlayerResource = C_DOTA_PlayerResource;

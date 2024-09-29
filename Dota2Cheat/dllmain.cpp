@@ -1,7 +1,8 @@
 #pragma once	
-#include "CheatSDK/Hooking.h"
 
 #include "CheatSDK/include.h"
+#include "CheatSDK/Hooking.h"
+#include "CheatSDK/Debug.h"
 #include "CheatSDK/MatchStateHandling.h"
 
 #include "UI/Pages/MainMenu.h"
@@ -57,29 +58,7 @@ void hkSpawn(CDOTABaseNPC_Hero* hero, void* kv) {
 	}
 }
 void HackThread(HMODULE hModule) {	
-	// Initialize MinHook.
-	if (MH_Initialize() != MH_OK)
-		FreeLibraryAndExitThread(hModule, 0);
-
-	//Modules::SkinChanger.DeleteSOCacheFiles();
-
 	d2c.Initialize(hModule);
-
-	//{
-	//	auto Spawn = Memory::Scan("E8 ? ? ? ? 48 8B BB ? ? ? ? B9", "client.dll").GetAbsoluteAddress(1);
-	//	HOOKFUNC(Spawn);
-	//}
-
-	//{
-	//	auto Decode = Memory::Scan("E8 ? ? ? ? 44 0F B6 BD ? ? ? ? 44 22 F8 44 88 BD ? ? ? ? E9", "networksystem.dll").GetAbsoluteAddress(1);
-	//	HOOKFUNC(Decode);
-	//}
-
-	//{
-	//	auto CreateMove = Memory::Scan("44 88 44 24 ?? 89 54 24 ?? 55 53 56 57 41 54",
-	//		"client.dll");
-	//	HOOKFUNC(CreateMove);
-	//}
 
 	MatchStateManager.CheckForOngoingGame();
 

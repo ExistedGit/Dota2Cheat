@@ -35,15 +35,14 @@ public:
 	GETTER(float, GetGameEndTime, Netvars::C_DOTAGamerules::m_flGameEndTime);
 	GETTER(CUtlVector<ItemStockInfo>, GetItemStockInfo, Netvars::C_DOTAGamerules::m_vecItemStockInfo);
 
-	// Suggested by og, reversed by Morphling and rewritten by ExistedDim4
 	float GetGameTime() const {
-		auto gpGlobals = CGlobalVars::Get();
-		float tickToSeconds = gpGlobals->Member<float>(68);
-		auto totalPausedTicks = Member<uint32_t>(Netvars::C_GameRules::m_nTotalPausedTicks);
+		float x;
+		GetVFunc(VMI::CDOTAGameRules::GetGameTime)(&x, 0);
+		return x;
+	}
 
-		if (IsGamePaused())
-			return (Member<int>(Netvars::C_GameRules::m_nPauseStartTick) - totalPausedTicks) * tickToSeconds;
-		return gpGlobals->Member<float>(44) - totalPausedTicks * tickToSeconds;
+	float GetDOTATime() const {
+		return GetGameTime() - GetGameStartTime() + GetGameLoadTime();
 	}
 
 	// Instance initialization is deferred to game start

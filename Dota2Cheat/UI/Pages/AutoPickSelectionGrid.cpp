@@ -17,7 +17,7 @@ void Pages::AutoPickHeroGrid::InitList() {
 		}
 	}
 	npc_heroes->Destroy();
-	CMemAlloc::Instance()->Free(npc_heroes);
+	CMemAlloc::Get()->Free(npc_heroes);
 }
 
 void Pages::AutoPickHeroGrid::Draw() {

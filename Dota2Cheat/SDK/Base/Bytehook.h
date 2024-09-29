@@ -1,17 +1,23 @@
 #pragma once
-#include <MinHook.h>
 #include <iostream>
+#include <vector>
 #include "Logging.h"
 
-inline bool HookFunc(void* func, void* detour, void* original, const char* name) {
-	bool result = 
-		MH_CreateHook(func, detour, (LPVOID*)original) == MH_OK 
-		&& MH_EnableHook(func) == MH_OK;
+namespace hooks {
+	struct HookData {
+		std::string name;
+		void* target;
+		bool enabled = true;
 
-	if (!result)
-		LogFE("Could not hook {}!", name);
+		bool SetEnabled(bool val);
+	};
 
-	return result;
-};
-#define HOOKFUNC(func) HookFunc(func, &hk##func, &o##func, #func)
+	inline std::vector<HookData> installed;
+
+	bool UnhookAll();
+	bool Unhook(void* target);
+	bool Hook(void* target, void* detour, void* original, const char* name);;
+}
+
+#define HOOKFUNC(func) hooks::Hook(func, &hk##func, &o##func, #func)
 #define ORIGCALL(func) ((decltype(&hk##func))(o##func))

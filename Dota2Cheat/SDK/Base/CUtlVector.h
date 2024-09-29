@@ -77,8 +77,8 @@ public:
 			m_Capacity *= 2;
 
 		m_pElements = m_pElements
-			? CMemAlloc::Instance()->ReAlloc(m_pElements, m_Capacity * sizeof(T))
-			: CMemAlloc::Instance()->Alloc<T>(m_Size * sizeof(T));
+			? CMemAlloc::Get()->ReAlloc(m_pElements, m_Capacity * sizeof(T))
+			: CMemAlloc::Get()->Alloc<T>(m_Size * sizeof(T));
 
 	}
 

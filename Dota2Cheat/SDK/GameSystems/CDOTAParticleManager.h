@@ -166,5 +166,3 @@ public:
 	static CDOTAParticleManager* Get();
 };
 
-using CParticleMgr = CDOTAParticleManager; 
-

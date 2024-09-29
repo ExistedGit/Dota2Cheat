@@ -13,7 +13,7 @@ inline struct CDrawData {
 	std::unordered_map<std::string_view, std::unordered_map<int, ImFont*>> Fonts;
 	bool ShowMenu = false;
 
-	// Clamps the size to 10-26 range and rounds the font size to the nearest even number
+	// Clamps the size to 10-26 range and rounds the font size up to the nearest even number
 	ImFont* GetFont(std::string_view name, int size) {
 		size = std::clamp(size, 10, 26);
 		if (size % 2 != 0)

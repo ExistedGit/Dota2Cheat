@@ -1,7 +1,6 @@
 #include "ModifierEvents.h"
 
-//
-inline std::map<std::string, std::string> importantItemNames = {
+inline std::map<std::string, std::string> buffNameMapping = {
 		{
 			"modifier_item_manta_style",
 			"manta"
@@ -12,6 +11,22 @@ inline std::map<std::string, std::string> importantItemNames = {
 		}
 };
 
+void Hooks::CacheModifier(CDOTAModifier* modifier) {
+	auto owner = (CDOTABaseNPC_Hero*)*modifier->GetOwner();
+	if (!EntityList.IsHero(owner))
+		return;
+
+	HeroData[owner].Modifiers[modifier->GetName()] = modifier;
+}
+
+void Hooks::UncacheModifier(CDOTAModifier* modifier) {
+	auto owner = (CDOTABaseNPC_Hero*)*modifier->GetOwner();
+	if (!EntityList.IsHero(owner))
+		return;
+
+	HeroData[owner].Modifiers.erase(modifier->GetName());
+}
+
 void Hooks::CacheIfItemModifier(CDOTAModifier* modifier) {
 	std::string modName = modifier->GetName();
 	if (!modName.starts_with("modifier_item"))
@@ -20,8 +35,8 @@ void Hooks::CacheIfItemModifier(CDOTAModifier* modifier) {
 	auto itemName = modName.substr(9); // removing the "modifier_" prefix
 	if (modifier->GetOwner() == ctx.localHero)
 	{
-		auto searchName = importantItemNames.count(modName) ?
-			importantItemNames[modName] :
+		auto searchName = buffNameMapping.count(modName) ?
+			buffNameMapping[modName] :
 			itemName.substr(5);
 		auto item = modifier->GetOwner()->FindItemBySubstring(searchName.c_str());
 		if (item)
@@ -30,7 +45,7 @@ void Hooks::CacheIfItemModifier(CDOTAModifier* modifier) {
 
 	if (modName == "modifier_item_sphere") {
 		auto item = modifier->GetOwner()->FindItem("item_sphere");
-		if (item && !((CDOTABaseNPC_Hero*)modifier->GetOwner())->IsIllusion())
+		if (item && !((CDOTABaseNPC_Hero*)*modifier->GetOwner())->IsIllusion())
 			Modules::TargetedSpellHighlighter.SubscribeLinkenRendering(modifier->GetOwner(), item);
 	}
 
@@ -58,8 +73,8 @@ void Hooks::hkOnRemoveModifier(CDOTAModifier* modifier) {
 		{
 			auto itemName = modName.substr(9); // removing the "modifier_" prefix
 			if (modifier->GetOwner() == ctx.localHero) {
-				auto searchName = importantItemNames.count(modName) ?
-					importantItemNames[modName] :
+				auto searchName = buffNameMapping.count(modName) ?
+					buffNameMapping[modName] :
 					itemName.substr(5);
 				HeroData[ctx.localHero].Items.erase(searchName);
 			}

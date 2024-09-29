@@ -1,44 +1,38 @@
 #include "Utils.h"
 
+// Rebuilt from xref "Minimap Objects", that formula is all over the CDOTAPanoramaMinimapRenderer::RenderX methods
 ImVec2 WorldToMap(const Vector& EntityPos) {
-	auto mmr = GameSystems::MinimapRenderer;
+	static auto minimap = Panorama::DotaHud->FindChildByIdTraverse("minimap");
+	if (!minimap) return { 0, 0 };
 
-	if (!mmr)
-		return { 0,0 };
-	static auto dota_hud_flip = CCVar::Get()->CVars["dota_hud_flip"].m_pVar;
-	const auto ScreenSize = Panorama::DotaHud->GetScreenSize();
+	static auto mmr = minimap->Member<CDOTAPanoramaMinimapRenderer*>(0x28);
+	if (!mmr) return { 0,0 };
 
 	auto bounds = mmr->MinimapBounds;
+	auto mms = mmr->GetMinimapSize();
 	auto quotient = mmr->Member<float>(0x10 + 0xC);
-	float v10 = (EntityPos.x - bounds.x) / quotient, v11 = (EntityPos.y - bounds.y) * (-1.0 / quotient);
+	float 
+		xAbs = (EntityPos.x - mmr->Member<float>(0x10)) / quotient, 
+		yAbs = (EntityPos.y - mmr->Member<float>(0x14)) * (-1.0 / quotient);
 
-	if (v10 >= 75.0f)
-		v10 = fminf(v10, 949.0f);
+	if (xAbs >= 75.0f)
+		xAbs = fminf(xAbs, 949.0f);
 	else
-		v10 = 75.0f;
-	if (v11 >= 75.0)
-		v11 = fminf(v11, 949.0f);
+		xAbs = 75.0f;
+	if (yAbs >= 75.0)
+		yAbs = fminf(yAbs, 949.0f);
 	else
-		v11 = 75.0f;
+		yAbs = 75.0f;
 
-	float v13 = (quotient * v10) + bounds.x;
-	float v14 = mmr->Member<float>(0x10 + 0x10) * 0.0009765625;
-	float v15 = bounds.y - (quotient * v11);
-	float v16 = ((mmr->MinimapSizeX - mmr->Member<int>(0xA4) - mmr->Member<uint32_t>(0xAC)) * (((v10 - 512.0) * v14) + 0.5)) + mmr->Member<int>(0xA4);
-	float v17 = ((mmr->MinimapSizeY - mmr->Member<int>(0xA8) - mmr->Member<int>(0xB0)) * (((v11 - 512.0) * v14) + 0.5)) + mmr->Member<int>(0xA8);
+	float v13 = (quotient * xAbs) + bounds.x;
+	float quotient2 = mmr->Member<float>(0x10 + 0x10) * 0.0009765625;
+	float v15 = bounds.y - (quotient * yAbs);
 
+	auto a1 = (uintptr_t)mmr + 0x10;
 
-	// The border around the actual map panel is around 12px
-	auto ActualMinimapSize = static_cast<float>(mmr->GetMinimapSize().x * 0.94);
-	auto MinimapPosMin = Vector2D(0, static_cast<float>(ScreenSize.y - ActualMinimapSize));
+	float x = ((((xAbs - 512.0) * quotient2) + 0.5) * (*(uint32_t*)(a1 + 0x9C) - *(uint32_t*)(a1 + 0xA4) - *(uint32_t*)(a1 + 0xAC))) + (float)*(int*)(a1 + 0xA4);
+	float y = ((((yAbs - 512.0) * quotient2) + 0.5) * (*(uint32_t*)(a1 + 0xA0) - *(uint32_t*)(a1 + 0xB0) - *(uint32_t*)(a1 + 0xA8))) + (float)*(int*)(a1 + 0xA8);
 
-	if (dota_hud_flip->value.boolean) {
-		float offset = ScreenSize.x - ActualMinimapSize;
-		MinimapPosMin.x = MinimapPosMin.x + offset;
-	}
-
-	Vector2D Scaler = mmr->MinimapBounds / ActualMinimapSize * 2;
-	auto PosOnMinimap = MinimapPosMin + (mmr->MinimapBounds - Vector2D{ EntityPos.x, EntityPos.y }) / Scaler;
-
-	return PosOnMinimap;
+	auto base = minimap->GetPanel2D()->GetPositionWithinWindow();
+	return base + Vector2D{ x, y };
 }

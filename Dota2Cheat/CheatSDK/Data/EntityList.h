@@ -6,6 +6,7 @@
 
 enum class CreepType {
 	NotCreep,
+	Neutral,
 	LaneMelee,
 	LaneRanged,
 	Siege

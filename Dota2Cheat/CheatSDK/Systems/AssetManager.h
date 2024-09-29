@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
-#include "../VTexDecoders/VTexParser.h"
-#include "TextureManager.h"
+#include <unordered_map>
+#include <d3d11.h>
 
 // Operates in VPK directory panorama/images
 inline class CAssetManager {
@@ -12,19 +12,9 @@ public:
 		std::string dir;
 		std::unordered_map<std::string, ID3D11ShaderResourceView*> cache;
 
-		VTexDir(std::string_view dir) :dir(dir) {}
+		VTexDir(std::string_view dir) : dir(dir) {}
 
-		ID3D11ShaderResourceView* Load(const std::string& file, std::string postfix = "png") {
-			auto& ret = cache[file];
-
-			if (!ret) {
-				auto data = VTexParser::Load(prefix + dir + "/" + file + "_" + postfix + ".vtex_c");
-				texManager.InitDX11Texture(data.w, data.h, data.data, &ret);
-				CMemAlloc::Instance()->Free(data.data);
-			}
-
-			return ret;
-		}
+		ID3D11ShaderResourceView* Load(const std::string& file, std::string postfix = "png");
 	};
 
 	VTexDir

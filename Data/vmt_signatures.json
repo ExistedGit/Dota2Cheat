@@ -1,6 +1,18 @@
 {
   "\\game\\dota\\bin\\win64\\": {
     "client.dll": {
+	  "C_DOTAGamerules": {
+		  "mappedName": "CDOTAGameRules",
+		  "methods": {
+			"GetGameTime": "48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC 20 48 8B 1D ? ? ? ? 48 8B FA"
+		  }
+	  },
+      "panorama::CPanel2D": {
+        "mappedName": "CPanel2D",
+        "methods": {
+          "GetPositionWithinWindow": "48 89 5C 24 ? 57 48 83 EC 40 49 8B F9"
+        }
+      },
       "CRenderGameSystem": {
         "methods": {
           "WorldToProjectionMatrix": "48 63 C2 48 8D 0D ? ? ? ? 48 C1 E0 06"
@@ -29,10 +41,8 @@
         "mappedName": "CDOTABaseNPC",
         "methods": {
           "GetIdealSpeed": "40 53 48 83 EC 20 48 8B 01 48 8B D9 FF 90 ? ? ? ? 45 33 C0",
-          "OnWearablesChanged": {
-            "pattern": "E8 ? ? ? ? 80 BB ? ? ? ? ? 74 07 80 8B",
-            "steps": [[0, 1]]
-          },
+          "OnWearablesChanged": "E8 ? ? ? ? 80 BB ? ? ? ? ? 74 07 80 8B",
+
           "GetAttackRange": "48 8B C4 48 89 58 08 48 89 70 10 48 89 78 18 55 41 56 41 57 48 8D A8 ? ? ? ? 48 81 EC ? ? ? ? 45 33 F6",
           "GetPhysicalArmorValue": "48 89 5C 24 ? 57 48 83 EC 30 48 8B 01 0F B6 FA",
           "GetMagicalArmorValue": "48 8B C4 48 89 58 08 48 89 70 10 48 89 78 18 55 41 54 41 55 41 56 41 57 48 8D A8 ? ? ? ? 48 81 EC ? ? ? ? 0F 29 70 C8 49 8B F0"
@@ -67,20 +77,27 @@
       }
     },
     "networksystem.dll": {
+      "CNetworkMessages": {
+        "methods": {
+          "FindNetworkMessageByID": "48 89 5C 24 ? 55 56 41 57 48 83 EC 30 44 0F B7 81 ? ? ? ? 8B EA"
+        }
+      },
       "CNetChan": {
         "methods": {
           "PostReceivedNetMessage": "48 83 EC 48 8B 44 24 78",
-          "SendNetMessage": {
-            "pattern": "E8 ? ? ? ? 48 8D 05 ? ? ? ? 48 89 44 24 ? 0F B6 44 24 ? 41 84 C5",
-            "steps": [[0, 1]]
-          }
+          "SendNetMessage": "E8 ? ? ? ? 48 8D 05 ? ? ? ? 48 89 44 24 ? 0F B6 44 24 ? 41 84 C5"
         }
       }
     },
     "engine2.dll": {
+      "CNetworkGameClient": {
+        "methods": {
+          "GetLocalPlayer": "33 C0 41 83 F8 FF 41 0F 45 C0 48 98 4C 8D 04 40"
+        }
+      },
       "CEngineServiceMgr": {
         "methods": {
-          "GetScreenSize": "48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC 20 33 DB 48 8B F1"
+          "GetScreenSize": "48 89 5C 24 ? 57 48 83 EC 20 48 8B 0D ? ? ? ? 48 8B FA 48 8B 15"
         }
       },
       "CEngineClient": {
@@ -90,6 +107,12 @@
       }
     },
     "panorama.dll": {
+      "panorama::CUIPanel": {
+        "mappedName": "CUIPanel",
+        "methods": {
+          "BHasClass": "48 8B C1 B9"
+        }
+      },
       "panorama::CUIEngineSource2": {
         "mappedName": "CUIEngineSource2",
         "methods": {

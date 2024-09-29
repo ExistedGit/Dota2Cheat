@@ -6,6 +6,7 @@
 #include "Base/VClass.h"
 #include "Base/NormalClass.h"
 #include "Base/Logging.h"
+#include "Base/CUtlAbstractDelegate.h"
 #include "Base/KeyValues.h"
 
 #include "Enums.h"

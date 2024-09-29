@@ -2,78 +2,20 @@
 #include "../../Modules/Hacks/SkinChanger.h"
 #include "../../Modules/UI/UIOverhaul.h"
 #include "../../Modules/Hacks/DotaPlusUnlocker.h"
+#include "../../Modules/Hacks/TreeChanger.h"
+#include "DebugMenu.h"
 
 void Pages::MainMenu::Draw() {
 	ImGui::Begin("Main", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
 
-	static auto& cl_particle_log_creates = CCVar::Get()->CVars["cl_particle_log_creates"].m_pVar->value.boolean;
-	static auto net_showreliable = CCVar::Get()->CVars["net_showreliable"].m_pVar;
-	static bool net_showreliable_bool = strcmp(net_showreliable->value.str, "0");
-#if defined(_DEBUG) && !defined(_TESTING)
-	ImGui::Begin("Debug", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
-
-	ImGui::Checkbox("Changing", &DoChanging);
-
-	if (ImGui::Checkbox("net_showreliable", &net_showreliable_bool))
-		net_showreliable->SetStrVal(net_showreliable_bool);
-
-	ImGui::Checkbox("cl_particle_log_creates", &cl_particle_log_creates);
-
-	ImGui::InputText("Sound name", &uiSoundBuf);
-
-	if (ImGui::Button("PLAY SOUND"))
-		PlayUISoundScript(uiSoundBuf);
-
-	if (ImGui::Button("Log Entities"))
-		LogEntities();
-
-	if (ImGui::Button("Log Inventory")) {
-		auto selected = ctx.localPlayer->GetSelectedUnits();
-		auto ent = CEntSys::Get()->GetEntity<CDOTABaseNPC>(selected[0]);
-		LogInvAndAbilities(ent);
-	}
-
-	if (ImGui::Button("Log Modifiers")) {
-		auto selected = ctx.localPlayer->GetSelectedUnits();
-		auto ent = CEntSys::Get()->GetEntity<CDOTABaseNPC>(selected[0]);
-		LogModifiers(ent);
-	}
-
-	ImGui::InputInt("ItemDef ID", &itemDefId);
-	if (ImGui::Button("Create item"))
-		Modules::SkinChanger.QueueAddItem(itemDefId);
-
-
-	ImGui::End();
+#ifdef _DEBUG
+	DebugMenu();
 #endif // _DEBUG
-
 
 	if (ctx.gameStage == GameStage::IN_GAME)
 		if (CheatGui::Button("Circle drawing"))
 			circleMenuVisible = !circleMenuVisible;
-	//{
-	//	static int localeIdx = 0;
-	//	static std::vector<std::string> localeNames;
-	//	static std::vector<std::string> locales;
 
-
-	//	if (locales.size() == 0) {
-	//		for (const auto& [k, v] : locale.schema.items()) {
-	//			localeNames.push_back(std::string(v));
-	//			locales.push_back(std::string(k));
-	//		}
-
-	//		for (int i = 0; i < locales.size(); i++) {
-	//			if (locales[i] == Config::Locale)
-	//				localeIdx = i;
-	//		}
-	//	}
-
-	//	if (CheatGui::Combo("Language", &localeIdx, localeNames)) {
-	//		locale.Init(locales[localeIdx]);
-	//		Config::Locale = locales[localeIdx];
-	//	};
-	//}
 	if (ImGui::TreeNode("AutoAccept")) {
 		ImGui::Checkbox("Enable", &Config::AutoAccept::Enabled);
 		if (Config::AutoAccept::Enabled)
@@ -106,7 +48,7 @@ void Pages::MainMenu::Draw() {
 		ImGui::TreePop();
 	}
 
-	if (ImGui::CollapsingHeader("Changer")) {
+	if (ImGui::TreeNode("Changer")) {
 
 		//ImGui::InputText("Rich Presence status", &rpStatusBuf);
 		//if (CheatGui::Button("Apply status"))
@@ -132,6 +74,8 @@ void Pages::MainMenu::Draw() {
 		// and to Wolf49406 himself
 		// should've figured out it's controlled by a convar like the weather :)
 		ImGui::Combo("River paint", &Config::Changer::RiverListIdx, RiverList, IM_ARRAYSIZE(RiverList));
+
+		ImGui::TreePop();
 	};
 	if (ImGui::TreeNode("Snatcher")) {
 		ImGui::Checkbox("Bounty runes", &Config::AutoPickUpRunes);
@@ -260,7 +204,6 @@ void Pages::MainMenu::Draw() {
 		d2c.shouldUnload = true;
 
 	ImGui::End();
-
 	if (circleMenuVisible) {
 		ImGui::Begin("C I R C L E S", &circleMenuVisible, ImGuiWindowFlags_AlwaysAutoResize);
 		ImGui::InputInt("Circle radius", &Config::CircleRadius, 1, 10);

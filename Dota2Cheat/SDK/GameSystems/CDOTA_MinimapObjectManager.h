@@ -26,5 +26,3 @@ public:
 	}
 
 };
-
-using CMinimapObjMgr = CDOTA_MinimapObjectManager;

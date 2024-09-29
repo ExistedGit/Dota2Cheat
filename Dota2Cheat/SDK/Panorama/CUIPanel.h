@@ -28,7 +28,7 @@ public:
 	GETTER(const char*, GetId, 0x10);
 	GETTER(CUIPanel*, GetParent, 0x18);
 	GETTER(CUtlVector<CUIPanel*>, GetChildren, 0x28);
-	GETTER(CUtlVector<uint16_t>, GetClasses, 0x160);
+	GETTER(CUtlVector<uint16_t>, GetClasses, 0x158);
 	// Returns a list of all child elements with the specified ID at any level of nesting
 	[[nodiscard]]
 	std::vector<CUIPanel*> FindChildrenByIdTraverse(std::string_view id) {
@@ -75,9 +75,8 @@ public:
 
 	void RemoveClass(const char* class_);
 
-	bool BHasClass(uint16_t unClass) {
-		auto classes = GetClasses();
-		return std::find(classes.begin(), classes.end(), unClass) != classes.end();
+	bool BHasClass(uint16_t unClass) const {
+		return GetVFunc(VMI::CUIPanel::BHasClass)(unClass);
 	}
 
 	void ToggleClass(uint16_t unClass) {
