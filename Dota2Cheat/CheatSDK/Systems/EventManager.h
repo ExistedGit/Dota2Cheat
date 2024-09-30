@@ -5,6 +5,8 @@
 #include "../GameEventListeners/event_func.h"
 #include "../GameEventListeners/dota_game_state_change.h"
 
+#include "../Aliases.h"
+
 // Wrapper for CGameEventManager
 inline class CEventManager {
 	std::set<IGameEventListener2*> Listeners;

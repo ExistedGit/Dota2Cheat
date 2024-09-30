@@ -1,5 +1,4 @@
 #include "FrameStageNotify.h"
-#include "../Modules/UI/AbilityESP.h"
 #include "../Modules/Hacks/IllusionColoring.h"
 #include "../Modules/Hacks/AegisSnatcher.h"
 #include "../Modules/Hacks/AutoBuyTome.h"
@@ -16,7 +15,6 @@
 #include "../Modules/Hacks/TreeChanger.h"
 
 #include "../Modules/UI/UIOverhaul.h"
-#include "../Modules/UI/AbilityESP.h"
 #include "../Modules/UI/ParticleMaphack.h"
 
 #include "../Modules/Utility/ParticleGC.h"
@@ -118,7 +116,6 @@ void Hooks::hkFrameStageNotify(void* thisptr, int stage) {
 	if (stage != 9 || ctx.gameStage == GameStage::NONE)
 		return;
 
-	AbilityESP.UpdateHeroData();
 	EntityList.ForEach<CDOTABaseNPC_Hero>([](auto hero) {
 		HeroData[hero].AbsOrigin = hero->GetPos();
 	HeroData[hero].W2S = WorldToScreen(hero->GetPos());

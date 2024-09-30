@@ -194,6 +194,8 @@
     <ClCompile Include="include\imgui\imgui_impl_win32.cpp" />
     <ClCompile Include="Modules\Hacks\ClaimTutorialRewards.cpp" />
     <ClCompile Include="Modules\Hacks\TreeChanger.cpp" />
+    <ClCompile Include="Modules\UI\AbilityESP\AbilityESP.Abilities.cpp" />
+    <ClCompile Include="Modules\UI\AbilityESP\AbilityESP.Items.cpp" />
     <ClCompile Include="Modules\Utility\CVarSpoofer.cpp" />
     <ClCompile Include="Modules\Utility\OrderRouter.cpp" />
     <ClCompile Include="CheatSDK\Config.cpp" />
@@ -225,7 +227,7 @@
     <ClCompile Include="Modules\Hacks\PerfectBlink.cpp" />
     <ClCompile Include="Modules\Hacks\SkinChanger.cpp" />
     <ClCompile Include="Modules\Hacks\TargetedSpellHighlighter.cpp" />
-    <ClCompile Include="Modules\UI\AbilityESP.cpp" />
+    <ClCompile Include="Modules\UI\AbilityESP\AbilityESP.cpp" />
     <ClCompile Include="Modules\UI\BarAugmenter.cpp" />
     <ClCompile Include="Modules\UI\BlinkRevealer.cpp" />
     <ClCompile Include="Modules\UI\Indicators\KillIndicator.cpp" />
@@ -363,7 +365,7 @@
     <ClInclude Include="Hooks\AcceptEvents.h" />
     <ClInclude Include="ImGuiSDK\Elements.h" />
     <ClInclude Include="include\imgui\imgui_stdlib.h" />
-    <ClInclude Include="Modules\UI\AbilityESP.h" />
+    <ClInclude Include="Modules\UI\AbilityESP\AbilityESP.h" />
     <ClInclude Include="Modules\Hacks\AegisSnatcher.h" />
     <ClInclude Include="Modules\Hacks\ClaimTutorialRewards.h" />
     <ClInclude Include="Modules\Hacks\DotaPlusUnlocker.h" />

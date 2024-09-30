@@ -1,6 +1,20 @@
 #include "MatchStateHandling.h"
 #include "Tables.h"
 
+#include "../Hooks/ModifierEvents.h"
+
+#include "Data/UIData.h"
+#include "../Modules/Hacks/AutoBuyTome.h"
+#include "../Modules/UI/AbilityESP/AbilityESP.h"
+#include "../Modules/UI/UIOverhaul.h"
+#include "../Modules/UI/TPTracker.h"
+#include "../Modules/UI/Indicators/KillIndicator.h"
+#include "../Modules/Hacks/ShakerAttackAnimFix.h"
+#include "../Modules/Hacks/TreeChanger.h"
+
+//#include "../Modules/Hacks/AutoPick.h"
+//#include "../Modules/Hacks/AutoPing.h"
+
 void CMatchStateManager::EnteredPreGame() {
 	if (!CPlayerResource::Get())
 		return;
@@ -64,10 +78,8 @@ void CMatchStateManager::LeftMatch() {
 	CParticleMgr::Get()->OnExitMatch();
 
 	Modules::TargetedSpellHighlighter.Reset();
-	Modules::AutoPick.Reset();
 	Modules::TreeChanger.Reset();
 	Modules::ParticleGC.Reset();
-	Modules::AbilityESP.Reset();
 	Modules::UIOverhaul.Reset();
 	Modules::TPTracker.Reset();
 	Modules::KillIndicator.Reset();
@@ -131,7 +143,6 @@ void CMatchStateManager::OnUpdatedAssignedHero() {
 
 	LogFI("Changed hero: \n\tEntity: {}\n\tName: {}", (void*)assignedHero, assignedHero->GetUnitName());
 
-	Modules::AbilityESP.SubscribeHeroes();
 	Modules::KillIndicator.Init();
 	Modules::ShakerAttackAnimFix.SubscribeEntity(ctx.localHero);
 }

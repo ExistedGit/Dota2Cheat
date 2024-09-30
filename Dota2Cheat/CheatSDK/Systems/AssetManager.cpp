@@ -9,6 +9,9 @@ ID3D11ShaderResourceView* CAssetManager::VTexDir::Load(const std::string& file, 
 
 	if (!ret) {
 		auto data = VTexParser::Load(prefix + dir + "/" + file + "_" + postfix + ".vtex_c");
+		
+		if (!data.data) return nullptr;
+
 		texManager.InitDX11Texture(data.w, data.h, data.data, &ret);
 		CMemAlloc::Get()->Free(data.data);
 	}

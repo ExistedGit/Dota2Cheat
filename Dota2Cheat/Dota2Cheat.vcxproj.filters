@@ -74,7 +74,7 @@
     <ClCompile Include="CheatSDK\GameEventListeners\dota_player_update_assigned_hero.cpp" />
     <ClCompile Include="CheatSDK\VTexDecoders\DXT5Decoder.cpp" />
     <ClCompile Include="CheatSDK\VTexDecoders\VTexParser.cpp" />
-    <ClCompile Include="Modules\UI\AbilityESP.cpp" />
+    <ClCompile Include="Modules\UI\AbilityESP\AbilityESP.cpp" />
     <ClCompile Include="CheatSDK\Globals\VMTDB.cpp" />
     <ClCompile Include="CheatSDK\Globals\SignatureDB.cpp" />
     <ClCompile Include="CheatSDK\Globals\GameSystemSingletonImpl.cpp" />
@@ -85,6 +85,8 @@
     <ClCompile Include="SDK\Interfaces\Network\CNetworkGameClient.cpp" />
     <ClCompile Include="UI\Pages\DebugMenu.cpp" />
     <ClCompile Include="SDK\Base\Bytehook.cpp" />
+    <ClCompile Include="Modules\UI\AbilityESP\AbilityESP.Items.cpp" />
+    <ClCompile Include="Modules\UI\AbilityESP\AbilityESP.Abilities.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Modules\UI\UIOverhaul.h" />
@@ -248,7 +250,7 @@
     <ClInclude Include="CheatSDK\Systems\AssetManager.h" />
     <ClInclude Include="SDK\Base\MurmurHash2.h" />
     <ClInclude Include="Hooks\AcceptEvents.h" />
-    <ClInclude Include="Modules\UI\AbilityESP.h" />
+    <ClInclude Include="Modules\UI\AbilityESP\AbilityESP.h" />
     <ClInclude Include="CheatSDK\Globals\VMTDB.h" />
     <ClInclude Include="SDK\VMI.h" />
     <ClInclude Include="SDK\GameSystems\CDOTAGCClientSystem.h" />

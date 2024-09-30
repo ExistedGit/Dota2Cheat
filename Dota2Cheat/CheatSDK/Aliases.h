@@ -42,10 +42,16 @@ using CSoundOpSys = CSoundOpSystem;
 using CFileSys = CBaseFileSystem;
 using CUIEngine = CUIEngineSource2;
 
+// Entities
+
 class CDOTABaseNPC;
 class CDOTABaseNPC_Hero;
 class CBaseEntity;
+class CDOTABaseAbility;
+class CDOTAItem;
 
 using CNPC = CDOTABaseNPC;
 using CEnt = CBaseEntity;
 using CHero = CDOTABaseNPC_Hero;
+using CAbility = CDOTABaseAbility;
+using CItem = CDOTAItem;

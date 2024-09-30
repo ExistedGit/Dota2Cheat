@@ -6,7 +6,7 @@
 #include "../Modules/UI/BlinkRevealer.h"
 #include "../Modules/UI/TPTracker.h"
 #include "../Modules/UI/ParticleMaphack.h"
-#include "../Modules/UI/AbilityESP.h"
+#include "../Modules/UI/AbilityESP/AbilityESP.h"
 #include "../Modules/UI/BarAugmenter.h"
 #include "../Modules/UI/UIOverhaul.h"
 
