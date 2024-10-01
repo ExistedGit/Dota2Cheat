@@ -90,6 +90,7 @@ void CCheatManager::LoadGameSpecific() {
 	Modules::BarAugmenter.Init();
 
 	Hooks::InstallHooks();
+	Hooks::InstallAuxiliaryHooks();
 
 	EventManager.InstallListeners();
 
@@ -100,7 +101,7 @@ void CCheatManager::LoadGameSpecific() {
 
 void CCheatManager::LoadFiles() {
 	if (auto fin = std::ifstream(cheatFolderPath + "\\config\\base.json")) {
-		Config::cfg.LoadConfig(fin);
+		Config::cfg.LoadFromFile(fin);
 		fin.close();
 
 		LogI("Loaded config from ", cheatFolderPath, "\\config\\base.json\n");
@@ -132,7 +133,7 @@ void CCheatManager::Initialize(HMODULE hModule) {
 
 void CCheatManager::SaveConfig() {
 	if (auto fout = std::ofstream(cheatFolderPath + "\\config\\base.json")) {
-		Config::cfg.SaveConfig(fout);
+		Config::cfg.SaveToFile(fout);
 		fout.close();
 	};
 }
@@ -147,7 +148,7 @@ void CCheatManager::Unload() {
 	Modules::TargetedSpellHighlighter.OnDisableLinken();
 	EventManager.ClearListeners();
 
-	Hooks::RemoveHooks();
+	Hooks::RemoveAuxiliaryHooks();
 	Memory::RevertPatches();
 	MH_Uninitialize();
 	if (DrawData.Dx.Window)

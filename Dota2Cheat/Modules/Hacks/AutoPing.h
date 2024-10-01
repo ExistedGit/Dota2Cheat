@@ -1,6 +1,5 @@
 #pragma once
 #include <dota_clientmessages.pb.h>
-#include "../../Hooks/NetChannel.h"
 #include "../MListeners.h"
 
 namespace Config {

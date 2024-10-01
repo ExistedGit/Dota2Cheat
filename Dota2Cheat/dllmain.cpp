@@ -7,6 +7,8 @@
 
 #include "UI/Pages/MainMenu.h"
 #include <dota_usercmd.pb.h>
+#include <netmessages.pb.h>
+
 
 struct CDOTAInput : NormalClass {
 	GETTER(int, GetSequenceNumber, 0x3D24);
@@ -39,17 +41,17 @@ void hkSpawn(CDOTABaseNPC_Hero* hero, void* kv) {
 	for (auto pWearable : pWearables) {
 		pWearable->Field<bool>(Netvars::C_DOTAWearableItem::m_bIsGeneratingEconItem) = true;
 
-		LogF("{} = {}", 
-			pWearable->GetAttributeManager()->GetItem()->Member<uint32_t>(Netvars::C_EconItemView::m_iItemDefinitionIndex), 
+		LogF("{} = {}",
+			pWearable->GetAttributeManager()->GetItem()->Member<uint32_t>(Netvars::C_EconItemView::m_iItemDefinitionIndex),
 			pWearable->GetModelName() ? pWearable->GetModelName() : "NO MODEL");
 	}
 
 	pWearables[2]->GetAttributeManager()->GetItem()->Field<uint32_t>(Netvars::C_EconItemView::m_iItemDefinitionIndex) = 6996;
 	pWearables[2]->GetAttributeManager()->GetItem()->Field<bool>(Netvars::C_EconItemView::m_bInitialized) = false;
-	
+
 	pWearables[2]->CallVFunc<6>(0);
 	ORIGCALL(Spawn)(hero, kv);
-	
+
 	LogW("NEW WEARABLES");
 	for (auto pWearable : pWearables) {
 		LogF("{} = {}",
@@ -57,7 +59,9 @@ void hkSpawn(CDOTABaseNPC_Hero* hero, void* kv) {
 			pWearable->GetModelName() ? pWearable->GetModelName() : "NO MODEL");
 	}
 }
-void HackThread(HMODULE hModule) {	
+
+
+void HackThread(HMODULE hModule) {
 	d2c.Initialize(hModule);
 
 	MatchStateManager.CheckForOngoingGame();

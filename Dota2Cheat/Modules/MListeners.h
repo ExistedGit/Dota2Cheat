@@ -1,5 +1,6 @@
 #pragma once
 #include "../pch.h"
+#include <Interfaces/Network/CNetworkMessages.h>
 
 struct IFrameListener {
 	virtual void OnFrame() = 0;

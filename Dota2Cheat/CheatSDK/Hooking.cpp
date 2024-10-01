@@ -55,6 +55,13 @@ void Hooks::InstallHooks() {
 
 	}
 
+	auto CreateNetChan = SignatureDB::FindSignature("CNetworkSystem::CreateNetChan");
+	HOOKFUNC(CreateNetChan);
+
+	//{
+	//	auto PacketEntitiesFilter__Filter = SignatureDB::FindSignature("PacketEntitiesFilter::Filter");
+	//	HOOKFUNC(PacketEntitiesFilter__Filter);
+	//}
 	//{
 	//	auto client = INetworkClientService::Get()->GetIGameClient();
 	//	auto nc = client->GetNetChannel();
@@ -66,9 +73,5 @@ void Hooks::InstallHooks() {
 	//	nc->RegisterAbstractMessageHandler(buf, &d, 1, pbs, 0);
 	//	nc->FinishRegisteringMessageHandlers();
 	//}
-
-	CEntSys::Get()->GetListeners().push_back(&EntityList);
-
-	HookDX11Old();
 }
 

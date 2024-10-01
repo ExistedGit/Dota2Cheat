@@ -102,17 +102,12 @@ long Hooks::hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT Flags)
 
 	texManager.ExecuteLoadCycle();
 
-#ifdef _DEBUG
-	// Pages::AutoPickHeroGrid::Draw();
-#endif // _DEBUG
-
 	ImGui::PushFont(DrawData.Fonts["MSTrebuchet"][24]);
 	if (
 		CGameUI::Get()->GetUIState() == DOTA_GAME_UI_DOTA_INGAME
 		&& ctx.gameStage == GameStage::IN_GAME
 		&& ctx.localHero
 		) {
-
 		Modules::AbilityESP.DrawESP();
 		Modules::UIOverhaul.DrawBars();
 		Modules::TPTracker.DrawMapTeleports();
@@ -129,25 +124,8 @@ long Hooks::hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT Flags)
 
 	ImGui::PushFont(defaultFont);
 
-	//ImGui::Begin("Netvar Writes");
-	//{
-	//	if (ImGui::Button("Clear writes"))
-	//		writes.clear();
-
-	//	std::lock_guard<std::mutex> lk(writeMutex);
-	//	for (const auto& [k, v] : writes) {
-	//		ImGui::Text(std::format("{}: W {} LV {}", k, v.writeCount, v.lastVal).c_str());
-	//	}
-	//}
-	//ImGui::End();
-
-#ifndef _DEBUG
-	if (UIData::uiState == CheatUIState::LaunchMenu)
-		Menus::loadMenu.DrawLaunchDialogue();
-	else
-#endif
-		if (DrawData.ShowMenu)
-			Pages::MainMenu::Draw();
+	if (DrawData.ShowMenu)
+		Pages::MainMenu::Draw();
 
 	ImGui::PopFont();
 

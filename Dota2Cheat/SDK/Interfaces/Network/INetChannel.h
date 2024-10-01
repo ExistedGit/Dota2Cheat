@@ -2,6 +2,11 @@
 #include "CNetworkMessages.h"
 
 class CNetworkGameClient;
+class INetChannel;
+
+struct INetworkMessageProcessingPreFilter {
+	virtual bool Filter(VClass* msg, INetChannel* netchan) = 0;
+};
 
 class INetChannel : public VClass
 {
@@ -22,4 +27,11 @@ public:
 		GetVFunc(60)(handlerBuffer, handler, flag2, pbSerializer, flag3);
 	}
 
+	void InstallMessageFilter(INetworkMessageProcessingPreFilter* filter) {
+		GetVFunc(67)(filter);
+	}
+
+	void UninstallMessageFilter(INetworkMessageProcessingPreFilter* filter) {
+		GetVFunc(68)(filter);
+	}
 };

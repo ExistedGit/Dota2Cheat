@@ -183,4 +183,12 @@ public:
 		pos.z += Member<int>(Netvars::C_DOTA_BaseNPC::m_iHealthBarOffset);
 		return pos;
 	};
+
+	const char* GetModifiedAssetString(const char* str) const {
+		return MemberInline<VClass>(0xA38)->GetVFunc(67).Call<const char*>(str);
+	}
+
+	const char* GetSmallIcon() const {
+		return GetModifiedAssetString(GetIdentity()->GetName());
+	}
 };

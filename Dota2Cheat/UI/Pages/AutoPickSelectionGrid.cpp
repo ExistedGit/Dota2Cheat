@@ -5,16 +5,13 @@ void Pages::AutoPickHeroGrid::InitList() {
 	auto npc_heroes = KeyValues::MakeKV("npc_heroes");
 	npc_heroes->LoadFromFile("scripts/npc/npc_heroes.txt");
 
-	for(auto node : npc_heroes) {
+	for (auto node : npc_heroes) {
 		if (!node->GetFirstSubKey()) // not considering non-hero nodes
 			continue;
 
 		std::string heroName = node->GetName();
-		auto path = d2c.cheatFolderPath + "\\assets\\heroicons\\" + heroName + "_png.png";
-		if (std::filesystem::exists(path)) {
-			heroNames.push_back(heroName);
-			texManager.LoadTextureNamed(path, &heroIcons[heroName], "icon_" + heroName.substr(14));
-		}
+		heroNames.push_back(heroName);
+		heroIcons[heroName] = assets.heroIcons.Load(heroName + "_png.png");
 	}
 	npc_heroes->Destroy();
 	CMemAlloc::Get()->Free(npc_heroes);

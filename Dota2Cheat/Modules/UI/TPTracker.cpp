@@ -94,7 +94,7 @@ void Modules::M_TPTracker::OnReceivedMsg(NetMessageHandle_t* msgHandle, google::
 		if (!ent || !ent->GetUnitName())
 			break;
 
-		auto icon = assets.heroIcons.Load(ent->GetUnitName());
+		auto icon = assets.heroIcons.Load(ent->GetSmallIcon());
 
 		TPData* tpPointToSet{};
 		auto& tpData = teleports[ent];
@@ -124,10 +124,10 @@ void Modules::M_TPTracker::OnReceivedMsg(NetMessageHandle_t* msgHandle, google::
 
 			for (auto& [_, data] : teleports)
 				if (data.start.msgIdx == msgIndex)
-					data.start.pos = Vector(pos.x(), pos.y(), pos.z());
+					data.start.pos = pos;
 			for (auto& [_, data] : teleports)
 				if (data.end.msgIdx == msgIndex)
-					data.end.pos = Vector(pos.x(), pos.y(), pos.z());
+					data.end.pos = pos;
 		}
 		break;
 	}
@@ -138,10 +138,10 @@ void Modules::M_TPTracker::OnReceivedMsg(NetMessageHandle_t* msgHandle, google::
 
 			for (auto& [_, data] : teleports)
 				if (data.start.msgIdx == msgIndex)
-					data.start.pos = Vector(pos.x(), pos.y(), pos.z());
+					data.start.pos = pos;
 			for (auto& [_, data] : teleports)
 				if (data.end.msgIdx == msgIndex)
-					data.end.pos = Vector(pos.x(), pos.y(), pos.z());
+					data.end.pos = pos;
 		}
 		break;
 	}

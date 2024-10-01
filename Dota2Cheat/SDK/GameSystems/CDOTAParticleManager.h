@@ -135,16 +135,6 @@ struct ParticleWrapper {
 	}
 };
 
-// Found via x64dbg
-// Xref "CreateParticle" to a lea rax instruction
-// You must see "pParticleName" below it
-// Right above "pParticleName" is lea rcx, [XXXXXXXXX], Right click -> Follow in Disassembler -> Constant
-// The second call instruction is GetParticleManager, has only mov rax, [XXXXXXXX] then ret
-// Now the only remaining step is to get the absolute address of the call, then of the CDOTAParticleManager**(yes, it's a pointer to a pointer, must be dereferenced as seen in Globals.h)
-
-// In the next, third call, we see:
-// mov rax, [rcx]       <- Puts the Particle vtable pointer into rax
-// call [rax + 38h]     <- Calls the vfunc on index 0x38 / 8 = 16
 class CDOTAParticleManager : public VClass {
 	static inline std::vector<ParticleWrapper> particles{};
 public:
@@ -152,10 +142,10 @@ public:
 		GETTER(CNewParticleEffect*, GetParticle, 0x10);
 		GETTER(uint32_t, GetHandle, 0x2C);
 	};
-	static inline void(__fastcall* DestroyParticleFunc)(void* thisptr, ENT_HANDLE handle, bool unk);
+	static inline void(__fastcall* DestroyParticleFunc)(void* thisptr, ENT_HANDLE handle, bool unk1, bool unk2);
 
 	GETTER(CUtlVector<ParticleContainer*>, GetParticles, 0x80);
-	FIELD(uint32_t, GetHandle, 0xb8);
+	FIELD(uint32_t, Handle, 0xD0); // offset in function called by JS CreateParticle binding (7.36: E8 ? ? ? ? 83 7D 67 FF)
 
 	ParticleWrapper CreateParticle(const char* name, ParticleAttachment_t attachType, CBaseEntity* ent);
 	void DestroyParticle(uint32_t handle);

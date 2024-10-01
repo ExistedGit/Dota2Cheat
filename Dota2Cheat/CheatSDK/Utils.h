@@ -46,5 +46,4 @@ inline bool IsEntityOnScreen(CBaseEntity* ent) {
 }
 
 // Converts a 3D position in Dota's world to a point on the minimap
-// Credit to Wolf49406
 ImVec2 WorldToMap(const Vector& EntityPos);

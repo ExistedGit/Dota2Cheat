@@ -4,7 +4,7 @@
 #include "../Hooks/PrepareUnitOrders.h"
 #include "../Hooks/AcceptEvents.h"
 #include "../Hooks/FrameStageNotify.h"
-#include "../Hooks/NetChannel.h"
+#include "../Hooks/Network.h"
 #include "../Hooks/GameCoordinator.h"
 #include "../Hooks/ParticleRendering.h"
 #include "../Hooks/SteamGC.h"
@@ -16,8 +16,14 @@
 namespace Hooks {
 	void InstallHooks();
 
+	inline void InstallAuxiliaryHooks() {
+		CEntSys::Get()->GetListeners().push_back(&EntityList);
+
+		HookDX11Old();
+	}
+
 	// Removes any custom, non-MinHook hooks
-	inline void RemoveHooks() {
+	inline void RemoveAuxiliaryHooks() {
 		CEntSys::Get()->GetListeners().remove_by_value(&EntityList);
 	}
 

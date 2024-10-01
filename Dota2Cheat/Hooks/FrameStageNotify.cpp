@@ -22,6 +22,8 @@
 #include "../SDK/Entities/CDOTAItemRune.h"
 
 #include "../CheatSDK/VTexDecoders/VTexParser.h"
+#include "../Modules/UI/TPTracker.h"
+#include "../Modules/UI/BlinkRevealer.h"
 using namespace Modules;
 
 void UpdateCameraDistance() {
@@ -107,8 +109,6 @@ void Hooks::hkFrameStageNotify(void* thisptr, int stage) {
 
 		SkinChanger.itemsToCreate.clear();
 	}
-
-	//VTexParser::Load("panorama/images/spellicons/arc_warden_spark_wraith_png.vtex_c");
 
 	// Frame stages are cycled in this order:
 	// 0 4 5 6 7 1 3 9 3 3 3

@@ -1,18 +1,39 @@
 #include "Utils.h"
 
+Vector2D::Vector2D(const CMsgVector2D& msg) {
+	x = msg.has_x() ? msg.x() : 0;
+	y = msg.has_y() ? msg.y() : 0;
+}
+
+Vector::Vector(const CMsgVector& msg) {
+	x = msg.has_x() ? msg.x() : 0;
+	y = msg.has_y() ? msg.y() : 0;
+	z = msg.has_z() ? msg.z() : 0;
+}
+
 // Rebuilt from xref "Minimap Objects", that formula is all over the CDOTAPanoramaMinimapRenderer::RenderX methods
 ImVec2 WorldToMap(const Vector& EntityPos) {
 	static auto minimap = Panorama::DotaHud->FindChildByIdTraverse("minimap");
-	if (!minimap) return { 0, 0 };
+	if (!minimap) {
+		ONLY_ONCE{
+			LogFE("{}: minimap element not found in HUD!", __FUNCTION__);
+		};
+		return { 0, 0 };
+	}
 
-	static auto mmr = minimap->Member<CDOTAPanoramaMinimapRenderer*>(0x28);
-	if (!mmr) return { 0,0 };
+	auto mmr = minimap->GetPanel2D()->Member<CDOTAPanoramaMinimapRenderer*>(0x28);
+	if (!mmr) {
+		ONLY_ONCE{
+			LogFE("{}: CDOTAPanoramaMinimapRenderer not found in minimap element's CPanel2D!", __FUNCTION__);
+		};
+		return { 0,0 };
+	}
 
 	auto bounds = mmr->MinimapBounds;
 	auto mms = mmr->GetMinimapSize();
 	auto quotient = mmr->Member<float>(0x10 + 0xC);
-	float 
-		xAbs = (EntityPos.x - mmr->Member<float>(0x10)) / quotient, 
+	float
+		xAbs = (EntityPos.x - mmr->Member<float>(0x10)) / quotient,
 		yAbs = (EntityPos.y - mmr->Member<float>(0x14)) * (-1.0 / quotient);
 
 	if (xAbs >= 75.0f)

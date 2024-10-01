@@ -46,8 +46,8 @@ namespace Config {
 
 #undef CFGVAR_INFER
 
-		void SaveConfig(std::ofstream& stream);
-		void LoadConfig(std::ifstream& stream);
+		void SaveToFile(std::ofstream& stream);
+		void LoadFromFile(std::ifstream& stream);
 		void SaveEquippedItems(std::ofstream& stream);;
 		void LoadEquippedItems(std::ifstream& stream);;
 
@@ -187,4 +187,9 @@ namespace Config {
 
 	inline int CircleRadius;
 	inline Vector CircleRGB;
+
+	// Debug config, does not get saved
+	namespace Debug {
+		inline bool LogFilterMessages = false;
+	}
 }

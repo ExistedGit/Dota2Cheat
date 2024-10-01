@@ -16,7 +16,7 @@ bool hooks::Unhook(void* target) {
 		return false;
 	}
 
-	bool res = MH_RemoveHook(target);
+	bool res = MH_RemoveHook(target) == MH_OK;
 	if (res) installed.erase(it);
 	else LogFE("Could not unhook {}!", it->name);
 	return res;

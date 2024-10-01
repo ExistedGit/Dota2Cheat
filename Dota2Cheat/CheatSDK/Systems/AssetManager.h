@@ -5,7 +5,6 @@
 
 // Operates in VPK directory panorama/images
 inline class CAssetManager {
-public:
 	const static inline std::string prefix = "panorama/images/";
 
 	struct VTexDir {
@@ -16,15 +15,19 @@ public:
 
 		ID3D11ShaderResourceView* Load(const std::string& file, std::string postfix = "png");
 	};
-
+public:
 	VTexDir
 		heroIcons{ "heroes/icons" },
 		spellIcons{ "spellicons" },
 		items{ "items" };
 
 	// For uncommon uses
-	VTexDir Directory(const std::string& dir) {
+	VTexDir Directory(const std::string& dir) const {
 		return VTexDir(dir);
+	}
+
+	VTexDir operator[](const std::string& dir) const {
+		return Directory(dir);
 	}
 
 } assets;

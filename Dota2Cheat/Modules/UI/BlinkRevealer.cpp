@@ -96,7 +96,7 @@ void Modules::M_BlinkRevealer::OnReceivedMsg(NetMessageHandle_t* msgHandle, goog
 			if (Blinks.contains(hero))
 			{
 				auto& data = Blinks[hero];
-				data.pos = Vector{ pos.x(), pos.y(), pos.z() };
+				data.pos = pos;
 				data.fadeCounter = data.fadeTime = 3;
 			}
 		}

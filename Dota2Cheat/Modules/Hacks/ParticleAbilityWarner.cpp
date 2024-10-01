@@ -77,11 +77,7 @@ void Modules::ParticleAbilityWarner::OnReceivedMsg(NetMessageHandle_t* msgHandle
 
 		switch (info.nameIndex) {
 		case AbilityParticles::AP_PUDGE_MEAT_HOOK: {
-			info.begin = Vector{
-				updParticleEnt.fallback_position().x(),
-				updParticleEnt.fallback_position().y(),
-				updParticleEnt.fallback_position().z()
-			};
+			info.begin = updParticleEnt.fallback_position();
 			info.owner = (CDOTABaseNPC*)owner;
 			break;
 		}
@@ -95,11 +91,7 @@ void Modules::ParticleAbilityWarner::OnReceivedMsg(NetMessageHandle_t* msgHandle
 
 		auto& info = queuedParticleIndexes[msgIndex];
 		auto cpIdx = pmMsg->update_particle_transform().control_point();
-		auto cpVal = Vector{
-			pmMsg->update_particle_transform().position().x(),
-			pmMsg->update_particle_transform().position().y(),
-			pmMsg->update_particle_transform().position().z()
-		};
+		Vector cpVal = pmMsg->update_particle_transform().position();
 
 		switch (info.nameIndex) {
 		case AP_PUDGE_MEAT_HOOK:

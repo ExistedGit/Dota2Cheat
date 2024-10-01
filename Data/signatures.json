@@ -40,13 +40,16 @@
     }
   },
   "networksystem.dll": {
-    "CTSQueue::PushItem": "E8 ? ? ? ? 49 8B 8E ? ? ? ? 48 85 C9",
-    "CNetChan::vftable": {
+    "CNetworkSystem::CreateNetChan": "48 89 5C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 44 89 4C 24",
+	"CNetChan::vftable": {
       "signature": "4C 89 69 18",
       "steps": [
         [1, 4],
         [0, 3]
       ]
     }
+  },
+  "engine2.dll": {
+	  "PacketEntitiesFilter::Filter": "48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC 20 48 8B 05 ? ? ? ? 49 8B F8 48 8B DA"
   }
 }

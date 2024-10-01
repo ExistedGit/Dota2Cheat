@@ -33,7 +33,6 @@ namespace Modules {
 		};
 
 		std::map<int32_t, ParticleWrapper> TrackedProjectiles{};
-		std::map<int32_t, LinearProjectile> linearProjectiles{};
 
 
 		struct AbilityTrajectoryConfig {

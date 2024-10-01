@@ -13,7 +13,7 @@ namespace Modules {
 				|| !IsEntityOnScreen(hero))
 				return;
 
-			const static auto icon = assets.Directory("hud/reborn").Load("icon_speed", "psd");
+			const static auto icon = assets["hud/reborn"].Load("icon_speed", "psd");
 			int mySpeed = ctx.localHero->GetIdealSpeed();
 
 			auto barPos = HeroData[hero].HealthbarW2S;

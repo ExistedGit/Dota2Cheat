@@ -1,5 +1,6 @@
 #include "DebugMenu.h"
 #include "../../CheatSDK/Globals/VMTDB.h"
+#include "../../CheatSDK/Hooking.h"
 #include "../../Modules/Hacks/SkinChanger.h"
 
 void DebugMenu() {
@@ -10,6 +11,10 @@ void DebugMenu() {
 	static bool net_showreliable_bool = strcmp(net_showreliable->value.str, "0");
 
 	if (ImGui::Begin("Hooks", &stateHooks, ImGuiWindowFlags_AlwaysAutoResize)) {
+		if (ImGui::Button("RELOAD ALL")) {
+			Hooks::Reload();
+		}
+
 		for (auto& hook : hooks::installed) {
 			bool v = hook.enabled;
 

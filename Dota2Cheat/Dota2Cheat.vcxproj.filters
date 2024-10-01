@@ -4,7 +4,7 @@
     <ClCompile Include="CheatSDK\Config.cpp" />
     <ClCompile Include="CheatSDK\Hooking.cpp" />
     <ClCompile Include="Hooks\ModifierEvents.cpp" />
-    <ClCompile Include="Hooks\NetChannel.cpp" />
+    <ClCompile Include="Hooks\Network.cpp" />
     <ClCompile Include="Hooks\PrepareUnitOrders.cpp" />
     <ClCompile Include="ImGuiSDK\Elements.cpp" />
     <ClCompile Include="include\imgui\imgui_stdlib.cpp" />
@@ -149,7 +149,7 @@
     <ClInclude Include="CheatSDK\Globals\Context.h" />
     <ClInclude Include="CheatSDK\Hooking.h" />
     <ClInclude Include="Modules\Hacks\LinearProjectileWarner.h" />
-    <ClInclude Include="Hooks\NetChannel.h" />
+    <ClInclude Include="Hooks\Network.h" />
     <ClInclude Include="Hooks\ModifierEvents.h" />
     <ClInclude Include="CheatSDK\Globals\Interfaces.h" />
     <ClInclude Include="SDK\Interfaces\Network\bf_read.h" />

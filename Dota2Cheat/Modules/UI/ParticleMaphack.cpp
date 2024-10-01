@@ -61,7 +61,7 @@ void Modules::M_ParticleMaphack::DrawMapAppearances()
 void Modules::M_ParticleMaphack::RegisterAppearance(CDOTABaseNPC* npc, const Vector& pos) {
 	ImTextureID icon =
 		EntityList.IsHero(npc) ?
-		assets.heroIcons.Load(npc->GetIdentity()->GetName()) :
+		assets.heroIcons.Load(npc->GetSmallIcon()) :
 		nullptr;
 
 	auto& mapData = Appearances[npc];
@@ -145,7 +145,7 @@ void Modules::M_ParticleMaphack::OnReceivedMsg(NetMessageHandle_t* msgHandle, go
 			break;
 
 		auto& pos = tf.position();
-		RegisterAppearance(TransformQueue[pmMsg->index()], Vector(pos.x(), pos.y(), pos.z()));
+		RegisterAppearance(TransformQueue[pmMsg->index()], pos);
 		break;
 	}
 
@@ -168,7 +168,7 @@ void Modules::M_ParticleMaphack::OnReceivedMsg(NetMessageHandle_t* msgHandle, go
 				|| npc->GetLifeState() != 0)
 				return;
 
-			RegisterAppearance(npc, Vector{ pos.x(), pos.y(), pos.z() });
+			RegisterAppearance(npc, pos);
 		}
 		break;
 	}

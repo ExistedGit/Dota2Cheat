@@ -71,6 +71,8 @@ struct matrix3x4_t
 	float m_flMatVal[3][4];
 };
 
+class CMsgVector;
+
 class Vector
 {
 public:
@@ -78,6 +80,7 @@ public:
 	const static Vector Zero;
 
 	Vector(void);
+	Vector(const CMsgVector&);
 	Vector(float X, float Y, float Z);
 	void Init(float ix = 0.0f, float iy = 0.0f, float iz = 0.0f);
 	[[nodiscard]] bool IsValid() const;
@@ -551,6 +554,8 @@ public:
 // 2D Vector2D
 //=========================================================
 
+class CMsgVector2D;
+
 class Vector2D
 {
 public:
@@ -560,6 +565,7 @@ public:
 	// Construction/destruction
 	Vector2D(void);
 	Vector2D(float X, float Y);
+	Vector2D(const CMsgVector2D&);
 	explicit Vector2D(const Vector& v3) : x(v3.x), y(v3.y) {}
 	explicit Vector2D(const float* pFloat);
 

@@ -43,7 +43,14 @@ void SignatureDB::LoadSignaturesFromFile(const std::string& url) {
 	if (!fin.is_open())
 		return;
 
-	auto data = nlohmann::json::parse(fin);
+	nlohmann::json data;
+	try {
+		data = nlohmann::json::parse(fin);
+	}
+	catch (std::exception e) {
+		LogFE("Could not load signatures from {}: {}", url, e.what());
+	}
+
 	for (const auto& [moduleName, sigBlock] : data.items()) {
 		for (const auto& [sigName, sigData] : sigBlock.items()) {
 
