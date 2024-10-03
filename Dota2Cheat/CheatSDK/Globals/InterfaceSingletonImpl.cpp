@@ -14,6 +14,11 @@ ISteamGameCoordinator* ISteamGameCoordinator::Get() {
 	return inst;
 }
 
+INetworkClientService* INetworkClientService::Get() {
+	static INetworkClientService* inst = Memory::GetInterfaceBySubstr("engine2.dll", "NetworkClientService");
+	return inst;
+}
+
 ISteamClient* ISteamClient::Get() {
 	// There are multiple simultaneous versions of SteamClient
 	// Current version can be found by searching for "SteamClient" in client.dll

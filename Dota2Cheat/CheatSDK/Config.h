@@ -81,6 +81,9 @@ namespace Config {
 
 	namespace AbilityESP {
 		inline bool Enabled;
+
+		inline bool ApplyIconModifiers;
+
 		inline bool ShowAllies;
 		inline float UIScale;
 		inline int Rounding;

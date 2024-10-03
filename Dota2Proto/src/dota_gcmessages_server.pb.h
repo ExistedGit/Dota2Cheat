@@ -543,6 +543,9 @@ extern CMsgSteamLearnLateGameItemPurchasesDefaultTypeInternal _CMsgSteamLearnLat
 class CMsgSteamLearnLateGameItemPurchasesV2;
 struct CMsgSteamLearnLateGameItemPurchasesV2DefaultTypeInternal;
 extern CMsgSteamLearnLateGameItemPurchasesV2DefaultTypeInternal _CMsgSteamLearnLateGameItemPurchasesV2_default_instance_;
+class CMsgSteamLearnMainGameItemPurchases;
+struct CMsgSteamLearnMainGameItemPurchasesDefaultTypeInternal;
+extern CMsgSteamLearnMainGameItemPurchasesDefaultTypeInternal _CMsgSteamLearnMainGameItemPurchases_default_instance_;
 class CMsgSteamLearnMatchHeroV3;
 struct CMsgSteamLearnMatchHeroV3DefaultTypeInternal;
 extern CMsgSteamLearnMatchHeroV3DefaultTypeInternal _CMsgSteamLearnMatchHeroV3_default_instance_;
@@ -763,6 +766,7 @@ template<> ::CMsgSteamLearnEarlyGameItemPurchasesV2* Arena::CreateMaybeMessage<:
 template<> ::CMsgSteamLearnItemPurchase* Arena::CreateMaybeMessage<::CMsgSteamLearnItemPurchase>(Arena*);
 template<> ::CMsgSteamLearnLateGameItemPurchases* Arena::CreateMaybeMessage<::CMsgSteamLearnLateGameItemPurchases>(Arena*);
 template<> ::CMsgSteamLearnLateGameItemPurchasesV2* Arena::CreateMaybeMessage<::CMsgSteamLearnLateGameItemPurchasesV2>(Arena*);
+template<> ::CMsgSteamLearnMainGameItemPurchases* Arena::CreateMaybeMessage<::CMsgSteamLearnMainGameItemPurchases>(Arena*);
 template<> ::CMsgSteamLearnMatchHeroV3* Arena::CreateMaybeMessage<::CMsgSteamLearnMatchHeroV3>(Arena*);
 template<> ::CMsgSteamLearnMatchHeroesV3* Arena::CreateMaybeMessage<::CMsgSteamLearnMatchHeroesV3>(Arena*);
 template<> ::CMsgSteamLearnMatchInfo* Arena::CreateMaybeMessage<::CMsgSteamLearnMatchInfo>(Arena*);
@@ -40646,6 +40650,174 @@ class CMsgSteamLearnLateGameItemPurchasesV2 final :
 };
 // -------------------------------------------------------------------
 
+class CMsgSteamLearnMainGameItemPurchases final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearnMainGameItemPurchases) */ {
+ public:
+  inline CMsgSteamLearnMainGameItemPurchases() : CMsgSteamLearnMainGameItemPurchases(nullptr) {}
+  ~CMsgSteamLearnMainGameItemPurchases() override;
+  explicit PROTOBUF_CONSTEXPR CMsgSteamLearnMainGameItemPurchases(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgSteamLearnMainGameItemPurchases(const CMsgSteamLearnMainGameItemPurchases& from);
+  CMsgSteamLearnMainGameItemPurchases(CMsgSteamLearnMainGameItemPurchases&& from) noexcept
+    : CMsgSteamLearnMainGameItemPurchases() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgSteamLearnMainGameItemPurchases& operator=(const CMsgSteamLearnMainGameItemPurchases& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgSteamLearnMainGameItemPurchases& operator=(CMsgSteamLearnMainGameItemPurchases&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgSteamLearnMainGameItemPurchases& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgSteamLearnMainGameItemPurchases* internal_default_instance() {
+    return reinterpret_cast<const CMsgSteamLearnMainGameItemPurchases*>(
+               &_CMsgSteamLearnMainGameItemPurchases_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    172;
+
+  friend void swap(CMsgSteamLearnMainGameItemPurchases& a, CMsgSteamLearnMainGameItemPurchases& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgSteamLearnMainGameItemPurchases* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgSteamLearnMainGameItemPurchases* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgSteamLearnMainGameItemPurchases* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgSteamLearnMainGameItemPurchases>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgSteamLearnMainGameItemPurchases& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgSteamLearnMainGameItemPurchases& from) {
+    CMsgSteamLearnMainGameItemPurchases::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgSteamLearnMainGameItemPurchases* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgSteamLearnMainGameItemPurchases";
+  }
+  protected:
+  explicit CMsgSteamLearnMainGameItemPurchases(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kItemIdsFieldNumber = 1,
+  };
+  // repeated int32 item_ids = 1 [(.steamlearn_count) = 10];
+  int item_ids_size() const;
+  private:
+  int _internal_item_ids_size() const;
+  public:
+  void clear_item_ids();
+  private:
+  int32_t _internal_item_ids(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+      _internal_item_ids() const;
+  void _internal_add_item_ids(int32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+      _internal_mutable_item_ids();
+  public:
+  int32_t item_ids(int index) const;
+  void set_item_ids(int index, int32_t value);
+  void add_item_ids(int32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+      item_ids() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+      mutable_item_ids();
+
+  // @@protoc_insertion_point(class_scope:CMsgSteamLearnMainGameItemPurchases)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > item_ids_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_dota_5fgcmessages_5fserver_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CMsgSteamLearnWardPlacement_Location final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgSteamLearnWardPlacement.Location) */ {
  public:
@@ -40701,7 +40873,7 @@ class CMsgSteamLearnWardPlacement_Location final :
                &_CMsgSteamLearnWardPlacement_Location_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    172;
+    173;
 
   friend void swap(CMsgSteamLearnWardPlacement_Location& a, CMsgSteamLearnWardPlacement_Location& b) {
     a.Swap(&b);
@@ -40876,7 +41048,7 @@ class CMsgSteamLearnWardPlacement final :
                &_CMsgSteamLearnWardPlacement_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    173;
+    174;
 
   friend void swap(CMsgSteamLearnWardPlacement& a, CMsgSteamLearnWardPlacement& b) {
     a.Swap(&b);
@@ -41078,7 +41250,7 @@ class CMsgSignOutMuertaMinigame final :
                &_CMsgSignOutMuertaMinigame_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    174;
+    175;
 
   friend void swap(CMsgSignOutMuertaMinigame& a, CMsgSignOutMuertaMinigame& b) {
     a.Swap(&b);
@@ -41243,7 +41415,7 @@ class CMsgSignOutMapStats_Player final :
                &_CMsgSignOutMapStats_Player_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    175;
+    176;
 
   friend void swap(CMsgSignOutMapStats_Player& a, CMsgSignOutMapStats_Player& b) {
     a.Swap(&b);
@@ -41423,7 +41595,7 @@ class CMsgSignOutMapStats final :
                &_CMsgSignOutMapStats_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    176;
+    177;
 
   friend void swap(CMsgSignOutMapStats& a, CMsgSignOutMapStats& b) {
     a.Swap(&b);
@@ -41610,7 +41782,7 @@ class CMsgServerToGCNewBloomGift final :
                &_CMsgServerToGCNewBloomGift_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    177;
+    178;
 
   friend void swap(CMsgServerToGCNewBloomGift& a, CMsgServerToGCNewBloomGift& b) {
     a.Swap(&b);
@@ -41809,7 +41981,7 @@ class CMsgServerToGCNewBloomGiftResponse final :
                &_CMsgServerToGCNewBloomGiftResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    178;
+    179;
 
   friend void swap(CMsgServerToGCNewBloomGiftResponse& a, CMsgServerToGCNewBloomGiftResponse& b) {
     a.Swap(&b);
@@ -41993,7 +42165,7 @@ class CMsgSignOutOverworld_Player final :
                &_CMsgSignOutOverworld_Player_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    179;
+    180;
 
   friend void swap(CMsgSignOutOverworld_Player& a, CMsgSignOutOverworld_Player& b) {
     a.Swap(&b);
@@ -42192,7 +42364,7 @@ class CMsgSignOutOverworld final :
                &_CMsgSignOutOverworld_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    180;
+    181;
 
   friend void swap(CMsgSignOutOverworld& a, CMsgSignOutOverworld& b) {
     a.Swap(&b);
@@ -72420,6 +72592,57 @@ CMsgSteamLearnLateGameItemPurchasesV2::mutable_other_item_ids() {
 
 // -------------------------------------------------------------------
 
+// CMsgSteamLearnMainGameItemPurchases
+
+// repeated int32 item_ids = 1 [(.steamlearn_count) = 10];
+inline int CMsgSteamLearnMainGameItemPurchases::_internal_item_ids_size() const {
+  return _impl_.item_ids_.size();
+}
+inline int CMsgSteamLearnMainGameItemPurchases::item_ids_size() const {
+  return _internal_item_ids_size();
+}
+inline void CMsgSteamLearnMainGameItemPurchases::clear_item_ids() {
+  _impl_.item_ids_.Clear();
+}
+inline int32_t CMsgSteamLearnMainGameItemPurchases::_internal_item_ids(int index) const {
+  return _impl_.item_ids_.Get(index);
+}
+inline int32_t CMsgSteamLearnMainGameItemPurchases::item_ids(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgSteamLearnMainGameItemPurchases.item_ids)
+  return _internal_item_ids(index);
+}
+inline void CMsgSteamLearnMainGameItemPurchases::set_item_ids(int index, int32_t value) {
+  _impl_.item_ids_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CMsgSteamLearnMainGameItemPurchases.item_ids)
+}
+inline void CMsgSteamLearnMainGameItemPurchases::_internal_add_item_ids(int32_t value) {
+  _impl_.item_ids_.Add(value);
+}
+inline void CMsgSteamLearnMainGameItemPurchases::add_item_ids(int32_t value) {
+  _internal_add_item_ids(value);
+  // @@protoc_insertion_point(field_add:CMsgSteamLearnMainGameItemPurchases.item_ids)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+CMsgSteamLearnMainGameItemPurchases::_internal_item_ids() const {
+  return _impl_.item_ids_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+CMsgSteamLearnMainGameItemPurchases::item_ids() const {
+  // @@protoc_insertion_point(field_list:CMsgSteamLearnMainGameItemPurchases.item_ids)
+  return _internal_item_ids();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+CMsgSteamLearnMainGameItemPurchases::_internal_mutable_item_ids() {
+  return &_impl_.item_ids_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+CMsgSteamLearnMainGameItemPurchases::mutable_item_ids() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgSteamLearnMainGameItemPurchases.item_ids)
+  return _internal_mutable_item_ids();
+}
+
+// -------------------------------------------------------------------
+
 // CMsgSteamLearnWardPlacement_Location
 
 // optional float x = 1;
@@ -73332,6 +73555,8 @@ inline void CMsgSignOutOverworld::set_event_id(::EEvent value) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

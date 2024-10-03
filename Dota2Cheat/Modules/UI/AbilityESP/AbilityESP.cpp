@@ -1,4 +1,5 @@
 #include "AbilityESP.h"
+#include "../../../Utils/Drawing.h"
 #include <format>
 
 bool Modules::M_AbilityESP::CanDraw(CDOTABaseNPC_Hero* hero) {
@@ -6,30 +7,15 @@ bool Modules::M_AbilityESP::CanDraw(CDOTABaseNPC_Hero* hero) {
 		hero
 		&& !hero->GetIdentity()->IsDormant()
 		&& !hero->IsIllusion()
+#ifndef _DEBUG
 		&& hero != ctx.localHero
+#endif
 		&& hero->GetLifeState() == 0
 		&& IsPointOnScreen(HeroData[hero].W2S);
 	if (!Config::AbilityESP::ShowAllies)
 		// I wish they made &&= an operator
 		ret = ret && !hero->IsSameTeam(ctx.localHero);
 	return ret;
-}
-
-void Modules::M_AbilityESP::DrawChargeCounter(int charges, const ImVec2& pos, int radius) {
-	auto DrawList = ImGui::GetForegroundDrawList();
-
-	// Green outline
-	// DrawList->AddCircleFilled(pos, radius + 1, ImGui::GetColorU32(ImVec4(135 / 255.0f, 214 / 255.0f, 77 / 255.0f, 1)));
-	// Gray core
-	// DrawList->AddCircleFilled(pos, radius, ImGui::GetColorU32(ImVec4(0.2, 0.2, 0.2, 1)));
-	auto textSize = ScaleVar(20);
-	DrawTextForeground(
-		DrawData.GetFont("Monofonto", textSize),
-		std::to_string(charges),
-		ImVec2(pos.x, pos.y - textSize / 2),
-		textSize,
-		ImVec4(1, 1, 1, 1),
-		true);
 }
 
 void Modules::M_AbilityESP::DrawHeroItems(CHero* hero) {
@@ -41,7 +27,38 @@ void Modules::M_AbilityESP::DrawHeroItems(CHero* hero) {
 		DrawItemGrids(hero);
 }
 
-void Modules::M_AbilityESP::DrawESP() {
+void Modules::M_AbilityESP::DrawChargeCounterBasic(int charges, const ImVec2& pos) {
+	auto textSize = ScaleVar(20);
+	DrawTextForeground(
+		DrawData.GetFont("Monofonto", textSize),
+		std::to_string(charges),
+		ImVec2(pos.x, pos.y - textSize / 2),
+		textSize,
+		ImVec4(1, 1, 1, 1),
+		true);
+}
+
+void Modules::M_AbilityESP::DrawChargeCounterImmersive(int charges, const ImVec2& pos) {
+	auto DrawList = ImGui::GetForegroundDrawList();
+
+	int counterScale = ScaleVar(16) / 2;
+	int counterTextScale = ScaleVar(14);
+	// Green outline
+	DrawList->AddCircleFilled(pos, counterScale + 1, ImColor(135, 214, 77));
+	// Gray core
+	DrawList->AddCircleFilled(pos, counterScale, ImColor(0.2f, 0.2f, 0.2f, 1.0f));
+	auto textSize = ScaleVar(20);
+	DrawTextForeground(
+		DrawData.GetFont("Monofonto", counterTextScale),
+		std::to_string(charges),
+		ImVec2(pos.x, pos.y - counterTextScale / 2 - counterTextScale % 2),
+		counterTextScale,
+		ImVec4(1, 1, 1, 1),
+		true);
+}
+
+
+void Modules::M_AbilityESP::Draw() {
 	if (!Config::AbilityESP::Enabled)
 		return;
 

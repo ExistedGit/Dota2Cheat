@@ -9,25 +9,12 @@ void Hooks::InstallHooks() {
 	hooks::Hook(Signatures::PrepareUnitOrders, &Hooks::hkPrepareUnitOrders, &Hooks::oPrepareUnitOrders, "CDOTAPlayerController::PrepareUnitOrders");
 
 #if defined(_DEBUG) && !defined(_TESTING)
-	{
-		auto SendMsg = VMT(ISteamGC::Get())[0];
-		auto RetrieveMessage = VMT(ISteamGC::Get())[2];
-		hooks::Hook(SendMsg, &Hooks::hkSendMessage, &Hooks::oSendMessage, "ISteamGameCoordinator::SendMessage");
-		hooks::Hook(RetrieveMessage, &Hooks::hkRetrieveMessage, &Hooks::oRetrieveMessage, "ISteamGameCoordinator::RetrieveMessage");
-	}
-	//HOOKFUNC_SIGNATURES(SaveSerializedSOCache);
+	auto SendMsg = VMT(ISteamGC::Get())[0];
+	auto RetrieveMessage = VMT(ISteamGC::Get())[2];
+	hooks::Hook(SendMsg, &Hooks::hkSendMessage, &Hooks::oSendMessage, "ISteamGameCoordinator::SendMessage");
+	hooks::Hook(RetrieveMessage, &Hooks::hkRetrieveMessage, &Hooks::oRetrieveMessage, "ISteamGameCoordinator::RetrieveMessage");
 #endif // _DEBUG
 
-	{
-		// NetChan constructor
-		// vtable ptr at 0x15
-		//uintptr_t** vtable = SignatureDB::FindSignature("CNetChan::vftable");
-		// They inlined the call to PostReceived so we have to make do with this 
-		//uintptr_t* PostReceivedNetMessage = SignatureDB::FindSignature("CTSQueue::PushItem"); // vtable[VMI::CNetChan::PostReceivedNetMessage],
-		//* SendNetMessage = vtable[VMI::CNetChan::SendNetMessage];
-		//HOOKFUNC(PostReceivedNetMessage);
-		// HOOKFUNC(SendNetMessage);
-	}
 	{
 		// CDOTA_Buff destructor
 		// vtable ptr at 0xd
@@ -44,16 +31,14 @@ void Hooks::InstallHooks() {
 		auto SetRenderingEnabled = vtable[VMI::CParticleCollection::SetRenderingEnabled];
 		HOOKFUNC(SetRenderingEnabled);
 	}
-	{
-		void* FrameStageNotify = CSource2Client::Get()->GetVFunc(VMI::CSource2Client::FrameStageNotify);
-		HOOKFUNC(FrameStageNotify);
+
+	void* FrameStageNotify = CSource2Client::Get()->GetVFunc(VMI::CSource2Client::FrameStageNotify);
+	HOOKFUNC(FrameStageNotify);
 
 #ifndef _TESTING
-		void* RunScript = CUIEngine::Get()->GetVFunc(VMI::CUIEngineSource2::RunScript);
-		HOOKFUNC(RunScript);
+	void* RunScript = CUIEngine::Get()->GetVFunc(VMI::CUIEngineSource2::RunScript);
+	HOOKFUNC(RunScript);
 #endif
-
-	}
 
 	auto CreateNetChan = SignatureDB::FindSignature("CNetworkSystem::CreateNetChan");
 	HOOKFUNC(CreateNetChan);

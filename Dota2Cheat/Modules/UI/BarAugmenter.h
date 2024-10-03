@@ -7,8 +7,8 @@ namespace Modules {
 	// Displays their HP as a number
 	// The manabar feature was integrated into Dota itself!
 	inline class M_BarAugmenter {
-		bool CanDraw(CDOTABaseNPC_Hero* hero);
-		void DrawHPNumbers(CDOTABaseNPC_Hero* hero) {
+		bool CanDraw(CHero* hero);
+		void DrawHPNumbers(CHero* hero) {
 			const int fontSize = 14;
 			if (!CanDraw(hero))
 				return;
@@ -24,7 +24,7 @@ namespace Modules {
 		void Init() {}
 		void Draw() {
 			if (Config::Bars::HPNumbers)
-				EntityList.ForEach<CDOTABaseNPC_Hero>([this](auto* hero) { DrawHPNumbers(hero); });
+				EntityList.ForEach<CHero>([this](auto* hero) { DrawHPNumbers(hero); });
 		}
 	} BarAugmenter{};
 }

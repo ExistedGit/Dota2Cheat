@@ -14,6 +14,7 @@
 #include "../Modules/Hacks/LastHitMarker.h"
 
 #include "../CheatSDK/VTexDecoders/VTexParser.h"
+#include "../CheatSDK/Shaders.h"
 
 LRESULT WINAPI Hooks::WndProc(const HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
 	//static std::once_flag inputFix;
@@ -108,17 +109,15 @@ long Hooks::hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT Flags)
 		&& ctx.gameStage == GameStage::IN_GAME
 		&& ctx.localHero
 		) {
-		Modules::AbilityESP.DrawESP();
-		Modules::UIOverhaul.DrawBars();
-		Modules::TPTracker.DrawMapTeleports();
+		Modules::AbilityESP.Draw();
+		Modules::UIOverhaul.Draw();
+		Modules::TPTracker.Draw();
 		Modules::LastHitMarker.Draw();
 		Modules::BlinkRevealer.Draw();
 		Modules::ParticleMaphack.Draw();
 		Modules::BarAugmenter.Draw();
 		Modules::SpeedIndicator.Draw();
 		Modules::KillIndicator.Draw();
-
-		ImGui::GetForegroundDrawList()->AddCircleFilled(WorldToMap(ctx.localHero->GetPos()), 5, ImColor{ 255, 0 ,0 });
 	}
 	ImGui::PopFont();
 

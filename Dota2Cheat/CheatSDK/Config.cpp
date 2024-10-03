@@ -105,6 +105,7 @@ void Config::ConfigManager::SetupVars() {
 	CFG_VAR(AbilityESP::ItemPanelType, 0);
 	CFG_VAR(AbilityESP::Rounding, 100);
 	CFG_VAR(AbilityESP::ShowAllies, true);
+	CFG_VAR(AbilityESP::ApplyIconModifiers, false);
 	CFG_VAR(AbilityESP::ShowCooldownDecimals, false);
 
 	CFG_VAR(Bars::HPNumbers, true);

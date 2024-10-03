@@ -32,7 +32,7 @@ namespace Modules {
 		}
 		// Mostly calculating fade duration
 		void OnFrame() override;
-		void DrawMapTeleports();
+		void Draw();
 		void OnReceivedMsg(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg) override;
 	} TPTracker{};
 }

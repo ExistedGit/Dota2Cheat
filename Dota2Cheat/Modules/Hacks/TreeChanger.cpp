@@ -1,8 +1,15 @@
 #include "TreeChanger.h"
 
 void Modules::M_TreeChanger::SetTreeModel(CBaseEntity* tree, const TreeModelInfo& mdl) {
-	// "models/props_foliage/draft_tree001.vmdl" goes into its RDX
-	static Function setMdl = Address(tree->GetVFunc(5)).Offset(0x1b9).GetAbsoluteAddress(1);
+	// "models/props_foliage/draft_tree001.vmdl" ends up as the second argument:
+	// if (!v14 || !*v14)
+	//	 v15 = "models/props_foliage/draft_tree001.vmdl";
+	//
+	// ...
+	// 
+	// SetModel(a1, (__int64)v15);
+
+	static Function setMdl = Address(tree->GetVFunc(6)).Offset(0x1b9).GetAbsoluteAddress(1);
 
 	setMdl(tree, mdl.modelName);
 	if (tree->ModelScale() != mdl.scale) {
@@ -13,8 +20,16 @@ void Modules::M_TreeChanger::SetTreeModel(CBaseEntity* tree, const TreeModelInfo
 
 void Modules::M_TreeChanger::RestoreTreeModels() {
 
-	static void(*skeletonMeshGroupMaskChanged)(CBaseEntity::CModelState* mdl, CBaseEntity* owner, uint64_t* mask)
+	static void(*skeletonMeshGroupMaskChanged)(CBaseEntity::CModelState * mdl, CBaseEntity * owner, uint64_t * mask)
 		= CNetworkMessages::Get()->FindCallback("skeletonMeshGroupMaskChanged");
+
+	if (!skeletonMeshGroupMaskChanged) {
+		ONLY_ONCE{
+			LogFE("{}: {}!", __FUNCTION__, "skeletonMeshGroupMaskChanged callback not found, cannot restore tree models!");
+		}
+
+		return;
+	}
 
 	auto trees = CBinaryObjSys::Get()->GetTrees();
 
@@ -37,8 +52,8 @@ void Modules::M_TreeChanger::UpdateTreeModels() {
 		auto trees = CBinaryObjSys::Get()->GetTrees();
 		bool shouldSaveOriginalTrees = originalTrees.empty();
 		// GG branch should be additionally colored via m_clrRender
-		bool isGGBranch = queuedModel.modelName== "models/props_tree/ti7/ggbranch.vmdl"sv;
-		for (auto tree : trees) {
+		bool isGGBranch = queuedModel.modelName == "models/props_tree/ti7/ggbranch.vmdl"sv;
+		for (CEnt* tree : trees) {
 			if (!tree)
 				continue;
 

@@ -87,6 +87,7 @@
     <ClCompile Include="SDK\Base\Bytehook.cpp" />
     <ClCompile Include="Modules\UI\AbilityESP\AbilityESP.Items.cpp" />
     <ClCompile Include="Modules\UI\AbilityESP\AbilityESP.Abilities.cpp" />
+    <ClCompile Include="CheatSDK\Shaders.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Modules\UI\UIOverhaul.h" />
@@ -261,9 +262,16 @@
     <ClInclude Include="SDK\Base\VMT.h" />
     <ClInclude Include="UI\Pages\DebugMenu.h" />
     <ClInclude Include="CheatSDK\Aliases.h" />
+    <ClInclude Include="CheatSDK\GameEventListeners\dota_on_hero_finish_spawn.h" />
+    <ClInclude Include="CheatSDK\Shaders.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />
     <None Include="vcpkg.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="CheatSDK\Shaders\Greyscale.hlsl" />
+    <FxCompile Include="CheatSDK\Shaders\Vertex.hlsl" />
+    <FxCompile Include="CheatSDK\Shaders\NoMana.hlsl" />
   </ItemGroup>
 </Project>

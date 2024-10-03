@@ -3,7 +3,9 @@
         "GetSchemaBinding": 40
     },
     "CDOTABaseAbility": {
-        "GetEffectiveCastRange": 276
+        "GetEffectiveCastRange": 276,
+        "GetAbilityTextureName": 222,
+        "GetManaCost": 228
     },
     "CDOTABaseNPC": {
         "GetAttackRange": 297,

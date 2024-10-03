@@ -83,9 +83,9 @@ void CCheatManager::LoadGameSpecific() {
 
 	GameSystems::FindGameSystems();
 
-#if defined(_DEBUG) && !defined(_TESTING)
-	LogD("ItemSchema: ", Signatures::GetItemSchema());
-#endif
+//#if defined(_DEBUG) && !defined(_TESTING)
+//	LogD("ItemSchema: ", Signatures::GetItemSchema());
+//#endif
 
 	Modules::BarAugmenter.Init();
 

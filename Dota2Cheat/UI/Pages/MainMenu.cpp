@@ -70,8 +70,7 @@ void Pages::MainMenu::Draw() {
 			else
 				Modules::TreeChanger.QueueModelRestore();
 		}
-		// credits to the screenshot https://yougame.biz/threads/283404/
-		// and to Wolf49406 himself
+		// credits to Wolf49406 
 		// should've figured out it's controlled by a convar like the weather :)
 		ImGui::Combo("River paint", &Config::Changer::RiverListIdx, RiverList, IM_ARRAYSIZE(RiverList));
 
@@ -87,7 +86,8 @@ void Pages::MainMenu::Draw() {
 
 		static const char* LevelCounterTypes[] = {
 			"Bars",
-			"Number"
+			"Numbers - Basic",
+			"Numbers - Immersive"
 		};
 
 		static const char* ItemPanelTypes[] = {
@@ -96,7 +96,12 @@ void Pages::MainMenu::Draw() {
 		};
 
 		ImGui::Checkbox("Enable", &Config::AbilityESP::Enabled);
-		ImGui::Checkbox("Include allied heroes", &Config::AbilityESP::ShowAllies);
+		
+		ImGui::Checkbox("Draw on allies", &Config::AbilityESP::ShowAllies);
+		
+		ImGui::Checkbox("Apply icon modifiers", &Config::AbilityESP::ApplyIconModifiers);
+		ImGui::SameLine(); HelpMarker("Heroes with icon-changing items equipped will also have changed icons in the ESP");
+		
 		ImGui::Checkbox("Show decimals in cooldowns", &Config::AbilityESP::ShowCooldownDecimals);
 		ImGui::Combo("Level counter type", &Config::AbilityESP::LevelCounterType, LevelCounterTypes, IM_ARRAYSIZE(LevelCounterTypes));
 		ImGui::Combo("Item panel type", &Config::AbilityESP::ItemPanelType, ItemPanelTypes, IM_ARRAYSIZE(ItemPanelTypes));

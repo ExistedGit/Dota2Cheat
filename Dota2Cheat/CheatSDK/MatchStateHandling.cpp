@@ -128,8 +128,7 @@ void CMatchStateManager::CheckForOngoingGame() {
 void CMatchStateManager::CacheAllEntities() {
 	for (int i = 0; i <= CEntSys::Get()->GetHighestEntityIndex(); i++) {
 		auto ent = CEntSys::Get()->GetEntity(i);
-		if (!IsValidReadPtr(ent) ||
-			!IsValidReadPtr(ent->SchemaBinding()->binaryName))
+		if (!ent || !ent->SchemaBinding() ||!ent->SchemaBinding()->binaryName)
 			continue;
 
 		EntityList.OnEntityCreated(ent);

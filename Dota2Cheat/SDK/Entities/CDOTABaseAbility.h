@@ -258,12 +258,16 @@ public:
 	GETTER(int, GetLevel, Netvars::C_DOTABaseAbility::m_iLevel);
 	GETTER(int, GetCharges, Netvars::C_DOTABaseAbility::m_nAbilityCurrentCharges);
 	GETTER(float, GetChargeRestoreCooldown, Netvars::C_DOTABaseAbility::m_fAbilityChargeRestoreTimeRemaining);
-	GETTER(int, GetManaCost, Netvars::C_DOTABaseAbility::m_iManaCost);
 	GETTER(bool, IsInAbilityPhase, Netvars::C_DOTABaseAbility::m_bInAbilityPhase);
 	GETTER(DOTAAbilityDefinition_t*, GetDefinition, 0x538);
 
 	int GetMaxLevel() const {
 		return GetDefinition()->m_iMaxLevel;
+	};
+
+	// Returns ability manacost if present, otherwise returns -1
+	int GetManaCost(int defaultVal = -1) const {
+		return GetVFunc(VMI::CDOTABaseAbility::GetManaCost).Call<int>(defaultVal);
 	};
 
 #define SPECVAL_GETTER(type, name, val) type name() const { return GetLevelSpecialValueFor<type>(val); }
@@ -274,7 +278,7 @@ public:
 #undef SPECVAL_GETTER
 
 	const char* GetAbilityTextureName(bool applyAssetModifiers = true) const {
-		return GetVFunc(222).Call<const char*>(applyAssetModifiers);
+		return GetVFunc(VMI::CDOTABaseAbility::GetAbilityTextureName).Call<const char*>(applyAssetModifiers);
 	}
 
 	// JS Func

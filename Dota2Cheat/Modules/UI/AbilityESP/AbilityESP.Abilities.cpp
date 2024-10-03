@@ -1,4 +1,6 @@
 #include "AbilityESP.h"
+#include "../../../Utils/Drawing.h"
+#include "../../../CheatSDK/Shaders.h"
 
 constexpr unsigned VISIBLE_ABILITY_COUNT = 6;
 
@@ -6,6 +8,8 @@ void Modules::M_AbilityESP::DrawHeroAbilities(CHero* hero) {
 	CAbility* queue[VISIBLE_ABILITY_COUNT]{ nullptr };
 	int queueSize = 0;
 	auto abilities = hero->GetAbilities();
+
+	// Forming the ability render queue
 
 	// EXPLANATION FOR CHECKS \/
 
@@ -52,8 +56,6 @@ void Modules::M_AbilityESP::DrawHeroAbilities(CHero* hero) {
 		if (queueSize == VISIBLE_ABILITY_COUNT) break;
 	}
 
-	// return;
-
 	const float iconSize = ScaleVar(AbilityIconSize);
 	const float outlineThickness = 1;
 	const ImVec2 outlineSize{ outlineThickness, outlineThickness };
@@ -62,11 +64,26 @@ void Modules::M_AbilityESP::DrawHeroAbilities(CHero* hero) {
 	auto DrawList = ImGui::GetForegroundDrawList();
 	auto lvlCounterType = (LevelCounterType)Config::AbilityESP::LevelCounterType;
 
+	constexpr auto getCooldown = [](CAbility* ent)->float {
+		if (
+			ent->GetCooldown() != 0 || // if on cooldown
+			(ent->GetCharges() == 0 && // or has 0 charges and a charge cooldown
+				ent->GetChargeRestoreCooldown() > 0)
+			)
+			return ent->GetCooldown() // choosing either of these cooldowns, since they're mutually exclusive
+			? ent->GetCooldown()
+			: ent->GetChargeRestoreCooldown();
+
+		return 0.0f;
+		};
 	for (int idx = 0; idx < queueSize; idx++) {
 		CAbility* ability = queue[idx];
 
-		auto icon = assets.spellIcons.Load(ability->GetAbilityTextureName());
-		auto drawPos = HeroData[hero].W2S;
+		const auto icon = assets.spellIcons.Load(ability->GetAbilityTextureName(Config::AbilityESP::ApplyIconModifiers));
+
+		float cooldown = getCooldown(ability);
+
+		ImVec2 drawPos = HeroData[hero].W2S;
 		drawPos.x -= (queueSize - 1) * iconSize / 2.0f;
 		drawPos.y += 30;
 
@@ -84,8 +101,6 @@ void Modules::M_AbilityESP::DrawHeroAbilities(CHero* hero) {
 			imgCenter = imgXY1 + ImVec2(centeringOffset, centeringOffset);
 		}
 
-		// Black outline by default
-		ImU32 outlineColor = ImColor{ 0,0,0 };
 
 		DrawList->AddRectFilled(
 			imgXY1 - outlineSize,
@@ -93,9 +108,14 @@ void Modules::M_AbilityESP::DrawHeroAbilities(CHero* hero) {
 			ImColor(0, 0, 0), rounding);
 
 
+		// Black outline by default
+		ImU32 outlineColor = ImColor{ 0,0,0 };
+
+		// Orange for autocast
 		if (ability->Member<bool>(Netvars::C_DOTABaseAbility::m_bAutoCastState))
 			outlineColor = ImColor(255, 191, 0);
 
+		// Green for toggle
 		if (ability->IsToggled())
 			outlineColor = ImColor(3, 0xAC, 0x13);
 
@@ -104,29 +124,22 @@ void Modules::M_AbilityESP::DrawHeroAbilities(CHero* hero) {
 			imgXY2 + outlineSize,
 			outlineColor, rounding);
 
+		// If the ability is not learned icon turns grey 
+		// If there is no mana to cast the icon turns blue
+		if (ability->GetLevel() == 0) DrawList->AddCallback(GreyscaleShaderCallback, nullptr);
+		else if (ability->GetManaCost() > hero->GetMana()) DrawList->AddCallback(NoManaShaderCallback, nullptr);
+
 		// Ability icon itself
 		DrawList->AddImageRounded(icon, imgXY1, imgXY2, { 0,0 }, { 1,1 }, ImColor{ 255,255,255 }, rounding);
 
-		auto getCooldown = [](CDOTABaseAbility* ent)->float {
-			if (
-				ent->GetCooldown() != 0 || // if on cooldown
-				(ent->GetCharges() == 0 && // or has 0 charges and a charge cooldown
-					ent->GetChargeRestoreCooldown() > 0)
-				)
-				return ent->GetCooldown() // choosing either of these cooldowns, since they're mutually exclusive
-				? ent->GetCooldown()
-				: ent->GetChargeRestoreCooldown();
+		DrawList->AddCallback(ImDrawCallback_ResetRenderState, nullptr);
 
-			return 0.0f;
-			};
-		auto cooldown = getCooldown(ability);
-		// If the icon must be darker
-		bool darkOverlay =
-			ability->GetLevel() == 0 || // if not learned
-			cooldown > 0; // or on cooldown
-
-		if (darkOverlay)
-			DrawList->AddRectFilled(imgXY1, imgXY2, ImColor(0, 0, 0, 160), rounding);
+		// Not learned or on cooldown => darker icon
+		if (
+			ability->GetLevel() == 0 ||
+			cooldown > 0
+			)
+			DrawList->AddRectFilled(imgXY1, imgXY2, ImColor(0, 0, 0, 130), rounding);
 
 		if (cooldown) {
 			int cdFontSize = iconSize - ScaleVar(8);
@@ -149,18 +162,9 @@ void Modules::M_AbilityESP::DrawHeroAbilities(CHero* hero) {
 				ImColor{ 255,255,255 },
 				true);
 		}
-		else if (ability->GetManaCost() > hero->GetMana())
-			DrawList->AddRectFilled(imgXY1, imgXY2, ImColor(0, 50, 255, 128), rounding);
-
-		if (
-			ability->GetCharges()
-			||
-			ability->GetCharges() == 0 && ability->GetChargeRestoreCooldown() >= 0
-			)
-			DrawChargeCounter(ability->GetCharges(), imgXY1, ScaleVar(8));
 
 		// Channeling countdown
-		if (const auto channelTime = ability->Member<float>(Netvars::C_DOTABaseAbility::m_flChannelStartTime); channelTime != 0) {
+		if (const float channelTime = ability->Member<float>(Netvars::C_DOTABaseAbility::m_flChannelStartTime); channelTime != 0) {
 			float indicatorHeight = ScaleVar(4);
 			auto channelLength = ability->GetLevelSpecialValueFor("AbilityChannelTime");
 			int fontSize = ScaleVar(18);
@@ -182,14 +186,11 @@ void Modules::M_AbilityESP::DrawHeroAbilities(CHero* hero) {
 			float castPoint = ability->GetLevelSpecialValueFor("AbilityCastPoint"),
 				castStartTime = ability->Member<float>(Netvars::C_DOTABaseAbility::m_flCastStartTime);
 			int fontSize = ScaleVar(18);
-			float indicatorWidthFactor = abs(imgXY1.x - imgXY2.x) * ((CGameRules::Get()->GetGameTime() - castStartTime) / castPoint);
-			// Define the circular path for clipping
-			float radius = iconSize / 2.0;
+			float indicatorWidth = abs(imgXY1.x - imgXY2.x) * ((CGameRules::Get()->GetGameTime() - castStartTime) / castPoint);
 
-			// Push the bounding box as the clip rect (this is still rectangular, but we’ll only allow drawing within the circular path)
-			ImVec2 clip_min = ImVec2(imgCenter.x - radius, imgCenter.y - radius);
-			ImVec2 clip_max = ImVec2(imgXY1.x + indicatorWidthFactor, imgCenter.y + radius);
-			DrawList->PushClipRect(clip_min, clip_max, true);  // True enables clipping to fit within the rectangle
+			ImVec2 clip_max = ImVec2(imgXY1.x + indicatorWidth, imgXY2.y);
+
+			DrawList->PushClipRect(imgXY1, clip_max, true);
 
 			DrawList->AddRectFilled(imgXY1, imgXY2, ImColor(0.f, 1.f, 0.f, 0.5f), rounding);
 
@@ -203,37 +204,72 @@ void Modules::M_AbilityESP::DrawHeroAbilities(CHero* hero) {
 				true);
 		}
 
-		if (lvlCounterType == LevelCounterType::Number
-			|| ability->GetMaxLevel() > 4) // bars look horrible on Invoker
-			DrawLevelCounter(ability, ImVec2{ imgXY1.x,imgXY2.y } - ImVec2{ 0, ScaleVar<float>(32) / 6 });
-		else
+		// Charge counters
+
+		if (
+			ability->GetCharges()
+			||
+			(ability->GetCharges() == 0 && ability->GetChargeRestoreCooldown() >= 0)
+			) {
+
+			DrawChargeCounter(ability->GetCharges(), imgXY1);
+		}
+
+
+		// Level counters
+
+		if (ability->GetLevel() == 0 || ability->GetLevel() == 1 && ability->GetMaxLevel() == 1)
+			continue;
+
+		// Bars don't look very good on high levels
+		if (lvlCounterType == LevelCounterType::Bars && ability->GetMaxLevel() > 4)
+			lvlCounterType = LevelCounterType::NumberBasic;
+
+		switch (lvlCounterType) {
+		case LevelCounterType::NumberImmersive:
+			DrawLevelCounterImmersive(ability, ImVec2{ imgXY1.x, imgXY2.y });
+			break;
+		case LevelCounterType::NumberBasic:
+			DrawLevelCounterBasic(ability, ImVec2{ imgXY1.x, imgXY2.y });
+			break;
+		case LevelCounterType::Bars:
 			DrawLevelBars(ability,
 				ImVec2{ imgXY1.x, imgXY2.y - 3 }, { imgXY2.x, imgXY2.y + 3 });
+			break;
+		}
 	}
 }
 
-void Modules::M_AbilityESP::DrawLevelCounter(CDOTABaseAbility* ability, const ImVec2& pos) {
+void Modules::M_AbilityESP::DrawLevelCounterImmersive(CDOTABaseAbility* ability, const ImVec2& pos) {
 	int lvl = ability->GetLevel();
-	if (lvl == 0 || lvl == 1 && ability->GetMaxLevel() == 1)
-		return;
 
-	// constexpr auto clrLvlOutline = ImVec4(0xE7 / 255.0f, 0xD2 / 255.0f, 0x92 / 255.0f, 1);
-	// constexpr auto clrLvlBackground = ImVec4(0x28 / 255.0f, 0x0F / 255.0f, 0x01 / 255.0f, 1);
-	// constexpr ImVec2 outlinePadding(1, 1);
+	const auto clrLvlOutline = ImColor(231, 210, 146);
+	const auto clrLvlBackground = ImColor(40, 15, 1);
+	const ImVec2 outlinePadding(1, 1);
+	int counterScale = ScaleVar(16);
+	int counterTextScale = ScaleVar(14);
+
+	ImVec2 counterSize(counterScale, counterScale);
+	ImVec2 imgXY1 = pos - counterSize / 2, imgXY2 = pos + counterSize / 2;
+
+	DrawRectFilled(imgXY1, counterSize, clrLvlBackground);
+	DrawRect(
+		imgXY1 + outlinePadding,
+		counterSize - outlinePadding * 2,
+		clrLvlOutline
+	);
+
+	DrawTextForeground(DrawData.GetFont("Monofonto", counterTextScale), std::to_string(lvl),
+		ImVec2{ pos.x, pos.y - counterTextScale / 2 - counterTextScale % 2 },
+		counterTextScale,
+		clrLvlOutline,
+		true);
+}
+
+void Modules::M_AbilityESP::DrawLevelCounterBasic(CDOTABaseAbility* ability, const ImVec2& pos)
+{
 	int counterScale = ScaleVar(26);
-
-	// ImVec2 counterSize(counterScale, counterScale);
-	// ImVec2 imgXY1 = pos - counterSize, imgXY2 = pos + counterSize;
-
-	auto DrawList = ImGui::GetForegroundDrawList();
-	//DrawList->AddRectFilled();
-	//DrawRectFilled(imgXY1, counterSize, clrLvlBackground);
-	//DrawRect(
-	//	imgXY1 + outlinePadding,
-	//	counterSize - outlinePadding * 2,
-	//	clrLvlOutline
-	//);
-	DrawTextForeground(DrawData.GetFont("Monofonto", counterScale - 2), std::to_string(lvl),
+	DrawTextForeground(DrawData.GetFont("Monofonto", counterScale - 2), std::to_string(ability->GetLevel()),
 		ImVec2(pos.x, pos.y - (ScaleVar(32) - 2) / 2),
 		counterScale - 2,
 		ImColor{ 255,255,255 },
@@ -244,8 +280,6 @@ void Modules::M_AbilityESP::DrawLevelBars(CDOTABaseAbility* ability, const ImVec
 	const auto clrLearned = ImColor(193, 254, 0);
 
 	int lvl = ability->GetLevel(), maxLvl = ability->GetMaxLevel();
-	if (lvl == 1 && maxLvl == 1)
-		return;
 
 	const auto elemWidth = (xy2.x - xy1.x) / maxLvl;
 	auto DrawList = ImGui::GetForegroundDrawList();

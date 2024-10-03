@@ -1,6 +1,7 @@
 #pragma once
 #include "../pch.h"
 #include "../GameEventListeners/dota_player_update_assigned_hero.h"
+#include "../GameEventListeners/dota_on_hero_finish_spawn.h"
 #include "../GameEventListeners/map_shutdown.h"
 #include "../GameEventListeners/event_func.h"
 #include "../GameEventListeners/dota_game_state_change.h"
@@ -32,12 +33,13 @@ Listeners.insert(name##_logger);
 	void InstallListeners() {
 		EVENT_SUB(dota_player_update_assigned_hero);
 		EVENT_SUB(map_shutdown);
+		//EVENT_SUB(dota_on_hero_finish_spawn);
 		EVENT_SUB(dota_game_state_change);
 
 		//LOG_EVENT(npc_spawned);
-		LOG_EVENT(dota_on_hero_finish_spawn);
 		LOG_EVENT(dota_player_update_hero_selection);
 		LOG_EVENT(dota_player_update_assigned_hero);
+		LOG_EVENT(dota_on_hero_finish_spawn);
 		LOG_EVENT(dota_player_spawned);
 	}
 

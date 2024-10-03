@@ -28,7 +28,7 @@ void Modules::M_TPTracker::OnFrame() {
 	}
 }
 
-void Modules::M_TPTracker::DrawMapTeleports() {
+void Modules::M_TPTracker::Draw() {
 	if (!Config::TPTracker::Enabled)
 		return;
 

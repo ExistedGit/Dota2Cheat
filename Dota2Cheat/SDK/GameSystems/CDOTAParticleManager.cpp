@@ -1,4 +1,5 @@
 #include "CDOTAParticleManager.h"
+#include "../Base/Logging.h"
 
 ParticleWrapper CDOTAParticleManager::CreateParticle(const char* name, ParticleAttachment_t attachType, CBaseEntity* ent) {
 	CreateParticleInfo info{};
@@ -7,6 +8,10 @@ ParticleWrapper CDOTAParticleManager::CreateParticle(const char* name, ParticleA
 	info.m_pTargetEntity = ent;
 
 	uint32_t& handle = Handle();
+
+	if ((handle < (1 << 24)) || handle - (1 << 24) > 10000) ONLY_ONCE{
+		LogFE("{}: {}!", __FUNCTION__, "broken handle offset likely");
+	}
 
 	GetVFunc(VMI::CDOTAParticleManager::CreateParticle).Call<void, uint32_t>(handle, &info);
 	auto container = GetParticles().last();

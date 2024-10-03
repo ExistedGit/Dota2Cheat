@@ -9,8 +9,5 @@ class INetworkClientService : VClass
 public:
 	GETTER(CNetworkGameClient*, GetIGameClient, 0xA8);
 
-	static INetworkClientService* Get() {
-		static INetworkClientService* inst = Memory::GetInterfaceBySubstr("engine2.dll", "NetworkClientService");
-		return inst;
-	}
+	static INetworkClientService* Get();
 };

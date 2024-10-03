@@ -48,7 +48,7 @@ void Modules::UIOverhaul::UpdateNetworthPanel() {
 }
 
 // Mana and Health bars
-void Modules::UIOverhaul::DrawBars() {
+void Modules::UIOverhaul::Draw() {
 	if (!Config::UIOverhaul::TopBars)
 		return;
 

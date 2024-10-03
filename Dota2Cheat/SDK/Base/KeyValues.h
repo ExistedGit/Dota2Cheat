@@ -28,7 +28,7 @@ struct KeyValues {
 
 	static KeyValues* MakeKV(const char* name) {
 		auto kv = CMemAlloc::Get()->Alloc<KeyValues>(0x14);
-		static auto ctor = Memory::GetExport("tier0.dll", "??0KeyValues@@QEAA@PEBD@Z");
+		static auto ctor = Memory::GetExport("tier0.dll", "??0KeyValues@@QEAA@PEBD00@Z");
 		ctor(kv, name);
 		return kv;
 	}

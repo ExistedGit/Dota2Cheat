@@ -1,6 +1,5 @@
 #pragma once
 #include "../../../pch.h"
-#include "../../../Utils/Drawing.h"
 #include "../../../CheatSDK/include.h"
 #include <map>
 
@@ -8,8 +7,9 @@ namespace Modules {
 	inline class M_AbilityESP {
 
 		enum class LevelCounterType {
-			Bars,
-			Number
+			Bars,            // Green bars similar to Dota's HUD
+			NumberBasic,     // Relatively big numbers with no decorations
+			NumberImmersive  // Dota-style elements
 		};
 
 		enum class ItemPanelType {
@@ -39,11 +39,26 @@ namespace Modules {
 		void DrawItemCircle(CItem* item, const ImVec2& xy1, const ImVec2& xy2, const ImVec2& iconSize, const int radius);
 
 		// Level display modes
-		void DrawLevelCounter(CDOTABaseAbility* ability, const ImVec2& pos);
+		void DrawLevelCounterImmersive(CDOTABaseAbility* ability, const ImVec2& pos);
+		void DrawLevelCounterBasic(CDOTABaseAbility* ability, const ImVec2& pos);
 		void DrawLevelBars(CDOTABaseAbility* ability, const ImVec2& xy1, const ImVec2& xy2);
 
-		void DrawChargeCounter(int charges, const ImVec2& pos, int radius);
+		void DrawChargeCounter(int charges, const ImVec2& pos) {
+			auto lvlCounterType = (LevelCounterType)Config::AbilityESP::LevelCounterType;
+			switch (lvlCounterType) {
+			case LevelCounterType::NumberImmersive:
+				DrawChargeCounterImmersive(charges, pos);
+				break;
+			default:
+				DrawChargeCounterBasic(charges, pos);
+				break;
+			}
+		}
+
+		void DrawChargeCounterImmersive(int charges, const ImVec2& pos);
+
+		void DrawChargeCounterBasic(int charges, const ImVec2& pos);
 	public:
-		void DrawESP();
+		void Draw();
 	} AbilityESP;
 }

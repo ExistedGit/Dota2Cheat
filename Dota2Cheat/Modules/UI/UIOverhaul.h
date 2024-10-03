@@ -43,7 +43,7 @@ namespace Modules {
 		}
 
 		// Mana and Health bars
-		void DrawBars();
+		void Draw();
 		void Init();
 
 		void OnFrame() override {

@@ -7,15 +7,17 @@ void CEntityList::OnEntityCreated(CBaseEntity* ent) {
 		return;
 
 	std::string_view className = schemaBinding->binaryName;
-	if (className == "C_DOTAGamerulesProxy")
+
+	if (className == "C_DOTAGamerulesProxy") {
 		CGameRules::Set(ent->Member<CDOTAGameRules*>(Netvars::C_DOTAGamerulesProxy::m_pGameRules));
+		return;
+	}
 
 	using enum EntityType;
 	EntityType entType = Undefined;
 
 	if (className.starts_with("C_DOTA_Unit_Hero")
 		|| className.starts_with("CDOTA_Unit_Hero")) {
-		LogF("Hero: {}", (void*)ent);
 		entType = Hero;
 	}
 	else if (className.find("C_DOTA_BaseNPC_Creep") != -1)
@@ -24,11 +26,8 @@ void CEntityList::OnEntityCreated(CBaseEntity* ent) {
 	if (entType == Undefined) {
 		if (className == "C_DOTA_Item_Rune") entType = Rune;
 		else if (className == "C_DOTA_Item_Physical") entType = PhysicalItem;
+		else return;
 	}
-
-	// Entity could not be classified
-	if (entType == Undefined)
-		return;
 
 	EntityWrapper wrap{
 		.ent = ent,
@@ -43,8 +42,9 @@ void CEntityList::OnEntityCreated(CBaseEntity* ent) {
 				wrap.creepType = CreepType::LaneMelee;
 			else
 				wrap.creepType = CreepType::LaneRanged;
-		} else if(className == "C_DOTA_BaseNPC_Creep_Neutral")
-				wrap.creepType = CreepType::Neutral;
+		}
+		else if (className == "C_DOTA_BaseNPC_Creep_Neutral")
+			wrap.creepType = CreepType::Neutral;
 	}
 
 	Entities[ent->GetIndex()] = wrap;

@@ -1,4 +1,5 @@
 #include "AbilityESP.h"
+#include "../../../Utils/Drawing.h"
 
 constexpr unsigned INVENTORY_SIZE = 6;
 
@@ -117,7 +118,7 @@ void Modules::M_AbilityESP::DrawItemIcon(CItem* item, const ImVec2& pos, const I
 	ImU32 frameColor = ImColor{ 0,0,0,255 };
 
 	DrawList->AddImageRounded(
-		assets.items.Load(item->GetAbilityTextureName() + 5),
+		assets.items.Load(item->GetAbilityTextureName(Config::AbilityESP::ApplyIconModifiers) + 5),
 		imgXY1,
 		imgXY2,
 		ImVec2(aspectRatio, 0),
@@ -152,7 +153,7 @@ void Modules::M_AbilityESP::DrawItemIcon(CItem* item, const ImVec2& pos, const I
 
 	int charges = item->GetCurrentCharges();
 	if (charges != 0)
-		DrawChargeCounter(charges, frameXY1, 8);
+		DrawChargeCounter(charges, frameXY1);
 }
 
 void Modules::M_AbilityESP::DrawItemCircle(CItem* item, const ImVec2& xy1, const ImVec2& xy2, const ImVec2& iconSize, const int radius) {
@@ -164,9 +165,9 @@ void Modules::M_AbilityESP::DrawItemCircle(CItem* item, const ImVec2& xy1, const
 
 	if (!item)
 		return;
-
+	
 	DrawList->AddImageRounded(
-		assets.items.Load(item->GetAbilityTextureName() + 5),
+		assets.items.Load(item->GetAbilityTextureName(Config::AbilityESP::ApplyIconModifiers) + 5),
 		xy1,
 		xy2,
 		ImVec2(aspectRatio, 0),

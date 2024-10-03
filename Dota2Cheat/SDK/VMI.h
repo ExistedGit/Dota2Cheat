@@ -75,8 +75,10 @@ namespace VMI {
 	
 	// client.dll
 	namespace CDOTABaseAbility {
-		// JS
+		// JS functions
+		Index GetAbilityTextureName{};
 		Index GetEffectiveCastRange{};
+		Index GetManaCost{};
 	}
 	
 	// client.dll
@@ -163,7 +165,9 @@ namespace VMI {
 		TABLE_ENTRY(CDOTABaseNPC::IsRoshan)
 		TABLE_ENTRY(CDOTABaseNPC::OnWearablesChanged)
 
+		TABLE_ENTRY(CDOTABaseAbility::GetManaCost)
 		TABLE_ENTRY(CDOTABaseAbility::GetEffectiveCastRange)
+		TABLE_ENTRY(CDOTABaseAbility::GetAbilityTextureName)
 
 		TABLE_ENTRY(CNetworkMessages::FindNetworkMessageByID)
 

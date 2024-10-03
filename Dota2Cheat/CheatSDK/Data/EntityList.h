@@ -64,8 +64,8 @@ inline class CEntityList : public IEntityListener {
 	std::mutex mEntities;
 public:
 	template<typename T = CBaseEntity>
-	T* Get(uint32_t id) {
-		return Entities[id];
+	T* Get(uint32_t id) const {
+		return Entities.contains(id) ? (T*)Entities.at(id).ent : nullptr;
 	}
 
 	void OnEntityCreated(CBaseEntity* ent) override;
@@ -151,7 +151,7 @@ public:
 				func(wrap);
 	}
 	template<typename T>
-	void ForEach(std::function<void(T*)> func) {
+	void ForEach(std::function<void(T*)> func)  {
 		std::lock_guard<std::mutex> lock(mEntities);
 
 		EntityType type = EntityType::Undefined;
@@ -167,8 +167,8 @@ public:
 				func(wrap);
 	}
 
-	bool IsEntityOfType(CBaseEntity* ent, EntityType type) {
-		return Entities.contains(ent->GetIndex()) && Entities[ent->GetIndex()].type == type;
+	bool IsEntityOfType(CBaseEntity* ent, EntityType type) const {
+		return Entities.contains(ent->GetIndex()) && Entities.at(ent->GetIndex()).type == type;
 	}
 
 #define ISOFTYPE_TEMPLATE(name, type) bool name(CBaseEntity* ent) { \
