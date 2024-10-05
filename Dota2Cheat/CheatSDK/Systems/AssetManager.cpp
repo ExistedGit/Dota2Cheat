@@ -8,7 +8,8 @@ ID3D11ShaderResourceView* CAssetManager::VTexDir::Load(const std::string& file, 
 	auto& ret = cache[file];
 
 	if (!ret) {
-		auto data = VTexParser::Load(prefix + dir + "/" + file + "_" + postfix + ".vtex_c");
+		auto path = prefix + dir + "/" + file + "_" + postfix + ".vtex_c";
+		auto data = VTexParser::Load(path);
 		
 		if (!data.data) return nullptr;
 

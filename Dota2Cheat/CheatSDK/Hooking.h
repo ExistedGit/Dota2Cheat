@@ -25,6 +25,7 @@ namespace Hooks {
 	// Removes any custom, non-MinHook hooks
 	inline void RemoveAuxiliaryHooks() {
 		CEntSys::Get()->GetListeners().remove_by_value(&EntityList);
+		INetworkClientService::Get()->GetIGameClient()->GetNetChannel()->UninstallMessageFilter(&d2cNetFilter);
 	}
 
 	// Reloads every hook

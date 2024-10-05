@@ -4,7 +4,7 @@
 #include "../../CheatSDK/include.h"
 #include "../MListeners.h"
 
-// particles\ui_mouseactions\range_finder_tower_aoe.vpcf
+// particles/ui_mouseactions/range_finder_tower_aoe.vpcf
 // Point 0: nothing
 // Point 2: coord of the second end of the dashed line
 // Point 3: X is boolean, controls some point in the center

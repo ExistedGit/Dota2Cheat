@@ -9,7 +9,7 @@ public:
 
 	GETTER(HeroAttributes, GetAttributes, Netvars::C_DOTA_BaseNPC_Hero::m_flStrengthTotal);
 
-	bool IsIllusion() {
+	bool IsIllusion() const {
 		return Member<CHandle<CDOTABaseNPC_Hero>>(Netvars::C_DOTA_BaseNPC_Hero::m_hReplicatingOtherHeroModel).IsValid();
 	}
 };

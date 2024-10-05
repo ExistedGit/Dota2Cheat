@@ -9,6 +9,7 @@ void Modules::M_DotaPlusManager::UpdateDotaPlusStatus() {
 	if (!updateSubscription)
 		return;
 
+
 	static auto inventory = CGCClient::Get()->GetSOListeners()[1];
 	static auto objCache = inventory->GetSOCache();
 
@@ -17,8 +18,15 @@ void Modules::M_DotaPlusManager::UpdateDotaPlusStatus() {
 			continue;
 
 		updateSubscription = false;
-
+		
 		auto proto = (CSODOTAGameAccountPlus*)typeCache->GetProtobufSO()->GetPObject();
+
+		if (!initialPlusStatus.has_value())
+			initialPlusStatus = (bool)proto->plus_status();
+
+		// Do not disable an already present subscription even if the config says no
+		if (*initialPlusStatus && !Config::Changer::UnlockDotaPlus)
+			return;
 
 		if ((bool)proto->plus_status() == Config::Changer::UnlockDotaPlus)
 			return;

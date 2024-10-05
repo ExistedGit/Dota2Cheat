@@ -38,5 +38,5 @@ public:
 		unsigned char* data;
 	};
 
-	static ImageData Load(std::string_view filename);
+	static ImageData Load(const std::string& filename);
 };

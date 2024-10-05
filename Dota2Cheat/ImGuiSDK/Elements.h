@@ -8,11 +8,6 @@ namespace ImGui {
 
 	bool ToggleButton(const char* label, bool* v, const ImVec2& size_arg);
 	bool TextClickable(const char* label);
-	inline bool InputUInt64(const char* label, uint64_t* v, int step = 1, int step_fast = 100, ImGuiInputTextFlags flags = 0) {
-		// Hexadecimal input provided as a convenience but the flag name is awkward. Typically you'd use InputText() to parse your own data, if you want to handle prefixes.
-		const char* format = (flags & ImGuiInputTextFlags_CharsHexadecimal) ? "%08X" : "%d";
-		return InputScalar(label, ImGuiDataType_U64, (void*)v, (void*)(step > 0 ? &step : NULL), (void*)(step_fast > 0 ? &step_fast : NULL), format, flags);
-	}
 }
 
 namespace CheatGui {
@@ -29,7 +24,7 @@ namespace CheatGui {
 		return value_changed;
 	}
 
-	// Create an ImGui button that mimics Dota's button sounds
+	// Creates an ImGui button that uses Dota's button sounds
 	FORCEINLINE bool Button(const char* label, const ImVec2& size_arg = ImVec2(0, 0)) {
 		const bool clicked = ImGui::Button(label, size_arg);
 		if (clicked)

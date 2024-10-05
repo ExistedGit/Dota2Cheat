@@ -31,8 +31,5 @@ struct IGameSystemFactory : public VClass {
 };
 
 namespace GameSystems {
-	inline CDOTAPanoramaMinimapRenderer* MinimapRenderer{};
-
-	void InitMinimapRenderer();
 	void FindGameSystems();
 }

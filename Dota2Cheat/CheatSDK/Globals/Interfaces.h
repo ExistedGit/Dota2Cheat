@@ -14,7 +14,7 @@
 #include <Interfaces/CSoundOpSystem.h>
 #include <Interfaces/ISteamClient.h>
 #include <Interfaces/ISteamGameCoordinator.h>
-#include <Interfaces/CGameUI.h>
+#include <Interfaces/CGameUI.h> 
 #include <Interfaces/CSource2Client.h>
 #include <Interfaces/CPanoramaUIEngine.h>
 #include <Interfaces/IEngineClient.h>

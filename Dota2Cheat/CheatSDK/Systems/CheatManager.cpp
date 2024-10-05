@@ -70,14 +70,17 @@ void CCheatManager::LoadGameSpecific() {
 	CCVar::Get()->UnlockHiddenConVars();
 #endif
 	//Modules::CVarSpoofer.SpoofVar("r_farz");
-	//Modules::CVarSpoofer.SpoofVars(
-	//	"dota_camera_distance",
-	//	"r_farz",
-	//	"fog_enable",
-	//	"dota_river_type",
-	//	"cl_weather",
-	//	"dota_hud_chat_enable_all_emoticons"
-	//);
+
+#ifndef _DEBUG 
+	Modules::CVarSpoofer.SpoofVars(
+		"dota_camera_distance",
+		"r_farz",
+		"fog_enable",
+		"dota_river_type",
+		"cl_weather",
+		"dota_hud_chat_enable_all_emoticons"
+	);
+#endif
 
 	CCVar::Get()->CVars["dota_hud_chat_enable_all_emoticons"].m_pVar->value.boolean = Config::Changer::UnlockEmoticons;
 
@@ -125,9 +128,9 @@ void CCheatManager::Initialize(HMODULE hModule) {
 	FindCheatFolder();
 
 	Config::cfg.SetupVars();
+	LoadFiles();
 	LoadGameSpecific();
 
-	LoadFiles();
 	LogI("Initialization complete!");
 }
 
@@ -154,7 +157,7 @@ void CCheatManager::Unload() {
 	if (DrawData.Dx.Window)
 		SetWindowLongPtrA(DrawData.Dx.Window, GWLP_WNDPROC, (LONG_PTR)DrawData.Dx.oWndProc);
 
-	Modules::CVarSpoofer.RestoreVars();
+	//Modules::CVarSpoofer.RestoreVars();
 
 	if (consoleStream) fclose(consoleStream);
 	FreeConsole();

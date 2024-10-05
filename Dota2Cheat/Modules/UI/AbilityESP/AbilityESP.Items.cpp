@@ -3,11 +3,11 @@
 
 constexpr unsigned INVENTORY_SIZE = 6;
 
-// Draws the same block sequence like for abilities + two circles for TP and neutral slot on the right and left respectively
+// Draws the same block sequence as for abilities + two circles for TP and neutral slots on the right and left respectively
 // Only draws slots occupied by an item
-// If the item is toggled(like armlet), a green frame is drawn
-// If the item has charges(like wand), a counter is displayed in the top left corner of the image
-void Modules::M_AbilityESP::DrawItemSequences(CHero* hero) {
+// If the item is toggled(like Armlet), a green frame is drawn
+// If the item has charges(like Magic Wand), a counter is displayed in the top left corner of the image
+void Modules::M_AbilityESP::DrawItemSequences(const CHero* hero) {
 	CItem* queue[INVENTORY_SIZE]{ nullptr };
 	int queueSize = 0;
 
@@ -26,7 +26,7 @@ void Modules::M_AbilityESP::DrawItemSequences(CHero* hero) {
 	const int gap = 1;
 	const ImVec2 iconSize{ (float)ScaleVar(AbilityIconSize), (float)ScaleVar(AbilityIconSize) };
 
-	ImVec2 basePos = HeroData[hero].HealthbarW2S;
+	ImVec2 basePos = HeroData[(CNPC*)hero].HealthbarW2S;
 	basePos.x -= itemCount * (iconSize.x + gap) / 2;
 	basePos.y -= 35 + iconSize.x;
 
@@ -53,7 +53,7 @@ void Modules::M_AbilityESP::DrawItemSequences(CHero* hero) {
 	}
 }
 
-void Modules::M_AbilityESP::DrawItemGrids(CHero* hero) {
+void Modules::M_AbilityESP::DrawItemGrids(const CHero* hero) {
 	const ImVec2 iconSize{ ScaleVar<float>(AbilityIconSize), ScaleVar<float>(AbilityIconSize) };
 
 	const int
@@ -61,7 +61,7 @@ void Modules::M_AbilityESP::DrawItemGrids(CHero* hero) {
 		col = 3;
 
 	auto inv = hero->GetItems();
-	ImVec2 basePos = HeroData[hero].HealthbarW2S;
+	ImVec2 basePos = HeroData[(CNPC*)hero].HealthbarW2S;
 	basePos.x -= col * (iconSize.x + gap) / 2;
 	basePos.y -= 10;
 
@@ -98,7 +98,7 @@ void Modules::M_AbilityESP::DrawItemGrids(CHero* hero) {
 
 }
 
-void Modules::M_AbilityESP::DrawItemIcon(CItem* item, const ImVec2& pos, const ImVec2& size) {
+void Modules::M_AbilityESP::DrawItemIcon(const CItem* item, const ImVec2& pos, const ImVec2& size) {
 	auto DrawList = ImGui::GetForegroundDrawList();
 	// used to convert native rectangular item images to SQUARES
 	constexpr float aspectRatio = (1 - 64.f / 88) / 2;
@@ -116,13 +116,15 @@ void Modules::M_AbilityESP::DrawItemIcon(CItem* item, const ImVec2& pos, const I
 		frameXY2 = imgXY2 + frameSize;
 
 	ImU32 frameColor = ImColor{ 0,0,0,255 };
-
+	std::string k = item->GetAbilityTextureName(Config::AbilityESP::ApplyIconModifiers);
 	DrawList->AddImageRounded(
-		assets.items.Load(item->GetAbilityTextureName(Config::AbilityESP::ApplyIconModifiers) + 5),
+		assets.items.Load(k.substr(5)),
 		imgXY1,
 		imgXY2,
 		ImVec2(aspectRatio, 0),
-		ImVec2(1 - aspectRatio, 1), ImColor{ 255,255,255 }, rounding);
+		ImVec2(1 - aspectRatio, 1), 
+		ImColor{ 255,255,255 }, 
+		rounding);
 
 	if (item->IsToggled())
 		frameColor = ImColor(0x3, 0xAC, 0x13);
@@ -131,6 +133,7 @@ void Modules::M_AbilityESP::DrawItemIcon(CItem* item, const ImVec2& pos, const I
 	DrawList->AddRect(frameXY1, frameXY2, frameColor, rounding);
 
 	float cd = item->GetCooldown();
+
 	if (cd != 0) {
 		DrawList->AddRectFilled(imgXY1, imgXY2, ImColor(0, 0, 0, 130), rounding);
 		auto fontSize = size.y - ScaleVar<float>(2);
@@ -142,6 +145,7 @@ void Modules::M_AbilityESP::DrawItemIcon(CItem* item, const ImVec2& pos, const I
 
 		if (decimals)
 			fontSize -= 4;
+
 		DrawTextForeground(
 			DrawData.GetFont("Monofonto", fontSize),
 			std::vformat(Config::AbilityESP::ShowCooldownDecimals ? "{:.1f}" : "{:.0f}", std::make_format_args(cd)),
@@ -156,7 +160,7 @@ void Modules::M_AbilityESP::DrawItemIcon(CItem* item, const ImVec2& pos, const I
 		DrawChargeCounter(charges, frameXY1);
 }
 
-void Modules::M_AbilityESP::DrawItemCircle(CItem* item, const ImVec2& xy1, const ImVec2& xy2, const ImVec2& iconSize, const int radius) {
+void Modules::M_AbilityESP::DrawItemCircle(const CItem* item, const ImVec2& xy1, const ImVec2& xy2, const ImVec2& iconSize, const int radius) {
 	auto DrawList = ImGui::GetForegroundDrawList();
 	const ImVec2 center = (xy1 + xy2) / 2;
 	constexpr float aspectRatio = (1 - 64.f / 88) / 2;
@@ -176,20 +180,23 @@ void Modules::M_AbilityESP::DrawItemCircle(CItem* item, const ImVec2& xy1, const
 		radius);
 
 	float cd = item->GetCooldown();
-	if (cd == 0)
-		return;
+	if (cd != 0) {
+		int cdFontSize = radius * 2 - 2;
+		if (Config::AbilityESP::ShowCooldownDecimals)
+			cdFontSize -= 4;
+		// Darkens the picture
+		DrawList->AddCircleFilled(center, radius, ImColor(0, 0, 0, 130));
+		// Draws the cooldown
+		DrawTextForeground(DrawData.GetFont("Monofonto", cdFontSize),
+			std::vformat(Config::AbilityESP::ShowCooldownDecimals ? "{:.1f}" : "{:.0f}", std::make_format_args(cd)),
+			ImVec2(center.x, center.y - cdFontSize / 2),
+			cdFontSize,
+			ImVec4(1, 1, 1, 1),
+			true);
+	}
 
-	int cdFontSize = radius * 2 - 2;
-	if (Config::AbilityESP::ShowCooldownDecimals)
-		cdFontSize -= 4;
-	// Darkens the picture
-	DrawList->AddCircleFilled(center, radius, ImColor(0, 0, 0, 130));
-	// Draws the cooldown
-	DrawTextForeground(DrawData.GetFont("Monofonto", cdFontSize),
-		std::vformat(Config::AbilityESP::ShowCooldownDecimals ? "{:.1f}" : "{:.0f}", std::make_format_args(cd)),
-		ImVec2(center.x, center.y - cdFontSize / 2),
-		cdFontSize,
-		ImVec4(1, 1, 1, 1),
-		true);
+	int charges = item->GetCurrentCharges();
+	if (charges != 0)
+		DrawChargeCounter(charges, xy1);
 }
 

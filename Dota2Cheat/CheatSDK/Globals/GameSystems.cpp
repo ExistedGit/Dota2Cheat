@@ -28,19 +28,9 @@ Address FindReallocatingGameSystem(std::string_view name) {
 	return nullptr;
 }
 
-void GameSystems::InitMinimapRenderer() {
-	auto minimap = Panorama::DotaHud->FindChildByIdTraverse("minimap");
-	while (!minimap) { minimap = Panorama::DotaHud->FindChildByIdTraverse("minimap"); };
-
-	MinimapRenderer = minimap->GetPanel2D()->Member<CDOTAPanoramaMinimapRenderer*>(0x28);
-}
-
 void GameSystems::FindGameSystems() {
 
-	// Found by xrefing this global in dylibs
-	// look below the vfunc with xrefs "ehandle", "%d (s/n %d)", "[-1] -> empty", "m_flPoseParameter", "%s(%s)", "[%d %d] -> %s", "CStrongHandle", "CWeakHandle"
 	Panorama::FindPanels();
-	InitMinimapRenderer();
 
 	LogI("[ GAME SYSTEMS ]");
 	tables::PrettyPrint({
@@ -50,7 +40,6 @@ void GameSystems::FindGameSystems() {
 		{ "CDOTA_BinaryObjectSystem", CBinaryObjSys::Get() },
 		{ "CDOTAInventoryManager", CInvMgr::Get() },
 		{ "CGameParticleManagerSystem", CParticleMgrSys::Get() },
-		{ "CDOTAPanoramaMinimapRenderer", MinimapRenderer },
 
 		{ "C_DOTA_ProjectileManager*", CProjectileMgr::GetPtr() },
 		{ "CRenderGameSystem*", CRenderGameSystem::GetPtr() },

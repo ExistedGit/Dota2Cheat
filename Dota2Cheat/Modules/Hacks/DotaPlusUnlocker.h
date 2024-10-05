@@ -1,11 +1,14 @@
 #pragma once
 #include <map>
+#include <optional>
 
 namespace Modules {
 	inline class M_DotaPlusManager {
 		// will update when injected
 		bool updateSubscription = true;
 		bool updateTiers = false; 
+
+		std::optional<bool> initialPlusStatus = std::nullopt;
 
 		std::map<int, int> heroXPCache;
 	public:

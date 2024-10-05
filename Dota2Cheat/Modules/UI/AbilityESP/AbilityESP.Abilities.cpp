@@ -4,8 +4,8 @@
 
 constexpr unsigned VISIBLE_ABILITY_COUNT = 6;
 
-void Modules::M_AbilityESP::DrawHeroAbilities(CHero* hero) {
-	CAbility* queue[VISIBLE_ABILITY_COUNT]{ nullptr };
+void Modules::M_AbilityESP::DrawHeroAbilities(const CHero* hero) {
+	const CAbility* queue[VISIBLE_ABILITY_COUNT]{ nullptr };
 	int queueSize = 0;
 	auto abilities = hero->GetAbilities();
 
@@ -20,30 +20,35 @@ void Modules::M_AbilityESP::DrawHeroAbilities(CHero* hero) {
 
 	// checks for all kinds of attributes that would mean an ability is not part of the main GUI
 
-	for (const CHandle<CAbility> ability : abilities) {
-		constexpr auto check3 = [](DOTAAbilityDefinition_t* def) -> bool {
-			if (!def->m_bInnate)
-				return false;
+	constexpr auto check3 = [](DOTAAbilityDefinition_t* def) -> bool {
+		if (!def->m_bInnate)
+			return false;
 
-			auto behavior = def->m_iAbilityBehavior;
-			auto v2 = *(float**)(def + 0x128);
-			bool passive = (behavior & DOTA_ABILITY_BEHAVIOR_PASSIVE) != 0;
-			bool v4 = !v2 || *v2 == 0.0;
-			bool notLearnable = (behavior & DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE) != 0 || def->m_iMaxLevel <= 1; // not learnable or maxlevel 0
-			bool innateUI = (behavior & DOTA_ABILITY_BEHAVIOR_INNATE_UI) != 0;
-			return innateUI || (passive && notLearnable);
-			};
+		auto behavior = def->m_iAbilityBehavior;
+		auto v2 = *(float**)(def + 0x128);
+		bool passive = (behavior & DOTA_ABILITY_BEHAVIOR_PASSIVE) != 0;
+		bool v4 = !v2 || *v2 == 0.0;
+		bool notLearnable = (behavior & DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE) != 0 || def->m_iMaxLevel <= 1; // not learnable or maxlevel 0
+		bool innateUI = (behavior & DOTA_ABILITY_BEHAVIOR_INNATE_UI) != 0;
+		return innateUI || (passive && notLearnable);
+		};
 
+	for (const CHandle<CAbility> hAbility : abilities) {
+		
 		if (
-			!ability.IsValid()
-			|| ability->IsHidden()
+			!hAbility.IsValid()
 			)
+			continue;
+
+		const CAbility* ability = *hAbility;
+		if (ability->IsHidden())
 			continue;
 
 		auto def = ability->GetDefinition();
 		auto barType = ability->Member<AbilityBarType_t>(Netvars::C_DOTABaseAbility::m_nAbilityBarType);
 		if (
-			def->m_iAbilityType == ABILITY_TYPE_ATTRIBUTES
+			!def
+			|| def->m_iAbilityType == ABILITY_TYPE_ATTRIBUTES
 			|| (def->m_iAbilityBehavior & DOTA_ABILITY_BEHAVIOR_INNATE_UI)
 			|| !def->m_bOnCastbar
 			|| check3(def)
@@ -51,9 +56,9 @@ void Modules::M_AbilityESP::DrawHeroAbilities(CHero* hero) {
 			)
 			continue;
 
-		queue[queueSize++] = *ability;
+		queue[queueSize++] = ability;
 
-		if (queueSize == VISIBLE_ABILITY_COUNT) break;
+		if (queueSize >= VISIBLE_ABILITY_COUNT) break;
 	}
 
 	const float iconSize = ScaleVar(AbilityIconSize);
@@ -64,7 +69,7 @@ void Modules::M_AbilityESP::DrawHeroAbilities(CHero* hero) {
 	auto DrawList = ImGui::GetForegroundDrawList();
 	auto lvlCounterType = (LevelCounterType)Config::AbilityESP::LevelCounterType;
 
-	constexpr auto getCooldown = [](CAbility* ent)->float {
+	constexpr auto getCooldown = [](const CAbility* ent)->float {
 		if (
 			ent->GetCooldown() != 0 || // if on cooldown
 			(ent->GetCharges() == 0 && // or has 0 charges and a charge cooldown
@@ -76,14 +81,15 @@ void Modules::M_AbilityESP::DrawHeroAbilities(CHero* hero) {
 
 		return 0.0f;
 		};
+
 	for (int idx = 0; idx < queueSize; idx++) {
-		CAbility* ability = queue[idx];
+		const CAbility* ability = queue[idx];
 
 		const auto icon = assets.spellIcons.Load(ability->GetAbilityTextureName(Config::AbilityESP::ApplyIconModifiers));
 
 		float cooldown = getCooldown(ability);
 
-		ImVec2 drawPos = HeroData[hero].W2S;
+		ImVec2 drawPos = HeroData[(CNPC*)hero].W2S;
 		drawPos.x -= (queueSize - 1) * iconSize / 2.0f;
 		drawPos.y += 30;
 
@@ -240,7 +246,7 @@ void Modules::M_AbilityESP::DrawHeroAbilities(CHero* hero) {
 	}
 }
 
-void Modules::M_AbilityESP::DrawLevelCounterImmersive(CDOTABaseAbility* ability, const ImVec2& pos) {
+void Modules::M_AbilityESP::DrawLevelCounterImmersive(const CDOTABaseAbility* ability, const ImVec2& pos) {
 	int lvl = ability->GetLevel();
 
 	const auto clrLvlOutline = ImColor(231, 210, 146);
@@ -266,7 +272,7 @@ void Modules::M_AbilityESP::DrawLevelCounterImmersive(CDOTABaseAbility* ability,
 		true);
 }
 
-void Modules::M_AbilityESP::DrawLevelCounterBasic(CDOTABaseAbility* ability, const ImVec2& pos)
+void Modules::M_AbilityESP::DrawLevelCounterBasic(const CDOTABaseAbility* ability, const ImVec2& pos)
 {
 	int counterScale = ScaleVar(26);
 	DrawTextForeground(DrawData.GetFont("Monofonto", counterScale - 2), std::to_string(ability->GetLevel()),
@@ -276,7 +282,7 @@ void Modules::M_AbilityESP::DrawLevelCounterBasic(CDOTABaseAbility* ability, con
 		true);
 }
 
-void Modules::M_AbilityESP::DrawLevelBars(CDOTABaseAbility* ability, const ImVec2& xy1, const ImVec2& xy2) {
+void Modules::M_AbilityESP::DrawLevelBars(const CDOTABaseAbility* ability, const ImVec2& xy1, const ImVec2& xy2) {
 	const auto clrLearned = ImColor(193, 254, 0);
 
 	int lvl = ability->GetLevel(), maxLvl = ability->GetMaxLevel();

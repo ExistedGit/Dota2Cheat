@@ -29,7 +29,7 @@ struct KeyValues {
 	static KeyValues* MakeKV(const char* name) {
 		auto kv = CMemAlloc::Get()->Alloc<KeyValues>(0x14);
 		static auto ctor = Memory::GetExport("tier0.dll", "??0KeyValues@@QEAA@PEBD00@Z");
-		ctor(kv, name);
+		ctor(kv, name, nullptr, nullptr);
 		return kv;
 	}
 
@@ -80,6 +80,15 @@ struct KeyValues {
 	void SetString(std::string_view key, std::string_view val) {
 		static auto func = Memory::GetExport("tier0.dll", "?SetString@KeyValues@@QEAAXPEBD0@Z");
 		func(this, key.data(), val.data());
+	}
+
+	void SetFloat(std::string_view key, float val) {
+		static auto func = Memory::GetExport("tier0.dll", "?SetFloat@KeyValues@@QEAAXPEBDM@Z");
+		func(this, key.data(), val);
+	}
+	void SetInt(std::string_view key, int val) {
+		static auto func = Memory::GetExport("tier0.dll", "?SetInt@KeyValues@@QEAAXPEBDH@Z");
+		func(this, key.data(), val);
 	}
 };
 inline KeyValues::Iterator begin(KeyValues* kv) {

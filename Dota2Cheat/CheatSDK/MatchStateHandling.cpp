@@ -12,13 +12,15 @@
 #include "../Modules/Hacks/ShakerAttackAnimFix.h"
 #include "../Modules/Hacks/TreeChanger.h"
 
+#include "../Hooks/Network.h"
+
 //#include "../Modules/Hacks/AutoPick.h"
 //#include "../Modules/Hacks/AutoPing.h"
 
 void CMatchStateManager::EnteredPreGame() {
 	if (!CPlayerResource::Get())
 		return;
-
+	INetworkClientService::Get()->GetIGameClient()->GetNetChannel()->InstallMessageFilter(&Hooks::d2cNetFilter);
 	ctx.localPlayer = Signatures::GetPlayer(-1);
 
 	if (!ctx.localPlayer)
@@ -65,7 +67,6 @@ void CMatchStateManager::EnteredInGame() {
 	//	data.SelectedHeroBadgeXP() = 72050;
 	//}
 
-	GameSystems::InitMinimapRenderer();
 	if (Config::Changer::TreeModelIdx != 0)
 		Modules::TreeChanger.QueueModelUpdate(Config::Changer::TreeModelIdx - 1);
 
@@ -85,7 +86,6 @@ void CMatchStateManager::LeftMatch() {
 	Modules::KillIndicator.Reset();
 
 	CGameRules::Set(nullptr);
-	GameSystems::MinimapRenderer = nullptr;
 
 	HeroData.clear();
 
@@ -109,7 +109,7 @@ void CMatchStateManager::CheckForOngoingGame() {
 
 	MatchStateManager.EnteredPreGame();
 
-	if (ctx.localPlayer)
+	if (ctx.localPlayer && ctx.localPlayer->GetAssignedHeroHandle().IsValid())
 		MatchStateManager.OnUpdatedAssignedHero();
 
 	if (CGameRules::Get()->GetGameState() == DOTA_GAMERULES_STATE_PRE_GAME ||

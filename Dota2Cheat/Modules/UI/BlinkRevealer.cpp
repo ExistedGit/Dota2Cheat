@@ -54,7 +54,10 @@ void Modules::M_BlinkRevealer::OnFrame() {
 }
 
 void Modules::M_BlinkRevealer::OnReceivedMsg(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg) {
-	if (msgHandle->messageID != 145)
+	if (!ctx.localHero)
+		return;
+
+	if (msgHandle->messageID != UM_ParticleManager)
 		return;
 
 	MTM_LOCK;

@@ -45,12 +45,13 @@ void Modules::AutoDodge::OnFrame() {
 			continue;
 
 		ctx.localPlayer->PrepareOrder(
-			DOTA_UNIT_ORDER_CAST_NO_TARGET,
-			0,
-			Vector::Zero,
-			usedItem->GetIndex(),
-			DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY,
-			ctx.localHero);
+			Order()
+			.SetType(DOTA_UNIT_ORDER_CAST_NO_TARGET)
+			.SetAbilityIndex(usedItem->GetIndex())
+			.SetIssuer(ctx.localHero)
+			.SetIssuerType(DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY)
+		);
+
 		break;
 	}
 }

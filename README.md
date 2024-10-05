@@ -4,7 +4,7 @@
 
 There weren't many open-source Dota cheats. And so I decided to fix that. Written in C++20 with love.
 
-Some SDK bits were fully or partionally taken from [McDota](https://github.com/LWSS/McDota) by LWSS, which D2C is inspired by.
+A few SDK bits were fully or partionally taken from [McDota](https://github.com/LWSS/McDota) by LWSS, which D2C is inspired by.
 
 Using [ImGui](https://github.com/ocornut/imgui) with DirectX 11 for the interface
 
@@ -18,14 +18,12 @@ Cheers to their wonderful creators!
 
 To open the cheat menu, press Insert
 
-WARNING! Legit features ahead, no scripts that play the game for you!
-
 - Automation:
   - AutoAccept:
     - Customizable delay
   - AutoHeal with customizable health tresholds
   - AutoMidas with customizable min XP reward
-  - Bounty rune & Aegis snatcher
+  - Aegis snatcher
   - CastRedirection™(always casts on real hero)
   - Mana & HP abuse
   - AutoDodge for projectiles
@@ -50,14 +48,13 @@ WARNING! Legit features ahead, no scripts that play the game for you!
   - Customizable enemy illusion coloring
   - Shows trajectories of enemy projectiles like Mirana's arrow and non-projectile abilities like Meat Hook
   - ~~Visible by Enemy~~ RIP on 21.02.2023, you shall not be forgotten
-- Convars:
 
+- Convars:
   - Using ConVar spoofing to counter serverside detection mechanisms
   - customizable `dota_camera_distance` with proper `r_farz` and `fog_enable`(no clipping or blue fog)
   - ~~`dota_use_particle_fow`~~ RIP too
 
 - Utility:
-
   - Perfect Blink
   - BadCastPrevention™(prevents bad BHs and RPs and chronospheres)
 
@@ -71,13 +68,16 @@ WARNING! Legit features ahead, no scripts that play the game for you!
 
 ## Building
 
+*(If you don't want to sit through building the DLL, you can get it frm the Releases tab)*
+
 You can build this project using Visual Studio 2022.
 
 If you don't have it, [set up vcpkg for Visual Studio](https://learn.microsoft.com/en-us/vcpkg/get_started/get-started-msbuild?pivots=shell-cmd#1---set-up-vcpkg).
 
 You will also need to install the [June 2010 DirectX SDK](https://www.microsoft.com/en-us/download/details.aspx?id=6812)
 
-Open the project in Visual Studio and build Dota2Cheat as **Release x64**. It'll download the relevant packages which might take some time.
+Open the project in Visual Studio, switch Configuration from Debug to **Release** and press `Ctrl + Shift + B` to build the solution. It'll download dependencies which might take some time.
+The DLL will be found in `Build/Release/` (relative to the folder you cloned D2C into)
 
 ## Injecting
 
@@ -103,6 +103,5 @@ Upon an exception, examine the file and lines it happened on. In the Call Stack 
 
 # For Developers
 
-Check out the repo's Wiki, I add useful pieces of information about dota-specific cheat things there
-
-Also has a guide on how to update it
+Check out the repo's Wiki, I add useful pieces of information about dota-specific cheat things there. \
+Also has a guide on how to update it.

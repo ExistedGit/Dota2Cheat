@@ -283,7 +283,14 @@ public:
 
 	// JS Func
 	int GetEffectiveCastRange() const {
-		return GetVFunc(VMI::CDOTABaseAbility::GetEffectiveCastRange).Call<int>(nullptr, nullptr);
+		Field<bool>(Netvars::C_DOTABaseAbility::m_bConsiderOvershootInGetCastRange) = false;
+
+		int res = GetVFunc(0x898 / 8).Call<int>(nullptr, nullptr, 0xFFFFFFFF);
+		res += GetVFunc(VMI::CDOTABaseAbility::GetEffectiveCastRange).Call<int>(nullptr, nullptr);
+
+		Field<bool>(Netvars::C_DOTABaseAbility::m_bConsiderOvershootInGetCastRange) = true;
+
+		return res;
 	}
 
 };

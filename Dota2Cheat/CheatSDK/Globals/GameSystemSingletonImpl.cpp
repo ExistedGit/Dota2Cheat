@@ -4,6 +4,8 @@
 // Centralized file with singleton getter implementations
 
 C_DOTA_PlayerResource** C_DOTA_PlayerResource::GetPtr() {
+	// Found by xrefing this global in dylibs
+	// look below the vfunc with xrefs "ehandle", "%d (s/n %d)", "[-1] -> empty", "m_flPoseParameter", "%s(%s)", "[%d %d] -> %s", "CStrongHandle", "CWeakHandle"
 	static C_DOTA_PlayerResource** ptr = 
 		Address(
 			CSource2Client::Get()->GetVFunc(VMI::CSource2Client::VoiceReliable)

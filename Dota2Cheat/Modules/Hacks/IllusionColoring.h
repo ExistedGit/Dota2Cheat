@@ -9,7 +9,7 @@ namespace Modules {
 		std::set<CDOTABaseNPC_Hero*> IllusionCandidates;
 		std::set<CDOTABaseNPC_Hero*> LancerIllusions; // Separately colored
 
-		void AddIllusionModifier(CDOTABaseNPC_Hero* hero, const char* modifierName, const char* particle);
+		void ClientAddNewModifier(CDOTABaseNPC_Hero* hero, const char* modifierName);
 	public:
 
 		void OnEntityAdded(const EntityWrapper& ent) override {
@@ -43,7 +43,7 @@ namespace Modules {
 			if (!isSeenAsIllusion) {
 				// from CDOTA_Modifier_Illusion::OnCreated
 				// also observed via cl_particle_log_creates
-				AddIllusionModifier(hero, "modifier_phantom_lancer_juxtapose_illusion", "particles/status_fx/status_effect_phantom_lancer_illusion.vpcf");
+				ClientAddNewModifier(hero, "modifier_phantom_lancer_juxtapose_illusion");
 				isSeenAsIllusion = true;
 			}
 		}

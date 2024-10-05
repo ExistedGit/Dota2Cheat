@@ -96,12 +96,12 @@ void Pages::MainMenu::Draw() {
 		};
 
 		ImGui::Checkbox("Enable", &Config::AbilityESP::Enabled);
-		
+
 		ImGui::Checkbox("Draw on allies", &Config::AbilityESP::ShowAllies);
-		
+
 		ImGui::Checkbox("Apply icon modifiers", &Config::AbilityESP::ApplyIconModifiers);
 		ImGui::SameLine(); HelpMarker("Heroes with icon-changing items equipped will also have changed icons in the ESP");
-		
+
 		ImGui::Checkbox("Show decimals in cooldowns", &Config::AbilityESP::ShowCooldownDecimals);
 		ImGui::Combo("Level counter type", &Config::AbilityESP::LevelCounterType, LevelCounterTypes, IM_ARRAYSIZE(LevelCounterTypes));
 		ImGui::Combo("Item panel type", &Config::AbilityESP::ItemPanelType, ItemPanelTypes, IM_ARRAYSIZE(ItemPanelTypes));
@@ -120,6 +120,8 @@ void Pages::MainMenu::Draw() {
 		ImGui::SliderFloat("Kill indicator scale", &Config::Indicators::KillScale, 1, 1.4f, "%.1f");
 		ImGui::TreePop();
 	}
+
+#ifdef _DEBUG
 	if (ImGui::TreeNode("UIOverhaul")) {
 		if (ImGui::Checkbox("Networth panel", &Config::UIOverhaul::NetworthPanel))
 			Modules::UIOverhaul.QueueUpdateNetworthPanel();
@@ -127,6 +129,8 @@ void Pages::MainMenu::Draw() {
 		ImGui::SameLine(); HelpMarker("Shows HP and Mana bars for enemies in the top bar. Like pressing Alt does for your allies");
 		ImGui::TreePop();
 	}
+#endif
+
 	if (ImGui::TreeNode("IllusionESP")) {
 		ImGui::Checkbox("Enable", &Config::IllusionColoring::Enabled);
 

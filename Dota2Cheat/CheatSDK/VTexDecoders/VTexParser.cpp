@@ -10,7 +10,7 @@
 #include "vtex.h"
 #include "DXT5Decoder.h"
 
-VTexParser::ImageData VTexParser::Load(std::string_view filename) {
+VTexParser::ImageData VTexParser::Load(const std::string& filename) {
 	static auto mem = CMemAlloc::Get();
 	static auto fs = CFileSys::Get();
 	auto file = fs->OpenFile(filename.data(), "rb");

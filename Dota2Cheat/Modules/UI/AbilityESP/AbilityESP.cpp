@@ -2,23 +2,24 @@
 #include "../../../Utils/Drawing.h"
 #include <format>
 
-bool Modules::M_AbilityESP::CanDraw(CDOTABaseNPC_Hero* hero) {
+bool Modules::M_AbilityESP::CanDraw(const CHero* hero) {
 	bool ret =
 		hero
+		&& hero->GetIdentity()
 		&& !hero->GetIdentity()->IsDormant()
 		&& !hero->IsIllusion()
 #ifndef _DEBUG
 		&& hero != ctx.localHero
 #endif
 		&& hero->GetLifeState() == 0
-		&& IsPointOnScreen(HeroData[hero].W2S);
+		&& IsPointOnScreen(HeroData[(CNPC*)hero].W2S);
 	if (!Config::AbilityESP::ShowAllies)
 		// I wish they made &&= an operator
 		ret = ret && !hero->IsSameTeam(ctx.localHero);
 	return ret;
 }
 
-void Modules::M_AbilityESP::DrawHeroItems(CHero* hero) {
+void Modules::M_AbilityESP::DrawHeroItems(const CHero* hero) {
 	auto itemType = (ItemPanelType)Config::AbilityESP::ItemPanelType;
 
 	if (itemType == ItemPanelType::Sequence)

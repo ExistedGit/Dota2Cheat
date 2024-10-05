@@ -40,8 +40,8 @@ void Hooks::InstallHooks() {
 	HOOKFUNC(RunScript);
 #endif
 
-	auto CreateNetChan = SignatureDB::FindSignature("CNetworkSystem::CreateNetChan");
-	HOOKFUNC(CreateNetChan);
+	//auto CreateNetChan = SignatureDB::FindSignature("CNetworkSystem::CreateNetChan");
+	//HOOKFUNC(CreateNetChan);
 
 	//{
 	//	auto PacketEntitiesFilter__Filter = SignatureDB::FindSignature("PacketEntitiesFilter::Filter");

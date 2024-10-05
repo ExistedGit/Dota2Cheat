@@ -12,7 +12,7 @@ Vector::Vector(const CMsgVector& msg) {
 }
 
 // Rebuilt from xref "Minimap Objects", that formula is all over the CDOTAPanoramaMinimapRenderer::RenderX methods
-ImVec2 WorldToMap(const Vector& EntityPos) {
+ImVec2 WorldToMap(const Vector& pos) {
 	static auto minimap = Panorama::DotaHud->FindChildByIdTraverse("minimap");
 	if (!minimap) {
 		ONLY_ONCE{
@@ -33,8 +33,8 @@ ImVec2 WorldToMap(const Vector& EntityPos) {
 	auto mms = mmr->GetMinimapSize();
 	auto quotient = mmr->Member<float>(0x10 + 0xC);
 	float
-		xAbs = (EntityPos.x - mmr->Member<float>(0x10)) / quotient,
-		yAbs = (EntityPos.y - mmr->Member<float>(0x14)) * (-1.0 / quotient);
+		xAbs = (pos.x - mmr->Member<float>(0x10)) / quotient,
+		yAbs = (pos.y - mmr->Member<float>(0x14)) * (-1.0 / quotient);
 
 	if (xAbs >= 75.0f)
 		xAbs = fminf(xAbs, 949.0f);

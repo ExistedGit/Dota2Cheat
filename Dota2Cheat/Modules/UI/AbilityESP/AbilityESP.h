@@ -19,29 +19,29 @@ namespace Modules {
 
 		// Scales a value according to the config parameter
 		template<typename T = int>
-		T ScaleVar(auto val) {
+		T ScaleVar(auto val) const {
 			return (T)(val * Config::AbilityESP::UIScale);
 		}
 
 		int AbilityIconSize = 32;
 
-		bool CanDraw(CDOTABaseNPC_Hero* hero);;
+		bool CanDraw(const CHero* hero);
 
-		void DrawHeroAbilities(CHero* hero);
-		void DrawHeroItems(CHero* hero);;
+		void DrawHeroAbilities(const CHero* hero);
+		void DrawHeroItems(const CHero* hero);
 
 		// ItemESP modes
-		void DrawItemSequences(CHero* hero);
-		void DrawItemGrids(CHero* hero);
+		void DrawItemSequences(const CHero* hero);
+		void DrawItemGrids(const CHero* hero);
 
-		void DrawItemIcon(CItem* item, const ImVec2& pos, const ImVec2& size);
+		void DrawItemIcon(const CItem* item, const ImVec2& pos, const ImVec2& size);
 
-		void DrawItemCircle(CItem* item, const ImVec2& xy1, const ImVec2& xy2, const ImVec2& iconSize, const int radius);
+		void DrawItemCircle(const CItem* item, const ImVec2& xy1, const ImVec2& xy2, const ImVec2& iconSize, const int radius);
 
 		// Level display modes
-		void DrawLevelCounterImmersive(CDOTABaseAbility* ability, const ImVec2& pos);
-		void DrawLevelCounterBasic(CDOTABaseAbility* ability, const ImVec2& pos);
-		void DrawLevelBars(CDOTABaseAbility* ability, const ImVec2& xy1, const ImVec2& xy2);
+		void DrawLevelCounterImmersive(const CAbility* ability, const ImVec2& pos);
+		void DrawLevelCounterBasic(const CAbility* ability, const ImVec2& pos);
+		void DrawLevelBars(const CAbility* ability, const ImVec2& xy1, const ImVec2& xy2);
 
 		void DrawChargeCounter(int charges, const ImVec2& pos) {
 			auto lvlCounterType = (LevelCounterType)Config::AbilityESP::LevelCounterType;
