@@ -128,7 +128,7 @@ void CMatchStateManager::CheckForOngoingGame() {
 void CMatchStateManager::CacheAllEntities() {
 	for (int i = 0; i <= CEntSys::Get()->GetHighestEntityIndex(); i++) {
 		auto ent = CEntSys::Get()->GetEntity(i);
-		if (!ent || !ent->SchemaBinding() ||!ent->SchemaBinding()->binaryName)
+		if (!ent || !ent->SchemaBinding() || !ent->SchemaBinding()->binaryName)
 			continue;
 
 		EntityList.OnEntityCreated(ent);
@@ -150,8 +150,12 @@ void CMatchStateManager::OnStateChanged(DOTA_GameState newState) {
 	switch (newState) {
 	case DOTA_GAMERULES_STATE_PRE_GAME:
 	case DOTA_GAMERULES_STATE_GAME_IN_PROGRESS:
-		// if (ctx.gameStage != GameStage::IN_GAME)
-		EnteredInGame();
+		// This is required in case of disconnects
+		if (ctx.gameStage == GameStage::NONE)
+			CheckForOngoingGame();
+		else
+			EnteredInGame();
+
 		break;
 	default:
 		if (ctx.gameStage == GameStage::NONE)

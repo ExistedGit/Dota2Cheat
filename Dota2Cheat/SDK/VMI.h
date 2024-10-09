@@ -99,6 +99,9 @@ namespace VMI {
 	namespace CUIEngineSource2 {
 		// xref: "CUIEngine::RunFrame"
 		Index RunFrame{};
+		// 3rd after vfunc "CUIEngine::RegisterScheduledDelegate"
+		// Accepts CUIEngineSource*, DWORD*, const char*; returns the DWORD*
+		Index MakeSymbol{};
 		// 7th above vfunc with "CUIEngine::RegisterEventHandler"
 		// look for the one that matches the dylib version
 		Index IsValidPanelPointer{};
@@ -154,6 +157,7 @@ namespace VMI {
 
 		TABLE_ENTRY(CUIEngineSource2::RunFrame)
 		TABLE_ENTRY(CUIEngineSource2::IsValidPanelPointer)
+		TABLE_ENTRY(CUIEngineSource2::MakeSymbol)
 		TABLE_ENTRY(CUIEngineSource2::RunScript)
 
 		TABLE_ENTRY(CDOTA_Buff::OnAddModifier)

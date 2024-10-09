@@ -518,16 +518,21 @@ enum DOTA_HeroPickState : int {
 	DOTA_HEROPICK_STATE_COUNT = 62
 };
 
-enum RuneType : int {
-	DOTA_RUNE_INVALID = 1,
-	DOTA_RUNE_DOUBLEDAMAGE,
-	DOTA_RUNE_HASTE,
-	DOTA_RUNE_ILLUSION,
-	DOTA_RUNE_INVISIBILITY,
-	DOTA_RUNE_REGENERATION,
-	DOTA_RUNE_BOUNTY,
-	DOTA_RUNE_ARCANE,
-	DOTA_RUNE_COUNT
+// from https://moddota.com/api/#!/vscripts/DOTA_RUNES
+// alternatively these are xrefs in client.dll, immediately followed by the associated integers
+enum DOTA_RUNES : int {
+	DOTA_RUNE_INVALID = -1,
+	DOTA_RUNE_DOUBLEDAMAGE = 0,
+	DOTA_RUNE_HASTE = 1,
+	DOTA_RUNE_ILLUSION = 2,
+	DOTA_RUNE_INVISIBILITY = 3,
+	DOTA_RUNE_REGENERATION = 4,
+	DOTA_RUNE_BOUNTY = 5,
+	DOTA_RUNE_ARCANE = 6,
+	DOTA_RUNE_WATER = 7,
+	DOTA_RUNE_XP = 8,
+	DOTA_RUNE_SHIELD = 9,
+	DOTA_RUNE_COUNT = 10
 };
 
 //what units will receive the PrepareUnitOrders() command

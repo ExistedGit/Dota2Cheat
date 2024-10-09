@@ -118,7 +118,8 @@
         "methods": {
           "RunFrame": "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 48 83 EC 20 33 DB",
           "IsValidPanelPointer": "8B 81 ? ? ? ? 4C 8B D9 83 F8 FF 74 41",
-          "RunScript": "4C 89 4C 24 ? 4C 89 44 24 ? 48 89 54 24 ? 55"
+          "RunScript": "4C 89 4C 24 ? 4C 89 44 24 ? 48 89 54 24 ? 55",
+		  "MakeSymbol": "40 53 48 83 EC 20 48 8B DA 33 C9"
         }
       }
     }

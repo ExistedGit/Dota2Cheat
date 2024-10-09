@@ -4,6 +4,6 @@
 
 class CDOTAItemRune : public CBaseEntity {
 public:
-	GETTER(RuneType, GetRuneType, Netvars::C_DOTA_Item_Rune::m_iRuneType);
+	GETTER(DOTA_RUNES, GetRuneType, Netvars::C_DOTA_Item_Rune::m_iRuneType);
 };
 

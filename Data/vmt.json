@@ -56,7 +56,8 @@
     "CUIEngineSource2": {
         "IsValidPanelPointer": 33,
         "RunFrame": 6,
-        "RunScript": 81
+        "RunScript": 81,
+		"MakeSymbol": 114
     },
 	"CNetworkMessages": {
 		"FindNetworkMessageByID": 31

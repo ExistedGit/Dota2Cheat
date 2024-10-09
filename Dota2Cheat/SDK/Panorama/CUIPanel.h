@@ -7,45 +7,34 @@
 class CPanel2D;
 
 class CUIPanel : public VClass {
-	void _FindChildrenWithIdTraverse(std::string_view id, std::vector<CUIPanel*>& result) {
-		auto children = GetChildren();
-		for (auto& panel : children) {
-			if (panel->GetId() && panel->GetId() == id)
-				result.push_back(panel);
-			panel->_FindChildrenWithIdTraverse(id, result);
-		}
-	}
-	void _FindChildrenWithClassTraverse(uint16_t unClass, std::vector<CUIPanel*>& result) {
-		auto children = GetChildren();
-		for (auto& panel : children) {
-			if (panel->BHasClass(unClass))
-				result.push_back(panel);
-			panel->_FindChildrenWithClassTraverse(unClass, result);
-		}
-	}
 public:
 	GETTER(CPanel2D*, GetPanel2D, 0x8);
 	GETTER(const char*, GetId, 0x10);
 	GETTER(CUIPanel*, GetParent, 0x18);
 	GETTER(CUtlVector<CUIPanel*>, GetChildren, 0x28);
 	GETTER(CUtlVector<uint16_t>, GetClasses, 0x158);
+
 	// Returns a list of all child elements with the specified ID at any level of nesting
-	[[nodiscard]]
-	std::vector<CUIPanel*> FindChildrenByIdTraverse(std::string_view id) {
-		std::vector<CUIPanel*> result;
-		_FindChildrenWithIdTraverse(id, result);
-		return result;
+	void FindChildrenByIdTraverse(std::string_view id, std::vector<CUIPanel*>& out) const {
+		auto children = GetChildren();
+		for (auto& panel : children) {
+			if (panel->GetId() && panel->GetId() == id)
+				out.push_back(panel);
+			panel->FindChildrenByIdTraverse(id, out);
+
+		}
 	}
 
-
-	[[nodiscard]]
-	std::vector<CUIPanel*> FindChildrenWithClassTraverse(uint16_t unClass) {
-		std::vector<CUIPanel*> result;
-		_FindChildrenWithClassTraverse(unClass, result);
-		return result;
+	void FindChildrenWithClassTraverse(uint16_t unClass, std::vector<CUIPanel*>& out) const {
+		auto children = GetChildren();
+		for (auto& panel : children) {
+			if (panel->BHasClass(unClass))
+				out.push_back(panel);
+			panel->FindChildrenWithClassTraverse(unClass, out);
+		}
 	}
 
-	CUIPanel* FindChildByIdTraverse(std::string_view id) {
+	CUIPanel* FindChildByIdTraverse(std::string_view id)  const {
 		auto children = GetChildren();
 		for (auto& panel : children) {
 			if (panel->GetId() && panel->GetId() == id)
@@ -59,6 +48,23 @@ public:
 		return nullptr;
 	}
 
+	CUIPanel* FindChildById(std::string_view id)  const {
+		auto children = GetChildren();
+		for (auto& panel : children) {
+			if (panel->GetId() && panel->GetId() == id)
+				return panel;
+		}
+		return nullptr;
+	}
+
+	CUIPanel* FindChildWithClassTraverse(uint16_t unClass, std::vector<CUIPanel*>& out) const {
+		auto children = GetChildren();
+		for (auto& panel : children) {
+			if (panel->BHasClass(unClass))
+				return panel;
+		}
+		return nullptr;
+	}
 	void SetActive(bool state) {
 		CallVFunc<31>(state);
 	}
@@ -76,7 +82,12 @@ public:
 	void RemoveClass(const char* class_);
 
 	bool BHasClass(uint16_t unClass) const {
-		return GetVFunc(VMI::CUIPanel::BHasClass)(unClass);
+		for (auto cl : GetClasses())
+			if (cl == unClass)
+				return true;
+
+		return false;
+		//return GetVFunc(VMI::CUIPanel::BHasClass)(unClass);
 	}
 
 	void ToggleClass(uint16_t unClass) {

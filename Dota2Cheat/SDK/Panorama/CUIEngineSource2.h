@@ -10,7 +10,6 @@
 #include "CUIRenderDeviceSource2.h"
 
 class PanelListNode {
-	void* unk0, *unk1;
 public:
 	CUIPanel* uiPanel;
 private:
@@ -27,17 +26,16 @@ public:
 
 	GETTER(CUIRenderDeviceSource2*, GetRenderDevice, 0xBA8);
 
-	uint16_t MakeSymbol(const char* string) {
+	uint16_t MakeSymbol(const char* string) const {
 		uint16_t result = 0;
-		CallVFunc<121, uint16_t>(&result, string);
-		return result;
+		return *GetVFunc(VMI::CUIEngineSource2::MakeSymbol).Call<uint16_t*>(&result, string);
 	}
 
 	bool IsValidPanelPointer(CUIPanel* panel) const {
 		struct  IVPBuffer {
 			uint32_t unk0, unk1;
 		} buf;
-		return 
+		return
 			GetVFunc(VMI::CUIEngineSource2::IsValidPanelPointer)
 			.Call<IVPBuffer*>(&buf, panel)->unk0 != 0xFFFFFFFF;
 	}
