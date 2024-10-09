@@ -1,4 +1,4 @@
-# Dota2Cheat: Definitive Edition (Crownfall)
+# Dota2Cheat: 7.37d
 
 ![v4 image](https://github.com/ExistedGit/Dota2Cheat/assets/66470490/88dbfa94-0ba3-4d53-b355-8cb18de98d71)
 
