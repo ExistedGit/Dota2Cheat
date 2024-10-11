@@ -10,6 +10,7 @@
 #include "CUIRenderDeviceSource2.h"
 
 class PanelListNode {
+	void* unk0, * unk1;
 public:
 	CUIPanel* uiPanel;
 private:

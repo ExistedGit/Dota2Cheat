@@ -24,7 +24,7 @@ void Modules::KillIndicator::DrawIndicatorFor(CDOTABaseNPC_Hero* hero) {
 
 	auto indicatorBase = hbPos - ImVec2(76, 6);
 	auto plaqueXY = indicatorBase - ImVec2(26, 0) * scale;
-	auto DrawList = ImGui::GetForegroundDrawList();
+	auto DrawList = ImGui::GetBackgroundDrawList();
 	if (diff <= 0)
 		// Outline
 		DrawList->AddRectFilled(indicatorBase, indicatorBase + ImVec2(18, 18) * scale, ImColor(0, 230, 0, 255), (3 * scale));
@@ -40,7 +40,7 @@ void Modules::KillIndicator::DrawIndicatorFor(CDOTABaseNPC_Hero* hero) {
 
 		// Background & text
 		DrawList->AddRectFilled(plaqueXY, plaqueXY + ImVec2(24, 18) * scale, ImColor(0, 0, 0, 255), 2 * scale);
-		DrawTextForeground(DrawData.GetFont("Monofonto", scale * 16), Text, textBase, scale * 12, ImVec4(1, 1, 1, 1), true, false);
+		DrawText(DrawData.GetFont("Monofonto", scale * 16), Text, textBase, scale * 12, ImVec4(1, 1, 1, 1), true, false);
 	}
 
 	// Icon

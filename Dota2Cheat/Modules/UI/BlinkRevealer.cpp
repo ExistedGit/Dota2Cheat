@@ -14,7 +14,7 @@ void Modules::M_BlinkRevealer::Draw() {
 	for (auto& [hero, data] : Blinks) {
 		if (!hero->GetIdentity()->IsDormant())
 			continue;
-		auto DrawList = ImGui::GetForegroundDrawList();
+		auto DrawList = ImGui::GetBackgroundDrawList();
 
 		auto icon = assets.spellIcons.Load(data.qop ? "queenofpain_blink" : "antimage_blink");
 

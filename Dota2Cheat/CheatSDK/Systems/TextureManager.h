@@ -12,6 +12,7 @@
 
 #include <d3d11.h>
 #include <dxgi.h>
+#include <queue>
 #include "../Data/DrawData.h"
 
 // Texture management system
@@ -19,18 +20,32 @@
 inline class TextureManager {
 	using tex_ptr = ID3D11ShaderResourceView*;
 
-	std::unordered_map<std::string, tex_ptr> namedTex;
-	std::map<std::string, tex_ptr*> loadingQueue;
-	bool requiresUnload = false;
-public:
-	tex_ptr GetNamedTexture(const std::string& name) {
-		return namedTex[name];
-	}
+	struct DeferredInit {
+		using callback_t = void(*)(DeferredInit&);
 
-	void InitDX11Texture(unsigned image_width,
+		unsigned width, height;
+		unsigned char* data;
+		tex_ptr* out;
+		callback_t callback; // for stuff like clearing memory
+	};
+	std::queue<DeferredInit> loadingQueue;
+public:
+	void InitTexture(unsigned image_width,
 		unsigned image_height,
-		unsigned char* image_data,
+		const unsigned char* image_data,
 		tex_ptr* out_srv) const;
+
+	void InitTextureDeferred(unsigned width, unsigned height, unsigned char* data, tex_ptr* out, DeferredInit::callback_t callback = nullptr) {
+		loadingQueue.emplace(
+			DeferredInit{
+			.width = width,
+			.height = height,
+			.data = data,
+			.out = out,
+			.callback = callback
+			}
+		);
+	};
 
 	template<size_t size>
 	bool LoadTextureFromMemory(unsigned char const (&data)[size], tex_ptr* tex) {
@@ -39,23 +54,16 @@ public:
 	bool LoadTextureFromMemory(unsigned char* data, size_t size, tex_ptr* tex);
 
 	bool LoadTextureFromFile(std::string_view filename, tex_ptr* tex);
-	bool LoadTextureNamed(std::string_view filename, tex_ptr* tex, const std::string& texName) {
-		auto result = LoadTextureFromFile(filename, tex);
-		namedTex[texName] = *tex;
-		return result;
-	}
-
-	void QueueForLoading(const std::string& filename, const std::string& texName) {
-		if (!namedTex.count(texName))
-			loadingQueue[filename] = &namedTex[texName];
-	}
 
 	void ExecuteLoadCycle() {
-		for (auto& [path, tex] : loadingQueue) {
-			LoadTextureFromFile(path, tex);
-		}
+		while (!loadingQueue.empty()) {
+			auto& data = loadingQueue.front();
 
-		loadingQueue.clear();
+			InitTexture(data.width, data.height, data.data, data.out);
+			if (data.callback) data.callback(data);
+
+			loadingQueue.pop();
+		}
 	}
 
 } texManager;

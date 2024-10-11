@@ -18,7 +18,7 @@ namespace Modules {
 
 			drawPos.y -= 34;
 
-			DrawTextForeground(DrawData.GetFont("Monofonto", fontSize), std::to_string(hero->GetHealth()), drawPos, fontSize, ImColor{ 255,255,255 }, true);
+			DrawText(DrawData.GetFont("Monofonto", fontSize), std::to_string(hero->GetHealth()), drawPos, fontSize, ImColor{ 255,255,255 }, true);
 		}
 	public:
 		void Init() {}

@@ -1,42 +1,5 @@
 #include "UIOverhaul.h"
 
-CUIPanel* Modules::UIOverhaul::GetTopBarImgForHero(CDOTABaseNPC_Hero* hero) {
-	auto topbarImages = Panorama::DotaHud->FindChildrenByIdTraverse("HeroImage");
-	for (auto& panel : topbarImages) {
-		if (!panel->GetId() || strcmp(panel->GetId(), "HeroImage") != 0)
-			continue;
-
-		auto heroImg = (CDOTA_UI_HeroImage*)panel->GetPanel2D();
-		if (!IsValidReadPtr(heroImg->GetSrc()))
-			continue;
-
-		std::string heroName(heroImg->GetSrc());
-		heroName = heroName.substr(23, heroName.size() - 23 - 4);
-		if (heroName == hero->GetUnitName())
-			return panel;
-	}
-	return nullptr;
-}
-
-void Modules::UIOverhaul::UpdateHeroes() {
-	static auto classSym = CUIEngine::Get()->MakeSymbol("TopBarHeroImage");
-	topBar.clear();
-	auto topbarImages = Panorama::DotaHud->FindChildrenWithClassTraverse(classSym);
-	for (auto& panel : topbarImages) {
-		if (!panel->GetId() || strcmp(panel->GetId(), "HeroImage") != 0)
-			continue;
-
-		auto heroImg = (CDOTA_UI_HeroImage*)panel->GetPanel2D();
-
-		auto hero = EntityList.Find<CDOTABaseNPC_Hero>([this, heroImg](auto* hero) {
-			return hero->Member<int>(Netvars::C_DOTA_BaseNPC_Hero::m_iHeroID) == heroImg->GetHeroID();
-			});
-
-		if (hero)
-			topBar[hero] = panel;
-	}
-}
-
 void Modules::UIOverhaul::UpdateNetworthPanel() {
 	if (!NWPanelStateQueued)
 		return;
@@ -53,23 +16,15 @@ void Modules::UIOverhaul::Draw() {
 		return;
 
 	MTM_LOCK;
-	auto DrawList = ImGui::GetForegroundDrawList();
+	auto DrawList = ImGui::GetBackgroundDrawList();
 	constexpr static int barHeight = 8; // as in the game
-	for (auto& [hero, data] : topBar) {
-		if (!IsValidReadPtr(hero) ||
-			!IsValidReadPtr(hero->GetIdentity()) ||
-			hero->IsSameTeam(ctx.localHero) ||
-			!hero->IsTargetable())
-			continue;
-		if (!CUIEngine::Get()->IsValidPanelPointer(data.panel))
-			continue;
-
-		ImVec2 imgXY1 = data.imgPos;
-		if (!data.IsDire)
+	for (const auto& data : renderQueue) {
+		ImVec2 imgXY1 = data.pos;
+		if (!data.isDire)
 			imgXY1.x += topBarImgSlope;
 
-		float manaRatio = hero->GetMana() / hero->GetMaxMana(),
-			hpRatio = (float)hero->GetHealth() / hero->GetMaxHealth();
+		float manaRatio = data.mana / data.manaMax,
+			hpRatio = data.health / data.healthMax;
 
 		ImVec2 healthBarXY{ imgXY1.x, imgXY1.y + topBarImgSize.y },
 			manaBarXY{ imgXY1.x, imgXY1.y + topBarImgSize.y + barHeight };
@@ -79,6 +34,8 @@ void Modules::UIOverhaul::Draw() {
 		DrawRectFilled(manaBarXY, { topBarImgSize.x, barHeight }, ImVec4(0, 0, 0, 1));
 		DrawRectFilled({ manaBarXY.x + 1, manaBarXY.y + 1 }, { (topBarImgSize.x - 2) * manaRatio , barHeight - 2 }, ImVec4(0, 0.5, 1, 1));
 	}
+
+	renderQueue.clear();
 }
 
 void Modules::UIOverhaul::Init() {
@@ -87,5 +44,47 @@ void Modules::UIOverhaul::Init() {
 
 	MTM_LOCK;
 
-	UpdateHeroes();
+
+}
+
+void Modules::UIOverhaul::OnFrame() {
+	return;
+
+	if (!Config::UIOverhaul::TopBars)
+		return;
+
+	if (!ctx.localHero)
+		return;
+
+	MTM_LOCK;
+	//UpdateNetworthPanel();
+
+	panels.clear();
+	panels.reserve(10);
+
+	auto topbar = Panorama::DotaHud->FindChildByIdTraverse("topbar");
+
+	uint16_t cl = CUIEngine::Get()->MakeSymbol("TopBarPlayerSlot");
+	topbar->FindChildById("TopBarDireTeamContainer")->FindChildrenWithClassTraverse(cl, panels);
+	topbar->FindChildById("TopBarRadiantTeamContainer")->FindChildrenWithClassTraverse(cl, panels);
+
+	for (const auto panel : panels) {
+		const auto tbPlayer = (CDOTA_UI_Top_Bar_Player*)panel->GetPanel2D();
+		if (!tbPlayer->GetHero().IsValid()) continue;
+
+		CHero* hero = tbPlayer->GetHero();
+		if (hero->IsSameTeam(ctx.localHero) || hero->GetLifeState() != 0) continue;
+
+		RenderData data{
+			.pos = panel->GetPanel2D()->GetPositionWithinWindow(),
+			.isDire = true,
+			.isDormant = hero->GetIdentity()->IsDormant(),
+			.health = (float)hero->GetHealth(),
+			.mana = (float)hero->GetMana(),
+			.healthMax = (float)hero->GetMaxHealth(),
+			.manaMax = (float)hero->GetMaxMana()
+		};
+
+		renderQueue.push_back(data);
+	}
 }

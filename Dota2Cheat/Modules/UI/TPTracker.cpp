@@ -35,7 +35,7 @@ void Modules::M_TPTracker::Draw() {
 
 	MTM_LOCK;
 	constexpr static ImVec2 iconSize{ 24,24 };
-	auto  DrawList = ImGui::GetForegroundDrawList();
+	auto  DrawList = ImGui::GetBackgroundDrawList();
 	for (auto& data : teleports) {
 		if (data.ent->IsSameTeam(ctx.localHero)
 			|| !data.start.msgIdx || !data.end.msgIdx)

@@ -1,10 +1,5 @@
 #pragma once
 
-enum class CheatUIState {
-	LaunchMenu,
-	Active
-};
-
 namespace UIData {
 	inline const char* TreeNameList[] = {
 		"Default",
@@ -14,5 +9,4 @@ namespace UIData {
 		"Frostivus",
 		"GG Branch",
 	};
-	inline CheatUIState uiState = CheatUIState::LaunchMenu;
 }

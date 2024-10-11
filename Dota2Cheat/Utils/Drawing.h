@@ -12,4 +12,4 @@ void HelpMarker(const char* desc);
 
 // pasted from SMBB (UnknownCheats)
 // https://www.unknowncheats.me/forum/direct3d/244074-imgui-d3d11-text-drawing.html
-float DrawTextForeground(ImFont* pFont, const std::string& text, const ImVec2& pos, float size, const ImVec4& color, bool center, bool outline = true);
+float DrawText(ImFont* pFont, const std::string& text, const ImVec2& pos, float size, const ImVec4& color, bool center, bool outline = true);

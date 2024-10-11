@@ -37,7 +37,6 @@
     <ClCompile Include="SDK\GameSystems\CDOTAParticleManager.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="include\imgui\imgui.cpp" />
-    <ClCompile Include="include\imgui\imgui_demo.cpp" />
     <ClCompile Include="include\imgui\imgui_draw.cpp" />
     <ClCompile Include="include\imgui\imgui_tables.cpp" />
     <ClCompile Include="include\imgui\imgui_widgets.cpp" />
@@ -264,6 +263,7 @@
     <ClInclude Include="CheatSDK\Aliases.h" />
     <ClInclude Include="CheatSDK\GameEventListeners\dota_on_hero_finish_spawn.h" />
     <ClInclude Include="CheatSDK\Shaders.h" />
+    <ClInclude Include="CheatSDK\GameEventListeners\game_rules_state_change.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />

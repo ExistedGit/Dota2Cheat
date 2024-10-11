@@ -24,6 +24,7 @@
 #include "../CheatSDK/VTexDecoders/VTexParser.h"
 #include "../Modules/UI/TPTracker.h"
 #include "../Modules/UI/BlinkRevealer.h"
+#include "../Modules/UI/AbilityESP/AbilityESP.h"
 using namespace Modules;
 
 void UpdateCameraDistance() {
@@ -51,6 +52,7 @@ void InGameLogic() {
 		&RiverPaint,
 		&IllusionESP,
 		&UIOverhaul,
+		&AbilityESP
 	};
 
 	for (auto l : PassiveListeners)

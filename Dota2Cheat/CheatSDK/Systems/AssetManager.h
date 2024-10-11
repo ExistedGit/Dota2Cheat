@@ -5,7 +5,6 @@
 
 // Operates in VPK directory panorama/images
 inline class CAssetManager {
-	const static inline std::string prefix = "panorama/images/";
 
 	struct VTexDir {
 		std::string dir;
@@ -13,13 +12,17 @@ inline class CAssetManager {
 
 		VTexDir(std::string_view dir) : dir(dir) {}
 
+		// Loads in-place and in the render thread
+		// Multithreadedness really does a number on your architecture
+
 		ID3D11ShaderResourceView* Load(const std::string& file, std::string postfix = "png");
+		void LoadDeferred(ID3D11ShaderResourceView** dest, const std::string& file, std::string postfix = "png");
 	};
 public:
 	VTexDir
-		heroIcons{ "heroes/icons" },
-		spellIcons{ "spellicons" },
-		items{ "items" };
+		heroIcons{ "panorama/images/heroes/icons" },
+		spellIcons{ "panorama/images/spellicons" },
+		items{ "panorama/images/items" };
 
 	// For uncommon uses
 	VTexDir Directory(const std::string& dir) const {

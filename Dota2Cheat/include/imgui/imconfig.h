@@ -125,3 +125,6 @@ namespace ImGui
     void MyFunction(const char* name, const MyMatrix44& v);
 }
 */
+
+struct ID3D11ShaderResourceView;
+#define ImTextureID ID3D11ShaderResourceView*

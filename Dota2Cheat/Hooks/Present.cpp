@@ -17,18 +17,11 @@
 #include "../CheatSDK/Shaders.h"
 
 LRESULT WINAPI Hooks::WndProc(const HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
-	//static std::once_flag inputFix;
-
 	KeyHandler.OnWindowMessage(uMsg, wParam);
 
 	if (DrawData.ShowMenu) {
-		ImGui_ImplWin32_WndProcHandler(hWnd, uMsg, wParam, lParam);
-
-		//std::call_once(inputFix,
-		//	CallWindowProcA,
-		//	DrawData.Dx.oWndProc, hWnd, uMsg, wParam, lParam
-		//);
-		return 1;
+		bool k = ImGui_ImplWin32_WndProcHandler(hWnd, uMsg, wParam, lParam);
+		if (!k) return !k;
 	}
 
 	return CallWindowProcA(DrawData.Dx.oWndProc, hWnd, uMsg, wParam, lParam);

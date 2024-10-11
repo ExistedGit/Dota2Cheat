@@ -5,7 +5,7 @@ void Modules::M_LastHitMarker::DrawCircleFor(CDOTABaseNPC* creep) {
 		ImColor{ 0,255,0 } :
 		ImColor{ 255,0,0 };
 	float radius = 10 * (1200 / Config::CameraDistance * 1.2);
-	ImGui::GetForegroundDrawList()->AddCircleFilled(WorldToScreen(creep->GetHealthBarPos()), radius, color);
+	ImGui::GetBackgroundDrawList()->AddCircleFilled(WorldToScreen(creep->GetHealthBarPos()), radius, color);
 }
 
 void Modules::M_LastHitMarker::Draw() {

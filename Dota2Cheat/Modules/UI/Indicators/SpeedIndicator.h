@@ -6,14 +6,14 @@
 namespace Modules {
 	// Created together with Wolf49406
 	inline class M_SpeedIndicator {
-		void DrawIndicatorFor(CDOTABaseNPC_Hero* hero) {
+		void DrawIndicatorFor(CDOTABaseNPC_Hero* hero) const {
 			if (hero->IsSameTeam(ctx.localHero)
 				|| !hero->IsTargetable()
 				|| hero->IsIllusion()
 				|| !IsEntityOnScreen(hero))
 				return;
 
-			const static auto icon = assets["hud/reborn"].Load("icon_speed", "psd");
+			const static auto icon = assets["panorama/images/hud/reborn"].Load("icon_speed", "psd");
 			int mySpeed = ctx.localHero->GetIdealSpeed();
 
 			auto barPos = HeroData[hero].HealthbarW2S;
@@ -26,7 +26,7 @@ namespace Modules {
 			else if (enemySpeed < mySpeed)
 				img_color = { 0, 255, 0, 255 };
 
-			ImGui::GetForegroundDrawList()->AddImage(
+			ImGui::GetBackgroundDrawList()->AddImage(
 				icon,
 				drawPos + ImVec2{ 2, 2 },
 				drawPos + ImVec2(25, 25),

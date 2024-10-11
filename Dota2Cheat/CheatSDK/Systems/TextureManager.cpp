@@ -4,7 +4,7 @@
 #include <stb_image.h>
 #include <array>
 
-void TextureManager::InitDX11Texture(unsigned image_width, unsigned image_height, unsigned char* image_data, ID3D11ShaderResourceView** out_srv) const {
+void TextureManager::InitTexture(unsigned image_width, unsigned image_height, const unsigned char* image_data, ID3D11ShaderResourceView** out_srv) const {
 	// Create texture
 	D3D11_TEXTURE2D_DESC desc{
 		.Width = image_width,
@@ -50,7 +50,7 @@ bool TextureManager::LoadTextureFromMemory(unsigned char* data, size_t size, ID3
 	if (image_data == NULL)
 		return false;
 
-	InitDX11Texture(image_width, image_height, image_data, tex);
+	InitTexture(image_width, image_height, image_data, tex);
 	stbi_image_free(image_data);
 	return true;
 }
@@ -64,7 +64,7 @@ bool TextureManager::LoadTextureFromFile(std::string_view filename, ID3D11Shader
 	if (image_data == NULL)
 		return false;
 
-	InitDX11Texture(image_width, image_height, image_data, tex);
+	InitTexture(image_width, image_height, image_data, tex);
 	stbi_image_free(image_data);
 	return true;
 }

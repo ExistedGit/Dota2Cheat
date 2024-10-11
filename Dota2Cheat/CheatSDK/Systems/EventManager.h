@@ -4,6 +4,7 @@
 #include "../GameEventListeners/dota_on_hero_finish_spawn.h"
 #include "../GameEventListeners/map_shutdown.h"
 #include "../GameEventListeners/event_func.h"
+#include "../GameEventListeners/game_rules_state_change.h"
 #include "../GameEventListeners/dota_game_state_change.h"
 
 #include "../Aliases.h"
@@ -35,6 +36,7 @@ Listeners.insert(name##_logger);
 		EVENT_SUB(map_shutdown);
 		//EVENT_SUB(dota_on_hero_finish_spawn);
 		EVENT_SUB(dota_game_state_change);
+		EVENT_SUB(game_rules_state_change);
 
 #ifdef _DEBUG
 		//LOG_EVENT(npc_spawned);

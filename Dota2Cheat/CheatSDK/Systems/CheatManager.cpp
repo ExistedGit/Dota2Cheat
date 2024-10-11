@@ -15,6 +15,7 @@
 #include "../../UI/Pages/AutoPickSelectionGrid.h"
 #include "../Globals/VMTDB.h"
 #include "../Tables.h"
+#include "../../Modules/UI/AbilityESP/AbilityESP.h"
 
 void CCheatManager::LoadVMI() {
 	LogFI("Loading VM indices from {}", cheatFolderPath + "\\vmt.json");
@@ -98,6 +99,7 @@ void CCheatManager::LoadGameSpecific() {
 	EventManager.InstallListeners();
 
 	EntityList.AddListener(Modules::IllusionESP);
+	EntityList.AddListener(Modules::AbilityESP);
 
 	CBaseEntity::OnColorChanged = CNetworkMessages::Get()->FindCallback("OnColorChanged");
 }

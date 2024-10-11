@@ -14,28 +14,25 @@ namespace Modules {
 		// The slope is 2-way
 		static constexpr ImVec2 topBarImgSize{ 66 - 4, 36 };
 		static constexpr int topBarImgSlope = 4;
-		
-		struct TopBarImgData {
-			ImVec2 imgPos{};
-			CUIPanel* panel;
-			bool IsDire; // Used for calculating the slope
-			TopBarImgData() {}
-			TopBarImgData(CUIPanel* panel) : panel(panel) {
-				// DOTATopBarPlayer is either RadiantPlayerN or DirePlayerN
-				std::string_view id = panel->GetParent()->GetParent()->GetId();
-				IsDire = id.starts_with("Dire");
-				imgPos = panel->GetPanel2D()->GetPositionWithinWindow();
-			}
+
+		struct RenderData {
+			ImVec2 pos{};
+			bool isDire; // Used for calculating the slope
+			bool isDormant;
+			float health, mana;
+			float healthMax, manaMax;
 		};
 
-		// Top bar images linked with the heroes they are for
-		std::map<CDOTABaseNPC_Hero*, TopBarImgData> topBar;
-
-		CUIPanel* GetTopBarImgForHero(CDOTABaseNPC_Hero* hero);
-
-		void UpdateHeroes();
 		bool NWPanelStateQueued;
 		void UpdateNetworthPanel();
+
+		struct CDOTA_UI_Top_Bar_Player : public VClass {
+			GETTER(CHandle<CHero>, GetHero, 0xC4);
+		};
+
+		std::vector<RenderData> renderQueue;
+
+		std::vector<CUIPanel*> panels;
 	public:
 		void QueueUpdateNetworthPanel() {
 			MTM_LOCK;
@@ -46,27 +43,12 @@ namespace Modules {
 		void Draw();
 		void Init();
 
-		void OnFrame() override {
-			MTM_LOCK;
-			UpdateNetworthPanel();
-
-			if (!Config::UIOverhaul::TopBars)
-				return;
-
-			bool needsUpdate = false;
-			EntityList.ForEach<CDOTABaseNPC_Hero>([this, &needsUpdate](auto* hero) {
-				if (needsUpdate || hero->IsIllusion() || hero->IsSameTeam(ctx.localHero) || topBar.contains(hero))
-				return;
-			needsUpdate = true;
-				});
-
-			if (needsUpdate)
-				UpdateHeroes();
-		}
+		void OnFrame() override;
 		void Reset() {
 			MTM_LOCK;
 
-			topBar.clear();
+			panels.clear();
+			renderQueue.clear();
 		}
 	} UIOverhaul;
 }

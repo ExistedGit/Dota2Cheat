@@ -12,9 +12,6 @@ public:
 		case VK_INSERT: {
 			DrawData.ShowMenu = !DrawData.ShowMenu;
 
-			if (UIData::uiState == CheatUIState::LaunchMenu)
-				UIData::uiState = CheatUIState::Active;
-
 			if (!DrawData.ShowMenu)
 				d2c.SaveConfig();
 			break;

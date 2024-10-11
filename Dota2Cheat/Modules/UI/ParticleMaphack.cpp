@@ -9,7 +9,7 @@ void Modules::M_ParticleMaphack::DrawScreenAppearances() {
 			|| !hero->GetIdentity()->IsDormant())
 			continue;
 
-		auto DrawList = ImGui::GetForegroundDrawList();
+		auto DrawList = ImGui::GetBackgroundDrawList();
 
 		auto fade = int(data.fadeCounter / data.fadeTime * 255);
 		auto drawPos = WorldToScreen(data.worldPos);
@@ -30,7 +30,7 @@ void Modules::M_ParticleMaphack::DrawScreenAppearances() {
 void Modules::M_ParticleMaphack::DrawMapAppearances()
 {
 	static constexpr ImVec2 iconSize{ 24, 24 };
-	auto DrawList = ImGui::GetForegroundDrawList();
+	auto DrawList = ImGui::GetBackgroundDrawList();
 	for (auto& [hero, data] : Appearances) {
 		if (!hero
 			|| hero->GetIdentity()
