@@ -70,6 +70,8 @@ void CMatchStateManager::EnteredInGame() {
 	if (Config::Changer::TreeModelIdx != 0)
 		Modules::TreeChanger.QueueModelUpdate(Config::Changer::TreeModelIdx - 1);
 
+	Modules::UIOverhaul.Init();
+
 	ctx.gameStage = GameStage::IN_GAME;
 }
 

@@ -130,3 +130,21 @@ void Hooks::hkFrameStageNotify(void* thisptr, int stage) {
 		InGameLogic();
 
 }
+
+void Hooks::FrameEventListener::OnFrameBoundary(EventFrameBoundary_t* ev) {
+	Modules::DotaPlusManager.UpdateDotaPlusStatus();
+
+	if (INetworkClientService::Get()->GetIGameClient()
+		&& INetworkClientService::Get()->GetIGameClient()->IsInGame()
+		&& ctx.localHero
+		&& ctx.gameStage == GameStage::IN_GAME) {
+
+		EntityList.ForEach<CHero>([](auto hero) {
+			HeroData[hero].AbsOrigin = hero->GetPos();
+			HeroData[hero].W2S = WorldToScreen(hero->GetPos());
+			HeroData[hero].HealthbarW2S = WorldToScreen(hero->GetHealthBarPos());
+			});
+
+		InGameLogic();
+	}
+}

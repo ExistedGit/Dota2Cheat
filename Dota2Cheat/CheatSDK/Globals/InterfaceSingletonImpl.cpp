@@ -19,6 +19,14 @@ INetworkClientService* INetworkClientService::Get() {
 	return inst;
 }
 
+CSchemaSystem* CSchemaSystem::Get() {
+	static CSchemaSystem* inst = Memory::GetInterfaceBySubstr("schemasystem.dll", "SchemaSystem_0");
+	return inst;
+}
+CEngineServiceMgr* CEngineServiceMgr::Get() {
+	static CEngineServiceMgr* inst = Memory::GetInterfaceBySubstr("engine2.dll", "EngineServiceMgr");
+	return inst;
+}
 ISteamClient* ISteamClient::Get() {
 	// There are multiple simultaneous versions of SteamClient
 	// Current version can be found by searching for "SteamClient" in client.dll

@@ -19,11 +19,27 @@ namespace Hooks {
 	inline void InstallAuxiliaryHooks() {
 		CEntSys::Get()->GetListeners().push_back(&EntityList);
 
+		auto cl = CSchemaSystem::Get()->FindTypeScopeForModule("engine2.dll")->FindDeclaredClass("EventFrameBoundary_t");
+		CEngineServiceMgr::Get()
+			->GetEventDispatcher()
+			->RegisterEventListener_Abstract(
+				CUtlAbstractDelegate(&Hooks::frameListener, &Hooks::FrameEventListener::OnFrameBoundary),
+				"EventFrameBoundary_t",
+				"D2C::OnFrameBoundary"
+			);
+
 		HookDX11Old();
 	}
 
 	// Removes any custom, non-MinHook hooks
 	inline void RemoveAuxiliaryHooks() {
+		CEngineServiceMgr::Get()
+			->GetEventDispatcher()
+			->UnregisterEventListener_Abstract(
+				CUtlAbstractDelegate(&Hooks::frameListener, &Hooks::FrameEventListener::OnFrameBoundary),
+				"EventFrameBoundary_t"
+			);
+
 		CEntSys::Get()->GetListeners().remove_by_value(&EntityList);
 		INetworkClientService::Get()->GetIGameClient()->GetNetChannel()->UninstallMessageFilter(&d2cNetFilter);
 	}

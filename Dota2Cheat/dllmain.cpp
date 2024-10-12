@@ -9,65 +9,90 @@
 #include <dota_usercmd.pb.h>
 #include <netmessages.pb.h>
 
+#include "../Modules/Hacks/DotaPlusUnlocker.h"
 
-struct CDOTAInput : NormalClass {
-	GETTER(int, GetSequenceNumber, 0x3D24);
-};
-
-void* oCreateMove;
-void hkCreateMove(CDOTAInput* rcx, int slot, bool should_fill_weaponselect) {
-	ORIGCALL(CreateMove)(rcx, slot, should_fill_weaponselect);
-
-	auto v120 = *(DWORD*)((uintptr_t)rcx + 0x3E98 * slot + 0x3F64);
-	//auto user_cmd = (CDota2UserCmdPB*)(0x3E98 * slot + 104i64 * ((int)v120 % 150) + (uintptr_t)rcx + 0x250);
-	auto user_cmd = (CDota2UserCmdPB*)((char*)rcx + 0x250 + 0x68 * (v120 % 150));
-	static auto RandomFloat = Memory::GetExport<Address>("tier0.dll", "RandomFloat");
-	static float* rndData = RandomFloat.Offset(0x72).GetAbsoluteAddress(3);
-
-	auto seed = user_cmd->base().random_seed();
-
-	seed = seed;
+static const char* GetWinAPIExceptionName(ULONG code) {
+	switch (code) {
+		CASE_STRING(STILL_ACTIVE);
+		CASE_STRING(EXCEPTION_ACCESS_VIOLATION);
+		CASE_STRING(EXCEPTION_DATATYPE_MISALIGNMENT);
+		CASE_STRING(EXCEPTION_BREAKPOINT);
+		CASE_STRING(EXCEPTION_SINGLE_STEP);
+		CASE_STRING(EXCEPTION_ARRAY_BOUNDS_EXCEEDED);
+		CASE_STRING(EXCEPTION_FLT_DENORMAL_OPERAND);
+		CASE_STRING(EXCEPTION_FLT_DIVIDE_BY_ZERO);
+		CASE_STRING(EXCEPTION_FLT_INEXACT_RESULT);
+		CASE_STRING(EXCEPTION_FLT_INVALID_OPERATION);
+		CASE_STRING(EXCEPTION_FLT_OVERFLOW);
+		CASE_STRING(EXCEPTION_FLT_STACK_CHECK);
+		CASE_STRING(EXCEPTION_FLT_UNDERFLOW);
+		CASE_STRING(EXCEPTION_INT_DIVIDE_BY_ZERO);
+		CASE_STRING(EXCEPTION_INT_OVERFLOW);
+		CASE_STRING(EXCEPTION_PRIV_INSTRUCTION);
+		CASE_STRING(EXCEPTION_IN_PAGE_ERROR);
+		CASE_STRING(EXCEPTION_ILLEGAL_INSTRUCTION);
+		CASE_STRING(EXCEPTION_NONCONTINUABLE_EXCEPTION);
+		CASE_STRING(EXCEPTION_STACK_OVERFLOW);
+		CASE_STRING(EXCEPTION_INVALID_DISPOSITION);
+		CASE_STRING(EXCEPTION_GUARD_PAGE);
+		CASE_STRING(EXCEPTION_INVALID_HANDLE);
+		CASE_STRING(CONTROL_C_EXIT);
+	}
+	return nullptr;
 }
 
-// C_DOTA_BaseNPC_Hero::Spawn(CEntityKeyValues* kv)
-void* oSpawn;
-void hkSpawn(CDOTABaseNPC_Hero* hero, void* kv) {
-	using namespace std;
-	vector<CEconWearable*> pWearables;
-	auto& hWearables = hero->Wearables();
-	transform(hWearables.begin(), hWearables.end(), back_inserter(pWearables), [](auto h) { return *h; });
+extern void InGameLogic();
 
-	LogW("WEARABLES");
-	for (auto pWearable : pWearables) {
-		pWearable->Field<bool>(Netvars::C_DOTAWearableItem::m_bIsGeneratingEconItem) = true;
+static LONG NTAPI VEH(PEXCEPTION_POINTERS pExceptionInfo) {
+	DWORD exceptionCode = pExceptionInfo->ExceptionRecord->ExceptionCode;
+	PVOID exceptionAddress = pExceptionInfo->ExceptionRecord->ExceptionAddress;
 
-		LogF("{} = {}",
-			pWearable->GetAttributeManager()->GetItem()->Member<uint32_t>(Netvars::C_EconItemView::m_iItemDefinitionIndex),
-			pWearable->GetModelName() ? pWearable->GetModelName() : "NO MODEL");
-	}
+	CONTEXT* ctx = pExceptionInfo->ContextRecord;
+	DWORD64 rax = ctx->Rax;
+	DWORD64 rbx = ctx->Rbx;
+	DWORD64 rcx = ctx->Rcx;
+	DWORD64 rdx = ctx->Rdx;
+	DWORD64 rsi = ctx->Rsi;
+	DWORD64 rdi = ctx->Rdi;
+	DWORD64 rbp = ctx->Rbp;
+	DWORD64 rsp = ctx->Rsp;
 
-	pWearables[2]->GetAttributeManager()->GetItem()->Field<uint32_t>(Netvars::C_EconItemView::m_iItemDefinitionIndex) = 6996;
-	pWearables[2]->GetAttributeManager()->GetItem()->Field<bool>(Netvars::C_EconItemView::m_bInitialized) = false;
+	std::ostringstream oss;
+	oss << std::format("{} (0x{:X}) at {}", GetWinAPIExceptionName(exceptionCode), exceptionCode, exceptionAddress) << "\n";
 
-	pWearables[2]->CallVFunc<6>(0);
-	ORIGCALL(Spawn)(hero, kv);
+	oss << "RAX: 0x" << std::hex << rax << "\n";
+	oss << "RBX: 0x" << std::hex << rbx << "\n";
+	oss << "RCX: 0x" << std::hex << rcx << "\n";
+	oss << "RDX: 0x" << std::hex << rdx << "\n";
+	oss << "RSI: 0x" << std::hex << rsi << "\n";
+	oss << "RDI: 0x" << std::hex << rdi << "\n";
+	oss << "RBP: 0x" << std::hex << rbp << "\n";
+	oss << "RSP: 0x" << std::hex << rsp << "\n";
 
-	LogW("NEW WEARABLES");
-	for (auto pWearable : pWearables) {
-		LogF("{} = {}",
-			pWearable->GetAttributeManager()->GetItem()->Member<uint32_t>(Netvars::C_EconItemView::m_iItemDefinitionIndex),
-			pWearable->GetModelName() ? pWearable->GetModelName() : "NO MODEL");
-	}
+	oss << "\nCheck the console window for anything that might tell you why this happened. Screenshot any errors in case you want to report them!";
+
+	std::string message = oss.str();
+
+	MessageBoxA(NULL, message.c_str(), "Dota2Cheat", MB_OK | MB_ICONERROR);
+
+	return EXCEPTION_CONTINUE_SEARCH;
 }
-
 
 void HackThread(HMODULE hModule) {
+#ifndef _DEBUG
+	AddVectoredExceptionHandler(1, VEH);
+#endif
+
 	d2c.Initialize(hModule);
 
 	MatchStateManager.CheckForOngoingGame();
 
 	while (!d2c.shouldUnload)
 		Sleep(10);
+
+#ifndef _DEBUG
+	RemoveVectoredExceptionHandler(VEH);
+#endif
 
 	d2c.Unload();
 }

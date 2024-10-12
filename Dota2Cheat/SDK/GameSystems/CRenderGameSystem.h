@@ -2,6 +2,7 @@
 #include "../Base/VClass.h"
 #include "../Base/Definitions.h"
 #include "../Base/Vector.h"
+#include "../VMI.h"
 
 // Reversed by Morphling
 class CRenderGameSystem : public VClass {

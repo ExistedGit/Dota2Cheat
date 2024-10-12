@@ -133,7 +133,7 @@ namespace VMI {
 	namespace CEngineServiceMgr {
 		// CEngineClient vfunc 49 GetScreenSize redirects to this
 		// Changes are rarer in this one
-		Index GetScreenSize{};
+		Index GetEngineSwapChainSize{};
 	}
 
 	namespace CNetworkGameClient {
@@ -186,7 +186,7 @@ namespace VMI {
 
 		TABLE_ENTRY(CRenderGameSystem::WorldToProjectionMatrix)
 
-		TABLE_ENTRY(CEngineServiceMgr::GetScreenSize)
+		TABLE_ENTRY(CEngineServiceMgr::GetEngineSwapChainSize)
 
 		TABLE_ENTRY(CPanel2D::GetPositionWithinWindow)
 		TABLE_ENTRY(CUIPanel::BHasClass)

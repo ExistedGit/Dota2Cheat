@@ -8,6 +8,12 @@
 // For now I won't go as far as to analyze what each of them does and give them names
 
 namespace Hooks {
+	inline struct FrameEventListener {
+		using EventFrameBoundary_t = NormalClass;
+
+		void OnFrameBoundary(EventFrameBoundary_t* ev);
+	} frameListener;
+
 	inline void* oFrameStageNotify{};
 	void hkFrameStageNotify(void* thisptr, int stage);
 }

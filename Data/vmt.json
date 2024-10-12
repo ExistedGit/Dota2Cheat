@@ -32,7 +32,7 @@
         "OnAddModifier": 43
     },
     "CEngineServiceMgr": {
-        "GetScreenSize": 24
+        "GetEngineSwapChainSize": 24
     },
     "CGameSceneNode": {
         "SetScale": 10

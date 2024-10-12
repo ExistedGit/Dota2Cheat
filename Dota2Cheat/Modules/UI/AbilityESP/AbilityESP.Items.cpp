@@ -32,6 +32,8 @@ void Modules::M_AbilityESP::DrawItemSequences(const RenderData& rd) const {
 	}
 
 	for (int slot = 0; slot < queueSize; slot++) {
+		if (!rd.items[slot].valid) continue;
+
 		DrawItemIcon(rd.items[slot], basePos, iconSize);
 		basePos.x += gap + iconSize.x;
 	}

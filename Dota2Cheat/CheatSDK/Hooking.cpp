@@ -32,8 +32,8 @@ void Hooks::InstallHooks() {
 		HOOKFUNC(SetRenderingEnabled);
 	}
 
-	void* FrameStageNotify = CSource2Client::Get()->GetVFunc(VMI::CSource2Client::FrameStageNotify);
-	HOOKFUNC(FrameStageNotify);
+	//void* FrameStageNotify = CSource2Client::Get()->GetVFunc(VMI::CSource2Client::FrameStageNotify);
+	//HOOKFUNC(FrameStageNotify);
 
 #ifndef _TESTING
 	void* RunScript = CUIEngine::Get()->GetVFunc(VMI::CUIEngineSource2::RunScript);

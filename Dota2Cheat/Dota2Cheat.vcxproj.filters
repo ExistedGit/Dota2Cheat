@@ -264,6 +264,8 @@
     <ClInclude Include="CheatSDK\GameEventListeners\dota_on_hero_finish_spawn.h" />
     <ClInclude Include="CheatSDK\Shaders.h" />
     <ClInclude Include="CheatSDK\GameEventListeners\game_rules_state_change.h" />
+    <ClInclude Include="SDK\Interfaces\CSchemaSystem.h" />
+    <ClInclude Include="SDK\Interfaces\CEngineServiceMgr.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />

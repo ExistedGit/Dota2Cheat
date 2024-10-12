@@ -15,7 +15,7 @@
 
 class CDOTAPlayerController;
 
-struct CSchemaClassBinding {
+struct CEntSchemaClassBinding {
 	const char
 		* binaryName, // ex: C_DOTA_Unit_Hero_Nevermore
 		* serverName; // ex: CDOTA_Unit_Hero_Nevermore
@@ -45,8 +45,8 @@ public:
 		IGETTER(CModelState, GetModelState, Netvars::CSkeletonInstance::m_modelState)
 	};
 
-	CSchemaClassBinding* SchemaBinding() const {
-		return GetVFunc(VMI::CBaseEntity::GetSchemaBinding).Call<CSchemaClassBinding*>();
+	CEntSchemaClassBinding* SchemaBinding() const {
+		return GetVFunc(VMI::CBaseEntity::GetSchemaBinding).Call<CEntSchemaClassBinding*>();
 	};
 
 	inline static void(__fastcall* OnColorChanged)(void*) = {};

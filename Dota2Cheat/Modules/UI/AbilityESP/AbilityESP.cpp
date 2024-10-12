@@ -84,6 +84,7 @@ void Modules::M_AbilityESP::UpdateHeroRenderData(const CHero* h) {
 			.cooldown = getCooldown(ability),
 			.toggled = ability->IsToggled(),
 			.autocast = ability->Member<bool>(Netvars::C_DOTABaseAbility::m_bAutoCastState),
+			.noMana = h->GetMana() < ability->GetManaCost()
 		};
 
 		if (ability->GetCharges()) {

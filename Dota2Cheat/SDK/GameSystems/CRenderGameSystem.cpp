@@ -1,5 +1,6 @@
 #include "CRenderGameSystem.h"
-#include "../../CheatSDK/include.h"
+#include "../Interfaces/CEngineServiceMgr.h"
+#include "../Base/Logging.h"
 
 bool CRenderGameSystem::GetVectorInScreenSpace(const Vector& point, Vector2D& screen) const
 {
@@ -20,15 +21,12 @@ bool CRenderGameSystem::GetVectorInScreenSpace(const Vector& point, Vector2D& sc
 	static int resolut[2] = { 0 };
 	if (!resolut[0] || !resolut[1])
 	{
-		// CEngineClient vfunc 49 GetScreenSize redirects to this
-		const static VClass* engineServiceMgr = Memory::GetInterfaceBySubstr("engine2.dll", "EngineServiceMgr");
-		// curiously, THIS index does not change
-		engineServiceMgr->GetVFunc(VMI::CEngineServiceMgr::GetScreenSize)(&resolut[0], &resolut[1]);
+		CEngineServiceMgr::Get()->GetEngineSwapChainSize(&resolut[0], &resolut[1]);
 
 		if (resolut[0] == 0 || resolut[1] == 0) {
 			static std::once_flag f;
-			auto fName = __FUNCTION__;
-			std::call_once(f, [fName] { LogFE("{}: {}", fName, "GetScreenSize returned incorrect data!"); });
+			static auto fName = __FUNCTION__;
+			std::call_once(f, [] { LogFE("{}: {}", fName, "GetEngineSwapChainSize returned incorrect data!"); });
 			return false;
 		}
 	}

@@ -92,7 +92,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;DOTA2CHEAT_EXPORTS;_WINDOWS;_USRDLL;IMGUI_DEFINE_MATH_OPERATORS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;DOTA2CHEAT_EXPORTS;_WINDOWS;_USRDLL;NOMINMAX;IMGUI_DEFINE_MATH_OPERATORS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
@@ -150,7 +150,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;DOTA2CHEAT_EXPORTS;_WINDOWS;_USRDLL;IMGUI_DEFINE_MATH_OPERATORS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;DOTA2CHEAT_EXPORTS;NOMINMAX;_WINDOWS;_USRDLL;IMGUI_DEFINE_MATH_OPERATORS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
@@ -362,6 +362,7 @@
     <ClInclude Include="SDK\GameSystems\CRenderGameSystem.h" />
     <ClInclude Include="CheatSDK\Data\EntityList.h" />
     <ClInclude Include="SDK\include.h" />
+    <ClInclude Include="SDK\Interfaces\CEngineServiceMgr.h" />
     <ClInclude Include="SDK\Interfaces\CFlattenedSerializers.h" />
     <ClInclude Include="SDK\Interfaces\CGameUI.h" />
     <ClInclude Include="Hooks\Misc.h" />
@@ -414,6 +415,7 @@
     <ClInclude Include="SDK\Interfaces\CGameEntitySystem.h" />
     <ClInclude Include="SDK\GameSystems\CGameEventManager.h" />
     <ClInclude Include="SDK\Interfaces\CPanoramaUIEngine.h" />
+    <ClInclude Include="SDK\Interfaces\CSchemaSystem.h" />
     <ClInclude Include="SDK\Interfaces\CSource2Client.h" />
     <ClInclude Include="SDK\Panorama\CLocalization.h" />
     <ClInclude Include="SDK\Interfaces\CSoundOpSystem.h" />

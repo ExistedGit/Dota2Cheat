@@ -2,8 +2,13 @@
 #include "../Tables.h"
 #include <Base/Logging.h>
 #include "SignatureDB.h"
+#include <Interfaces/CEngineServiceMgr.h>
+#include <Interfaces/CInputService.h>
 
 void Signatures::FindSignatures() {
+	CEventDispatcher::_UnregisterEventListener_Abstract = Address(CInputService::Get()->GetVFunc(4)).Offset(0x6C).GetAbsoluteAddress(1);
+	CEventDispatcher::_RegisterEventListener_Abstract = Address(CInputService::Get()->GetVFunc(3)).Offset(0x280).GetAbsoluteAddress(1);
+
 	CMsg = Memory::GetExport("tier0.dll", "Msg");
 	CMsgColor = Memory::GetExport("tier0.dll", "?ConColorMsg@@YAXAEBVColor@@PEBDZZ");
 
