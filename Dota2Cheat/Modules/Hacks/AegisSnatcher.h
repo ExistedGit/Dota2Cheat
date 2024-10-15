@@ -10,5 +10,8 @@ inline class AegisSnatcher : public IFrameListener, IEntityListListener {
 	public:
 		void OnEntityRemoved(const EntityWrapper& ent) override;
 		void OnFrame() override;
-	} AegisSnatcher;
+
+		// Inherited via IEntityListListener
+		void OnEntityAdded(const EntityWrapper& ent) override;
+} AegisSnatcher;
 }

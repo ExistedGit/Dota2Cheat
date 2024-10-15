@@ -16,7 +16,7 @@ void Modules::UIOverhaul::Draw() {
 		return;
 
 	MTM_LOCK;
-	auto DrawList = ImGui::GetBackgroundDrawList();
+	auto dl = ImGui::GetBackgroundDrawList();
 	constexpr static int barHeight = 8; // as in the game
 	for (const auto& data : renderQueue) {
 		ImVec2 imgXY1 = data.pos;

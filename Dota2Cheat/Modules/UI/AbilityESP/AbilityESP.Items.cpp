@@ -91,7 +91,7 @@ void Modules::M_AbilityESP::DrawItemGrids(const RenderData& rd) const {
 }
 
 void Modules::M_AbilityESP::DrawItemIcon(const RenderData::Item& item, const ImVec2& pos, const ImVec2& size) const {
-	auto DrawList = ImGui::GetBackgroundDrawList();
+	auto dl = ImGui::GetBackgroundDrawList();
 	// used to convert native rectangular item images to SQUARES
 	constexpr float aspectRatio = (1 - 64.f / 88) / 2;
 	const float rounding = Config::AbilityESP::Rounding / 100.f * size.x / 2;
@@ -108,7 +108,7 @@ void Modules::M_AbilityESP::DrawItemIcon(const RenderData::Item& item, const ImV
 		frameXY2 = imgXY2 + frameSize;
 
 	ImU32 frameColor = ImColor{ 0,0,0,255 };
-	DrawList->AddImageRounded(
+	dl->AddImageRounded(
 		assets.items.Load(item.icon),
 		imgXY1,
 		imgXY2,
@@ -121,12 +121,12 @@ void Modules::M_AbilityESP::DrawItemIcon(const RenderData::Item& item, const ImV
 		frameColor = ImColor(0x3, 0xAC, 0x13);
 
 	// Frame
-	DrawList->AddRect(frameXY1, frameXY2, frameColor, rounding);
+	dl->AddRect(frameXY1, frameXY2, frameColor, rounding);
 
 	float cd = item.cooldown;
 
 	if (cd != 0) {
-		DrawList->AddRectFilled(imgXY1, imgXY2, ImColor(0, 0, 0, 130), rounding);
+		dl->AddRectFilled(imgXY1, imgXY2, ImColor(0, 0, 0, 130), rounding);
 		auto fontSize = size.y - ScaleVar<float>(2);
 		bool decimals = Config::AbilityESP::ShowCooldownDecimals;
 		if (cd >= 100) {
@@ -137,7 +137,7 @@ void Modules::M_AbilityESP::DrawItemIcon(const RenderData::Item& item, const ImV
 		if (decimals)
 			fontSize -= 4;
 
-		DrawText(
+		ImDrawText(
 			DrawData.GetFont("Monofonto", fontSize),
 			std::vformat(Config::AbilityESP::ShowCooldownDecimals ? "{:.1f}" : "{:.0f}", std::make_format_args(cd)),
 			ImVec2(imgCenter.x, imgCenter.y - fontSize / 2),
@@ -151,15 +151,15 @@ void Modules::M_AbilityESP::DrawItemIcon(const RenderData::Item& item, const ImV
 }
 
 void Modules::M_AbilityESP::DrawItemCircle(const RenderData::Item& item, const ImVec2& xy1, const ImVec2& xy2, const ImVec2& iconSize, const int radius) const {
-	auto DrawList = ImGui::GetBackgroundDrawList();
+	auto dl = ImGui::GetBackgroundDrawList();
 	const ImVec2 center = (xy1 + xy2) / 2;
 	constexpr float aspectRatio = (1 - 64.f / 88) / 2;
 
-	DrawList->AddCircleFilled(center, radius + 2, ImColor(0, 0, 0, 255));
+	dl->AddCircleFilled(center, radius + 2, ImColor(0, 0, 0, 255));
 
 	if (!item.valid) return;
 
-	DrawList->AddImageRounded(
+	dl->AddImageRounded(
 		assets.items.Load(item.icon),
 		xy1,
 		xy2,
@@ -174,9 +174,9 @@ void Modules::M_AbilityESP::DrawItemCircle(const RenderData::Item& item, const I
 		if (Config::AbilityESP::ShowCooldownDecimals)
 			cdFontSize -= 4;
 		// Darkens the picture
-		DrawList->AddCircleFilled(center, radius, ImColor(0, 0, 0, 130));
+		dl->AddCircleFilled(center, radius, ImColor(0, 0, 0, 130));
 		// Draws the cooldown
-		DrawText(DrawData.GetFont("Monofonto", cdFontSize),
+		ImDrawText(DrawData.GetFont("Monofonto", cdFontSize),
 			std::vformat(Config::AbilityESP::ShowCooldownDecimals ? "{:.1f}" : "{:.0f}", std::make_format_args(cd)),
 			ImVec2(center.x, center.y - cdFontSize / 2),
 			cdFontSize,

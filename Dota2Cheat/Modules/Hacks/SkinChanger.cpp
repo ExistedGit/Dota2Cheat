@@ -68,6 +68,7 @@ bool Modules::SkinChanger::AddItem(uint32_t unDefIndex) {
 	static auto soid = inv->GetSOCache()->GetOwner();
 	const uint32_t accId = soid.m_unSteamID;
 	auto item = Signatures::CreateEconItem();
+
 	CSOEconItem proto;
 	proto.set_account_id(accId);
 	proto.set_inventory(invPosCounter++);

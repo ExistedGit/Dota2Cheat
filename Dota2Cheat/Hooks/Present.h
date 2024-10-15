@@ -38,10 +38,11 @@ namespace Hooks {
 		ID3D11Device* pDevice;
 		ID3D11DeviceContext* pContext;
 
-		if (FAILED(D3D11CreateDeviceAndSwapChain(NULL, D3D_DRIVER_TYPE_HARDWARE, NULL, NULL, &featureLevel, 1
-			, D3D11_SDK_VERSION, &swapChainDesc, &pSwapChain, &pDevice, NULL, &pContext)))
+		auto hr = D3D11CreateDeviceAndSwapChain(NULL, D3D_DRIVER_TYPE_HARDWARE, NULL, NULL, &featureLevel, 1
+			, D3D11_SDK_VERSION, &swapChainDesc, &pSwapChain, &pDevice, NULL, &pContext);
+		if (FAILED(hr))
 		{
-			MessageBox(hWnd, "Failed to create DirectX device and swapchain!", "Dota2Cheat", MB_ICONERROR);
+			MessageBox(hWnd, std::format("Failed to create DirectX device and swapchain!\nHRESULT: 0x{:X}", (uintptr_t)hr).c_str(), "Dota2Cheat", MB_ICONERROR);
 			return false;
 		}
 
@@ -56,10 +57,10 @@ namespace Hooks {
 		return res;
 	}
 	inline bool HookDirectX() {
-		HookDX11Old();
+		//HookDX11Old();
 
 		// xref: "Hooking vtable for swap chain\n"
-		//auto Present = SignatureDB::FindSignature("IDXGISwapChain::Present");
-		//return HOOKFUNC(Present);
+		auto Present = SignatureDB::FindSignature("IDXGISwapChain::Present");
+		return HOOKFUNC(Present);
 	}
 }

@@ -2,6 +2,7 @@
 #include <cstdint>
 
 using ENT_HANDLE = uint32_t;
+using entidx_t = uint32_t;
 constexpr uint32_t ENT_HANDLE_MASK = 0x7fff;
 constexpr uint32_t NET_ENT_HANDLE_MASK = 0x3fff;
 constexpr uint32_t INVALID_HANDLE = 0xFFFFFFFF;

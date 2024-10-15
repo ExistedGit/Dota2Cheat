@@ -14,20 +14,20 @@ void Modules::M_BlinkRevealer::Draw() {
 	for (auto& [hero, data] : Blinks) {
 		if (!hero->GetIdentity()->IsDormant())
 			continue;
-		auto DrawList = ImGui::GetBackgroundDrawList();
+		auto dl = ImGui::GetBackgroundDrawList();
 
 		auto icon = assets.spellIcons.Load(data.qop ? "queenofpain_blink" : "antimage_blink");
 
 		auto fade = int(data.fadeCounter / data.fadeTime * 255);
 		auto drawPos = WorldToScreen(data.pos);
-		DrawList->AddCircle(
+		dl->AddCircle(
 			drawPos,
 			iconSize.x / 2 + 2,
 			ImColor{ 0,0,0, fade },
 			0,
 			2
 		);
-		DrawList->AddImageRounded(
+		dl->AddImageRounded(
 			icon,
 			drawPos - iconSize / 2,
 			drawPos + iconSize / 2,
@@ -86,7 +86,7 @@ void Modules::M_BlinkRevealer::OnReceivedMsg(NetMessageHandle_t* msgHandle, goog
 
 		if (particleName == qop)
 			Blinks[ent].qop = true;
-		else if (particleName != am) // if it's nor QoP nor AM, then it's not a blink
+		else if (particleName != am) // if it's neither QoP nor AM, then it's not a blink
 			Blinks.erase(ent);
 
 		break;

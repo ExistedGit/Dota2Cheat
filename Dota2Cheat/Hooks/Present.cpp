@@ -11,7 +11,7 @@
 #include "../Modules/UI/UIOverhaul.h"
 
 #include "../Modules/Hacks/SkinChanger.h"
-#include "../Modules/Hacks/LastHitMarker.h"
+#include "../Modules/UI/LastHitMarker.h"
 
 #include "../CheatSDK/VTexDecoders/VTexParser.h"
 #include "../CheatSDK/Shaders.h"

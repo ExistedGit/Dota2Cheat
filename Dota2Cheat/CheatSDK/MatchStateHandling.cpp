@@ -155,7 +155,7 @@ void CMatchStateManager::OnStateChanged(DOTA_GameState newState) {
 		// This is required in case of disconnects
 		if (ctx.gameStage == GameStage::NONE)
 			CheckForOngoingGame();
-		else
+		else if(ctx.gameStage == GameStage::PRE_GAME)
 			EnteredInGame();
 
 		break;

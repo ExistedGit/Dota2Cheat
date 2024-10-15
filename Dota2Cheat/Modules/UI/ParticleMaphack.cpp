@@ -9,12 +9,12 @@ void Modules::M_ParticleMaphack::DrawScreenAppearances() {
 			|| !hero->GetIdentity()->IsDormant())
 			continue;
 
-		auto DrawList = ImGui::GetBackgroundDrawList();
+		auto dl = ImGui::GetBackgroundDrawList();
 
-		auto fade = int(data.fadeCounter / data.fadeTime * 255);
+		int fade = data.fadeCounter / data.fadeTime * 255;
 		auto drawPos = WorldToScreen(data.worldPos);
 		if (data.icon)
-			DrawList->AddImage(
+			dl->AddImage(
 				data.icon,
 				drawPos - iconSize / 2,
 				drawPos + iconSize / 2,
@@ -23,17 +23,17 @@ void Modules::M_ParticleMaphack::DrawScreenAppearances() {
 				ImColor{ 255, 255, 255, fade }
 		);
 		else
-			DrawList->AddCircleFilled(drawPos, 8, ImColor{ 0XFF, 0XCC, 0, fade });
+			dl->AddCircleFilled(drawPos, 8, ImColor{ 0XFF, 0XCC, 0, fade });
 	}
 }
 
 void Modules::M_ParticleMaphack::DrawMapAppearances()
 {
 	static constexpr ImVec2 iconSize{ 24, 24 };
-	auto DrawList = ImGui::GetBackgroundDrawList();
+	auto dl = ImGui::GetBackgroundDrawList();
 	for (auto& [hero, data] : Appearances) {
 		if (!hero
-			|| hero->GetIdentity()
+			|| !hero->GetIdentity()
 			|| !hero->GetIdentity()->IsDormant())
 			continue;
 
@@ -44,7 +44,7 @@ void Modules::M_ParticleMaphack::DrawMapAppearances()
 		auto fade = int(data.fadeCounter / data.fadeTime * 255);
 
 		if (data.icon)
-			DrawList->AddImage(
+			dl->AddImage(
 				data.icon,
 				data.mapPos - iconSize / 2,
 				data.mapPos + iconSize / 2,
@@ -53,7 +53,7 @@ void Modules::M_ParticleMaphack::DrawMapAppearances()
 				ImColor{ 255, 255, 255, fade }
 		);
 		else
-			DrawList->AddCircleFilled(data.mapPos, 4, ImColor{ 0XFF, 0XCC, 0, fade });
+			dl->AddCircleFilled(data.mapPos, 4, ImColor{ 0XFF, 0XCC, 0, fade });
 
 	}
 }
@@ -106,14 +106,14 @@ void Modules::M_ParticleMaphack::OnReceivedMsg(NetMessageHandle_t* msgHandle, go
 	case GAME_PARTICLE_MANAGER_EVENT_CREATE: {
 		if (pmMsg->create_particle().has_entity_handle_for_modifiers())
 			break;
-		auto npc = EntityList.Get<CDOTABaseNPC_Hero>(NH2IDX(pmMsg->create_particle().entity_handle_for_modifiers()));
 	
+		auto npc = EntityList.Get<CHero>(NH2IDX(pmMsg->create_particle().entity_handle_for_modifiers()));
 		if (!npc
 			|| npc->IsSameTeam(ctx.localHero)
 			|| !npc->GetIdentity()
 			|| !npc->GetIdentity()->IsDormant()
-			|| npc->GetLifeState() != 0
-			|| !EntityList.IsHero(npc))
+			|| !EntityList.IsHero(npc)
+			)
 			return;
 
 		std::string_view particleName;
@@ -155,11 +155,11 @@ void Modules::M_ParticleMaphack::OnReceivedMsg(NetMessageHandle_t* msgHandle, go
 		if (attachType == 0 || attachType == 1 || attachType == 5) {
 			auto pos = pmMsg->update_particle_ent().fallback_position();
 
-			CDOTABaseNPC* npc = nullptr;
+			CNPC* npc = nullptr;
 			if (TransformQueue.contains(pmMsg->index()))
 				npc = TransformQueue[pmMsg->index()];
 			else
-				npc = EntityList.Get<CDOTABaseNPC>(NH2IDX(pmMsg->update_particle_ent().entity_handle()));
+				npc = EntityList.Get<CNPC>(NH2IDX(pmMsg->update_particle_ent().entity_handle()));
 
 			if (!npc
 				|| npc->IsSameTeam(ctx.localHero)

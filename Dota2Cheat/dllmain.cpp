@@ -6,6 +6,7 @@
 #include "CheatSDK/MatchStateHandling.h"
 
 #include "UI/Pages/MainMenu.h"
+#include "Modules/Hacks/SkinChanger.h"
 #include <dota_usercmd.pb.h>
 #include <netmessages.pb.h>
 
@@ -41,11 +42,13 @@ static const char* GetWinAPIExceptionName(ULONG code) {
 	return nullptr;
 }
 
-extern void InGameLogic();
-
 static LONG NTAPI VEH(PEXCEPTION_POINTERS pExceptionInfo) {
+
 	DWORD exceptionCode = pExceptionInfo->ExceptionRecord->ExceptionCode;
 	PVOID exceptionAddress = pExceptionInfo->ExceptionRecord->ExceptionAddress;
+
+	if (exceptionCode < 0xC0000000)
+		return EXCEPTION_CONTINUE_SEARCH;
 
 	CONTEXT* ctx = pExceptionInfo->ContextRecord;
 	DWORD64 rax = ctx->Rax;
@@ -78,6 +81,78 @@ static LONG NTAPI VEH(PEXCEPTION_POINTERS pExceptionInfo) {
 	return EXCEPTION_CONTINUE_SEARCH;
 }
 
+struct EventPreDataUpdate_t {
+	int m_nCount;
+	struct {
+		CHandle<CNPC> handle;
+		int updateType;
+	}*ents;
+};
+
+
+bool wearableTestScheduled = false;
+void* oOnPreDataUpdate;
+void hkOnPreDataUpdate(void* thisptr, EventPreDataUpdate_t* ev) {
+	if (wearableTestScheduled) {
+		for (int i = 0; i < ev->m_nCount; i++) {
+			if (ctx.localHero == *ev->ents[i].handle) {
+				if (ev->ents[i].updateType & 4) break;
+
+				ev->ents[i].updateType |= 1;
+
+				auto w = *ctx.localHero->Wearables()[2];
+
+				//ctx.localHero->Field<unsigned char>(0x1b80) |= (0x40 | 4);
+				//ctx.localHero->GetIdentity()->m_nFlags &= ~0x2080;
+
+				//ctx.localHero->GetIdentity()->m_nFlags &= (0xFFFF'FFFF ^ 0x40);
+
+				auto econItem = Modules::SkinChanger.GetItemByDefIndex(6996);
+
+				static Function init = Memory::Scan("E8 ? ? ? ? 8B C6 3B F3", "client.dll").GetAbsoluteAddress(1);
+
+				init(w->GetAttributeManager()->GetItem(), econItem, 0xff);
+
+				// OnDataChanged first
+				w->Field<bool>(Netvars::C_DOTAWearableItem::m_bIsGeneratingEconItem) = true;
+				// OnDataChanged second
+				w->Field<bool>(Netvars::C_DOTAWearableItem::m_bHiddenByCombiner) = false;
+				w->GetAttributeManager()->GetItem()->Field<uint32_t>(Netvars::C_EconItemView::m_iItemDefinitionIndex) = 6996;
+
+				ctx.localHero->Field<bool>(Netvars::C_DOTA_BaseNPC::m_bNewUpdateAssetModifiersNetworked) = true;
+
+				break;
+			}
+		}
+	}
+	wearableTestScheduled = false;
+	ORIGCALL(OnPreDataUpdate)(thisptr, ev);
+}
+
+void* oSpawnWearables;
+void hkSpawnWearables(CNPC* thisptr, void* kv) {
+	ORIGCALL(SpawnWearables)(thisptr, kv);
+
+	Log("SpawnWearables: ", thisptr);
+	if (ctx.localHero == thisptr) {
+		auto w = *ctx.localHero->Wearables()[2];
+
+		auto econItem = Modules::SkinChanger.GetItemByDefIndex(6996);
+
+		static Function init = Memory::Scan("E8 ? ? ? ? 8B C6 3B F3", "client.dll").GetAbsoluteAddress(1);
+
+		init(w->GetAttributeManager()->GetItem(), econItem, 0xff);
+
+		// OnDataChanged first
+		w->Field<bool>(Netvars::C_DOTAWearableItem::m_bIsGeneratingEconItem) = true;
+		// OnDataChanged second
+		w->Field<bool>(Netvars::C_DOTAWearableItem::m_bHiddenByCombiner) = false;
+		w->GetAttributeManager()->GetItem()->Field<uint32_t>(Netvars::C_EconItemView::m_iItemDefinitionIndex) = 6996;
+
+		ctx.localHero->Field<bool>(Netvars::C_DOTA_BaseNPC::m_bNewUpdateAssetModifiersNetworked) = true;
+	}
+}
+
 void HackThread(HMODULE hModule) {
 #ifndef _DEBUG
 	AddVectoredExceptionHandler(1, VEH);
@@ -86,6 +161,13 @@ void HackThread(HMODULE hModule) {
 	d2c.Initialize(hModule);
 
 	MatchStateManager.CheckForOngoingGame();
+
+#ifdef _DEBUG
+	auto OnPreDataUpdate = Memory::Scan("48 89 5C 24 ? 56 48 83 EC 20 33 DB 48 8B F2", "client.dll");
+	HOOKFUNC(OnPreDataUpdate);
+	auto SpawnWearables = Memory::Scan("40 55 53 41 57 48 8D AC 24 ? ? ? ? 48 81 EC ? ? ? ? 48 8B DA", "client.dll");
+	//HOOKFUNC(SpawnWearables);
+#endif
 
 	while (!d2c.shouldUnload)
 		Sleep(10);

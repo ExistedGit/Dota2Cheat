@@ -2,11 +2,65 @@
 #include "../../../pch.h"
 #include "../../../CheatSDK/include.h"
 #include "../../../Utils/Drawing.h"
+
+#include "../../MListeners.h"
 #include "../MultiThreadModule.h"
 #include <functional>
 
 namespace Modules {
-	inline class KillIndicator : public MultiThreadModule {
+	inline class M_KillIndicator : public MultiThreadModule, public IFrameListener, public IEntityListListener {
+		
+		struct CalculationBehaviors {
+			// npc = target of cast
+			
+			static int Default(const CAbility* nuke, const CNPC* npc) {
+				return nuke->GetLevelSpecialValueFor("damage");
+			}
+
+			// nuke = Mana Void
+			static int AntiMage(const CAbility* nuke, const CNPC* npc) {
+				auto dmgPerMana = nuke->GetLevelSpecialValueFor("mana_void_damage_per_mana");
+				return (npc->GetMaxMana() - npc->GetMana()) * dmgPerMana;
+			}
+
+			// nuke = Shadowraze
+			static int ShadowFiend(const CAbility* nuke, const CNPC* npc) {
+				auto razeDebuff = HeroData[(CHero*)npc].Modifiers["modifier_nevermore_shadowraze_debuff"];
+				auto dmg = nuke->GetLevelSpecialValueFor("shadowraze_damage");
+				auto dmgTotal = dmg;
+
+				if (razeDebuff) {
+					auto dmgPerStack = nuke->GetLevelSpecialValueFor("stack_bonus_damage");
+					auto stacks = razeDebuff->GetStackCount();
+					dmgTotal = dmg + stacks * dmgPerStack;
+				}
+
+				return dmgTotal;
+			}
+
+			// nuke = Scythe
+			static int Necrolyte(const CAbility* nuke, const CNPC* npc) {
+				auto dmgPerHealth = nuke->GetLevelSpecialValueFor("damage_per_health");
+				auto dmgTotal = (npc->GetMaxHealth() - npc->GetHealth()) * dmgPerHealth;
+				return dmgTotal;
+			}
+
+			// nuke = Finger of Death
+			static int Lion(const CAbility* nuke, const CNPC* npc) {
+				auto killCounter = HeroData[ctx.localHero].Modifiers["modifier_lion_finger_of_death_kill_counter"];
+				auto dmg = nuke->GetLevelSpecialValueFor("damage");
+				auto dmgTotal = dmg;
+
+				if (killCounter) {
+					auto dmgPerStack = nuke->GetLevelSpecialValueFor("damage_per_kill");
+					auto stacks = killCounter->GetStackCount();
+					dmgTotal = dmg + stacks * dmgPerStack;
+				}
+
+				return dmgTotal;
+			}
+		};
+
 		struct NukeData {
 			uint32_t idx = 0;
 			bool isPure = false;
@@ -17,13 +71,13 @@ namespace Modules {
 		NukeData curData;
 
 		// Includes magical resistance and newly added barriers
-		int CalcDmgWithResists(CDOTABaseNPC* ent, float dmg, bool pure = false) {
-			auto barriers = ent->GetBarriers();
+		int CalcDmgWithResists(CNPC* npc, float dmg, bool pure = false) {
+			auto barriers = npc->GetBarriers();
 			auto effectiveDamage = dmg - (barriers.all + barriers.magic);
 			if (!pure)
-				effectiveDamage *= (1 - ent->GetMagicalArmorValue());
+				effectiveDamage *= (1 - npc->GetMagicalArmorValue());
 
-			return ent->GetHealth() - effectiveDamage;
+			return npc->GetHealth() - effectiveDamage;
 		}
 
 		// Dataset provided by WolfGPT
@@ -60,67 +114,16 @@ namespace Modules {
 			{ "npc_dota_hero_lina", 5 },
 			{ "npc_dota_hero_lion", 5 }
 		};
-		const std::map<std::string, std::function<int(CDOTABaseNPC*)>> CustomBehaviors = {
-			{
-			"npc_dota_hero_antimage",
-			[this](CDOTABaseNPC* ent) -> int {
-				static auto ult = ctx.localHero->GetAbility(curData.idx);
-				auto dmgPerMana = ult->GetLevelSpecialValueFor("mana_void_damage_per_mana");
-				return CalcDmgWithResists(ent, (ent->GetMaxMana() - ent->GetMana()) * dmgPerMana);
-			}
-			},
-			{
-			"npc_dota_hero_necrolyte",
-			[this](CDOTABaseNPC* ent) -> int {
-				static auto ult = ctx.localHero->GetAbility(curData.idx);
-				auto dmgPerHealth = ult->GetLevelSpecialValueFor("damage_per_health");
-				auto dmgTotal = (ent->GetMaxHealth() - ent->GetHealth()) * dmgPerHealth;
-				return CalcDmgWithResists(ent, dmgTotal);
-			}
-			},
-			{
-			"npc_dota_hero_nevermore",
-			[this](CDOTABaseNPC* ent) -> int {
-				static auto raze = ctx.localHero->GetAbility(curData.idx);
-				auto razeDebuff = HeroData[ent].Modifiers["modifier_nevermore_shadowraze_debuff"];
-				auto dmg = raze->GetLevelSpecialValueFor("shadowraze_damage");
-				auto dmgTotal = dmg;
 
-				if (razeDebuff) {
-					auto dmgPerStack = raze->GetLevelSpecialValueFor("stack_bonus_damage");
-					auto stacks = razeDebuff->GetStackCount();
-					dmgTotal = dmg + stacks * dmgPerStack;
-				}
+		using fnCalculationBehavior = std::function<int(const CAbility* nuke, const CNPC* hero)>;
 
-				return CalcDmgWithResists(ent, dmgTotal);
-			}
-			},
-			{
-			"npc_dota_hero_lion",
-			[this](CDOTABaseNPC* ent) -> int {
-				static auto ult = ctx.localHero->GetAbility(curData.idx);
-
-				auto killCounter = HeroData[ctx.localHero].Modifiers["modifier_lion_finger_of_death_kill_counter"];
-				auto dmg = ult->GetLevelSpecialValueFor("damage");
-				auto dmgTotal = dmg;
-
-				if (killCounter) {
-					auto dmgPerStack = ult->GetLevelSpecialValueFor("damage_per_kill");
-					auto stacks = killCounter->GetStackCount();
-					dmgTotal = dmg + stacks * dmgPerStack;
-				}
-
-				return CalcDmgWithResists(ent, dmgTotal);
-			}
-			}
+		const std::unordered_map<std::string, fnCalculationBehavior> CustomBehaviors = {
+			{ "npc_dota_hero_antimage", CalculationBehaviors::AntiMage },
+			{ "npc_dota_hero_necrolyte", CalculationBehaviors::Necrolyte },
+			{ "npc_dota_hero_nevermore", CalculationBehaviors::ShadowFiend },
+			{ "npc_dota_hero_lion", CalculationBehaviors::Lion },
 		};
-		int DefaultBehavior(CDOTABaseNPC* ent) {
-			auto nuke = ctx.localHero->GetAbility(curData.idx);
-			auto dmg = nuke->GetLevelSpecialValueFor("damage");
 
-			return CalcDmgWithResists(ent, dmg, curData.isPure);
-		}
-		void DrawIndicatorFor(CDOTABaseNPC_Hero* ent);
 		bool Initialized = false;
 	public:
 		void Init() {
@@ -129,20 +132,36 @@ namespace Modules {
 			auto unitName = ctx.localHero->GetUnitName();
 			if (HeroNukes.contains(unitName)) {
 				curData = HeroNukes.at(unitName);
-				Initialized = true;
 			}
+
+			Initialized = true;
 		}
+		struct RenderData {
+			bool drawable = false;
+			int diff;
+			ImVec2 pos;
+		};
+
+		const char* nukeIcon = nullptr;
+
+		std::map<entidx_t, RenderData> renderData;
+
 		void Reset() {
 			Initialized = false;
 		}
-		void Draw() {
-			MTM_LOCK;
 
-			if (!Config::Indicators::Kill || !Initialized)
-				return;
+		void Draw();
 
-			EntityList.ForEach<CDOTABaseNPC_Hero>([this](auto hero) { DrawIndicatorFor(hero); });
+		M_KillIndicator() : IFrameListener() {
+
+			IEntityListListener::Subscribe(this);
 		}
 
+		// Inherited via IFrameListener
+		void OnFrame() override;
+
+		// Inherited via IEntityListListener
+		void OnEntityAdded(const EntityWrapper& npc) override;
+		void OnEntityRemoved(const EntityWrapper& npc) override;
 	} KillIndicator;
 }

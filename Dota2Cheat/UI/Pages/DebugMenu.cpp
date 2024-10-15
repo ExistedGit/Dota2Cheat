@@ -3,6 +3,9 @@
 #include "../../CheatSDK/Hooking.h"
 #include "../../Modules/Hacks/SkinChanger.h"
 
+extern bool wearableTestScheduled;
+extern bool amodPrintScheduled;
+
 void DebugMenu() {
 	static int itemDefId = 6996;
 	static bool stateHooks;
@@ -69,6 +72,14 @@ void DebugMenu() {
 	if (ImGui::Button("Create item"))
 		Modules::SkinChanger.QueueAddItem(itemDefId);
 
+	if (ImGui::Button("Schedule W Test")) {
+		wearableTestScheduled = true;
+	};
+
+	if (ImGui::Button("Print AMods")) {
+		if (ctx.localHero)
+			amodPrintScheduled = true;
+	}
 
 	ImGui::End();
 }

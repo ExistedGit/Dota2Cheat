@@ -4,18 +4,18 @@
 #include <MinHook.h>
 
 #include "../Config.h"
-#include "TextureManager.h"
 #include "EventManager.h"
+#include "TextureManager.h"
 
-#include "../Hooking.h"
-#include "../../Modules/UI/BarAugmenter.h"
 #include "../../Modules/Hacks/IllusionColoring.h"
-#include "../../Modules/Utility/CVarSpoofer.h"
+#include "../../Modules/Hacks/TargetedSpellHighlighter.h"
+#include "../../Modules/UI/AbilityESP/AbilityESP.h"
+#include "../../Modules/UI/BarAugmenter.h"
 #include "../../Modules/Utility/CVarSpoofer.h"
 #include "../../UI/Pages/AutoPickSelectionGrid.h"
 #include "../Globals/VMTDB.h"
+#include "../Hooking.h"
 #include "../Tables.h"
-#include "../../Modules/UI/AbilityESP/AbilityESP.h"
 
 void CCheatManager::LoadVMI() {
 	LogFI("Loading VM indices from {}", cheatFolderPath + "\\vmt.json");
@@ -91,15 +91,10 @@ void CCheatManager::LoadGameSpecific() {
 //	LogD("ItemSchema: ", Signatures::GetItemSchema());
 //#endif
 
-	Modules::BarAugmenter.Init();
-
 	Hooks::InstallHooks();
 	Hooks::InstallAuxiliaryHooks();
 
 	EventManager.InstallListeners();
-
-	EntityList.AddListener(Modules::IllusionESP);
-	EntityList.AddListener(Modules::AbilityESP);
 
 	CBaseEntity::OnColorChanged = CNetworkMessages::Get()->FindCallback("OnColorChanged");
 }

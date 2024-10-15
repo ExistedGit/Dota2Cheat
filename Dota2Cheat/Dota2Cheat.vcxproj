@@ -221,7 +221,7 @@
     <ClCompile Include="Modules\Hacks\DotaPlusUnlocker.cpp" />
     <ClCompile Include="Modules\Hacks\EnemySpellHighlight.cpp" />
     <ClCompile Include="Modules\Hacks\IllusionColoring.cpp" />
-    <ClCompile Include="Modules\Hacks\LastHitMarker.cpp" />
+    <ClCompile Include="Modules\UI\LastHitMarker.cpp" />
     <ClCompile Include="Modules\Hacks\LinearProjectileWarner.cpp" />
     <ClCompile Include="Modules\Hacks\ManaHPAbuse.cpp" />
     <ClCompile Include="Modules\Hacks\ParticleAbilityWarner.cpp" />
@@ -260,6 +260,7 @@
     <ClCompile Include="CheatSDK\Globals\GameSystemSingletonImpl.cpp" />
     <ClCompile Include="CheatSDK\Globals\InterfaceSingletonImpl.cpp" />
     <ClCompile Include="SDK\Interfaces\CVarSystem.cpp" />
+    <ClCompile Include="SDK\Interfaces\GC\CDOTAGCLobbyManager.cpp" />
     <ClCompile Include="SDK\Interfaces\Network\CNetworkGameClient.cpp" />
     <ClCompile Include="SDK\Panorama\CUIPanel.cpp" />
     <ClCompile Include="UI\Pages\AutoPickSelectionGrid.cpp" />
@@ -280,6 +281,7 @@
     <ClInclude Include="CheatSDK\Systems\CheatManager.h" />
     <ClInclude Include="CheatSDK\KeyHandler.h" />
     <ClInclude Include="CheatSDK\Data\UIData.h" />
+    <ClInclude Include="CheatSDK\Systems\ModuleManager.h" />
     <ClInclude Include="CheatSDK\Systems\TextureManager.h" />
     <ClInclude Include="CheatSDK\Tables.h" />
     <ClInclude Include="CheatSDK\VTexDecoders\vtex.h" />
@@ -288,11 +290,13 @@
     <ClInclude Include="Hooks\SteamGC.h" />
     <ClInclude Include="include\imgui\imgui_impl_dx11.h" />
     <ClInclude Include="include\imgui\imgui_impl_win32.h" />
+    <ClInclude Include="Modules\D2CModule.h" />
     <ClInclude Include="Modules\Hacks\TreeChanger.h">
       <SubType>
       </SubType>
     </ClInclude>
     <ClInclude Include="Modules\MListeners.h" />
+    <ClInclude Include="Modules\UI\D2CUIModule.h" />
     <ClInclude Include="Modules\UI\ModifierESP.h">
       <SubType>
       </SubType>
@@ -373,7 +377,7 @@
     <ClInclude Include="Modules\Hacks\AegisSnatcher.h" />
     <ClInclude Include="Modules\Hacks\ClaimTutorialRewards.h" />
     <ClInclude Include="Modules\Hacks\DotaPlusUnlocker.h" />
-    <ClInclude Include="Modules\Hacks\LastHitMarker.h" />
+    <ClInclude Include="Modules\UI\LastHitMarker.h" />
     <ClInclude Include="Modules\Hacks\SkinChanger.h" />
     <ClInclude Include="Modules\Utility\AttackTargetFinder.h" />
     <ClInclude Include="Modules\Hacks\AutoBuyTome.h" />

@@ -10,7 +10,7 @@ namespace Hooks {
 	inline void* oRunScript;
 
 	inline void hkRunScript(VClass* thisptr, VClass* panel, const char* entireJSCode, const char* pathToXMLContext, void* unk) {
-		if (pathToXMLContext == "s2r://panorama/scripts/popups/popup_accept_match.vjs_c"sv)
+		if (strstr(pathToXMLContext, "popup_accept_match.xml"))
 			Modules::AutoAccept.AcceptMatch();
 
 		((decltype(&hkRunScript))oRunScript)(thisptr, panel, entireJSCode, pathToXMLContext, unk);

@@ -8,6 +8,11 @@
 namespace Modules {
 	inline
 		class SkinChanger {
+		std::queue<uint32_t> itemsToCreate;
+
+		CEconItem* CreateItem(uint32_t unDefIndex);
+		bool AddItem(uint32_t unDefIndex);
+
 		public:
 			struct QueuedEquip {
 				uint16_t unClass, unSlot;
@@ -19,10 +24,8 @@ namespace Modules {
 			uint32_t itemIdCounter = 0x20000000,
 				invPosCounter = 0;
 
-			std::vector<uint32_t> itemsToCreate;
 			std::map<uint32_t, QueuedEquip> itemsToEquip;
 
-			bool ItemsCreated = false;
 			void DeleteSOCacheFiles() {
 				auto dotaPath = std::filesystem::current_path().string() + "\\..\\..\\dota\\";
 				if (std::filesystem::exists(dotaPath))
@@ -38,6 +41,15 @@ namespace Modules {
 			// xref: "unlocked styles"
 			void UnlockAllStyles(CEconItem* pItem);
 
+			void ProcessCreateQueue() {
+				while (!itemsToCreate.empty()) {
+					auto& item = itemsToCreate.front();
+
+					AddItem(item);
+
+					itemsToCreate.pop();
+				}
+			}
 			// Call in main thread
 			void Equip(CEconItem* pItem, uint16_t unClass, uint16_t unSlot);
 			// Call in main thread
@@ -56,8 +68,14 @@ namespace Modules {
 			}
 
 			void QueueAddItem(uint32_t unDefIndex) {
-				itemsToCreate.push_back(unDefIndex);
-				ItemsCreated = true;
+				itemsToCreate.push(unDefIndex);
+			}
+
+			CEconItem* GetItemByDefIndex(uint32_t unDefIndex) {
+				for (const auto& [id, item] : FakeItems) {
+					if (item->m_unDefIndex == unDefIndex) return item;
+				}
+				return nullptr;
 			}
 
 			void SOUpdated(CEconItem* item) {
@@ -65,7 +83,5 @@ namespace Modules {
 				auto soid = inv->GetSOCache()->GetOwner();
 				inv->SOUpdated(&soid, item, eSOCacheEvent_Incremental);
 			}
-			CEconItem* CreateItem(uint32_t unDefIndex);
-			bool AddItem(uint32_t unDefIndex);
 	} SkinChanger;
 }

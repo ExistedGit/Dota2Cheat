@@ -1,19 +1,8 @@
 #pragma once
 #include <string>
-#include <map>
-#include <sstream>
-#include <unordered_map>
-
-#include <imgui/imgui.h>
-#include <imgui/imgui_stdlib.h>
-#include <imgui/imgui_internal.h>
-#include <imgui/imgui_impl_win32.h>
-#include <imgui/imgui_impl_dx11.h>
 
 #include <d3d11.h>
-#include <dxgi.h>
 #include <queue>
-#include "../Data/DrawData.h"
 
 // Texture management system
 // Caches loaded textures which you can get by the name identifier

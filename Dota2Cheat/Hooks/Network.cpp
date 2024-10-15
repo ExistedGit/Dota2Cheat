@@ -11,6 +11,7 @@
 
 #include "../Modules/Utility/AttackAnimTracker.h"
 #include "../Modules/Utility/OrderRouter.h"
+#include <gameevents.pb.h>
 
 bool Hooks::D2CNetFilter::Filter(VClass* netMsg, INetChannel* netchan) {
 	auto serializer = netMsg->GetVFunc(3).Call<CNetworkSerializerPB*>();
@@ -21,6 +22,22 @@ bool Hooks::D2CNetFilter::Filter(VClass* netMsg, INetChannel* netchan) {
 		|| serializer->messageID == clc_Move
 		|| serializer->messageID == svc_PacketEntities)
 		return false;
+
+	auto msg = netMsg->MemberInline<google::protobuf::Message>(0x28);
+#ifdef _DEBUG
+	if (serializer->messageID == 208) {
+		auto seMsg = (CMsgSosStartSoundEvent*)msg;
+
+		static Function FindReplacementSound = Memory::Scan("E8 ? ? ? ? 44 39 BE", "client.dll").GetAbsoluteAddress(1);
+		
+		if (ctx.localHero) {
+			auto idk = CSoundOpSys::Get()->MemberInline<VClass>(8);
+			auto s = FindReplacementSound.Call<const char*>(ctx.localHero, idk->GetVFunc(2)(seMsg->soundevent_hash()));
+
+			seMsg->set_soundevent_hash(idk->GetVFunc(0).Call<uint32_t>(s));
+		}
+	}
+#endif
 
 	using namespace Modules;
 	static INetChanListener* Listeners[]{
@@ -34,7 +51,6 @@ bool Hooks::D2CNetFilter::Filter(VClass* netMsg, INetChannel* netchan) {
 
 	if (ctx.gameStage == GameStage::IN_GAME)
 	{
-		auto msg = netMsg->MemberInline<google::protobuf::Message>(0x28);
 		for (auto l : Listeners)
 			l->OnReceivedMsg(serializer, msg);
 

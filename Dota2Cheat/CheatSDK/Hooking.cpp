@@ -1,12 +1,29 @@
+#include "../pch.h"
 #include "Hooking.h"
+
+#include "Aliases.h"
+
 #include <Base/VMT.h>
 
-bool meme(void* rcx, const CNETMsg_Tick* msg) {
-	return 1;
-}
+#include "../Hooks/PrepareUnitOrders.h"
+#include "../Hooks/AcceptEvents.h"
+#include "../Hooks/FrameStageNotify.h"
+#include "../Hooks/Network.h"
+#include "../Hooks/GameCoordinator.h"
+#include "../Hooks/ParticleRendering.h"
+#include "../Hooks/SteamGC.h"
+#include "../Hooks/ModifierEvents.h"
+#include "../Hooks/Present.h"
+
+#include "../Hooks/Misc.h"
 
 void Hooks::InstallHooks() {
 	hooks::Hook(Signatures::PrepareUnitOrders, &Hooks::hkPrepareUnitOrders, &Hooks::oPrepareUnitOrders, "CDOTAPlayerController::PrepareUnitOrders");
+
+#ifdef _DEBUG
+	auto BShowRestrictedAddonPopup = SignatureDB::FindSignature("BShowRestrictedAddonPopup");
+	HOOKFUNC(BShowRestrictedAddonPopup);
+#endif
 
 #if defined(_DEBUG) && !defined(_TESTING)
 	auto SendMsg = VMT(ISteamGC::Get())[0];
@@ -31,17 +48,13 @@ void Hooks::InstallHooks() {
 		auto SetRenderingEnabled = vtable[VMI::CParticleCollection::SetRenderingEnabled];
 		HOOKFUNC(SetRenderingEnabled);
 	}
-
-	//void* FrameStageNotify = CSource2Client::Get()->GetVFunc(VMI::CSource2Client::FrameStageNotify);
-	//HOOKFUNC(FrameStageNotify);
+	auto Present = SignatureDB::FindSignature("IDXGISwapChain::Present");
+	HOOKFUNC(Present);
 
 #ifndef _TESTING
 	void* RunScript = CUIEngine::Get()->GetVFunc(VMI::CUIEngineSource2::RunScript);
 	HOOKFUNC(RunScript);
 #endif
-
-	//auto CreateNetChan = SignatureDB::FindSignature("CNetworkSystem::CreateNetChan");
-	//HOOKFUNC(CreateNetChan);
 
 	//{
 	//	auto PacketEntitiesFilter__Filter = SignatureDB::FindSignature("PacketEntitiesFilter::Filter");
@@ -58,5 +71,30 @@ void Hooks::InstallHooks() {
 	//	nc->RegisterAbstractMessageHandler(buf, &d, 1, pbs, 0);
 	//	nc->FinishRegisteringMessageHandlers();
 	//}
+}
+
+void Hooks::InstallAuxiliaryHooks() {
+	CEntSys::Get()->GetListeners().push_back(&EntityList);
+
+	CEngineServiceMgr::Get()
+		->GetEventDispatcher()
+		->RegisterEventListener_Abstract(
+			CUtlAbstractDelegate(&Hooks::frameListener, &Hooks::FrameEventListener::OnFrameBoundary),
+			"EventFrameBoundary_t",
+			"D2C::OnFrameBoundary"
+		);
+}
+
+// Removes any custom, non-MinHook hooks
+void Hooks::RemoveAuxiliaryHooks() {
+	CEngineServiceMgr::Get()
+		->GetEventDispatcher()
+		->UnregisterEventListener_Abstract(
+			CUtlAbstractDelegate(&Hooks::frameListener, &Hooks::FrameEventListener::OnFrameBoundary),
+			"EventFrameBoundary_t"
+		);
+
+	CEntSys::Get()->GetListeners().remove_by_value(&EntityList);
+	INetworkClientService::Get()->GetIGameClient()->GetNetChannel()->UninstallMessageFilter(&d2cNetFilter);
 }
 

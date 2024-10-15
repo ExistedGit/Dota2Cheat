@@ -149,13 +149,12 @@ void Modules::M_AbilityESP::UpdateHeroRenderData(const CHero* h) {
 
 bool Modules::M_AbilityESP::CanDraw(const CHero* hero) const {
 	bool ret =
-		hero
-		&& hero->GetIdentity()
+#ifndef _DEBUG
+		hero != ctx.localHero &&
+#endif
+		hero->GetIdentity()
 		&& !hero->GetIdentity()->IsDormant()
 		&& !hero->IsIllusion()
-#ifndef _DEBUG
-		&& hero != ctx.localHero
-#endif
 		&& hero->GetLifeState() == 0
 		&& IsPointOnScreen(HeroData[(CNPC*)hero].W2S);
 	if (!Config::AbilityESP::ShowAllies)
@@ -170,7 +169,7 @@ void Modules::M_AbilityESP::DrawHeroAbilities(const RenderData& rd) const {
 	const ImVec2 outlineSize{ outlineThickness, outlineThickness };
 	const int levelCounterHeight = 8;
 	const float rounding = Config::AbilityESP::Rounding / 100.f * iconSize / 2;
-	auto DrawList = ImGui::GetBackgroundDrawList();
+	auto dl = ImGui::GetBackgroundDrawList();
 	auto lvlCounterType = (LevelCounterType)Config::AbilityESP::LevelCounterType;
 
 	constexpr auto getCooldown = [](const CAbility* ent)->float {
@@ -210,7 +209,7 @@ void Modules::M_AbilityESP::DrawHeroAbilities(const RenderData& rd) const {
 		}
 
 
-		DrawList->AddRectFilled(
+		dl->AddRectFilled(
 			imgXY1 - outlineSize,
 			imgXY2 + outlineSize,
 			ImColor(0, 0, 0), rounding);
@@ -227,27 +226,27 @@ void Modules::M_AbilityESP::DrawHeroAbilities(const RenderData& rd) const {
 		if (ability.toggled)
 			outlineColor = ImColor(3, 0xAC, 0x13);
 
-		DrawList->AddRectFilled(
+		dl->AddRectFilled(
 			imgXY1 - outlineSize,
 			imgXY2 + outlineSize,
 			outlineColor, rounding);
 
 		// If the ability is not learned icon turns grey 
 		// If there is no mana to cast the icon turns blue
-		if (ability.level == 0) DrawList->AddCallback(GreyscaleShaderCallback, nullptr);
-		else if (ability.noMana) DrawList->AddCallback(NoManaShaderCallback, nullptr);
+		if (ability.level == 0) dl->AddCallback(GreyscaleShaderCallback, nullptr);
+		else if (ability.noMana) dl->AddCallback(NoManaShaderCallback, nullptr);
 
 		// Ability icon itself
-		DrawList->AddImageRounded((ImTextureID)icon, imgXY1, imgXY2, { 0,0 }, { 1,1 }, ImColor{ 255,255,255 }, rounding);
+		dl->AddImageRounded((ImTextureID)icon, imgXY1, imgXY2, { 0,0 }, { 1,1 }, ImColor{ 255,255,255 }, rounding);
 
-		DrawList->AddCallback(ImDrawCallback_ResetRenderState, nullptr);
+		dl->AddCallback(ImDrawCallback_ResetRenderState, nullptr);
 
 		// Not learned or on cooldown => darker icon
 		if (
 			ability.level == 0 ||
 			cooldown > 0
 			)
-			DrawList->AddRectFilled(imgXY1, imgXY2, ImColor(0, 0, 0, 130), rounding);
+			dl->AddRectFilled(imgXY1, imgXY2, ImColor(0, 0, 0, 130), rounding);
 
 		if (cooldown) {
 			int cdFontSize = iconSize - ScaleVar(8);
@@ -263,7 +262,7 @@ void Modules::M_AbilityESP::DrawHeroAbilities(const RenderData& rd) const {
 
 			auto textPos = imgCenter - ImVec2{ 0, cdFontSize / 2.f };
 			// Draws the cooldown
-			DrawText(DrawData.GetFont("Monofonto", cdFontSize),
+			ImDrawText(DrawData.GetFont("Monofonto", cdFontSize),
 				std::vformat(decimals ? "{:.1f}" : "{:.0f}", std::make_format_args(cooldown)),
 				textPos,
 				cdFontSize,
@@ -276,7 +275,7 @@ void Modules::M_AbilityESP::DrawHeroAbilities(const RenderData& rd) const {
 			float indicatorHeight = ScaleVar(4);
 			int fontSize = ScaleVar(18);
 
-			DrawText(DrawData.GetFont("Monofonto", fontSize),
+			ImDrawText(DrawData.GetFont("Monofonto", fontSize),
 				std::format("{:.1f}", ability.channelingTimeTotal - ability.channelingTime),
 				ImVec2(imgXY1.x + centeringOffset, imgXY1.y - fontSize - 2 - indicatorHeight),
 				fontSize,
@@ -284,7 +283,7 @@ void Modules::M_AbilityESP::DrawHeroAbilities(const RenderData& rd) const {
 				true);
 
 			float indicatorWidth = abs(imgXY2.x - imgXY1.x) * (1 - (ability.channelingTime / ability.channelingTimeTotal));
-			DrawList->AddRectFilled(
+			dl->AddRectFilled(
 				ImVec2(imgXY1.x, imgXY1.y - indicatorHeight),
 				ImVec2(imgXY1.x + indicatorWidth, imgXY1.y), ImColor(1.f, 1.f, 1.f, 0.7f));
 		}
@@ -295,13 +294,13 @@ void Modules::M_AbilityESP::DrawHeroAbilities(const RenderData& rd) const {
 
 			ImVec2 clip_max = ImVec2(imgXY1.x + indicatorWidth, imgXY2.y);
 
-			DrawList->PushClipRect(imgXY1, clip_max, true);
+			dl->PushClipRect(imgXY1, clip_max, true);
 
-			DrawList->AddRectFilled(imgXY1, imgXY2, ImColor(0.f, 1.f, 0.f, 0.5f), rounding);
+			dl->AddRectFilled(imgXY1, imgXY2, ImColor(0.f, 1.f, 0.f, 0.5f), rounding);
 
-			DrawList->PopClipRect();
+			dl->PopClipRect();
 
-			DrawText(DrawData.GetFont("Monofonto", fontSize),
+			ImDrawText(DrawData.GetFont("Monofonto", fontSize),
 				std::format("{:.1f}", ability.castPoint - ability.castTime),
 				imgXY1 + ImVec2(centeringOffset, -fontSize - 2),
 				fontSize,
@@ -350,7 +349,7 @@ void Modules::M_AbilityESP::DrawHeroItems(const RenderData& rd) const {
 
 void Modules::M_AbilityESP::DrawChargeCounterBasic(int charges, const ImVec2& pos) const {
 	auto textSize = ScaleVar(20);
-	DrawText(
+	ImDrawText(
 		DrawData.GetFont("Monofonto", textSize),
 		std::to_string(charges),
 		ImVec2(pos.x, pos.y - textSize / 2),
@@ -360,16 +359,16 @@ void Modules::M_AbilityESP::DrawChargeCounterBasic(int charges, const ImVec2& po
 }
 
 void Modules::M_AbilityESP::DrawChargeCounterImmersive(int charges, const ImVec2& pos) const {
-	auto DrawList = ImGui::GetBackgroundDrawList();
+	auto dl = ImGui::GetBackgroundDrawList();
 
 	int counterScale = ScaleVar(16) / 2;
 	int counterTextScale = ScaleVar(14);
 	// Green outline
-	DrawList->AddCircleFilled(pos, counterScale + 1, ImColor(135, 214, 77));
+	dl->AddCircleFilled(pos, counterScale + 1, ImColor(135, 214, 77));
 	// Gray core
-	DrawList->AddCircleFilled(pos, counterScale, ImColor(0.2f, 0.2f, 0.2f, 1.0f));
+	dl->AddCircleFilled(pos, counterScale, ImColor(0.2f, 0.2f, 0.2f, 1.0f));
 	auto textSize = ScaleVar(20);
-	DrawText(
+	ImDrawText(
 		DrawData.GetFont("Monofonto", counterTextScale),
 		std::to_string(charges),
 		ImVec2(pos.x, pos.y - counterTextScale / 2 - counterTextScale % 2),

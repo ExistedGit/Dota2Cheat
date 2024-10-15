@@ -56,5 +56,9 @@ namespace Modules {
 			for (auto illusion : LancerIllusions)
 				ColorLancerIllusion(illusion);
 		}
+
+		M_IllusionESP() {
+			IEntityListListener::Subscribe(this);
+		}
 	} IllusionESP{};
 }

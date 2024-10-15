@@ -9,7 +9,6 @@ struct _HeroData {
 	std::unordered_map<std::string, CDOTAItem*> Items;
 	ImVec2 HealthbarW2S; // healthbar's screen pos
 	ImVec2 W2S; // W2S(AbsOrigin)
-	Vector AbsOrigin;
 };
 
 inline std::unordered_map<CDOTABaseNPC*, _HeroData> HeroData;

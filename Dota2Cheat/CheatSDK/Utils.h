@@ -36,9 +36,9 @@ inline bool IsPointOnScreen(const ImVec2& pos) {
 	if (!Panorama::DotaHud)
 		return false;
 
-	const auto screenSize = Panorama::DotaHud->GetScreenSize();
-	ImRect screen{ 0, 0, screenSize.x, screenSize.y };
-	return screen.Contains(pos);
+	int screen[2];
+	CEngineServiceMgr::Get()->GetEngineSwapChainSize(&screen[0], &screen[1]);
+	return pos.x >=0 && pos.y >= 0 && pos.x <= screen[0] && pos.y <= screen[1];
 }
 
 inline bool IsEntityOnScreen(CBaseEntity* ent) {

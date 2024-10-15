@@ -8,7 +8,7 @@
     "CDOTA_Buff::~CDOTA_Buff": "E8 ? ? ? ? 40 F6 C6 01 74 1A",
     "CDOTAParticleManager::DestroyParticle": "E8 ? ? ? ? 41 C7 85",
     "CDOTAGameRules::GetGameTime": "E8 ? ? ? ? 8B 04 2E",
-    "CEconItem::DeserializeFromProtobufItem": "E8 ? ? ? ? 40 38 BD",
+    "CEconItem::DeserializeFromProtobufItem": "E8 ? ? ? ? 45 8B C6 48 8B D3",
     "CEconItem::EnsureCustomDataExists": "E8 ? ? ? ? 4C 8B 7E 48",
     "CDOTABaseAbility::GetLevelSpecialValueFor": "E8 ? ? ? ? F3 0F 5A C0",
     "CDOTABaseNPC::GetAttackSpeed": "E8 ? ? ? ? F3 0F 59 05 ? ? ? ? 0F 57 C9",
@@ -26,10 +26,11 @@
     "DispatchPacket": "E8 ? ? ? ? 39 6C 24 68",
     "BAsyncSendProto": "E8 ? ? ? ? 48 8B 4D 90 48 89 7C 24",
     "PrepareUnitOrders": "E8 ? ? ? ? F3 44 0F 11 53",
-    "BIsEmoticonUnlocked": "E8 ? ? ? ? 84 C0 0F 84 ? ? ? ? 48 8B 45 08"
+    "BIsEmoticonUnlocked": "E8 ? ? ? ? 84 C0 0F 84 ? ? ? ? 48 8B 45 08",
+	"BShowRestrictedAddonPopup": "E8 ? ? ? ? 84 C0 74 0E 32 C0"
   },
   "gameoverlayrenderer64.dll": {
-    "IDXGISwapChain::Present": "48 89 6C 24 ? 48 89 74 24 ? 41 56 48 83 EC 20 41 8B E8"
+    "IDXGISwapChain::Present": "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 41 56 41 57 48 83 EC 20 41 8B E8"
   },
   "particles.dll": {
     "CParticleCollection::CParticleCollection": {

@@ -35,7 +35,7 @@ void Modules::M_TPTracker::Draw() {
 
 	MTM_LOCK;
 	constexpr static ImVec2 iconSize{ 24,24 };
-	auto  DrawList = ImGui::GetBackgroundDrawList();
+	auto dl = ImGui::GetBackgroundDrawList();
 	for (auto& data : teleports) {
 		if (data.ent->IsSameTeam(ctx.localHero)
 			|| !data.start.msgIdx || !data.end.msgIdx)
@@ -43,11 +43,11 @@ void Modules::M_TPTracker::Draw() {
 
 		ImVec2 start = data.start.pos, end = data.end.pos;
 
-		DrawList->AddLine(start, end, data.color, 3);
+		dl->AddLine(start, end, data.color, 3);
 
 		if (data.ent->GetIdentity()->IsDormant() || data.isFading) {
 			ImVec2 startXY1 = start - iconSize / 2, startXY2 = startXY1 + iconSize;
-			DrawList->AddImage(data.icon,
+			dl->AddImage(data.icon,
 				startXY1,
 				startXY2,
 				{ 0,0 },
@@ -58,7 +58,7 @@ void Modules::M_TPTracker::Draw() {
 
 		if (!data.isFading || (data.isFading && !data.cancelled)) {
 			ImVec2 endXY1 = end - iconSize / 2, endXY2 = endXY1 + iconSize;
-			DrawList->AddImage(data.icon,
+			dl->AddImage(data.icon,
 				endXY1,
 				endXY2,
 				{ 0,0 },

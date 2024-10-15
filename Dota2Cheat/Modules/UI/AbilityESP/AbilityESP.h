@@ -128,5 +128,9 @@ namespace Modules {
 
 		void OnEntityAdded(const EntityWrapper& ent) override;
 		void OnEntityRemoved(const EntityWrapper& ent) override;
+
+		M_AbilityESP() : IFrameListener() {
+			IEntityListListener::Subscribe(this);
+		}
 	} AbilityESP;
 }

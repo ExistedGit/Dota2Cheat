@@ -18,7 +18,7 @@ namespace Modules {
 		void OnModifierCreated(CDOTAModifier* buff) {
 			using enum ModifierPriority;
 
-			auto owner = (CDOTABaseNPC_Hero*)buff->GetOwner();
+			auto owner = (CDOTABaseNPC_Hero*)*buff->GetOwner();
 
 			if (!EntityList.IsHero(owner) && owner->IsSameTeam(ctx.localHero) || owner->IsIllusion())
 				return;

@@ -21,7 +21,7 @@
     <ClCompile Include="Modules\Hacks\DotaPlusUnlocker.cpp" />
     <ClCompile Include="Modules\Hacks\EnemySpellHighlight.cpp" />
     <ClCompile Include="Modules\Hacks\IllusionColoring.cpp" />
-    <ClCompile Include="Modules\Hacks\LastHitMarker.cpp" />
+    <ClCompile Include="Modules\UI\LastHitMarker.cpp" />
     <ClCompile Include="Modules\Hacks\LinearProjectileWarner.cpp" />
     <ClCompile Include="Modules\Hacks\ParticleAbilityWarner.cpp" />
     <ClCompile Include="Modules\Hacks\PerfectBlink.cpp" />
@@ -87,6 +87,7 @@
     <ClCompile Include="Modules\UI\AbilityESP\AbilityESP.Items.cpp" />
     <ClCompile Include="Modules\UI\AbilityESP\AbilityESP.Abilities.cpp" />
     <ClCompile Include="CheatSDK\Shaders.cpp" />
+    <ClCompile Include="SDK\Interfaces\GC\CDOTAGCLobbyManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Modules\UI\UIOverhaul.h" />
@@ -98,7 +99,7 @@
     <ClInclude Include="Modules\Hacks\AegisSnatcher.h" />
     <ClInclude Include="Modules\Hacks\ClaimTutorialRewards.h" />
     <ClInclude Include="Modules\Hacks\DotaPlusUnlocker.h" />
-    <ClInclude Include="Modules\Hacks\LastHitMarker.h" />
+    <ClInclude Include="Modules\UI\LastHitMarker.h" />
     <ClInclude Include="Modules\Hacks\SkinChanger.h" />
     <ClInclude Include="Modules\Utility\AttackTargetFinder.h" />
     <ClInclude Include="Modules\Hacks\AutoBuyTome.h" />
@@ -266,6 +267,9 @@
     <ClInclude Include="CheatSDK\GameEventListeners\game_rules_state_change.h" />
     <ClInclude Include="SDK\Interfaces\CSchemaSystem.h" />
     <ClInclude Include="SDK\Interfaces\CEngineServiceMgr.h" />
+    <ClInclude Include="Modules\UI\D2CUIModule.h" />
+    <ClInclude Include="CheatSDK\Systems\ModuleManager.h" />
+    <ClInclude Include="Modules\D2CModule.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />

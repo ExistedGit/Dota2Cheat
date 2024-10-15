@@ -95,8 +95,8 @@ EGCResults Hooks::hkRetrieveMessage(ISteamGameCoordinator* thisptr, uint32_t* pu
 					break;
 				}
 			}
-			//if (!hasOwnId)
-			//	Modules::AutoAccept.AcceptMatch();
+			if (!hasOwnId)
+				Modules::AutoAccept.AcceptMatch();
 		}
 	}
 

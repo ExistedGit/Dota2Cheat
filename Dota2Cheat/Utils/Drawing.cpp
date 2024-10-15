@@ -1,8 +1,8 @@
 #include "Drawing.h"
 
 void DrawRect(const ImVec2& topLeft, const ImVec2& size, const ImVec4& color, float thickness) {
-	auto DrawList = ImGui::GetBackgroundDrawList();
-	DrawList->AddRect(
+	auto dl = ImGui::GetBackgroundDrawList();
+	dl->AddRect(
 		topLeft, ImVec2(size.x + topLeft.x, size.y + topLeft.y),
 		ImGui::GetColorU32(color),
 		0,
@@ -12,8 +12,8 @@ void DrawRect(const ImVec2& topLeft, const ImVec2& size, const ImVec4& color, fl
 }
 
 void DrawRectFilled(const ImVec2& topLeft, const ImVec2& size, const ImVec4& color) {
-	auto DrawList = ImGui::GetBackgroundDrawList();
-	DrawList->AddRectFilled(
+	auto dl = ImGui::GetBackgroundDrawList();
+	dl->AddRectFilled(
 		topLeft, ImVec2(size.x + topLeft.x, size.y + topLeft.y),
 		ImGui::GetColorU32(color)
 	);
@@ -21,7 +21,7 @@ void DrawRectFilled(const ImVec2& topLeft, const ImVec2& size, const ImVec4& col
 
 //credits to SMBB from UnknownCheats
 //https://www.unknowncheats.me/forum/direct3d/244074-imgui-d3d11-text-drawing.html
-float DrawText(ImFont* pFont, const std::string& text, const ImVec2& pos, float size, const ImVec4& color, bool center, bool outline)
+float ImDrawText(ImFont* pFont, const std::string& text, const ImVec2& pos, float size, const ImVec4& color, bool center, bool outline)
 {
 	auto black = ImVec4(0, 0, 0, color.w);
 
@@ -30,7 +30,7 @@ float DrawText(ImFont* pFont, const std::string& text, const ImVec2& pos, float 
 
 	float y = 0.0f;
 	int i = 0;
-	auto DrawList = ImGui::GetBackgroundDrawList();
+	auto dl = ImGui::GetBackgroundDrawList();
 
 	while (std::getline(stream, line))
 	{
@@ -38,23 +38,23 @@ float DrawText(ImFont* pFont, const std::string& text, const ImVec2& pos, float 
 		if (center)
 		{
 			if (outline) {
-				DrawList->AddText(pFont, size, ImVec2((pos.x - textSize.x / 2.0f) + 1, (pos.y + textSize.y * i) + 1), ImGui::GetColorU32(black), line.c_str());
-				DrawList->AddText(pFont, size, ImVec2((pos.x - textSize.x / 2.0f) - 1, (pos.y + textSize.y * i) - 1), ImGui::GetColorU32(black), line.c_str());
-				DrawList->AddText(pFont, size, ImVec2((pos.x - textSize.x / 2.0f) + 1, (pos.y + textSize.y * i) - 1), ImGui::GetColorU32(black), line.c_str());
-				DrawList->AddText(pFont, size, ImVec2((pos.x - textSize.x / 2.0f) - 1, (pos.y + textSize.y * i) + 1), ImGui::GetColorU32(black), line.c_str());
+				dl->AddText(pFont, size, ImVec2((pos.x - textSize.x / 2.0f) + 1, (pos.y + textSize.y * i) + 1), ImGui::GetColorU32(black), line.c_str());
+				dl->AddText(pFont, size, ImVec2((pos.x - textSize.x / 2.0f) - 1, (pos.y + textSize.y * i) - 1), ImGui::GetColorU32(black), line.c_str());
+				dl->AddText(pFont, size, ImVec2((pos.x - textSize.x / 2.0f) + 1, (pos.y + textSize.y * i) - 1), ImGui::GetColorU32(black), line.c_str());
+				dl->AddText(pFont, size, ImVec2((pos.x - textSize.x / 2.0f) - 1, (pos.y + textSize.y * i) + 1), ImGui::GetColorU32(black), line.c_str());
 			}
-			DrawList->AddText(pFont, size, ImVec2(pos.x - textSize.x / 2.0f, pos.y + textSize.y * i), ImGui::GetColorU32(color), line.c_str());
+			dl->AddText(pFont, size, ImVec2(pos.x - textSize.x / 2.0f, pos.y + textSize.y * i), ImGui::GetColorU32(color), line.c_str());
 		}
 		else
 		{
 			if (outline) {
 
-				DrawList->AddText(pFont, size, ImVec2((pos.x) + 1, (pos.y + textSize.y * i) + 1), ImGui::GetColorU32(black), line.c_str());
-				DrawList->AddText(pFont, size, ImVec2((pos.x) - 1, (pos.y + textSize.y * i) - 1), ImGui::GetColorU32(black), line.c_str());
-				DrawList->AddText(pFont, size, ImVec2((pos.x) + 1, (pos.y + textSize.y * i) - 1), ImGui::GetColorU32(black), line.c_str());
-				DrawList->AddText(pFont, size, ImVec2((pos.x) - 1, (pos.y + textSize.y * i) + 1), ImGui::GetColorU32(black), line.c_str());
+				dl->AddText(pFont, size, ImVec2((pos.x) + 1, (pos.y + textSize.y * i) + 1), ImGui::GetColorU32(black), line.c_str());
+				dl->AddText(pFont, size, ImVec2((pos.x) - 1, (pos.y + textSize.y * i) - 1), ImGui::GetColorU32(black), line.c_str());
+				dl->AddText(pFont, size, ImVec2((pos.x) + 1, (pos.y + textSize.y * i) - 1), ImGui::GetColorU32(black), line.c_str());
+				dl->AddText(pFont, size, ImVec2((pos.x) - 1, (pos.y + textSize.y * i) + 1), ImGui::GetColorU32(black), line.c_str());
 			}
-			DrawList->AddText(pFont, size, ImVec2(pos.x, pos.y + textSize.y * i), ImGui::GetColorU32(color), line.c_str());
+			dl->AddText(pFont, size, ImVec2(pos.x, pos.y + textSize.y * i), ImGui::GetColorU32(color), line.c_str());
 		}
 
 		y = pos.y + textSize.y * (i + 1);

@@ -29,6 +29,8 @@ namespace Modules {
 			Appearances.erase((CDOTABaseNPC*)w.ent);
 		}
 
+		void OnEntityAdded(const EntityWrapper& ent) override {}
+
 		void DrawScreenAppearances();
 		void DrawMapAppearances();
 		void RegisterAppearance(CDOTABaseNPC* npc, const Vector& pos);
@@ -37,8 +39,8 @@ namespace Modules {
 		void OnFrame() override;
 		void OnReceivedMsg(NetMessageHandle_t* msgHandle, google::protobuf::Message* msg) override;
 
-		M_ParticleMaphack() {
-			CEntityList::AddListener(*this);
+		M_ParticleMaphack() : IFrameListener() {
+			IEntityListListener::Subscribe(this);
 		}
 	} ParticleMaphack{};
 }

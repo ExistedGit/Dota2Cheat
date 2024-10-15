@@ -50,7 +50,7 @@ public:
 class CGCClient : public VClass {
 public:
 	GETTER(CUtlVector<ISharedObjectListener*>, GetSOListeners, 0x270);
-	IGETTER(CDOTAGCClientLobbyManager, GetLobbyManager, 0x6c8);
+	IGETTER(CDOTAGCClientLobbyManager, GetLobbyManager, 0x700);
 
 	void DispatchSOUpdated(SOID_t soid, void* sharedObj, ESOCacheEvent ev) {
 		auto listeners = GetSOListeners();
@@ -58,6 +58,11 @@ public:
 			listener->SOUpdated(&soid, sharedObj, ev);
 	}
 
+	// via xrefs "ui.matchmaking_accept" or "ui.matchmaking_cancel" find CDOTAGCClientSystem::SendReadyUpMessageForCurrentLobby
+	// in there you will see all of the required components in this order:
+	// finds CDOTALobby* in lobby manager
+	// gets 32bit SteamID
+	// gets lobby id from lobby
 	uint64_t GetReadyUpKey() const {
 		auto lobbyId = ~GetLobbyManager()->FindLobby()->GetLobbyId();
 		uint32_t accId = GetSOListeners()[1]->GetSOCache()->GetOwner().m_unSteamID;

@@ -34,7 +34,7 @@ Listeners.insert(name##_logger);
 	void InstallListeners() {
 		EVENT_SUB(dota_player_update_assigned_hero);
 		EVENT_SUB(map_shutdown);
-		//EVENT_SUB(dota_on_hero_finish_spawn);
+		EVENT_SUB(dota_on_hero_finish_spawn);
 		EVENT_SUB(dota_game_state_change);
 		EVENT_SUB(game_rules_state_change);
 

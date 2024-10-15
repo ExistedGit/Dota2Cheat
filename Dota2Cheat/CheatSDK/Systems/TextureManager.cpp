@@ -3,6 +3,7 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb_image.h>
 #include <array>
+#include "../Data/DrawData.h"
 
 void TextureManager::InitTexture(unsigned image_width, unsigned image_height, const unsigned char* image_data, ID3D11ShaderResourceView** out_srv) const {
 	// Create texture

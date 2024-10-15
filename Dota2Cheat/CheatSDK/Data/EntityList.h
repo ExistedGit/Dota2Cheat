@@ -41,8 +41,10 @@ struct EntityWrapper {
 };
 
 struct IEntityListListener {
-	virtual void OnEntityAdded(const EntityWrapper& ent) {};
-	virtual void OnEntityRemoved(const EntityWrapper& ent) {};
+	virtual void OnEntityAdded(const EntityWrapper& ent) = 0;
+	virtual void OnEntityRemoved(const EntityWrapper& ent) = 0;
+
+	static void Subscribe(IEntityListListener*);
 };
 
 // TODO: split entity lists into fields like with VTexDirs
@@ -72,8 +74,8 @@ public:
 
 	void OnEntityDeleted(CBaseEntity* ent) override;
 
-	static void AddListener(IEntityListListener& l) {
-		Listeners.push_back(&l);
+	static void AddListener(IEntityListListener* l) {
+		Listeners.push_back(l);
 	}
 
 	template<size_t lSize>
@@ -151,7 +153,7 @@ public:
 				func(wrap);
 	}
 	template<typename T>
-	void ForEach(std::function<void(T*)> func)  {
+	void ForEach(std::function<void(T*)> func) {
 		std::lock_guard<std::mutex> lock(mEntities);
 
 		EntityType type = EntityType::Undefined;
@@ -178,3 +180,7 @@ public:
 #undef ISOFTYPE_TEMPLATE
 
 } EntityList;
+
+inline void IEntityListListener::Subscribe(IEntityListListener* l) {
+	EntityList.AddListener(l);
+}

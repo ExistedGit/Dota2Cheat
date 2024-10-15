@@ -43,3 +43,7 @@ void Modules::AegisSnatcher::OnFrame() {
 
 	return;
 }
+
+void Modules::AegisSnatcher::OnEntityAdded(const EntityWrapper& ent)
+{
+}
