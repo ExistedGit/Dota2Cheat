@@ -45,7 +45,7 @@ void Modules::M_TPTracker::Draw() {
 
 		dl->AddLine(start, end, data.color, 3);
 
-		if (data.ent->GetIdentity()->IsDormant() || data.isFading) {
+		if (data.ent->IsDormant() || data.isFading) {
 			ImVec2 startXY1 = start - iconSize / 2, startXY2 = startXY1 + iconSize;
 			dl->AddImage(data.icon,
 				startXY1,

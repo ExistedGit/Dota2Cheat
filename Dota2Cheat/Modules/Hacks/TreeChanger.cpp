@@ -46,8 +46,6 @@ void Modules::M_TreeChanger::RestoreTreeModels() {
 }
 
 void Modules::M_TreeChanger::UpdateTreeModels() {
-	using namespace std::literals::string_view_literals;
-
 	if (needsUpdate) {
 		auto trees = CBinaryObjSys::Get()->GetTrees();
 		bool shouldSaveOriginalTrees = originalTrees.empty();

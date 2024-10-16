@@ -51,7 +51,7 @@ public:
 	// Is alive
 	// Is not waiting to spawn
 	bool IsTargetable() const {
-		return !GetIdentity()->IsDormant() && GetLifeState() == 0 && !IsWaitingToSpawn();
+		return !IsDormant() && IsAlive() && !IsWaitingToSpawn();
 	}
 
 	// JS func, uses another vtable at offset
@@ -170,7 +170,7 @@ public:
 			if (ab->Member<float>(Netvars::C_DOTABaseAbility::m_flChannelStartTime))
 				return false;
 		}
-		return GetLifeState() == 0 &&
+		return IsAlive()  &&
 			ability->GetLevel() > 0
 			&& !IsDisabled()
 			&& !ability->GetCooldown()

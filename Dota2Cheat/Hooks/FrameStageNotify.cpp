@@ -98,7 +98,7 @@ void InGameLogic() {
 		for (auto l : ActiveListeners)
 			l->OnFrame();
 
-		if (ctx.localHero->GetLifeState() == 0)
+		if (ctx.localHero->IsAlive())
 			for (auto l : HeroListeners)
 				l->OnFrame();
 	}

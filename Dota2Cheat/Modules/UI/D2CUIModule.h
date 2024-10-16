@@ -14,7 +14,7 @@ class D2CUIModule : public IFrameListener, public IEntityListListener {
 			};
 
 		std::function<bool()> localHeroAlive = [this] {
-			return unpaused() && ctx.localHero && ctx.localHero->GetLifeState() == 0;
+			return unpaused() && ctx.localHero && ctx.localHero->IsAlive();
 			};
 	} standardPredicates;
 public:

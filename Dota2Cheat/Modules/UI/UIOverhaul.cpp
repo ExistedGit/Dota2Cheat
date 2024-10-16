@@ -73,12 +73,12 @@ void Modules::UIOverhaul::OnFrame() {
 		if (!tbPlayer->GetHero().IsValid()) continue;
 
 		CHero* hero = tbPlayer->GetHero();
-		if (hero->IsSameTeam(ctx.localHero) || hero->GetLifeState() != 0) continue;
+		if (hero->IsSameTeam(ctx.localHero) || !hero->IsAlive()) continue;
 
 		RenderData data{
 			.pos = panel->GetPanel2D()->GetPositionWithinWindow(),
 			.isDire = true,
-			.isDormant = hero->GetIdentity()->IsDormant(),
+			.isDormant = hero->IsDormant(),
 			.health = (float)hero->GetHealth(),
 			.mana = (float)hero->GetMana(),
 			.healthMax = (float)hero->GetMaxHealth(),

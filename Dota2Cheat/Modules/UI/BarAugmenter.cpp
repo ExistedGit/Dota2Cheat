@@ -1,13 +1,11 @@
 #include "BarAugmenter.h"
 
 inline bool Modules::M_BarAugmenter::CanDraw(CHero* hero) const {
-	return hero
-		&& hero->GetIdentity()
-		&& !hero->GetIdentity()->IsDormant()
+	return !hero->IsDormant()
 		&& !hero->IsSameTeam(ctx.localHero)
 		&& !hero->IsIllusion()
 		&& hero != ctx.localHero
-		&& hero->GetLifeState() == 0
+		&& hero->IsAlive()
 		&& IsEntityOnScreen(hero);
 }
 

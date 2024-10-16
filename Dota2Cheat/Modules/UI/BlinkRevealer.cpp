@@ -12,7 +12,7 @@ void Modules::M_BlinkRevealer::Draw() {
 
 	static constexpr ImVec2 iconSize{ 48,48 };
 	for (auto& [hero, data] : Blinks) {
-		if (!hero->GetIdentity()->IsDormant())
+		if (!hero->IsDormant())
 			continue;
 		auto dl = ImGui::GetBackgroundDrawList();
 

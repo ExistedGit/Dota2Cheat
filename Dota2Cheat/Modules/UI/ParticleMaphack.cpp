@@ -6,7 +6,7 @@ void Modules::M_ParticleMaphack::DrawScreenAppearances() {
 	for (auto& [hero, data] : Appearances) {
 		if (!hero
 			|| !hero->GetIdentity()
-			|| !hero->GetIdentity()->IsDormant())
+			|| !hero->IsDormant())
 			continue;
 
 		auto dl = ImGui::GetBackgroundDrawList();
@@ -34,7 +34,7 @@ void Modules::M_ParticleMaphack::DrawMapAppearances()
 	for (auto& [hero, data] : Appearances) {
 		if (!hero
 			|| !hero->GetIdentity()
-			|| !hero->GetIdentity()->IsDormant())
+			|| !hero->IsDormant())
 			continue;
 
 		if (!IsPointOnScreen(data.mapPos))
@@ -111,7 +111,7 @@ void Modules::M_ParticleMaphack::OnReceivedMsg(NetMessageHandle_t* msgHandle, go
 		if (!npc
 			|| npc->IsSameTeam(ctx.localHero)
 			|| !npc->GetIdentity()
-			|| !npc->GetIdentity()->IsDormant()
+			|| !npc->IsDormant()
 			|| !EntityList.IsHero(npc)
 			)
 			return;
@@ -164,8 +164,8 @@ void Modules::M_ParticleMaphack::OnReceivedMsg(NetMessageHandle_t* msgHandle, go
 			if (!npc
 				|| npc->IsSameTeam(ctx.localHero)
 				|| !npc->GetIdentity()
-				|| !npc->GetIdentity()->IsDormant()
-				|| npc->GetLifeState() != 0)
+				|| !npc->IsDormant()
+				|| !npc->IsAlive())
 				return;
 
 			RegisterAppearance(npc, pos);

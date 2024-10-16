@@ -20,7 +20,7 @@ bool Modules::M_OrderRouter::RouteOrder(NetMessageHandle_t* messageHandle, googl
 		seqNum = order.has_sequence_number();
 	auto issuer = CEntSys::Get()->GetEntity(order.mutable_units()->at(0));
 
-	if (issuer->GetLifeState() != 0)
+	if (issuer->IsAlive())
 		return false;
 
 	auto orderType = order.order_type();

@@ -3,6 +3,7 @@
 #include <string>
 #include <string_view>
 #include <format>
+#include <utility>
 #include <mutex>
 
 inline std::mutex mLogging;
@@ -70,7 +71,7 @@ template<typename ...Args>
 void Log(LogPrefix prefixType, Args&&... args) {
 	std::lock_guard<std::mutex> lk(mLogging);
 	SetLogColor(prefixType);
-	((std::cout << GetLogPrefix(prefixType)) << ... << std::forward<Args>(args)) << std::endl;
+	((std::cout << GetLogPrefix(prefixType)) << ... << args) << std::endl;
 	SetConsoleColor();
 }
 
@@ -79,12 +80,12 @@ template<typename ...Args>
 void LogF(LogPrefix prefixType, std::string_view fmtString, Args&&... args) {
 	std::lock_guard<std::mutex> lk(mLogging);
 	SetLogColor(prefixType);
-	std::cout << GetLogPrefix(prefixType) << std::vformat(fmtString, std::make_format_args(std::forward<Args>(args)...)) << std::endl;
+	std::cout << GetLogPrefix(prefixType) << std::vformat(fmtString, std::make_format_args(args...)) << std::endl;
 	SetConsoleColor();
 }
 
-#define ADHOC_LOG(name, type) template<typename... Args> void name(Args&&... args) { Log(type, std::forward<Args>(args)...); };
-#define ADHOC_LOGF(name, type) template<typename... Args> void name(std::string_view fmtString, Args&&... args) { LogF(type, fmtString, std::forward<Args>(args)...); };
+#define ADHOC_LOG(name, type) template<typename... Args> void name(Args&&... args) { Log(type, args...); };
+#define ADHOC_LOGF(name, type) template<typename... Args> void name(std::string_view fmtString, Args&&... args) { LogF(type, fmtString, args...); };
 
 ADHOC_LOG(Log, LP_NONE);
 ADHOC_LOG(LogI, LP_INFO);

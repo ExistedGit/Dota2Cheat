@@ -153,9 +153,9 @@ bool Modules::M_AbilityESP::CanDraw(const CHero* hero) const {
 		hero != ctx.localHero &&
 #endif
 		hero->GetIdentity()
-		&& !hero->GetIdentity()->IsDormant()
+		&& !hero->IsDormant()
 		&& !hero->IsIllusion()
-		&& hero->GetLifeState() == 0
+		&& hero->IsAlive()
 		&& IsPointOnScreen(HeroData[(CNPC*)hero].W2S);
 	if (!Config::AbilityESP::ShowAllies)
 		// I wish they made &&= an operator

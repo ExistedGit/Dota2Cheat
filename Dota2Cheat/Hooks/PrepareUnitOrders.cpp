@@ -20,7 +20,7 @@ bool Hooks::hkPrepareUnitOrders(CDOTAPlayerController* player, dotaunitorder_t o
 		}
 	}
 
-	if (!issuer || issuer->GetLifeState() != 0)
+	if (!issuer || !issuer->IsAlive())
 		return oPrepareUnitOrders(player, orderType, targetIndex, position, abilityIndex, orderIssuer, issuer, queue, showEffects);
 
 	switch (orderType) {

@@ -59,6 +59,14 @@ public:
 	GETTER(CHandle<CDOTAPlayerController>, GetOwnerEntityHandle, Netvars::C_BaseEntity::m_hOwnerEntity);
 	GETTER(CSkeletonInstance*, GetGameSceneNode, Netvars::C_BaseEntity::m_pGameSceneNode);
 
+	bool IsAlive() const {
+		return GetLifeState() == 0;
+	}
+
+	bool IsDormant() const {
+		return GetIdentity() && IsDormant();
+	}
+
 	const char* GetModelName() const {
 		// og's explanation:
 		// CModelState has 3 CStrongHandle pointers at 0xA0 and below

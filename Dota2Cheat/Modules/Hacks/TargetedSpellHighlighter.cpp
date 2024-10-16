@@ -55,7 +55,7 @@ void Modules::M_TargetedSpellHighlighter::DrawLinkenEffectFor(CBaseEntity* ent) 
 void Modules::M_TargetedSpellHighlighter::OnFrame() {
 
 	for (auto& [hero, ability] : HeroesWithLinken) {
-		if (!hero->GetIdentity()->IsDormant() && ability->GetCooldown() == 0)
+		if (!hero->IsDormant() && ability->GetCooldown() == 0)
 			DrawLinkenEffectFor(hero);
 		else
 			RemoveLinkenEffectFor(hero);
