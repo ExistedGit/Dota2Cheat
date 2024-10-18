@@ -44,9 +44,9 @@ void Modules::M_KillIndicator::Draw() {
 
 void Modules::M_KillIndicator::OnFrame()
 {
-	MTM_LOCK;
-
 	if (!Config::Indicators::Kill || !Initialized) return;
+
+	MTM_LOCK;
 
 	auto nuke = ctx.localHero->GetAbility(curData.idx);
 	if (nuke->GetLevel() == 0)

@@ -54,12 +54,9 @@ void Hooks::InstallHooks() {
 #ifndef _TESTING
 	void* RunScript = CUIEngine::Get()->GetVFunc(VMI::CUIEngineSource2::RunScript);
 	HOOKFUNC(RunScript);
+	LogF("RunScript: {}", RunScript);
 #endif
 
-	//{
-	//	auto PacketEntitiesFilter__Filter = SignatureDB::FindSignature("PacketEntitiesFilter::Filter");
-	//	HOOKFUNC(PacketEntitiesFilter__Filter);
-	//}
 	//{
 	//	auto client = INetworkClientService::Get()->GetIGameClient();
 	//	auto nc = client->GetNetChannel();

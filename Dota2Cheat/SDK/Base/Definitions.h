@@ -23,4 +23,4 @@ constexpr uint32_t INVALID_HANDLE = 0xFFFFFFFF;
 #define GETTER(type, name, offset) type name() const { return Member<type>(offset); }			// regular getter
 #define IGETTER(type, name, offset) type* name() const { return MemberInline<type>(offset); }  // inline field
 #define FIELD(type, name, offset) type& name() const { return Field<type>(offset); }           // like GETTER, but returns a reference
-#define VGETTER(type, name, index) type name() { return GetVFunc(index).Call<type>(); }     // vfunc without arguments
+#define VGETTER(type, name, index) type name() const { return GetVFunc(index).Call<type>(); }     // vfunc without arguments

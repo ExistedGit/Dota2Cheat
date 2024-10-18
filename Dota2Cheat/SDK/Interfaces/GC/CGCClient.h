@@ -8,26 +8,6 @@
 #include <google/protobuf/message.h>
 #include <dota_gcmessages_msgid.pb.h>
 
-template<typename T = google::protobuf::Message>
-class CProtobufMsgBase : public VClass {
-private:
-	void* unk;
-public:
-	google::protobuf::Message* header;
-	EDOTAGCMsg msgID;
-	T* msg;
-};
-
-class IMsgNetPacket : public VClass {
-public:
-	GETTER(EDOTAGCMsg, GetEMsg, 0x78);
-};
-
-class CProtobufSharedObjectBase : public VClass {
-public:
-	VGETTER(google::protobuf::Message*, GetPObject, 9);
-};
-
 class CGCClientSharedObjectTypeCache : public VClass {
 public:
 	CProtobufSharedObjectBase* GetProtobufSO() const {
@@ -64,7 +44,7 @@ public:
 	// gets 32bit SteamID
 	// gets lobby id from lobby
 	uint64_t GetReadyUpKey() const {
-		auto lobbyId = ~GetLobbyManager()->FindLobby()->GetLobbyId();
+		auto lobbyId = ~GetLobbyManager()->FindLobby()->GetSOLobby()->lobby_id();
 		uint32_t accId = GetSOListeners()[1]->GetSOCache()->GetOwner().m_unSteamID;
 		return lobbyId ^ (accId | ((uint64_t)accId << 32));
 	}

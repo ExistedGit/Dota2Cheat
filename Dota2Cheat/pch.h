@@ -23,7 +23,10 @@
 #include <TlHelp32.h>
 #include <iostream>
 #include <string>
+#include <string_view>
+#include <span>
 #include <map>
+#include <unordered_map>
 #include <vector>
 #include <set>
 #include <stdio.h>
@@ -34,7 +37,14 @@
 
 #include <nlohmann/json.hpp>
 
+#include <imgui/imgui.h>
+#include <imgui/imgui_stdlib.h>
+#include <imgui/imgui_internal.h>
+#include <imgui/imgui_impl_win32.h>
+#include <imgui/imgui_impl_dx11.h>
+
 #include "SDK/include.h"
+
 #include "CheatSDK/Bytes/Fonts.h"
 
 using namespace std::string_view_literals;

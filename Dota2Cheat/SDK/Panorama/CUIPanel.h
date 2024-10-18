@@ -70,11 +70,11 @@ public:
 	}
 
 	void ApplyStyles(char unk = 1) {
-		CallVFunc<70>(unk);
+		CallVFunc<72>(unk);
 	}
 
 	void RemoveClass(uint16_t class_) {
-		CallVFunc<138, void>(class_);
+		CallVFunc<140, void>(class_);
 	}
 
 	void AddClass(const char* class_);

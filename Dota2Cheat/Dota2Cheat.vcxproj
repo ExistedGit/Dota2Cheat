@@ -177,6 +177,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CheatSDK\Data\EntityList.cpp" />
+    <ClCompile Include="CheatSDK\Exports.cpp" />
     <ClCompile Include="CheatSDK\GameEventListeners\dota_player_update_assigned_hero.cpp" />
     <ClCompile Include="CheatSDK\Globals\SignatureDB.cpp" />
     <ClCompile Include="CheatSDK\Globals\VMTDB.cpp" />
@@ -262,6 +263,7 @@
     <ClCompile Include="SDK\Interfaces\CVarSystem.cpp" />
     <ClCompile Include="SDK\Interfaces\GC\CDOTAGCLobbyManager.cpp" />
     <ClCompile Include="SDK\Interfaces\Network\CNetworkGameClient.cpp" />
+    <ClCompile Include="SDK\Netvars.cpp" />
     <ClCompile Include="SDK\Panorama\CUIPanel.cpp" />
     <ClCompile Include="UI\Pages\AutoPickSelectionGrid.cpp" />
     <ClCompile Include="UI\Pages\DebugMenu.cpp" />
@@ -270,9 +272,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CheatSDK\Aliases.h" />
+    <ClInclude Include="CheatSDK\Exports.h" />
     <ClInclude Include="CheatSDK\GameEventListeners\dota_on_hero_finish_spawn.h" />
     <ClInclude Include="CheatSDK\GameEventListeners\event_func.h" />
     <ClInclude Include="CheatSDK\GameEventListeners\game_rules_state_change.h" />
+    <ClInclude Include="CheatSDK\GameEventListeners\lobby_updated.h" />
     <ClInclude Include="CheatSDK\Globals\include.h" />
     <ClInclude Include="CheatSDK\Globals\Panorama.h" />
     <ClInclude Include="CheatSDK\Globals\VMTDB.h" />
@@ -421,6 +425,7 @@
     <ClInclude Include="SDK\Interfaces\CPanoramaUIEngine.h" />
     <ClInclude Include="SDK\Interfaces\CSchemaSystem.h" />
     <ClInclude Include="SDK\Interfaces\CSource2Client.h" />
+    <ClInclude Include="SDK\Interfaces\GC\Common.h" />
     <ClInclude Include="SDK\Panorama\CLocalization.h" />
     <ClInclude Include="SDK\Interfaces\CSoundOpSystem.h" />
     <ClInclude Include="SDK\Interfaces\GC\CEconItem.h" />

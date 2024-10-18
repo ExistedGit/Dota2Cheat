@@ -88,6 +88,8 @@
     <ClCompile Include="Modules\UI\AbilityESP\AbilityESP.Abilities.cpp" />
     <ClCompile Include="CheatSDK\Shaders.cpp" />
     <ClCompile Include="SDK\Interfaces\GC\CDOTAGCLobbyManager.cpp" />
+    <ClCompile Include="CheatSDK\Exports.cpp" />
+    <ClCompile Include="SDK\Netvars.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Modules\UI\UIOverhaul.h" />
@@ -270,6 +272,9 @@
     <ClInclude Include="Modules\UI\D2CUIModule.h" />
     <ClInclude Include="CheatSDK\Systems\ModuleManager.h" />
     <ClInclude Include="Modules\D2CModule.h" />
+    <ClInclude Include="CheatSDK\Exports.h" />
+    <ClInclude Include="SDK\Interfaces\GC\Common.h" />
+    <ClInclude Include="CheatSDK\GameEventListeners\lobby_updated.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />

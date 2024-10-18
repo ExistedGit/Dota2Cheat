@@ -2,7 +2,7 @@
 #include "CUIEngineSource2.h"
 
 void CUIPanel::AddClass(const char* class_) {
-	CallVFunc<135>(CUIEngineSource2::Get()->MakeSymbol(class_));
+	CallVFunc<137>(CUIEngineSource2::Get()->MakeSymbol(class_));
 }
 
 void CUIPanel::RemoveClass(const char* class_) {

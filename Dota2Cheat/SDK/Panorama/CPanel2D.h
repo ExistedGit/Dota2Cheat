@@ -35,16 +35,18 @@ public:
 
 // discovered by me and rebuilt by Morphling
 class CDOTA_Hud_ErrorMsg : public CPanel2D {
-	PAD(0x28);
+	PAD(0x38);
 public:
 	float m_flTotalTime; // 0x30
 	float m_flErrorDurationTime; // 0x34
 
 	void SetDialogVariable(const char* variable, const char* value) {
-		GetUIPanel()->CallVFunc<292, void>(variable, value);
+		GetUIPanel()->CallVFunc<293>(variable, value);
 	}
 
 	void ShowErrorMessage(const char* text) {
+		static double(*Plat_FloatTime)() = Memory::GetExport("tier0.dll", "Plat_FloatTime");
+
 		auto panel = GetUIPanel();
 
 		panel->RemoveClass("PopOutEffect");
@@ -54,7 +56,7 @@ public:
 		panel->RemoveClass("Hidden");
 		SetDialogVariable("error_msg", text);
 		panel->AddClass("PopOutEffect");
-		float flTime = Memory::GetExport("tier0.dll", "Plat_FloatTime").Call<float>();
-		m_flTotalTime = flTime + m_flErrorDurationTime;
+
+		m_flTotalTime = Plat_FloatTime() + m_flErrorDurationTime;
 	}
 };

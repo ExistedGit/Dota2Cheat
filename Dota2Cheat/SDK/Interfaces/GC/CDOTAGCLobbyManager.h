@@ -1,5 +1,6 @@
 #pragma once
 #include "ISharedObjectListener.h"
+#include "Common.h"
 #include <dota_gcmessages_common_lobby.pb.h>
 
 // Reversed in cooperation with Morphling
@@ -15,8 +16,8 @@ struct dota_static_lobby_t {
 
 class CDOTALobby : public VClass {
 public:
-	uint64_t GetLobbyId() const {
-		return Member<VClass*>(0x18)->Member<uint64_t>(0x190);
+	CSODOTALobby* GetSOLobby() const {
+		return Member<CProtobufSharedObjectBase*>(0x18)->GetPObj<CSODOTALobby>();
 	}
 };
 
