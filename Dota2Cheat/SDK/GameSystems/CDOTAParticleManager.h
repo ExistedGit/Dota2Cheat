@@ -3,10 +3,11 @@
 #include "../Base/NormalClass.h"
 #include "../Base/Definitions.h"
 #include "../Base/CUtlVector.h"
+#include "../Base/Vector.h"
 #include "../Interfaces/Network/CNetworkMessages.h"
 
-#include "../Base/Vector.h"
 #include "../VMI.h"
+#include "../Netvars.h"
 
 class CBaseEntity;
 

@@ -12,6 +12,7 @@
 #include "../VMI.h"
 
 #include "CEntityIdentity.h"
+#include "CHandle.h"
 
 class CDOTAPlayerController;
 

@@ -1,7 +1,4 @@
-#include "../pch.h"
 #include "Hooking.h"
-
-#include "Aliases.h"
 
 #include <Base/VMT.h>
 

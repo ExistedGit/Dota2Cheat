@@ -1,5 +1,4 @@
 #pragma once
-#include "../pch.h"
 #include <imgui/imgui.h>
 #include <imgui/imgui_stdlib.h>
 #include <imgui/imgui_internal.h>

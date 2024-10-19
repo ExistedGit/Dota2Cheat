@@ -1,5 +1,4 @@
 #include "SignatureDB.h"
-#include <Base/Memory.h>
 #include <Base/Logging.h>
 #include <fstream>
 

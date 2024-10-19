@@ -1,5 +1,4 @@
 #pragma once
-#include "../pch.h"
 #include "../MatchStateHandling.h"
 
 // CDOTAGameRules::m_nGameState change

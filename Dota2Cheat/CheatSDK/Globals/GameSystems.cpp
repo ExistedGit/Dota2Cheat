@@ -1,8 +1,17 @@
 #include "GameSystems.h"
-#include "Interfaces.h"
 #include "Panorama.h"
 #include <iomanip>
 #include "../Tables.h"
+
+struct IGameSystemFactory : public VClass {
+	IGameSystemFactory* m_pNext;
+	const char* m_szName;
+	void** GameSystem;
+
+	VGETTER(void*, GetGameSystem, 9);
+
+	static IGameSystemFactory* Get();
+};
 
 Address FindStaticGameSystem(std::string_view name) {
 	auto pFactory = IGameSystemFactory::Get();

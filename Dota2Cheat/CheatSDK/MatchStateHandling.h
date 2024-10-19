@@ -1,5 +1,5 @@
 #pragma once
-#include "../pch.h"
+#include <Dota2SDK.h>
 
 // A dota cheat's perception of reality relies on the game's stage,
 // as obviously we cannot do in-game things while we're still picking heroes

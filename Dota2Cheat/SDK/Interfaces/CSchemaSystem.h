@@ -1,6 +1,8 @@
 #pragma once
 #include "../Base/VClass.h"
 #include "../Base/Definitions.h"
+#include "../Base/CUtlVector.h"
+
 // Copyright (C) 2023 neverlosecc
 // See end of file for extended copyright information.
 /**

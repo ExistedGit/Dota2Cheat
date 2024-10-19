@@ -1,5 +1,4 @@
 #pragma once
-#include "../pch.h"
 #include "../SDK/Interfaces/Network/INetChannel.h"
 
 #include <netmessages.pb.h>

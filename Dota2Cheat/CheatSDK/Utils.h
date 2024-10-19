@@ -1,9 +1,10 @@
 #pragma once
-#include "../pch.h"
-#include "Globals/include.h"
 #include <imgui/imgui.h>
 #include <imgui/imgui_stdlib.h>
 #include <imgui/imgui_internal.h>
+
+#include <Dota2SDK.h>
+#include "Globals/Panorama.h"
 
 inline bool IsKeyPressed(int key) {
 	return GetAsyncKeyState(key) & 1;

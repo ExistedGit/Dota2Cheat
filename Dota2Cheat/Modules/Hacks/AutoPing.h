@@ -2,11 +2,11 @@
 #include <dota_clientmessages.pb.h>
 #include "../MListeners.h"
 
-namespace Config {
-	inline bool AutoPingEnabled = false;
-	inline CDOTABaseNPC_Hero* AutoPingTarget = 0;
-	inline float AutoPingDelay = 1;
-}
+//namespace Config {
+//	inline bool AutoPingEnabled = false;
+//	inline CHero* AutoPingTarget = 0;
+//	inline float AutoPingDelay = 1;
+//}
 
 namespace Modules {
 	inline class M_AutoPing  : public IFrameListener {

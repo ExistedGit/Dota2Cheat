@@ -1,10 +1,11 @@
 #pragma once
-#include "../../pch.h"
 #include <string>
 #include <ShlObj.h>
 #include <nlohmann/json.hpp>
 #include <unordered_map>
 #include <fstream>
+
+#include <Base/Logging.h>
 
 // D2C's context. Loads and unloads data for the cheat.
 

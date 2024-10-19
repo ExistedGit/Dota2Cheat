@@ -3,7 +3,9 @@
 #include "bf_read.h"
 #include "bf_write.h"
 #include "../../Base/Color.h"
+#include "../../Base/VClass.h"
 #include "../../Base/Definitions.h"
+#include "../../VMI.h"
 
 #include <array>
 

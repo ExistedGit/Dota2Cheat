@@ -1,5 +1,4 @@
 #pragma once
-#include "../pch.h"
 #include "../Utils/Drawing.h"
 #include "../CheatSDK/include.h"
 #include "../MListeners.h"

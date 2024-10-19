@@ -1,6 +1,7 @@
 #pragma once
 #include "CBaseEntity.h"
 #include "../Base/CUtlVector.h"
+#include "../Base/KeyValues.h"
 
 // structs and enums below from source2sdk aka NL dumper
 // I think I should get around to generating them myself

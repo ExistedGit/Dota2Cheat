@@ -1,5 +1,5 @@
 #pragma once
-#include "../../pch.h"
+#include <Dota2SDK.h>
 #include <dota_usermessages.pb.h>
 
 #include "../MListeners.h"

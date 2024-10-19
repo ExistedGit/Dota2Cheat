@@ -1,4 +1,5 @@
 #pragma once
+#include <Base/Memory.h>
 #include <nlohmann/json.hpp>
 #include <map>
 #include <string>

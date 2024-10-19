@@ -1,10 +1,6 @@
 #include "VTexParser.h"
 
-#include "Base/MemAlloc.h"
-#include "Base/Logging.h"
-#include "Interfaces/CBaseFileSystem.h"
-
-#include "../Aliases.h"
+#include <Dota2SDK.h>
 
 #include <stb_image.h>
 #include "vtex.h"

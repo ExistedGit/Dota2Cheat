@@ -105,6 +105,7 @@
       <AdditionalOptions>/bigobj /FI"pch.h"</AdditionalOptions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <DisableSpecificWarnings>4244; 4267; 4005; 4018</DisableSpecificWarnings>
+      <ForcedIncludeFiles>pch.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -133,6 +134,7 @@
       <AdditionalOptions>/bigobj /FI"pch.h"</AdditionalOptions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <DisableSpecificWarnings>4244; 4267; 4005; 4018</DisableSpecificWarnings>
+      <ForcedIncludeFiles>pch.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -162,6 +164,7 @@
       <AdditionalOptions>/bigobj /FI"pch.h"</AdditionalOptions>
       <MultiProcessorCompilation>false</MultiProcessorCompilation>
       <DisableSpecificWarnings>4244; 4267; 4005; 4018</DisableSpecificWarnings>
+      <ForcedIncludeFiles>pch.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -257,8 +260,8 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Testing|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="CheatSDK\Globals\GameSystemSingletonImpl.cpp" />
-    <ClCompile Include="CheatSDK\Globals\InterfaceSingletonImpl.cpp" />
+    <ClCompile Include="CheatSDK\SingletonImplGameSystems.cpp" />
+    <ClCompile Include="CheatSDK\SingletonImplInterfaces.cpp" />
     <ClCompile Include="SDK\Interfaces\CVarSystem.cpp" />
     <ClCompile Include="SDK\Interfaces\GC\CDOTAGCLobbyManager.cpp" />
     <ClCompile Include="SDK\Interfaces\Network\CNetworkGameClient.cpp" />
@@ -270,7 +273,6 @@
     <ClCompile Include="Utils\Drawing.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CheatSDK\Aliases.h" />
     <ClInclude Include="CheatSDK\GameEventListeners\dota_on_hero_finish_spawn.h" />
     <ClInclude Include="CheatSDK\GameEventListeners\event_func.h" />
     <ClInclude Include="CheatSDK\GameEventListeners\game_rules_state_change.h" />
@@ -367,7 +369,7 @@
     <ClInclude Include="SDK\GameSystems\CGameParticleManagerSystem.h" />
     <ClInclude Include="SDK\GameSystems\CRenderGameSystem.h" />
     <ClInclude Include="CheatSDK\Data\EntityList.h" />
-    <ClInclude Include="SDK\include.h" />
+    <ClInclude Include="SDK\Dota2SDK.h" />
     <ClInclude Include="SDK\Interfaces\CEngineServiceMgr.h" />
     <ClInclude Include="SDK\Interfaces\CFlattenedSerializers.h" />
     <ClInclude Include="SDK\Interfaces\CGameUI.h" />
@@ -455,7 +457,6 @@
     <ClInclude Include="Modules\Hacks\LinearProjectileWarner.h" />
     <ClInclude Include="Hooks\Network.h" />
     <ClInclude Include="Hooks\ModifierEvents.h" />
-    <ClInclude Include="CheatSDK\Globals\Interfaces.h" />
     <ClInclude Include="SDK\Interfaces\Network\bf_read.h" />
     <ClInclude Include="SDK\Interfaces\Network\bf_write.h" />
     <ClInclude Include="SDK\Interfaces\Network\CNetworkMessages.h" />

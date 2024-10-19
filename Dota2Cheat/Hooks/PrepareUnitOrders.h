@@ -1,6 +1,5 @@
 #pragma once
 #include <future>
-#include "../pch.h"
 #include "../CheatSDK/include.h"
 #include "../Modules/Hacks/BadCastPrevention.h"
 #include "../Modules/Hacks/PerfectBlink.h"

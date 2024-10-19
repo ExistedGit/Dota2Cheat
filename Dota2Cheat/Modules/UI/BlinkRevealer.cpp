@@ -1,7 +1,6 @@
 #include "BlinkRevealer.h"
-#include "../../CheatSDK/Systems/CheatManager.h"
 #include <usermessages.pb.h>
-#include <usermessages.pb.h>
+#include "../../CheatSDK/include.h"
 
 using namespace std::literals;
 

@@ -1,6 +1,8 @@
 #pragma once
 #include "CNetworkMessages.h"
 
+#include "../../Base/CUtlAbstractDelegate.h"
+
 class CNetworkGameClient;
 class INetChannel;
 

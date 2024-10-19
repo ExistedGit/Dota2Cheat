@@ -1,5 +1,4 @@
 #pragma once
-#include "../pch.h"
 #include "../Data/EntityList.h"
 
 #include "../../Modules/Hacks/AutoAccept.h"

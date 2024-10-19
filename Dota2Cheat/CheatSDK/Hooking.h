@@ -1,4 +1,5 @@
 #pragma once
+#include <Base/Bytehook.h>
 
 namespace Hooks {
 	void InstallHooks();

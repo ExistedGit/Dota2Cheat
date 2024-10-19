@@ -1,5 +1,6 @@
-#include "GameSystems.h"
-#include "Interfaces.h"
+#include "Globals/GameSystems.h"
+
+#include <Dota2SDK.h>
 
 // Centralized file with singleton getter implementations
 

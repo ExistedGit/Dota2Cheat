@@ -76,9 +76,9 @@
     <ClCompile Include="Modules\UI\AbilityESP\AbilityESP.cpp" />
     <ClCompile Include="CheatSDK\Globals\VMTDB.cpp" />
     <ClCompile Include="CheatSDK\Globals\SignatureDB.cpp" />
-    <ClCompile Include="CheatSDK\Globals\GameSystemSingletonImpl.cpp" />
+    <ClCompile Include="CheatSDK\SingletonImplGameSystems.cpp" />
     <ClCompile Include="CheatSDK\Tables.cpp" />
-    <ClCompile Include="CheatSDK\Globals\InterfaceSingletonImpl.cpp" />
+    <ClCompile Include="CheatSDK\SingletonImplInterfaces.cpp" />
     <ClCompile Include="CheatSDK\Systems\AssetManager.cpp" />
     <ClCompile Include="SDK\Interfaces\CVarSystem.cpp" />
     <ClCompile Include="SDK\Interfaces\Network\CNetworkGameClient.cpp" />
@@ -153,7 +153,6 @@
     <ClInclude Include="Modules\Hacks\LinearProjectileWarner.h" />
     <ClInclude Include="Hooks\Network.h" />
     <ClInclude Include="Hooks\ModifierEvents.h" />
-    <ClInclude Include="CheatSDK\Globals\Interfaces.h" />
     <ClInclude Include="SDK\Interfaces\Network\bf_read.h" />
     <ClInclude Include="SDK\Interfaces\Network\bf_write.h" />
     <ClInclude Include="SDK\Interfaces\Network\CNetworkMessages.h" />
@@ -233,7 +232,7 @@
     <ClInclude Include="CheatSDK\Data\EntityList.h" />
     <ClInclude Include="Modules\MListeners.h" />
     <ClInclude Include="pch.h" />
-    <ClInclude Include="SDK\include.h" />
+    <ClInclude Include="SDK\Dota2SDK.h" />
     <ClInclude Include="CheatSDK\Globals\include.h" />
     <ClInclude Include="CheatSDK\Globals\Panorama.h" />
     <ClInclude Include="SDK\Panorama\CLocalization.h" />
@@ -262,7 +261,6 @@
     <ClInclude Include="SDK\Base\CUtlAbstractDelegate.h" />
     <ClInclude Include="SDK\Base\VMT.h" />
     <ClInclude Include="UI\Pages\DebugMenu.h" />
-    <ClInclude Include="CheatSDK\Aliases.h" />
     <ClInclude Include="CheatSDK\GameEventListeners\dota_on_hero_finish_spawn.h" />
     <ClInclude Include="CheatSDK\Shaders.h" />
     <ClInclude Include="CheatSDK\GameEventListeners\game_rules_state_change.h" />

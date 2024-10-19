@@ -1,5 +1,4 @@
 #pragma once
-#include "../../pch.h"
 #include "../../CheatSDK/include.h"
 #include <format>
 

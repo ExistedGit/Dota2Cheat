@@ -1,6 +1,6 @@
 #include "DotaPlusUnlocker.h"
 #include "../../CheatSDK/Config.h"
-#include "../../pch.h"
+#include <Dota2SDK.h>
 #include <dota_gcmessages_common.pb.h>
 
 // rebuilt from xref: "Failed to find CDOTAGameAccountPlus"

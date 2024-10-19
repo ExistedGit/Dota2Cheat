@@ -1,5 +1,6 @@
 #pragma once
-#include "../../pch.h"
+#include <Dota2SDK.h>
+
 namespace Utility {
 	class AttackTargetFinder {
 	public:

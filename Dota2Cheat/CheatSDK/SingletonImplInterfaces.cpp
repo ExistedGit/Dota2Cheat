@@ -1,4 +1,4 @@
-#include "Interfaces.h"
+#include <Dota2SDK.h>
 
 CBaseFileSystem* CBaseFileSystem::Get() {
 	static CBaseFileSystem* inst = Memory::GetInterfaceBySubstr("filesystem_stdio.dll", "VFileSystem");
