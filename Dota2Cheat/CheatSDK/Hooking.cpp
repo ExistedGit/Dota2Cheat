@@ -51,12 +51,6 @@ void Hooks::InstallHooks() {
 	auto Present = SignatureDB::FindSignature("IDXGISwapChain::Present");
 	HOOKFUNC(Present);
 
-#ifndef _TESTING
-	void* RunScript = CUIEngine::Get()->GetVFunc(VMI::CUIEngineSource2::RunScript);
-	HOOKFUNC(RunScript);
-	LogF("RunScript: {}", RunScript);
-#endif
-
 	//{
 	//	auto client = INetworkClientService::Get()->GetIGameClient();
 	//	auto nc = client->GetNetChannel();

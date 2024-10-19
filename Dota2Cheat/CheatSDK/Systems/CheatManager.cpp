@@ -18,14 +18,18 @@
 #include "../Tables.h"
 
 void CCheatManager::LoadVMI() {
-	LogFI("Loading VM indices from {}", cheatFolderPath + "\\vmt.json");
-	VMDB::LoadFromFile(cheatFolderPath + "\\vmt.json");
+	auto vmtPath = GetResource("vmt.json");
+
+	LogFI("Loading VM indices from {}", vmtPath);
+	VMDB::LoadFromFile(vmtPath);
 	VMDB::ParseMap(VMI::bindings);
 }
 
 void CCheatManager::LoadGameSpecific() {
-	LogFI("Loading signatures from {}", cheatFolderPath + "\\signatures.json");
-	SignatureDB::LoadSignaturesFromFile(cheatFolderPath + "\\signatures.json");
+	auto signaturePath = GetResource("signatures.json");
+
+	LogFI("Loading signatures from {}", signaturePath);
+	SignatureDB::LoadSignaturesFromFile(signaturePath);
 	Signatures::FindSignatures();
 
 	LoadVMI();
@@ -100,17 +104,21 @@ void CCheatManager::LoadGameSpecific() {
 }
 
 void CCheatManager::LoadFiles() {
-	if (auto fin = std::ifstream(cheatFolderPath + "\\config\\base.json")) {
-		Config::cfg.LoadFromFile(fin);
+	auto cfgPath = GetResource("config\\base.json");
+
+	if (auto fin = std::ifstream(cfgPath)) {
+		Config::cfg.Deserialize(fin);
 		fin.close();
 
-		LogI("Loaded config from ", cheatFolderPath, "\\config\\base.json\n");
+		LogFI("Loaded config from {}", cfgPath);
+	}
+	else {
+		LogI("No config found, proceeding with defaults");
 	}
 	locale.Init(Config::Locale);
 }
 
 void CCheatManager::Initialize(HMODULE hModule) {
-	// Initialize MinHook.
 	if (MH_Initialize() != MH_OK)
 		FreeLibrary(hModule);
 
@@ -132,8 +140,9 @@ void CCheatManager::Initialize(HMODULE hModule) {
 }
 
 void CCheatManager::SaveConfig() {
-	if (auto fout = std::ofstream(cheatFolderPath + "\\config\\base.json")) {
-		Config::cfg.SaveToFile(fout);
+	auto cfgPath = GetResource("config\\base.json");
+	if (auto fout = std::ofstream(cfgPath)) {
+		Config::cfg.Serialize(fout);
 		fout.close();
 	};
 }

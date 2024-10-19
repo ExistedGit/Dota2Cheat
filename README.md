@@ -70,13 +70,12 @@ To open the cheat menu, press Insert
 
 *(If you don't want to sit through building the DLL, you can get it frm the Releases tab)*
 
-You can build this project using Visual Studio 2022.
+You can build this project using Visual Studio 2022(requires "Desktop Development with C++" workload, install via VS Installer if missing).
 
-If you don't have it, [set up vcpkg for Visual Studio](https://learn.microsoft.com/en-us/vcpkg/get_started/get-started-msbuild?pivots=shell-cmd#1---set-up-vcpkg).
+If you don't have it, [set up vcpkg for Visual Studio](https://learn.microsoft.com/en-us/vcpkg/get_started/get-started-msbuild?pivots=shell-cmd#1---set-up-vcpkg). \
+You should end up running `vcpkg integrate`.
 
-You will also need to install the [June 2010 DirectX SDK](https://www.microsoft.com/en-us/download/details.aspx?id=6812)
-
-Open the project in Visual Studio, switch Configuration from Debug to **Release** and press `Ctrl + Shift + B` to build the solution. It'll download dependencies which might take some time.
+Open the project in Visual Studio, switch Configuration to **Release** and press `Ctrl + Shift + B` to build the solution. It'll download dependencies which might take some time.
 The DLL will be found in `Build/Release/` (relative to the folder you cloned D2C into)
 
 ## Injecting

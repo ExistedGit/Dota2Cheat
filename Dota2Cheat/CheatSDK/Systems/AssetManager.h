@@ -6,10 +6,10 @@
 // Operates in VPK directory panorama/images
 inline class CAssetManager {
 
-	struct VTexDir {
+	class VTexDir {
 		std::string dir;
 		std::unordered_map<std::string, ID3D11ShaderResourceView*> cache;
-
+	public:
 		VTexDir(std::string_view dir) : dir(dir) {}
 
 		// Loads in-place and in the render thread

@@ -1,7 +1,7 @@
 #include "Config.h"
 #include "../Modules/Hacks/SkinChanger.h"
 
-void Config::ConfigManager::SaveToFile(std::ofstream& stream) {
+void Config::ConfigManager::Serialize(std::ostream& stream) {
 
 	using enum ConfigVarType;
 	using json = nlohmann::json;
@@ -36,7 +36,7 @@ void Config::ConfigManager::SaveToFile(std::ofstream& stream) {
 	stream << data.dump(2);
 }
 
-void Config::ConfigManager::LoadFromFile(std::ifstream& stream) {
+void Config::ConfigManager::Deserialize(std::istream& stream) {
 	using enum ConfigVarType;
 	using json = nlohmann::json;
 

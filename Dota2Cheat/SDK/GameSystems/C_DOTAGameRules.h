@@ -26,7 +26,7 @@ class CDOTAGameRules : public VClass {
 public:
 	GETTER(DOTA_GameState, GetGameState, Netvars::C_DOTAGamerules::m_nGameState);
 	GETTER(DOTA_GameMode, GetGameMode, Netvars::C_DOTAGamerules::m_iGameMode);
-	GETTER(bool, IsGamePaused, Netvars::C_GameRules::m_bGamePaused);
+	GETTER(bool, IsGamePaused, Netvars::C_DOTAGamerules::m_bGamePaused);
 	GETTER(uint64_t, GetMatchID, Netvars::C_DOTAGamerules::m_unMatchID64);
 	GETTER(int32_t, GetRiverType, Netvars::C_DOTAGamerules::m_nRiverType);
 	GETTER(float, GetPreGameStartTime, Netvars::C_DOTAGamerules::m_flPreGameStartTime);

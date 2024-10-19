@@ -46,8 +46,8 @@ namespace Config {
 
 #undef CFGVAR_INFER
 
-		void SaveToFile(std::ofstream& stream);
-		void LoadFromFile(std::ifstream& stream);
+		void Serialize(std::ostream& stream);
+		void Deserialize(std::istream& stream);
 		void SaveEquippedItems(std::ofstream& stream);;
 		void LoadEquippedItems(std::ifstream& stream);;
 

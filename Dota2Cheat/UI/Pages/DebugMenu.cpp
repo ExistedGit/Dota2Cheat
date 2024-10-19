@@ -45,10 +45,11 @@ void DebugMenu() {
 		PlayUISoundScript(uiSoundBuf);
 
 	if (ImGui::Button("Reload SIGNATURES")) {
-		LogFI("Loading signatures from {}", d2c.cheatFolderPath + "\\signatures.json");
-		SignatureDB::LoadSignaturesFromFile(d2c.cheatFolderPath + "\\signatures.json");
+		LogFI("Loading signatures from {}", d2c.GetResource("signatures.json"));
+		SignatureDB::LoadSignaturesFromFile(d2c.GetResource("signatures.json"));
 		Signatures::FindSignatures();
 	}
+
 	if (ImGui::Button("Reload VMT")) {
 		d2c.LoadVMI();
 	}

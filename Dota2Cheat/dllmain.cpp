@@ -165,7 +165,11 @@ void HackThread(HMODULE hModule) {
 #ifdef _DEBUG
 	auto OnPreDataUpdate = Memory::Scan("48 89 5C 24 ? 56 48 83 EC 20 33 DB 48 8B F2", "client.dll");
 	HOOKFUNC(OnPreDataUpdate);
-	auto SpawnWearables = Memory::Scan("40 55 53 41 57 48 8D AC 24 ? ? ? ? 48 81 EC ? ? ? ? 48 8B DA", "client.dll");
+
+	//auto Rend = Memory::Scan("48 89 6C 24 ? 56 57 41 56 48 83 EC 30 48 8B F9", "engine2.dll");
+	//HOOKFUNC(Rend);
+
+	//auto SpawnWearables = Memory::Scan("40 55 53 41 57 48 8D AC 24 ? ? ? ? 48 81 EC ? ? ? ? 48 8B DA", "client.dll");
 	//HOOKFUNC(SpawnWearables);
 #endif
 

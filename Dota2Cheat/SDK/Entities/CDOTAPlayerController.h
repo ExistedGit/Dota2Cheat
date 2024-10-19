@@ -45,7 +45,7 @@ public:
 	GETTER(CUtlVector<uint32_t>, GetSelectedUnits, Netvars::C_DOTAPlayerController::m_nSelectedUnits);
 	GETTER(int32_t, GetSequenceNum, Netvars::C_DOTAPlayerController::m_nOutgoingOrderSequenceNumber);
 	GETTER(uint32_t, GetPlayerID, Netvars::C_DOTAPlayerController::m_nPlayerID);
-	GETTER(uint64_t, GetSteamID, Netvars::CBasePlayerController::m_steamID);
+	GETTER(uint64_t, GetSteamID, Netvars::C_DOTAPlayerController::m_steamID);
 
 	void CastNoTarget(CDOTABaseAbility* ability, CBaseEntity* issuer = nullptr);
 	void CastTarget(CDOTABaseAbility* ability, CBaseEntity* target, CBaseEntity* issuer = nullptr);

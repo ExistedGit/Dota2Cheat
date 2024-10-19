@@ -9,10 +9,10 @@
 // D2C's context. Loads and unloads data for the cheat.
 
 inline class CCheatManager {
-public:
-	std::string cheatFolderPath;
 	FILE* consoleStream{};
 	HMODULE hModule{};
+	std::string cheatFolderPath;
+public:
 
 	bool shouldUnload = false;
 
@@ -28,6 +28,10 @@ public:
 		cheatFolderPath += "\\Documents\\Dota2Cheat";
 	}
 
+	std::string GetResource(const std::string& path) {
+		return cheatFolderPath + "\\" + path;
+	}
+
 	void Initialize(HMODULE hModule);
 
 	void SaveConfig();
@@ -41,7 +45,7 @@ public:
 	nlohmann::json schema;
 
 	void Init(std::string locale = "en_US") {
-		auto schemaPath = d2c.cheatFolderPath + "\\localization\\lang_schema.json";
+		auto schemaPath = d2c.GetResource("localization\\lang_schema.json");
 		std::ifstream fin(schemaPath);
 		if (!fin)
 			return;
@@ -56,7 +60,7 @@ public:
 			locale = "en_US";
 		}
 
-		auto langPath = d2c.cheatFolderPath + "\\localization\\" + locale + ".json";
+		auto langPath = d2c.GetResource("localization\\" + locale + ".json");
 		fin.open(langPath);
 
 		if (!fin)
